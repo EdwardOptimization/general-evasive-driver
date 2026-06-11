@@ -1,0 +1,47 @@
+{
+  "protocol": "moving_obstacle_kinematics_smoke_preregistration",
+  "roadmap_unit": "B1 moving obstacles",
+  "frozen_at_utc": "20260611T201000Z",
+  "frozen_before_full_smoke": true,
+  "claim_under_pricing": "Implementation smoke only: add flagged constant-velocity obstacle kinematics while preserving the legacy static/zero-relative-velocity contracts.",
+  "seed_discipline": {
+    "seed_base": 20260823,
+    "quick_seed_count": 3,
+    "full_seed_count": 16,
+    "deterministic_replay_count": 4,
+    "selection_training_or_validation_reuse": "none: this is an env-contract smoke, not training or target pricing"
+  },
+  "target_modes": [
+    "legacy_static_zero_relvel",
+    "moving_crosser_zero_relvel_contract",
+    "moving_crosser_ego_relvel"
+  ],
+  "scenario_fixture": {
+    "track_kind": "circle",
+    "track_radius": 60.0,
+    "track_width": 8.5,
+    "speed_range": [12.0, 12.0],
+    "obstacle_distance_range": [24.0, 24.0],
+    "obstacle_half_width_range": [0.7, 0.7],
+    "obstacle_lateral_offset_range": [-2.0, -2.0],
+    "crosser_lateral_velocity_range": [4.0, 4.0],
+    "finish_on_pass": true,
+    "perception_reveal_step": 0,
+    "max_steps": 90
+  },
+  "preregistered_readouts": {
+    "legacy_contract": "In moving_crosser_zero_relvel, observation slot rel_vx and rel_vy must remain exactly 0 for every sampled frame.",
+    "dynamic_kinematics": "In moving_crosser_ego_relvel, active obstacle body-y must change by at least 0.5 m over the rollout on every non-terminal replay that reaches at least 8 steps.",
+    "relative_velocity": "In moving_crosser_ego_relvel, at least one observed obstacle rel-velocity channel must be non-zero before termination.",
+    "determinism": "Same seed plus same scripted actions must reproduce observations, active obstacle body pose, termination, and completion fields bit-for-bit within 1e-7.",
+    "label_rederivation": "Moving crosser scenarios must carry obstacle_lateral_velocity and predicted_lateral_offset_at_arrival in the sampled ObstacleScenario and use those fields in the feasibility label."
+  },
+  "decision_rule": "Accept B1 smoke iff all readouts pass on the full seed set. Passing admits only the moving-obstacle env axis for future preregistered measurements; it does not admit training or claims.",
+  "runtime_gates": [
+    "quick smoke passes before the full smoke",
+    "legacy static zero-relvel smoke still emits zero rel-v channels",
+    "moving crosser is behind a non-default obstacle motion mode",
+    "deterministic replay passes on the frozen replay seeds"
+  ],
+  "claim_boundary": "B1 moving-obstacle implementation smoke only; no training, no driver mutation, no validation ranking, no promotion, no driver-performance, no high-fidelity sufficiency, no paper, no repair-success, no robustness-result, no feasibility-proof, and no self-ID claim."
+}

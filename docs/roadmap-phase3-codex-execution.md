@@ -76,13 +76,18 @@ Specs: `docs/data-coverage-map-2026-06.md` (priority list + gap rows).
 Each unit: implementation + loud-validation + tests + a smoke measurement
 demonstrating the new axis, registered as a milestone. No training claims.
 
-### B1. Moving obstacles [OPEN]
+### B1. Moving obstacles [DONE: M3223]
 - per-step obstacle kinematics (constant-velocity crosser first), collision
   geometry, feasibility-label re-derivation under dynamic geometry,
   observation-slot rel-v semantics un-zeroed BEHIND a config flag (legacy
   zero-rel-vel contracts untouched; grep list in the coverage map row).
 - acceptance: deterministic replay; labels re-derived; legacy validators
   green; smoke panel with a scripted controller.
+- result: `docs/m3223-b1-moving-obstacle-kinematics-smoke.md` completed the
+  flagged constant-velocity crosser implementation. The default remains
+  static; `obstacle_relative_velocity_mode="zero"` stayed exact-zero in all
+  smoke frames; dynamic labels carry obstacle lateral velocity and predicted
+  lateral offset at arrival; deterministic replay passed 4/4 seeds.
 
 ### B2. > 20 m/s speed domain [OPEN; depends A2]
 - scenario configs to 36 m/s; preview/normalization per A2 recommendation;
@@ -134,7 +139,7 @@ demonstrating the new axis, registered as a milestone. No training claims.
 - A1: DONE (M3220; 0/4 cells qualified under cg/Iz S4L rider)
 - A2: DONE (M3221; normalization/preview implementation blocker found)
 - A3: DONE (M3222; C5-prime target confirmed 3/4 T-limit cells; CP-1 still required)
-- B1: OPEN
+- B1: DONE (M3223; flagged constant-velocity crosser smoke passed)
 - B2: OPEN (depends A2)
 - B3: OPEN
 - B4: OPEN

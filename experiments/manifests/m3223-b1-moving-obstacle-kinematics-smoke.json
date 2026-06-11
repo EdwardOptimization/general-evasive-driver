@@ -1,0 +1,189 @@
+{
+  "id": "m3223-b1-moving-obstacle-kinematics-smoke",
+  "priority": 32230,
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "milestone_intent": "implementation_smoke",
+  "hypothesis": "A flagged constant-velocity moving-obstacle env axis can be added with deterministic replay, re-derived dynamic feasibility labels, and preserved legacy zero-relative-velocity contracts before any training validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof paper or self-ID claim.",
+  "lineage": {
+    "parent_checkpoint": [
+      "docs/roadmap-phase3-codex-execution.md",
+      "docs/data-coverage-map-2026-06.md",
+      "docs/m3222-a3-c5prime-target-consolidation.md"
+    ],
+    "parent_dataset": [
+      "none: new env-contract smoke only"
+    ],
+    "parent_config": [
+      "src/autodrift/env.py",
+      "src/autodrift/scenarios.py",
+      "experiments/feasibility_audit/moving_obstacle_prereg.json"
+    ],
+    "parent_objective": [
+      "execute roadmap B1 moving-obstacle engineering without changing incumbent driver or legacy zero-relvel contracts"
+    ],
+    "derived_from": [
+      "docs/roadmap-phase3-codex-execution.md",
+      "experiments/feasibility_audit/moving_obstacle_prereg.json"
+    ],
+    "blocked_by": [
+      "full B1 smoke result pending"
+    ],
+    "supersedes": [
+      "the B1 OPEN status line if the implementation and smoke are documented"
+    ],
+    "invalidates": [
+      "assuming obstacle rel-velocity is always zero in newly flagged moving-obstacle scenarios"
+    ]
+  },
+  "review_artifact": "docs/reviews/m3223-b1-moving-obstacle-kinematics-smoke.md",
+  "public_gates": [
+    "M3223 must keep default obstacle motion static",
+    "M3223 must keep obstacle_relative_velocity_mode=zero bitwise-zero for obstacle rel-v slots",
+    "M3223 must expose non-zero rel-v only behind obstacle_relative_velocity_mode=ego and a moving-obstacle config",
+    "M3223 must run deterministic replay and full smoke before marking B1 done",
+    "M3223 must not mutate ActiveSafetyReflexDriver, public driver defaults, training configs, or checkpoints"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not change the default static obstacle behavior",
+    "do not change obs72 shape",
+    "do not train RL or create checkpoints",
+    "do not use labels or hidden feasibility quantities as actor inputs",
+    "do not claim driver performance or feasibility proof from the smoke"
+  ],
+  "workflow_synthesis": {
+    "branch": "moving_obstacle_env_axis",
+    "evidence_axis": "b1_moving_obstacle_contract_smoke",
+    "evidence_increment": "flagged constant-velocity crosser semantics with deterministic replay, dynamic labels, and legacy zero-relvel preservation",
+    "claim_scope": "Auxiliary env-engineering smoke only; no training admission, no validation ranking promotion, no driver-performance, no current-sim robustness claim, no high-fidelity sufficiency, no paper, no repair-success, no feasibility-proof, and no self-ID claim",
+    "stop_condition": [
+      "stop if legacy zero-relvel frames become non-zero",
+      "stop if deterministic replay fails",
+      "stop if moving labels do not record obstacle velocity and predicted lateral offset",
+      "stop after documenting B1 smoke result"
+    ],
+    "fallback_plan": [
+      "on contract failure, mark B1 blocked and document the failing frame/artifact",
+      "on smoke pass, mark B1 DONE as env-axis implementation only",
+      "on inconclusive smoke, keep B1 OPEN with frozen failure readouts"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "Phase-3 roadmap selected B1 after A3 completed and Track C remained blocked on CP-1",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "Implement and smoke-test the moving-obstacle env axis without training.",
+    "admission_evidence": [
+      "B1 is the lowest independent OPEN roadmap item after M3222 because Track C is blocked on CP-1",
+      "coverage map marks moving obstacles as an uncovered scenario-geometry axis",
+      "legacy contracts require zero rel-velocity unless explicitly configured otherwise"
+    ],
+    "blocked_shortcuts": [
+      "no train_ppo invocation",
+      "no checkpoint creation or update",
+      "no driver mutation",
+      "no Track C admission"
+    ],
+    "allowed_updates": [
+      "src/autodrift/env.py",
+      "src/autodrift/scenarios.py",
+      "src/autodrift/config.py if config parsing requires it",
+      "tests covering moving-obstacle contracts",
+      "scripts/feasibility_audit/moving_obstacle_smoke.py",
+      "experiments/feasibility_audit/moving_obstacle_prereg.json",
+      "experiments/feasibility_audit/moving_obstacle_smoke*.json",
+      "docs/m3223-b1-moving-obstacle-kinematics-smoke.md",
+      "docs/reviews/m3223-b1-moving-obstacle-kinematics-smoke.md",
+      "M3223 queue, status, scoreboard, roadmap, current-status, research-log, and measurement-index rows"
+    ],
+    "next_stage_criteria": [
+      "full summary JSON exists with protocol moving_obstacle_kinematics_smoke",
+      "legacy zero-relvel and deterministic replay gates pass",
+      "result document states that B1 is env engineering only"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "Not applicable: M3223 changes env kinematics and runs scripted smoke only, with no learned-history policy or self-identification measurement.",
+    "history_necessity_tests": [
+      "none in M3223: env-contract smoke only"
+    ],
+    "temporal_evidence_window": "none: no history-attribution claim is made",
+    "negative_result_policy": "A failed or inconclusive B1 smoke is reported at full fidelity and B1 remains open or blocked.",
+    "allowed_claims": [
+      "moving-obstacle config fields exist",
+      "legacy zero-relvel contract preserved",
+      "deterministic moving-obstacle smoke result"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_tool_or_infra",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "new moving-obstacle env axis smoke",
+    "paper_verdict_delta": "B1 env axis smoke passed; no paper or controller outcome claim is admitted.",
+    "must_synthesize_if": [
+      "legacy zero-relvel contract fails",
+      "dynamic geometry labels are not re-derived",
+      "B1 implementation expands into training or driver changes"
+    ]
+  },
+  "success_criteria": [
+    "experiments/feasibility_audit/moving_obstacle_prereg.json exists before full smoke",
+    "experiments/feasibility_audit/moving_obstacle_smoke.json exists with protocol moving_obstacle_kinematics_smoke",
+    "full smoke reports pass for legacy_zero_relvel_contract, moving_kinematics, ego_relvel_nonzero, deterministic_replay, and label_rederivation",
+    "the result document states that no training or driver claim is admitted"
+  ],
+  "failure_criteria": [
+    "default static obstacle behavior changes",
+    "obstacle_relative_velocity_mode=zero emits non-zero obstacle rel-v",
+    "same seed and same actions do not replay deterministically",
+    "moving labels omit obstacle velocity or predicted lateral offset",
+    "the milestone trains, mutates a driver, changes obs72 shape, or admits training"
+  ],
+  "decision_rule": "Accept M3223 as complete only if implementation, tests, full smoke artifact, result doc, and review all pass while preserving legacy zero-relvel behavior.",
+  "commands": [
+    {
+      "name": "moving_obstacle_quick_smoke",
+      "command": "env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/moving_obstacle_smoke.py --quick"
+    },
+    {
+      "name": "moving_obstacle_full_smoke",
+      "command": "env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/moving_obstacle_smoke.py"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "experiments/feasibility_audit/moving_obstacle_prereg.json",
+      "type": "json"
+    },
+    {
+      "path": "experiments/feasibility_audit/moving_obstacle_smoke_quick.json",
+      "type": "json"
+    },
+    {
+      "path": "experiments/feasibility_audit/moving_obstacle_smoke.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m3223-b1-moving-obstacle-kinematics-smoke.md",
+      "type": "markdown"
+    }
+  ],
+  "baseline_checkpoints": [
+    "docs/roadmap-phase3-codex-execution.md",
+    "docs/data-coverage-map-2026-06.md",
+    "docs/m3222-a3-c5prime-target-consolidation.md"
+  ],
+  "scoreboard_checkpoint": "experiments/feasibility_audit/moving_obstacle_smoke.json",
+  "next_blocker": "B2 high-speed domain still requires the M3221 normalization/preview recommendation before population or high-speed training.",
+  "status": "completed"
+}

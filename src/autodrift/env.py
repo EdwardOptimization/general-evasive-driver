@@ -34,6 +34,7 @@ BASIC_PRIVILEGED_OBS_DIM = 4
 FULL_DYNAMICS_PRIVILEGED_OBS_DIM = 10
 PRIVILEGED_OBSERVATION_MODES = ("basic", "full_dynamics")
 OBSTACLE_RELATIVE_VELOCITY_MODES = ("ego", "zero")
+OBSTACLE_MOTION_MODES = ("static", "constant_velocity_crosser")
 RAW_FRONT_REAR_WHEEL_OBSERVATION_MODES = (
     "front_rear_raw",
     "front_rear_omega",
@@ -82,10 +83,16 @@ class ObstacleTaskConfig:
     dense_clearance_margin_reward_scale: float = 0.0
     dense_clearance_margin_reward_clip: float = 0.25
     dense_clearance_margin_reward_window: float = 8.0
+    motion_mode: str = "static"
+    crosser_lateral_velocity_range: tuple[float, float] = (0.0, 0.0)
 
     def __post_init__(self) -> None:
         if self.lateral_offset_range[1] < self.lateral_offset_range[0]:
             raise ValueError("lateral_offset_range must be ordered")
+        if self.motion_mode not in OBSTACLE_MOTION_MODES:
+            raise ValueError("obstacle motion_mode must be one of: " + ", ".join(OBSTACLE_MOTION_MODES))
+        if self.crosser_lateral_velocity_range[1] < self.crosser_lateral_velocity_range[0]:
+            raise ValueError("crosser_lateral_velocity_range must be ordered")
         if self.clearance_margin_reward_clip <= 0.0:
             raise ValueError("clearance_margin_reward_clip must be positive")
         if self.dense_clearance_margin_reward_clip <= 0.0:
@@ -407,6 +414,8 @@ class AutoDriftEnv(gym.Env):
         self.initial_mu = self.params.mu
         self.obstacle_scenario: ObstacleScenario | None = None
         self.obstacle_position: np.ndarray | None = None
+        self.obstacle_velocity = np.zeros(2, dtype=np.float64)
+        self.obstacle_lateral_velocity = 0.0
         self.min_obstacle_clearance = float("inf")
         self.collision = False
         self.obstacle_completed = False
@@ -495,6 +504,7 @@ class AutoDriftEnv(gym.Env):
         self.state, self.last_forces = self.model.step(self.state, action64, self.config.dt)
         self.last_steer_rate = (self.state.steer - previous_steer) / self.config.dt
         self._update_raw_wheel_state()
+        self._advance_obstacle()
         frame = self.track.frame(self.state.x, self.state.y, self.state.psi)
         reward, reward_terms = self._reward(frame, control, self.last_forces)
         self._update_warmup_gate_status(frame)
@@ -602,6 +612,8 @@ class AutoDriftEnv(gym.Env):
     def _reset_obstacle(self, position: np.ndarray, frame: PathFrame) -> None:
         self.obstacle_scenario = None
         self.obstacle_position = None
+        self.obstacle_velocity = np.zeros(2, dtype=np.float64)
+        self.obstacle_lateral_velocity = 0.0
         self.min_obstacle_clearance = float("inf")
         self.collision = False
         self.obstacle_completed = False
@@ -617,12 +629,19 @@ class AutoDriftEnv(gym.Env):
             obstacle_distance = float(self.rng.uniform(*self.config.obstacle.distance_range))
             obstacle_lateral_offset = float(self.rng.uniform(*self.config.obstacle.lateral_offset_range))
             obstacle_half_width = float(self.rng.uniform(*self.config.obstacle.half_width_range))
+            obstacle_lateral_velocity = (
+                float(self.rng.uniform(*self.config.obstacle.crosser_lateral_velocity_range))
+                if self.config.obstacle.motion_mode == "constant_velocity_crosser"
+                else 0.0
+            )
             scenario = classify_obstacle_scenario(
                 speed=self.speed_ref,
                 mu=self.params.mu,
                 obstacle_distance=obstacle_distance,
                 obstacle_half_width=obstacle_half_width,
                 config=scenario_config,
+                obstacle_lateral_offset=obstacle_lateral_offset,
+                obstacle_lateral_velocity=obstacle_lateral_velocity,
             )
             is_allowed = scenario.label in allowed_labels
             is_aeb_valid = not self.config.obstacle.require_aeb_infeasible or scenario.label != "aeb_feasible"
@@ -651,6 +670,8 @@ class AutoDriftEnv(gym.Env):
         self.obstacle_scenario = scenario
         normal_left = np.array([-frame.tangent[1], frame.tangent[0]], dtype=np.float64)
         self.obstacle_position = position + frame.tangent * obstacle_distance + normal_left * obstacle_lateral_offset
+        self.obstacle_lateral_velocity = float(scenario.obstacle_lateral_velocity)
+        self.obstacle_velocity = normal_left * self.obstacle_lateral_velocity
         self._update_obstacle_status(frame)
 
     def _reset_warmup_gate(self, position: np.ndarray, frame: PathFrame) -> None:
@@ -713,6 +734,10 @@ class AutoDriftEnv(gym.Env):
 
     def _body_point(self, point: np.ndarray) -> np.ndarray:
         delta = np.asarray(point, dtype=np.float64) - np.array([self.state.x, self.state.y], dtype=np.float64)
+        return self._body_vector(delta)
+
+    def _body_vector(self, vector: np.ndarray) -> np.ndarray:
+        delta = np.asarray(vector, dtype=np.float64)
         cos_psi = math.cos(self.state.psi)
         sin_psi = math.sin(self.state.psi)
         return np.array(
@@ -722,6 +747,13 @@ class AutoDriftEnv(gym.Env):
             ],
             dtype=np.float64,
         )
+
+    def _advance_obstacle(self) -> None:
+        if self.obstacle_position is None:
+            return
+        if self.config.obstacle.motion_mode == "static":
+            return
+        self.obstacle_position = self.obstacle_position + self.obstacle_velocity * self.config.dt
 
     def _warmup_gate_visible(self) -> bool:
         return bool(
@@ -919,12 +951,16 @@ class AutoDriftEnv(gym.Env):
     def _obstacle_slot_features(self) -> list[float]:
         slots = np.zeros((self.config.obstacle_slots, OBSTACLE_SLOT_DIM), dtype=np.float64)
         obstacle_kind, obstacle_position, half_width = self._active_obstacle_slot_geometry()
-        del obstacle_kind
         if obstacle_position is not None and np.isfinite(half_width):
             body = self._body_point(obstacle_position)
             if self.config.obstacle_relative_velocity_mode == "ego":
-                rel_vx = -self.state.vx + self.state.yaw_rate * body[1]
-                rel_vy = -self.state.vy - self.state.yaw_rate * body[0]
+                obstacle_velocity_body = (
+                    self._body_vector(self.obstacle_velocity)
+                    if obstacle_kind == "emergency_obstacle"
+                    else np.zeros(2, dtype=np.float64)
+                )
+                rel_vx = obstacle_velocity_body[0] - self.state.vx + self.state.yaw_rate * body[1]
+                rel_vy = obstacle_velocity_body[1] - self.state.vy - self.state.yaw_rate * body[0]
             else:
                 rel_vx = 0.0
                 rel_vy = 0.0
@@ -1269,6 +1305,21 @@ class AutoDriftEnv(gym.Env):
                 longitudinal_distance=obstacle_distance if self.config.obstacle.enabled else None
             ),
             "obstacle_label": self.obstacle_scenario.label if self.obstacle_scenario is not None else "",
+            "obstacle_motion_mode": self.config.obstacle.motion_mode,
+            "obstacle_lateral_velocity": (
+                self.obstacle_lateral_velocity if self.config.obstacle.enabled else float("nan")
+            ),
+            "obstacle_velocity_x": (
+                float(self.obstacle_velocity[0]) if self.config.obstacle.enabled else float("nan")
+            ),
+            "obstacle_velocity_y": (
+                float(self.obstacle_velocity[1]) if self.config.obstacle.enabled else float("nan")
+            ),
+            "obstacle_predicted_lateral_offset_at_arrival": (
+                self.obstacle_scenario.predicted_lateral_offset_at_arrival
+                if self.obstacle_scenario is not None
+                else float("nan")
+            ),
             "obstacle_distance": obstacle_distance,
             "obstacle_lateral_offset": (
                 obstacle_path[1] * self.config.track_width if self.config.obstacle.enabled else float("nan")

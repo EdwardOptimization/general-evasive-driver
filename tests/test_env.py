@@ -226,6 +226,116 @@ def test_obstacle_relative_velocity_mode_can_zero_context_motion_proxy():
     assert np.allclose(default_slots[5:7], strict_slots[5:7])
 
 
+def _moving_crosser_config(relative_velocity_mode: str = "ego") -> DriftEnvConfig:
+    return DriftEnvConfig(
+        dt=0.02,
+        max_steps=90,
+        track_kind="circle",
+        track_radius=60.0,
+        track_width=8.5,
+        speed_range=(12.0, 12.0),
+        beta_target_range=(0.04, 0.04),
+        friction_limited_speed=False,
+        obstacle_relative_velocity_mode=relative_velocity_mode,
+        obstacle=ObstacleTaskConfig(
+            enabled=True,
+            distance_range=(24.0, 24.0),
+            half_width_range=(0.7, 0.7),
+            lateral_offset_range=(-2.0, -2.0),
+            finish_on_pass=True,
+            allowed_labels=("aeb_feasible", "aes_feasible", "drift_required", "unavoidable"),
+            motion_mode="constant_velocity_crosser",
+            crosser_lateral_velocity_range=(4.0, 4.0),
+        ),
+    )
+
+
+def _first_obstacle_slot(obs: np.ndarray) -> np.ndarray:
+    # obs72 layout: ego9 + action3 + road32, then obstacle slot0 x 7.
+    return np.asarray(obs[44:51], dtype=np.float64)
+
+
+def test_moving_obstacle_preserves_zero_relative_velocity_contract():
+    env = AutoDriftEnv(_moving_crosser_config(relative_velocity_mode="zero"))
+    obs, info = env.reset(seed=2301)
+
+    assert obs.shape == (72,)
+    assert info["obstacle_motion_mode"] == "constant_velocity_crosser"
+    assert info["obstacle_lateral_velocity"] == pytest.approx(4.0)
+    for _ in range(8):
+        slot = _first_obstacle_slot(obs)
+        assert slot[0] == 1.0
+        assert slot[3:5].tolist() == [0.0, 0.0]
+        obs, _, terminated, truncated, _ = env.step(np.array([0.0, 0.0, -1.0], dtype=np.float32))
+        assert not (terminated or truncated)
+
+
+def test_moving_obstacle_updates_position_and_exposes_ego_relative_velocity():
+    env = AutoDriftEnv(_moving_crosser_config(relative_velocity_mode="ego"))
+    obs, info = env.reset(seed=2302)
+    body_y = [float(info["active_obstacle_body_y"])]
+    rel_norms = [float(np.linalg.norm(_first_obstacle_slot(obs)[3:5]))]
+
+    assert info["obstacle_motion_mode"] == "constant_velocity_crosser"
+    assert info["obstacle_predicted_lateral_offset_at_arrival"] == pytest.approx(6.0)
+    assert env.obstacle_scenario is not None
+    assert env.obstacle_scenario.required_lateral_offset == pytest.approx(0.0)
+
+    for _ in range(12):
+        obs, _, terminated, truncated, info = env.step(np.array([0.0, 0.0, -1.0], dtype=np.float32))
+        body_y.append(float(info["active_obstacle_body_y"]))
+        rel_norms.append(float(np.linalg.norm(_first_obstacle_slot(obs)[3:5])))
+        assert not (terminated or truncated)
+
+    assert max(body_y) - min(body_y) > 0.5
+    assert max(rel_norms) > 0.01
+
+
+def test_moving_obstacle_replay_is_deterministic_for_same_seed_and_actions():
+    actions = [
+        np.array([0.05 * np.sin(i), -0.2, -1.0], dtype=np.float32)
+        for i in range(14)
+    ]
+
+    def rollout() -> list[tuple[np.ndarray, float, bool, bool, dict[str, float | bool | str]]]:
+        env = AutoDriftEnv(_moving_crosser_config(relative_velocity_mode="ego"))
+        obs, info = env.reset(seed=2303)
+        rows = [(obs.copy(), 0.0, False, False, info)]
+        for action in actions:
+            obs, reward, terminated, truncated, info = env.step(action)
+            rows.append((obs.copy(), reward, terminated, truncated, info))
+            if terminated or truncated:
+                break
+        return rows
+
+    left = rollout()
+    right = rollout()
+
+    assert len(left) == len(right)
+    for (obs_l, reward_l, terminated_l, truncated_l, info_l), (
+        obs_r,
+        reward_r,
+        terminated_r,
+        truncated_r,
+        info_r,
+    ) in zip(left, right, strict=True):
+        np.testing.assert_allclose(obs_l, obs_r, atol=1e-7, rtol=0.0)
+        assert reward_l == pytest.approx(reward_r, abs=1e-12)
+        assert terminated_l is terminated_r
+        assert truncated_l is truncated_r
+        for key in (
+            "active_obstacle_body_x",
+            "active_obstacle_body_y",
+            "obstacle_lateral_velocity",
+            "obstacle_predicted_lateral_offset_at_arrival",
+            "collision",
+            "obstacle_completed",
+            "termination_reason",
+            "completion_reason",
+        ):
+            assert info_l[key] == pytest.approx(info_r[key]) if isinstance(info_l[key], float) else info_l[key] == info_r[key]
+
+
 def test_obstacle_perception_reveal_can_hide_obstacle_slots_until_step_or_distance():
     env = AutoDriftEnv(
         DriftEnvConfig(

@@ -1,0 +1,86 @@
+{
+  "decision_reason": "Completed: pre-registered B1 moving-obstacle env smoke; 48 episodes and 1968 frames; zero-relvel violations 0, moving body-y delta min 0.6053 m, ego rel-velocity max norm 19.9404 m/s, dynamic label rows 1312/1312, deterministic replay failures 0; B1 is env engineering only; no training driver mutation validation ranking promotion paper repair-success robustness-result feasibility-proof or self-ID claim.",
+  "failure_criteria": [
+    "default static obstacle behavior changes",
+    "obstacle_relative_velocity_mode=zero emits non-zero obstacle rel-v",
+    "same seed and same actions do not replay deterministically",
+    "moving labels omit obstacle velocity or predicted lateral offset",
+    "the milestone trains, mutates a driver, changes obs72 shape, or admits training"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not change the default static obstacle behavior",
+    "do not change obs72 shape",
+    "do not train RL or create checkpoints",
+    "do not use labels or hidden feasibility quantities as actor inputs",
+    "do not claim driver performance or feasibility proof from the smoke"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260611T202150Z",
+  "hypothesis": "A flagged constant-velocity moving-obstacle env axis can be added with deterministic replay, re-derived dynamic feasibility labels, and preserved legacy zero-relative-velocity contracts before any training validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof paper or self-ID claim.",
+  "lineage": {
+    "blocked_by": [
+      "full B1 smoke result pending"
+    ],
+    "derived_from": [
+      "docs/roadmap-phase3-codex-execution.md",
+      "experiments/feasibility_audit/moving_obstacle_prereg.json"
+    ],
+    "invalidates": [
+      "assuming obstacle rel-velocity is always zero in newly flagged moving-obstacle scenarios"
+    ],
+    "parent_checkpoint": [
+      "docs/roadmap-phase3-codex-execution.md",
+      "docs/data-coverage-map-2026-06.md",
+      "docs/m3222-a3-c5prime-target-consolidation.md"
+    ],
+    "parent_config": [
+      "src/autodrift/env.py",
+      "src/autodrift/scenarios.py",
+      "experiments/feasibility_audit/moving_obstacle_prereg.json"
+    ],
+    "parent_dataset": [
+      "none: new env-contract smoke only"
+    ],
+    "parent_objective": [
+      "execute roadmap B1 moving-obstacle engineering without changing incumbent driver or legacy zero-relvel contracts"
+    ],
+    "supersedes": [
+      "the B1 OPEN status line if the implementation and smoke are documented"
+    ]
+  },
+  "milestone": "m3223-b1-moving-obstacle-kinematics-smoke",
+  "next_blocker": "B2 high-speed domain still requires the M3221 normalization/preview recommendation before population or high-speed training.",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "b1_moving_obstacle_env_axis_smoke_passed",
+  "public_gates": [
+    "M3223 must keep default obstacle motion static",
+    "M3223 must keep obstacle_relative_velocity_mode=zero bitwise-zero for obstacle rel-v slots",
+    "M3223 must expose non-zero rel-v only behind obstacle_relative_velocity_mode=ego and a moving-obstacle config",
+    "M3223 must run deterministic replay and full smoke before marking B1 done",
+    "M3223 must not mutate ActiveSafetyReflexDriver, public driver defaults, training configs, or checkpoints"
+  ],
+  "scoreboard": {
+    "checkpoint": "experiments/feasibility_audit/moving_obstacle_smoke.json",
+    "clearance_margin_mean": "",
+    "decision": "b1_moving_obstacle_env_axis_smoke_passed",
+    "milestone": "m3223-b1-moving-obstacle-kinematics-smoke",
+    "reason": "Completed: pre-registered B1 moving-obstacle env smoke; 48 episodes and 1968 frames; zero-relvel violations 0, moving body-y delta min 0.6053 m, ego rel-velocity max norm 19.9404 m/s, dynamic label rows 1312/1312, deterministic replay failures 0; B1 is env engineering only; no training driver mutation validation ranking promotion paper repair-success robustness-result feasibility-proof or self-ID claim.",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "experiments/feasibility_audit/moving_obstacle_prereg.json exists before full smoke",
+    "experiments/feasibility_audit/moving_obstacle_smoke.json exists with protocol moving_obstacle_kinematics_smoke",
+    "full smoke reports pass for legacy_zero_relvel_contract, moving_kinematics, ego_relvel_nonzero, deterministic_replay, and label_rederivation",
+    "the result document states that no training or driver claim is admitted"
+  ],
+  "type": "infrastructure"
+}

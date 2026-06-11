@@ -56201,3 +56201,14 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/managed/m3222-a3-c5prime-target-consolidation-rerun_20260611T195941Z/run.log`
 - success artifact: `experiments/feasibility_audit/c5prime_target_consolidation.json`
 - notes: Completed pre-registered A3 C5-prime target consolidation through a managed CPU process. Full run took 238.7 s with 7776 selection episodes, 2304 validation arm episodes, 3725 oracle rollouts, and 48 RLS prefixes. Verdict: target confirmed by the frozen rule, 3/4 T-limit cells qualified; S1/S2/S3 oracle-minus-pertuned gaps were +0.1597/+0.2153/+0.1736 with CI95 lower bounds > 0, while S0 was positive but below the +0.15 bar (+0.1389). Track C remains blocked on CP-1; no training admission, normalization implementation, driver mutation, validation ranking, promotion, paper, repair-success, robustness-result, feasibility-proof, or self-ID claim.
+## 20260611T201500Z m3223-b1-moving-obstacle-kinematics-smoke
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: A flagged constant-velocity moving-obstacle env axis can be added with deterministic replay, re-derived dynamic feasibility labels, and preserved legacy zero-relative-velocity contracts before any training validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof paper or self-ID claim.
+- command: `env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/moving_obstacle_smoke.py`
+- returncode: `0`
+- run dir: `runs/feasibility_audit/moving_obstacle_smoke`
+- command log: `runs/feasibility_audit/moving_obstacle_smoke/episode_rows.csv`
+- success artifact: `experiments/feasibility_audit/moving_obstacle_smoke.json`
+- notes: Completed pre-registered B1 moving-obstacle env smoke. Full smoke ran 48 episodes and 1968 frames over legacy static zero-relvel, moving crosser zero-relvel, and moving crosser ego-relvel modes. Verdict: all gates passed; zero-relvel violations 0, moving body-y delta min 0.6053 m, ego rel-velocity max norm 19.9404 m/s, dynamic label rows 1312/1312, deterministic replay failures 0. B1 is env engineering only; no training, driver mutation, validation ranking, promotion, paper, repair-success, robustness-result, feasibility-proof, or self-ID claim.

@@ -1,6 +1,6 @@
 # Feasibility Audit Measurement Index (2026-06)
 
-Index of every script in this directory (37 as of 2026-06-12), mapped to its
+Index of every script in this directory (38 as of 2026-06-12), mapped to its
 primary result artifacts and the conclusion document that interprets them.
 All scripts are deterministic, CPU-only, and run as
 `PYTHONPATH=src python scripts/feasibility_audit/<script>.py` from the repo
@@ -90,6 +90,7 @@ Created as WP6.3 of `docs/research-plan-phase2-capability-boundary-tracking.md`.
 |---|---|---|---|
 | `c5_reflex_degradation.py` | `experiments/feasibility_audit/c5_prereg.json`, `c5_reflex_degradation.json`; `experiments/feasibility_audit/c5_lateral_prereg.json`, `c5_lateral_spread_rider.json`; `experiments/feasibility_audit/c5prime_prereg.json`, `c5prime_target_consolidation.json`; `runs/feasibility_audit/c5_reflex_degradation/episode_rows.csv`; `runs/feasibility_audit/c5_lateral_spread_rider/episode_rows.csv`; `runs/feasibility_audit/c5prime_target_consolidation/episode_rows.csv` | `docs/c5-reflex-degradation-2026-06.md`; `docs/m3220-a1-s4-lateral-spread-rider-pricing.md`; `docs/m3222-a3-c5prime-target-consolidation.md` | Does passenger-car spread open a priced gap for RL over fixed reflex and classical kappa-RLS retuning, and does the C5-prime structural ceiling target survive fresh-seed consolidation? Original S0-S3 spread formulation rejected 0/8 cells; A1 cg/Iz lateral rider also rejected 0/4 cells; A3 confirmed the C5-prime target 3/4 T-limit cells, with Track C still blocked on CP-1. |
 | `obs_normalization_audit.py` | `experiments/feasibility_audit/obs_normalization_prereg.json`, `obs_normalization_audit.json`; `runs/feasibility_audit/obs_normalization_audit/channel_stats.csv`, `episode_summary.csv` | `docs/m3221-a2-obs-normalization-audit.md` | Are canonical obs72 normalization constants population/high-speed ready? No: road_y/20, high-speed ego speed/accel, and obstacle rel-vy/12 saturate; population/high-speed training remains blocked on a follow-up normalization/preview implementation. |
+| `moving_obstacle_smoke.py` | `experiments/feasibility_audit/moving_obstacle_prereg.json`, `moving_obstacle_smoke.json`; `runs/feasibility_audit/moving_obstacle_smoke/episode_rows.csv` | `docs/m3223-b1-moving-obstacle-kinematics-smoke.md` | Does the flagged constant-velocity crosser env axis preserve legacy static/zero-relvel contracts while exposing dynamic labels and ego-mode rel-v? Yes: zero-relvel violations 0, moving body-y delta min 0.6053 m, deterministic replay 4/4. |
 | `s4_hf_lite_backend_inventory.py` | `experiments/feasibility_audit/s4_hf_lite_backend_inventory.json` | `docs/m3218-s4-hf-lite-backend-inventory-preflight.md` | At M3218, could S4-HF-lite passenger-car-population pricing run on the then-current Chrono backend wiring? No: Chrono resources supported extension, but repo wiring had no vehicle/tire variant selector; routed to M3219 variant-selector smoke before pricing. |
 
 ## Artifacts without a script in this directory

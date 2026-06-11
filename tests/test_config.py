@@ -62,6 +62,8 @@ def test_build_env_config_overrides_obstacle_task():
                 "dense_clearance_margin_reward_scale": 0.05,
                 "dense_clearance_margin_reward_clip": 0.30,
                 "dense_clearance_margin_reward_window": 6.0,
+                "motion_mode": "constant_velocity_crosser",
+                "crosser_lateral_velocity_range": [-3.0, 3.0],
             }
         }
     )
@@ -86,6 +88,8 @@ def test_build_env_config_overrides_obstacle_task():
     assert config.obstacle.dense_clearance_margin_reward_scale == 0.05
     assert config.obstacle.dense_clearance_margin_reward_clip == 0.30
     assert config.obstacle.dense_clearance_margin_reward_window == 6.0
+    assert config.obstacle.motion_mode == "constant_velocity_crosser"
+    assert config.obstacle.crosser_lateral_velocity_range == (-3.0, 3.0)
 
 
 def test_build_env_config_overrides_action_history_mode():

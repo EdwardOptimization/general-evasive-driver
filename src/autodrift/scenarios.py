@@ -38,6 +38,9 @@ class ObstacleScenario:
     conventional_lateral_capacity: float
     drift_lateral_capacity: float
     label: str
+    obstacle_lateral_offset: float = 0.0
+    obstacle_lateral_velocity: float = 0.0
+    predicted_lateral_offset_at_arrival: float = 0.0
 
 
 def classify_obstacle_scenario(
@@ -46,14 +49,20 @@ def classify_obstacle_scenario(
     obstacle_distance: float,
     obstacle_half_width: float,
     config: ObstacleScenarioConfig | None = None,
+    obstacle_lateral_offset: float = 0.0,
+    obstacle_lateral_velocity: float = 0.0,
 ) -> ObstacleScenario:
     config = config or ObstacleScenarioConfig()
     speed = float(speed)
     mu = float(mu)
     obstacle_distance = float(obstacle_distance)
     obstacle_half_width = float(obstacle_half_width)
-    required_offset = config.ego_half_width + obstacle_half_width + config.safety_margin
+    obstacle_lateral_offset = float(obstacle_lateral_offset)
+    obstacle_lateral_velocity = float(obstacle_lateral_velocity)
+    collision_radius = config.ego_half_width + obstacle_half_width + config.safety_margin
     time_to_obstacle = obstacle_distance / max(speed, 1e-6)
+    predicted_lateral_offset = obstacle_lateral_offset + obstacle_lateral_velocity * time_to_obstacle
+    required_offset = max(collision_radius - abs(predicted_lateral_offset), 0.0)
 
     brake_accel = max(config.brake_mu_fraction * mu * config.gravity, 1e-6)
     aeb_stop_distance = speed**2 / (2.0 * brake_accel)
@@ -81,6 +90,9 @@ def classify_obstacle_scenario(
         conventional_lateral_capacity=conventional_lateral_capacity,
         drift_lateral_capacity=drift_lateral_capacity,
         label=label,
+        obstacle_lateral_offset=obstacle_lateral_offset,
+        obstacle_lateral_velocity=obstacle_lateral_velocity,
+        predicted_lateral_offset_at_arrival=predicted_lateral_offset,
     )
 
 

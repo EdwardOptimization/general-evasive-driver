@@ -1,0 +1,38 @@
+{
+  "protocol": "moving_obstacle_kinematics_smoke",
+  "quick_mode": false,
+  "generated_by": "scripts/feasibility_audit/moving_obstacle_smoke.py",
+  "preregistration": "/home/quyaonan/workspace/autodrift/experiments/feasibility_audit/moving_obstacle_prereg.json",
+  "claim_boundary": "B1 moving-obstacle implementation smoke only; no training, no driver mutation, no validation ranking, no promotion, no driver-performance, no high-fidelity sufficiency, no paper, no repair-success, no robustness-result, no feasibility-proof, and no self-ID claim.",
+  "seed_base": 20260823,
+  "seed_count": 16,
+  "modes": [
+    "legacy_static_zero_relvel",
+    "moving_crosser_zero_relvel",
+    "moving_crosser_ego_relvel"
+  ],
+  "readouts": {
+    "legacy_zero_relvel_contract_pass": true,
+    "zero_relvel_violation_count": 0,
+    "moving_kinematics_pass": true,
+    "moving_body_y_delta_min": 0.6053309826085931,
+    "ego_relvel_nonzero_pass": true,
+    "ego_relvel_norm_max_mps": 19.94043577912957,
+    "label_rederivation_pass": true,
+    "dynamic_label_rows": 1312,
+    "dynamic_rows": 1312,
+    "deterministic_replay_pass": true,
+    "deterministic_replay_failures": [],
+    "all_pass": true
+  },
+  "decision": {
+    "accepted": true,
+    "rule": "Accept B1 smoke iff all readouts pass on the full seed set. Passing admits only the moving-obstacle env axis for future preregistered measurements; it does not admit training or claims."
+  },
+  "budget": {
+    "episodes": 48,
+    "frames": 1968,
+    "deterministic_replays": 4
+  },
+  "episode_rows_csv": "/home/quyaonan/workspace/autodrift/runs/feasibility_audit/moving_obstacle_smoke/episode_rows.csv"
+}
