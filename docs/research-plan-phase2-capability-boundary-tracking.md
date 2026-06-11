@@ -15,6 +15,10 @@
   pre-registration artifacts for provenance, but execute under manual
   takeover; the autonomous loop stays paused until the WP6.2 guardrails are
   implemented and smoke-tested.
+- live progress and gate dispositions after this plan are tracked in
+  `docs/current-status.md`; this plan remains the program/criteria
+  definition and may retain work-package wording that was later completed
+  or closed by gates.
 - claim boundary: this document plans work; it asserts no result beyond the
   cited artifacts.
 
@@ -333,19 +337,20 @@ check (not "~1 command").
 
 ### WP-RL — C5 program (priced first, trained second)
 
-1. **Pricing (zero training, in flight)**: the reflex degradation curve —
+1. **Pricing (zero training; S0-S3 completed, S4/C5' pending in the live
+   ledger)**: the reflex degradation curve —
    spread tiers S0 nominal / S1 current (+-20%, what v4 was tuned on) /
    S2 extended (mass 0.70-1.50, brake/drive 0.60-1.30, stiffness
    0.50-1.50, tau to 2.5x) / S3 adversarial corners, at two limit-demand
    tiers (T-mid feasible avoidance; T-limit near the per-instance
    feasibility edge, infeasible rows excluded from the denominator).
-   **S4 passenger-car-population tier (required extension after the
-   in-flight run)**: direct VehicleParams construction over the fleet
+   **S4 passenger-car-population tier (required extension after the S0-S3
+   pricing report)**: direct VehicleParams construction over the fleet
    envelope — mass ~0.6-2.2x nominal (~900 kg-3.2 t), wheelbase/lf/lr
    and Iz beyond the sampler's default ranges, CG and authority spreads
    to match vehicle classes — with per-instance feasibility relabeling
-   and per-instance oracles; the in-flight S0-S3 run prices the
-   within-model rungs and S4 prices the population claim itself.
+   and per-instance oracles; the S0-S3 run prices the within-model rungs
+   and S4 prices the population claim itself.
    Four paired arms: fixed v4 / v4+RLS-retuned (the classical
    identification arm reviewers will demand) / per-instance-tuned v4
    (the "tune every car" upper bound, quantified to show its cost) /
@@ -417,11 +422,10 @@ check (not "~1 command").
    3x); explicit paused/archived semantics for
    `research_queue.csv`/`research_status.json`/`scoreboard.csv` during
    takeover.
-3. **week-1 item**: full refresh of `docs/current-status.md` (currently
-   ~300 milestones stale, still pointing at the abandoned paper route) to
-   the takeover/Phase-2 state with thesis/plan links; feasibility_audit
-   README indexing scripts/ (26) and experiments/ (25) artifacts with
-   script -> artifact -> doc mapping.
+3. **week-1 item**: keep `docs/current-status.md` as the compact live
+   ledger for takeover/Phase-2 state with thesis/plan links; keep the
+   feasibility-audit README current as the script -> artifact -> doc
+   measurement index.
 
 ## 5. Schedule (calendar; CPU budgets firm, calendar may slip on design
 iteration rounds)

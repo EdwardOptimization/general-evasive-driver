@@ -3,9 +3,9 @@
 This file is the compact official state for the project. Milestone documents
 and `docs/research-log.md` remain the detailed log of the autonomous-harness
 era; the Phase-2 plan and thesis (pointer table below) define the active
-program. Last full refresh: 2026-06-11 (WP6.3 of the Phase-2 plan; the
-previous version was ~300 milestones stale and still pointed at the
-abandoned paper route).
+program. Last full refresh: 2026-06-12 (the 2026-06-11 WP6.3 refresh
+replaced the stale paper-route state; this update folds in M3215-M3217
+and the C5 pricing disposition).
 
 ## Project Identity
 
@@ -19,9 +19,11 @@ abandoned paper route).
 
 ## Project State: manual-takeover Phase-2
 
-History in one paragraph: the autonomous harness loop ran 3214 numbered
-milestones (M1–M3214; `experiments/research_status.json` records 3219
-completed / 4 failed / 2 blocked task entries, `next_task: null`). On
+History in one paragraph: the autonomous harness loop ran through M3214
+before manual takeover; the manual takeover has since registered and
+completed M3215-M3217. `experiments/research_status.json` now records
+3222 completed / 4 failed / 2 blocked task entries, with `next_task:
+null`. On
 2026-06-11 an independent feasibility audit showed the M3108–M3212
 residual-repair branch was repairing physically unsolvable rows, and the
 session was taken over manually (M3213 blocked;
@@ -62,11 +64,14 @@ Claims:
 Work packages: WP0 **complete** (wrapper modes M3215-validated, family #2
 frozen with clean acceptance after one pre-registered repair, statistical
 hardening, governance refresh); WP1 **terminal** (M3216/M3217); WP2/WP3
-**closed by gates**; WP-RL pricing **in flight**; WP4 spot checks
-**pending** (Sedan-only Chrono coverage so far); WP5 papers **pending**
+**closed by gates**; WP-RL S0-S3 spread pricing **completed / original C5
+rejected**, with C5' structural-ceiling or lateral-channel S4 decision
+**pending PI**; WP4 spot checks **pending** (Sedan-only Chrono coverage so
+far); WP5 papers **pending**
 (scope fixed: family-scoped mode-dependent two-regime law + estimator
-positive + the capstone bound; plus C5 if priced); WP6 partial (6.0/6.1/6.3
-done, **6.2 guardrails pending — loop stays paused**).
+positive + the capstone bound; plus C5' only if PI accepts the structural
+ceiling route); WP6 partial (6.0/6.1/6.3 done, **6.2 guardrails pending —
+loop stays paused**).
 
 Harness ledger: M3215, M3216, M3217 registered and executed through the
 harness (research-validate passed in both states for each); leak gates
@@ -76,8 +81,10 @@ pre-registration.
 PI dispositions (2026-06-12): **v5 promotion is deferred — not a live
 question while research is ongoing**; v4 stays deployed, v5 remains a
 filed candidate, revisit at research completion
-(`docs/v5-promotion-decision-packet-2026-06.md`). **C5 S4 tier**: decide
-after the in-flight S0-S3 pricing report.
+(`docs/v5-promotion-decision-packet-2026-06.md`). **C5 next decision**:
+the S0-S3 spread pricing report rejected the original spread formulation;
+PI must choose whether to test lateral-channel/S4 population spread or
+pivot to the measured C5' structural-ceiling prize.
 
 - The autonomous milestone loop is **paused** and does not resume until the
   WP6.2 guardrails are implemented and smoke-tested.

@@ -1,6 +1,6 @@
 # Feasibility Audit Measurement Index (2026-06)
 
-Index of every script in this directory (27 as of 2026-06-11), mapped to its
+Index of every script in this directory (34 as of 2026-06-12), mapped to its
 primary result artifacts and the conclusion document that interprets them.
 All scripts are deterministic, CPU-only, and run as
 `PYTHONPATH=src python scripts/feasibility_audit/<script>.py` from the repo
@@ -71,6 +71,23 @@ Created as WP6.3 of `docs/research-plan-phase2-capability-boundary-tracking.md`.
 | script | artifacts | conclusion doc | answers |
 |---|---|---|---|
 | `belief_decomposition.py` | `experiments/feasibility_audit/belief_decomposition.json`; `runs/feasibility_audit/belief_decomposition/episode_rows.csv` | `docs/selfid-belief-decomposition-2026-06.md` | Vehicle knowledge vs road knowledge: which carries the degraded-regime prize? The road (mu) component ~ equals the whole prize; the vehicle share is <= 0.19, recoverable for free by 5 s sub-limit familiarization; sub-limit driving is structurally mu-blind. |
+
+## 8. Phase-2 WP0/WP1 measurements
+
+| script | artifacts | conclusion doc | answers |
+|---|---|---|---|
+| `family2_design.py` | `experiments/feasibility_audit/family2_spec.json`, `family2_prereg.json`, `family2_prereg_repair1.json`; `runs/feasibility_audit/family2_design/episode_rows*.csv` | `docs/selfid-family2-design-2026-06.md`; summarized by `docs/m3215-wp0-degraded-sweep-bridge-validation.md` | What is the frozen second task family for C1? F2C1 offset/gap-choice geometry, accepted after one pre-registered repair and used by M3215. |
+| `wp0_degraded_sweep.py` | `experiments/feasibility_audit/wp0_degraded_sweep_prereg.json`; `runs/feasibility_audit/wp0_degraded_sweep/summary.json`, `progress.jsonl` | `docs/m3215-wp0-degraded-sweep-bridge-validation.md` | Does the two-regime law replicate on family #2 and do richer degradation models follow the noise-buys-delay bridge? G-A FAIL: law scopes family-specific; bridge falsified. |
+| `wp1_data_pipeline.py` | `runs/feasibility_audit/wp1_dataset_quick/summary.json`; `runs/feasibility_audit/wp1_construction_pilot/pilot.json`; `experiments/feasibility_audit/wp1_seed_streams.json` | `docs/m3216-wp1-modular-belief-experiment.md` | Infrastructure: builds leak-gated WP1 prefix/dataset artifacts with frozen seed-stream discipline for the modular-belief substitution experiment. |
+| `wp1_estimator_trainer.py` | `runs/feasibility_audit/wp1_estimator_quick/summary.json`; estimator checkpoints under `runs/feasibility_audit/wp1_estimator_quick/` | `docs/m3216-wp1-modular-belief-experiment.md` | Infrastructure: trains/evaluates the L0/L2/L3 supervised mu estimators used by the WP1 full runner. |
+| `wp1_full_run.py` | `experiments/feasibility_audit/wp1_prereg.json`; `runs/feasibility_audit/wp1_full/summary.json`, `progress.jsonl`; archived leak stop in `runs/feasibility_audit/wp1_full_leakstop1/` | `docs/m3216-wp1-modular-belief-experiment.md` | Does the primary L3_GRU estimator recapture the matched degraded-regime prize through modular substitution? Primary FAIL 0/4 cells; estimator-level belief signal is positive but substitution does not clear G-B. |
+| `wp1_iter1_full_run.py` | `experiments/feasibility_audit/wp1_iter1_prereg.json`; `runs/feasibility_audit/wp1_iter1_full/summary.json`, `progress.jsonl` | `docs/m3217-wp1-belief-substitution-bounded-iteration.md` | Does the single authorized bounded iteration rescue WP1? Terminal FAIL at the mixed-data leak gate; C2 bound accepted and WP2 stays closed. |
+
+## 9. C5 / WP-RL pricing
+
+| script | artifacts | conclusion doc | answers |
+|---|---|---|---|
+| `c5_reflex_degradation.py` | `experiments/feasibility_audit/c5_prereg.json`, `c5_reflex_degradation.json`; `runs/feasibility_audit/c5_reflex_degradation/episode_rows.csv`, `progress.json`, `full_run.log` | `docs/c5-reflex-degradation-2026-06.md` | Does passenger-car spread open a priced gap for RL over fixed reflex and classical kappa-RLS retuning? Original spread formulation rejected 0/8 cells; surviving candidate prize is the T-limit structural ceiling gap, pending PI disposition. |
 
 ## Artifacts without a script in this directory
 
