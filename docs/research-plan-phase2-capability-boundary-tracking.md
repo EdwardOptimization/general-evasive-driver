@@ -86,7 +86,26 @@
   short-horizon sequence proposal -> verifier (recoverable-set check) ->
   execute u0 -> reflex fallback, with the verifier operating only on
   *believed* parameters, beats the belief-free stack exactly where the
-  regime map says it should.
+  regime map says it should. [Status: closed by G-B/G-C — WP2 did not
+  open; scope contracted per the gates.]
+- **C5 (learned control under vehicle diversity; PI directive
+  2026-06-11)**: under large vehicle-parameter spread combined with
+  handling-limit demand, an RL policy trained across the spread
+  outperforms BOTH the fixed-parameter reflex AND the classical
+  identification-plus-retuning scheme. PI's argument: real fleets vary
+  hugely even within one model (load, season, modification); per-vehicle
+  hand-tuning does not scale; RL internalizes vehicle-and-limit
+  identification in the network (massively evidenced in robotics:
+  RMA/UP-OSI) and commands actuators directly, enabling
+  nonlinear-regime actions. Grounding in our measurements: the Section-10
+  capstone makes implicit adaptation the *natural* form of competent
+  closed-loop behavior (RL's home turf, attribution not required); the
+  reflex family is proven incapable of beyond-saturation operation
+  (0/84) while RL reached 0.906 on an all-AEB-infeasible surface;
+  vehicle uncertainty alone lifts the detection floor 0.08 -> 0.29.
+  **Judging discipline: engineering-only** — closed-loop outcomes vs
+  floors and per-instance oracles; no history-attribution claims (the
+  capstone explains why none are possible or needed).
 
 ## 3. Deployability claim boundary (PI requirement)
 
@@ -308,6 +327,31 @@ VoI sign/ordering direction preserved per cell. If direction is not
 preserved -> claims scoped to low-fidelity sim and papers state it.
 Budget: re-estimated from measured Chrono throughput after the smoke
 check (not "~1 command").
+
+### WP-RL — C5 program (priced first, trained second)
+
+1. **Pricing (zero training, in flight)**: the reflex degradation curve —
+   spread tiers S0 nominal / S1 current (+-20%, what v4 was tuned on) /
+   S2 extended (mass 0.70-1.50, brake/drive 0.60-1.30, stiffness
+   0.50-1.50, tau to 2.5x) / S3 adversarial corners, at two limit-demand
+   tiers (T-mid feasible avoidance; T-limit near the per-instance
+   feasibility edge, infeasible rows excluded from the denominator).
+   Four paired arms: fixed v4 / v4+RLS-retuned (the classical
+   identification arm reviewers will demand) / per-instance-tuned v4
+   (the "tune every car" upper bound, quantified to show its cost) /
+   per-instance privileged oracle (ceiling). Frozen go-criteria: >= 2
+   cells with (per-tuned - fixed) >= 0.15 CI-excluding-0 AND
+   (per-tuned - RLS-retuned) >= 0.08; otherwise C5 is honestly rejected
+   ("classical identification suffices") and recorded.
+2. **RL training (only if priced)**: m1087 staged chain (BC warm-start
+   from per-instance oracle demos -> capability pretrain -> guarded RL),
+   reward recalibration 40/60 as measured, held-out epoch selection;
+   trained across the spread, judged purely on outcomes against the four
+   arms on frozen validation seeds. The G1 variance lessons apply; the
+   measured prize sets the effect-size prior.
+3. **Declared sim limits**: tire-curve shape (tanh) is fixed and there is
+   no load transfer — season/modification diversity is proxied by
+   parameter spread only; stated in the papers' limitations.
 
 ### WP5 — Papers
 

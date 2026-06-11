@@ -294,3 +294,30 @@ attribution of that value to history is structurally self-erasing in
 closed loop — the knowledge migrates into the state it produces. The
 honest deliverables are exactly these three measured statements plus
 their boundary.
+
+## 11. The capstone's constructive reading: RL re-enters as engineering
+(PI directive, 2026-06-11)
+
+> "RL 的优势是，把对车辆和极限情况的辨识都放在网络中，有非常强的
+> 自适应性（在机器人领域被大量证明过），而且直接控制油门、刹车、转向，
+> 能做出非线性情况下的动作。就算是同一款车，重量不同、季节不同、
+> 有无改装，车辆动态会差很多——不可能一个一个去调反射控制器。"
+
+The capstone cuts both ways. It closes the *scientific* question
+(history attribution is self-erasing) and simultaneously reopens the
+*engineering* one: if competent closed-loop behavior necessarily encodes
+its knowledge in state, then implicit adaptation — RL's native mode —
+is the natural carrier of capability belief, and demanding modular
+attribution was the wrong interface all along (WP1's substitution
+failure and M3217's gate stop are the measured form of this). RL died
+twice in this project as an evidence source (m1087 washout; G1 variance
+floor) and returns with a clean position: an engineering executor,
+judged purely on outcomes against measured floors and per-instance
+oracles, on the two stages where the reflex family is structurally
+short — large vehicle-parameter spread (fixed gains cannot follow a
+fleet) and beyond-saturation maneuvering (0/84 for the reflex family;
+0.906 for RL on an all-AEB-infeasible surface). Claim C5 and the WP-RL
+program in the Phase-2 plan operationalize this: the prize is priced
+first by the reflex-degradation curve (fixed vs identification-retuned
+vs per-instance-tuned vs oracle), and RL trains only against a
+measured, pre-registered gap.
