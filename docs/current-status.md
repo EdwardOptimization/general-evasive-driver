@@ -4,8 +4,8 @@ This file is the compact official state for the project. Milestone documents
 and `docs/research-log.md` remain the detailed log of the autonomous-harness
 era; the Phase-2 plan and thesis (pointer table below) define the active
 program. Last full refresh: 2026-06-12 (the 2026-06-11 WP6.3 refresh
-replaced the stale paper-route state; this update folds in M3215-M3217
-and the C5 pricing disposition).
+replaced the stale paper-route state; this update folds in M3215-M3218,
+the C5 pricing disposition, and the S4-HF-lite backend preflight).
 
 ## Project Identity
 
@@ -21,8 +21,8 @@ and the C5 pricing disposition).
 
 History in one paragraph: the autonomous harness loop ran through M3214
 before manual takeover; the manual takeover has since registered and
-completed M3215-M3217. `experiments/research_status.json` now records
-3222 completed / 4 failed / 2 blocked task entries, with `next_task:
+completed M3215-M3218. `experiments/research_status.json` now records
+3223 completed / 4 failed / 2 blocked task entries, with `next_task:
 null`. On
 2026-06-11 an independent feasibility audit showed the M3108–M3212
 residual-repair branch was repairing physically unsolvable rows, and the
@@ -59,21 +59,23 @@ Claims:
 | C2 belief learnability | **terminal bound accepted** (G-B FAIL, the single authorized iteration consumed): belief is learnable — the project's first working history-borne capability estimator (GRU R^2 0.91-0.99, reset-control-destroyed, window arms at predict-the-mean) — but not monetizable through the substitution interface; the bounded iteration was stopped by the leak gate because on-policy closed-loop data is necessarily single-frame mu-readable (the thesis Section-10 capstone). delay12 +0.185 (lower bound +0.110) remains the only substitution-level positive. | `docs/m3216-wp1-modular-belief-experiment.md`, `docs/m3217-wp1-belief-substitution-bounded-iteration.md` |
 | C3 FIR vs IIR | **not adjudicated** (pre-registered condition not triggered: no history arm cleared the floor) | M3216 doc |
 | C4 deployable stack | **closed** (WP2 never opened per G-B) | plan Section 2 |
-| C5 one policy for all passenger cars (RL as engineering) | **spread formulation rejected by pricing** (0/8 cells; pre-registered): the fixed reflex's degradation curve is flat across S0-S3, per-instance tuning has nothing to buy, kappa-RLS retuning self-harms at corners. Mechanism: limit demand is laterally dominated and mu*g is mass-independent — mass/brake/tau spread cannot move the boundary. Not refuted in reality: load transfer and tire-curve shape are inexpressible in this sim (declared limit). **Measured surviving prize (C5' candidate, pending PI): the reflex structural ceiling gap, oracle - per-tuned = +0.16-0.21 at T-limit, CI-excluding 0, spread-insensitive, concentrated in drift-grade rows.** S4 decision now reframes to: lateral-channel spread (cg/Iz) or pivot to C5'. | `docs/c5-reflex-degradation-2026-06.md` |
+| C5 one policy for all passenger cars (RL as engineering) | **spread formulation rejected by pricing** (0/8 cells; pre-registered): the fixed reflex's degradation curve is flat across S0-S3, per-instance tuning has nothing to buy, kappa-RLS retuning self-harms at corners. Mechanism: limit demand is laterally dominated and mu*g is mass-independent — mass/brake/tau spread cannot move the boundary. Not refuted in reality: load transfer and tire-curve shape are inexpressible in this sim (declared limit). **Measured surviving prize (C5' candidate): the reflex structural ceiling gap, oracle - per-tuned = +0.16-0.21 at T-limit, CI-excluding 0, spread-insensitive, concentrated in drift-grade rows.** M3218 chose the cheap S4-HF-lite preflight route: Chrono resources support a multi-vehicle/tire extension, but the current backend hard-codes Sedan + TMeasy and does not map `lf/lr/iz/cf/cr`, so direct S4 pricing is blocked until M3219 variant-selector smoke. | `docs/c5-reflex-degradation-2026-06.md`, `docs/m3218-s4-hf-lite-backend-inventory-preflight.md` |
 
 Work packages: WP0 **complete** (wrapper modes M3215-validated, family #2
 frozen with clean acceptance after one pre-registered repair, statistical
 hardening, governance refresh); WP1 **terminal** (M3216/M3217); WP2/WP3
 **closed by gates**; WP-RL S0-S3 spread pricing **completed / original C5
-rejected**, with C5' structural-ceiling or lateral-channel S4 decision
-**pending PI**; WP4 spot checks **pending** (Sedan-only Chrono coverage so
+rejected**, S4-HF-lite backend inventory **completed / direct pricing
+blocked pending M3219 variant-selector smoke**, and C5' structural-ceiling
+training remains the measured alternative prize; WP4 spot checks **pending**
+(Sedan-only Chrono coverage so
 far); WP5 papers **pending**
 (scope fixed: family-scoped mode-dependent two-regime law + estimator
 positive + the capstone bound; plus C5' only if PI accepts the structural
 ceiling route); WP6 partial (6.0/6.1/6.3 done, **6.2 guardrails pending —
 loop stays paused**).
 
-Harness ledger: M3215, M3216, M3217 registered and executed through the
+Harness ledger: M3215, M3216, M3217, M3218 registered and executed through the
 harness (research-validate passed in both states for each); leak gates
 stopped two dataset leaks and one terminal iteration, all per
 pre-registration.
@@ -82,9 +84,11 @@ PI dispositions (2026-06-12): **v5 promotion is deferred — not a live
 question while research is ongoing**; v4 stays deployed, v5 remains a
 filed candidate, revisit at research completion
 (`docs/v5-promotion-decision-packet-2026-06.md`). **C5 next decision**:
-the S0-S3 spread pricing report rejected the original spread formulation;
-PI must choose whether to test lateral-channel/S4 population spread or
-pivot to the measured C5' structural-ceiling prize.
+S0-S3 rejected the original spread formulation; M3218 admitted only a
+connector step for S4-HF-lite, not pricing. The next executable item is
+M3219 Chrono variant-selector reset-step smoke. In parallel, the measured
+C5' structural-ceiling prize remains the direct RL target if PI chooses to
+abandon the spread mechanism.
 
 - The autonomous milestone loop is **paused** and does not resume until the
   WP6.2 guardrails are implemented and smoke-tested.
@@ -97,7 +101,7 @@ pivot to the measured C5' structural-ceiling prize.
 | Phase-2 plan v2 (active program definition) | `docs/research-plan-phase2-capability-boundary-tracking.md` |
 | Takeover decision (why M3213 was blocked) | `docs/feasibility-takeover-2026-06-route-decision.md` |
 | Gate protocol v2 (anchors before informative actions; R²≤0.1 self-check) | `docs/selfid-gate-protocol-v2-2026-06.md` |
-| Latest harness milestone (M3217: WP1 terminal — leak-gate stop, C2 bound) | `docs/m3217-wp1-belief-substitution-bounded-iteration.md` |
+| Latest harness milestone (M3218: S4-HF-lite backend inventory preflight) | `docs/m3218-s4-hf-lite-backend-inventory-preflight.md` |
 | Thesis capstone + RL re-entry (Sections 10-11) | `docs/capability-boundary-tracking-thesis-2026-06.md` |
 | Data coverage map (C5 sampling design authority) | `docs/data-coverage-map-2026-06.md` |
 | Incumbent deployed driver (v4, untouched) | `src/autodrift/active_safety_reflex_driver.py`, `DRIVER_ID = active_safety_reflex_driver_m3105_incumbent_v4_no_regression` |

@@ -1,6 +1,6 @@
 # Feasibility Audit Measurement Index (2026-06)
 
-Index of every script in this directory (34 as of 2026-06-12), mapped to its
+Index of every script in this directory (35 as of 2026-06-12), mapped to its
 primary result artifacts and the conclusion document that interprets them.
 All scripts are deterministic, CPU-only, and run as
 `PYTHONPATH=src python scripts/feasibility_audit/<script>.py` from the repo
@@ -88,6 +88,7 @@ Created as WP6.3 of `docs/research-plan-phase2-capability-boundary-tracking.md`.
 | script | artifacts | conclusion doc | answers |
 |---|---|---|---|
 | `c5_reflex_degradation.py` | `experiments/feasibility_audit/c5_prereg.json`, `c5_reflex_degradation.json`; `runs/feasibility_audit/c5_reflex_degradation/episode_rows.csv`, `progress.json`, `full_run.log` | `docs/c5-reflex-degradation-2026-06.md` | Does passenger-car spread open a priced gap for RL over fixed reflex and classical kappa-RLS retuning? Original spread formulation rejected 0/8 cells; surviving candidate prize is the T-limit structural ceiling gap, pending PI disposition. |
+| `s4_hf_lite_backend_inventory.py` | `experiments/feasibility_audit/s4_hf_lite_backend_inventory.json` | `docs/m3218-s4-hf-lite-backend-inventory-preflight.md` | Can S4-HF-lite passenger-car-population pricing run on the current Chrono backend wiring? No: Chrono resources support extension, but the repo worker/backend hard-code Sedan + TMeasy and do not expose a vehicle/tire variant selector or map `lf/lr/iz/cf/cr`; route to M3219 variant-selector smoke before pricing. |
 
 ## Artifacts without a script in this directory
 

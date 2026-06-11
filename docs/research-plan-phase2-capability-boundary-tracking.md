@@ -337,8 +337,8 @@ check (not "~1 command").
 
 ### WP-RL — C5 program (priced first, trained second)
 
-1. **Pricing (zero training; S0-S3 completed, S4/C5' pending in the live
-   ledger)**: the reflex degradation curve —
+1. **Pricing (zero training; S0-S3 completed, S4 connector pending, C5'
+   available in the live ledger)**: the reflex degradation curve —
    spread tiers S0 nominal / S1 current (+-20%, what v4 was tuned on) /
    S2 extended (mass 0.70-1.50, brake/drive 0.60-1.30, stiffness
    0.50-1.50, tau to 2.5x) / S3 adversarial corners, at two limit-demand
@@ -351,6 +351,13 @@ check (not "~1 command").
    to match vehicle classes — with per-instance feasibility relabeling
    and per-instance oracles; the S0-S3 run prices the within-model rungs
    and S4 prices the population claim itself.
+
+   Live disposition (2026-06-12, M3218): direct S4-HF-lite pricing is
+   **not admitted** on the current backend. Chrono resources contain
+   multiple vehicle/tire fixtures, but the repository worker/backend still
+   hard-code Sedan + TMeasy and do not map `lf/lr/iz/cf/cr` into Chrono
+   dynamics. The next admissible step is a variant-selector reset-step
+   smoke (M3219) before any S4 pricing run.
    Four paired arms: fixed v4 / v4+RLS-retuned (the classical
    identification arm reviewers will demand) / per-instance-tuned v4
    (the "tune every car" upper bound, quantified to show its cost) /

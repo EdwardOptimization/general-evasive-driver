@@ -1,0 +1,168 @@
+{
+  "id": "m3218-s4-hf-lite-backend-inventory-preflight",
+  "priority": 32180,
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "hypothesis": "A zero-rollout Chrono backend inventory can decide whether S4-HF-lite passenger-car-population pricing is admissible on the current wired backend, or whether a variant-selector and lateral/tire-channel smoke milestone must precede any pricing, before validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof paper or self-ID claim.",
+  "lineage": {
+    "parent_checkpoint": [
+      "docs/research-plan-phase2-capability-boundary-tracking.md",
+      "docs/current-status.md",
+      "docs/data-coverage-map-2026-06.md"
+    ],
+    "parent_dataset": [
+      "experiments/feasibility_audit/c5_reflex_degradation.json",
+      "runs/feasibility_audit/chrono_hf4_full_summary.json"
+    ],
+    "parent_config": [
+      "src/autodrift/chrono_vehicle_backend.py",
+      "scripts/feasibility_audit/chrono_backend_worker.py"
+    ],
+    "parent_objective": [
+      "adjudicate the S4 live disposition after S0-S3 C5 spread pricing rejected the original spread formulation and exposed the need to test lateral-channel/high-fidelity population spread before any RL training"
+    ],
+    "derived_from": [
+      "docs/c5-reflex-degradation-2026-06.md",
+      "docs/feasibility-route-hf-backend-2026-06.md",
+      "docs/data-coverage-map-2026-06.md",
+      "scripts/feasibility_audit/s4_hf_lite_backend_inventory.py"
+    ],
+    "blocked_by": [
+      "S4-HF-lite pricing must not run until the current hard-coded Sedan/TMeasy Chrono worker has an explicit vehicle/tire variant selector and a reset-step smoke across the selected population fixture"
+    ],
+    "supersedes": [
+      "treating Chrono resource availability alone as sufficient to admit S4 pricing"
+    ],
+    "invalidates": [
+      "direct S4-HF-lite pricing on the current chrono_sedan_tmeasy_hf_backend wiring"
+    ]
+  },
+  "review_artifact": "docs/reviews/m3218-s4-hf-lite-backend-inventory-preflight.md",
+  "public_gates": [
+    "M3218 must run zero rollout/training episodes and must not instantiate or mutate any driver or checkpoint",
+    "M3218 must report both Chrono resource availability and the repository's actual wired backend/worker state",
+    "M3218 must make an explicit admission decision for direct S4-HF-lite pricing versus a required connector milestone",
+    "M3218 must preserve ActiveSafetyReflexDriver, public driver defaults, and all HF4-validated Chrono behavior"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not infer S4 pricing feasibility from Chrono data files alone",
+    "do not read this preflight as driver-performance, high-fidelity sufficiency, RL evidence, paper evidence, validation, promotion, robustness, or repair-success evidence",
+    "do not modify the incumbent driver, public driver defaults, or the existing Chrono runtime backend behavior inside this milestone",
+    "do not start S4 pricing until a variant-selector/reset-step smoke milestone exists"
+  ],
+  "workflow_synthesis": {
+    "branch": "c5_s4_hf_lite_backend_preflight",
+    "evidence_axis": "chrono_population_backend_wiring_admission",
+    "evidence_increment": "first zero-rollout inventory of Chrono vehicle/tire resources against the repository's actually wired Sedan/TMeasy backend and worker protocol after the S0-S3 C5 spread pricing result",
+    "claim_scope": "Infrastructure admission only; C5/S4 pricing not run; incumbent unchanged; no validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof paper or self-ID claim",
+    "stop_condition": [
+      "stop if the chrono-env probe cannot execute and report the failure as infrastructure, not as S4 evidence",
+      "stop before any rollout, training, evaluation, or driver mutation",
+      "stop if current backend wiring does not expose a vehicle/tire variant selector"
+    ],
+    "fallback_plan": [
+      "if Chrono resources are absent, route S4 to a separate dependency-install/data-fixture milestone",
+      "if resources exist but wiring is absent, route to a variant-selector/reset-step smoke milestone before pricing",
+      "if wiring is already present, require an explicit S4 pricing pre-registration before any priced rollout",
+      "preserve the engineering incumbent and active-safety mainline untouched"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "PI accepted the S4-HF-lite preflight route after S0-S3 C5 spread pricing rejected the original spread formulation but left a lateral/tire/load-transfer population question open",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "Run a zero-rollout Chrono resource and backend-wiring inventory to decide whether S4-HF-lite pricing is directly admissible or blocked on connector work.",
+    "admission_evidence": [
+      "S0-S3 C5 spread pricing completed and rejected the original mass/brake/tau spread formulation in docs/c5-reflex-degradation-2026-06.md",
+      "HF4 already verified the existing Sedan-only Chrono path for same-scenario discrepancy checks but did not cover multi-vehicle/tire population spread",
+      "docs/data-coverage-map-2026-06.md marks Chrono multi-vehicle coverage as the natural S4 high-fidelity path and currently uncovered"
+    ],
+    "blocked_shortcuts": [
+      "no training runs, no checkpoint creation or reuse",
+      "no rollout pricing or driver evaluation",
+      "no mutation of Chrono runtime behavior or the public incumbent"
+    ],
+    "allowed_updates": [
+      "scripts/feasibility_audit/s4_hf_lite_backend_inventory.py",
+      "experiments/feasibility_audit/s4_hf_lite_backend_inventory.json",
+      "docs/m3218-s4-hf-lite-backend-inventory-preflight.md",
+      "docs/reviews/m3218-s4-hf-lite-backend-inventory-preflight.md",
+      "M3218 status queue scoreboard research log and index rows"
+    ],
+    "next_stage_criteria": [
+      "JSON artifact records chrono_probe.ok, visible vehicle/tire resources, current backend hard-coded Sedan/TMeasy status, and the direct-pricing admission decision",
+      "Markdown report records the same decision and explicitly names the minimal next connectors",
+      "If direct pricing is false, the next milestone must be a variant-selector/reset-step smoke before S4-HF-lite pricing"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "Not applicable: M3218 performs no policy rollout, no substitution, and no learned-history measurement.",
+    "history_necessity_tests": [
+      "none in M3218: zero-rollout infrastructure inventory only"
+    ],
+    "temporal_evidence_window": "none: no episodes are generated",
+    "negative_result_policy": "A blocked admission is reported as an infrastructure connector requirement, not converted into scientific or driver-performance evidence.",
+    "allowed_claims": [
+      "Chrono resource inventory and current backend wiring status only",
+      "direct S4-HF-lite pricing admission false on the current hard-coded Sedan/TMeasy backend"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_tool_or_infra",
+    "process_overhead": "low",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "zero-rollout infrastructure inventory that converts the open S4 question into a concrete connector gate; no closed-loop evidence is claimed",
+    "paper_verdict_delta": "none directly: C5 remains unpriced for S4; the result only blocks direct S4 pricing until a variant selector and smoke fixture exist",
+    "must_synthesize_if": [
+      "another connector preflight is proposed without producing a reset-step smoke",
+      "the branch attempts S4 pricing without a variant selector artifact",
+      "the preflight is quoted as S4/C5 pricing or high-fidelity sufficiency evidence"
+    ]
+  },
+  "success_criteria": [
+    "experiments/feasibility_audit/s4_hf_lite_backend_inventory.json exists with chrono_probe, current_backend, decision, and claim_boundary sections",
+    "decision.direct_s4_hf_lite_pricing_admitted_now is false unless the current backend exposes a vehicle/tire variant selector and maps the lateral/tire channels required by S4",
+    "docs/m3218-s4-hf-lite-backend-inventory-preflight.md records Chrono resource availability, wired backend status, direct-pricing decision, next connectors, and claim boundary",
+    "the milestone performs no rollout, training, driver mutation, or checkpoint mutation"
+  ],
+  "failure_criteria": [
+    "the script emits a pricing, driver-performance, high-fidelity sufficiency, RL, validation, promotion, repair-success, robustness, paper, or self-ID claim",
+    "the script modifies runtime backend behavior or the deployed incumbent",
+    "the JSON artifact lacks either the Chrono resource probe or current backend wiring audit",
+    "direct S4-HF-lite pricing is admitted despite hard-coded Sedan/TMeasy wiring"
+  ],
+  "decision_rule": "Pass only if the script completes without rollout/training, emits a JSON artifact and Markdown report, distinguishes Chrono resource availability from actual wired backend support, and routes direct S4-HF-lite pricing to blocked unless a vehicle/tire variant selector and lateral/tire-channel smoke path are already present.",
+  "commands": [
+    {
+      "name": "s4_hf_lite_backend_inventory",
+      "command": "PYTHONPATH=src python scripts/feasibility_audit/s4_hf_lite_backend_inventory.py"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "experiments/feasibility_audit/s4_hf_lite_backend_inventory.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m3218-s4-hf-lite-backend-inventory-preflight.md",
+      "type": "markdown"
+    }
+  ],
+  "baseline_checkpoints": [
+    "docs/c5-reflex-degradation-2026-06.md",
+    "docs/feasibility-route-hf-backend-2026-06.md",
+    "docs/data-coverage-map-2026-06.md"
+  ],
+  "scoreboard_checkpoint": "experiments/feasibility_audit/s4_hf_lite_backend_inventory.json",
+  "next_blocker": "M3219 Chrono vehicle/tire variant-selector reset-step smoke before any S4-HF-lite pricing",
+  "status": "completed"
+}

@@ -56146,3 +56146,14 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m3217-wp1-belief-substitution-bounded-iteration_20260611T151842Z/command.log`
 - success artifact: `runs/feasibility_audit/wp1_iter1_full/summary.json`
 - notes: Pending: execute the single pre-authorized WP1 bounded iteration under manual-takeover mixed bookkeeping; iteration design frozen in experiments/feasibility_audit/wp1_iter1_prereg.json, gated criteria unchanged from wp1_prereg.json; outcome terminal for WP1/G-B either way; auxiliary measurement; incumbent unchanged.
+## 20260612T000000Z m3218-s4-hf-lite-backend-inventory-preflight
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: A zero-rollout Chrono backend inventory can decide whether S4-HF-lite passenger-car-population pricing is admissible on the current wired backend, or whether a variant-selector and lateral/tire-channel smoke milestone must precede any pricing, before validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof paper or self-ID claim.
+- command: `PYTHONPATH=src python scripts/feasibility_audit/s4_hf_lite_backend_inventory.py`
+- returncode: `0`
+- run dir: `runs/research/m3218-s4-hf-lite-backend-inventory-preflight_20260612T000000Z`
+- command log: `runs/research/m3218-s4-hf-lite-backend-inventory-preflight_20260612T000000Z/command.log`
+- success artifact: `experiments/feasibility_audit/s4_hf_lite_backend_inventory.json`
+- notes: Completed zero-rollout inventory. Chrono resources support a multi-vehicle/tire extension, but current repo wiring hard-codes Sedan + TMeasy and does not map lf/lr/iz/cf/cr into Chrono dynamics, so direct S4-HF-lite pricing is blocked until M3219 variant-selector reset-step smoke; no rollout, training, driver mutation, high-fidelity sufficiency, pricing, RL, paper, validation, promotion, repair-success, robustness, feasibility-proof, or self-ID claim.

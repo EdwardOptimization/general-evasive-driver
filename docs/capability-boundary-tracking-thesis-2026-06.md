@@ -313,13 +313,14 @@ failure and M3217's gate stop are the measured form of this). RL died
 twice in this project as an evidence source (m1087 washout; G1 variance
 floor) and returns with a clean position: an engineering executor,
 judged purely on outcomes against measured floors and per-instance
-oracles, on the two stages where the reflex family is structurally
-short — vehicle-population spread (the project targets **one policy for
-all passenger cars**, ~900 kg to 3+ t; fixed gains cannot follow that
-population and per-vehicle tuning is out of the question) and
-beyond-saturation maneuvering (0/84 for the reflex family; 0.906 for RL
-on an all-AEB-infeasible surface). Claim C5 and the WP-RL
-program in the Phase-2 plan operationalize this: the prize is priced
-first by the reflex-degradation curve (fixed vs identification-retuned
-vs per-instance-tuned vs oracle), and RL trains only against a
+oracles. The first population-spread pricing pass then split the user's
+original C5 argument in two. The mass/brake/tau spread mechanism did
+**not** price out in S0-S3, but the reflex structural-ceiling gap did:
++0.16-0.21 at T-limit, CI-excluding 0, concentrated in drift-grade rows.
+The remaining population question is narrower and high-fidelity: whether
+lateral/tire/load-transfer spread across passenger cars moves the
+boundary. M3218 found Chrono resources for that extension but also found
+the current repo wiring still hard-coded to Sedan + TMeasy, so S4 pricing
+waits on a variant-selector smoke. Claim C5 and the WP-RL program now
+operationalize this discipline: price first, then train RL only against a
 measured, pre-registered gap.
