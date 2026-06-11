@@ -120,3 +120,9 @@ recoverable-set 边界；不晋升则绑定 v4 已测 surface。
 - `docs/selfid-reflex-recovery-budget-2026-06.md`（测量 C 全文）
 - `docs/feasibility-route-hf4-full-discrepancy-2026-06.md`（HF4 全量）
 - `docs/research-plan-phase2-capability-boundary-tracking.md`（WP6.1 条款）
+
+## PI disposition (2026-06-12)
+
+Promotion is deferred: not a live question while the research program is
+ongoing. v4 stays deployed; v5 remains a filed candidate with this packet
+as its record; revisit at research completion.

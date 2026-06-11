@@ -73,9 +73,11 @@ harness (research-validate passed in both states for each); leak gates
 stopped two dataset leaks and one terminal iteration, all per
 pre-registration.
 
-Pending decisions (PI): v5 promotion
-(`docs/v5-promotion-decision-packet-2026-06.md`); C5 S4 tier go-ahead
-follows the in-flight pricing report.
+PI dispositions (2026-06-12): **v5 promotion is deferred — not a live
+question while research is ongoing**; v4 stays deployed, v5 remains a
+filed candidate, revisit at research completion
+(`docs/v5-promotion-decision-packet-2026-06.md`). **C5 S4 tier**: decide
+after the in-flight S0-S3 pricing report.
 
 - The autonomous milestone loop is **paused** and does not resume until the
   WP6.2 guardrails are implemented and smoke-tested.

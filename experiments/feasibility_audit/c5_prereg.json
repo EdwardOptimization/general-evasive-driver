@@ -1,0 +1,98 @@
+{
+  "protocol": "c5_reflex_degradation_preregistration",
+  "claim_under_pricing": "C5: under large vehicle dispersion x limit-regime tasks, RL beats a fixed reflex controller and beats a classical identify-then-tune scheme. This measurement prices the prize with zero training: fixed-reflex degradation under dispersion, classical (RLS kappa identify + frozen tuning map) recovery, and the per-vehicle-tuned upper bound. prize = pertuned - fixed; classical residual = pertuned - rls.",
+  "frozen_at_utc": "2026-06-12T00:00:00Z",
+  "frozen_before_any_selection_or_validation_rollout": true,
+  "design_probe_disclosure": "Task-geometry and knob-sensitivity probes were run on seed streams 5000000-5900000 (disjoint from all selection/validation streams below) before freezing this file. Probes informed: (a) curvature-compensated on-path obstacle placement (family-1 tangent placement leaves most obstacles 7-31 m off the driving line, making labels vacuous), (b) move of both task surfaces to the R=60 arc (the R=18 friction-capped speed makes avoidance self-similar in mu and hides obstacles outside the v4 lateral window), (c) the 27-point tuning grid axes. No selection or validation seed below was rolled out before freezing.",
+  "seed_discipline": {
+    "c5_seed_base": 20260712,
+    "vehicle_scales_rng": "np.random.default_rng([20260712, 11, level_index, instance_index])",
+    "selection_row_params_rng": "np.random.default_rng([20260712, 31, L, S, v, k])",
+    "validation_row_params_rng": "np.random.default_rng([20260712, 41, L, S, v, k])",
+    "selection_eval_seed": "6000000 + L*200000 + S*100000 + v*5000 + k*13 (k = scan index, scanned until n_sel admitted rows)",
+    "validation_eval_seed": "7000000 + L*200000 + S*100000 + v*5000 + k*13",
+    "oracle_cem_rng": "np.random.default_rng([20260712, 51, L, S, v, k])",
+    "prefix_env_seed": "9100000 + L*1000 + v*10",
+    "disjointness": "selection stream lives in [6000000, 7000000), validation in [7000000, 8000000); asserted disjoint at runtime; both disjoint from prior-study panels (401500/501500/601500 bases) and from the design-probe streams (5xxxxxx)."
+  },
+  "dispersion_levels": {
+    "mu_domain_all_levels": [0.25, 1.15],
+    "S0_nominal": {"mass": [1.0, 1.0], "brake": [1.0, 1.0], "drive": [1.0, 1.0], "stiffness": [1.0, 1.0], "tau": [1.0, 1.0]},
+    "S1_current": {"mass": [0.85, 1.20], "brake": [0.80, 1.15], "drive": [0.80, 1.15], "stiffness": [0.65, 1.35], "tau": [0.75, 1.75]},
+    "S2_extended": {"mass": [0.70, 1.50], "brake": [0.60, 1.30], "drive": [0.60, 1.30], "stiffness": [0.50, 1.50], "tau": [0.75, 2.50]},
+    "S3_adversarial_corner": {"mass": [1.40, 1.50], "brake": [0.60, 0.70], "drive": [0.60, 0.72], "stiffness": [0.50, 0.62], "tau": [2.25, 2.50], "note": "co-directional worst corner of S2 (heavy + weak brake + weak drive + soft tire + slow actuator), jittered so the 12 instances are distinct"},
+    "held_nominal_all_levels": {"cg_shift": 0.0, "inertia_scale": 1.0},
+    "instances_per_level": 12
+  },
+  "task_surfaces": {
+    "shared": {
+      "track": "circle R=60 m, width 5 m, mu uniform [0.25,1.15] per episode, entry speed friction-capped at 0.92*sqrt(mu*g*R), friction_step disabled, max_steps 480, finish_on_pass true",
+      "obstacle_placement": "curvature-compensated onto the centerline arc: for target arc distance s, distance_range pinned to R*sin(s/R) and lateral_offset_range pinned to R*(1-cos(s/R)) toward the circle center (family-2 style); per-row pinned (v, mu, s, half_width)",
+      "row_generator_label": "autodrift.scenarios.classify_obstacle_scenario(v_capped, mu, R*sin(s/R), hw)"
+    },
+    "T_mid": {
+      "speed_target": "U(8,12) m/s", "arc_distance": "U(18,32) m", "half_width": "U(0.55,1.15) m",
+      "reveal": "perception_reveal_step=34", "admission": "generator label == aeb_feasible (nominal model)",
+      "val_seeds_per_instance": 10
+    },
+    "T_limit": {
+      "speed_target": "U(13,22) m/s", "arc_distance": "U(20,42) m", "half_width": "U(0.70,1.40) m",
+      "reveal": "perception_reveal_distance=16.0 m",
+      "admission": "generator label in {aeb_feasible, aes_feasible} AND per-instance adjusted label in {aeb, aes, drift} where adjusted model uses d_eff=16.0 m and a_brake_eff = min(0.9*mu*g, 6000*brake_scale/(1450*mass_scale)); lateral capacities unchanged (mass-free)",
+      "val_seeds_per_instance": 12
+    },
+    "sel_seeds_per_instance": 6
+  },
+  "arms": {
+    "fixed_v4_incumbent": "M3105 ActiveSafetyReflexDriver verbatim (V4_POLICY_CONFIG); secondary arm: measures family-transfer degradation, not criterial",
+    "fixed_star": "one fixed config = argmax over the 27-point grid of pooled S0 selection success (both surfaces, 12x6x2=144 rows); frozen across all cells; PRIMARY fixed floor (the claim's 'fixed reflex' must be tuned once for the family at nominal, else the prize conflates family mistuning with dispersion)",
+    "v4_rls": "5 s sub-limit familiarization prefix on an obstacle-free R=600 straight-arc env (same vehicle instance, mu drawn by prefix seed from the standard domain), VehicleRLS (belief-decomposition machinery) identifies kappa_b/kappa_d; frozen kappa map applied to the fixed_star config",
+    "v4_pertuned": "per (level, surface, instance): winner of the 27-point grid on the 6 selection rows; validated on fresh validation rows; the per-vehicle tuning upper bound at grid resolution",
+    "oracle": "per validation row: reveal-constrained privileged search (fixed_star closed-loop prefix to the empirical reveal step, then 15 structured open-loop candidates with early stop, then CEM pop 20/elites 5/iters 5/segments 10x8 steps, early stop on first success); defines causal solvability"
+  },
+  "tuning_grid_27": {
+    "brake_mult": [0.6, 1.0, 1.8],
+    "steer_mult": [1.0, 1.45, 1.9],
+    "relevance_mult": [1.0, 1.4, 1.8],
+    "applied_to": {
+      "brake_mult": ["v2.gains.obstacle_brake", "v2.gains.edge_brake", "v2.gains.stability_brake", "v4.gains.local_obstacle_brake", "v4.gains.local_edge_brake"],
+      "steer_mult": ["v2.gains.obstacle_steer", "v4.gains.local_obstacle_steer"],
+      "relevance_mult": ["v2.thresholds.obstacle_relevance_distance_m", "v4.thresholds.obstacle_relevance_distance_m"]
+    },
+    "selection_tiebreak": "higher sel success, then fewer (collision+offtrack) on sel rows, then fewer multipliers != 1, then lower grid index"
+  },
+  "rls_kappa_map_frozen": {
+    "estimands": "kappa_b = brake_scale/mass_scale, kappa_d = drive_scale/mass_scale (the only vehicle quantities this controller family consumes; selfid-belief-decomposition-2026-06)",
+    "map": {
+      "brake_gains": "x clip(1/kappa_b_hat, 0.5, 2.4) on the same 5 brake gains as the grid",
+      "obstacle_relevance_distance_m": "x clip(1/kappa_b_hat, 1.0, 1.8)",
+      "local_hard_safety_speed_mps": "x clip(sqrt(kappa_b_hat), 0.7, 1.3)",
+      "speed_floor_throttle_boost": "x clip(1/kappa_d_hat, 0.5, 2.0)"
+    },
+    "not_scaled": "steer gains and all other parameters (kappa carries no stiffness/tau information; a stiffness-aware classical arm is declared out of scope and listed as follow-up)",
+    "base_config": "fixed_star"
+  },
+  "denominator_rule": "PRIMARY: per-cell rates computed only on validation rows the oracle solves (unavoidable rows cannot enter the denominator - M3082/M3105 lesson). SECONDARY: unfiltered rates also reported. The oracle arm equals 1.0 on the filtered denominator by construction; its unfiltered rate is the cell's causal solvability.",
+  "preregistered_readouts": {
+    "primary_prize_per_cell": "p(v4_pertuned) - p(fixed_star)",
+    "classical_residual_per_cell": "p(v4_pertuned) - p(v4_rls)",
+    "secondary_incumbent_prize": "p(v4_pertuned) - p(fixed_v4_incumbent)",
+    "uncertainty": "Wilson 95% CI per arm; episode-paired bootstrap (2000 resamples) CI95 for differences (primary); Newcombe MOVER CI also reported",
+    "c5_decision_rule": "C5 stands iff >=2 of the 8 cells have primary_prize >= 0.15 with paired-bootstrap CI95 lower bound > 0 AND classical_residual >= 0.08 in those same cells; otherwise C5 fails its own bar and is reported as such",
+    "auxiliary_outputs": ["fixed_star and fixed_v4_incumbent success vs dispersion level per surface (degradation curves)", "failure-mode composition (collision/offtrack/speed_too_low/timeout-other) per arm per cell", "kappa_b/kappa_d identification error distribution of the RLS prefixes"]
+  },
+  "budget_and_trim_rule": "estimated ~40k episodes (~20-30 min CPU). If projected wall time exceeds 2.5 h, trim S3 from 12 to 8 instances; never trim validation seeds per instance.",
+  "runtime_gates": [
+    "composed v2+v4 action function must equal the canonical M3105 v4 function exactly on 200 random observations",
+    "selection and validation eval-seed sets disjoint (asserted)",
+    "light rollout outcome must match run_episode_with_policy outcome on 12 sampled rows",
+    "RLS prefix peak rear utilization (truth frame, harness-only readout) < 0.6"
+  ],
+  "claim_boundary": "Feasibility-audit pricing measurement only: scripted reflex controllers, an RLS identification arm, a grid-tuned upper bound, and a privileged oracle are compared on a vehicle-randomized variant of the obstacle family. Zero training. No driver promotion, repair-success, gate-validity, paper, or self-ID capability claim. RL is never run; the 'RL prize' is an upper-bound price computed from scripted arms.",
+  "env_expressiveness_limits_declared": [
+    "tanh tire curve fixed; no load transfer; no wheel lockup; 'season/modification' heterogeneity only via mass/brake/drive/stiffness/tau scale parameters; cg shift and inertia held nominal",
+    "entry speed friction-capped by the curve-holding limit (couples mu and speed; limits '速度上探' to ~22 m/s at mu=1.15 on R=60)",
+    "family-1 tangent obstacle placement is geometrically off-path on curved tracks; C5 uses compensated placement and is therefore a NEW task family (C5-F1) - incumbent v4 numbers on it measure transfer, not the M3105 panel",
+    "classical arm is kappa-only by design freeze; a stiffness/tau-aware classical arm is future work"
+  ]
+}
