@@ -362,6 +362,18 @@ check (not "~1 command").
 3. **Declared sim limits**: tire-curve shape (tanh) is fixed and there is
    no load transfer — season/modification diversity is proxied by
    parameter spread only; stated in the papers' limitations.
+4. **Sampling design is governed by the coverage map**
+   (`docs/data-coverage-map-2026-06.md`): training-data distribution for
+   C5 is designed against the audited gaps, in priority order —
+   (i) S4 population tier + **obs-normalization audit** (the
+   normalization constants and the 80 m preview are nominal-vehicle
+   artifacts; audit precedes any population training); (ii) moving
+   obstacles (env engineering, >= 1-2 days); (iii) > 20 m/s speed domain
+   (production AEB/AES reaches 130+ km/h; zero current coverage);
+   (iv) geometry-channel degradation + split-mu; (v) minute-scale drive
+   structure (the real L3.5 scale). Items (ii)-(v) are env-engineering
+   prerequisites scheduled before the corresponding training claims, not
+   after.
 
 ### WP5 — Papers
 
