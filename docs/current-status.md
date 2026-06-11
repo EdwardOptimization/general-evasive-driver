@@ -47,14 +47,36 @@ v2) started 2026-06-11 to test the law's generality (C1), belief
 learnability (C2), FIR-vs-IIR (C3), and the deployable
 belief→verifier→reflex stack (C4).
 
-## Currently Running
+## Program Progress Ledger (refresh 2026-06-12)
 
-- **WP0, week-1**: observation-degradation wrapper extension (AR(1)
-  correlated noise, frame dropout, time-varying delay), family-#2 design
-  freeze, clean-sensing acceptance; plus the week-1 governance items —
-  WP6.0 (plan committed), WP6.1 (v5 promotion decision packet,
-  `docs/v5-promotion-decision-packet-2026-06.md`), WP6.3 (this refresh and
-  `scripts/feasibility_audit/README.md`).
+Claims:
+
+| claim | status | verdict artifact |
+|---|---|---|
+| C1 generality of the two-regime law | **family-specific scope** (G-A FAIL per pre-registration): family #2 replicates the clean half (VoI +0.025) but its degraded revival is mode-dependent — noise-type degradation revives belief everywhere, delay-type stays ~0 because the drive-ramp seeker identifies ~1 s before commitment. The noise-buys-delay bridge was falsified on its pre-registered double criterion. | `docs/m3215-wp0-degraded-sweep-bridge-validation.md` |
+| C2 belief learnability | **terminal bound accepted** (G-B FAIL, the single authorized iteration consumed): belief is learnable — the project's first working history-borne capability estimator (GRU R^2 0.91-0.99, reset-control-destroyed, window arms at predict-the-mean) — but not monetizable through the substitution interface; the bounded iteration was stopped by the leak gate because on-policy closed-loop data is necessarily single-frame mu-readable (the thesis Section-10 capstone). delay12 +0.185 (lower bound +0.110) remains the only substitution-level positive. | `docs/m3216-wp1-modular-belief-experiment.md`, `docs/m3217-wp1-belief-substitution-bounded-iteration.md` |
+| C3 FIR vs IIR | **not adjudicated** (pre-registered condition not triggered: no history arm cleared the floor) | M3216 doc |
+| C4 deployable stack | **closed** (WP2 never opened per G-B) | plan Section 2 |
+| C5 one policy for all passenger cars (RL as engineering) | **pricing in flight**: four-arm reflex-degradation curve over spread tiers S0-S3 (within-model rungs) running; the S4 passenger-car-population tier and obs-normalization audit are the required next extension. Frozen go-criteria: (per-tuned - fixed) >= 0.15 and (per-tuned - RLS-retuned) >= 0.08 in >= 2 cells. | plan WP-RL; `docs/data-coverage-map-2026-06.md` |
+
+Work packages: WP0 **complete** (wrapper modes M3215-validated, family #2
+frozen with clean acceptance after one pre-registered repair, statistical
+hardening, governance refresh); WP1 **terminal** (M3216/M3217); WP2/WP3
+**closed by gates**; WP-RL pricing **in flight**; WP4 spot checks
+**pending** (Sedan-only Chrono coverage so far); WP5 papers **pending**
+(scope fixed: family-scoped mode-dependent two-regime law + estimator
+positive + the capstone bound; plus C5 if priced); WP6 partial (6.0/6.1/6.3
+done, **6.2 guardrails pending — loop stays paused**).
+
+Harness ledger: M3215, M3216, M3217 registered and executed through the
+harness (research-validate passed in both states for each); leak gates
+stopped two dataset leaks and one terminal iteration, all per
+pre-registration.
+
+Pending decisions (PI): v5 promotion
+(`docs/v5-promotion-decision-packet-2026-06.md`); C5 S4 tier go-ahead
+follows the in-flight pricing report.
+
 - The autonomous milestone loop is **paused** and does not resume until the
   WP6.2 guardrails are implemented and smoke-tested.
 
@@ -66,7 +88,9 @@ belief→verifier→reflex stack (C4).
 | Phase-2 plan v2 (active program definition) | `docs/research-plan-phase2-capability-boundary-tracking.md` |
 | Takeover decision (why M3213 was blocked) | `docs/feasibility-takeover-2026-06-route-decision.md` |
 | Gate protocol v2 (anchors before informative actions; R²≤0.1 self-check) | `docs/selfid-gate-protocol-v2-2026-06.md` |
-| Latest harness milestone (M3214: degradation pipeline + G1 ignition gate) | `docs/m3214-selfid-degradation-pipeline-integration-g1-ignition-gate.md` |
+| Latest harness milestone (M3217: WP1 terminal — leak-gate stop, C2 bound) | `docs/m3217-wp1-belief-substitution-bounded-iteration.md` |
+| Thesis capstone + RL re-entry (Sections 10-11) | `docs/capability-boundary-tracking-thesis-2026-06.md` |
+| Data coverage map (C5 sampling design authority) | `docs/data-coverage-map-2026-06.md` |
 | Incumbent deployed driver (v4, untouched) | `src/autodrift/active_safety_reflex_driver.py`, `DRIVER_ID = active_safety_reflex_driver_m3105_incumbent_v4_no_regression` |
 | v5 candidate (NOT promoted; decision pending with the PI) | `src/autodrift/active_safety_driver_v5_curvature_speed_governor_candidate.py` + `docs/v5-promotion-decision-packet-2026-06.md` |
 | Measurement index (script → artifact → conclusion doc) | `scripts/feasibility_audit/README.md` |
