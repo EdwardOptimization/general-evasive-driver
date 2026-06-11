@@ -56109,3 +56109,28 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m3215-wp0-degraded-sweep-bridge-validation_20260611T121026Z/command.log`
 - success artifact: `runs/feasibility_audit/wp0_degraded_sweep/summary.json`
 - notes: Pending: Phase-2 WP0.2/WP0.3 closing measurement under manual-takeover mixed bookkeeping; criteria frozen in experiments/feasibility_audit/wp0_degraded_sweep_prereg.json; auxiliary measurement; incumbent unchanged.
+
+## 20260611T134732Z m3216-wp1-modular-belief-experiment
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: A pre-registered modular-belief substitution experiment on family #1 -- capacity/compute-matched supervised mu estimators (L3_GRU primary) trained on leak-gated mu-decoupled prefix-carrying rollouts and injected at the decision tick into the SAME scripted seeker against a re-measured belief-free floor and matched per-mu oracle on 12 mu x 20 disjoint validation seeds per eligible cell -- can decide the G-B learning gate (L3_GRU recaptures >= 50 percent of the re-measured matched prize in >= 3 of 4 cells with one-sided 97.5 percent lower bounds excluding 0) and the conditional C3 FIR-vs-IIR readout before validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof or self-ID claim.
+- command: `PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/wp1_full_run.py --full --output-dir runs/feasibility_audit/wp1_full`
+- returncode: `0`
+- run dir: `runs/research/m3216-wp1-modular-belief-experiment_20260611T134707Z`
+- command log: `runs/research/m3216-wp1-modular-belief-experiment_20260611T134707Z/command.log`
+- success artifact: `runs/feasibility_audit/wp1_full/summary.json`
+- notes: Pending: Phase-2 WP1 (C2+C3 learning gate) under manual-takeover mixed bookkeeping; criteria frozen in experiments/feasibility_audit/wp1_prereg.json; construction pilot runs/feasibility_audit/wp1_construction_pilot/pilot.json; auxiliary measurement; incumbent unchanged.
+
+
+## 20260611T144240Z m3216-wp1-modular-belief-experiment
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: A pre-registered modular-belief substitution experiment on family #1 -- capacity/compute-matched supervised mu estimators (L3_GRU primary) trained on leak-gated mu-decoupled prefix-carrying rollouts and injected at the decision tick into the SAME scripted seeker against a re-measured belief-free floor and matched per-mu oracle on 12 mu x 20 disjoint validation seeds per eligible cell -- can decide the G-B learning gate (L3_GRU recaptures >= 50 percent of the re-measured matched prize in >= 3 of 4 cells with one-sided 97.5 percent lower bounds excluding 0) and the conditional C3 FIR-vs-IIR readout before validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof or self-ID claim.
+- command: `PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/wp1_full_run.py --full --output-dir runs/feasibility_audit/wp1_full`
+- returncode: `0`
+- run dir: `runs/research/m3216-wp1-modular-belief-experiment_20260611T135504Z`
+- command log: `runs/research/m3216-wp1-modular-belief-experiment_20260611T135504Z/command.log`
+- success artifact: `runs/feasibility_audit/wp1_full/summary.json`
+- notes: Pending (iteration 2 of the pre-registered bounded data-iteration route): first --full stopped at the dataset leak gate (archived runs/feasibility_audit/wp1_full_leakstop1); mu-free multi-sine speed-schedule repair applied; criteria unchanged in experiments/feasibility_audit/wp1_prereg.json; auxiliary measurement; incumbent unchanged.

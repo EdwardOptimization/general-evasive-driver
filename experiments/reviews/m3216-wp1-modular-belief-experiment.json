@@ -1,0 +1,98 @@
+{
+  "decision_reason": "Completed: pre-registered WP1 substitution experiment ran through the harness (47.6 min, 1948 dataset episodes, 320 supervised estimator runs, 82032 paired validation/C3/L4 episodes); first attempt stopped at the pre-registered dataset leak gate (delay cells linear OOF R^2 0.125-0.300, archived wp1_full_leakstop1) and the single pre-authorized data iteration (mu-free multi-sine speed schedule) re-passed all gates; re-measured matched prizes positive in all 4 eligible cells (0.117-0.483, Newcombe CIs excluding 0) but the primary L3_GRU arm passes 0 of 4 cells (bar 3): only delay12 shows a significant paired gain (+0.185, one-sided 97.5 lower bound +0.110, recapture 0.38 < 0.5) while injection is net-negative elsewhere (substitution-time mu error 0.14-0.26 vs dataset-val MAE 0.02-0.14, behavior-policy shift plus reveal-tick override of the internal detector); estimator-level signal is strongly history-borne (GRU R^2 0.91-0.99 in delay cells, equal-capacity window arms at predict-mean, reset control destroys it); C3 condition not met (constant-mu handover floor captures the reaction-only prize, true-mu oracle 3-5 pp BELOW const0.7 floor, C3-trained estimators flat) so the FIR-vs-IIR readout is not reported; L0 leak route not triggered; L4 exploratory block supports class-prior-shortens-prefix (1s+prior 0.556 vs 5s uniform 0.625 vs nominal 0.250, n=72, descriptive); auxiliary measurement only with the engineering incumbent unchanged and no validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof or self-ID claim.",
+  "failure_criteria": [
+    "summary.json missing, status neither completed nor the pre-registered leak-gate stop, or any required verdict non-deterministic",
+    "criteria, seeds, cells, or construction constants altered after the full run started",
+    "any gated arm measured on fewer than 240 validation episodes in a cell (other than C3 episodes invalidated by recorded probe failures)",
+    "results quoted as driver-performance, robustness, gate-validity, feasibility-proof, paper, or self-ID evidence",
+    "the milestone trains, promotes, or mutates any driving policy"
+  ],
+  "failure_types": [
+    "metric_artifact",
+    "seed_fragility",
+    "contract_violation",
+    "scenario_sampling_failure",
+    "objective_overfit"
+  ],
+  "forbidden_shortcuts": [
+    "do not weaken thresholds, extend seeds, re-pick cells, or change construction constants after the --full run starts",
+    "do not give estimator arms any eval-time hyperparameter freedom beyond the frozen best-selection seeker config",
+    "do not substitute M3215 prize values for the re-measured same-episode prize in the recapture denominator",
+    "do not tune any arm on validation (subst_val) episodes; selection reads subst_sel only",
+    "do not read any number as driver-performance, robustness, feasibility-proof, gate-validity, paper, or self-ID evidence",
+    "do not promote, mutate, or train any driving policy inside M3216 (supervised mu estimators only)",
+    "do not bypass make_env_from_config when constructing degraded envs"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260611T144804Z",
+  "hypothesis": "A pre-registered modular-belief substitution experiment on family #1 (M3215 G-A fallback routing) -- capacity/compute-matched supervised mu estimators (L0 current-frame, L2 windows 25/50/100, L3 GRU primary) trained on mu-decoupled prefix-carrying rollouts that pass the decision-frame leak gate, then injected at the decision tick into the SAME scripted seeker against a re-measured belief-free floor and matched per-mu oracle on 12 mu x 20 disjoint validation seeds per eligible cell with episode-paired differences and two-way (episode + training-seed cluster) uncertainty -- can decide the G-B learning gate (primary: L3_GRU recaptures at least 50 percent of the re-measured matched prize in at least 3 of the 4 frozen eligible cells with one-sided 97.5 percent lower bounds excluding 0) and the conditional C3 FIR-vs-IIR readout on the excitation-gap variant, before any validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof or self-ID claim.",
+  "lineage": {
+    "blocked_by": [
+      "G-B (WP2 sequence-proposal + verifier work) requires this milestone's primary verdict",
+      "the C3/M1182 FIR-vs-IIR resolution requires the C3 conditional readout delivered here"
+    ],
+    "derived_from": [
+      "docs/m3215-wp0-degraded-sweep-bridge-validation.md",
+      "docs/selfid-belief-decomposition-2026-06.md",
+      "docs/selfid-gate-protocol-v2-2026-06.md",
+      "experiments/feasibility_audit/wp1_seed_streams.json",
+      "scripts/feasibility_audit/wp1_data_pipeline.py",
+      "scripts/feasibility_audit/wp1_estimator_trainer.py"
+    ],
+    "invalidates": [
+      "none"
+    ],
+    "parent_checkpoint": [
+      "docs/research-plan-phase2-capability-boundary-tracking.md"
+    ],
+    "parent_config": [
+      "experiments/feasibility_audit/wp1_prereg.json"
+    ],
+    "parent_dataset": [
+      "runs/feasibility_audit/wp0_degraded_sweep/summary.json",
+      "experiments/feasibility_audit/wp1_seed_streams.json",
+      "runs/feasibility_audit/wp1_construction_pilot/pilot.json"
+    ],
+    "parent_objective": [
+      "close Phase-2 WP1 (C2 learnability of belief + C3 FIR vs IIR): measure whether a learned history-borne capability estimator recaptures the pre-registered fraction of the matched-anchor degraded-regime prize when substituted for true mu in the same planner"
+    ],
+    "supersedes": [
+      "reading the stage-1 smoke estimator numbers (32-episode quick chain) as any evidence about estimator arms"
+    ]
+  },
+  "milestone": "m3216-wp1-modular-belief-experiment",
+  "next_blocker": "m3216-wp1-modular-belief-experiment",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "primary_fail_all_arms_route_one_bounded_iteration_then_accept_bound",
+  "public_gates": [
+    "M3216 must freeze all decision criteria (eligible cells, construction constants, seed streams, floor/oracle definitions, primary rule, two-way SE form, C3 conditional readout, outcome routes, budget rule) in experiments/feasibility_audit/wp1_prereg.json BEFORE the --full run and echo them into summary.json",
+    "M3216 must measure floor, matched oracle, and every injected arm on the IDENTICAL 240-episode validation set per cell (12 mu x 20 disjoint subst_val seeds), episode-paired, with Wilson/Newcombe CIs and the frozen two-way SE",
+    "M3216 must stop before training if any cell fails the decision-frame leak gate (linear AND MLP out-of-fold R^2 <= 0.1, standard and c3 subsets)",
+    "M3216 must train 8 seeds per arm per cell per variant with capacity matching (non-input-projection spread <= 10%) and compute matching (same epochs x samples), LR/epoch selected on the disjoint sel split only",
+    "M3216 must report the C3 readout only under the pre-registered condition (a history arm clears the C3 floor) and adjudicate the three-way verdict (iir_wins / fir_sufficient / indeterminate) exactly as frozen",
+    "M3216 must report the L4 class-prior block as exploratory only and never gate on it",
+    "M3216 must leave ActiveSafetyReflexDriver, public driver defaults, and the engineering mainline objective boundary unchanged"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/feasibility_audit/wp1_full/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "primary_fail_all_arms_route_one_bounded_iteration_then_accept_bound",
+    "milestone": "m3216-wp1-modular-belief-experiment",
+    "reason": "Completed: pre-registered WP1 substitution experiment ran through the harness (47.6 min, 1948 dataset episodes, 320 supervised estimator runs, 82032 paired validation/C3/L4 episodes); first attempt stopped at the pre-registered dataset leak gate (delay cells linear OOF R^2 0.125-0.300, archived wp1_full_leakstop1) and the single pre-authorized data iteration (mu-free multi-sine speed schedule) re-passed all gates; re-measured matched prizes positive in all 4 eligible cells (0.117-0.483, Newcombe CIs excluding 0) but the primary L3_GRU arm passes 0 of 4 cells (bar 3): only delay12 shows a significant paired gain (+0.185, one-sided 97.5 lower bound +0.110, recapture 0.38 < 0.5) while injection is net-negative elsewhere (substitution-time mu error 0.14-0.26 vs dataset-val MAE 0.02-0.14, behavior-policy shift plus reveal-tick override of the internal detector); estimator-level signal is strongly history-borne (GRU R^2 0.91-0.99 in delay cells, equal-capacity window arms at predict-mean, reset control destroys it); C3 condition not met (constant-mu handover floor captures the reaction-only prize, true-mu oracle 3-5 pp BELOW const0.7 floor, C3-trained estimators flat) so the FIR-vs-IIR readout is not reported; L0 leak route not triggered; L4 exploratory block supports class-prior-shortens-prefix (1s+prior 0.556 vs 5s uniform 0.625 vs nominal 0.250, n=72, descriptive); auxiliary measurement only with the engineering incumbent unchanged and no validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof or self-ID claim.",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "runs/feasibility_audit/wp1_full/summary.json exists with status completed (or the pre-registered stopped_dataset_leak_gate_failed stop), the pre-registration echo, per-cell paired tables, and deterministic primary/C3/route verdicts",
+    "every gated readout consumed the subst_val stream only, with floor, oracle, and all injected arms on identical episode sets per cell",
+    "the dataset leak gate and C3 telemetry gate results are recorded per cell before any verdict",
+    "docs/m3216-wp1-modular-belief-experiment.md records the frozen criteria, the measured tables with CIs, the primary adjudication, the C3 three-way verdict, the L4 exploratory block, and the G-B routing",
+    "ActiveSafetyReflexDriver, public driver defaults, and the engineering mainline objective boundary are unchanged"
+  ],
+  "type": "infrastructure"
+}

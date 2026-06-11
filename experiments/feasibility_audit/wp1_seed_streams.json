@@ -1,0 +1,35 @@
+{
+  "protocol": "wp1_seed_streams_preregistration",
+  "status": "frozen_stage1_infrastructure",
+  "frozen_at_utc": "2026-06-11T00:00:00Z",
+  "plan_anchor": "docs/research-plan-phase2-capability-boundary-tracking.md WP1 (selection/validation/training seed streams mutually disjoint and frozen in pre-registration)",
+  "note": "Stage-1 freezes the WP1 seed-stream layout before any estimator run. The full-run measurement criteria (eligible cells, primary PASS rule, validation budget) are already pre-registered in the plan and the M3215 routing; a full-run prereg JSON echoing them is created before the WP1 full matrix run (stage 2).",
+  "wp1_seed_base": 20270101,
+  "episode_seed_formula": "20270101*100 + cell_index*1000000 + role_offset + i",
+  "cell_index": {"delay5": 0, "delay12": 1, "delay25": 2, "noise0.05": 3},
+  "role_offsets": {
+    "train": 0,
+    "sel": 400000,
+    "val": 600000,
+    "smoke_eval": 800000
+  },
+  "c3_variant_index_block": "i >= 100000 inside the train/val role offsets",
+  "substreams": {
+    "mu_draw": "default_rng([20270101, 101, episode_seed])",
+    "behavior_schedule": "default_rng([20270101, 303, episode_seed])",
+    "vehicle_scales_optional": "default_rng([20270101, 555, episode_seed])",
+    "distance_jitter": "default_rng([20270101, 777, episode_seed])",
+    "probe_folds": "default_rng([20270101, 909, fold_block])",
+    "trainer_batch_order": "default_rng([20270101, 404, arm_index, train_seed])",
+    "torch_training_seed": "20270101 + 1000*arm_index + 17*train_seed"
+  },
+  "disjointness": {
+    "claim": "episode seeds live in [2027010100, 2031010100), disjoint from every stream in use",
+    "streams_in_use": {
+      "x10_streams_2026xxxx*10": "202606110..203515367 range (bases 20260611,20260612,20260613,20260615,20260616,20260617,20260618,20260620,20260622,20260624,20260625 with offsets <= 900000)",
+      "x100_streams_2026xxxx*100": "2026061100..2026062500+O(10^7) (slip_onset/degraded/wp0 latency streams)",
+      "wp1_x100_stream": "20270101*100 = 2027010100 base: above all 2026-prefixed x100 streams and disjoint by construction"
+    },
+    "three_way_rule": "WP1 train (+0) / sel (+400000) / val (+600000) episode-seed blocks are pairwise disjoint by role offset; estimator hyperparameter (LR/epoch) selection reads ONLY the sel block; reported metrics read ONLY the val block; the substitution full-run validation stream will be frozen in the stage-2 prereg and must not reuse any of these blocks"
+  }
+}

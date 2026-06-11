@@ -1,0 +1,95 @@
+{
+  "protocol": "feasibility_audit_wp1_modular_belief_preregistration",
+  "milestone": "m3216-wp1-modular-belief-experiment",
+  "frozen_at_utc": "2026-06-11T00:00:00Z (frozen BEFORE the --full run; before this freeze only (a) the stage-1 infrastructure smokes, (b) the construction pilot on the substitution SELECTION stream, and (c) the --quick orchestrator smoke ran, none of which read a validation-stream verdict)",
+  "plan_anchor": "docs/research-plan-phase2-capability-boundary-tracking.md WP1.1-WP1.5 (review-hardened criteria) + G-B",
+  "routing_basis": "docs/m3215-wp0-degraded-sweep-bridge-validation.md Section 7: G-A fail -> WP1 on family #1 ONLY; eligible cells frozen by the M3215 hardened matched panel",
+  "claim_boundary": "Feasibility-audit WP1 modular-belief substitution measurement only (Phase-2 manual takeover). Auxiliary measurement; engineering incumbent and ActiveSafetyReflexDriver unchanged. No driver promotion, validation ranking, repair-success, gate-validity, paper, high-fidelity, robustness-result, feasibility-proof, or self-ID capability claim.",
+  "eligible_cells_frozen": {
+    "cells": ["delay5", "delay12", "delay25", "noise0.05"],
+    "source": "M3215 hardened matched panel (family #1, matched prize >= 0.15): delay5 +0.333 [0.227,0.431], delay12 +0.458 [0.342,0.557], delay25 +0.183 [0.057,0.301], noise0.05 +0.150 [0.024,0.270]",
+    "anchor_role": "the M3215 values FREEZE ELIGIBILITY ONLY; the matched prize consumed by the recapture denominator is RE-MEASURED on the WP1 prefix-carrying construction with floor and oracle on the same episodes as every arm",
+    "clean_anchor_note": "clean-anchor fractions are NOT reported: the prefix-carrying construction has no measured clean-cell anchor and M3215 clean numbers are not construction-comparable; matched anchor only (deployable-primary per the plan)"
+  },
+  "construction_frozen": {
+    "task_surface": "B2K2_final at reveal 9.5 m (family #1), M3214 wrapper via make_env_from_config for every cell",
+    "vehicle_randomization": "OFF for all gated blocks (the frozen M3215 measurement condition); the 5 s familiarization prefix + vehicle-RLS fixture stays in place (standard fixture per docs/selfid-belief-decomposition-2026-06.md); ON only in the exploratory L4 block",
+    "prefix_seconds": 5.0,
+    "prefix_force_caps_n": {"brake": 600.0, "drive": 600.0},
+    "prefix_dist_offset_m": 40.0,
+    "prefix_offset_rationale": "stage-2 revision of the stage-1 60 m offset, frozen from the MEASURED nominal prefix travel (39.85 m, mu- and seed-invariant; pilot.json prefix_travel_m): at handover the obstacle sits at ~d_base + 0.15 m so the controller's handover-clock distance/deadline bookkeeping is consistent with the true geometry. Measured stage-1 defect this fixes: with 60 m, ~20 m of unmodeled offset remain at handover and every v-target-law arm (oracle included) decelerates prematurely and times out under a B2K2-equivalent deadline. The offset applies to BOTH training data and evaluation (single construction).",
+    "standard_deadline_allowance_steps": 0,
+    "standard_deadline_allowance_rule": "declared grid {0, 25, 50}, pilot rule = first value with delay5 sel-stream oracle >= 0.5 AND prize >= 0.15; pilot (subst_sel only): allow=0 oracle 0.958 floor 0.792 prize +0.167 -> PASS at the first value; delay12 direction verified (+0.500); allow=25/50 inflate the floor to 0.917/0.833 and collapse the prize (+0.042/+0.083), confirming the deadline-tension mechanism",
+    "std_max_steps": 535,
+    "c3_reaction_budget_steps": 110,
+    "c3_reaction_budget_rule": "declared grid {90, 100, 110, 125, 150}, pilot rule = argmax delay5 sel-stream prize subject to oracle >= 0.5, tie -> smaller; pilot: budget 110 -> oracle 0.917, no-belief floor 0.333, prize +0.583 (max; 90 -> 0/0, 100 -> oracle 0.417 < bar, 125/150 -> prize +0.292); delay12 direction verified at 110 (oracle 0.833, floor 0.250)",
+    "c3_handover_protocol": "scripted c3_ramp_release behavior (mu-informative excitation < 1.0 s task-clock, then sub-limit cruise at U(5.5,6.5) m/s with mu-free caps) drives until the reveal tick; the controller under test takes over AT the reveal; per-episode deadline = scripted-probe reveal tick + 110 steps (probe = identical scripted rollout, deterministic per (cell, mu, seed)); identical deadline across all arms of an episode",
+    "c3_handover_controller": "frozen config: rate 20000, backoff 0.06, dv 0, detector = the cell's M3215-calibrated (window, tau) pair with the smallest tau; oracle arm = mode oracle dv 0",
+    "injection_hook": "the frozen WP1.3 hook (stage-1, bit-compat tested): injected_belief.observe(obs) on every frame the estimator can see (prefix frames fed by the harness exactly once, controller frames fed by controller.act), estimate() consumed at the DECISION TICK = first obstacle-present frame, overriding _mu_eff/_limit_est for the rest of the episode",
+    "injected_arm_config_rule": "injected arms use the cell's best-SELECTION seeker config (chosen on subst_sel WITHOUT any estimator) + BeliefInjector; estimator arms get ZERO eval-time hyperparameter freedom",
+    "behavior_policy_shift_declared": "standard-block estimators are trained on mu-decoupled scripted behaviors but evaluated on frames generated by the seeker's own approach (inherent to the substitution design, plan WP1.3); the C3 block is the controlled variant where the eval-time scripted behavior equals the training behavior and the excitation-to-decision gap exceeds every FIR window"
+  },
+  "data_frozen": {
+    "counts_per_cell": {"train": 240, "sel": 40, "val_grid": 12, "val_offgrid": 24, "c3_train": 160, "c3_val": 24},
+    "labels": "primary mu_eff (the planner interface consumes mu); behavior schedules drawn from rng([20270101,303,seed]) and never from mu; open-loop ramps + mu-free force caps + seed-derived lateral dither (the stage-1 leak repair)",
+    "leak_gate": "per cell, decision-frame single-frame -> mu out-of-fold R^2 <= 0.1 for BOTH the linear ridge probe (primary) and the small-MLP probe (secondary), on the standard subset AND the c3 subset; ANY cell failing -> the run STOPS before training (status stopped_dataset_leak_gate_failed) and the pre-registered one bounded data iteration route applies",
+    "c3_telemetry_gate": "every valid C3 episode: decision >= 3.5 s task-clock, no truth-frame excitation (rear utilization > 0.8) after task_start + 1.0 s, excitation-to-decision gap > 2.5 s; a FAIL invalidates the C3 readout (reported), not the standard block"
+  },
+  "estimator_frozen": {
+    "arms": ["L0_frame", "L2_window_25", "L2_window_50", "L2_window_100", "L3_GRU"],
+    "primary_arm": "L3_GRU (pre-registered; ALL other arms exploratory, no best-arm selection inference)",
+    "capacity_rule": "non-input-projection parameter counts matched within 10% (L0/L2 h=56 -> 3305; L3 GRU h=32 -> 3297); window arms share a per-frame encoder + temporal mean pooling",
+    "compute_matching": "same max epochs (200) x same samples per arm; per-arm LR {1e-3, 3e-4} x epoch (eval every 10) selected on the SELECTION split only; batch size 16",
+    "training_seeds": "8 per arm per cell per variant; torch seed 20270101 + 1000*arm_index + 17*train_seed; batch order rng [20270101, 404, arm_index, train_seed]",
+    "c3_arms": "trained separately on the c3 block (variant_filter=1; sel carved as the first fifth of the c3 train split), same capacity/compute rules",
+    "reset_control": "L3_GRU reset-eval control (state truncated to last 25 frames) reported per training run",
+    "offgrid_mu": "validation contains 24 off-grid mu points; off-grid metrics reported separately (grid-memorization check)"
+  },
+  "seed_streams_frozen": {
+    "base": "experiments/feasibility_audit/wp1_seed_streams.json (stage-1 freeze): episode seed = 20270101*100 + cell_index*1000000 + role_offset + i; train +0 / sel +400000 / val +600000 / smoke_eval +800000; c3 dataset block i >= 100000",
+    "stage2_substitution_streams": "subst_sel role offset +200000, subst_val role offset +900000; episode index i = block + 100*point + k with block 0 (standard), 10000 (C3), 50000 (L4, subst_val only); sel k in {0,1}, val k in {0..19}, L4 k in {0..5}",
+    "three_way_disjointness": "estimator hyperparameters read ONLY the sel block (+400000); estimator metrics read ONLY the val block (+600000); floor/oracle/dv/c3-floor selection and the construction pilot read ONLY subst_sel (+200000); every gated verdict reads ONLY subst_val (+900000); training reads ONLY the train block (+0); all blocks pairwise disjoint by construction and disjoint from every 20260611..20260625-based stream"
+  },
+  "statistics_frozen": {
+    "validation_budget": "12 mu grid points x 20 disjoint validation seeds = 240 episodes per arm per cell; floor, matched oracle, and every injected arm measured on the IDENTICAL episode set (paired)",
+    "floor_definition": "floor = the better (validation success; selection chooses configs, validation picks the max) of {best-selection seeker over the frozen M3215 per-cell tau grid x rates {2000,6000,20000} x backoffs {0.06,0.15} x dv {0,0.75}, best-selection fixed plan over 8 fixed speeds + 3 fixed ramps}; includes the familiarization prefix + vehicle-RLS fixture",
+    "oracle_definition": "matched per-mu oracle on the same degraded cell and same episodes, per-point dv selected on subst_sel from {-0.5, 0, +0.5, +1.0}",
+    "prize": "prize = oracle_val - floor_val (re-measured, episode-paired); Newcombe 95% CI reported; recapture denominator requires prize > 0",
+    "per_episode_difference": "D_e = mean over 8 training seeds of arm success on episode e minus floor success on episode e; Delta = mean_e D_e; recapture = Delta / prize",
+    "uncertainty": "two-way SE in quadrature: SE_ep = sd(D_e)/sqrt(240) (episode level, pairing retained) + SE_seed = sd over the 8 per-seed Delta_s / sqrt(8) (training-seed cluster); one-sided 97.5% lower bound = Delta - 1.959964 * sqrt(SE_ep^2 + SE_seed^2); a pure 8-cluster seed SE would share episodes across clusters and underestimate episode noise, hence the quadrature form (frozen)",
+    "cell_pass": "recapture >= 0.5 AND one-sided 97.5% lower bound > 0 AND prize > 0",
+    "cross_cell_aggregate": "pooled fraction = sum over cells of sum_e D_e / sum over cells of sum_e (O_e - F_e), reported descriptively only; per-cell fractions descriptive"
+  },
+  "primary_frozen": {
+    "rule": "PRIMARY PASS iff L3_GRU achieves cell_pass in >= 3 of the 4 eligible cells",
+    "exploratory": "L0/L2 arms, the C3 block, the L4 block, pooled fractions, and all diagnostics are reported, never gated"
+  },
+  "c3_frozen": {
+    "purpose": "C3 (FIR vs IIR, M1182): excitation-to-decision gap >> max FIR window (2 s) + max delay (0.5 s); only state-bearing estimators can carry mu across the gap",
+    "floor": "best of {no-belief handover, constant-mu handover 0.45 / 0.70 / 0.95} selected on subst_sel, validated on subst_val (constant-mu arms are belief-free fixed plans in belief space)",
+    "conditional_readout": "the L3 vs L2_100 comparison is reported per cell ONLY IF at least one history arm (L2_25/L2_50/L2_100/L3_GRU) clears the C3 floor (one-sided 97.5% lower bound of arm - floor > 0, same two-way SE)",
+    "tost": "equivalence bound |Delta| < 0.05 with the 90% CI (two-way SE) inside the bounds -> FIR_sufficient",
+    "verdict": "per qualifying cell: iir_wins if one-sided 97.5% lower bound of (L3 - L2_100) > 0; else fir_sufficient if TOST passes; else indeterminate; non-qualifying cells report not_reported_no_history_arm_clears_floor"
+  },
+  "l4_frozen": {
+    "status": "EXPLORATORY ONLY, not gated (plan WP1.1 L4 scope: class prior can at most shorten the familiarization prefix)",
+    "design": "delay5 cell, vehicle randomization ON, 12 mu x 6 seeds (subst_val L4 block); arms = {nominal belief, prefix-RLS 5s uniform prior (sigma 0.30), prefix-RLS 1s uniform, prefix-RLS 1s class prior (true kappa rounded to 0.15-wide bins, sigma 0.075), prefix-RLS 5s class prior, truth-kappa ceiling}; kappa belief fed to the cell's best floor seeker via the belief_decomposition BeliefRampController; success + kappa error medians reported descriptively"
+  },
+  "outcome_routes_frozen": [
+    "PRIMARY PASS -> G-B passes, WP2 proceeds",
+    "all arms fail (primary FAIL and no exploratory arm cell_pass) -> ONE bounded excitation/representation iteration (<= 1 week, <= 4 h CPU), then accept the bound as the result",
+    "primary FAIL but some exploratory arm passes -> report descriptively, no best-arm inference, G-B adjudicates on the primary as written",
+    "L0_frame achieves cell_pass in >= 3 cells -> leak audit, <= 1 redesign round, then report the leak itself as a finding and scope claims down",
+    "re-measured prize <= 0 in a cell -> that cell cannot pass (recapture undefined); reported as construction-degenerate",
+    "dataset leak gate fails -> run stops before training; one bounded data iteration, then accept",
+    "C3 telemetry gate fails -> C3 readout invalid and reported; standard block unaffected"
+  ],
+  "budget_rule_frozen": "if projected runtime exceeds 2.5 h, exploratory arms are cut in the declared order (1) L4 block, (2) C3 L0/L2_25/L2_50 arms, (3) standard L2_25/L2_50 arms -- the primary arm, floor, oracle, training seed count, and the 240-episode validation budget are NEVER cut",
+  "execution": {
+    "command": "PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/wp1_full_run.py --full --output-dir runs/feasibility_audit/wp1_full",
+    "runtime_estimate": "~2,000 dataset episodes + 320 training runs (the GRU runs dominate) + ~52,000 substitution episodes at ~0.1-0.25 s each, 16 workers: ~60-110 min expected, well under the 2.5 h bar",
+    "resume": "progress.jsonl per completed unit; rerun skips completed units; summary.json only on completion",
+    "managed_process": "executed via the research harness (research_cycle run-next) as a managed background process per WP6.2"
+  },
+  "pilot_artifacts": "runs/feasibility_audit/wp1_construction_pilot/pilot.json (subst_sel only; all grid points reported, including the rejected ones)"
+}

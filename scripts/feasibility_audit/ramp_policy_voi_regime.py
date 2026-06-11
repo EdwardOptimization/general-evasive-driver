@@ -320,6 +320,18 @@ class RampPolicyController:
     channel pre-reveal (settle -> ramp -> [reapproach] -> limit_hold -> track)
     and caps the post-reveal bang-bang brake at the believed force limit.
     Modes: seeker | prior | oracle | fixed_ramp.
+
+    WP1 injected-belief entry (Phase-2 plan WP1.3, 2026-06): ``injected_belief``
+    is an optional duck-typed object with ``observe(obs) -> None`` (called once
+    per act() with the controller's own -- possibly degraded -- observation)
+    and ``estimate() -> float | None``. At the DECISION TICK (the first frame
+    whose obstacle-present channel is set, i.e. the reveal) the estimate
+    replaces the controller's internal belief: ``_mu_eff``/``_limit_est``
+    return the injected mu for the rest of the episode (overriding the
+    seeker's detector mu_hat and the oracle's true mu alike). When
+    ``injected_belief`` is None (default) every new code path is inert and the
+    controller's behavior is bit-for-bit identical to the pre-hook version
+    (asserted in tests/test_wp1_belief_injection_hook.py).
     """
 
     def __init__(self, mod_b, interp, design, name: str, mode: str, *,
@@ -327,7 +339,9 @@ class RampPolicyController:
                  strategy: str = "hold", mu_start: float = MU_DOMAIN[0],
                  mu_true: float | None = None, dv: float = 0.0,
                  prior_lo: float | None = None,
-                 fixed_frac: float | None = None, fixed_hold_s: float | None = None):
+                 fixed_frac: float | None = None, fixed_hold_s: float | None = None,
+                 injected_belief=None):
+        self.injected_belief = injected_belief
         self.mod_b, self.interp, self.design = mod_b, interp, design
         self.name, self.mode = name, mode
         self.ramp_rate, self.backoff, self.strategy = ramp_rate, backoff, strategy
@@ -351,6 +365,8 @@ class RampPolicyController:
         self.detector.reset()
         self.k = 0
         self.phase = "settle"
+        self.mu_injected: float | None = None
+        self.injection_step = -1
         self.mu_hat: float | None = self.mu_true if self.mode == "oracle" else None
         self.mu_floor = self.prior_lo if self.prior_lo is not None else MU_DOMAIN[0]
         self.censored = False
@@ -366,6 +382,8 @@ class RampPolicyController:
 
     # -- belief helpers --------------------------------------------------------
     def _mu_eff(self) -> float:
+        if self.mu_injected is not None:
+            return self.mu_injected
         if self.mode == "oracle":
             return self.mu_true
         return self.mu_hat if self.mu_hat is not None else self.mu_floor
@@ -389,6 +407,8 @@ class RampPolicyController:
         return float(np.clip(base + self.dv, 3.9, V_CAP))
 
     def _limit_est(self) -> float | None:
+        if self.mu_injected is not None:
+            return TIRE_CAP * FZR * self.mu_injected
         if self.mode == "oracle":
             return TIRE_CAP * FZR * self.mu_true
         if self.mu_hat is not None:
@@ -501,6 +521,13 @@ class RampPolicyController:
     # -- policy ----------------------------------------------------------------
     def act(self, obs: np.ndarray) -> np.ndarray:
         obs = np.asarray(obs, dtype=np.float64)
+        if self.injected_belief is not None:
+            self.injected_belief.observe(obs)
+            if self.mu_injected is None and float(obs[IDX_OBST_PRESENT]) > 0.5:
+                est = self.injected_belief.estimate()
+                if est is not None:
+                    self.mu_injected = float(np.clip(float(est), 0.10, 1.40))
+                    self.injection_step = self.k
         self.detector.update(obs)
         self._ingest_detection()
         vx = float(obs[IDX_VX]) * 20.0
@@ -528,7 +555,7 @@ class RampPolicyController:
         return action
 
     def telemetry_row(self) -> dict[str, Any]:
-        return {
+        row = {
             "mu_hat": float("nan") if self.mu_hat is None else round(float(self.mu_hat), 4),
             "censored": bool(self.censored),
             "id_step": int(self.id_step),
@@ -538,6 +565,13 @@ class RampPolicyController:
             "v_target_final": round(float(self._v_target()), 3),
             "phase_final": self.phase,
         }
+        if self.injected_belief is not None:
+            # extra keys appear ONLY when injection is configured, so legacy
+            # telemetry rows (and their CSV schemas) are byte-identical.
+            row["mu_injected"] = (float("nan") if self.mu_injected is None
+                                  else round(float(self.mu_injected), 4))
+            row["injection_step"] = int(self.injection_step)
+        return row
 
 
 # ----------------------------------------------------------------- measurement
