@@ -165,6 +165,53 @@ def _process_v6_manifest(task_id, artifact="docs/m1896.md", stage="infrastructur
     return manifest
 
 
+def _process_v7_manifest(
+    task_id,
+    artifact="docs/m3220.md",
+    evidence_axis="process_guardrail_validator_enforcement",
+    milestone_intent=None,
+):
+    manifest = _process_v6_manifest(task_id, artifact=artifact)
+    manifest["workflow_synthesis"]["evidence_axis"] = evidence_axis
+    if milestone_intent is not None:
+        manifest["milestone_intent"] = milestone_intent
+    return manifest
+
+
+def _queue_row(task_id, priority, status="pending", hypothesis="run process milestone", notes=""):
+    return {
+        "id": task_id,
+        "priority": priority,
+        "status": status,
+        "kind": "infrastructure",
+        "hypothesis": hypothesis,
+        "command": "see manifest",
+        "success_artifact": "",
+        "notes": notes,
+    }
+
+
+def _write_state(tmp_path, rows, manifests):
+    queue = tmp_path / "queue.csv"
+    status = tmp_path / "status.json"
+    manifest_dir = tmp_path / "manifests"
+    scoreboard = tmp_path / "scoreboard.csv"
+    manifest_dir.mkdir(exist_ok=True)
+    _write_queue(queue, rows)
+    counts = {"planned": 0, "completed": 0, "failed": 0, "blocked": 0, "pending": 0, "running": 0}
+    for row in rows:
+        counts[row["status"]] += 1
+    next_candidates = [row["id"] for row in rows if row["status"] in {"pending", "planned"}]
+    status.write_text(
+        json.dumps({"counts": counts, "next_task": sorted(next_candidates)[0] if next_candidates else None}),
+        encoding="utf-8",
+    )
+    for manifest in manifests:
+        (manifest_dir / f"{manifest['id']}.json").write_text(json.dumps(manifest), encoding="utf-8")
+    _write_scoreboard(scoreboard, [])
+    return queue, status, manifest_dir, scoreboard
+
+
 def test_normalize_next_task_supports_string_and_object():
     assert normalize_next_task("m90") == "m90"
     assert normalize_next_task({"id": "m91"}) == "m91"
@@ -1246,3 +1293,266 @@ def test_process_v6_rejects_non_evidence_streak_without_synthesis(tmp_path):
     issues = validate_research_state(tmp_path, queue, status, manifest_dir, scoreboard)
 
     assert any("consecutive non-evidence milestones" in issue.message for issue in issues)
+
+
+def test_process_v7_repair_axis_requires_feasibility_pricing(tmp_path):
+    rows = [_queue_row("m3220", 32200, hypothesis="close a measured controller gap")]
+    manifests = [_process_v7_manifest("m3220", evidence_axis="hard_safety_repair_direct_action")]
+    queue, status, manifest_dir, scoreboard = _write_state(tmp_path, rows, manifests)
+
+    issues = validate_research_state(tmp_path, queue, status, manifest_dir, scoreboard)
+
+    assert any("requires a feasibility_pricing object" in issue.message for issue in issues)
+
+
+def test_process_v7_milestone_intent_triggers_pricing_requirement(tmp_path):
+    rows = [_queue_row("m3220", 32200, hypothesis="close a measured controller gap")]
+    manifests = [
+        _process_v7_manifest(
+            "m3220",
+            evidence_axis="boundary_measurement_axis",
+            milestone_intent="training",
+        )
+    ]
+    queue, status, manifest_dir, scoreboard = _write_state(tmp_path, rows, manifests)
+
+    issues = validate_research_state(tmp_path, queue, status, manifest_dir, scoreboard)
+
+    assert any("requires a feasibility_pricing object" in issue.message for issue in issues)
+
+
+def test_process_v7_explicit_non_priced_intent_overrides_axis_inference(tmp_path):
+    rows = [_queue_row("m3220", 32200, hypothesis="audit a measured surface")]
+    manifests = [
+        _process_v7_manifest(
+            "m3220",
+            evidence_axis="post_repair_surface_audit",
+            milestone_intent="measurement",
+        )
+    ]
+    queue, status, manifest_dir, scoreboard = _write_state(tmp_path, rows, manifests)
+
+    issues = validate_research_state(tmp_path, queue, status, manifest_dir, scoreboard)
+
+    assert not any("requires a feasibility_pricing object" in issue.message for issue in issues)
+
+
+def test_process_v7_accepts_compliant_feasibility_pricing(tmp_path):
+    pricing_dir = tmp_path / "experiments" / "pricing"
+    pricing_dir.mkdir(parents=True)
+    (pricing_dir / "new_gap_pricing.json").write_text("{}\n", encoding="utf-8")
+    manifest = _process_v7_manifest("m3220", evidence_axis="structural_ceiling_repair")
+    manifest["feasibility_pricing"] = {
+        "pricing_artifact": "experiments/pricing/new_gap_pricing.json",
+        "priced_gap": 0.21,
+        "threshold": 0.15,
+        "gap_meets_threshold": True,
+    }
+    rows = [_queue_row("m3220", 32200, hypothesis="close a priced reachable gap")]
+    queue, status, manifest_dir, scoreboard = _write_state(tmp_path, rows, [manifest])
+
+    issues = validate_research_state(tmp_path, queue, status, manifest_dir, scoreboard)
+
+    assert issues == []
+
+
+def test_process_v7_rejects_missing_pricing_artifact_and_bad_types(tmp_path):
+    manifest = _process_v7_manifest("m3220", evidence_axis="structural_ceiling_repair")
+    manifest["feasibility_pricing"] = {
+        "pricing_artifact": "experiments/pricing/does_not_exist.json",
+        "priced_gap": "0.21",
+        "threshold": 0.15,
+        "gap_meets_threshold": "yes",
+    }
+    rows = [_queue_row("m3220", 32200, hypothesis="close a priced reachable gap")]
+    queue, status, manifest_dir, scoreboard = _write_state(tmp_path, rows, [manifest])
+
+    issues = validate_research_state(tmp_path, queue, status, manifest_dir, scoreboard)
+
+    assert any("pricing_artifact does not exist" in issue.message for issue in issues)
+    assert any("priced_gap must be a number" in issue.message for issue in issues)
+    assert any("gap_meets_threshold must be a boolean" in issue.message for issue in issues)
+
+
+def test_process_v7_rejects_certified_dead_end_residual_seed_repair(tmp_path):
+    rows = [
+        _queue_row(
+            "m3220",
+            32200,
+            hypothesis="repair the residual hard-safety row seed 401530 with a new controller patch",
+        )
+    ]
+    manifests = [_process_v7_manifest("m3220", evidence_axis="residual_row_hard_safety_repair")]
+    queue, status, manifest_dir, scoreboard = _write_state(tmp_path, rows, manifests)
+
+    issues = validate_research_state(tmp_path, queue, status, manifest_dir, scoreboard)
+
+    dead_end = [issue.message for issue in issues if "certified dead end" in issue.message]
+    assert dead_end
+    assert any("oracle_certification_results.json" in message for message in dead_end)
+    assert any("c5_reflex_degradation.json" in message for message in dead_end)
+
+
+def test_process_v7_dead_end_reopened_only_with_new_pricing_artifact(tmp_path):
+    pricing_dir = tmp_path / "experiments" / "pricing"
+    pricing_dir.mkdir(parents=True)
+    (pricing_dir / "residual_row_repricing.json").write_text("{}\n", encoding="utf-8")
+    manifest = _process_v7_manifest("m3220", evidence_axis="residual_row_hard_safety_repair")
+    manifest["feasibility_pricing"] = {
+        "pricing_artifact": "experiments/pricing/residual_row_repricing.json",
+        "priced_gap": 0.18,
+        "threshold": 0.15,
+        "gap_meets_threshold": True,
+    }
+    rows = [
+        _queue_row(
+            "m3220",
+            32200,
+            hypothesis="repair the residual hard-safety row seed 401530 after fresh re-pricing",
+        )
+    ]
+    queue, status, manifest_dir, scoreboard = _write_state(tmp_path, rows, [manifest])
+
+    issues = validate_research_state(tmp_path, queue, status, manifest_dir, scoreboard)
+
+    assert issues == []
+
+
+def test_process_v7_rejects_certification_artifact_reused_as_new_pricing(tmp_path):
+    manifest = _process_v7_manifest("m3220", evidence_axis="residual_row_hard_safety_repair")
+    manifest["feasibility_pricing"] = {
+        "pricing_artifact": "experiments/feasibility_audit/oracle_certification_results.json",
+        "priced_gap": 0.18,
+        "threshold": 0.15,
+        "gap_meets_threshold": True,
+    }
+    rows = [
+        _queue_row(
+            "m3220",
+            32200,
+            hypothesis="repair the residual hard-safety row seed 401530 again",
+        )
+    ]
+    queue, status, manifest_dir, scoreboard = _write_state(tmp_path, rows, [manifest])
+    certification = tmp_path / "experiments" / "feasibility_audit"
+    certification.mkdir(parents=True)
+    (certification / "oracle_certification_results.json").write_text("{}\n", encoding="utf-8")
+
+    issues = validate_research_state(tmp_path, queue, status, manifest_dir, scoreboard)
+
+    assert any("certified dead end" in issue.message for issue in issues)
+
+
+def test_process_v7_rejects_reflex_drift_required_repair(tmp_path):
+    rows = [
+        _queue_row(
+            "m3220",
+            32200,
+            hypothesis="repair the reflex family drift_required rows with a deeper governor",
+        )
+    ]
+    manifests = [_process_v7_manifest("m3220", evidence_axis="reflex_drift_required_repair")]
+    queue, status, manifest_dir, scoreboard = _write_state(tmp_path, rows, manifests)
+
+    issues = validate_research_state(tmp_path, queue, status, manifest_dir, scoreboard)
+
+    assert any(
+        "certified dead end" in issue.message and "drift_required" in issue.message for issue in issues
+    )
+
+
+def test_process_v7_rejects_vehicle_spread_reflex_retuning(tmp_path):
+    rows = [
+        _queue_row(
+            "m3220",
+            32200,
+            hypothesis="per-instance retuning of the reflex across the vehicle spread tiers",
+        )
+    ]
+    manifests = [_process_v7_manifest("m3220", evidence_axis="vehicle_spread_reflex_retuning")]
+    queue, status, manifest_dir, scoreboard = _write_state(tmp_path, rows, manifests)
+
+    issues = validate_research_state(tmp_path, queue, status, manifest_dir, scoreboard)
+
+    assert any(
+        "certified dead end" in issue.message and "vehicle-spread reflex retuning" in issue.message
+        for issue in issues
+    )
+
+
+def test_process_v7_not_enforced_below_priority_threshold(tmp_path):
+    rows = [
+        _queue_row(
+            "m3219x",
+            32190,
+            hypothesis="repair the residual hard-safety row seed 401530 with a new controller patch",
+        )
+    ]
+    manifests = [_process_v7_manifest("m3219x", evidence_axis="residual_row_hard_safety_repair")]
+    queue, status, manifest_dir, scoreboard = _write_state(tmp_path, rows, manifests)
+
+    issues = validate_research_state(tmp_path, queue, status, manifest_dir, scoreboard)
+
+    assert issues == []
+
+
+def _dependency_unavailable_rows_and_manifests(count, note="blocked dependency: external chrono solver unavailable"):
+    rows = []
+    manifests = []
+    for index in range(count):
+        task_id = f"m322{index}"
+        rows.append(
+            _queue_row(
+                task_id,
+                32200 + index * 10,
+                status="completed",
+                hypothesis="continue branch bookkeeping milestone",
+                notes=note,
+            )
+        )
+        manifests.append(_process_v7_manifest(task_id))
+    return rows, manifests
+
+
+def test_process_v7b_two_dependency_unavailable_completed_require_escalation(tmp_path):
+    rows, manifests = _dependency_unavailable_rows_and_manifests(2)
+    queue, status, manifest_dir, scoreboard = _write_state(tmp_path, rows, manifests)
+
+    issues = validate_research_state(tmp_path, queue, status, manifest_dir, scoreboard)
+
+    assert any("escalate instead of bookkeeping" in issue.message for issue in issues)
+
+
+def test_process_v7b_single_dependency_unavailable_completed_is_allowed(tmp_path):
+    rows, manifests = _dependency_unavailable_rows_and_manifests(1)
+    queue, status, manifest_dir, scoreboard = _write_state(tmp_path, rows, manifests)
+
+    issues = validate_research_state(tmp_path, queue, status, manifest_dir, scoreboard)
+
+    assert not any("escalate instead of bookkeeping" in issue.message for issue in issues)
+
+
+def test_process_v7b_escalation_file_allows_dependency_streak(tmp_path):
+    rows, manifests = _dependency_unavailable_rows_and_manifests(2)
+    queue, status, manifest_dir, scoreboard = _write_state(tmp_path, rows, manifests)
+    escalations = tmp_path / "docs" / "escalations"
+    escalations.mkdir(parents=True)
+    (escalations / "README.md").write_text("protocol\n", encoding="utf-8")
+    (escalations / "2026-06-12-chrono-solver.md").write_text(
+        "Blocked branch: response_amplification_actor_coupling\nResume condition: solver released\n",
+        encoding="utf-8",
+    )
+
+    issues = validate_research_state(tmp_path, queue, status, manifest_dir, scoreboard)
+
+    assert not any("escalate instead of bookkeeping" in issue.message for issue in issues)
+
+
+def test_process_v7b_streak_resets_on_normal_completed_milestone(tmp_path):
+    rows, manifests = _dependency_unavailable_rows_and_manifests(3)
+    rows[1]["notes"] = "completed with fresh panel evidence"
+    queue, status, manifest_dir, scoreboard = _write_state(tmp_path, rows, manifests)
+
+    issues = validate_research_state(tmp_path, queue, status, manifest_dir, scoreboard)
+
+    assert not any("escalate instead of bookkeeping" in issue.message for issue in issues)

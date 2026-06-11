@@ -1085,6 +1085,7 @@ def validate_research_state(
 
     process_v3_records: list[tuple[ResearchTask, dict[str, Any]]] = []
     process_v6_records: list[tuple[ResearchTask, dict[str, Any]]] = []
+    process_v7_records: list[tuple[ResearchTask, dict[str, Any]]] = []
     for task in tasks:
         if task.status not in ALLOWED_STATUSES:
             issues.append(ValidationIssue("error", f"{task.id}: unknown status {task.status!r}"))
@@ -1103,6 +1104,7 @@ def validate_research_state(
         process_v4 = _is_process_v4(task, process_v4_from_priority)
         process_v5 = _is_process_v5(task, process_v5_from_priority)
         process_v6 = _is_process_v6(task, process_v6_from_priority)
+        process_v7 = _is_process_v7(task, process_v7_from_priority)
         issues.extend(
             _validate_manifest(
                 task,
@@ -1118,6 +1120,9 @@ def validate_research_state(
             process_v3_records.append((task, manifest))
         if process_v6:
             process_v6_records.append((task, manifest))
+        if process_v7:
+            issues.extend(_validate_process_v7_manifest(task, manifest, root))
+            process_v7_records.append((task, manifest))
         if task.status == "completed":
             if process_v2 and manifest.get("review_artifact") and not _path_exists(root, str(manifest["review_artifact"])):
                 issues.append(ValidationIssue("error", f"{task.id}: review_artifact is missing: {manifest['review_artifact']}"))
@@ -1146,6 +1151,7 @@ def validate_research_state(
                         )
     issues.extend(_validate_process_v3_branch_cadence(process_v3_records))
     issues.extend(_validate_process_v6_local_search_cadence(process_v6_records))
+    issues.extend(_validate_process_v7_escalation_protocol(process_v7_records, root))
     return issues
 
 
@@ -1178,6 +1184,11 @@ def main() -> None:
         type=int,
         default=PROCESS_V6_LOCAL_SEARCH_GUARD_ENFORCE_FROM_PRIORITY,
     )
+    parser.add_argument(
+        "--process-v7-from-priority",
+        type=int,
+        default=PROCESS_V7_FEASIBILITY_PRICING_ENFORCE_FROM_PRIORITY,
+    )
     args = parser.parse_args()
 
     issues = validate_research_state(
@@ -1192,6 +1203,7 @@ def main() -> None:
         process_v4_from_priority=args.process_v4_from_priority,
         process_v5_from_priority=args.process_v5_from_priority,
         process_v6_from_priority=args.process_v6_from_priority,
+        process_v7_from_priority=args.process_v7_from_priority,
     )
     for issue in issues:
         print(f"{issue.severity}: {issue.message}")
@@ -1205,7 +1217,8 @@ def main() -> None:
         f"process_v3_from_priority={args.process_v3_from_priority}, "
         f"process_v4_from_priority={args.process_v4_from_priority}, "
         f"process_v5_from_priority={args.process_v5_from_priority}, "
-        f"process_v6_from_priority={args.process_v6_from_priority})"
+        f"process_v6_from_priority={args.process_v6_from_priority}, "
+        f"process_v7_from_priority={args.process_v7_from_priority})"
     )
 
 
