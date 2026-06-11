@@ -1,0 +1,196 @@
+{
+  "id": "m3217-wp1-belief-substitution-bounded-iteration",
+  "priority": 32170,
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "metric_artifact",
+    "seed_fragility",
+    "contract_violation",
+    "scenario_sampling_failure",
+    "objective_overfit"
+  ],
+  "hypothesis": "The SINGLE pre-registered bounded excitation/representation iteration granted by the M3216 all-arms-fail route -- 50/50 mixing of closed-loop floor-seeker trajectories into the leak-gated training data (repair A, distribution shift) plus confidence-gated continuous per-tick belief injection with internal-detector fallback (repair B, injection timing), on UNCHANGED criteria, construction, floor/oracle definitions, and two-way statistics with fresh re-based seed streams -- can decide the WP1 terminal verdict (primary: L3_GRU recaptures at least 50 percent of the re-measured matched prize in at least 3 of the 4 frozen eligible cells with one-sided 97.5 percent lower bounds excluding 0; PASS opens G-B/WP2, FAIL is accepted as the C2 bound with no further iteration) before any validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof or self-ID claim.",
+  "lineage": {
+    "parent_checkpoint": [
+      "docs/research-plan-phase2-capability-boundary-tracking.md"
+    ],
+    "parent_dataset": [
+      "runs/feasibility_audit/wp1_full/summary.json",
+      "runs/feasibility_audit/wp0_degraded_sweep/summary.json"
+    ],
+    "parent_config": [
+      "experiments/feasibility_audit/wp1_iter1_prereg.json",
+      "experiments/feasibility_audit/wp1_prereg.json"
+    ],
+    "parent_objective": [
+      "close Phase-2 WP1 terminally: execute the one bounded iteration of the all-arms-fail route and accept its outcome as the G-B adjudication (PASS -> WP2; FAIL -> the C2 learnable-but-not-redeemable bound)"
+    ],
+    "derived_from": [
+      "docs/m3216-wp1-modular-belief-experiment.md",
+      "docs/m3215-wp0-degraded-sweep-bridge-validation.md",
+      "experiments/feasibility_audit/wp1_prereg.json",
+      "scripts/feasibility_audit/wp1_full_run.py",
+      "scripts/feasibility_audit/wp1_data_pipeline.py",
+      "scripts/feasibility_audit/wp1_estimator_trainer.py"
+    ],
+    "blocked_by": [
+      "G-B (WP2 sequence-proposal + verifier work) requires this milestone's terminal primary verdict"
+    ],
+    "supersedes": [
+      "any further WP1 substitution iteration: the M3216 route grants exactly one bounded iteration and this milestone consumes it"
+    ],
+    "invalidates": [
+      "none"
+    ]
+  },
+  "review_artifact": "docs/reviews/m3217-wp1-belief-substitution-bounded-iteration.md",
+  "public_gates": [
+    "M3217 must freeze the full iteration design (mix ratio, closed-loop collection policies and dv jitter, re-based seed streams, heteroscedastic ensemble representation, continuous-injection rule with SIGMA_MAX 0.12 and STALE_MAX 50, fallback semantics, scope cuts, compute budget) in experiments/feasibility_audit/wp1_iter1_prereg.json BEFORE the --full run and echo it into summary.json",
+    "M3217 must keep every gated criterion of experiments/feasibility_audit/wp1_prereg.json unchanged: primary rule (L3_GRU, recapture >= 0.5, >= 3 of 4 cells, one-sided 97.5% lower bound > 0, two-way SE), floor/oracle definitions, 240-episode paired validation budget, 8 training seeds, construction constants",
+    "M3217 must rerun the dataset leak gate on the NEW MIXED set per cell (decision-frame single-frame -> mu linear AND MLP out-of-fold R^2 <= 0.1, pooled standard subset) and stop before training on any failure; the stop is terminal",
+    "M3217 must draw selection AND validation episodes from fresh re-based seed streams (base 20270301, layout unchanged) because every M3216 subst_val outcome was read by the diagnosis that produced this design",
+    "M3217 must accept the outcome as the WP1 terminal verdict either way: PASS -> G-B opens WP2; FAIL (including a leak-gate stop) -> the C2 bound is accepted and the paper scope contracts to C1 + the estimator-level positive + the bound; no second iteration",
+    "M3217 must keep the L0_frame current-frame leak control riding under the identical continuous interface with its unchanged >= 3-cell route",
+    "M3217 must leave ActiveSafetyReflexDriver, public driver defaults, and the engineering mainline objective boundary unchanged (RampPolicyController gains an inert-by-default injection_mode parameter; bit-compat asserted by the existing hook tests)"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not weaken thresholds, extend seeds, re-pick cells, or change construction constants after the --full run starts",
+    "do not tune SIGMA_MAX, STALE_MAX, the mix ratio, or any estimator hyperparameter on validation outcomes (all frozen ex ante in wp1_iter1_prereg.json)",
+    "do not reuse any 20270101-based M3216 substitution episode for selection or validation",
+    "do not run a second iteration on FAIL, and do not reinterpret a leak-gate stop as anything but a terminal FAIL bound",
+    "do not give estimator arms any eval-time freedom beyond the frozen best-selection seeker config + the frozen injection constants",
+    "do not read any number as driver-performance, robustness, feasibility-proof, gate-validity, paper, or self-ID evidence",
+    "do not promote, mutate, or train any driving policy inside M3217 (supervised mu estimators only)",
+    "do not bypass make_env_from_config when constructing degraded envs"
+  ],
+  "workflow_synthesis": {
+    "branch": "phase2_wp1_belief",
+    "evidence_axis": "learned_belief_substitution_recapture_terminal_bound",
+    "evidence_increment": "the single pre-authorized bounded iteration of the WP1 substitution experiment: mixed scripted+closed-loop training data (repair A) and confidence-gated continuous injection (repair B) measured against re-measured floor/oracle on fresh streams, 4 cells x (floor + oracle + 2 arms x 8 seeds) x 240 paired episodes, terminal for G-B",
+    "claim_scope": "Phase-2 WP1 terminal measurement; auxiliary; incumbent unchanged; no validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof or self-ID claim",
+    "stop_condition": [
+      "stop if either pre-registration file is missing or altered after the run starts",
+      "stop before training if the mixed dataset leak gate fails in any cell (terminal per the iteration prereg)",
+      "if projected runtime exceeds 2.5 h cut the L0 substitution rollouts per the frozen order; never the primary arm, floor/oracle, training seeds, or the 240-episode validation budget; hard bound 4 h CPU"
+    ],
+    "fallback_plan": [
+      "on execution failure resume from progress.jsonl and rerun the identical pre-registered measurement",
+      "on primary FAIL accept the bound as the WP1 result and contract the paper scope to C1 + estimator-level positive + bound (no further iteration)",
+      "on L0 success in >= 3 cells report the leak-audit interpretation and scope claims down (still terminal)",
+      "preserve the engineering incumbent and the active-safety mainline untouched"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "Phase-2 plan registers WP0-WP4 measurement units as harness milestones (M3215+) under the mixed bookkeeping mode of the manual takeover",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "Execute the pre-registered WP1 bounded iteration: mixed scripted+closed-loop data collection with the rerun leak gate, heteroscedastic 3-member ensemble training (8 seeds x 2 arms x 4 cells; supervised mu regression on harness labels, the only learning in this milestone, no driving-policy training), floor/oracle re-selection and re-measurement on fresh streams, confidence-gated continuous-injection paired substitution validation, and the terminal adjudication",
+    "admission_evidence": [
+      "M3216 completed the pre-registered WP1 experiment with primary FAIL 0/4 and the frozen route all_arms_fail_one_bounded_iteration_then_accept_bound, granting exactly one bounded iteration (<= 1 week, <= 4 h CPU)",
+      "the M3216 FAIL structure scopes both repairs: substitution-time L3 mu error 0.137-0.263 vs dataset-val MAE 0.021-0.142 (behavior-policy shift) and the reveal-tick-only override replacing a sometimes-competent internal detector (delay5 floor 0.675) while never touching the entry-speed prize component; delay12 (+0.185, lo97.5 +0.110, recapture 0.38) shows the channel works where the detector is weakest",
+      "the iteration design was frozen in experiments/feasibility_audit/wp1_iter1_prereg.json BEFORE any iteration run; the only post-freeze pre-run activity is the declared infrastructure --quick smoke (17 s, end-to-end, fallback path verified bit-exact: never-confident ensembles leave the injected arm paired-identical to the floor)",
+      "the RampPolicyController continuous-injection extension is inert by default and the 10 existing hook bit-compat tests plus 15 WP1 pipeline/trainer tests pass unchanged",
+      "synthetic throughput benchmark (110 ms per 16x900 GRU batch) projects ~75-110 min total, under the 2.5 h cut bar"
+    ],
+    "blocked_shortcuts": [
+      "no driving-policy training, no checkpoint creation or reuse beyond the supervised estimator .pt files",
+      "no post-hoc threshold, seed, constant, or scope changes",
+      "no promotion of any seeker/oracle/estimator configuration as a driver"
+    ],
+    "allowed_updates": [
+      "scripts/feasibility_audit/wp1_iter1_full_run.py",
+      "scripts/feasibility_audit/ramp_policy_voi_regime.py (inert-by-default injection_mode extension only)",
+      "experiments/feasibility_audit/wp1_iter1_prereg.json",
+      "runs/feasibility_audit/wp1_iter1_full artifacts",
+      "docs/m3217-wp1-belief-substitution-bounded-iteration.md",
+      "docs/reviews/m3217-wp1-belief-substitution-bounded-iteration.md",
+      "M3217 status queue scoreboard research log and review rows"
+    ],
+    "next_stage_criteria": [
+      "summary.json records status completed (or the pre-registered terminal leak-gate stop) with both prereg echoes, per-cell floor/oracle/arm paired tables, confidence telemetry, the M3216 comparison block, and a deterministic terminal verdict",
+      "primary PASS routes G-B to WP2; FAIL routes to the accepted C2 bound and the contracted paper scope; either way WP1 closes"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "Directly measured and gated: the dataset leak gate is RERUN on the mixed set (linear + MLP decision-frame probes, pooled standard subset, <= 0.1) with the closed-loop-only subset probe additionally reported, and the L0 current-frame arm rides under the identical continuous interface as the substitution-side control with its unchanged >= 3-cell route.",
+    "history_necessity_tests": [
+      "the L3-vs-L0 contrast under the identical continuous confidence-gated interface (capacity-matched within 0.96%) carries the history attribution at the substitution level; the M3216 estimator-level reset control and C3 verdicts stand unchanged"
+    ],
+    "temporal_evidence_window": "5 s sub-limit familiarization prefix (structurally mu-blind, vehicle-RLS fixture) + the approach segment; the estimator is consumed continuously pre-reveal and frozen at the reveal; post-reveal frames are never fed into a consumed estimate.",
+    "negative_result_policy": "Primary FAIL, a mixed-set leak-gate stop, or prize degeneration are reported as written with no threshold weakening and are TERMINAL: the bound is accepted and the paper scope contracts as pre-registered.",
+    "allowed_claims": [
+      "pre-registered feasibility-audit bounded-iteration substitution outcomes (recapture fractions, paired CIs, confidence telemetry, the terminal G-B adjudication) on the scripted task family only",
+      "no self-identification evidence at any level above not_applicable, no profile ranking, no gate validity, no information ceiling, no driver-performance or robustness-result claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_closed_loop_data",
+    "process_overhead": "medium",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "first closed-loop-mixed estimator training set and first confidence-gated continuous-injection substitution measurement on this testbed: ~2,530 dataset episodes (half closed-loop), 384 supervised member-training runs equivalent (128 units x 3 members counted as units), ~5,700 fresh selection + ~18,240 fresh paired validation episodes; terminally decides G-B",
+    "paper_verdict_delta": "Terminal for Paper A's C2 claim: PASS upgrades C2 to 'learned belief recaptures the prize through the planner interface'; FAIL fixes the bound 'belief learnable (R^2 0.99) but not redeemable through this interface' and contracts the scope to C1 + estimator positive + bound",
+    "must_synthesize_if": [
+      "the measurement fails twice on the same infrastructure failure",
+      "any follow-up proposes a second substitution iteration or weakened thresholds",
+      "results are quoted beyond the feasibility-audit claim boundary"
+    ]
+  },
+  "success_criteria": [
+    "runs/feasibility_audit/wp1_iter1_full/summary.json exists with status completed (or the pre-registered terminal stopped_dataset_leak_gate_failed_iter1 stop), both prereg echoes, per-cell paired tables with confidence telemetry, the M3216 comparison block, and a deterministic terminal verdict",
+    "every gated readout consumed the fresh 20270301-based subst_val stream only, with floor, oracle, and all injected arms on identical episode sets per cell",
+    "the mixed-set leak gate results (pooled + per-subset probes) are recorded per cell before any training",
+    "docs/m3217-wp1-belief-substitution-bounded-iteration.md records the frozen iteration design, the measured per-cell recapture table against the M3216 reference, the terminal adjudication, and the G-B routing",
+    "ActiveSafetyReflexDriver, public driver defaults, and the engineering mainline objective boundary are unchanged"
+  ],
+  "failure_criteria": [
+    "summary.json missing, status neither completed nor the pre-registered terminal leak-gate stop, or any required verdict non-deterministic",
+    "criteria, seeds, cells, injection constants, or construction constants altered after the full run started",
+    "any gated arm measured on fewer than 240 validation episodes in a cell",
+    "a second iteration attempted, or results quoted as driver-performance, robustness, gate-validity, feasibility-proof, paper, or self-ID evidence",
+    "the milestone trains, promotes, or mutates any driving policy"
+  ],
+  "decision_rule": "Pass only if the --full run completes end to end under the frozen wp1_iter1_prereg.json design with the unchanged wp1_prereg.json criteria, both echoes in summary.json, all gated readouts on the fresh 240-episode paired validation sets, and a deterministic verdict; the outcome is then TERMINAL for WP1 exactly as pre-registered (primary PASS -> G-B passes and WP2 opens; FAIL or leak-gate stop -> the C2 learnable-but-not-redeemable bound is accepted and the paper scope contracts; L0 success in >= 3 cells -> leak-audit interpretation with claims scoped down) with no threshold weakening and all claim boundaries preserved.",
+  "commands": [
+    {
+      "name": "wp1_iter1_full_run",
+      "command": "PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/wp1_iter1_full_run.py --full --output-dir runs/feasibility_audit/wp1_iter1_full"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/feasibility_audit/wp1_iter1_full/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/feasibility_audit/wp1_iter1_full/progress.jsonl",
+      "type": "jsonl"
+    },
+    {
+      "path": "experiments/feasibility_audit/wp1_iter1_prereg.json",
+      "type": "json"
+    },
+    {
+      "path": "experiments/feasibility_audit/wp1_prereg.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m3217-wp1-belief-substitution-bounded-iteration.md",
+      "type": "markdown"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/feasibility_audit/wp1_full/summary.json",
+    "experiments/feasibility_audit/wp1_prereg.json",
+    "experiments/feasibility_audit/wp1_iter1_prereg.json"
+  ],
+  "scoreboard_checkpoint": "runs/feasibility_audit/wp1_iter1_full/summary.json",
+  "next_blocker": "m3217-wp1-belief-substitution-bounded-iteration",
+  "status": "completed"
+}

@@ -56134,3 +56134,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m3216-wp1-modular-belief-experiment_20260611T135504Z/command.log`
 - success artifact: `runs/feasibility_audit/wp1_full/summary.json`
 - notes: Pending (iteration 2 of the pre-registered bounded data-iteration route): first --full stopped at the dataset leak gate (archived runs/feasibility_audit/wp1_full_leakstop1); mu-free multi-sine speed-schedule repair applied; criteria unchanged in experiments/feasibility_audit/wp1_prereg.json; auxiliary measurement; incumbent unchanged.
+
+## 20260611T151908Z m3217-wp1-belief-substitution-bounded-iteration
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: The single pre-registered bounded excitation/representation iteration granted by the M3216 all-arms-fail route -- 50/50 closed-loop trajectory mixing into leak-gated training data plus confidence-gated continuous per-tick belief injection with internal-detector fallback, on unchanged criteria and fresh re-based seed streams -- can decide the WP1 terminal verdict (L3_GRU recaptures >= 50 percent of the re-measured matched prize in >= 3 of 4 cells with one-sided 97.5 percent lower bounds excluding 0; PASS opens G-B/WP2, FAIL is accepted as the C2 bound with no further iteration) before validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof or self-ID claim.
+- command: `PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/wp1_iter1_full_run.py --full --output-dir runs/feasibility_audit/wp1_iter1_full`
+- returncode: `0`
+- run dir: `runs/research/m3217-wp1-belief-substitution-bounded-iteration_20260611T151842Z`
+- command log: `runs/research/m3217-wp1-belief-substitution-bounded-iteration_20260611T151842Z/command.log`
+- success artifact: `runs/feasibility_audit/wp1_iter1_full/summary.json`
+- notes: Pending: execute the single pre-authorized WP1 bounded iteration under manual-takeover mixed bookkeeping; iteration design frozen in experiments/feasibility_audit/wp1_iter1_prereg.json, gated criteria unchanged from wp1_prereg.json; outcome terminal for WP1/G-B either way; auxiliary measurement; incumbent unchanged.

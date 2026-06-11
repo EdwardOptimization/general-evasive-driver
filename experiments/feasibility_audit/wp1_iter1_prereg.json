@@ -1,0 +1,77 @@
+{
+  "protocol": "feasibility_audit_wp1_iter1_bounded_iteration_preregistration",
+  "milestone": "m3217-wp1-belief-substitution-bounded-iteration",
+  "frozen_at_utc": "2026-06-11T15:30:00Z (frozen BEFORE any iteration data collection, training, selection, validation, or --quick smoke of the iteration orchestrator; the only inputs to this design are the M3216 FAIL diagnosis tables already published in docs/m3216-wp1-modular-belief-experiment.md and a synthetic-tensor training-throughput benchmark that reads no task data)",
+  "route_basis": "docs/m3216-wp1-modular-belief-experiment.md Section 7 verdict 1: primary FAIL 0/4, frozen route all_arms_fail_one_bounded_iteration_then_accept_bound (plan docs/research-plan-phase2-capability-boundary-tracking.md WP1.4: ONE bounded excitation/representation iteration <= 1 week, <= 4 h CPU, then accept the bound as the result). THIS IS THAT SINGLE ITERATION. There is no second iteration: PASS or FAIL, the outcome is accepted as the WP1 terminal verdict.",
+  "terminal_routes_frozen": [
+    "primary PASS (unchanged rule) -> G-B passes, WP2 opens",
+    "primary FAIL (any reason, including a leak-gate stop on the mixed dataset) -> the bound is accepted as the WP1 result: C2 reads 'the mu belief is learnable from history (M3216 estimator-level R^2 0.91-0.99) but is NOT redeemable through this substitution interface at the pre-registered recapture bar'; the paper scope contracts to C1 + the estimator-level positive + this bound",
+    "L0_frame cell_pass in >= 3 cells -> the leak-audit interpretation applies (the substitution gain is current-frame-readable, claims scoped down accordingly); the verdict is still terminal",
+    "no threshold weakening, seed extension, cell re-picking, or construction change after the --full run starts"
+  ],
+  "diagnosis_consumed": {
+    "shift": "M3216 measured substitution-time L3 mu error 0.157/0.137/0.263/0.251 vs dataset-val MAE 0.045/0.025/0.021/0.142 (delay5/12/25/noise): the estimator never saw the seeker's own closed-loop approach (whose ramp stops at the detector onset) -> repair A = mix closed-loop floor-seeker trajectories into training",
+    "timing": "M3216 injected only at the decision tick, so the learned belief could not touch the entry-speed component of the approach (the bulk of the prize) and the reveal-tick override REPLACED a sometimes-competent internal detector -> repair B = continuous per-tick injection with a confidence gate and fallback to the internal detector"
+  },
+  "criteria_unchanged": {
+    "source": "experiments/feasibility_audit/wp1_prereg.json (frozen 2026-06-11), echoed into the iteration summary.json",
+    "eligible_cells": ["delay5", "delay12", "delay25", "noise0.05"],
+    "primary_rule": "PRIMARY PASS iff L3_GRU achieves cell_pass in >= 3 of the 4 eligible cells; cell_pass = recapture >= 0.5 of the re-measured matched prize AND one-sided 97.5% lower bound of the episode-paired (arm - floor) difference > 0 under the frozen two-way (episode + training-seed cluster) SE AND prize > 0",
+    "floor_definition": "unchanged: best (validation success) of {best-selection seeker over the frozen M3215 per-cell tau grid x rates {2000,6000,20000} x backoffs {0.06,0.15} x dv {0,0.75}, best-selection fixed plan of 11}, selection re-run on the NEW subst_sel stream, validation on the NEW subst_val stream",
+    "oracle_definition": "unchanged: matched per-mu oracle, per-point dv selected on the new subst_sel from {-0.5, 0, +0.5, +1.0}",
+    "validation_budget": "unchanged: 12 mu grid points x 20 disjoint validation seeds = 240 episodes per arm per cell, floor/oracle/every injected arm on the IDENTICAL episode set (paired); 8 training seeds per injected arm",
+    "statistics": "unchanged: two-way SE in quadrature (episode-level + training-seed cluster), one-sided 97.5% lower bound, Wilson/Newcombe CIs, recapture = Delta/prize, pooled fractions descriptive",
+    "construction": "unchanged: prefix-carrying B2K2_final, reveal 9.5 m, prefix 5 s with mu-free caps + vehicle-RLS fixture, obstacle prefix offset 40 m, deadline allowance 0 (std_max_steps 535), vehicle randomization OFF, injected arms ride the cell's best-selection seeker config with zero eval-time estimator freedom"
+  },
+  "seed_streams_frozen": {
+    "iter_seed_base": 20270301,
+    "rationale": "same stream LAYOUT as wp1_seed_streams.json stage-2, re-based to avoid adaptive contamination: every M3216 subst_val outcome was read during the FAIL diagnosis that produced this design, so the iteration draws fresh selection AND validation episodes; episode seed = 20270301*100 + cell_index*1_000_000 + role_offset + i with role offsets train +0 / sel +400000 / val +600000 / smoke_eval +800000, substitution sel +200000 / val +900000, standard block 0, i = block + 100*point + k (sel k in {0,1}, val k in {0..19}); ALL derived randomness (mu draws [20270301,101,seed], behavior [20270301,303,seed], jitter [20270301,777,seed], dv-jitter [20270301,313,seed], probe folds [20270301,909,*]) re-keys on the new base so no draw coincides with any 20270101- or 20260611..20260625-based stream",
+    "c3_l4_blocks": "not used (scope cut, see scope_frozen)"
+  },
+  "data_frozen": {
+    "mix_ratio": "50/50 frozen: per cell 240 scripted + 240 closed-loop train episodes, 40 + 40 sel episodes; validation split 36 scripted (12 grid + 24 off-grid mu) + 36 closed-loop (same mu lists)",
+    "scripted_half": "identical behavior family to the M3216 measurement dataset (fixed_speed multi-sine / ramp_release with the longitudinal multi-sine repair, lateral dither, mu-free caps), re-based seeds",
+    "closed_loop_half": "rolled out by the M3216 best-SELECTION seeker configs (NO injected belief), frozen here as collection policies: delay5 seeker r20000 w1 tau0.08 backoff0.15 dv+0.75; delay12 seeker r20000 w1 tau0.08 backoff0.06 dv+0.75; delay25 seeker r20000 w1 tau0.08 backoff0.06 dv+0.75; noise0.05 seeker r6000 w25 tau0.444 backoff0.06 dv+0; scripted 5 s prefix then the seeker drives to the decision tick + 1 frame (collection budget 1000 steps); labels = true mu (harness label, no observation channel)",
+    "closed_loop_dv_jitter": "collection-only seed-derived mu-FREE dv jitter U(-0.75,+0.75) from rng([20270301,313,seed]) added to the collection seeker's dv (same masking spirit as the two prior pre-authorized repairs: behavioral variance decorrelates the single decision frame from mu without leaving the trajectory family); the EVALUATION arm config is unchanged (best-selection config exactly, no jitter)",
+    "closed_loop_index_block": "i >= 300000 inside the train/sel/val role offsets (disjoint from the scripted block i < 100000 and the unused c3 block 100000..)",
+    "leak_gate_rerun": "the pre-registered dataset leak gate IS RERUN ON THE NEW MIXED SET per cell: decision-frame single-frame -> mu out-of-fold R^2 <= 0.1 for BOTH the linear ridge probe (primary) and the small-MLP probe (secondary), computed on the POOLED standard subset (scripted + closed-loop together); the scripted-only and closed-loop-only subset probes are additionally reported (descriptive); ANY cell failing the pooled gate -> the run stops before training (status stopped_dataset_leak_gate_failed_iter1) and the stop is TERMINAL: the bound is accepted (the closed-loop mixing required to close the behavior-policy gap is itself current-frame mu-readable on this construction)",
+    "c3_telemetry_gate": "not applicable (no C3 episodes this iteration)"
+  },
+  "estimator_frozen": {
+    "arms": ["L0_frame", "L3_GRU"],
+    "primary_arm": "L3_GRU (unchanged); L0_frame rides ONLY as the pre-registered current-frame leak control (its >= 3-cell success route is unchanged); L2 window arms are NOT retrained (scope cut, see scope_frozen)",
+    "representation_change": "heteroscedastic heads (the iteration's pre-authorized representation change): each model outputs (mu_hat, sigma_raw) with sigma = softplus(sigma_raw) + 1e-3, trained with Gaussian NLL; L3_GRU h=32 + head Linear(32,2); L0 in_proj 72->56 + body 56->56 + head Linear(56,2)",
+    "capacity_rule": "non-input-projection parameter counts: L3 3330, L0 3362, relative spread 0.96% <= the unchanged 10% tolerance",
+    "supervision": "L3_GRU: per-tick NLL averaged over frames with index >= 250 (prefix end) up to the decision tick (label mu constant per episode; dense supervision is what makes the per-tick estimate consumable); L0_frame: NLL on ONE uniformly drawn task-segment frame per episode per epoch (drawn from the batch-order rng; the fair single-frame analog of per-tick supervision)",
+    "ensembles": "3 members per (arm, training seed); torch seed = 20270301 + 1000*arm_index + 17*train_seed + 100003*member with the M3216 arm indexing (L0_frame=0, L3_GRU=4); batch order rng [20270301, 404, arm_index, train_seed, member]; 8 training seeds per arm per cell (unchanged count)",
+    "compute_matching": "same max epochs (150) x same samples per arm, single LR 1e-3, batch 16, sel-split decision-tick NLL evaluated every 10 epochs selects the checkpoint epoch (selection split only); frozen deviation from the M3216 200-epoch x {1e-3, 3e-4} budget, fixed ex ante from (a) 30 of 32 M3216 standard L3 runs selecting lr 1e-3, (b) the doubled train set and tripled member count against the 4 h CPU bound, (c) per-tick supervision being ~500x denser per epoch; measured synthetic throughput 110 ms per 16x900 GRU batch supports a ~75-100 min total projection",
+    "metrics_reported": "val decision-tick MAE/RMSE/R^2 of the ensemble-mean mu_hat on the mixed val split AND separately on the scripted-only / closed-loop-only halves (the direct test of whether repair A closed the shift), plus mean predicted sigma"
+  },
+  "continuous_injection_appendix_frozen": {
+    "rule": "the estimator is consumed CONTINUOUSLY, not only at the decision tick: on every controller frame the injector returns (mu_hat, sigma_total) where mu_hat = mean over the 3 members' means and sigma_total^2 = mean(sigma_m^2 + mu_m^2) - mu_hat^2 (mixture variance: aleatoric + epistemic/ensemble disagreement; the ensemble term is the distribution-shift detector)",
+    "confidence_gate": "the estimate is consumed iff sigma_total <= SIGMA_MAX = 0.12, frozen ex ante: the prior sd of mu ~ U(0.25,1.15) is 0.26 and the M3216 dataset-val GRU MAE spans 0.021-0.142, so consumption requires the model to CLAIM materially-better-than-prior, detector-scale accuracy; no eval-time tuning of this constant is permitted",
+    "pre_reveal": "when confident, the live estimate (clipped to [0.10,1.40]) is consumed by the seeker's entry-speed law (_v_target), force-limit estimate (_limit_est), and phase decisions; when not confident, the last confident estimate persists for at most STALE_MAX = 50 frames (1.0 s) and then expires; with no live estimate the controller falls back to its INTERNAL detector mu_hat / domain floor (bit-compatible belief-free behavior)",
+    "at_reveal": "at the first obstacle-present frame the belief FREEZES: mu_injected = the live confident estimate (current, or last-confident aged <= 50 frames); if none exists the episode keeps the internal detector for the reaction (mu_injected stays None)",
+    "post_reveal": "only the frozen value is consumed (mirror of the M3216 reveal-tick semantics; post-reveal braking/swerve frames are outside every training distribution and are never fed into a consumed estimate)",
+    "fallback_design_intent": "the gate makes the injected arm degrade GRACEFULLY to the floor seeker instead of overriding a competent internal detector with a shifted estimate (the measured M3216 failure mode at delay5/25/noise); it also bounds the residual on-policy shift: when the estimator is out of distribution the ensemble disagrees, the arm falls back, and the trajectory re-enters the no-belief family the closed-loop training half was collected from",
+    "applies_to": "both injected arms (L3_GRU primary, L0_frame leak control) with identical constants",
+    "controller_hook": "RampPolicyController gains injection_mode='continuous' (default 'decision_tick' is bit-compatible with M3216; existing hook tests must keep passing)"
+  },
+  "scope_frozen": {
+    "cut_ex_ante": "C3 block (adjudicated in M3216: condition not met, constant-prior floor captures the reaction-only prize; the iteration targets the standard substitution primary only), L4 block (exploratory only), L2 window arms (exploratory; consistent with the M3216 budget-cut order which removes them first)",
+    "budget_rule": "if projected runtime exceeds 2.5 h, the L0_frame substitution rollouts are cut (the leak control then rests on the dataset probes alone, reported); the primary arm, floor, oracle, 8 training seeds, and the 240-episode validation budget are NEVER cut; hard bound <= 4 h CPU per the plan route",
+    "residual_limitations_declared": [
+      "one DAgger-style step only: the eval-time injected seeker's trajectory differs from the no-belief collection seeker whenever the belief is consumed; this residual on-policy shift is part of the accepted bound, mitigated (not removed) by the confidence fallback",
+      "the new selection stream may pick a different best-sel seeker config than the frozen collection configs; the frozen injected-arm rule (best-selection config of THIS run) is unchanged and the residual mismatch is accepted",
+      "episodes where the estimator is never confident make the injected arm coincide with the floor seeker (Delta ~ 0), which counts against recapture; this is the intended conservative behavior, not a defect to be patched post hoc"
+    ]
+  },
+  "execution": {
+    "command": "PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/wp1_iter1_full_run.py --full --output-dir runs/feasibility_audit/wp1_iter1_full",
+    "runtime_estimate": "~2,530 dataset episodes + 128 member-training runs (96 GRU at ~8 min single-thread + 32 cheap L0) + ~5,700 selection + ~18,240 paired validation episodes, 16 workers: ~75-110 min projected, under the 2.5 h cut bar and the 4 h CPU bound",
+    "resume": "progress.jsonl per completed unit; rerun skips completed units; summary.json only on completion",
+    "managed_process": "executed via the research harness (research_cycle run-next) as a managed background process",
+    "quick_smoke": "a --quick orchestrator smoke (delay5, tiny counts, 2 seeds x 2 members, 20 epochs) validates infrastructure only AFTER this freeze and produces no verdict; no design constant may change after it (bug fixes to crashing code only)"
+  },
+  "comparison_reporting": "summary.json reports, per cell, the iteration floor/oracle/prize and the L3_GRU / L0_frame paired statistics NEXT TO the M3216 values (descriptive only; the M3216 numbers are a different episode population and never enter the gated verdict)"
+}

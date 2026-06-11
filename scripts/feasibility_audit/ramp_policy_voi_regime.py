@@ -332,6 +332,18 @@ class RampPolicyController:
     ``injected_belief`` is None (default) every new code path is inert and the
     controller's behavior is bit-for-bit identical to the pre-hook version
     (asserted in tests/test_wp1_belief_injection_hook.py).
+
+    WP1 bounded-iteration extension (M3217, frozen in
+    experiments/feasibility_audit/wp1_iter1_prereg.json): ``injection_mode``
+    selects how the injected belief is consumed. The default
+    ``"decision_tick"`` keeps the M3216 semantics above bit-for-bit.
+    ``"continuous"`` consumes a per-tick ``estimate_with_conf() ->
+    (mu_hat, sigma) | None`` duck-typed pair on EVERY act(): the estimate is
+    live-consumed pre-reveal by the entry-speed law / force-limit estimate iff
+    ``sigma <= injection_sigma_max`` (stale grace ``injection_stale_max``
+    frames), the belief FREEZES at the first obstacle-present frame, and with
+    no confident estimate the controller falls back to its internal detector
+    (bit-compatible belief-free behavior).
     """
 
     def __init__(self, mod_b, interp, design, name: str, mode: str, *,
@@ -340,8 +352,13 @@ class RampPolicyController:
                  mu_true: float | None = None, dv: float = 0.0,
                  prior_lo: float | None = None,
                  fixed_frac: float | None = None, fixed_hold_s: float | None = None,
-                 injected_belief=None):
+                 injected_belief=None, injection_mode: str = "decision_tick",
+                 injection_sigma_max: float | None = None,
+                 injection_stale_max: int = 50):
         self.injected_belief = injected_belief
+        self.injection_mode = injection_mode
+        self.injection_sigma_max = injection_sigma_max
+        self.injection_stale_max = int(injection_stale_max)
         self.mod_b, self.interp, self.design = mod_b, interp, design
         self.name, self.mode = name, mode
         self.ramp_rate, self.backoff, self.strategy = ramp_rate, backoff, strategy
@@ -367,6 +384,11 @@ class RampPolicyController:
         self.phase = "settle"
         self.mu_injected: float | None = None
         self.injection_step = -1
+        self._mu_live: float | None = None
+        self._mu_live_age = 0
+        self._reveal_frozen = False
+        self._conf_frames = 0
+        self._obs_frames = 0
         self.mu_hat: float | None = self.mu_true if self.mode == "oracle" else None
         self.mu_floor = self.prior_lo if self.prior_lo is not None else MU_DOMAIN[0]
         self.censored = False
@@ -384,6 +406,8 @@ class RampPolicyController:
     def _mu_eff(self) -> float:
         if self.mu_injected is not None:
             return self.mu_injected
+        if self._mu_live is not None and not self._reveal_frozen:
+            return self._mu_live
         if self.mode == "oracle":
             return self.mu_true
         return self.mu_hat if self.mu_hat is not None else self.mu_floor
@@ -409,6 +433,8 @@ class RampPolicyController:
     def _limit_est(self) -> float | None:
         if self.mu_injected is not None:
             return TIRE_CAP * FZR * self.mu_injected
+        if self._mu_live is not None and not self._reveal_frozen:
+            return TIRE_CAP * FZR * self._mu_live
         if self.mode == "oracle":
             return TIRE_CAP * FZR * self.mu_true
         if self.mu_hat is not None:
@@ -523,7 +549,26 @@ class RampPolicyController:
         obs = np.asarray(obs, dtype=np.float64)
         if self.injected_belief is not None:
             self.injected_belief.observe(obs)
-            if self.mu_injected is None and float(obs[IDX_OBST_PRESENT]) > 0.5:
+            if self.injection_mode == "continuous":
+                self._obs_frames += 1
+                pair = self.injected_belief.estimate_with_conf()
+                confident = (pair is not None and pair[0] is not None
+                             and (self.injection_sigma_max is None
+                                  or float(pair[1]) <= self.injection_sigma_max))
+                if confident:
+                    self._mu_live = float(np.clip(float(pair[0]), 0.10, 1.40))
+                    self._mu_live_age = 0
+                    self._conf_frames += 1
+                elif self._mu_live is not None:
+                    self._mu_live_age += 1
+                    if self._mu_live_age > self.injection_stale_max:
+                        self._mu_live = None
+                if not self._reveal_frozen and float(obs[IDX_OBST_PRESENT]) > 0.5:
+                    self._reveal_frozen = True
+                    if self._mu_live is not None:
+                        self.mu_injected = self._mu_live
+                        self.injection_step = self.k
+            elif self.mu_injected is None and float(obs[IDX_OBST_PRESENT]) > 0.5:
                 est = self.injected_belief.estimate()
                 if est is not None:
                     self.mu_injected = float(np.clip(float(est), 0.10, 1.40))
