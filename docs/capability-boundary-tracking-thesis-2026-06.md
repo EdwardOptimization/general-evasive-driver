@@ -314,9 +314,11 @@ twice in this project as an evidence source (m1087 washout; G1 variance
 floor) and returns with a clean position: an engineering executor,
 judged purely on outcomes against measured floors and per-instance
 oracles, on the two stages where the reflex family is structurally
-short — large vehicle-parameter spread (fixed gains cannot follow a
-fleet) and beyond-saturation maneuvering (0/84 for the reflex family;
-0.906 for RL on an all-AEB-infeasible surface). Claim C5 and the WP-RL
+short — vehicle-population spread (the project targets **one policy for
+all passenger cars**, ~900 kg to 3+ t; fixed gains cannot follow that
+population and per-vehicle tuning is out of the question) and
+beyond-saturation maneuvering (0/84 for the reflex family; 0.906 for RL
+on an all-AEB-infeasible surface). Claim C5 and the WP-RL
 program in the Phase-2 plan operationalize this: the prize is priced
 first by the reflex-degradation curve (fixed vs identification-retuned
 vs per-instance-tuned vs oracle), and RL trains only against a

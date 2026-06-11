@@ -88,15 +88,18 @@
   *believed* parameters, beats the belief-free stack exactly where the
   regime map says it should. [Status: closed by G-B/G-C — WP2 did not
   open; scope contracted per the gates.]
-- **C5 (learned control under vehicle diversity; PI directive
-  2026-06-11)**: under large vehicle-parameter spread combined with
-  handling-limit demand, an RL policy trained across the spread
-  outperforms BOTH the fixed-parameter reflex AND the classical
-  identification-plus-retuning scheme. PI's argument: real fleets vary
-  hugely even within one model (load, season, modification); per-vehicle
-  hand-tuning does not scale; RL internalizes vehicle-and-limit
-  identification in the network (massively evidenced in robotics:
-  RMA/UP-OSI) and commands actuators directly, enabling
+- **C5 (one policy for all passenger cars; PI directive 2026-06-11,
+  scope corrected same day)**: the target population is **the entire
+  passenger-car fleet** — one controller serving sedans, SUVs, sports
+  cars, vans (~900 kg to 3+ t, wide geometry/authority/actuation
+  ranges) — not within-model variation. Under that population spread
+  combined with handling-limit demand, an RL policy trained across the
+  population outperforms BOTH the fixed-parameter reflex AND the
+  classical identification-plus-retuning scheme. PI's argument: even one
+  model varies hugely (load, season, modification), so across the whole
+  fleet per-vehicle hand-tuning is out of the question; RL internalizes
+  vehicle-and-limit identification in the network (massively evidenced
+  in robotics: RMA/UP-OSI) and commands actuators directly, enabling
   nonlinear-regime actions. Grounding in our measurements: the Section-10
   capstone makes implicit adaptation the *natural* form of competent
   closed-loop behavior (RL's home turf, attribution not required); the
@@ -336,6 +339,13 @@ check (not "~1 command").
    0.50-1.50, tau to 2.5x) / S3 adversarial corners, at two limit-demand
    tiers (T-mid feasible avoidance; T-limit near the per-instance
    feasibility edge, infeasible rows excluded from the denominator).
+   **S4 passenger-car-population tier (required extension after the
+   in-flight run)**: direct VehicleParams construction over the fleet
+   envelope — mass ~0.6-2.2x nominal (~900 kg-3.2 t), wheelbase/lf/lr
+   and Iz beyond the sampler's default ranges, CG and authority spreads
+   to match vehicle classes — with per-instance feasibility relabeling
+   and per-instance oracles; the in-flight S0-S3 run prices the
+   within-model rungs and S4 prices the population claim itself.
    Four paired arms: fixed v4 / v4+RLS-retuned (the classical
    identification arm reviewers will demand) / per-instance-tuned v4
    (the "tune every car" upper bound, quantified to show its cost) /
