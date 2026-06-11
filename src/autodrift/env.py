@@ -287,6 +287,69 @@ class ObservationDegradationConfig:
 
 
 @dataclass(frozen=True)
+class ObservationScaleConfig:
+    """Actor-observation scaling constants.
+
+    Defaults reproduce the canonical obs72 contract. High-speed experiments may
+    pass an explicit block without changing the default actor frame or shape.
+    """
+
+    ego_vx: float = 20.0
+    ego_vy: float = 12.0
+    ego_yaw_rate: float = 2.5
+    ego_ax: float = 15.0
+    ego_ay: float = 15.0
+    road_x: float = 80.0
+    road_y: float = 20.0
+    obstacle_x: float = 80.0
+    obstacle_y: float = 20.0
+    obstacle_rel_vx: float = 20.0
+    obstacle_rel_vy: float = 12.0
+    obstacle_half_width: float = 5.0
+    obstacle_half_length: float = 5.0
+    road_lookahead_time_s: float = 0.0
+    road_lookahead_max_distance: float | None = None
+
+    def __post_init__(self) -> None:
+        positive_fields = (
+            "ego_vx",
+            "ego_vy",
+            "ego_yaw_rate",
+            "ego_ax",
+            "ego_ay",
+            "road_x",
+            "road_y",
+            "obstacle_x",
+            "obstacle_y",
+            "obstacle_rel_vx",
+            "obstacle_rel_vy",
+            "obstacle_half_width",
+            "obstacle_half_length",
+        )
+        for name in positive_fields:
+            value = getattr(self, name)
+            if isinstance(value, bool) or not isinstance(value, (int, float)):
+                raise ValueError(f"observation_scale {name} must be a number")
+            if not math.isfinite(float(value)) or float(value) <= 0.0:
+                raise ValueError(f"observation_scale {name} must be finite and positive")
+            object.__setattr__(self, name, float(value))
+        if isinstance(self.road_lookahead_time_s, bool) or not isinstance(
+            self.road_lookahead_time_s, (int, float)
+        ):
+            raise ValueError("observation_scale road_lookahead_time_s must be a number")
+        object.__setattr__(self, "road_lookahead_time_s", float(self.road_lookahead_time_s))
+        if not math.isfinite(self.road_lookahead_time_s) or self.road_lookahead_time_s < 0.0:
+            raise ValueError("observation_scale road_lookahead_time_s must be finite and non-negative")
+        if self.road_lookahead_max_distance is not None:
+            value = self.road_lookahead_max_distance
+            if isinstance(value, bool) or not isinstance(value, (int, float)):
+                raise ValueError("observation_scale road_lookahead_max_distance must be a number or null")
+            if not math.isfinite(float(value)) or float(value) <= 0.0:
+                raise ValueError("observation_scale road_lookahead_max_distance must be finite and positive")
+            object.__setattr__(self, "road_lookahead_max_distance", float(value))
+
+
+@dataclass(frozen=True)
 class DriftEnvConfig:
     dt: float = 0.02
     max_steps: int = 800
@@ -314,6 +377,8 @@ class DriftEnvConfig:
     road_lookahead_count: int = DEFAULT_ROAD_LOOKAHEAD_COUNT
     road_lookahead_spacing: float = 5.0
     obstacle_slots: int = DEFAULT_OBSTACLE_SLOTS
+    max_speed_limit: float = 32.0
+    observation_scale: ObservationScaleConfig = ObservationScaleConfig()
     friction_step: FrictionStepConfig = FrictionStepConfig()
     obstacle: ObstacleTaskConfig = ObstacleTaskConfig()
     warmup_gate: WarmupGateConfig = WarmupGateConfig()
@@ -348,6 +413,11 @@ class DriftEnvConfig:
             raise ValueError("road_lookahead_spacing must be positive")
         if self.obstacle_slots < 1:
             raise ValueError("obstacle_slots must be at least 1")
+        if isinstance(self.max_speed_limit, bool) or not isinstance(self.max_speed_limit, (int, float)):
+            raise ValueError("max_speed_limit must be a number")
+        if not math.isfinite(float(self.max_speed_limit)) or float(self.max_speed_limit) <= 0.0:
+            raise ValueError("max_speed_limit must be finite and positive")
+        object.__setattr__(self, "max_speed_limit", float(self.max_speed_limit))
         if self.track_cost_scale < 0.0:
             raise ValueError("track_cost_scale must be non-negative")
         if self.heading_cost_scale < 0.0:
@@ -935,7 +1005,8 @@ class AutoDriftEnv(gym.Env):
         ]
 
     def _road_boundary_features(self) -> list[float]:
-        distances = self.config.road_lookahead_spacing * np.arange(1, self.config.road_lookahead_count + 1)
+        scale = self.config.observation_scale
+        distances = self._road_lookahead_distances()
         center_points, tangents = self.track.lookahead_centerline(self.state.x, self.state.y, distances)
         half_width = 0.5 * self.config.track_width
         left_features: list[float] = []
@@ -944,11 +1015,25 @@ class AutoDriftEnv(gym.Env):
             normal_left = np.array([-tangent[1], tangent[0]], dtype=np.float64)
             left_body = self._body_point(point + normal_left * half_width)
             right_body = self._body_point(point - normal_left * half_width)
-            left_features.extend([float(left_body[0] / 80.0), float(left_body[1] / 20.0)])
-            right_features.extend([float(right_body[0] / 80.0), float(right_body[1] / 20.0)])
+            left_features.extend([float(left_body[0] / scale.road_x), float(left_body[1] / scale.road_y)])
+            right_features.extend([float(right_body[0] / scale.road_x), float(right_body[1] / scale.road_y)])
         return left_features + right_features
 
+    def _road_lookahead_distances(self) -> np.ndarray:
+        count = self.config.road_lookahead_count
+        base_max_distance = self.config.road_lookahead_spacing * count
+        scale = self.config.observation_scale
+        max_distance = base_max_distance
+        if scale.road_lookahead_time_s > 0.0:
+            speed = max(math.hypot(self.state.vx, self.state.vy), 1e-6)
+            max_distance = max(base_max_distance, speed * scale.road_lookahead_time_s)
+            if scale.road_lookahead_max_distance is not None:
+                max_distance = min(max_distance, scale.road_lookahead_max_distance)
+                max_distance = max(max_distance, base_max_distance)
+        return np.linspace(max_distance / count, max_distance, count, dtype=np.float64)
+
     def _obstacle_slot_features(self) -> list[float]:
+        scale = self.config.observation_scale
         slots = np.zeros((self.config.obstacle_slots, OBSTACLE_SLOT_DIM), dtype=np.float64)
         obstacle_kind, obstacle_position, half_width = self._active_obstacle_slot_geometry()
         if obstacle_position is not None and np.isfinite(half_width):
@@ -967,12 +1052,12 @@ class AutoDriftEnv(gym.Env):
             slots[0] = np.array(
                 [
                     1.0,
-                    body[0] / 80.0,
-                    body[1] / 20.0,
-                    rel_vx / 20.0,
-                    rel_vy / 12.0,
-                    half_width / 5.0,
-                    half_width / 5.0,
+                    body[0] / scale.obstacle_x,
+                    body[1] / scale.obstacle_y,
+                    rel_vx / scale.obstacle_rel_vx,
+                    rel_vy / scale.obstacle_rel_vy,
+                    half_width / scale.obstacle_half_width,
+                    half_width / scale.obstacle_half_length,
                 ],
                 dtype=np.float64,
             )
@@ -1109,15 +1194,16 @@ class AutoDriftEnv(gym.Env):
     def _base_observation(self) -> np.ndarray:
         frame = self.track.frame(self.state.x, self.state.y, self.state.psi)
         del frame
+        scale = self.config.observation_scale
         ax_body, ay_body = self._body_acceleration(self.last_forces)
         throttle_state, brake_state = self._drive_actuator_states()
 
         obs = [
-            self.state.vx / 20.0,
-            self.state.vy / 12.0,
-            self.state.yaw_rate / 2.5,
-            ax_body / 15.0,
-            ay_body / 15.0,
+            self.state.vx / scale.ego_vx,
+            self.state.vy / scale.ego_vy,
+            self.state.yaw_rate / scale.ego_yaw_rate,
+            ax_body / scale.ego_ax,
+            ay_body / scale.ego_ay,
             self.state.steer / self.params.max_steer,
             self.last_steer_rate / max(self.params.max_steer_rate, 1e-6),
             throttle_state,
@@ -1205,7 +1291,7 @@ class AutoDriftEnv(gym.Env):
             return "obstacle_collision"
         if speed < 1.0:
             return "speed_too_low"
-        if speed > 32.0:
+        if speed > self.config.max_speed_limit:
             return "speed_too_high"
         if abs(self.state.yaw_rate) > 6.0:
             return "yaw_rate_limit"
@@ -1257,6 +1343,8 @@ class AutoDriftEnv(gym.Env):
         off_track_overshoot = self._off_track_overshoot(frame)
         soft_offtrack_violation = self._soft_offtrack_violation(frame)
         hard_offtrack_failure = self._hard_offtrack_failure(frame)
+        road_lookahead_distances = self._road_lookahead_distances()
+        road_lookahead_distance_max = float(road_lookahead_distances[-1])
         return {
             "mu": self.params.mu,
             "initial_mu": self.initial_mu,
@@ -1274,6 +1362,9 @@ class AutoDriftEnv(gym.Env):
             "steer_tau_scale": self.params.steer_tau / base_params.steer_tau,
             "drive_tau_scale": self.params.drive_tau / base_params.drive_tau,
             "speed": speed,
+            "max_speed_limit": self.config.max_speed_limit,
+            "road_lookahead_distance_max": road_lookahead_distance_max,
+            "road_lookahead_time_s": road_lookahead_distance_max / max(speed, 1e-6),
             "beta": beta,
             "yaw_rate": self.state.yaw_rate,
             "dt": self.config.dt,

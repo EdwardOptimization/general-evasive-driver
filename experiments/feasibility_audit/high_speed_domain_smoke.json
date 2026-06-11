@@ -1,0 +1,81 @@
+{
+  "claim_boundary": "B2 high-speed env-contract implementation smoke only; no training, no driver mutation, no validation ranking, no promotion, no driver-performance, no current-sim robustness-result, no high-fidelity sufficiency, no paper, no repair-success, no feasibility-proof, and no self-ID claim.",
+  "high_speed_profile": {
+    "max_speed_limit_mps": 45.0,
+    "observation_scale": {
+      "ego_ax": 50.0,
+      "ego_ay": 60.0,
+      "ego_vx": 40.0,
+      "ego_vy": 40.0,
+      "obstacle_rel_vy": 30.0,
+      "road_lookahead_max_distance": 120.0,
+      "road_lookahead_time_s": 2.5,
+      "road_y": 60.0
+    },
+    "speed_mps": 36.0,
+    "track_radius_m": 250.0
+  },
+  "preregistration": "experiments/feasibility_audit/high_speed_domain_prereg.json",
+  "protocol": "high_speed_domain_normalization_preview_smoke",
+  "quick": false,
+  "readouts": {
+    "all_pass": true,
+    "channel_readouts_by_mode": {
+      "legacy_fixed_preview": {
+        "ego_ax_max_abs": 0.044891513884067535,
+        "ego_ay_max_abs": 0.9199155569076538,
+        "ego_vx_max_abs": 1.7999929189682007,
+        "ego_vy_max_abs": 0.24327796697616577,
+        "obs_rel_vy_max_abs": 0.0,
+        "road_y_max_abs": 0.8938611745834351
+      },
+      "scaled_high_speed": {
+        "ego_ax_max_abs": 0.013467454351484776,
+        "ego_ay_max_abs": 0.22997888922691345,
+        "ego_vx_max_abs": 0.8999964594841003,
+        "ego_vy_max_abs": 0.07298339158296585,
+        "obs_rel_vy_max_abs": 0.0,
+        "road_y_max_abs": 0.6177637577056885
+      },
+      "scaled_high_speed_crosser": {
+        "ego_ax_max_abs": 0.013467454351484776,
+        "ego_ay_max_abs": 0.22997888922691345,
+        "ego_vx_max_abs": 0.8999964594841003,
+        "ego_vy_max_abs": 0.07298339158296585,
+        "obs_rel_vy_max_abs": 0.8702870011329651,
+        "road_y_max_abs": 0.6177637577056885
+      }
+    },
+    "deterministic_replay_failures": [],
+    "deterministic_replay_pass": true,
+    "episodes": 48,
+    "fixed_preview_short_exposed_pass": true,
+    "frames": 1776,
+    "high_speed_crosser_rows": 592,
+    "high_speed_label_pass": true,
+    "high_speed_label_rows": 592,
+    "high_speed_reached_pass": true,
+    "legacy_preview_time_min_s": 1.1111111111111112,
+    "legacy_saturation_exposed_pass": true,
+    "modes": [
+      "legacy_fixed_preview",
+      "scaled_high_speed",
+      "scaled_high_speed_crosser"
+    ],
+    "obs72_shape_pass": true,
+    "scaled_normalization_pass": true,
+    "scaled_preview_time_min_s": 2.5,
+    "scaled_selected_channel_max_abs": 0.8999964594841003,
+    "speed_aware_preview_pass": true
+  },
+  "replay_seeds": [
+    20260824,
+    20260825,
+    20260826,
+    20260827
+  ],
+  "roadmap_unit": "B2 >20 m/s speed domain",
+  "rows_csv": "runs/feasibility_audit/high_speed_domain_smoke/episode_rows.csv",
+  "seed_base": 20260824,
+  "seed_count": 16
+}

@@ -4,10 +4,10 @@ This file is the compact official state for the project. Milestone documents
 and `docs/research-log.md` remain the detailed log of the autonomous-harness
 era; the Phase-2 plan and thesis (pointer table below) define the active
 program. Last full refresh: 2026-06-12 (the 2026-06-11 WP6.3 refresh
-replaced the stale paper-route state; this update folds in M3215-M3223,
+replaced the stale paper-route state; this update folds in M3215-M3224,
 the C5 pricing disposition, the S4-HF-lite backend connector smoke, WP6.2
 guardrails, the A1 lateral-channel rider, the A2 obs-normalization audit, and
-the A3 C5-prime target consolidation plus B1 moving-obstacle env smoke).
+the A3 C5-prime target consolidation plus B1/B2 env-engineering smokes).
 
 ## Project Identity
 
@@ -23,8 +23,8 @@ the A3 C5-prime target consolidation plus B1 moving-obstacle env smoke).
 
 History in one paragraph: the autonomous harness loop ran through M3214
 before manual takeover; the manual takeover has since registered and
-completed M3215-M3223. `experiments/research_status.json` now records
-3228 completed / 4 failed / 2 blocked task entries, with `next_task:
+completed M3215-M3224. `experiments/research_status.json` now records
+3229 completed / 4 failed / 2 blocked task entries, with `next_task:
 null`. On
 2026-06-11 an independent feasibility audit showed the M3108–M3212
 residual-repair branch was repairing physically unsolvable rows, and the
@@ -76,7 +76,10 @@ A2 obs-normalization audit **completed / blocker found**
 follow-up normalization/preview implementation before population or high-speed
 training); B1 moving-obstacle env axis **completed / smoke passed** (flagged
 constant-velocity crosser, dynamic labels, deterministic replay, legacy
-zero-relvel preserved); WP4 spot checks **pending**
+zero-relvel preserved); B2 high-speed env axis **completed / smoke passed**
+(explicit 36 m/s profile, selected-channel max abs 0.900, 2.5 s road preview,
+high-speed labels 592/592; env-contract only, no training admission); WP4 spot
+checks **pending**
 (Chrono outcome coverage remains Sedan-only; M3219 adds variant reset/step
 smoke only); WP5 papers **pending**
 (scope fixed: family-scoped mode-dependent two-regime law + estimator
@@ -84,7 +87,7 @@ positive + the capstone bound; plus C5' only if PI accepts the structural
 ceiling route); WP6 **current guardrails live** (6.0/6.1/6.2/6.3 done;
 validator V7, escalation protocol, and managed-run helper are merged).
 
-Harness ledger: M3215, M3216, M3217, M3218, M3219, M3220, M3221, M3222, M3223 registered and executed through the
+Harness ledger: M3215, M3216, M3217, M3218, M3219, M3220, M3221, M3222, M3223, M3224 registered and executed through the
 harness (research-validate passed in both states for each); leak gates
 stopped two dataset leaks and one terminal iteration, all per
 pre-registration.
@@ -100,10 +103,11 @@ on CP-1. M3223 completed B1 moving-obstacle env engineering as a smoke-only
 axis: default static obstacles and zero-relvel contracts are preserved, while
 the non-default constant-velocity crosser exposes dynamic labels and ego-mode
 relative velocity. M3221 found an obs-normalization/preview blocker for any
-population or high-speed training. The next lowest OPEN roadmap item is B2
-high-speed domain, which must apply the A2 normalization/preview
-recommendation. D1 Chrono S4 pricing also remains open but lower in the
-ordered queue.
+population or high-speed training; M3224 implemented the non-default B2
+high-speed profile and smoke-tested it at 36 m/s, closing that env-contract
+blocker for the explicit profile only. The next lowest OPEN roadmap item is
+B3 geometry-channel degradation + split-mu. D1 Chrono S4 pricing also remains
+open but lower in the ordered queue.
 
 ## Pointer Table
 
@@ -113,7 +117,7 @@ ordered queue.
 | Phase-2 plan v2 (active program definition) | `docs/research-plan-phase2-capability-boundary-tracking.md` |
 | Takeover decision (why M3213 was blocked) | `docs/feasibility-takeover-2026-06-route-decision.md` |
 | Gate protocol v2 (anchors before informative actions; R²≤0.1 self-check) | `docs/selfid-gate-protocol-v2-2026-06.md` |
-| Latest harness milestone (M3223: B1 moving-obstacle kinematics smoke) | `docs/m3223-b1-moving-obstacle-kinematics-smoke.md` |
+| Latest harness milestone (M3224: B2 high-speed normalization/preview smoke) | `docs/m3224-b2-high-speed-domain-normalization-preview-smoke.md` |
 | Thesis capstone + RL re-entry (Sections 10-11) | `docs/capability-boundary-tracking-thesis-2026-06.md` |
 | Data coverage map (C5 sampling design authority) | `docs/data-coverage-map-2026-06.md` |
 | Incumbent deployed driver (v4, untouched) | `src/autodrift/active_safety_reflex_driver.py`, `DRIVER_ID = active_safety_reflex_driver_m3105_incumbent_v4_no_regression` |

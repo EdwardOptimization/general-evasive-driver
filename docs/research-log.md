@@ -56212,3 +56212,14 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/feasibility_audit/moving_obstacle_smoke/episode_rows.csv`
 - success artifact: `experiments/feasibility_audit/moving_obstacle_smoke.json`
 - notes: Completed pre-registered B1 moving-obstacle env smoke. Full smoke ran 48 episodes and 1968 frames over legacy static zero-relvel, moving crosser zero-relvel, and moving crosser ego-relvel modes. Verdict: all gates passed; zero-relvel violations 0, moving body-y delta min 0.6053 m, ego rel-velocity max norm 19.9404 m/s, dynamic label rows 1312/1312, deterministic replay failures 0. B1 is env engineering only; no training, driver mutation, validation ranking, promotion, paper, repair-success, robustness-result, feasibility-proof, or self-ID claim.
+## 20260611T203000Z m3224-b2-high-speed-domain-normalization-preview-smoke
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: A non-default high-speed obs72 normalization and speed-aware road preview profile can represent 36 m/s scenarios, expose the legacy fixed-preview blocker, keep obs72 shape, and preserve deterministic high-speed feasibility labels before any training validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof paper or self-ID claim.
+- command: `env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/high_speed_domain_smoke.py`
+- returncode: `0`
+- run dir: `runs/feasibility_audit/high_speed_domain_smoke`
+- command log: `runs/feasibility_audit/high_speed_domain_smoke/episode_rows.csv`
+- success artifact: `experiments/feasibility_audit/high_speed_domain_smoke.json`
+- notes: Completed pre-registered B2 high-speed env-contract smoke. Full smoke ran 48 episodes and 1776 frames over legacy fixed preview, scaled high-speed, and scaled high-speed crosser modes. Verdict: all gates passed; legacy vx/20 exposed max abs 1.800 and fixed preview 1.111 s; scaled profile selected-channel max abs 0.900, preview 2.500 s, high-speed labels 592/592, deterministic replay failures 0. B2 is env engineering only; no training, driver mutation, validation ranking, promotion, paper, repair-success, robustness-result, feasibility-proof, or self-ID claim.

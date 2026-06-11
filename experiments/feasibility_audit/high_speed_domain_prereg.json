@@ -1,0 +1,59 @@
+{
+  "protocol": "high_speed_domain_normalization_preview_smoke_preregistration",
+  "roadmap_unit": "B2 >20 m/s speed domain",
+  "frozen_at_utc": "20260612T000000Z",
+  "frozen_before_full_smoke": true,
+  "claim_under_pricing": "Implementation smoke only: add a non-default high-speed obs72 normalization/profile and speed-aware road preview so 36 m/s scenarios can be represented without the M3221 channel saturation/preview blocker. This admits no training or driver-performance claim.",
+  "seed_discipline": {
+    "seed_base": 20260824,
+    "quick_seed_count": 3,
+    "full_seed_count": 16,
+    "deterministic_replay_count": 4,
+    "selection_training_or_validation_reuse": "none: this is an env-contract smoke, not training, target pricing, selection, or validation"
+  },
+  "target_modes": [
+    "legacy_fixed_preview",
+    "scaled_high_speed",
+    "scaled_high_speed_crosser"
+  ],
+  "scenario_fixture": {
+    "track_kind": "circle",
+    "track_radius": 250.0,
+    "track_width": 12.0,
+    "speed_range": [36.0, 36.0],
+    "friction_limited_speed": false,
+    "max_speed_limit": 45.0,
+    "obstacle_distance_range": [55.0, 55.0],
+    "obstacle_half_width_range": [0.7, 0.7],
+    "obstacle_lateral_offset_range": [-4.0, -4.0],
+    "crosser_lateral_velocity_range": [24.0, 24.0],
+    "max_steps": 70
+  },
+  "high_speed_observation_scale": {
+    "ego_vx": 40.0,
+    "ego_vy": 40.0,
+    "ego_ax": 50.0,
+    "ego_ay": 60.0,
+    "road_y": 60.0,
+    "obstacle_rel_vy": 30.0,
+    "road_lookahead_time_s": 2.5,
+    "road_lookahead_max_distance": 120.0
+  },
+  "preregistered_readouts": {
+    "obs_shape": "All sampled frames must keep obs72 shape.",
+    "high_speed_reach": "All sampled frames must have speed_ref >= 35.9 m/s.",
+    "legacy_blocker_exposure": "The legacy fixed-preview/high-speed fixture must expose the old blocker with ego_vx scaled magnitude >= 1.2 and fixed preview time <= 1.12 s.",
+    "scaled_normalization": "Across scaled_high_speed and scaled_high_speed_crosser frames, selected audited channels ego_vx, ego_vy, ego_ax, ego_ay, road_y, and obs_rel_vy must have max_abs <= 1.0.",
+    "speed_aware_preview": "Scaled profiles must keep minimum road preview time >= 2.45 s at 36 m/s.",
+    "high_speed_labels": "The high-speed moving-crosser fixture must produce non-empty feasibility labels and finite predicted_lateral_offset_at_arrival with obstacle_lateral_velocity != 0 on every sampled frame.",
+    "determinism": "Same seed plus same scripted actions must reproduce observations, labels, preview distance/time, and termination fields within 1e-7."
+  },
+  "decision_rule": "Accept B2 smoke iff all readouts pass on the full seed set. Passing closes the M3221 high-speed env-contract blocker only; it does not admit training or performance claims.",
+  "runtime_gates": [
+    "quick smoke passes before the full smoke",
+    "default ObservationScaleConfig reproduces the legacy obs72 scaling and fixed 40 m preview",
+    "high-speed profile is opt-in through observation_scale plus max_speed_limit",
+    "deterministic replay passes on the frozen replay seeds"
+  ],
+  "claim_boundary": "B2 high-speed env-contract implementation smoke only; no training, no driver mutation, no validation ranking, no promotion, no driver-performance, no current-sim robustness-result, no high-fidelity sufficiency, no paper, no repair-success, no feasibility-proof, and no self-ID claim."
+}

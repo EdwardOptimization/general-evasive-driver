@@ -363,10 +363,12 @@ check (not "~1 command").
    implemented and smoke-tested, but any S4-HF-lite pricing execution still
    needs a frozen preregistration and a declared handling of the unmapped
    continuous `lf/lr/Iz/cf/cr` lateral/tire channels. M3221 completed the
-   obs-normalization audit and found a blocker: road_y/20, high-speed ego
-   speed/accel, and obstacle rel-vy/12 need a follow-up
-   normalization/preview implementation before population or high-speed
-   training. Track C remains blocked until CP-1.
+   obs-normalization audit and found a blocker; M3224 implemented and smoked
+   an explicit 36 m/s profile (`vx/40`, `vy/40`, `ax/50`, `ay/60`,
+   `road_y/60`, `rel_vy/30`, 2.5 s preview), closing the high-speed
+   env-contract blocker for that profile only. Population training still
+   needs its own preregistered profile/floors, and Track C remains blocked
+   until CP-1.
    Four paired arms: fixed v4 / v4+RLS-retuned (the classical
    identification arm reviewers will demand) / per-instance-tuned v4
    (the "tune every car" upper bound, quantified to show its cost) /
@@ -387,12 +389,13 @@ check (not "~1 command").
    (`docs/data-coverage-map-2026-06.md`): training-data distribution for
    C5 is designed against the audited gaps, in priority order —
    (i) S4 population tier + **obs-normalization implementation after the
-   M3221 audit** (the normalization constants and preview are nominal-vehicle
-   artifacts; implementation precedes any population training); (ii) moving
-   obstacles (env engineering, >= 1-2 days); (iii) > 20 m/s speed domain
-   (production AEB/AES reaches 130+ km/h; zero current coverage);
-   (iv) geometry-channel degradation + split-mu; (v) minute-scale drive
-   structure (the real L3.5 scale). Items (ii)-(v) are env-engineering
+   M3221 audit** (B2 high-speed profile implemented in M3224; any population
+   variant still needs explicit preregistration); (ii) moving obstacles (B1
+   env engineering complete in M3223, outcome panels still unpriced);
+   (iii) > 20 m/s speed domain (B2 env engineering complete in M3224,
+   outcome panels still unpriced); (iv) geometry-channel degradation +
+   split-mu; (v) minute-scale drive structure (the real L3.5 scale). Items
+   (ii)-(v) are env-engineering
    prerequisites scheduled before the corresponding training claims, not
    after.
 

@@ -1,6 +1,6 @@
 # AutoDrift Observation Contract
 
-Last updated: 2026-05-22
+Last updated: 2026-06-12
 
 ## Rule
 
@@ -44,6 +44,15 @@ The canonical human-view obstacle-driver frame has 72 values when
 | 12-27 | eight left road-boundary points in body frame, stored as `(x / 80, y / 20)` |
 | 28-43 | eight right road-boundary points in body frame, stored as `(x / 80, y / 20)` |
 | 44-71 | four obstacle slots, each `[present, x / 80, y / 20, vx / 20, vy / 12, half_width / 5, half_length / 5]` |
+
+M3224 adds `ObservationScaleConfig` as a config-gated scaling block. The
+default values are exactly the table above and keep the fixed 8 x 5 m road
+preview. Non-default profiles may change divisors and make road preview
+speed-aware while preserving observation shape. The B2 high-speed smoke profile
+uses `vx/40`, `vy/40`, `ax/50`, `ay/60`, `road_y/60`, obstacle `rel_vy/30`,
+and a 2.5 s road preview capped at 120 m. That profile is an explicit
+high-speed env-contract profile, not the canonical default and not a checkpoint
+compatibility shim.
 
 History is carried by the online GRU hidden state, not by stacking frames. The
 current frame still includes the previous command because a driver knows what

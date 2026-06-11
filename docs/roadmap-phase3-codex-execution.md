@@ -89,9 +89,17 @@ demonstrating the new axis, registered as a milestone. No training claims.
   smoke frames; dynamic labels carry obstacle lateral velocity and predicted
   lateral offset at arrival; deterministic replay passed 4/4 seeds.
 
-### B2. > 20 m/s speed domain [OPEN; depends A2]
+### B2. > 20 m/s speed domain [DONE: M3224]
 - scenario configs to 36 m/s; preview/normalization per A2 recommendation;
   feasibility labels at high speed; smoke panel.
+- result: `docs/m3224-b2-high-speed-domain-normalization-preview-smoke.md`
+  completed the non-default high-speed observation/preview profile. The legacy
+  fixture exposed the old blocker (`ego_vx` max abs 1.800, fixed preview
+  1.111 s), while the scaled 36 m/s profile kept selected channels within
+  max abs 0.900, held 2.500 s road preview, preserved obs72 shape, produced
+  high-speed labels 592/592, and replayed deterministically 4/4. This closes
+  the high-speed env-contract blocker only; it does not admit training or a
+  controller-performance claim.
 
 ### B3. Geometry-channel degradation + split-mu [OPEN]
 - wrapper extension to obstacle/boundary channels (the only sensing axis
@@ -140,7 +148,7 @@ demonstrating the new axis, registered as a milestone. No training claims.
 - A2: DONE (M3221; normalization/preview implementation blocker found)
 - A3: DONE (M3222; C5-prime target confirmed 3/4 T-limit cells; CP-1 still required)
 - B1: DONE (M3223; flagged constant-velocity crosser smoke passed)
-- B2: OPEN (depends A2)
+- B2: DONE (M3224; explicit 36 m/s normalization/preview smoke passed)
 - B3: OPEN
 - B4: OPEN
 - C1-C3: BLOCKED on CP-1

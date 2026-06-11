@@ -10,6 +10,7 @@ from autodrift.env import (
     DriftEnvConfig,
     FrictionStepConfig,
     ObservationDegradationConfig,
+    ObservationScaleConfig,
     ObstacleTaskConfig,
     WarmupGateConfig,
 )
@@ -36,6 +37,7 @@ def build_env_config(data: dict[str, Any] | None = None) -> DriftEnvConfig:
     values["friction_step"] = asdict(FrictionStepConfig())
     values["obstacle"] = asdict(ObstacleTaskConfig())
     values["warmup_gate"] = asdict(WarmupGateConfig())
+    values["observation_scale"] = asdict(ObservationScaleConfig())
     for key, value in (data or {}).items():
         if key not in values:
             raise ValueError(f"unknown env config key: {key}")
@@ -82,6 +84,15 @@ def build_env_config(data: dict[str, Any] | None = None) -> DriftEnvConfig:
                 else:
                     warmup_gate[gate_key] = gate_value
             values["warmup_gate"] = warmup_gate
+        elif key == "observation_scale":
+            if not isinstance(value, dict):
+                raise ValueError("observation_scale must be a mapping")
+            observation_scale = values["observation_scale"].copy()
+            for scale_key, scale_value in value.items():
+                if scale_key not in observation_scale:
+                    raise ValueError(f"unknown observation_scale config key: {scale_key}")
+                observation_scale[scale_key] = scale_value
+            values["observation_scale"] = observation_scale
         elif key == "observation_degradation":
             if value is None:
                 values[key] = None
@@ -101,6 +112,7 @@ def build_env_config(data: dict[str, Any] | None = None) -> DriftEnvConfig:
     values["friction_step"] = FrictionStepConfig(**values["friction_step"])
     values["obstacle"] = ObstacleTaskConfig(**values["obstacle"])
     values["warmup_gate"] = WarmupGateConfig(**values["warmup_gate"])
+    values["observation_scale"] = ObservationScaleConfig(**values["observation_scale"])
     if values["observation_degradation"] is not None:
         values["observation_degradation"] = ObservationDegradationConfig(**values["observation_degradation"])
     return DriftEnvConfig(**values)
@@ -129,6 +141,10 @@ def merge_env_config(base: dict[str, Any], override: dict[str, Any]) -> dict[str
             warmup_gate = dict(merged.get("warmup_gate", {}))
             warmup_gate.update(value)
             merged["warmup_gate"] = warmup_gate
+        elif key == "observation_scale":
+            observation_scale = dict(merged.get("observation_scale", {}))
+            observation_scale.update(value)
+            merged["observation_scale"] = observation_scale
         elif key == "observation_degradation":
             if value is None:
                 merged["observation_degradation"] = None

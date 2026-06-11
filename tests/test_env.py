@@ -4,7 +4,14 @@ import pytest
 from autodrift.artifacts import read_json
 from autodrift.config import build_env_config
 from autodrift.dynamics import RandomizationConfig, VehicleState
-from autodrift.env import AutoDriftEnv, DriftEnvConfig, FrictionStepConfig, ObstacleTaskConfig, WarmupGateConfig
+from autodrift.env import (
+    AutoDriftEnv,
+    DriftEnvConfig,
+    FrictionStepConfig,
+    ObservationScaleConfig,
+    ObstacleTaskConfig,
+    WarmupGateConfig,
+)
 from autodrift.policies import HeuristicPolicy
 from autodrift.scenarios import ObstacleScenario
 from autodrift.tasks import PathFrame
@@ -198,6 +205,63 @@ def test_obstacle_task_adds_observation_features_and_info():
     assert np.isfinite(info["min_clearance_margin"])
     assert len(env._obstacle_slot_features()) == env.config.obstacle_slots * 7
     assert env._obstacle_slot_features()[0] == 1.0
+
+
+def test_default_observation_scale_preserves_legacy_obs72_and_fixed_preview():
+    env = AutoDriftEnv(DriftEnvConfig(friction_limited_speed=False, speed_range=(20.0, 20.0)))
+    obs, info = env.reset(seed=2001)
+
+    assert obs.shape == (72,)
+    np.testing.assert_allclose(env._road_lookahead_distances(), np.arange(5.0, 45.0, 5.0))
+    assert info["road_lookahead_distance_max"] == pytest.approx(40.0)
+    assert info["max_speed_limit"] == pytest.approx(32.0)
+
+    env.state = VehicleState(env.state.x, env.state.y, env.state.psi, 20.0, 12.0, env.state.yaw_rate)
+    scaled = env._base_observation()
+
+    assert scaled[0] == pytest.approx(1.0)
+    assert scaled[1] == pytest.approx(1.0)
+
+
+def test_high_speed_observation_scale_keeps_shape_and_extends_preview():
+    env = AutoDriftEnv(
+        DriftEnvConfig(
+            friction_limited_speed=False,
+            speed_range=(36.0, 36.0),
+            track_radius=250.0,
+            max_speed_limit=45.0,
+            observation_scale=ObservationScaleConfig(
+                ego_vx=40.0,
+                ego_vy=40.0,
+                ego_ax=50.0,
+                ego_ay=60.0,
+                road_y=60.0,
+                obstacle_rel_vy=30.0,
+                road_lookahead_time_s=2.5,
+                road_lookahead_max_distance=120.0,
+            ),
+        )
+    )
+    obs, info = env.reset(seed=2002)
+
+    assert obs.shape == (72,)
+    assert env._road_lookahead_distances()[-1] == pytest.approx(90.0)
+    assert info["road_lookahead_distance_max"] == pytest.approx(90.0)
+    assert info["road_lookahead_time_s"] == pytest.approx(2.5, rel=1e-5)
+    assert info["max_speed_limit"] == pytest.approx(45.0)
+
+    env.state = VehicleState(env.state.x, env.state.y, env.state.psi, 36.0, 12.0, env.state.yaw_rate)
+    scaled = env._base_observation()
+
+    assert scaled[0] == pytest.approx(0.9)
+    assert scaled[1] == pytest.approx(0.3)
+
+
+def test_observation_scale_rejects_bad_constants():
+    with pytest.raises(ValueError, match="observation_scale"):
+        ObservationScaleConfig(ego_vx=0.0)
+    with pytest.raises(ValueError, match="road_lookahead_time_s"):
+        ObservationScaleConfig(road_lookahead_time_s=-0.1)
 
 
 def test_obstacle_relative_velocity_mode_can_zero_context_motion_proxy():

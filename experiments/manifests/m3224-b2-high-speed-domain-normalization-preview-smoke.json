@@ -1,0 +1,192 @@
+{
+  "id": "m3224-b2-high-speed-domain-normalization-preview-smoke",
+  "priority": 32240,
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "milestone_intent": "implementation_smoke",
+  "hypothesis": "A non-default high-speed obs72 normalization and speed-aware road preview profile can represent 36 m/s scenarios, expose the legacy fixed-preview blocker, keep obs72 shape, and preserve deterministic high-speed feasibility labels before any training validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof paper or self-ID claim.",
+  "lineage": {
+    "parent_checkpoint": [
+      "docs/roadmap-phase3-codex-execution.md",
+      "docs/m3221-a2-obs-normalization-audit.md",
+      "docs/m3223-b1-moving-obstacle-kinematics-smoke.md"
+    ],
+    "parent_dataset": [
+      "none: new env-contract smoke only"
+    ],
+    "parent_config": [
+      "src/autodrift/env.py",
+      "src/autodrift/config.py",
+      "experiments/feasibility_audit/high_speed_domain_prereg.json"
+    ],
+    "parent_objective": [
+      "execute roadmap B2 high-speed domain engineering without changing incumbent driver, obs72 shape, or legacy default scaling"
+    ],
+    "derived_from": [
+      "docs/roadmap-phase3-codex-execution.md",
+      "docs/m3221-a2-obs-normalization-audit.md",
+      "experiments/feasibility_audit/high_speed_domain_prereg.json"
+    ],
+    "blocked_by": [
+      "B2 full smoke completed"
+    ],
+    "supersedes": [
+      "the B2 OPEN status line if the implementation and smoke are documented"
+    ],
+    "invalidates": [
+      "assuming the legacy vx/20, ay/15, road_y/20, rel_vy/12, and fixed 40 m road preview are acceptable for 36 m/s scenarios"
+    ]
+  },
+  "review_artifact": "docs/reviews/m3224-b2-high-speed-domain-normalization-preview-smoke.md",
+  "public_gates": [
+    "M3224 must keep default ObservationScaleConfig values equivalent to the legacy obs72 contract",
+    "M3224 must keep obs72 shape for history_length=1, action_history_mode=full, road_lookahead_count=8, obstacle_slots=4",
+    "M3224 must expose the 36 m/s profile only through explicit observation_scale plus max_speed_limit configuration",
+    "M3224 full smoke must show selected scaled channels within max_abs <= 1.0",
+    "M3224 full smoke must show speed-aware preview time >= 2.45 s and deterministic replay",
+    "M3224 must not mutate ActiveSafetyReflexDriver, public driver defaults, training configs, or checkpoints"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not change the default obs72 scaling or shape",
+    "do not train RL or create checkpoints",
+    "do not use labels or hidden feasibility quantities as actor inputs",
+    "do not claim driver performance or current-sim robustness from the smoke",
+    "do not admit Track C training from this B2 env-contract result"
+  ],
+  "workflow_synthesis": {
+    "branch": "high_speed_env_axis",
+    "evidence_axis": "b2_high_speed_env_contract_smoke",
+    "evidence_increment": "non-default 36 m/s observation scaling, speed-aware road preview, high-speed label smoke, and deterministic replay",
+    "claim_scope": "Auxiliary env-engineering smoke only; no training admission, no validation ranking promotion, no driver-performance, no current-sim robustness claim, no high-fidelity sufficiency, no paper, no repair-success, no feasibility-proof, and no self-ID claim",
+    "stop_condition": [
+      "stop if default obs72 values change",
+      "stop if scaled high-speed channels exceed max_abs <= 1.0",
+      "stop if speed-aware preview falls below 2.45 s",
+      "stop if deterministic replay fails",
+      "stop after documenting B2 smoke result"
+    ],
+    "fallback_plan": [
+      "on contract failure, mark B2 blocked and document the failing frame/artifact",
+      "on smoke pass, mark B2 DONE as env-axis implementation only",
+      "on inconclusive smoke, keep B2 OPEN with frozen failure readouts"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "Phase-3 roadmap selected B2 after B1 completed and A2 identified the normalization/preview blocker",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "Implement and smoke-test the high-speed observation/preview env profile without training.",
+    "admission_evidence": [
+      "B2 is the lowest OPEN roadmap item after M3223",
+      "M3221 measured the high-speed observation saturation and preview-time blocker",
+      "B2 is an env-contract implementation smoke only and does not admit Track C"
+    ],
+    "blocked_shortcuts": [
+      "no train_ppo invocation",
+      "no checkpoint creation or update",
+      "no driver mutation",
+      "no Track C admission"
+    ],
+    "allowed_updates": [
+      "src/autodrift/env.py",
+      "src/autodrift/config.py",
+      "tests covering observation scaling and speed-aware preview contracts",
+      "scripts/feasibility_audit/high_speed_domain_smoke.py",
+      "experiments/feasibility_audit/high_speed_domain_prereg.json",
+      "experiments/feasibility_audit/high_speed_domain_smoke*.json",
+      "docs/m3224-b2-high-speed-domain-normalization-preview-smoke.md",
+      "docs/reviews/m3224-b2-high-speed-domain-normalization-preview-smoke.md",
+      "M3224 queue, status, scoreboard, roadmap, current-status, research-log, observation-contract, and measurement-index rows"
+    ],
+    "next_stage_criteria": [
+      "full summary JSON exists with protocol high_speed_domain_normalization_preview_smoke",
+      "legacy blocker exposure and scaled profile gates pass",
+      "result document states that B2 is env engineering only"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "Not applicable: M3224 changes observation scaling and preview geometry through an explicit env profile and runs scripted smoke only, with no learned-history policy or self-identification measurement.",
+    "history_necessity_tests": [
+      "none in M3224: env-contract smoke only"
+    ],
+    "temporal_evidence_window": "none: no history-attribution claim is made",
+    "negative_result_policy": "A failed or inconclusive B2 smoke is reported at full fidelity and B2 remains open or blocked.",
+    "allowed_claims": [
+      "high-speed observation scale config exists",
+      "speed-aware road preview exists behind an explicit config",
+      "deterministic high-speed env-contract smoke result"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_tool_or_infra",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "new high-speed env-axis smoke",
+    "paper_verdict_delta": "B2 can remove the M3221 high-speed env-contract blocker if full smoke passes; no paper or controller outcome claim is admitted.",
+    "must_synthesize_if": [
+      "legacy default scaling changes",
+      "scaled high-speed channels remain saturated",
+      "B2 implementation expands into training or driver changes"
+    ]
+  },
+  "success_criteria": [
+    "experiments/feasibility_audit/high_speed_domain_prereg.json exists before full smoke",
+    "experiments/feasibility_audit/high_speed_domain_smoke.json exists with protocol high_speed_domain_normalization_preview_smoke",
+    "full smoke reports pass for obs72_shape, high_speed_reached, legacy_saturation_exposed, scaled_normalization, fixed_preview_short_exposed, speed_aware_preview, high_speed_label, and deterministic_replay",
+    "the result document states that no training or driver claim is admitted"
+  ],
+  "failure_criteria": [
+    "default observation scaling or obs72 shape changes",
+    "the 36 m/s high-speed profile is available without explicit observation_scale plus max_speed_limit configuration",
+    "selected scaled channels exceed max_abs <= 1.0",
+    "speed-aware preview time drops below 2.45 s",
+    "same seed and same actions do not replay deterministically",
+    "the milestone trains, mutates a driver, changes actor-input labels, or admits Track C"
+  ],
+  "decision_rule": "Accept M3224 as complete only if implementation, tests, full smoke artifact, result doc, and review all pass while preserving legacy default obs72 behavior.",
+  "commands": [
+    {
+      "name": "high_speed_domain_quick_smoke",
+      "command": "env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/high_speed_domain_smoke.py --quick"
+    },
+    {
+      "name": "high_speed_domain_full_smoke",
+      "command": "env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/high_speed_domain_smoke.py"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "experiments/feasibility_audit/high_speed_domain_prereg.json",
+      "type": "json"
+    },
+    {
+      "path": "experiments/feasibility_audit/high_speed_domain_smoke_quick.json",
+      "type": "json"
+    },
+    {
+      "path": "experiments/feasibility_audit/high_speed_domain_smoke.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m3224-b2-high-speed-domain-normalization-preview-smoke.md",
+      "type": "markdown"
+    }
+  ],
+  "baseline_checkpoints": [
+    "docs/roadmap-phase3-codex-execution.md",
+    "docs/m3221-a2-obs-normalization-audit.md",
+    "docs/m3223-b1-moving-obstacle-kinematics-smoke.md"
+  ],
+  "scoreboard_checkpoint": "experiments/feasibility_audit/high_speed_domain_smoke.json",
+  "next_blocker": "B3 geometry-channel degradation and split-mu remains open after B2; Track C remains blocked on CP-1.",
+  "status": "completed"
+}

@@ -99,6 +99,43 @@ def test_build_env_config_overrides_action_history_mode():
     assert config.history_length == 3
 
 
+def test_build_env_config_overrides_observation_scale_and_high_speed_limit():
+    config = build_env_config(
+        {
+            "max_speed_limit": 45.0,
+            "observation_scale": {
+                "ego_vx": 40.0,
+                "ego_vy": 40.0,
+                "ego_ax": 50.0,
+                "ego_ay": 60.0,
+                "road_y": 60.0,
+                "obstacle_rel_vy": 30.0,
+                "road_lookahead_time_s": 2.5,
+                "road_lookahead_max_distance": 120.0,
+            },
+        }
+    )
+
+    assert config.max_speed_limit == 45.0
+    assert config.observation_scale.ego_vx == 40.0
+    assert config.observation_scale.ego_vy == 40.0
+    assert config.observation_scale.ego_ax == 50.0
+    assert config.observation_scale.ego_ay == 60.0
+    assert config.observation_scale.road_y == 60.0
+    assert config.observation_scale.obstacle_rel_vy == 30.0
+    assert config.observation_scale.road_lookahead_time_s == 2.5
+    assert config.observation_scale.road_lookahead_max_distance == 120.0
+
+
+def test_build_env_config_rejects_unknown_observation_scale_key():
+    try:
+        build_env_config({"observation_scale": {"ego_speed": 40.0}})
+    except ValueError as exc:
+        assert "observation_scale" in str(exc)
+    else:
+        raise AssertionError("unknown observation_scale key should be rejected")
+
+
 def test_build_env_config_rejects_legacy_action_history_mode():
     try:
         build_env_config({"action_history_mode": "legacy"})
