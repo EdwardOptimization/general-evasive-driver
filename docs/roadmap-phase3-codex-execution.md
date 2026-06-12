@@ -96,6 +96,22 @@ demonstrating the new axis, registered as a milestone. No training claims.
   smoke frames; dynamic labels carry obstacle lateral velocity and predicted
   lateral offset at arrival; deterministic replay passed 4/4 seeds.
 
+### B1b. Moving-obstacle pricing [OPEN; after C1/D1b]
+- question: does the constant-velocity crosser axis (built in B1/M3223)
+  create type-(b) regions — per-instance oracle succeeds, best
+  reflex-family arm fails — via the timing/prediction demand that
+  single-frame reactive control cannot meet?
+- method: scenario panel on the flagged moving-obstacle axis (crosser
+  speed x reveal x geometry; C5-F1 placement discipline); four arms per
+  the C5 pricing pattern — fixed reflex (one global retune allowed, the
+  fixed* convention) / RLS-retuned / per-instance-tuned / per-instance
+  oracle (CEM); feasibility labels re-derived under dynamic geometry (B1
+  delivered this); oracle-infeasible rows excluded from the denominator.
+  Prereg first, new SEED_BASE, managed run.
+- acceptance: pre-registered (oracle - per-tuned) per cell with paired
+  CIs; gap >= 0.15 CI-excluding-0 in >= 2 cells => a new priced prize
+  (Track C extension candidate, post-CP-2); either verdict feeds papers.
+
 ### B2. > 20 m/s speed domain [DONE: M3224]
 - scenario configs to 36 m/s; preview/normalization per A2 recommendation;
   feasibility labels at high speed; smoke panel.
@@ -107,6 +123,21 @@ demonstrating the new axis, registered as a milestone. No training claims.
   high-speed labels 592/592, and replayed deterministically 4/4. This closes
   the high-speed env-contract blocker only; it does not admit training or a
   controller-performance claim.
+
+### B2b. High-speed domain pricing [OPEN; after C1/D1b]
+- question: does window compression at production speeds (24/30/36 m/s,
+  on the M3224 high-speed observation/preview profile) open type-(b)
+  gaps (the K2 effect amplified), and — secondary, reported not gated —
+  does belief value revive at high speed under sensing degradation (the
+  two-regime law at production speeds)?
+- method: high-speed panel (speed tier x reveal tier x mu) on the M3224
+  profile; same four arms with the fixed* one-global-retune convention
+  (v4's absolute thresholds were never tuned for this domain — the
+  retune IS part of the honest baseline); per-instance feasibility
+  labels at speed (B2 delivered); optional degradation axis on the
+  tightest cells. Prereg first, new SEED_BASE, managed run.
+- acceptance: pre-registered gap table with paired CIs; secondary
+  VoI(belief) table descriptive only.
 
 ### B3. Geometry-channel degradation + split-mu [DONE: M3225]
 - wrapper extension to obstacle/boundary channels (the only sensing axis
@@ -207,11 +238,16 @@ demonstrating the new axis, registered as a milestone. No training claims.
 - B2: DONE (M3224; explicit 36 m/s normalization/preview smoke passed)
 - B3: DONE (M3225; geometry-channel degradation smoke passed; split-mu not expressible on the DriftObstacleEnv single-track path)
 - B4: DONE (M3226; 60 s warmup-to-obstacle-to-post-pass continuation smoke passed)
+- B1b: OPEN (moving-obstacle pricing; start after C1/D1b)
+- B2b: OPEN (high-speed pricing; start after C1/D1b)
 - C1: OPEN (CP-1 disposition 2026-06-12: conditional approval)
 - C2: BLOCKED on C1
 - C3: BLOCKED on C2 + D1b direction-positive + CP-2
 - D1: DONE (M3227; tail-replay proxy reversed in all three variants)
 - D1b: OPEN (Chrono-native oracle pricing; CP-2 precondition)
+
+Execution order note: cross-track priority is C1 and D1b first (CP-1
+disposition), then B1b, then B2b; within a track, lowest number first.
 - WP6.2 guardrails: **MERGED** (commit 05607bcd — validator V7 live in the
   pre-commit hook, escalation protocol in docs/escalations/, managed-run
   helper scripts/run_managed.sh). Codex execution may begin.
