@@ -1,0 +1,1615 @@
+{
+  "claim_boundary": "M3236 C1 tail-family interface pretrain quick only: supervised tail-family classifier training over frozen structured-oracle tail frames. No PPO, no guarded RL, no incumbent mutation, no driver-performance claim, no validation ranking, no promotion, no high-fidelity sufficiency claim, no C2 admission, and no self-ID claim.",
+  "dataset": {
+    "artifact": "runs/feasibility_audit/c5prime_c1_tail_family_interface_pretrain_quick/quick/interface_pretrain_dataset.npz",
+    "frames": 2928,
+    "per_row": [
+      {
+        "oracle_by": "structured:brake_steer_+0.4",
+        "reveal_step": 16,
+        "role": "validation",
+        "row_id": "S1-inst00-seed7300026",
+        "selection_source": "base",
+        "steps": 84,
+        "tail_frames": 68,
+        "tail_max_abs_error": 0.0,
+        "tail_reconstruction_mse": 0.0
+      },
+      {
+        "oracle_by": "structured:full_brake",
+        "reveal_step": 81,
+        "role": "train",
+        "row_id": "S1-inst01-seed7305013",
+        "selection_source": "base",
+        "steps": 159,
+        "tail_frames": 78,
+        "tail_max_abs_error": 0.0,
+        "tail_reconstruction_mse": 0.0
+      },
+      {
+        "oracle_by": "structured:brake_steer_-0.4",
+        "reveal_step": 26,
+        "role": "train",
+        "row_id": "S1-inst02-seed7310052",
+        "selection_source": "base",
+        "steps": 93,
+        "tail_frames": 67,
+        "tail_max_abs_error": 0.0,
+        "tail_reconstruction_mse": 0.0
+      },
+      {
+        "oracle_by": "structured:brake_steer_-0.4",
+        "reveal_step": 34,
+        "role": "validation",
+        "row_id": "S1-inst03-seed7315182",
+        "selection_source": "base",
+        "steps": 125,
+        "tail_frames": 91,
+        "tail_max_abs_error": 0.0,
+        "tail_reconstruction_mse": 0.0
+      },
+      {
+        "oracle_by": "structured:brake_steer_-0.4",
+        "reveal_step": 41,
+        "role": "train",
+        "row_id": "S1-inst04-seed7320234",
+        "selection_source": "base",
+        "steps": 122,
+        "tail_frames": 81,
+        "tail_max_abs_error": 0.0,
+        "tail_reconstruction_mse": 0.0
+      },
+      {
+        "oracle_by": "structured:brake_steer_+0.4",
+        "reveal_step": 71,
+        "role": "selection",
+        "row_id": "S1-inst05-seed7325130",
+        "selection_source": "base",
+        "steps": 131,
+        "tail_frames": 60,
+        "tail_max_abs_error": 0.0,
+        "tail_reconstruction_mse": 0.0
+      },
+      {
+        "oracle_by": "structured:brake_steer_-0.7",
+        "reveal_step": 71,
+        "role": "train",
+        "row_id": "S1-inst06-seed7330013",
+        "selection_source": "base",
+        "steps": 152,
+        "tail_frames": 81,
+        "tail_max_abs_error": 0.0,
+        "tail_reconstruction_mse": 0.0
+      },
+      {
+        "oracle_by": "structured:brake_steer_+0.4",
+        "reveal_step": 39,
+        "role": "train",
+        "row_id": "S1-inst07-seed7335039",
+        "selection_source": "base",
+        "steps": 107,
+        "tail_frames": 68,
+        "tail_max_abs_error": 0.0,
+        "tail_reconstruction_mse": 0.0
+      },
+      {
+        "oracle_by": "structured:brake_steer_-0.4",
+        "reveal_step": 29,
+        "role": "train",
+        "row_id": "S1-inst08-seed7340104",
+        "selection_source": "base",
+        "steps": 99,
+        "tail_frames": 70,
+        "tail_max_abs_error": 0.0,
+        "tail_reconstruction_mse": 0.0
+      },
+      {
+        "oracle_by": "structured:brake_steer_-0.4",
+        "reveal_step": 57,
+        "role": "validation",
+        "row_id": "S1-inst09-seed7345052",
+        "selection_source": "base",
+        "steps": 119,
+        "tail_frames": 62,
+        "tail_max_abs_error": 0.0,
+        "tail_reconstruction_mse": 0.0
+      },
+      {
+        "oracle_by": "structured:brake_steer_-0.4",
+        "reveal_step": 81,
+        "role": "train",
+        "row_id": "S1-inst10-seed7350091",
+        "selection_source": "base",
+        "steps": 155,
+        "tail_frames": 74,
+        "tail_max_abs_error": 0.0,
+        "tail_reconstruction_mse": 0.0
+      },
+      {
+        "oracle_by": "structured:brake_steer_-0.4",
+        "reveal_step": 62,
+        "role": "validation",
+        "row_id": "S1-inst11-seed7355078",
+        "selection_source": "base",
+        "steps": 130,
+        "tail_frames": 68,
+        "tail_max_abs_error": 0.0,
+        "tail_reconstruction_mse": 0.0
+      },
+      {
+        "oracle_by": "structured:brake_steer_-1.0",
+        "reveal_step": 69,
+        "role": "train",
+        "row_id": "S2-inst00-seed7500065",
+        "selection_source": "base",
+        "steps": 152,
+        "tail_frames": 83,
+        "tail_max_abs_error": 0.0,
+        "tail_reconstruction_mse": 0.0
+      },
+      {
+        "oracle_by": "structured:brake_steer_-0.4",
+        "reveal_step": 26,
+        "role": "train",
+        "row_id": "S2-inst01-seed7505195",
+        "selection_source": "base",
+        "steps": 92,
+        "tail_frames": 66,
+        "tail_max_abs_error": 0.0,
+        "tail_reconstruction_mse": 0.0
+      },
+      {
+        "oracle_by": "structured:brake_steer_-0.4",
+        "reveal_step": 66,
+        "role": "train",
+        "row_id": "S2-inst02-seed7510195",
+        "selection_source": "base",
+        "steps": 131,
+        "tail_frames": 65,
+        "tail_max_abs_error": 0.0,
+        "tail_reconstruction_mse": 0.0
+      },
+      {
+        "oracle_by": "structured:brake_steer_+0.4",
+        "reveal_step": 34,
+        "role": "train",
+        "row_id": "S2-inst03-seed7515026",
+        "selection_source": "base",
+        "steps": 91,
+        "tail_frames": 57,
+        "tail_max_abs_error": 0.0,
+        "tail_reconstruction_mse": 0.0
+      },
+      {
+        "oracle_by": "structured:brake_steer_+0.4",
+        "reveal_step": 27,
+        "role": "selection",
+        "row_id": "S2-inst04-seed7520052",
+        "selection_source": "base",
+        "steps": 139,
+        "tail_frames": 112,
+        "tail_max_abs_error": 0.0,
+        "tail_reconstruction_mse": 0.0
+      },
+      {
+        "oracle_by": "structured:brake_steer_-0.4",
+        "reveal_step": 54,
+        "role": "train",
+        "row_id": "S2-inst05-seed7525000",
+        "selection_source": "base",
+        "steps": 115,
+        "tail_frames": 61,
+        "tail_max_abs_error": 0.0,
+        "tail_reconstruction_mse": 0.0
+      },
+      {
+        "oracle_by": "structured:brake_steer_+1.0",
+        "reveal_step": 35,
+        "role": "selection",
+        "row_id": "S2-inst06-seed7530195",
+        "selection_source": "base",
+        "steps": 101,
+        "tail_frames": 66,
+        "tail_max_abs_error": 0.0,
+        "tail_reconstruction_mse": 0.0
+      },
+      {
+        "oracle_by": "structured:brake_steer_-0.4",
+        "reveal_step": 62,
+        "role": "train",
+        "row_id": "S2-inst07-seed7535026",
+        "selection_source": "base",
+        "steps": 134,
+        "tail_frames": 72,
+        "tail_max_abs_error": 0.0,
+        "tail_reconstruction_mse": 0.0
+      },
+      {
+        "oracle_by": "structured:swerve_-1_n10",
+        "reveal_step": 23,
+        "role": "train",
+        "row_id": "S2-inst08-seed7540208",
+        "selection_source": "base",
+        "steps": 81,
+        "tail_frames": 58,
+        "tail_max_abs_error": 0.0,
+        "tail_reconstruction_mse": 0.0
+      },
+      {
+        "oracle_by": "structured:brake_steer_-0.4",
+        "reveal_step": 38,
+        "role": "train",
+        "row_id": "S2-inst09-seed7545026",
+        "selection_source": "base",
+        "steps": 104,
+        "tail_frames": 66,
+        "tail_max_abs_error": 0.0,
+        "tail_reconstruction_mse": 0.0
+      },
+      {
+        "oracle_by": "structured:brake_steer_-0.4",
+        "reveal_step": 90,
+        "role": "selection",
+        "row_id": "S2-inst10-seed7550156",
+        "selection_source": "base",
+        "steps": 173,
+        "tail_frames": 83,
+        "tail_max_abs_error": 0.0,
+        "tail_reconstruction_mse": 0.0
+      },
+      {
+        "oracle_by": "structured:brake_steer_+0.4",
+        "reveal_step": 56,
+        "role": "train",
+        "row_id": "S2-inst11-seed7555052",
+        "selection_source": "base",
+        "steps": 122,
+        "tail_frames": 66,
+        "tail_max_abs_error": 0.0,
+        "tail_reconstruction_mse": 0.0
+      },
+      {
+        "oracle_by": "structured:brake_steer_+0.4",
+        "reveal_step": 59,
+        "role": "selection",
+        "row_id": "S3-inst00-seed7700143",
+        "selection_source": "base",
+        "steps": 119,
+        "tail_frames": 60,
+        "tail_max_abs_error": 0.0,
+        "tail_reconstruction_mse": 0.0
+      },
+      {
+        "oracle_by": "structured:swerve_+1_n10",
+        "reveal_step": 64,
+        "role": "train",
+        "row_id": "S3-inst01-seed7705286",
+        "selection_source": "base",
+        "steps": 138,
+        "tail_frames": 74,
+        "tail_max_abs_error": 0.0,
+        "tail_reconstruction_mse": 0.0
+      },
+      {
+        "oracle_by": "structured:brake_steer_-0.4",
+        "reveal_step": 62,
+        "role": "selection",
+        "row_id": "S3-inst02-seed7710104",
+        "selection_source": "base",
+        "steps": 123,
+        "tail_frames": 61,
+        "tail_max_abs_error": 0.0,
+        "tail_reconstruction_mse": 0.0
+      },
+      {
+        "oracle_by": "structured:brake_steer_+0.4",
+        "reveal_step": 52,
+        "role": "train",
+        "row_id": "S3-inst03-seed7715039",
+        "selection_source": "base",
+        "steps": 128,
+        "tail_frames": 76,
+        "tail_max_abs_error": 0.0,
+        "tail_reconstruction_mse": 0.0
+      },
+      {
+        "oracle_by": "structured:full_brake",
+        "reveal_step": 35,
+        "role": "train",
+        "row_id": "S3-inst04-seed7720078",
+        "selection_source": "base",
+        "steps": 91,
+        "tail_frames": 56,
+        "tail_max_abs_error": 0.0,
+        "tail_reconstruction_mse": 0.0
+      },
+      {
+        "oracle_by": "structured:brake_steer_-0.4",
+        "reveal_step": 41,
+        "role": "validation",
+        "row_id": "S3-inst05-seed7725156",
+        "selection_source": "base",
+        "steps": 96,
+        "tail_frames": 55,
+        "tail_max_abs_error": 0.0,
+        "tail_reconstruction_mse": 0.0
+      },
+      {
+        "oracle_by": "structured:full_brake",
+        "reveal_step": 33,
+        "role": "selection",
+        "row_id": "S3-inst06-seed7730104",
+        "selection_source": "base",
+        "steps": 83,
+        "tail_frames": 50,
+        "tail_max_abs_error": 0.0,
+        "tail_reconstruction_mse": 0.0
+      },
+      {
+        "oracle_by": "structured:brake_steer_-0.4",
+        "reveal_step": 51,
+        "role": "train",
+        "row_id": "S3-inst07-seed7735026",
+        "selection_source": "base",
+        "steps": 99,
+        "tail_frames": 48,
+        "tail_max_abs_error": 0.0,
+        "tail_reconstruction_mse": 0.0
+      },
+      {
+        "oracle_by": "structured:brake_steer_-0.4",
+        "reveal_step": 66,
+        "role": "train",
+        "row_id": "S3-inst08-seed7740065",
+        "selection_source": "base",
+        "steps": 122,
+        "tail_frames": 56,
+        "tail_max_abs_error": 0.0,
+        "tail_reconstruction_mse": 0.0
+      },
+      {
+        "oracle_by": "structured:brake_steer_+0.4",
+        "reveal_step": 73,
+        "role": "selection",
+        "row_id": "S3-inst09-seed7745078",
+        "selection_source": "base",
+        "steps": 145,
+        "tail_frames": 72,
+        "tail_max_abs_error": 0.0,
+        "tail_reconstruction_mse": 0.0
+      },
+      {
+        "oracle_by": "structured:brake_steer_-0.4",
+        "reveal_step": 60,
+        "role": "train",
+        "row_id": "S3-inst10-seed7750117",
+        "selection_source": "base",
+        "steps": 134,
+        "tail_frames": 74,
+        "tail_max_abs_error": 0.0,
+        "tail_reconstruction_mse": 0.0
+      },
+      {
+        "oracle_by": "structured:full_brake",
+        "reveal_step": 31,
+        "role": "train",
+        "row_id": "S3-inst11-seed7755013",
+        "selection_source": "base",
+        "steps": 83,
+        "tail_frames": 52,
+        "tail_max_abs_error": 0.0,
+        "tail_reconstruction_mse": 0.0
+      },
+      {
+        "oracle_by": "structured:coast_steer_+0.7",
+        "reveal_step": 53,
+        "role": "train",
+        "row_id": "S1-inst03-seed7315156",
+        "selection_source": "rare_tail_train_support",
+        "steps": 108,
+        "tail_frames": 55,
+        "tail_max_abs_error": 0.0,
+        "tail_reconstruction_mse": 0.0
+      },
+      {
+        "oracle_by": "structured:coast_steer_+0.7",
+        "reveal_step": 36,
+        "role": "validation",
+        "row_id": "S3-inst04-seed7720117",
+        "selection_source": "rare_tail_validation_probe",
+        "steps": 104,
+        "tail_frames": 68,
+        "tail_max_abs_error": 0.0,
+        "tail_reconstruction_mse": 0.0
+      },
+      {
+        "oracle_by": "structured:coast_steer_-0.7",
+        "reveal_step": 37,
+        "role": "train",
+        "row_id": "S2-inst04-seed7520169",
+        "selection_source": "rare_tail_train_support",
+        "steps": 96,
+        "tail_frames": 59,
+        "tail_max_abs_error": 0.0,
+        "tail_reconstruction_mse": 0.0
+      },
+      {
+        "oracle_by": "structured:coast_steer_-0.7",
+        "reveal_step": 75,
+        "role": "validation",
+        "row_id": "S2-inst08-seed7540299",
+        "selection_source": "rare_tail_validation_probe",
+        "steps": 176,
+        "tail_frames": 101,
+        "tail_max_abs_error": 0.0,
+        "tail_reconstruction_mse": 0.0
+      },
+      {
+        "oracle_by": "structured:brake_steer_+1.0",
+        "reveal_step": 24,
+        "role": "train",
+        "row_id": "S1-inst02-seed7310039",
+        "selection_source": "heldout_oracle_family_support",
+        "steps": 106,
+        "tail_frames": 82,
+        "tail_max_abs_error": 0.0,
+        "tail_reconstruction_mse": 0.0
+      },
+      {
+        "oracle_by": "structured:coast_steer_+0.7",
+        "reveal_step": 69,
+        "role": "train",
+        "row_id": "S1-inst00-seed7300247",
+        "selection_source": "m3236_extra_rare_tail_train_support",
+        "steps": 123,
+        "tail_frames": 54,
+        "tail_max_abs_error": 0.0,
+        "tail_reconstruction_mse": 0.0
+      },
+      {
+        "oracle_by": "structured:coast_steer_-0.7",
+        "reveal_step": 41,
+        "role": "train",
+        "row_id": "S3-inst11-seed7755208",
+        "selection_source": "m3236_extra_rare_tail_train_support",
+        "steps": 93,
+        "tail_frames": 52,
+        "tail_max_abs_error": 0.0,
+        "tail_reconstruction_mse": 0.0
+      }
+    ],
+    "tail_frames_by_family_role": {
+      "structured:brake_steer_+0.4": {
+        "selection": 304,
+        "train": 267,
+        "validation": 68
+      },
+      "structured:brake_steer_+1.0": {
+        "selection": 66,
+        "train": 82,
+        "validation": 0
+      },
+      "structured:brake_steer_-0.4": {
+        "selection": 144,
+        "train": 800,
+        "validation": 276
+      },
+      "structured:brake_steer_-0.7": {
+        "selection": 0,
+        "train": 81,
+        "validation": 0
+      },
+      "structured:brake_steer_-1.0": {
+        "selection": 0,
+        "train": 83,
+        "validation": 0
+      },
+      "structured:coast_steer_+0.7": {
+        "selection": 0,
+        "train": 109,
+        "validation": 68
+      },
+      "structured:coast_steer_-0.7": {
+        "selection": 0,
+        "train": 111,
+        "validation": 101
+      },
+      "structured:full_brake": {
+        "selection": 50,
+        "train": 186,
+        "validation": 0
+      },
+      "structured:swerve_+1_n10": {
+        "selection": 0,
+        "train": 74,
+        "validation": 0
+      },
+      "structured:swerve_-1_n10": {
+        "selection": 0,
+        "train": 58,
+        "validation": 0
+      }
+    },
+    "tail_frames_by_role": {
+      "selection": 564,
+      "train": 1851,
+      "validation": 513
+    }
+  },
+  "decision": {
+    "c1_status": "open",
+    "c2_admitted": false,
+    "c3_admitted": false,
+    "next_branch": "c5prime_track_c_c1_tail_family_interface_reprice",
+    "next_training_admitted": false,
+    "quick_pretrain_passed": false,
+    "recommended_next": "Do not continue local interface pretraining; synthesize/reprice the tail-family interface after the rare-family gate failure."
+  },
+  "demo_outcomes": {
+    "S1-inst00-seed7300026": {
+      "oracle_by": "structured:brake_steer_+0.4",
+      "outcome_bucket": "success_obstacle_pass",
+      "role": "validation",
+      "steps": 84
+    },
+    "S1-inst00-seed7300247": {
+      "oracle_by": "structured:coast_steer_+0.7",
+      "outcome_bucket": "success_obstacle_pass",
+      "role": "train",
+      "steps": 123
+    },
+    "S1-inst01-seed7305013": {
+      "oracle_by": "structured:full_brake",
+      "outcome_bucket": "success_obstacle_pass",
+      "role": "train",
+      "steps": 159
+    },
+    "S1-inst02-seed7310039": {
+      "oracle_by": "structured:brake_steer_+1.0",
+      "outcome_bucket": "success_obstacle_pass",
+      "role": "train",
+      "steps": 106
+    },
+    "S1-inst02-seed7310052": {
+      "oracle_by": "structured:brake_steer_-0.4",
+      "outcome_bucket": "success_obstacle_pass",
+      "role": "train",
+      "steps": 93
+    },
+    "S1-inst03-seed7315156": {
+      "oracle_by": "structured:coast_steer_+0.7",
+      "outcome_bucket": "success_obstacle_pass",
+      "role": "train",
+      "steps": 108
+    },
+    "S1-inst03-seed7315182": {
+      "oracle_by": "structured:brake_steer_-0.4",
+      "outcome_bucket": "success_obstacle_pass",
+      "role": "validation",
+      "steps": 125
+    },
+    "S1-inst04-seed7320234": {
+      "oracle_by": "structured:brake_steer_-0.4",
+      "outcome_bucket": "success_obstacle_pass",
+      "role": "train",
+      "steps": 122
+    },
+    "S1-inst05-seed7325130": {
+      "oracle_by": "structured:brake_steer_+0.4",
+      "outcome_bucket": "success_obstacle_pass",
+      "role": "selection",
+      "steps": 131
+    },
+    "S1-inst06-seed7330013": {
+      "oracle_by": "structured:brake_steer_-0.7",
+      "outcome_bucket": "success_obstacle_pass",
+      "role": "train",
+      "steps": 152
+    },
+    "S1-inst07-seed7335039": {
+      "oracle_by": "structured:brake_steer_+0.4",
+      "outcome_bucket": "success_obstacle_pass",
+      "role": "train",
+      "steps": 107
+    },
+    "S1-inst08-seed7340104": {
+      "oracle_by": "structured:brake_steer_-0.4",
+      "outcome_bucket": "success_obstacle_pass",
+      "role": "train",
+      "steps": 99
+    },
+    "S1-inst09-seed7345052": {
+      "oracle_by": "structured:brake_steer_-0.4",
+      "outcome_bucket": "success_obstacle_pass",
+      "role": "validation",
+      "steps": 119
+    },
+    "S1-inst10-seed7350091": {
+      "oracle_by": "structured:brake_steer_-0.4",
+      "outcome_bucket": "success_obstacle_pass",
+      "role": "train",
+      "steps": 155
+    },
+    "S1-inst11-seed7355078": {
+      "oracle_by": "structured:brake_steer_-0.4",
+      "outcome_bucket": "success_obstacle_pass",
+      "role": "validation",
+      "steps": 130
+    },
+    "S2-inst00-seed7500065": {
+      "oracle_by": "structured:brake_steer_-1.0",
+      "outcome_bucket": "success_obstacle_pass",
+      "role": "train",
+      "steps": 152
+    },
+    "S2-inst01-seed7505195": {
+      "oracle_by": "structured:brake_steer_-0.4",
+      "outcome_bucket": "success_obstacle_pass",
+      "role": "train",
+      "steps": 92
+    },
+    "S2-inst02-seed7510195": {
+      "oracle_by": "structured:brake_steer_-0.4",
+      "outcome_bucket": "success_obstacle_pass",
+      "role": "train",
+      "steps": 131
+    },
+    "S2-inst03-seed7515026": {
+      "oracle_by": "structured:brake_steer_+0.4",
+      "outcome_bucket": "success_obstacle_pass",
+      "role": "train",
+      "steps": 91
+    },
+    "S2-inst04-seed7520052": {
+      "oracle_by": "structured:brake_steer_+0.4",
+      "outcome_bucket": "success_obstacle_pass",
+      "role": "selection",
+      "steps": 139
+    },
+    "S2-inst04-seed7520169": {
+      "oracle_by": "structured:coast_steer_-0.7",
+      "outcome_bucket": "success_obstacle_pass",
+      "role": "train",
+      "steps": 96
+    },
+    "S2-inst05-seed7525000": {
+      "oracle_by": "structured:brake_steer_-0.4",
+      "outcome_bucket": "success_obstacle_pass",
+      "role": "train",
+      "steps": 115
+    },
+    "S2-inst06-seed7530195": {
+      "oracle_by": "structured:brake_steer_+1.0",
+      "outcome_bucket": "success_obstacle_pass",
+      "role": "selection",
+      "steps": 101
+    },
+    "S2-inst07-seed7535026": {
+      "oracle_by": "structured:brake_steer_-0.4",
+      "outcome_bucket": "success_obstacle_pass",
+      "role": "train",
+      "steps": 134
+    },
+    "S2-inst08-seed7540208": {
+      "oracle_by": "structured:swerve_-1_n10",
+      "outcome_bucket": "success_obstacle_pass",
+      "role": "train",
+      "steps": 81
+    },
+    "S2-inst08-seed7540299": {
+      "oracle_by": "structured:coast_steer_-0.7",
+      "outcome_bucket": "success_obstacle_pass",
+      "role": "validation",
+      "steps": 176
+    },
+    "S2-inst09-seed7545026": {
+      "oracle_by": "structured:brake_steer_-0.4",
+      "outcome_bucket": "success_obstacle_pass",
+      "role": "train",
+      "steps": 104
+    },
+    "S2-inst10-seed7550156": {
+      "oracle_by": "structured:brake_steer_-0.4",
+      "outcome_bucket": "success_obstacle_pass",
+      "role": "selection",
+      "steps": 173
+    },
+    "S2-inst11-seed7555052": {
+      "oracle_by": "structured:brake_steer_+0.4",
+      "outcome_bucket": "success_obstacle_pass",
+      "role": "train",
+      "steps": 122
+    },
+    "S3-inst00-seed7700143": {
+      "oracle_by": "structured:brake_steer_+0.4",
+      "outcome_bucket": "success_obstacle_pass",
+      "role": "selection",
+      "steps": 119
+    },
+    "S3-inst01-seed7705286": {
+      "oracle_by": "structured:swerve_+1_n10",
+      "outcome_bucket": "success_obstacle_pass",
+      "role": "train",
+      "steps": 138
+    },
+    "S3-inst02-seed7710104": {
+      "oracle_by": "structured:brake_steer_-0.4",
+      "outcome_bucket": "success_obstacle_pass",
+      "role": "selection",
+      "steps": 123
+    },
+    "S3-inst03-seed7715039": {
+      "oracle_by": "structured:brake_steer_+0.4",
+      "outcome_bucket": "success_obstacle_pass",
+      "role": "train",
+      "steps": 128
+    },
+    "S3-inst04-seed7720078": {
+      "oracle_by": "structured:full_brake",
+      "outcome_bucket": "success_obstacle_pass",
+      "role": "train",
+      "steps": 91
+    },
+    "S3-inst04-seed7720117": {
+      "oracle_by": "structured:coast_steer_+0.7",
+      "outcome_bucket": "success_obstacle_pass",
+      "role": "validation",
+      "steps": 104
+    },
+    "S3-inst05-seed7725156": {
+      "oracle_by": "structured:brake_steer_-0.4",
+      "outcome_bucket": "success_obstacle_pass",
+      "role": "validation",
+      "steps": 96
+    },
+    "S3-inst06-seed7730104": {
+      "oracle_by": "structured:full_brake",
+      "outcome_bucket": "success_obstacle_pass",
+      "role": "selection",
+      "steps": 83
+    },
+    "S3-inst07-seed7735026": {
+      "oracle_by": "structured:brake_steer_-0.4",
+      "outcome_bucket": "success_obstacle_pass",
+      "role": "train",
+      "steps": 99
+    },
+    "S3-inst08-seed7740065": {
+      "oracle_by": "structured:brake_steer_-0.4",
+      "outcome_bucket": "success_obstacle_pass",
+      "role": "train",
+      "steps": 122
+    },
+    "S3-inst09-seed7745078": {
+      "oracle_by": "structured:brake_steer_+0.4",
+      "outcome_bucket": "success_obstacle_pass",
+      "role": "selection",
+      "steps": 145
+    },
+    "S3-inst10-seed7750117": {
+      "oracle_by": "structured:brake_steer_-0.4",
+      "outcome_bucket": "success_obstacle_pass",
+      "role": "train",
+      "steps": 134
+    },
+    "S3-inst11-seed7755013": {
+      "oracle_by": "structured:full_brake",
+      "outcome_bucket": "success_obstacle_pass",
+      "role": "train",
+      "steps": 83
+    },
+    "S3-inst11-seed7755208": {
+      "oracle_by": "structured:coast_steer_-0.7",
+      "outcome_bucket": "success_obstacle_pass",
+      "role": "train",
+      "steps": 93
+    }
+  },
+  "elapsed_s": 3.344,
+  "gates": {
+    "all_passed": false,
+    "dataset_exists": true,
+    "demo_replay_all_success": true,
+    "heldout_family_train_coverage_passed": true,
+    "interface_checkpoint_exists": true,
+    "m3235_interface_smoke_passed": true,
+    "predicted_family_reconstruction_gate_passed": false,
+    "required_rare_train_support_passed": true,
+    "required_rare_validation_family_gate_passed": false,
+    "role_split_present": true,
+    "selection_accuracy_gate_passed": true,
+    "true_family_reconstruction_gate_passed": true,
+    "validation_accuracy_gate_passed": true,
+    "validation_family_min_gate_passed": false
+  },
+  "generated_at_utc": "20260612T071558Z",
+  "generated_by": "scripts/feasibility_audit/c5prime_c1_tail_family_interface_pretrain_quick.py",
+  "metrics": {
+    "accuracy_by_role": {
+      "selection": 0.927305,
+      "train": 0.994057,
+      "validation": 0.766082
+    },
+    "floors": {
+      "selection_centroid_accuracy": 0.312057,
+      "selection_train_majority_accuracy": 0.255319,
+      "train_majority_family": "structured:brake_steer_-0.4",
+      "validation_centroid_accuracy": 0.444444,
+      "validation_train_majority_accuracy": 0.538012
+    },
+    "selection_family_metrics": {
+      "structured:brake_steer_+0.4": {
+        "accuracy": 0.868421,
+        "frames": 304,
+        "predicted_counts": {
+          "structured:brake_steer_+0.4": 264,
+          "structured:brake_steer_+1.0": 36,
+          "structured:brake_steer_-0.4": 2,
+          "structured:full_brake": 2
+        }
+      },
+      "structured:brake_steer_+1.0": {
+        "accuracy": 0.984848,
+        "frames": 66,
+        "predicted_counts": {
+          "structured:brake_steer_+1.0": 65,
+          "structured:brake_steer_-0.4": 1
+        }
+      },
+      "structured:brake_steer_-0.4": {
+        "accuracy": 1.0,
+        "frames": 144,
+        "predicted_counts": {
+          "structured:brake_steer_-0.4": 144
+        }
+      },
+      "structured:full_brake": {
+        "accuracy": 1.0,
+        "frames": 50,
+        "predicted_counts": {
+          "structured:full_brake": 50
+        }
+      }
+    },
+    "validation_family_metrics": {
+      "structured:brake_steer_+0.4": {
+        "accuracy": 1.0,
+        "frames": 68,
+        "predicted_counts": {
+          "structured:brake_steer_+0.4": 68
+        }
+      },
+      "structured:brake_steer_-0.4": {
+        "accuracy": 0.934783,
+        "frames": 276,
+        "predicted_counts": {
+          "structured:brake_steer_-0.4": 258,
+          "structured:brake_steer_-1.0": 18
+        }
+      },
+      "structured:coast_steer_+0.7": {
+        "accuracy": 0.985294,
+        "frames": 68,
+        "predicted_counts": {
+          "structured:brake_steer_-0.4": 1,
+          "structured:coast_steer_+0.7": 67
+        }
+      },
+      "structured:coast_steer_-0.7": {
+        "accuracy": 0.0,
+        "frames": 101,
+        "predicted_counts": {
+          "structured:brake_steer_-1.0": 101
+        }
+      }
+    },
+    "validation_predicted_family_reconstruction_mse": 0.27601,
+    "validation_true_family_reconstruction_mse": 0.0
+  },
+  "preregistration": "experiments/feasibility_audit/c5prime_c1_tail_family_interface_pretrain_quick_prereg.json",
+  "protocol": "c5prime_c1_tail_family_interface_pretrain_quick",
+  "row_split": {
+    "role_counts": {
+      "selection": 8,
+      "train": 28,
+      "validation": 7
+    },
+    "rows": [
+      {
+        "oracle_by": "structured:brake_steer_+0.4",
+        "reveal_step": 16,
+        "role": "validation",
+        "row_id": "S1-inst00-seed7300026",
+        "selection_source": "base"
+      },
+      {
+        "oracle_by": "structured:full_brake",
+        "reveal_step": 81,
+        "role": "train",
+        "row_id": "S1-inst01-seed7305013",
+        "selection_source": "base"
+      },
+      {
+        "oracle_by": "structured:brake_steer_-0.4",
+        "reveal_step": 26,
+        "role": "train",
+        "row_id": "S1-inst02-seed7310052",
+        "selection_source": "base"
+      },
+      {
+        "oracle_by": "structured:brake_steer_-0.4",
+        "reveal_step": 34,
+        "role": "validation",
+        "row_id": "S1-inst03-seed7315182",
+        "selection_source": "base"
+      },
+      {
+        "oracle_by": "structured:brake_steer_-0.4",
+        "reveal_step": 41,
+        "role": "train",
+        "row_id": "S1-inst04-seed7320234",
+        "selection_source": "base"
+      },
+      {
+        "oracle_by": "structured:brake_steer_+0.4",
+        "reveal_step": 71,
+        "role": "selection",
+        "row_id": "S1-inst05-seed7325130",
+        "selection_source": "base"
+      },
+      {
+        "oracle_by": "structured:brake_steer_-0.7",
+        "reveal_step": 71,
+        "role": "train",
+        "row_id": "S1-inst06-seed7330013",
+        "selection_source": "base"
+      },
+      {
+        "oracle_by": "structured:brake_steer_+0.4",
+        "reveal_step": 39,
+        "role": "train",
+        "row_id": "S1-inst07-seed7335039",
+        "selection_source": "base"
+      },
+      {
+        "oracle_by": "structured:brake_steer_-0.4",
+        "reveal_step": 29,
+        "role": "train",
+        "row_id": "S1-inst08-seed7340104",
+        "selection_source": "base"
+      },
+      {
+        "oracle_by": "structured:brake_steer_-0.4",
+        "reveal_step": 57,
+        "role": "validation",
+        "row_id": "S1-inst09-seed7345052",
+        "selection_source": "base"
+      },
+      {
+        "oracle_by": "structured:brake_steer_-0.4",
+        "reveal_step": 81,
+        "role": "train",
+        "row_id": "S1-inst10-seed7350091",
+        "selection_source": "base"
+      },
+      {
+        "oracle_by": "structured:brake_steer_-0.4",
+        "reveal_step": 62,
+        "role": "validation",
+        "row_id": "S1-inst11-seed7355078",
+        "selection_source": "base"
+      },
+      {
+        "oracle_by": "structured:brake_steer_-1.0",
+        "reveal_step": 69,
+        "role": "train",
+        "row_id": "S2-inst00-seed7500065",
+        "selection_source": "base"
+      },
+      {
+        "oracle_by": "structured:brake_steer_-0.4",
+        "reveal_step": 26,
+        "role": "train",
+        "row_id": "S2-inst01-seed7505195",
+        "selection_source": "base"
+      },
+      {
+        "oracle_by": "structured:brake_steer_-0.4",
+        "reveal_step": 66,
+        "role": "train",
+        "row_id": "S2-inst02-seed7510195",
+        "selection_source": "base"
+      },
+      {
+        "oracle_by": "structured:brake_steer_+0.4",
+        "reveal_step": 34,
+        "role": "train",
+        "row_id": "S2-inst03-seed7515026",
+        "selection_source": "base"
+      },
+      {
+        "oracle_by": "structured:brake_steer_+0.4",
+        "reveal_step": 27,
+        "role": "selection",
+        "row_id": "S2-inst04-seed7520052",
+        "selection_source": "base"
+      },
+      {
+        "oracle_by": "structured:brake_steer_-0.4",
+        "reveal_step": 54,
+        "role": "train",
+        "row_id": "S2-inst05-seed7525000",
+        "selection_source": "base"
+      },
+      {
+        "oracle_by": "structured:brake_steer_+1.0",
+        "reveal_step": 35,
+        "role": "selection",
+        "row_id": "S2-inst06-seed7530195",
+        "selection_source": "base"
+      },
+      {
+        "oracle_by": "structured:brake_steer_-0.4",
+        "reveal_step": 62,
+        "role": "train",
+        "row_id": "S2-inst07-seed7535026",
+        "selection_source": "base"
+      },
+      {
+        "oracle_by": "structured:swerve_-1_n10",
+        "reveal_step": 23,
+        "role": "train",
+        "row_id": "S2-inst08-seed7540208",
+        "selection_source": "base"
+      },
+      {
+        "oracle_by": "structured:brake_steer_-0.4",
+        "reveal_step": 38,
+        "role": "train",
+        "row_id": "S2-inst09-seed7545026",
+        "selection_source": "base"
+      },
+      {
+        "oracle_by": "structured:brake_steer_-0.4",
+        "reveal_step": 90,
+        "role": "selection",
+        "row_id": "S2-inst10-seed7550156",
+        "selection_source": "base"
+      },
+      {
+        "oracle_by": "structured:brake_steer_+0.4",
+        "reveal_step": 56,
+        "role": "train",
+        "row_id": "S2-inst11-seed7555052",
+        "selection_source": "base"
+      },
+      {
+        "oracle_by": "structured:brake_steer_+0.4",
+        "reveal_step": 59,
+        "role": "selection",
+        "row_id": "S3-inst00-seed7700143",
+        "selection_source": "base"
+      },
+      {
+        "oracle_by": "structured:swerve_+1_n10",
+        "reveal_step": 64,
+        "role": "train",
+        "row_id": "S3-inst01-seed7705286",
+        "selection_source": "base"
+      },
+      {
+        "oracle_by": "structured:brake_steer_-0.4",
+        "reveal_step": 62,
+        "role": "selection",
+        "row_id": "S3-inst02-seed7710104",
+        "selection_source": "base"
+      },
+      {
+        "oracle_by": "structured:brake_steer_+0.4",
+        "reveal_step": 52,
+        "role": "train",
+        "row_id": "S3-inst03-seed7715039",
+        "selection_source": "base"
+      },
+      {
+        "oracle_by": "structured:full_brake",
+        "reveal_step": 35,
+        "role": "train",
+        "row_id": "S3-inst04-seed7720078",
+        "selection_source": "base"
+      },
+      {
+        "oracle_by": "structured:brake_steer_-0.4",
+        "reveal_step": 41,
+        "role": "validation",
+        "row_id": "S3-inst05-seed7725156",
+        "selection_source": "base"
+      },
+      {
+        "oracle_by": "structured:full_brake",
+        "reveal_step": 33,
+        "role": "selection",
+        "row_id": "S3-inst06-seed7730104",
+        "selection_source": "base"
+      },
+      {
+        "oracle_by": "structured:brake_steer_-0.4",
+        "reveal_step": 51,
+        "role": "train",
+        "row_id": "S3-inst07-seed7735026",
+        "selection_source": "base"
+      },
+      {
+        "oracle_by": "structured:brake_steer_-0.4",
+        "reveal_step": 66,
+        "role": "train",
+        "row_id": "S3-inst08-seed7740065",
+        "selection_source": "base"
+      },
+      {
+        "oracle_by": "structured:brake_steer_+0.4",
+        "reveal_step": 73,
+        "role": "selection",
+        "row_id": "S3-inst09-seed7745078",
+        "selection_source": "base"
+      },
+      {
+        "oracle_by": "structured:brake_steer_-0.4",
+        "reveal_step": 60,
+        "role": "train",
+        "row_id": "S3-inst10-seed7750117",
+        "selection_source": "base"
+      },
+      {
+        "oracle_by": "structured:full_brake",
+        "reveal_step": 31,
+        "role": "train",
+        "row_id": "S3-inst11-seed7755013",
+        "selection_source": "base"
+      },
+      {
+        "oracle_by": "structured:coast_steer_+0.7",
+        "reveal_step": 53,
+        "role": "train",
+        "row_id": "S1-inst03-seed7315156",
+        "selection_source": "rare_tail_train_support"
+      },
+      {
+        "oracle_by": "structured:coast_steer_+0.7",
+        "reveal_step": 36,
+        "role": "validation",
+        "row_id": "S3-inst04-seed7720117",
+        "selection_source": "rare_tail_validation_probe"
+      },
+      {
+        "oracle_by": "structured:coast_steer_-0.7",
+        "reveal_step": 37,
+        "role": "train",
+        "row_id": "S2-inst04-seed7520169",
+        "selection_source": "rare_tail_train_support"
+      },
+      {
+        "oracle_by": "structured:coast_steer_-0.7",
+        "reveal_step": 75,
+        "role": "validation",
+        "row_id": "S2-inst08-seed7540299",
+        "selection_source": "rare_tail_validation_probe"
+      },
+      {
+        "oracle_by": "structured:brake_steer_+1.0",
+        "reveal_step": 24,
+        "role": "train",
+        "row_id": "S1-inst02-seed7310039",
+        "selection_source": "heldout_oracle_family_support"
+      },
+      {
+        "oracle_by": "structured:coast_steer_+0.7",
+        "reveal_step": 69,
+        "role": "train",
+        "row_id": "S1-inst00-seed7300247",
+        "selection_source": "m3236_extra_rare_tail_train_support"
+      },
+      {
+        "oracle_by": "structured:coast_steer_-0.7",
+        "reveal_step": 41,
+        "role": "train",
+        "row_id": "S3-inst11-seed7755208",
+        "selection_source": "m3236_extra_rare_tail_train_support"
+      }
+    ]
+  },
+  "source_artifacts": {
+    "a3_episode_rows_csv": "runs/feasibility_audit/c5prime_target_consolidation/episode_rows.csv",
+    "m3232_v2_prereg": "experiments/feasibility_audit/c5prime_c1_oracle_bc_v2_prereg.json",
+    "m3235_interface_smoke": "experiments/feasibility_audit/c5prime_c1_tail_family_interface_smoke.json"
+  },
+  "training": {
+    "best_epoch": 105,
+    "checkpoint": "runs/feasibility_audit/c5prime_c1_tail_family_interface_pretrain_quick/quick/interface_head.pt",
+    "class_weights": {
+      "structured:brake_steer_+0.4": 1.730969,
+      "structured:brake_steer_+1.0": 3.123475,
+      "structured:brake_steer_-0.4": 1.0,
+      "structured:brake_steer_-0.7": 3.142697,
+      "structured:brake_steer_-1.0": 3.104602,
+      "structured:coast_steer_+0.7": 2.709142,
+      "structured:coast_steer_-0.7": 2.684624,
+      "structured:full_brake": 2.073903,
+      "structured:swerve_+1_n10": 3.28798,
+      "structured:swerve_-1_n10": 3.713907
+    },
+    "cross_entropy_by_role": {
+      "selection": 0.470453,
+      "train": 0.022072,
+      "validation": 4.757608
+    },
+    "history": [
+      {
+        "epoch": 5,
+        "selection_accuracy": 0.664894,
+        "selection_cross_entropy": 1.317351,
+        "train_accuracy": 0.641275
+      },
+      {
+        "epoch": 10,
+        "selection_accuracy": 0.81383,
+        "selection_cross_entropy": 0.816504,
+        "train_accuracy": 0.863857
+      },
+      {
+        "epoch": 15,
+        "selection_accuracy": 0.911348,
+        "selection_cross_entropy": 0.497653,
+        "train_accuracy": 0.93571
+      },
+      {
+        "epoch": 20,
+        "selection_accuracy": 0.909574,
+        "selection_cross_entropy": 0.413548,
+        "train_accuracy": 0.959481
+      },
+      {
+        "epoch": 25,
+        "selection_accuracy": 0.916667,
+        "selection_cross_entropy": 0.353639,
+        "train_accuracy": 0.964884
+      },
+      {
+        "epoch": 30,
+        "selection_accuracy": 0.921986,
+        "selection_cross_entropy": 0.333673,
+        "train_accuracy": 0.974068
+      },
+      {
+        "epoch": 35,
+        "selection_accuracy": 0.91844,
+        "selection_cross_entropy": 0.352475,
+        "train_accuracy": 0.983252
+      },
+      {
+        "epoch": 40,
+        "selection_accuracy": 0.920213,
+        "selection_cross_entropy": 0.355259,
+        "train_accuracy": 0.983793
+      },
+      {
+        "epoch": 45,
+        "selection_accuracy": 0.923759,
+        "selection_cross_entropy": 0.336869,
+        "train_accuracy": 0.988655
+      },
+      {
+        "epoch": 50,
+        "selection_accuracy": 0.923759,
+        "selection_cross_entropy": 0.343319,
+        "train_accuracy": 0.990276
+      },
+      {
+        "epoch": 55,
+        "selection_accuracy": 0.925532,
+        "selection_cross_entropy": 0.355968,
+        "train_accuracy": 0.990276
+      },
+      {
+        "epoch": 60,
+        "selection_accuracy": 0.923759,
+        "selection_cross_entropy": 0.365967,
+        "train_accuracy": 0.991896
+      },
+      {
+        "epoch": 65,
+        "selection_accuracy": 0.923759,
+        "selection_cross_entropy": 0.361809,
+        "train_accuracy": 0.990816
+      },
+      {
+        "epoch": 70,
+        "selection_accuracy": 0.923759,
+        "selection_cross_entropy": 0.385909,
+        "train_accuracy": 0.991356
+      },
+      {
+        "epoch": 75,
+        "selection_accuracy": 0.923759,
+        "selection_cross_entropy": 0.423714,
+        "train_accuracy": 0.991356
+      },
+      {
+        "epoch": 80,
+        "selection_accuracy": 0.923759,
+        "selection_cross_entropy": 0.421373,
+        "train_accuracy": 0.991896
+      },
+      {
+        "epoch": 85,
+        "selection_accuracy": 0.923759,
+        "selection_cross_entropy": 0.437001,
+        "train_accuracy": 0.991896
+      },
+      {
+        "epoch": 90,
+        "selection_accuracy": 0.921986,
+        "selection_cross_entropy": 0.455904,
+        "train_accuracy": 0.992437
+      },
+      {
+        "epoch": 95,
+        "selection_accuracy": 0.923759,
+        "selection_cross_entropy": 0.467552,
+        "train_accuracy": 0.991356
+      },
+      {
+        "epoch": 100,
+        "selection_accuracy": 0.923759,
+        "selection_cross_entropy": 0.472609,
+        "train_accuracy": 0.991896
+      },
+      {
+        "epoch": 105,
+        "selection_accuracy": 0.927305,
+        "selection_cross_entropy": 0.470453,
+        "train_accuracy": 0.994057
+      },
+      {
+        "epoch": 110,
+        "selection_accuracy": 0.925532,
+        "selection_cross_entropy": 0.512468,
+        "train_accuracy": 0.993517
+      },
+      {
+        "epoch": 115,
+        "selection_accuracy": 0.923759,
+        "selection_cross_entropy": 0.509509,
+        "train_accuracy": 0.992977
+      },
+      {
+        "epoch": 120,
+        "selection_accuracy": 0.925532,
+        "selection_cross_entropy": 0.530168,
+        "train_accuracy": 0.993517
+      },
+      {
+        "epoch": 125,
+        "selection_accuracy": 0.925532,
+        "selection_cross_entropy": 0.54966,
+        "train_accuracy": 0.994597
+      },
+      {
+        "epoch": 130,
+        "selection_accuracy": 0.925532,
+        "selection_cross_entropy": 0.570407,
+        "train_accuracy": 0.993517
+      },
+      {
+        "epoch": 135,
+        "selection_accuracy": 0.927305,
+        "selection_cross_entropy": 0.557418,
+        "train_accuracy": 0.994057
+      },
+      {
+        "epoch": 140,
+        "selection_accuracy": 0.927305,
+        "selection_cross_entropy": 0.558184,
+        "train_accuracy": 0.993517
+      },
+      {
+        "epoch": 145,
+        "selection_accuracy": 0.925532,
+        "selection_cross_entropy": 0.582824,
+        "train_accuracy": 0.994057
+      },
+      {
+        "epoch": 150,
+        "selection_accuracy": 0.925532,
+        "selection_cross_entropy": 0.591276,
+        "train_accuracy": 0.995138
+      },
+      {
+        "epoch": 155,
+        "selection_accuracy": 0.927305,
+        "selection_cross_entropy": 0.583159,
+        "train_accuracy": 0.993517
+      },
+      {
+        "epoch": 160,
+        "selection_accuracy": 0.923759,
+        "selection_cross_entropy": 0.621555,
+        "train_accuracy": 0.994057
+      },
+      {
+        "epoch": 165,
+        "selection_accuracy": 0.920213,
+        "selection_cross_entropy": 0.633633,
+        "train_accuracy": 0.994597
+      },
+      {
+        "epoch": 170,
+        "selection_accuracy": 0.927305,
+        "selection_cross_entropy": 0.603341,
+        "train_accuracy": 0.994597
+      },
+      {
+        "epoch": 175,
+        "selection_accuracy": 0.923759,
+        "selection_cross_entropy": 0.624041,
+        "train_accuracy": 0.994597
+      },
+      {
+        "epoch": 180,
+        "selection_accuracy": 0.923759,
+        "selection_cross_entropy": 0.623452,
+        "train_accuracy": 0.994057
+      },
+      {
+        "epoch": 185,
+        "selection_accuracy": 0.925532,
+        "selection_cross_entropy": 0.644743,
+        "train_accuracy": 0.995678
+      },
+      {
+        "epoch": 190,
+        "selection_accuracy": 0.923759,
+        "selection_cross_entropy": 0.644199,
+        "train_accuracy": 0.994057
+      },
+      {
+        "epoch": 195,
+        "selection_accuracy": 0.925532,
+        "selection_cross_entropy": 0.650414,
+        "train_accuracy": 0.994597
+      },
+      {
+        "epoch": 200,
+        "selection_accuracy": 0.923759,
+        "selection_cross_entropy": 0.644816,
+        "train_accuracy": 0.994057
+      },
+      {
+        "epoch": 205,
+        "selection_accuracy": 0.921986,
+        "selection_cross_entropy": 0.638815,
+        "train_accuracy": 0.992977
+      },
+      {
+        "epoch": 210,
+        "selection_accuracy": 0.921986,
+        "selection_cross_entropy": 0.642923,
+        "train_accuracy": 0.993517
+      },
+      {
+        "epoch": 215,
+        "selection_accuracy": 0.921986,
+        "selection_cross_entropy": 0.64314,
+        "train_accuracy": 0.994597
+      },
+      {
+        "epoch": 220,
+        "selection_accuracy": 0.925532,
+        "selection_cross_entropy": 0.658239,
+        "train_accuracy": 0.995678
+      },
+      {
+        "epoch": 225,
+        "selection_accuracy": 0.925532,
+        "selection_cross_entropy": 0.667712,
+        "train_accuracy": 0.995138
+      },
+      {
+        "epoch": 230,
+        "selection_accuracy": 0.925532,
+        "selection_cross_entropy": 0.650439,
+        "train_accuracy": 0.996218
+      },
+      {
+        "epoch": 235,
+        "selection_accuracy": 0.923759,
+        "selection_cross_entropy": 0.655802,
+        "train_accuracy": 0.995138
+      },
+      {
+        "epoch": 240,
+        "selection_accuracy": 0.923759,
+        "selection_cross_entropy": 0.709741,
+        "train_accuracy": 0.994597
+      },
+      {
+        "epoch": 245,
+        "selection_accuracy": 0.925532,
+        "selection_cross_entropy": 0.671274,
+        "train_accuracy": 0.995138
+      },
+      {
+        "epoch": 250,
+        "selection_accuracy": 0.925532,
+        "selection_cross_entropy": 0.672717,
+        "train_accuracy": 0.995138
+      },
+      {
+        "epoch": 255,
+        "selection_accuracy": 0.921986,
+        "selection_cross_entropy": 0.667855,
+        "train_accuracy": 0.993517
+      },
+      {
+        "epoch": 260,
+        "selection_accuracy": 0.925532,
+        "selection_cross_entropy": 0.667135,
+        "train_accuracy": 0.994597
+      },
+      {
+        "epoch": 265,
+        "selection_accuracy": 0.925532,
+        "selection_cross_entropy": 0.683386,
+        "train_accuracy": 0.995138
+      },
+      {
+        "epoch": 270,
+        "selection_accuracy": 0.923759,
+        "selection_cross_entropy": 0.681718,
+        "train_accuracy": 0.995678
+      },
+      {
+        "epoch": 275,
+        "selection_accuracy": 0.927305,
+        "selection_cross_entropy": 0.649776,
+        "train_accuracy": 0.996218
+      },
+      {
+        "epoch": 280,
+        "selection_accuracy": 0.925532,
+        "selection_cross_entropy": 0.672745,
+        "train_accuracy": 0.995138
+      },
+      {
+        "epoch": 285,
+        "selection_accuracy": 0.925532,
+        "selection_cross_entropy": 0.681905,
+        "train_accuracy": 0.995678
+      },
+      {
+        "epoch": 290,
+        "selection_accuracy": 0.925532,
+        "selection_cross_entropy": 0.679992,
+        "train_accuracy": 0.996218
+      },
+      {
+        "epoch": 295,
+        "selection_accuracy": 0.923759,
+        "selection_cross_entropy": 0.668436,
+        "train_accuracy": 0.995678
+      },
+      {
+        "epoch": 300,
+        "selection_accuracy": 0.925532,
+        "selection_cross_entropy": 0.683733,
+        "train_accuracy": 0.995678
+      }
+    ],
+    "model": {
+      "hidden": 64,
+      "num_families": 10,
+      "obs_dim": 72
+    },
+    "seed": 20260913
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "protocol": "c5prime_c1_tail_family_interface_pretrain_quick",
+  "frozen_at_utc": "20260612T000000Z",
+  "source_artifacts": {
+    "m3235_interface_smoke": "experiments/feasibility_audit/c5prime_c1_tail_family_interface_smoke.json",
+    "m3232_v2_prereg": "experiments/feasibility_audit/c5prime_c1_oracle_bc_v2_prereg.json",
+    "a3_episode_rows_csv": "runs/feasibility_audit/c5prime_target_consolidation/episode_rows.csv"
+  },
+  "row_split": {
+    "base": "full M3232 v2 selected rows, not the M3235 quick subset",
+    "extra_support_rule": "for each required rare validation family, add deterministic train-role structured-oracle rows from eligible A3 rows until min_train_rows_per_required_rare_family is met or no disjoint candidate remains",
+    "required_role_split": "train, selection, and validation all non-empty",
+    "disjointness": "selection and validation rows are never relabeled as train support"
+  },
+  "training": {
+    "model": "TailFamilyNet(obs72 -> 64 -> 64 -> num_structured_families), frame-wise tail-family classifier",
+    "seed": 20260913,
+    "epochs": 300,
+    "eval_every": 5,
+    "batch_size": 96,
+    "lr": 0.0008,
+    "weight_decay": 0.0001,
+    "loss": "cross_entropy with inverse-sqrt train-family class weights",
+    "selection_rule": "choose epoch by highest selection family accuracy, then lowest selection cross entropy, then earliest epoch"
+  },
+  "required_rare_validation_families": [
+    "structured:coast_steer_+0.7",
+    "structured:coast_steer_-0.7"
+  ],
+  "thresholds": {
+    "min_train_rows_per_required_rare_family": 2,
+    "min_selection_family_accuracy": 0.75,
+    "min_validation_family_accuracy": 0.7,
+    "min_validation_accuracy_over_best_floor": 0.15,
+    "min_validation_frames_per_family": 20,
+    "min_per_validation_family_accuracy": 0.5,
+    "min_required_rare_validation_family_accuracy": 0.5,
+    "max_validation_predicted_family_reconstruction_mse": 0.1,
+    "max_validation_true_family_reconstruction_mse": 1e-12
+  },
+  "decision_rule": {
+    "quick_pretrain_pass_if": "M3235 passed, role split is present, held-out families have train support, required rare train support is present, all demos replay, dataset and interface checkpoint are written, selection accuracy passes, validation accuracy beats the best simple floor by the frozen margin, every validation family and every required rare validation family clears the per-family gate, predicted-family validation reconstruction MSE clears the frozen threshold, and true-family reconstruction remains exact.",
+    "failure_route": "A failure keeps C1 open but blocks further local interface pretraining until synthesis/repricing; it does not admit C2."
+  }
+}

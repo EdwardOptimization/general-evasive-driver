@@ -2,18 +2,18 @@
   "counts": {
     "blocked": 2,
     "completed": 3238,
-    "failed": 6,
+    "failed": 7,
     "pending": 0,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m3235-c1-tail-family-interface-smoke_20260612T065819Z/command.log",
-    "returncode": 0,
-    "run_dir": "runs/research/m3235-c1-tail-family-interface-smoke_20260612T065819Z",
-    "status": "completed",
-    "task_id": "m3235-c1-tail-family-interface-smoke"
+    "command_log": "runs/research/m3236-c1-tail-family-interface-pretrain-quick_20260612T071553Z/command.log",
+    "returncode": 1,
+    "run_dir": "runs/research/m3236-c1-tail-family-interface-pretrain-quick_20260612T071553Z",
+    "status": "failed",
+    "task_id": "m3236-c1-tail-family-interface-pretrain-quick"
   },
   "next_task": null,
-  "updated_at_utc": "20260612T070421Z"
+  "updated_at_utc": "20260612T071558Z"
 }

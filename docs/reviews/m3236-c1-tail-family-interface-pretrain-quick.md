@@ -1,0 +1,86 @@
+# m3236-c1-tail-family-interface-pretrain-quick Research Review
+
+## Summary
+
+- Generated at UTC: 20260612T071848Z
+- Type: infrastructure
+- Gate tier: infrastructure
+- Promotion decision: tail_family_interface_pretrain_quick_failed_rare_family
+- Decision reason: Failed: supervised interface pretrain quick beat aggregate validation floors but collapsed on structured:coast_steer_-0.7 (0/101 validation frames, predicted as structured:brake_steer_-1.0), failing rare-family and predicted-family reconstruction gates. C1 routes to synthesis/repricing; C2/C3 remain blocked.
+
+## Hypothesis
+
+A preregistered C1 structured tail-family interface pretrain quick can use the full v2 row split plus deterministic rare-tail train support to train a supervised tail-family interface head that clears selection, validation, per-family, and predicted-family reconstruction gates before validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof or self-ID claim.
+
+## Lineage
+
+- parent_checkpoint: docs/roadmap-phase3-codex-execution.md, docs/current-status.md, docs/m3235-c1-tail-family-interface-smoke.md, experiments/feasibility_audit/c5prime_c1_tail_family_interface_smoke.json
+- parent_dataset: runs/feasibility_audit/c5prime_target_consolidation/episode_rows.csv, experiments/feasibility_audit/c5prime_c1_oracle_bc_v2_prereg.json
+- parent_config: scripts/feasibility_audit/c5prime_c1_tail_family_interface_pretrain_quick.py, experiments/feasibility_audit/c5prime_c1_tail_family_interface_pretrain_quick_prereg.json
+- parent_objective: quick-smoke the trainability of the M3235 tail-family interface before any controlled rollout or C2 admission
+- derived_from: M3234 positive admission-interface pricing, M3235 no-PPO tail-family interface smoke passed, M3232 v2 row split and rare-tail validation probes
+- blocked_by: C1 remains open; C2 is blocked until a C1 admission artifact passes
+- supersedes: the unexecuted M3235 recommended pretrain design/quick milestone
+- invalidates: starting controlled rollout design from a target-path smoke alone, using M3235 quick target rows as a supervised pretrain split without checking held-out family train support
+
+## Success Criteria
+
+- experiments/feasibility_audit/c5prime_c1_tail_family_interface_pretrain_quick_prereg.json exists before execution
+- experiments/feasibility_audit/c5prime_c1_tail_family_interface_pretrain_quick.json exists with protocol c5prime_c1_tail_family_interface_pretrain_quick
+- quick summary gates.all_passed is true
+- quick run writes interface_pretrain_dataset.npz and interface_head.pt under the quick run directory
+- the result document separates measured artifacts from inferred interpretation and keeps C2 blocked
+
+## Failure Criteria
+
+- M3236 starts without frozen preregistration
+- M3236 uses the M3235 quick subset while held-out family train support is missing
+- selection or validation role frames are used for training
+- any validation family or required rare validation family fails the frozen accuracy gate
+- predicted-family validation reconstruction MSE fails
+- the milestone runs PPO, mutates the incumbent, changes actor input shape, or claims driver performance
+
+## Evidence Gates
+
+- M3236 must use a preregistered split before execution
+- M3236 must not use the M3235 quick subset as the only pretrain split
+- M3236 must not train on selection or validation role frames
+- M3236 must not invoke PPO, train_ppo, guarded RL, or mutate the incumbent
+- M3236 must report per-family validation accuracy, including rare coast-steer probes
+- M3236 must keep C2 blocked
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not touch ActiveSafetyReflexDriver
+- do not invoke train_ppo or guarded RL
+- do not train on selection or validation role frames
+- do not hide a rare-family failure behind aggregate validation accuracy
+- do not mark C1 complete from a quick pretrain smoke
+- do not claim driver performance, validation ranking, promotion, high-fidelity sufficiency, or self-ID
+
+## Failure Taxonomy
+
+- metric_artifact
+
+## Scoreboard
+
+- milestone: m3236-c1-tail-family-interface-pretrain-quick
+- type: infrastructure
+- checkpoint: experiments/feasibility_audit/c5prime_c1_tail_family_interface_pretrain_quick.json
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: tail_family_interface_pretrain_quick_failed_rare_family
+- reason: Failed: supervised interface pretrain quick beat aggregate validation floors but collapsed on structured:coast_steer_-0.7 (0/101 validation frames, predicted as structured:brake_steer_-1.0), failing rare-family and predicted-family reconstruction gates. C1 routes to synthesis/repricing; C2/C3 remain blocked.
+
+## Next Blocker
+
+C1 remains open; M3236 failed the rare-family and predicted-family reconstruction gates, so the next C1 step is synthesis/repricing before further local interface pretraining. C2 remains blocked.

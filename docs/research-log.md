@@ -56380,3 +56380,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m3235-c1-tail-family-interface-smoke_20260612T065819Z/command.log`
 - success artifact: `experiments/feasibility_audit/c5prime_c1_tail_family_interface_smoke.json`
 - notes: Completed: no-PPO C1 tail-family interface smoke passed all frozen gates; 11/11 demo replays succeeded, held-out family train coverage was 1.0, tail reconstruction MSE/max error were 0, and no policy checkpoint was written. C1 remains open under c5prime_track_c_c1_tail_family_interface_pretrain_design; C2/C3 remain blocked.
+
+## 20260612T071558Z m3236-c1-tail-family-interface-pretrain-quick
+
+- status: `failed`
+- kind: `infrastructure`
+- hypothesis: A preregistered C1 structured tail-family interface pretrain quick can use the full v2 row split plus deterministic rare-tail train support to train a supervised tail-family interface head that clears selection, validation, per-family, and predicted-family reconstruction gates before validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof or self-ID claim.
+- command: `env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/c5prime_c1_tail_family_interface_pretrain_quick.py`
+- returncode: `1`
+- run dir: `runs/research/m3236-c1-tail-family-interface-pretrain-quick_20260612T071553Z`
+- command log: `runs/research/m3236-c1-tail-family-interface-pretrain-quick_20260612T071553Z/command.log`
+- success artifact: `experiments/feasibility_audit/c5prime_c1_tail_family_interface_pretrain_quick.json`
+- notes: Failed: M3236 replayed 43/43 demos and trained the supervised interface head, but failed rare-family and predicted-family reconstruction gates. Selection accuracy 0.927305 and validation accuracy 0.766082 beat simple floors, but structured:coast_steer_-0.7 validation was 0/101 frames and predicted-family reconstruction MSE was 0.276010 vs <=0.1. C1 remains open under c5prime_track_c_c1_tail_family_interface_reprice; C2/C3 remain blocked.

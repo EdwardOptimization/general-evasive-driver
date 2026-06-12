@@ -4,15 +4,16 @@ This file is the compact official state for the project. Milestone documents
 and `docs/research-log.md` remain the detailed log of the autonomous-harness
 era; the Phase-2 plan and thesis (pointer table below) define the active
 program. Last full refresh: 2026-06-12 (the 2026-06-11 WP6.3 refresh
-replaced the stale paper-route state; this update folds in M3215-M3235,
+replaced the stale paper-route state; this update folds in M3215-M3236,
 the C5 pricing disposition, the S4-HF-lite backend connector/pricing work,
 WP6.2 guardrails, the A1 lateral-channel rider, the A2 obs-normalization
 audit, the A3 C5-prime target consolidation, B1/B2/B3/B4 env-engineering
 smokes, D1 Chrono pricing, the first C1 warm-start failure/localization, the
 D1b Chrono-native oracle protocol smoke plus full direction-pricing panel,
 the C1 v2 tail-balanced quick-smoke negative, the M3233 C1
-synthesis/repricing pivot, M3234 C1 admission-interface pricing, and M3235 C1
-tail-family interface smoke).
+synthesis/repricing pivot, M3234 C1 admission-interface pricing, M3235 C1
+tail-family interface smoke, and the M3236 tail-family interface pretrain
+quick negative).
 
 ## Project Identity
 
@@ -28,8 +29,8 @@ tail-family interface smoke).
 
 History in one paragraph: the autonomous harness loop ran through M3214
 before manual takeover; the manual takeover has since registered
-M3215-M3235. `experiments/research_status.json` now records
-3238 completed / 6 failed / 2 blocked task entries, with `next_task:
+M3215-M3236. `experiments/research_status.json` now records
+3238 completed / 7 failed / 2 blocked task entries, with `next_task:
 null`. On
 2026-06-11 an independent feasibility audit showed the M3108–M3212
 residual-repair branch was repairing physically unsolvable rows, and the
@@ -66,7 +67,7 @@ Claims:
 | C2 belief learnability | **terminal bound accepted** (G-B FAIL, the single authorized iteration consumed): belief is learnable — the project's first working history-borne capability estimator (GRU R^2 0.91-0.99, reset-control-destroyed, window arms at predict-the-mean) — but not monetizable through the substitution interface; the bounded iteration was stopped by the leak gate because on-policy closed-loop data is necessarily single-frame mu-readable (the thesis Section-10 capstone). delay12 +0.185 (lower bound +0.110) remains the only substitution-level positive. | `docs/m3216-wp1-modular-belief-experiment.md`, `docs/m3217-wp1-belief-substitution-bounded-iteration.md` |
 | C3 FIR vs IIR | **not adjudicated** (pre-registered condition not triggered: no history arm cleared the floor) | M3216 doc |
 | C4 deployable stack | **closed** (WP2 never opened per G-B) | plan Section 2 |
-| C5 one policy for all passenger cars (RL as engineering) | **spread formulation rejected by pricing**. S0-S3 mass/brake/drive/tau spread failed its pre-registered bar (0/8 cells): the fixed reflex's degradation curve was flat, per-instance grid tuning had nothing to buy, and kappa-RLS retuning self-harmed at corners. M3220 then gave the final cheap current-sim lateral-channel rider (cg/Iz S4L): 0/4 cells qualified; S4L/T-limit prize was only +0.007 with CI95 [-0.014, 0.028]. **Measured current-sim survivor (C5' candidate): the reflex structural ceiling gap. M3222 fresh-seed A3 consolidation confirmed the C5-prime target by the frozen rule: 3/4 T-limit cells qualified with oracle - per-tuned gaps +0.1597 to +0.2153 and CI lower bounds > 0; S0 was positive but below the +0.15 effect-size bar (+0.1389).** M3218/M3219 completed the Chrono connector inventory + selector smoke. M3227 then ran the preregistered S4-HF-lite multi-vehicle direction-pricing proxy on frozen A3 structured-gap rows and found the direction **reversed in all three Chrono variants**: structured current-sim oracle-tail replay underperformed `v4_pertuned` on Sedan, BMW_E90, and UAZBUS. CP-1 then conditionally opened C1, but M3228's first structured-oracle demo + MLP BC warm-start failed its frozen full gate (validation action MSE 0.234184 vs <=0.12); M3229 localized the failure to selection/validation tail-action generalization. M3232 then tried the revised v2 rare-tail-balanced quick smoke and failed the same frozen action-MSE gate (0.291470 vs <=0.12), despite demo replay/checkpoint/dataset success. M3230 completed the D1b Chrono-native oracle protocol smoke, and M3231 completed the full native Chrono direction-pricing panel: native_oracle beat same-row `v4_pertuned` in both preregistered variants (Sedan +0.2222, BMW_E90 +0.1111), satisfying the CP-2 D1b direction-positive precondition. M3233 synthesized the evidence: A3/D1b keep the C5-prime target priced, but the local direct-MLP/action-MSE warm-start branch pivots after two gate failures. M3234 then priced the successor admission interface positive: structured tail-family oracle anchor removes 0.369957 validation tail MSE vs the 0.15 threshold, and v2 held-out family train coverage is 1.0. M3235 ran the no-PPO tail-family interface smoke and passed all frozen gates: 11/11 demo replays succeeded, held-out family train coverage was 1.0, tail reconstruction MSE/max error were 0, 831 tail frames were encoded, and no policy checkpoint was written. C1 remains open under `c5prime_track_c_c1_tail_family_interface_pretrain_design`; C2 is not admitted. C3 remains blocked on C2 plus PI CP-2. | `docs/c5-reflex-degradation-2026-06.md`, `docs/m3220-a1-s4-lateral-spread-rider-pricing.md`, `docs/m3222-a3-c5prime-target-consolidation.md`, `docs/m3219-s4-hf-lite-chrono-variant-selector-smoke.md`, `docs/m3227-d1-s4-hf-lite-chrono-pricing.md`, `docs/m3228-c1-c5prime-oracle-demo-bc-warmstart.md`, `docs/m3229-c1-bc-warmstart-failure-localization.md`, `docs/m3230-d1b-chrono-native-oracle-pricing-smoke.md`, `docs/m3231-d1b-chrono-native-oracle-pricing-full.md`, `docs/m3232-c1-v2-tail-balanced-warmstart-smoke.md`, `docs/m3233-c1-synthesis-repricing.md`, `docs/m3234-c1-admission-interface-pricing.md`, `docs/m3235-c1-tail-family-interface-smoke.md` |
+| C5 one policy for all passenger cars (RL as engineering) | **spread formulation rejected by pricing**. S0-S3 mass/brake/drive/tau spread failed its pre-registered bar (0/8 cells): the fixed reflex's degradation curve was flat, per-instance grid tuning had nothing to buy, and kappa-RLS retuning self-harmed at corners. M3220 then gave the final cheap current-sim lateral-channel rider (cg/Iz S4L): 0/4 cells qualified; S4L/T-limit prize was only +0.007 with CI95 [-0.014, 0.028]. **Measured current-sim survivor (C5' candidate): the reflex structural ceiling gap. M3222 fresh-seed A3 consolidation confirmed the C5-prime target by the frozen rule: 3/4 T-limit cells qualified with oracle - per-tuned gaps +0.1597 to +0.2153 and CI lower bounds > 0; S0 was positive but below the +0.15 effect-size bar (+0.1389).** M3218/M3219 completed the Chrono connector inventory + selector smoke. M3227 then ran the preregistered S4-HF-lite multi-vehicle direction-pricing proxy on frozen A3 structured-gap rows and found the direction **reversed in all three Chrono variants**: structured current-sim oracle-tail replay underperformed `v4_pertuned` on Sedan, BMW_E90, and UAZBUS. CP-1 then conditionally opened C1, but M3228's first structured-oracle demo + MLP BC warm-start failed its frozen full gate (validation action MSE 0.234184 vs <=0.12); M3229 localized the failure to selection/validation tail-action generalization. M3232 then tried the revised v2 rare-tail-balanced quick smoke and failed the same frozen action-MSE gate (0.291470 vs <=0.12), despite demo replay/checkpoint/dataset success. M3230 completed the D1b Chrono-native oracle protocol smoke, and M3231 completed the full native Chrono direction-pricing panel: native_oracle beat same-row `v4_pertuned` in both preregistered variants (Sedan +0.2222, BMW_E90 +0.1111), satisfying the CP-2 D1b direction-positive precondition. M3233 synthesized the evidence: A3/D1b keep the C5-prime target priced, but the local direct-MLP/action-MSE warm-start branch pivots after two gate failures. M3234 then priced the successor admission interface positive: structured tail-family oracle anchor removes 0.369957 validation tail MSE vs the 0.15 threshold, and v2 held-out family train coverage is 1.0. M3235 ran the no-PPO tail-family interface smoke and passed all frozen gates: 11/11 demo replays succeeded, held-out family train coverage was 1.0, tail reconstruction MSE/max error were 0, 831 tail frames were encoded, and no policy checkpoint was written. M3236 then tested the first supervised interface pretrain quick on the full v2 split plus rare-tail support: 43/43 demos replayed and aggregate validation accuracy beat simple floors (0.766082 vs 0.538012), but `structured:coast_steer_-0.7` failed 0/101 validation frames and predicted-family reconstruction MSE was 0.276010 vs <=0.1. C1 remains open under `c5prime_track_c_c1_tail_family_interface_reprice`; C2 is not admitted. C3 remains blocked on C2 plus PI CP-2. | `docs/c5-reflex-degradation-2026-06.md`, `docs/m3220-a1-s4-lateral-spread-rider-pricing.md`, `docs/m3222-a3-c5prime-target-consolidation.md`, `docs/m3219-s4-hf-lite-chrono-variant-selector-smoke.md`, `docs/m3227-d1-s4-hf-lite-chrono-pricing.md`, `docs/m3228-c1-c5prime-oracle-demo-bc-warmstart.md`, `docs/m3229-c1-bc-warmstart-failure-localization.md`, `docs/m3230-d1b-chrono-native-oracle-pricing-smoke.md`, `docs/m3231-d1b-chrono-native-oracle-pricing-full.md`, `docs/m3232-c1-v2-tail-balanced-warmstart-smoke.md`, `docs/m3233-c1-synthesis-repricing.md`, `docs/m3234-c1-admission-interface-pricing.md`, `docs/m3235-c1-tail-family-interface-smoke.md`, `docs/m3236-c1-tail-family-interface-pretrain-quick.md` |
 
 Work packages: WP0 **complete** (wrapper modes M3215-validated, family #2
 frozen with clean acceptance after one pre-registered repair, statistical
@@ -85,8 +86,9 @@ M3233 C1 synthesis/repricing **completed / pivot** (C5-prime target still
 priced, but local direct-MLP/action-MSE warm-start branch closed), M3234 C1
 admission-interface pricing **completed / positive** (tail-family quick smoke
 priced, no full training or C2 admission), M3235 C1 tail-family interface
-smoke **completed / passed** (exact target reconstruction, no policy checkpoint,
-next step is pretrain design/quick only), D1b
+smoke **completed / passed** (exact target reconstruction, no policy checkpoint),
+M3236 C1 tail-family interface pretrain quick **failed** (rare-family collapse;
+route to synthesis/repricing before more local pretraining), D1b
 Chrono-native oracle protocol smoke **passed** (M3230), and D1b full
 direction-pricing **completed / positive** (M3231: Sedan +0.2222,
 BMW_E90 +0.1111; CP-2 D1b precondition satisfied);
@@ -118,15 +120,15 @@ ceiling route); WP6 **current guardrails live** (6.0/6.1/6.2/6.3 done;
 validator V7, escalation protocol, and managed-run helper are merged).
 
 Harness ledger: M3215, M3216, M3217, M3218, M3219, M3220, M3221, M3222,
-M3223, M3224, M3225, M3226, M3227, M3228, M3229, M3230, M3231, M3232, M3233, M3234, and M3235 registered and
+M3223, M3224, M3225, M3226, M3227, M3228, M3229, M3230, M3231, M3232, M3233, M3234, M3235, and M3236 registered and
 executed through the harness (research-validate passed in pending state;
 M3228 failed its full gate, M3229 completed, M3230 completed after a
 same-turn rerun tightened the quick gate to require both structured and CEM
 candidate coverage, M3231 completed after one infrastructure retry with
 resume cleanup, M3232 failed the revised C1 v2 quick behavior gate, M3233
-completed the C1 synthesis/repricing pivot, and M3234 completed positive
-admission-interface pricing, and M3235 completed the no-PPO tail-family
-interface smoke);
+completed the C1 synthesis/repricing pivot, M3234 completed positive
+admission-interface pricing, M3235 completed the no-PPO tail-family
+interface smoke, and M3236 failed the supervised tail-family pretrain quick);
 leak gates stopped two dataset leaks and one terminal
 iteration, all per pre-registration.
 
@@ -190,6 +192,14 @@ replays succeeded, held-out family train coverage was 1.0, tail reconstruction
 was exact over 831 tail frames, and no policy checkpoint was written. C1 now
 continues under `c5prime_track_c_c1_tail_family_interface_pretrain_design`;
 C2 remains blocked.
+M3236 then quick-smoked the supervised pretrain path using full v2 rows plus
+extra rare-tail train support. The run replayed all 43 demos and trained an
+interface head, but the frozen gates failed: aggregate validation accuracy
+was 0.766082, yet `structured:coast_steer_-0.7` validation accuracy was 0/101
+frames and predicted-family reconstruction MSE was 0.276010 vs the <=0.1 bar.
+C1 now routes to `c5prime_track_c_c1_tail_family_interface_reprice`; do not
+continue local interface pretraining or controlled rollout design without
+synthesis/repricing.
 
 ## Pointer Table
 
@@ -199,7 +209,7 @@ C2 remains blocked.
 | Phase-2 plan v2 (active program definition) | `docs/research-plan-phase2-capability-boundary-tracking.md` |
 | Takeover decision (why M3213 was blocked) | `docs/feasibility-takeover-2026-06-route-decision.md` |
 | Gate protocol v2 (anchors before informative actions; R²≤0.1 self-check) | `docs/selfid-gate-protocol-v2-2026-06.md` |
-| Latest harness milestone (M3235: C1 tail-family interface smoke) | `docs/m3235-c1-tail-family-interface-smoke.md` |
+| Latest harness milestone (M3236: C1 tail-family interface pretrain quick) | `docs/m3236-c1-tail-family-interface-pretrain-quick.md` |
 | Thesis capstone + RL re-entry (Sections 10-11) | `docs/capability-boundary-tracking-thesis-2026-06.md` |
 | Data coverage map (C5 sampling design authority) | `docs/data-coverage-map-2026-06.md` |
 | Incumbent deployed driver (v4, untouched) | `src/autodrift/active_safety_reflex_driver.py`, `DRIVER_ID = active_safety_reflex_driver_m3105_incumbent_v4_no_regression` |
