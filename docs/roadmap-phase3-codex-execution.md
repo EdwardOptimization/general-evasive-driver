@@ -258,11 +258,41 @@ demonstrating the new axis, registered as a milestone. No training claims.
   blocked pending PI or a new nonlocal-interface pricing route. C2 remains
   blocked; no controlled rollout design, full C1 training, or C2 work is
   admitted from the local selector artifacts.
-### C2. Capability pretrain + guarded RL smoke [BLOCKED on C1]
+### C1-v3. Residual RL on the reflex base (nonlocal route) [OPEN; PI disposition 2026-06-12]
+- **PI route decision (resolves the M3243 escalation)**: the prize is real
+  in both simulators (A3 +0.16-0.22 current-sim; D1b +0.11-0.22
+  Chrono-native), and M3228-M3238 established WHY local imitation fails —
+  per-instance CEM oracle solutions are heterogeneous ("rare family"
+  collapse), so imitating a non-policy is the wrong interface. The
+  nonlocal route stops imitating entirely: **learn a bounded residual on
+  top of the frozen v4 reflex and let RL discover its own drift-grade
+  solutions**.
+- architecture: action = clip(v4(obs) + Delta_theta(obs), action bounds),
+  v4 frozen; Delta bounded per channel (delta_max frozen in the prereg);
+  optional recoverable-set gating of Delta per the thesis deployable-safety
+  principle (measurement-C surface, conservative snap). No supervised
+  dataset, hence no dataset leak gate; engineering-only judging — no
+  history-attribution claims.
+- training: guarded RL directly on the frozen c5prime cells (m1087: the BC
+  stage is deliberately skipped — that is the route decision); 1024-step
+  smoke first; reward recalibration 40/60 as measured (P1 residual cited);
+  >= 8 training seeds; the G1 variance lessons (seed-clustered SE) apply
+  to all readouts.
+- judging (prereg frozen BEFORE any full run): four arms on frozen
+  validation seeds — fixed v4 / v4_pertuned / v4+residual (candidate) /
+  per-instance oracle ceiling. Primary = (v4+residual - v4_pertuned) per
+  cell, paired CIs; PASS = recapture >= 50% of the A3 gap in >= 2 of the
+  3 qualified T-limit cells. Stop rules: behavior-neutral x2 => stop and
+  synthesize; no criteria loosening; verdict either way is accepted.
+- budget ladder: smoke <= 10 min; stage-1 <= 1 h (no checkpoint needed);
+  **CP-2 before anything > 1 h** — D1b precondition is MET (M3231), so
+  CP-2 is now budget-only; proposed first full budget <= 6 h CPU.
+
+### C2. Capability pretrain + guarded RL smoke [SUPERSEDED by C1-v3 (the residual route trains directly); original BC-first chain closed by M3238]
 - envelope-head pretrain; 1024-step guarded RL smoke first; reward
   recalibration 40/60 as measured; judging prereg frozen before any full
   run (engineering-only, four-arm, frozen validation seeds).
-### C3. Staged scale-up [BLOCKED on C2 + CP-2]
+### C3. Staged scale-up [BLOCKED on C1-v3 stage-1 + CP-2 (budget-only; D1b met)]
 - **CP-2 (PI checkpoint)** before any run > 1 h compute: PI confirms budget
   AND unit D1b must have returned direction-positive (CP-1 disposition).
   D1b is now direction-positive by M3231; C2 and PI CP-2 remain open.
@@ -333,9 +363,9 @@ demonstrating the new axis, registered as a milestone. No training claims.
 - B4: DONE (M3226; 60 s warmup-to-obstacle-to-post-pass continuation smoke passed)
 - B1b: DONE (M3239 smoke + M3240 full negative; current moving-crosser formulation 0/4 cells qualified)
 - B2b: DONE (M3241 smoke + M3242 full negative; current high-speed formulation 0/6 cells qualified)
-- C1: BLOCKED pending PI/new-interface pricing (CP-1 disposition 2026-06-12: conditional approval; M3228 first BC warm-start failed, M3229 localized tail-action generalization gap, M3232 v2 quick failed, M3233 synthesis/repricing pivoted away from local direct-MLP/action-MSE warm-start, M3234 admission-interface pricing positive, M3235 no-PPO tail-family interface smoke passed, M3236 supervised pretrain quick failed rare-family/reconstruction gates, M3237 synthesis/repricing closed local frame-wise pretraining, and M3238 rejected the local family-selector route; no local selector/interface training, controlled rollout design, full C1 training, or C2 work is admitted)
-- C2: BLOCKED on C1
-- C3: BLOCKED on C2 + CP-2 (D1b direction-positive satisfied by M3231)
+- C1: chain M3228-M3238 closed (local imitation interfaces); **C1-v3 OPEN** (residual RL on the reflex base; PI route decision 2026-06-12)
+- C2: SUPERSEDED by C1-v3
+- C3: BLOCKED on C1-v3 stage-1 + CP-2 (budget-only; D1b precondition met by M3231)
 - D1: DONE (M3227; tail-replay proxy reversed in all three variants)
 - D1b: DONE (M3231; native Chrono oracle direction-positive on Sedan/BMW_E90)
 

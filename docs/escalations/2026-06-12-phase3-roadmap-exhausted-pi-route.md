@@ -29,5 +29,12 @@ bookkeeping milestones.
 
 ## Resolution (filled in when unblocked)
 
-- date:
-- outcome:
+- date: 2026-06-12
+- outcome: PI reopened C1 with a concrete nonlocal route — C1-v3, residual
+  RL on the frozen v4 reflex base (stop imitating heterogeneous per-instance
+  oracle solutions; let guarded RL discover its own drift-grade actions
+  within a bounded, optionally recoverable-set-gated residual). Spec and
+  frozen-criteria requirements in the roadmap C1-v3 unit. CP-2 is budget-only
+  (D1b direction-positive met by M3231); proposed first full budget <= 6 h
+  CPU. B1b/B2b remain done-negative; the queue has a dependency-satisfied
+  OPEN unit again.
