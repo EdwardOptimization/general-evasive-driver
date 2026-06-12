@@ -1,3 +1,30 @@
+## [ERR-20260612-001] autodrift_manifest_actual_progress_type_enum
+
+**Logged**: 2026-06-12T07:39:56Z
+**Priority**: medium
+**Status**: resolved
+**Area**: docs
+
+### Summary
+AutoDrift manifest validation rejects invented `local_search_guard.actual_progress_type` values.
+
+### Error
+```text
+error: m3238-c1-family-selector-repricing: local_search_guard.actual_progress_type must be one of ['design_only', 'evidence_reanalysis', 'new_baseline_comparison', 'new_closed_loop_data', 'new_dataset_or_panel', 'new_scenario_distribution', 'new_tool_or_infra', 'repair_only', 'result_audit', 'synthesis_decision']
+```
+
+### Context
+- Command attempted: `make research-validate`
+- M3238 used `repricing_decision`, which reads well but is not in the validator enum.
+
+### Suggested Fix
+For read-only repricing over existing artifacts, use `evidence_reanalysis` unless the milestone is a formal synthesis with `synthesis_decision`.
+
+### Metadata
+- Reproducible: yes
+- Related Files: experiments/manifests/m3238-c1-family-selector-repricing.json
+
+---
 ## [ERR-20260605-001] jq_command_missing
 
 **Logged**: 2026-06-05T00:00:00+08:00

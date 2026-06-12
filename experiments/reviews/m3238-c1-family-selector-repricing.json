@@ -1,0 +1,91 @@
+{
+  "decision_reason": "Completed: no deterministic train-only selector cleared all M3238 gates. Best row-level selector accuracy was 0.803119 over the 0.538012 majority floor, but predicted-family reconstruction MSE was 0.268415 and structured:coast_steer_-0.7 stayed 0/101, predicted as structured:brake_steer_-1.0. Local selector/interface training is rejected pending PI or new nonlocal-interface pricing; C2/C3 remain blocked.",
+  "failure_criteria": [
+    "M3238 runs rollout or training",
+    "M3238 writes a checkpoint or dataset",
+    "M3238 admits local selector/interface training without rare-family and reconstruction gates",
+    "M3238 admits C2",
+    "M3238 claims driver performance"
+  ],
+  "failure_types": [
+    "metric_artifact"
+  ],
+  "forbidden_shortcuts": [
+    "do not touch ActiveSafetyReflexDriver",
+    "do not invoke train_ppo, supervised training, PPO, or guarded RL",
+    "do not write a checkpoint or dataset",
+    "do not admit controlled rollout design from aggregate selector accuracy",
+    "do not admit C2",
+    "do not claim driver performance, validation ranking, promotion, high-fidelity sufficiency, repair-success, robustness-result, feasibility-proof, or self-ID"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260612T074539Z",
+  "hypothesis": "A preregistered read-only C1 family-selector separability repricing pass can decide whether the current local structured-family selector route is worth another training milestone after M3237, before validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof or self-ID claim.",
+  "lineage": {
+    "blocked_by": [
+      "C2 remains blocked until a C1 admission artifact passes"
+    ],
+    "derived_from": [
+      "M3234 positive admission-interface pricing",
+      "M3235 exact structured tail-family representation",
+      "M3236 rare-family selector failure",
+      "M3237 pivot to read-only family-selector/separability repricing"
+    ],
+    "invalidates": [
+      "training another local selector without rare-family separability pricing",
+      "opening controlled rollout design from aggregate selector accuracy"
+    ],
+    "parent_checkpoint": [
+      "docs/current-status.md",
+      "docs/roadmap-phase3-codex-execution.md",
+      "docs/m3237-c1-tail-family-interface-synthesis-repricing.md"
+    ],
+    "parent_config": [
+      "experiments/feasibility_audit/c5prime_c1_family_selector_repricing_prereg.json",
+      "scripts/feasibility_audit/c5prime_c1_family_selector_repricing.py"
+    ],
+    "parent_dataset": [
+      "experiments/feasibility_audit/c5prime_c1_tail_family_interface_pretrain_quick.json",
+      "runs/feasibility_audit/c5prime_c1_tail_family_interface_pretrain_quick/quick/interface_pretrain_dataset.npz"
+    ],
+    "parent_objective": [
+      "price whether the local family-selector route is learnable enough to justify training"
+    ],
+    "supersedes": [
+      "direct continuation of local tail-family selector/interface training after M3237"
+    ]
+  },
+  "milestone": "m3238-c1-family-selector-repricing",
+  "next_blocker": "C2 remains blocked. M3238 rejects the local family-selector route; C1 local selector/interface training is blocked pending PI or a new nonlocal-interface pricing route.",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "family_selector_repricing_negative",
+  "public_gates": [
+    "M3238 must be read-only over the M3236 dataset and M3237 synthesis",
+    "M3238 must not run rollout or training",
+    "M3238 must not write a checkpoint or dataset",
+    "M3238 must require both aggregate and required rare-family selector gates",
+    "M3238 must keep C2 blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "experiments/feasibility_audit/c5prime_c1_family_selector_repricing.json",
+    "clearance_margin_mean": "",
+    "decision": "family_selector_repricing_negative",
+    "milestone": "m3238-c1-family-selector-repricing",
+    "reason": "Completed: no deterministic train-only selector cleared all M3238 gates. Best row-level selector accuracy was 0.803119 over the 0.538012 majority floor, but predicted-family reconstruction MSE was 0.268415 and structured:coast_steer_-0.7 stayed 0/101, predicted as structured:brake_steer_-1.0. Local selector/interface training is rejected pending PI or new nonlocal-interface pricing; C2/C3 remain blocked.",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "experiments/feasibility_audit/c5prime_c1_family_selector_repricing.json exists with protocol c5prime_c1_family_selector_repricing",
+    "result reports train-only selector battery metrics and required rare-family gates",
+    "decision admits selector training only if at least one selector clears all gates",
+    "decision keeps C2 blocked",
+    "the result document separates measured and inferred sections"
+  ],
+  "type": "infrastructure"
+}

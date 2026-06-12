@@ -1,0 +1,31 @@
+{
+  "protocol": "c5prime_c1_family_selector_repricing",
+  "frozen_at_utc": "20260612T080000Z",
+  "source_artifacts": {
+    "m3236_tail_family_interface_pretrain_quick": "experiments/feasibility_audit/c5prime_c1_tail_family_interface_pretrain_quick.json",
+    "m3236_tail_family_interface_dataset": "runs/feasibility_audit/c5prime_c1_tail_family_interface_pretrain_quick/quick/interface_pretrain_dataset.npz",
+    "m3237_tail_family_interface_synthesis_repricing": "experiments/feasibility_audit/c5prime_c1_tail_family_interface_synthesis_repricing.json"
+  },
+  "selector_battery": [
+    "train_majority_floor",
+    "frame_centroid_z",
+    "row_centroid_mean_z",
+    "row_1nn_mean_std_first_last_z"
+  ],
+  "required_rare_validation_families": [
+    "structured:coast_steer_+0.7",
+    "structured:coast_steer_-0.7"
+  ],
+  "thresholds": {
+    "min_validation_accuracy_over_majority_floor": 0.15,
+    "min_required_rare_validation_family_accuracy": 0.5,
+    "min_required_rare_row_accuracy": 1.0,
+    "min_required_rare_margin": 0.0,
+    "max_predicted_family_validation_reconstruction_mse": 0.1
+  },
+  "decision_rule": {
+    "admit_selector_training_design_if": "At least one deterministic train-only selector clears all gates: validation accuracy over train-majority floor >= 0.15, each required rare validation family frame accuracy >= 0.5, row-level selectors also classify every required rare validation row with positive margin, and predicted-family validation reconstruction MSE <= 0.1.",
+    "negative_if": "Target and representation remain alive by M3237, but no selector clears the selector battery gates.",
+    "next_process": "If negative, close the local family-selector repricing branch, keep C2/C3 blocked, and do not run more local selector/interface training before a PI/new-interface decision. If positive, admit only a separate selector-training design/quick registration; no C2 admission."
+  }
+}

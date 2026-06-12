@@ -17,8 +17,10 @@
   (`docs/c5-reflex-degradation-2026-06.md`), and the A1 S4-lateral rider was
   also negative (`docs/m3220-a1-s4-lateral-spread-rider-pricing.md`). The
   default forward path is therefore C5'-main (structural-ceiling prize).
-  CP-1 conditionally opened C1; M3231 satisfied the D1b direction-positive
-  precondition for CP-2, but C3 remains blocked on C2 and PI CP-2.
+  CP-1 conditionally opened C1, but M3238 has since blocked the local
+  selector/interface route pending PI or new nonlocal-interface pricing.
+  M3231 satisfied the D1b direction-positive precondition for CP-2, but C3
+  remains blocked on C2 and PI CP-2.
 
 ## Track A — pricing/science completion (CPU only, zero training)
 
@@ -173,7 +175,7 @@ demonstrating the new axis, registered as a milestone. No training claims.
 
 ## Track C — C5' RL program (m1087 staged; opens after CP-1)
 
-### C1. Oracle demo generator + BC warm-start [OPEN per CP-1 disposition; M3237 pivot to family-selector repricing]
+### C1. Oracle demo generator + BC warm-start [BLOCKED after M3238; pending PI/new-interface pricing]
 - per-instance oracle demos on the frozen C5' cells; BC with DAgger-lite +
   held-out epoch selection (the G1' lessons are mandatory); capacity and
   seed discipline per the WP1 pattern.
@@ -219,6 +221,15 @@ demonstrating the new axis, registered as a milestone. No training claims.
   read-only family-selector/separability repricing. No local interface
   pretraining, controlled rollout design, full C1 training, or C2 work is
   admitted before that repricing.
+  `docs/m3238-c1-family-selector-repricing.md` then completed that repricing
+  and rejected the local family-selector route. Best train-only row selector
+  validation accuracy was 0.803119 over the 0.538012 majority floor, but
+  predicted-family reconstruction MSE was 0.268415 vs <=0.1 and
+  `structured:coast_steer_-0.7` stayed 0/101, predicted as
+  `structured:brake_steer_-1.0`. C1 local selector/interface training is
+  blocked pending PI or a new nonlocal-interface pricing route. C2 remains
+  blocked; no controlled rollout design, full C1 training, or C2 work is
+  admitted from the local selector artifacts.
 ### C2. Capability pretrain + guarded RL smoke [BLOCKED on C1]
 - envelope-head pretrain; 1024-step guarded RL smoke first; reward
   recalibration 40/60 as measured; judging prereg frozen before any full
@@ -292,17 +303,18 @@ demonstrating the new axis, registered as a milestone. No training claims.
 - B2: DONE (M3224; explicit 36 m/s normalization/preview smoke passed)
 - B3: DONE (M3225; geometry-channel degradation smoke passed; split-mu not expressible on the DriftObstacleEnv single-track path)
 - B4: DONE (M3226; 60 s warmup-to-obstacle-to-post-pass continuation smoke passed)
-- B1b: OPEN (moving-obstacle pricing; start after C1)
-- B2b: OPEN (high-speed pricing; start after C1)
-- C1: OPEN (CP-1 disposition 2026-06-12: conditional approval; M3228 first BC warm-start failed, M3229 localized tail-action generalization gap, M3232 v2 quick failed, M3233 synthesis/repricing pivoted away from local direct-MLP/action-MSE warm-start, M3234 admission-interface pricing positive, M3235 no-PPO tail-family interface smoke passed, M3236 supervised pretrain quick failed rare-family/reconstruction gates, M3237 synthesis/repricing closed local frame-wise pretraining; next C1 step is read-only family-selector/separability repricing under `c5prime_track_c_c1_family_selector_repricing`)
+- B1b: OPEN (moving-obstacle pricing; next autonomous unit after M3238 blocked local C1 continuation)
+- B2b: OPEN (high-speed pricing; after B1b unless PI reopens C1)
+- C1: BLOCKED pending PI/new-interface pricing (CP-1 disposition 2026-06-12: conditional approval; M3228 first BC warm-start failed, M3229 localized tail-action generalization gap, M3232 v2 quick failed, M3233 synthesis/repricing pivoted away from local direct-MLP/action-MSE warm-start, M3234 admission-interface pricing positive, M3235 no-PPO tail-family interface smoke passed, M3236 supervised pretrain quick failed rare-family/reconstruction gates, M3237 synthesis/repricing closed local frame-wise pretraining, and M3238 rejected the local family-selector route; no local selector/interface training, controlled rollout design, full C1 training, or C2 work is admitted)
 - C2: BLOCKED on C1
 - C3: BLOCKED on C2 + CP-2 (D1b direction-positive satisfied by M3231)
 - D1: DONE (M3227; tail-replay proxy reversed in all three variants)
 - D1b: DONE (M3231; native Chrono oracle direction-positive on Sedan/BMW_E90)
 
-Execution order note: cross-track priority is C1 next (CP-1 disposition;
-after M3237, read-only family-selector/separability repricing before any further local interface training),
-then B1b, then B2b; within a track, lowest number first.
+Execution order note: C1 is not an autonomous-session OPEN unit after M3238
+unless PI supplies a new nonlocal-interface pricing route. The next autonomous
+OPEN unit is B1b moving-obstacle pricing, then B2b high-speed pricing; within a
+track, lowest number first.
 - WP6.2 guardrails: **MERGED** (commit 05607bcd — validator V7 live in the
   pre-commit hook, escalation protocol in docs/escalations/, managed-run
   helper scripts/run_managed.sh). Codex execution may begin.

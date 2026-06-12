@@ -1,0 +1,574 @@
+{
+  "claim_boundary": "M3238 C1 family-selector/separability repricing only: read-only analysis of the existing M3236 tail-family dataset and M3237 synthesis result. No rollout, no training, no checkpoint, no dataset write, no incumbent mutation, no validation ranking, no driver-performance claim, no high-fidelity sufficiency claim, no C2 admission, and no self-ID claim.",
+  "decision": {
+    "admissible_selectors": [],
+    "best_selector_by_validation_mse": "row_centroid_mean_z",
+    "best_selector_gates": {
+      "all_passed": false,
+      "predicted_family_reconstruction_gate_passed": false,
+      "required_rare_frame_accuracy_gate_passed": false,
+      "required_rare_row_gate_passed": false,
+      "validation_accuracy_over_floor_gate_passed": true
+    },
+    "best_selector_validation_accuracy": 0.803119,
+    "best_selector_validation_mse": 0.268415,
+    "c1_status": "blocked_pending_pi_or_new_interface_pricing",
+    "c2_admitted": false,
+    "c3_admitted": false,
+    "closed_branch": "c5prime_track_c_c1_family_selector_repricing",
+    "controlled_rollout_design_admitted": false,
+    "more_local_interface_pretraining_admitted": false,
+    "next_branch": "c5prime_track_c_c1_pause_pending_pi_or_nonlocal_interface_reprice",
+    "next_process_admitted": false,
+    "next_training_admitted": false,
+    "reason": "The target and representation remain alive, but the deterministic selector battery does not clear the frozen rare-family and reconstruction gates. The strongest simple row-level selector still maps the required structured:coast_steer_-0.7 validation row to structured:brake_steer_-1.0, preserving the M3236 failure mode.",
+    "recommended_next": "Do not run more local tail-family selector training. Escalate C1 for a PI/new-interface decision, or move to the next independent roadmap pricing unit if C1 is treated as paused.",
+    "representation_alive_if_family_known": true,
+    "required_rare_failure_preserved": true,
+    "selector_route_priced": false,
+    "synthesis_decision": "family_selector_repricing_negative",
+    "target_still_priced": true
+  },
+  "elapsed_s": 0.026,
+  "generated_at_utc": "20260612T074051Z",
+  "generated_by": "scripts/feasibility_audit/c5prime_c1_family_selector_repricing.py",
+  "inferred": {
+    "rare_family_interpretation": "The negative result is a route decision for this local selector interface, not a claim that the C5-prime structural ceiling target is absent.",
+    "selector_vs_representation": "The structured decoder remains exact if the family is known. M3238 prices only whether the current local observation interface contains enough separability to select the required family before another training attempt."
+  },
+  "measured": {
+    "admissible_selectors": [],
+    "best_by_validation_accuracy": {
+      "gates": {
+        "all_passed": false,
+        "predicted_family_reconstruction_gate_passed": false,
+        "required_rare_frame_accuracy_gate_passed": false,
+        "required_rare_row_gate_passed": false,
+        "validation_accuracy_over_floor_gate_passed": true
+      },
+      "name": "row_centroid_mean_z",
+      "required_rare_validation_families": {
+        "structured:coast_steer_+0.7": {
+          "frame_accuracy": 1.0,
+          "frames": 68,
+          "margin_median": 12.333416,
+          "margin_min": 12.333416,
+          "nearest_wrong_counts": {
+            "structured:brake_steer_+0.4": 1
+          },
+          "positive_margin_rate": 1.0,
+          "predicted_counts": {
+            "structured:coast_steer_+0.7": 68
+          },
+          "row_accuracy": 1.0,
+          "row_predicted_counts": {
+            "structured:coast_steer_+0.7": 1
+          },
+          "rows": 1
+        },
+        "structured:coast_steer_-0.7": {
+          "frame_accuracy": 0.0,
+          "frames": 101,
+          "margin_median": -138.088562,
+          "margin_min": -138.088562,
+          "nearest_wrong_counts": {
+            "structured:brake_steer_-1.0": 1
+          },
+          "positive_margin_rate": 0.0,
+          "predicted_counts": {
+            "structured:brake_steer_-1.0": 101
+          },
+          "row_accuracy": 0.0,
+          "row_predicted_counts": {
+            "structured:brake_steer_-1.0": 1
+          },
+          "rows": 1
+        }
+      },
+      "validation_accuracy": 0.803119,
+      "validation_predicted_family_reconstruction_mse": 0.268415
+    },
+    "best_by_validation_mse": {
+      "gates": {
+        "all_passed": false,
+        "predicted_family_reconstruction_gate_passed": false,
+        "required_rare_frame_accuracy_gate_passed": false,
+        "required_rare_row_gate_passed": false,
+        "validation_accuracy_over_floor_gate_passed": true
+      },
+      "name": "row_centroid_mean_z",
+      "required_rare_validation_families": {
+        "structured:coast_steer_+0.7": {
+          "frame_accuracy": 1.0,
+          "frames": 68,
+          "margin_median": 12.333416,
+          "margin_min": 12.333416,
+          "nearest_wrong_counts": {
+            "structured:brake_steer_+0.4": 1
+          },
+          "positive_margin_rate": 1.0,
+          "predicted_counts": {
+            "structured:coast_steer_+0.7": 68
+          },
+          "row_accuracy": 1.0,
+          "row_predicted_counts": {
+            "structured:coast_steer_+0.7": 1
+          },
+          "rows": 1
+        },
+        "structured:coast_steer_-0.7": {
+          "frame_accuracy": 0.0,
+          "frames": 101,
+          "margin_median": -138.088562,
+          "margin_min": -138.088562,
+          "nearest_wrong_counts": {
+            "structured:brake_steer_-1.0": 1
+          },
+          "positive_margin_rate": 0.0,
+          "predicted_counts": {
+            "structured:brake_steer_-1.0": 101
+          },
+          "row_accuracy": 0.0,
+          "row_predicted_counts": {
+            "structured:brake_steer_-1.0": 1
+          },
+          "rows": 1
+        }
+      },
+      "validation_accuracy": 0.803119,
+      "validation_predicted_family_reconstruction_mse": 0.268415
+    },
+    "dataset": {
+      "artifact": "runs/feasibility_audit/c5prime_c1_tail_family_interface_pretrain_quick/quick/interface_pretrain_dataset.npz",
+      "frames": 2928,
+      "role_frame_counts": {
+        "selection": 564,
+        "train": 1851,
+        "validation": 513
+      },
+      "role_row_counts": {
+        "selection": 8,
+        "train": 28,
+        "validation": 7
+      },
+      "rows": 43,
+      "tail_frames_by_family_role": {
+        "structured:brake_steer_+0.4": {
+          "selection": 304,
+          "train": 267,
+          "validation": 68
+        },
+        "structured:brake_steer_+1.0": {
+          "selection": 66,
+          "train": 82,
+          "validation": 0
+        },
+        "structured:brake_steer_-0.4": {
+          "selection": 144,
+          "train": 800,
+          "validation": 276
+        },
+        "structured:brake_steer_-0.7": {
+          "selection": 0,
+          "train": 81,
+          "validation": 0
+        },
+        "structured:brake_steer_-1.0": {
+          "selection": 0,
+          "train": 83,
+          "validation": 0
+        },
+        "structured:coast_steer_+0.7": {
+          "selection": 0,
+          "train": 109,
+          "validation": 68
+        },
+        "structured:coast_steer_-0.7": {
+          "selection": 0,
+          "train": 111,
+          "validation": 101
+        },
+        "structured:full_brake": {
+          "selection": 50,
+          "train": 186,
+          "validation": 0
+        },
+        "structured:swerve_+1_n10": {
+          "selection": 0,
+          "train": 74,
+          "validation": 0
+        },
+        "structured:swerve_-1_n10": {
+          "selection": 0,
+          "train": 58,
+          "validation": 0
+        }
+      }
+    },
+    "selector_floor": {
+      "name": "train_majority_floor",
+      "validation_accuracy": 0.538012
+    },
+    "selectors": {
+      "frame_centroid_z": {
+        "accuracy_by_role": {
+          "selection": 0.347518,
+          "train": 0.550513,
+          "validation": 0.45809
+        },
+        "gates": {
+          "all_passed": false,
+          "predicted_family_reconstruction_gate_passed": false,
+          "required_rare_frame_accuracy_gate_passed": false,
+          "required_rare_row_gate_passed": true,
+          "validation_accuracy_over_floor_gate_passed": false
+        },
+        "kind": "frame_centroid",
+        "name": "frame_centroid_z",
+        "required_rare_validation_families": {
+          "structured:coast_steer_+0.7": {
+            "frame_accuracy": 1.0,
+            "frames": 68,
+            "margin_median": 11.945666,
+            "margin_min": 5.768469,
+            "nearest_wrong_counts": {
+              "structured:brake_steer_+0.4": 61,
+              "structured:swerve_+1_n10": 7
+            },
+            "positive_margin_rate": 1.0,
+            "predicted_counts": {
+              "structured:coast_steer_+0.7": 68
+            }
+          },
+          "structured:coast_steer_-0.7": {
+            "frame_accuracy": 0.0,
+            "frames": 101,
+            "margin_median": -151.345139,
+            "margin_min": -175.734238,
+            "nearest_wrong_counts": {
+              "structured:brake_steer_-1.0": 94,
+              "structured:full_brake": 7
+            },
+            "positive_margin_rate": 0.0,
+            "predicted_counts": {
+              "structured:brake_steer_-1.0": 94,
+              "structured:full_brake": 7
+            }
+          }
+        },
+        "validation_accuracy_over_majority_floor": -0.079922,
+        "validation_family_metrics": {
+          "structured:brake_steer_+0.4": {
+            "accuracy": 0.397059,
+            "frames": 68,
+            "predicted_counts": {
+              "structured:brake_steer_+0.4": 27,
+              "structured:brake_steer_+1.0": 17,
+              "structured:brake_steer_-1.0": 5,
+              "structured:coast_steer_+0.7": 2,
+              "structured:swerve_+1_n10": 17
+            }
+          },
+          "structured:brake_steer_-0.4": {
+            "accuracy": 0.507246,
+            "frames": 276,
+            "predicted_counts": {
+              "structured:brake_steer_-0.4": 140,
+              "structured:brake_steer_-0.7": 33,
+              "structured:brake_steer_-1.0": 22,
+              "structured:coast_steer_+0.7": 4,
+              "structured:swerve_+1_n10": 62,
+              "structured:swerve_-1_n10": 15
+            }
+          },
+          "structured:coast_steer_+0.7": {
+            "accuracy": 1.0,
+            "frames": 68,
+            "predicted_counts": {
+              "structured:coast_steer_+0.7": 68
+            }
+          },
+          "structured:coast_steer_-0.7": {
+            "accuracy": 0.0,
+            "frames": 101,
+            "predicted_counts": {
+              "structured:brake_steer_-1.0": 94,
+              "structured:full_brake": 7
+            }
+          }
+        },
+        "validation_predicted_family_reconstruction_mse": 0.359428
+      },
+      "row_1nn_mean_std_first_last_z": {
+        "accuracy_by_role": {
+          "selection": 0.801418,
+          "train": 1.0,
+          "validation": 0.803119
+        },
+        "gates": {
+          "all_passed": false,
+          "predicted_family_reconstruction_gate_passed": false,
+          "required_rare_frame_accuracy_gate_passed": false,
+          "required_rare_row_gate_passed": false,
+          "validation_accuracy_over_floor_gate_passed": true
+        },
+        "kind": "row_1nn",
+        "name": "row_1nn_mean_std_first_last_z",
+        "required_rare_validation_families": {
+          "structured:coast_steer_+0.7": {
+            "frame_accuracy": 1.0,
+            "frames": 68,
+            "margin_median": 33.553104,
+            "margin_min": 33.553104,
+            "nearest_train_rows": [
+              {
+                "nearest_train_family": "structured:coast_steer_+0.7",
+                "nearest_train_row": "S1-inst00-seed7300247",
+                "validation_row": "S3-inst04-seed7720117"
+              }
+            ],
+            "nearest_wrong_counts": {
+              "structured:brake_steer_+0.4": 1
+            },
+            "positive_margin_rate": 1.0,
+            "predicted_counts": {
+              "structured:coast_steer_+0.7": 68
+            },
+            "row_accuracy": 1.0,
+            "row_predicted_counts": {
+              "structured:coast_steer_+0.7": 1
+            },
+            "rows": 1
+          },
+          "structured:coast_steer_-0.7": {
+            "frame_accuracy": 0.0,
+            "frames": 101,
+            "margin_median": -436.795868,
+            "margin_min": -436.795868,
+            "nearest_train_rows": [
+              {
+                "nearest_train_family": "structured:brake_steer_-1.0",
+                "nearest_train_row": "S2-inst00-seed7500065",
+                "validation_row": "S2-inst08-seed7540299"
+              }
+            ],
+            "nearest_wrong_counts": {
+              "structured:brake_steer_-1.0": 1
+            },
+            "positive_margin_rate": 0.0,
+            "predicted_counts": {
+              "structured:brake_steer_-1.0": 101
+            },
+            "row_accuracy": 0.0,
+            "row_predicted_counts": {
+              "structured:brake_steer_-1.0": 1
+            },
+            "rows": 1
+          }
+        },
+        "validation_accuracy_over_majority_floor": 0.265107,
+        "validation_family_metrics": {
+          "structured:brake_steer_+0.4": {
+            "accuracy": 1.0,
+            "frames": 68,
+            "predicted_counts": {
+              "structured:brake_steer_+0.4": 68
+            }
+          },
+          "structured:brake_steer_-0.4": {
+            "accuracy": 1.0,
+            "frames": 276,
+            "predicted_counts": {
+              "structured:brake_steer_-0.4": 276
+            }
+          },
+          "structured:coast_steer_+0.7": {
+            "accuracy": 1.0,
+            "frames": 68,
+            "predicted_counts": {
+              "structured:coast_steer_+0.7": 68
+            }
+          },
+          "structured:coast_steer_-0.7": {
+            "accuracy": 0.0,
+            "frames": 101,
+            "predicted_counts": {
+              "structured:brake_steer_-1.0": 101
+            }
+          }
+        },
+        "validation_predicted_family_reconstruction_mse": 0.268415
+      },
+      "row_centroid_mean_z": {
+        "accuracy_by_role": {
+          "selection": 0.478723,
+          "train": 0.927607,
+          "validation": 0.803119
+        },
+        "gates": {
+          "all_passed": false,
+          "predicted_family_reconstruction_gate_passed": false,
+          "required_rare_frame_accuracy_gate_passed": false,
+          "required_rare_row_gate_passed": false,
+          "validation_accuracy_over_floor_gate_passed": true
+        },
+        "kind": "row_centroid",
+        "name": "row_centroid_mean_z",
+        "required_rare_validation_families": {
+          "structured:coast_steer_+0.7": {
+            "frame_accuracy": 1.0,
+            "frames": 68,
+            "margin_median": 12.333416,
+            "margin_min": 12.333416,
+            "nearest_wrong_counts": {
+              "structured:brake_steer_+0.4": 1
+            },
+            "positive_margin_rate": 1.0,
+            "predicted_counts": {
+              "structured:coast_steer_+0.7": 68
+            },
+            "row_accuracy": 1.0,
+            "row_predicted_counts": {
+              "structured:coast_steer_+0.7": 1
+            },
+            "rows": 1
+          },
+          "structured:coast_steer_-0.7": {
+            "frame_accuracy": 0.0,
+            "frames": 101,
+            "margin_median": -138.088562,
+            "margin_min": -138.088562,
+            "nearest_wrong_counts": {
+              "structured:brake_steer_-1.0": 1
+            },
+            "positive_margin_rate": 0.0,
+            "predicted_counts": {
+              "structured:brake_steer_-1.0": 101
+            },
+            "row_accuracy": 0.0,
+            "row_predicted_counts": {
+              "structured:brake_steer_-1.0": 1
+            },
+            "rows": 1
+          }
+        },
+        "validation_accuracy_over_majority_floor": 0.265107,
+        "validation_family_metrics": {
+          "structured:brake_steer_+0.4": {
+            "accuracy": 1.0,
+            "frames": 68,
+            "predicted_counts": {
+              "structured:brake_steer_+0.4": 68
+            }
+          },
+          "structured:brake_steer_-0.4": {
+            "accuracy": 1.0,
+            "frames": 276,
+            "predicted_counts": {
+              "structured:brake_steer_-0.4": 276
+            }
+          },
+          "structured:coast_steer_+0.7": {
+            "accuracy": 1.0,
+            "frames": 68,
+            "predicted_counts": {
+              "structured:coast_steer_+0.7": 68
+            }
+          },
+          "structured:coast_steer_-0.7": {
+            "accuracy": 0.0,
+            "frames": 101,
+            "predicted_counts": {
+              "structured:brake_steer_-1.0": 101
+            }
+          }
+        },
+        "validation_predicted_family_reconstruction_mse": 0.268415
+      },
+      "train_majority_floor": {
+        "accuracy_by_role": {
+          "selection": 0.255319,
+          "train": 0.432199,
+          "validation": 0.538012
+        },
+        "gates": {
+          "all_passed": false,
+          "predicted_family_reconstruction_gate_passed": false,
+          "required_rare_frame_accuracy_gate_passed": false,
+          "required_rare_row_gate_passed": true,
+          "validation_accuracy_over_floor_gate_passed": false
+        },
+        "kind": "frame_floor",
+        "name": "train_majority_floor",
+        "required_rare_validation_families": {
+          "structured:coast_steer_+0.7": {
+            "frame_accuracy": 0.0,
+            "frames": 68,
+            "margin_median": null,
+            "margin_min": null,
+            "nearest_wrong_counts": {},
+            "positive_margin_rate": null,
+            "predicted_counts": {
+              "structured:brake_steer_-0.4": 68
+            }
+          },
+          "structured:coast_steer_-0.7": {
+            "frame_accuracy": 0.0,
+            "frames": 101,
+            "margin_median": null,
+            "margin_min": null,
+            "nearest_wrong_counts": {},
+            "positive_margin_rate": null,
+            "predicted_counts": {
+              "structured:brake_steer_-0.4": 101
+            }
+          }
+        },
+        "validation_accuracy_over_majority_floor": 0.0,
+        "validation_family_metrics": {
+          "structured:brake_steer_+0.4": {
+            "accuracy": 0.0,
+            "frames": 68,
+            "predicted_counts": {
+              "structured:brake_steer_-0.4": 68
+            }
+          },
+          "structured:brake_steer_-0.4": {
+            "accuracy": 1.0,
+            "frames": 276,
+            "predicted_counts": {
+              "structured:brake_steer_-0.4": 276
+            }
+          },
+          "structured:coast_steer_+0.7": {
+            "accuracy": 0.0,
+            "frames": 68,
+            "predicted_counts": {
+              "structured:brake_steer_-0.4": 68
+            }
+          },
+          "structured:coast_steer_-0.7": {
+            "accuracy": 0.0,
+            "frames": 101,
+            "predicted_counts": {
+              "structured:brake_steer_-0.4": 101
+            }
+          }
+        },
+        "validation_predicted_family_reconstruction_mse": 0.526894
+      }
+    },
+    "upstream_m3237_decision": {
+      "local_framewise_pretraining_closed": true,
+      "representation_alive_if_family_known": true,
+      "target_still_priced": true
+    }
+  },
+  "preregistration": "experiments/feasibility_audit/c5prime_c1_family_selector_repricing_prereg.json",
+  "protocol": "c5prime_c1_family_selector_repricing",
+  "source_artifacts": {
+    "m3236_tail_family_interface_dataset": "runs/feasibility_audit/c5prime_c1_tail_family_interface_pretrain_quick/quick/interface_pretrain_dataset.npz",
+    "m3236_tail_family_interface_pretrain_quick": "experiments/feasibility_audit/c5prime_c1_tail_family_interface_pretrain_quick.json",
+    "m3237_tail_family_interface_synthesis_repricing": "experiments/feasibility_audit/c5prime_c1_tail_family_interface_synthesis_repricing.json"
+  }
+}

@@ -56404,3 +56404,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m3237-c1-tail-family-interface-synthesis-repricing_20260612T072433Z/command.log`
 - success artifact: `experiments/feasibility_audit/c5prime_c1_tail_family_interface_synthesis_repricing.json`
 - notes: Completed: M3237 pivoted to family-selector/separability repricing. A3/D1b and M3234 keep the target priced, and M3235/M3236 true-family reconstruction keep the representation alive, but M3236 closes local frame-wise interface pretraining because aggregate validation accuracy masked a 0/101 structured:coast_steer_-0.7 failure. C1 remains open under c5prime_track_c_c1_family_selector_repricing; C2/C3 remain blocked.
+
+## 20260612T074052Z m3238-c1-family-selector-repricing
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: A preregistered read-only C1 family-selector separability repricing pass can decide whether the current local structured-family selector route is worth another training milestone after M3237, before validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof or self-ID claim.
+- command: `env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/c5prime_c1_family_selector_repricing.py`
+- returncode: `0`
+- run dir: `runs/research/m3238-c1-family-selector-repricing_20260612T074049Z`
+- command log: `runs/research/m3238-c1-family-selector-repricing_20260612T074049Z/command.log`
+- success artifact: `experiments/feasibility_audit/c5prime_c1_family_selector_repricing.json`
+- notes: Completed: M3238 rejected the local family-selector route. Best train-only row selector reached validation accuracy 0.803119 over the 0.538012 majority floor, but predicted-family reconstruction MSE was 0.268415 vs <=0.1 and structured:coast_steer_-0.7 stayed 0/101, predicted as structured:brake_steer_-1.0. C1 local selector/interface training is blocked pending PI or new nonlocal-interface pricing; C2/C3 remain blocked.
