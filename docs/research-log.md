@@ -56464,3 +56464,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m3242-b2b-high-speed-pricing-full_20260612T082644Z/command.log`
 - success artifact: `experiments/feasibility_audit/high_speed_pricing.json`
 - notes: Completed: full B2b high-speed pricing was negative by the frozen rule. 0/6 cells qualified, oracle solvability was 1.0, oracle-minus-pertuned gap was 0.125 in two cells and 0.0000 in four cells, all paired CI95 lower bounds were 0, and scale-aware fixed_star/v4_pertuned succeeded 46/48. No high-speed Track C extension, C2 admission, training, or driver-performance claim is admitted.
+
+## 20260612T131837Z m3244-c1-v3-residual-rl-smoke
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: A preregistered C1-v3 residual-RL smoke can run exactly 1024 current-sim C5-prime steps with action clip frozen v4 plus bounded residual and one PPO update before stage-1 validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof paper or self-ID claim.
+- command: `env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/c5prime_c1_v3_residual_rl_smoke.py --quick`
+- returncode: `0`
+- run dir: `runs/research/m3244-c1-v3-residual-rl-smoke_20260612T131835Z`
+- command log: `runs/research/m3244-c1-v3-residual-rl-smoke_20260612T131835Z/command.log`
+- success artifact: `experiments/feasibility_audit/c5prime_c1_v3_residual_rl_smoke.json`
+- notes: Completed: C1-v3 residual-on-frozen-v4 PPO smoke passed all quick gates in 1.285 s with 1024 steps, 10 episodes, S1/S2/S3 coverage, finite bounded actions, and checkpoint plus metrics written; smoke only; no stage-1 admission, driver-performance claim, high-fidelity claim, repair-success claim, feasibility-proof, or self-ID claim.

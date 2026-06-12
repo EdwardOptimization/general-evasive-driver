@@ -1,0 +1,198 @@
+{
+  "id": "m3244-c1-v3-residual-rl-smoke",
+  "priority": 32440,
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "milestone_intent": "training",
+  "hypothesis": "A preregistered C1-v3 residual-RL smoke can run exactly 1024 current-sim C5-prime steps with action clip frozen v4 plus bounded residual and one PPO update before stage-1 validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof paper or self-ID claim.",
+  "feasibility_pricing": {
+    "pricing_artifact": "experiments/feasibility_audit/c5prime_target_consolidation.json",
+    "priced_gap": 0.1597,
+    "threshold": 0.15,
+    "gap_meets_threshold": true
+  },
+  "lineage": {
+    "parent_checkpoint": [
+      "docs/current-status.md",
+      "docs/roadmap-phase3-codex-execution.md",
+      "docs/m3222-a3-c5prime-target-consolidation.md",
+      "docs/m3231-d1b-chrono-native-oracle-pricing-full.md",
+      "docs/escalations/2026-06-12-phase3-roadmap-exhausted-pi-route.md"
+    ],
+    "parent_dataset": [
+      "runs/feasibility_audit/c5prime_target_consolidation/episode_rows.csv",
+      "experiments/feasibility_audit/c5prime_target_consolidation.json"
+    ],
+    "parent_config": [
+      "experiments/feasibility_audit/c5prime_prereg.json",
+      "experiments/feasibility_audit/c5prime_c1_v3_residual_rl_smoke_prereg.json"
+    ],
+    "parent_objective": [
+      "C1-v3 residual RL on the frozen v4 reflex base"
+    ],
+    "derived_from": [
+      "PI route decision in docs/roadmap-phase3-codex-execution.md reopened C1 as C1-v3 after M3243",
+      "A3 C5-prime current-sim structural gap confirmed S1/S2/S3 T-limit target cells",
+      "D1b Chrono-native oracle pricing direction-positive satisfied the CP-2 precondition",
+      "M3228-M3238 closed the local imitation and selector-interface route"
+    ],
+    "blocked_by": [
+      "Full stage-1 and any run over one hour remain blocked on a separate C1-v3 preregistration and CP-2 budget approval"
+    ],
+    "supersedes": [
+      "local direct-MLP BC warm-start from M3228 and M3232",
+      "local tail-family interface pretrain from M3236",
+      "local family-selector route rejected by M3238"
+    ],
+    "invalidates": [
+      "treating a 1024-step smoke as stage-1 performance evidence",
+      "admitting C2 or C3 from M3244",
+      "any self-ID or history-attribution claim from C1-v3 residual RL"
+    ]
+  },
+  "review_artifact": "docs/reviews/m3244-c1-v3-residual-rl-smoke.md",
+  "public_gates": [
+    "M3244 must use the frozen ActiveSafetyReflexDriver v4 as a base and must not edit the incumbent driver",
+    "M3244 must run exactly 1024 environment steps on frozen C5-prime rows before any stage-1 run",
+    "M3244 must keep residual deltas bounded by the preregistered per-channel delta_max",
+    "M3244 must write result JSON plus checkpoint and metrics artifacts",
+    "M3244 must not make a validation ranking driver-performance high-fidelity sufficiency paper repair-success robustness-result feasibility-proof or self-ID claim"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not touch ActiveSafetyReflexDriver",
+    "do not use supervised oracle-demo labels or BC warm-start artifacts",
+    "do not loosen the 1024-step quick smoke gates",
+    "do not start a stage-1 or over-one-hour run from this manifest",
+    "do not claim C2 admission driver-performance promotion high-fidelity sufficiency feasibility proof or self-ID"
+  ],
+  "workflow_synthesis": {
+    "branch": "c5prime_c1_v3_residual_rl",
+    "evidence_axis": "guarded_rl_training_smoke",
+    "evidence_increment": "first executable residual-on-reflex PPO smoke after PI reopened C1 as a nonlocal RL route",
+    "claim_scope": "Engineering smoke only; incumbent unchanged; no validation ranking promotion driver-performance current-sim performance result high-fidelity result paper claim repair-success robustness-result feasibility-proof or self-ID claim",
+    "stop_condition": [
+      "stop if residual action algebra or bounded-delta gates fail",
+      "stop if the smoke cannot complete exactly 1024 steps with finite losses",
+      "stop if the optimizer update is behavior-neutral due to a wiring defect"
+    ],
+    "fallback_plan": [
+      "localize residual wrapper or PPO smoke wiring defects",
+      "if two behavior-neutral attempts occur then synthesize and re-price before further C1-v3 work",
+      "leave C2 and C3 blocked until stage-1 evidence exists"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "PI route decision resolved M3243 by opening residual RL on the frozen v4 base",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "guarded_rl",
+    "stage_objective": "Run the smallest residual-on-reflex guarded-RL smoke: 1024 C5-prime current-sim steps and one PPO update.",
+    "admission_evidence": [
+      "Pretrain and local interface evidence M3228-M3238 showed imitation/pretrain routes failed and are superseded by the PI residual route",
+      "A3 current-sim pricing proof confirmed the C5-prime structural gap in S1/S2/S3 T-limit cells",
+      "D1b Chrono-native direction-pricing proof was positive and satisfies the CP-2 precondition",
+      "Rollback protection is built in: residual deltas are bounded over a frozen v4 base and the incumbent driver remains unchanged"
+    ],
+    "blocked_shortcuts": [
+      "no BC or supervised oracle-demo labels",
+      "no incumbent driver mutation",
+      "no C2 or C3 admission",
+      "no stage-1 performance readout from the smoke"
+    ],
+    "allowed_updates": [
+      "scripts/feasibility_audit/c5prime_c1_v3_residual_rl_smoke.py",
+      "experiments/feasibility_audit/c5prime_c1_v3_residual_rl_smoke_prereg.json",
+      "experiments/feasibility_audit/c5prime_c1_v3_residual_rl_smoke.json",
+      "runs/feasibility_audit/c5prime_c1_v3_residual_rl_smoke/quick",
+      "docs/m3244-c1-v3-residual-rl-smoke.md",
+      "docs/current-status.md",
+      "docs/roadmap-phase3-codex-execution.md",
+      "docs/research-log.md",
+      "scripts/feasibility_audit/README.md",
+      "experiments/research_queue.csv",
+      "experiments/research_status.json",
+      "experiments/scoreboard.csv"
+    ],
+    "next_stage_criteria": [
+      "M3244 quick gates pass",
+      "C1-v3 stage-1 preregistration freezes four-arm judging and disjoint seed streams",
+      "CP-2 budget approval is recorded before any run over one hour"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "Not applicable: M3244 is engineering-only residual RL and makes no history-attribution claim.",
+    "history_necessity_tests": [
+      "none in M3244: no self-ID or history claim is made"
+    ],
+    "temporal_evidence_window": "single-frame MLP residual smoke only; no belief or history claim",
+    "negative_result_policy": "A failed or behavior-neutral smoke is reported at full fidelity and does not justify criterion loosening.",
+    "allowed_claims": [
+      "bounded residual wrapper and PPO smoke wiring executed or failed",
+      "incumbent v4 remained frozen and unchanged",
+      "stage-1 remains a separate preregistered decision"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_closed_loop_data",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "first closed-loop residual-on-reflex PPO smoke for the PI-selected nonlocal C1-v3 route",
+    "paper_verdict_delta": "No paper verdict delta from smoke alone; it only decides whether stage-1 registration is technically admissible.",
+    "must_synthesize_if": [
+      "M3244 smoke fails after a wiring repair",
+      "two behavior-neutral C1-v3 attempts occur",
+      "stage-1 is proposed without four-arm preregistration"
+    ]
+  },
+  "success_criteria": [
+    "experiments/feasibility_audit/c5prime_c1_v3_residual_rl_smoke_prereg.json exists before quick execution",
+    "quick execution writes experiments/feasibility_audit/c5prime_c1_v3_residual_rl_smoke.json",
+    "result JSON reports passed_quick_gates true",
+    "checkpoint and metrics artifacts are written under runs/feasibility_audit/c5prime_c1_v3_residual_rl_smoke/quick",
+    "docs/m3244-c1-v3-residual-rl-smoke.md records measured vs inferred results"
+  ],
+  "failure_criteria": [
+    "the smoke edits or mutates ActiveSafetyReflexDriver",
+    "the smoke uses BC labels or oracle-demo supervised targets",
+    "the smoke fails residual bounds finite-loss or optimizer-update gates",
+    "the smoke is used as a stage-1 performance or self-ID claim"
+  ],
+  "decision_rule": "Accept M3244 as completed only if the preregistered 1024-step residual-on-reflex quick gates all pass; otherwise report the failed gate and do not proceed to stage-1.",
+  "commands": [
+    {
+      "name": "c1_v3_residual_rl_smoke_quick",
+      "command": "env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/c5prime_c1_v3_residual_rl_smoke.py --quick"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "experiments/feasibility_audit/c5prime_c1_v3_residual_rl_smoke_prereg.json",
+      "type": "json"
+    },
+    {
+      "path": "experiments/feasibility_audit/c5prime_c1_v3_residual_rl_smoke.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m3244-c1-v3-residual-rl-smoke.md",
+      "type": "markdown"
+    }
+  ],
+  "baseline_checkpoints": [
+    "docs/current-status.md",
+    "docs/roadmap-phase3-codex-execution.md",
+    "docs/m3222-a3-c5prime-target-consolidation.md",
+    "docs/m3231-d1b-chrono-native-oracle-pricing-full.md"
+  ],
+  "scoreboard_checkpoint": "experiments/feasibility_audit/c5prime_c1_v3_residual_rl_smoke.json",
+  "next_blocker": "C1-v3 stage-1 requires a separate four-arm preregistration and CP-2 budget approval before any run over one hour.",
+  "status": "completed"
+}

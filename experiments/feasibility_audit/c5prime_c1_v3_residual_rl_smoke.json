@@ -1,0 +1,137 @@
+{
+  "artifacts": {
+    "checkpoint": "runs/feasibility_audit/c5prime_c1_v3_residual_rl_smoke/quick/checkpoint.pt",
+    "episode_rows_csv": "runs/feasibility_audit/c5prime_c1_v3_residual_rl_smoke/quick/episode_rows.csv",
+    "metrics_csv": "runs/feasibility_audit/c5prime_c1_v3_residual_rl_smoke/quick/metrics.csv",
+    "rollout_arrays_npz": "runs/feasibility_audit/c5prime_c1_v3_residual_rl_smoke/quick/rollout_arrays.npz"
+  },
+  "claim_boundary": "C1-v3 residual-RL smoke only: a bounded residual policy is trained for one short PPO update on frozen C5-prime rows, with action=clip(frozen_v4(obs)+delta). No incumbent mutation, validation ranking, driver-performance claim, high-fidelity sufficiency claim, repair-success claim, feasibility-proof, paper claim, or self-ID claim.",
+  "finite_checks": {
+    "advantages": true,
+    "base": true,
+    "delta": true,
+    "final": true,
+    "losses": true,
+    "obs": true,
+    "residual": true,
+    "rewards": true
+  },
+  "generated_at_utc": "20260612T131837Z",
+  "generated_by": "scripts/feasibility_audit/c5prime_c1_v3_residual_rl_smoke.py",
+  "metrics": {
+    "episode_return_mean": 48.2810687450283,
+    "episodes_completed": 10,
+    "levels_seen": [
+      "S1",
+      "S2",
+      "S3"
+    ],
+    "loss_final": 102.00028991699219,
+    "loss_initial": 100.50517272949219,
+    "param_delta_l2": 0.1858371367450181,
+    "reward_mean": 0.4766094982624054,
+    "row_ids_seen": [
+      "S1-inst00-seed7300078",
+      "S1-inst01-seed7305013",
+      "S2-inst00-seed7500026",
+      "S2-inst00-seed7500156",
+      "S3-inst00-seed7700182",
+      "S3-inst01-seed7705078"
+    ],
+    "total_steps": 1024,
+    "wall_time_s": 1.285
+  },
+  "passed_quick_gates": true,
+  "preregistration": "experiments/feasibility_audit/c5prime_c1_v3_residual_rl_smoke_prereg.json",
+  "pricing_basis": {
+    "gap_meets_threshold": true,
+    "priced_gap_floor": 0.1597,
+    "primary_artifact": "experiments/feasibility_audit/c5prime_target_consolidation.json",
+    "qualified_cells": [
+      "S1/T_limit",
+      "S2/T_limit",
+      "S3/T_limit"
+    ],
+    "secondary_chrono_direction": "M3231 D1b direction-positive; CP-2 precondition met",
+    "threshold": 0.15
+  },
+  "protocol": "c5prime_c1_v3_residual_rl_smoke",
+  "quick_gates": {
+    "all_target_levels_exercised": true,
+    "checkpoint_written": true,
+    "final_actions_in_bounds": true,
+    "finite_arrays": true,
+    "metrics_written": true,
+    "optimizer_changed_parameters": true,
+    "residual_delta_bounded": true,
+    "total_steps_1024": true
+  },
+  "residual_architecture": {
+    "action_rule": "clip(base_action + delta_max * tanh(policy_raw_action), -1, 1)",
+    "actor_encoder": "mlp",
+    "base_policy": "ActiveSafetyReflexDriver incumbent v4, frozen",
+    "delta_max": [
+      0.3499999940395355,
+      0.44999998807907104,
+      0.44999998807907104
+    ],
+    "hidden_size": 64,
+    "recoverable_set_gating": "not enabled in M3244 smoke; must be separately priced/smoked before deployable use"
+  },
+  "reward_recalibration": {
+    "collision_penalty": 60.0,
+    "pass_reward": 40.0,
+    "source": "P1 reward recalibration 40/60 from the earlier task-spec measurements"
+  },
+  "selected_rows": [
+    {
+      "eval_seed": 7300078,
+      "instance": 0,
+      "level": "S1",
+      "oracle_by": "structured:brake_steer_-0.4",
+      "row_id": "S1-inst00-seed7300078",
+      "v4_pertuned_outcome": "collision"
+    },
+    {
+      "eval_seed": 7305013,
+      "instance": 1,
+      "level": "S1",
+      "oracle_by": "structured:full_brake",
+      "row_id": "S1-inst01-seed7305013",
+      "v4_pertuned_outcome": "collision"
+    },
+    {
+      "eval_seed": 7500026,
+      "instance": 0,
+      "level": "S2",
+      "oracle_by": "structured:brake_steer_-0.4",
+      "row_id": "S2-inst00-seed7500026",
+      "v4_pertuned_outcome": "collision"
+    },
+    {
+      "eval_seed": 7500156,
+      "instance": 0,
+      "level": "S2",
+      "oracle_by": "structured:full_brake",
+      "row_id": "S2-inst00-seed7500156",
+      "v4_pertuned_outcome": "collision"
+    },
+    {
+      "eval_seed": 7700182,
+      "instance": 0,
+      "level": "S3",
+      "oracle_by": "structured:brake_steer_-0.4",
+      "row_id": "S3-inst00-seed7700182",
+      "v4_pertuned_outcome": "collision"
+    },
+    {
+      "eval_seed": 7705078,
+      "instance": 1,
+      "level": "S3",
+      "oracle_by": "structured:brake_steer_-0.4",
+      "row_id": "S3-inst01-seed7705078",
+      "v4_pertuned_outcome": "collision"
+    }
+  ],
+  "stage1_admission": "not admitted by M3244 smoke alone; future stage-1 requires a separate preregistered four-arm judging run and CP-2 budget approval before any >1h run"
+}

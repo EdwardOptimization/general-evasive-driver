@@ -1,0 +1,56 @@
+{
+  "claim_boundary": "C1-v3 residual-RL smoke only: a bounded residual policy is trained for one short PPO update on frozen C5-prime rows, with action=clip(frozen_v4(obs)+delta). No incumbent mutation, validation ranking, driver-performance claim, high-fidelity sufficiency claim, repair-success claim, feasibility-proof, paper claim, or self-ID claim.",
+  "frozen_at_utc": "2026-06-12T00:00:00Z",
+  "frozen_before_any_c1_v3_rollout": true,
+  "future_stage1_not_admitted_by_smoke": [
+    "stage-1 must pre-register fixed v4, v4_pertuned, v4+residual, and oracle readouts before full run",
+    "stage-1 primary remains v4+residual minus v4_pertuned per cell with paired CIs",
+    "PASS requires recapturing >=50 percent of the A3 gap in >=2 of 3 qualified T-limit cells",
+    "behavior-neutral x2 triggers stop and synthesis"
+  ],
+  "milestone_id": "m3244-c1-v3-residual-rl-smoke",
+  "pricing_basis": {
+    "gap_meets_threshold": true,
+    "priced_gap_floor": 0.1597,
+    "primary_artifact": "experiments/feasibility_audit/c5prime_target_consolidation.json",
+    "qualified_cells": [
+      "S1/T_limit",
+      "S2/T_limit",
+      "S3/T_limit"
+    ],
+    "secondary_chrono_direction": "M3231 D1b direction-positive; CP-2 precondition met",
+    "threshold": 0.15
+  },
+  "protocol": "c5prime_c1_v3_residual_rl_smoke",
+  "quick_gates": [
+    "run exactly 1024 environment steps on frozen C5-prime rows",
+    "exercise all three qualified T-limit levels S1/S2/S3",
+    "all observations, base actions, residual deltas, final actions, rewards, advantages, and losses finite",
+    "final actions remain inside the original action bounds",
+    "at least one PPO optimizer update changes model parameters by a finite nonzero amount",
+    "write checkpoint and metrics artifacts"
+  ],
+  "residual_architecture": {
+    "action_rule": "clip(base_action + delta_max * tanh(policy_raw_action), -1, 1)",
+    "actor_encoder": "mlp",
+    "base_policy": "ActiveSafetyReflexDriver incumbent v4, frozen",
+    "delta_max": [
+      0.3499999940395355,
+      0.44999998807907104,
+      0.44999998807907104
+    ],
+    "hidden_size": 64,
+    "recoverable_set_gating": "not enabled in M3244 smoke; must be separately priced/smoked before deployable use"
+  },
+  "reward_recalibration": {
+    "collision_penalty": 60.0,
+    "pass_reward": 40.0,
+    "source": "P1 reward recalibration 40/60 from the earlier task-spec measurements"
+  },
+  "roadmap_unit": "C1-v3 residual RL on the reflex base",
+  "seed_discipline": {
+    "smoke_seed_base": 20260901,
+    "stage1_training_seeds": "not used in smoke; future stage-1 must use >=8 seeds disjoint from this smoke base",
+    "training_rollout_rows": "first two deterministic A3 structural-gap rows per qualified level S1/S2/S3"
+  }
+}
