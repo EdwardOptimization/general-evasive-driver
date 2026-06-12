@@ -111,8 +111,11 @@ filed candidate, revisit at research completion
 (`docs/v5-promotion-decision-packet-2026-06.md`). **C5 next decision**:
 S0-S3 rejected the original spread formulation and M3220 rejected the cheap
 current-sim cg/Iz lateral rider. M3222 confirmed the C5-prime
-structural-ceiling target on a fresh-seed A3 panel, but Track C still waits
-on CP-1. M3223 completed B1 moving-obstacle env engineering as a smoke-only
+structural-ceiling target on a fresh-seed A3 panel. **CP-1 disposition
+(PI, 2026-06-12, option 1): conditional approval** — C1 opens on the frozen
+C5-prime target; D1b (Chrono-native oracle pricing, searched in-backend)
+added as a CP-2 precondition after the M3227 tail-replay reversal
+(price-before-train rule). M3223 completed B1 moving-obstacle env engineering as a smoke-only
 axis: default static obstacles and zero-relvel contracts are preserved, while
 the non-default constant-velocity crosser exposes dynamic labels and ego-mode
 relative velocity. M3221 found an obs-normalization/preview blocker for any
