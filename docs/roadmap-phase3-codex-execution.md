@@ -410,6 +410,77 @@ demonstrating the new axis, registered as a milestone. No training claims.
   no validation/ranking/promotion, no driver-performance claim, and no
   high-fidelity sufficiency claim.
 
+## Phase-4 — decisive experiments move to Chrono (PI diagnosis 2026-06-13)
+
+**Rationale (PI)**: the toy simulator's simplicity (3-DOF single-track,
+tanh tires, NO load transfer — h_cg never enters the force computation —
+no tire relaxation, deterministic, smooth) predetermined several headline
+conclusions: it is classical control's home turf by construction. Lateral
+capacity mu*g is mass-independent in the toy model, which is exactly why
+vehicle spread priced to ~0; load transfer is the real physical carrier of
+the SUV-vs-sports-car mechanism. Conclusions never re-measured in Chrono
+(spread pricing, the two-regime law, RL-vs-reflex) are hereby **demoted to
+toy-sim-scoped** pending Chrono re-pricing. Conclusions with Chrono
+direction checks (7-row ceiling, HF4 249/256, D1b structural gap) keep
+their scope. The C1-v4 finality clause barred another same-interface
+attempt without new pricing evidence: Track E below IS the new pricing
+path, and Track F changes interface class, budget scale, and simulator —
+a different experiment, PI-sanctioned.
+
+### Track E — Chrono re-pricing (stage 1; CPU, zero training)
+
+E0. Expressibility audit [OPEN, first]: what vehicle-spread axes are
+controllable in the Chrono variants (payload mass/position -> cg height,
+tire parameter sets, wheelbase across variants)? Declare the controllable
+spread envelope and the per-axis mechanism; reuse M3218/M3219/M3227
+machinery. Acceptance: frozen spread-axis table feeding E1.
+
+E1. Spread-revival pricing [OPEN; depends E0]: four-arm degradation curve
+IN CHRONO with real load transfer — vehicle classes x T-limit cells
+(ported via the HF4 same-scenario export). Arms: fixed reflex (one global
+Chrono retune, fixed* convention) / RLS-retuned / per-instance-tuned /
+per-instance Chrono-native oracle (M3230/M3231 machinery). Question: does
+(per-tuned - fixed) open up, and does (per-tuned - RLS) leave a residual,
+when mass/cg/tires actually couple into lateral capacity? This is the
+original C5 spread thesis's second life on its true physical carrier.
+Prereg first; paired CIs; either verdict rewrites the papers.
+
+E2. Two-regime law, Chrono version [OPEN; depends E0]: port the
+threshold-seeker + shortfall detector to the Chrono backend (per-backend
+tau re-calibration, as flagged in WP4 notes); measure clean-sensing
+VoI(belief) on Chrono T-limit cells (+ a degraded spot cell). Registered
+prediction (falsifiable): with TMeasy + load transfer the detector is no
+longer near-perfect and clean VoI(belief) > 0 — which would flip a
+headline conclusion. Either verdict is paper-grade.
+
+E3. Measurements A/C, Chrono re-run [OPEN; depends E0]: detection-latency
+table and reflex recoverable-set budget re-measured on Chrono (feeds E2
+and the Track F safety gating).
+
+### Track F — robotics-parity RL protocol (stage 2; opens after Track E + CP-3)
+
+F1. Training infrastructure [BLOCKED on Track E]: vectorized parallel
+Chrono workers for training; throughput benchmark; GPU feasibility
+re-check (the earlier CUDA-slower finding was tiny-GRU-on-toy-env; bigger
+nets + batched Chrono rollouts is a different regime — measure, do not
+assume).
+
+F2. Asymmetric actor-critic + teacher-student [BLOCKED on F1 + CP-3]:
+robotics-field-standard recipe — privileged critic/teacher (true mu +
+vehicle params), obs72+short-history student distillation (RMA-style),
+curriculum, **50-100M env steps**, >= 8 seeds. **Judging preregisters BOTH
+readings upfront** (fixing the C1-v4 tension): primary = seed-robust
+criterion (paired, seed-clustered); secondary-but-preregistered =
+validated-best-seed engineering criterion (selection on selection seeds,
+report on validation seeds). No criteria loosening after freeze.
+
+F3. Judging [part of F2 prereg]: four arms in Chrono on the Track-E
+frozen cells (fixed* / RLS-retuned / per-instance-tuned / native oracle);
+PASS thresholds frozen before any full run.
+
+**CP-3 (PI checkpoint)**: after Track E results, before any Track F run
+beyond smoke: PI confirms targets and the GPU-days budget.
+
 ## Out of scope for Codex sessions
 
 - Papers (WP5): Claude + PI via the ARS pipeline.
@@ -442,6 +513,11 @@ There is currently no admitted C1-v3 scale-up or C3 run from this result; a
 synthesis or PI route decision is required before another C1-v3 attempt. Do
 not resume local imitation/interface repairs, C2, C3, or any
 driver-performance claim from the smoke or negative stage-1.
+- E0: OPEN (Chrono spread expressibility audit — Phase-4 first unit)
+- E1: OPEN (depends E0; spread-revival pricing in Chrono)
+- E2: OPEN (depends E0; two-regime law Chrono version)
+- E3: OPEN (depends E0; measurements A/C on Chrono)
+- F1-F3: BLOCKED on Track E + CP-3 (robotics-parity RL, GPU-days budget)
 - WP6.2 guardrails: **MERGED** (commit 05607bcd — validator V7 live in the
   pre-commit hook, escalation protocol in docs/escalations/, managed-run
   helper scripts/run_managed.sh). Codex execution may begin.
