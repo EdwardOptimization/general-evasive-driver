@@ -69,6 +69,13 @@
   S0 was positive but below the +0.15 effect-size bar (+0.1389).
 - **CP-1 (PI checkpoint)** after A3: PI confirms the C5' target before
   Track C training begins.
+- **CP-1 disposition (PI, 2026-06-12): conditional approval, option 1.**
+  C1 opens immediately (current-sim, per the frozen c5prime_prereg). In
+  parallel, unit D1b (Chrono-native oracle pricing) must run; **CP-2 gains
+  the precondition "D1b direction-positive"** on top of the budget
+  confirmation. Rationale: A3 confirms the prize in current-sim; the D1
+  tail-replay reversal leaves the prize's high-fidelity validity unpriced,
+  and this program's standing rule is price-before-train.
 
 ## Track B — env engineering backlog (coverage-map priority order)
 
@@ -134,7 +141,7 @@ demonstrating the new axis, registered as a milestone. No training claims.
 
 ## Track C — C5' RL program (m1087 staged; opens after CP-1)
 
-### C1. Oracle demo generator + BC warm-start [BLOCKED on CP-1]
+### C1. Oracle demo generator + BC warm-start [OPEN per CP-1 disposition]
 - per-instance oracle demos on the frozen C5' cells; BC with DAgger-lite +
   held-out epoch selection (the G1' lessons are mandatory); capacity and
   seed discipline per the WP1 pattern.
@@ -142,8 +149,9 @@ demonstrating the new axis, registered as a milestone. No training claims.
 - envelope-head pretrain; 1024-step guarded RL smoke first; reward
   recalibration 40/60 as measured; judging prereg frozen before any full
   run (engineering-only, four-arm, frozen validation seeds).
-### C3. Staged scale-up [BLOCKED on C2]
-- **CP-2 (PI checkpoint)** before any run > 1 h compute: PI confirms budget.
+### C3. Staged scale-up [BLOCKED on C2 + D1b]
+- **CP-2 (PI checkpoint)** before any run > 1 h compute: PI confirms budget
+  AND unit D1b must have returned direction-positive (CP-1 disposition).
 - verdict either way is accepted and recorded; no criteria loosening.
 
 ## Track D — high-fidelity / Chrono (continues M3218/M3219)
@@ -164,6 +172,24 @@ demonstrating the new axis, registered as a milestone. No training claims.
   direction-pricing only; it does not refute A3 current-sim pricing and does
   not price a fresh high-fidelity oracle or continuous lf/lr/Iz/cf/cr mapping.
 
+### D1b. Chrono-native oracle pricing [OPEN; CP-2 precondition]
+- question: does the structural-ceiling gap exist under Chrono dynamics
+  when the oracle is searched NATIVELY in Chrono (closed-loop /
+  CEM-in-backend), rather than tail-replayed from current-sim (the M3227
+  proxy, which reversed as expected for an open-loop transplant)?
+- method: per-instance oracle search executed in the Chrono backend
+  (structured candidates + reduced-budget CEM over piecewise segments;
+  machinery: `scripts/feasibility_audit/chrono_backend_worker.py` +
+  the oracle_certification CEM pattern), on >= 3 instances per frozen
+  T-limit cell x >= 2 vehicle variants (sedan_tmeasy + one non-sedan);
+  compare against the best fixed/per-tuned arm evaluated in Chrono on the
+  same instances. Declared handling of unmapped lf/lr/iz/cf/cr per
+  M3219/M3227 notes. Managed run (hours-scale); prereg first with a
+  direction criterion frozen (gap > 0 per variant, paired).
+- acceptance: per-variant direction verdict; positive opens CP-2's
+  precondition, negative scopes Track C claims to current-sim and CP-2
+  re-evaluates.
+
 ## Out of scope for Codex sessions
 
 - Papers (WP5): Claude + PI via the ARS pipeline.
@@ -181,8 +207,11 @@ demonstrating the new axis, registered as a milestone. No training claims.
 - B2: DONE (M3224; explicit 36 m/s normalization/preview smoke passed)
 - B3: DONE (M3225; geometry-channel degradation smoke passed; split-mu not expressible on the DriftObstacleEnv single-track path)
 - B4: DONE (M3226; 60 s warmup-to-obstacle-to-post-pass continuation smoke passed)
-- C1-C3: BLOCKED on CP-1
-- D1: DONE (M3227; Chrono multi-vehicle direction-pricing reversed in all three variants)
+- C1: OPEN (CP-1 disposition 2026-06-12: conditional approval)
+- C2: BLOCKED on C1
+- C3: BLOCKED on C2 + D1b direction-positive + CP-2
+- D1: DONE (M3227; tail-replay proxy reversed in all three variants)
+- D1b: OPEN (Chrono-native oracle pricing; CP-2 precondition)
 - WP6.2 guardrails: **MERGED** (commit 05607bcd — validator V7 live in the
   pre-commit hook, escalation protocol in docs/escalations/, managed-run
   helper scripts/run_managed.sh). Codex execution may begin.
