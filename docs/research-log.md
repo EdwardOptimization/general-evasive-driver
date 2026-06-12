@@ -56282,3 +56282,28 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m3229-c1-bc-warmstart-failure-localization_20260612T040821Z/command.log`
 - success artifact: `experiments/feasibility_audit/c5prime_c1_failure_localization.json`
 - notes: Completed: localized M3228 failure without retraining or criterion changes; flags selection_validation_mse_gap, tail_action_generalization_dominates, rollout_context_better_than_action_mse_gate; C1 remains open pending revised preregistered warm-start design.
+
+## 20260612T043724Z m3230-d1b-chrono-native-oracle-pricing-smoke
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: A frozen D1b Chrono-native oracle pricing protocol smoke can execute per-instance tuned reflex baselines and native structured-plus-CEM oracle search inside at least two Chrono vehicle variants before training validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof paper or self-ID claim.
+- command: `env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/chrono_native_oracle_pricing.py --quick`
+- returncode: `0`
+- run dir: `runs/research/m3230-d1b-chrono-native-oracle-pricing-smoke_20260612T043333Z`
+- command log: `runs/research/m3230-d1b-chrono-native-oracle-pricing-smoke_20260612T043333Z/command.log`
+- success artifact: `experiments/feasibility_audit/chrono_native_oracle_pricing_quick.json`
+- notes: Superseded same-turn run: this initial quick returned after a structured Sedan success before exercising CEM on that variant. The protocol was tightened and rerun below; use the second M3230 run/artifact as the accepted record.
+
+
+## 20260612T044313Z m3230-d1b-chrono-native-oracle-pricing-smoke
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: A frozen D1b Chrono-native oracle pricing protocol smoke can execute per-instance tuned reflex baselines and native structured-plus-CEM oracle search inside at least two Chrono vehicle variants before training validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof paper or self-ID claim.
+- command: `env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/chrono_native_oracle_pricing.py --quick`
+- returncode: `0`
+- run dir: `runs/research/m3230-d1b-chrono-native-oracle-pricing-smoke_20260612T043835Z`
+- command log: `runs/research/m3230-d1b-chrono-native-oracle-pricing-smoke_20260612T043835Z/command.log`
+- success artifact: `experiments/feasibility_audit/chrono_native_oracle_pricing_quick.json`
+- notes: Completed: D1b protocol smoke rerun passed all quick gates in 276.6 s; sedan_tmeasy and bmw_e90_tmeasy both exercised v4_pertuned plus native structured/CEM search; quick mode gives no D1b direction verdict and does not satisfy CP-2.

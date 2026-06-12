@@ -1,0 +1,264 @@
+{
+  "arms": [
+    "v4_pertuned",
+    "native_oracle"
+  ],
+  "backend_id": "chrono_sedan_tmeasy_hf_backend",
+  "budget": {
+    "chrono_row_variant_pairs": 2,
+    "elapsed_s": 276.6,
+    "search_budget": {
+      "cem_elites": 2,
+      "cem_iterations": 1,
+      "cem_population": 4,
+      "cem_segment_len": 8,
+      "cem_segments": 3,
+      "structured_limit": 5
+    },
+    "selected_source_rows": 1
+  },
+  "candidate_rows_csv": "/home/quyaonan/workspace/autodrift/runs/feasibility_audit/chrono_native_oracle_pricing/candidate_rows_quick.csv",
+  "chrono_known_differences": [
+    "vehicle model: default Chrono Sedan (double wishbone / multilink, TMeasy tires, RWD, 4-speed automatic) vs AutoDrift single-track analytic model; explicit S4-HF-lite smoke variants can select BMW_E90 or UAZBUS through scenario chrono_vehicle_variant",
+    "total mass matched by chassis-mass override; inertia, CG height/shift and per-axle load split remain the selected Chrono vehicle's, so iz / cg_shift / inertia_scale hidden parameters are NOT mapped",
+    "tire stiffness scales (cf/cr) NOT mapped (TMeasy parameters fixed by the Sedan tire JSON); effective grip at a given mu differs from mu*g (measured ~1.1-1.25x at full braking)",
+    "drive_scale / brake_scale mapped multiplicatively onto throttle/brake inputs and clipped at 1.0, so scales > 1.0 saturate",
+    "max steering angle: Chrono Sedan 0.4363 rad at full lock vs AutoDrift max_steer 0.62 rad; the normalized steer command maps full-scale to full lock, so the physical steer gain is ~0.70x",
+    "steer/drive first-order lags + steer rate limit replicated exactly at the 50 Hz control layer in front of the Chrono driver inputs; Chrono's own engine/transmission/brake dynamics act in addition (double shaping)",
+    "initial state: pose and planar velocity (x, y, psi, vx, vy, yaw_rate) matched exactly at handoff after spin-up; suspension/driveline internal state is the spun-up straight-line state, not a curved steady state",
+    "reset observation reports ax=ay=0 and zero actuator states (current-sim reports force-model accelerations at reset)",
+    "ego acceleration channels are body-frame finite differences of vx/vy over the 0.02 s control step (current-sim uses instantaneous force-model accelerations)",
+    "friction step changes terrain mu for the tires; AutoDrift additionally resamples speed_ref (reward-only, no actor/dynamics effect)",
+    "AutoDrift aerodynamic drag/rolling resistance coefficients are not transferred; the selected Chrono vehicle's own drag and rolling resistance apply"
+  ],
+  "claim_boundary": "D1b Chrono-native oracle direction-pricing only: a frozen subset of A3 C5-prime structural-gap rows is searched inside the Chrono backend with structured candidates plus reduced-budget CEM, then compared against the same-row per-instance tuned reflex floor. This is a protocol/pricing measurement only: no training, incumbent driver mutation, validation ranking, promotion, paper, repair-success, robustness-result, feasibility-proof, high-fidelity sufficiency, or self-ID claim.",
+  "decision": {
+    "absolute_numbers_are_claims": false,
+    "d1b_direction_positive_all_variants": null,
+    "interpretation": "Quick mode is a protocol smoke only. Full mode reports D1b direction pricing; mixed, neutral, or reversed vehicles are accepted negative/mixed results.",
+    "vehicle_verdicts": {
+      "bmw_e90_tmeasy": "quick_smoke_no_verdict",
+      "sedan_tmeasy": "quick_smoke_no_verdict"
+    }
+  },
+  "generated_at_utc": "20260612T044313Z",
+  "per_vehicle": {
+    "bmw_e90_tmeasy": {
+      "arm_n": {
+        "native_oracle": 1,
+        "v4_pertuned": 1
+      },
+      "arm_success_counts": {
+        "native_oracle": 0,
+        "v4_pertuned": 1
+      },
+      "candidate_attempts": 9,
+      "cem_candidate_attempts": 4,
+      "direction_delta_native_oracle_minus_pertuned": -1.0,
+      "direction_verdict": "quick_smoke_no_verdict",
+      "n_pricing_rows": 1,
+      "reset_obs_finite_all": true,
+      "structured_candidate_attempts": 5,
+      "success_rates_context_not_claims": {
+        "native_oracle": 0.0,
+        "v4_pertuned": 1.0
+      },
+      "variant_match_all": true
+    },
+    "sedan_tmeasy": {
+      "arm_n": {
+        "native_oracle": 1,
+        "v4_pertuned": 1
+      },
+      "arm_success_counts": {
+        "native_oracle": 1,
+        "v4_pertuned": 1
+      },
+      "candidate_attempts": 9,
+      "cem_candidate_attempts": 4,
+      "direction_delta_native_oracle_minus_pertuned": 0.0,
+      "direction_verdict": "quick_smoke_no_verdict",
+      "n_pricing_rows": 1,
+      "reset_obs_finite_all": true,
+      "structured_candidate_attempts": 5,
+      "success_rates_context_not_claims": {
+        "native_oracle": 1.0,
+        "v4_pertuned": 1.0
+      },
+      "variant_match_all": true
+    }
+  },
+  "preregistration_echo": {
+    "decision_rule": "M3230 is only the D1b protocol smoke: it passes if quick mode writes a summary, variant/obs gates pass, and native search exercises structured and CEM candidates. The D1b CP-2 precondition itself requires a later full managed rollout with a direction verdict per preregistered vehicle.",
+    "file": "/home/quyaonan/workspace/autodrift/experiments/feasibility_audit/chrono_native_oracle_pricing_prereg.json",
+    "selected_rows": [
+      {
+        "eval_seed": 7315000,
+        "instance": 3,
+        "level": "S1",
+        "oracle_by": "structured:brake_steer_-0.4",
+        "pertuned_grid": [
+          1.0,
+          1.45,
+          1.0
+        ],
+        "row_id": "S1-inst03-seed7315000",
+        "selection_rank_within_level": 1,
+        "selection_score_sha256": "0272973b4bbe8b7947cec1b5073545b775d6431a17dbcd13efe962d2dc2ce695",
+        "source_oracle_solved": true,
+        "source_pertuned_outcome": "collision"
+      },
+      {
+        "eval_seed": 7345052,
+        "instance": 9,
+        "level": "S1",
+        "oracle_by": "structured:brake_steer_-0.4",
+        "pertuned_grid": [
+          1.0,
+          1.45,
+          1.0
+        ],
+        "row_id": "S1-inst09-seed7345052",
+        "selection_rank_within_level": 2,
+        "selection_score_sha256": "0598ba9250ddd4ce433ca79a06aad815a30de536cdce2b9b50c11a1fd7b57c89",
+        "source_oracle_solved": true,
+        "source_pertuned_outcome": "collision"
+      },
+      {
+        "eval_seed": 7345091,
+        "instance": 9,
+        "level": "S1",
+        "oracle_by": "structured:full_brake",
+        "pertuned_grid": [
+          1.0,
+          1.45,
+          1.0
+        ],
+        "row_id": "S1-inst09-seed7345091",
+        "selection_rank_within_level": 3,
+        "selection_score_sha256": "15d4b45742c9bf17b3e313317c4a5bbcd57e48d89a476b1af5a79fa34d2f62ea",
+        "source_oracle_solved": true,
+        "source_pertuned_outcome": "collision"
+      },
+      {
+        "eval_seed": 7545078,
+        "instance": 9,
+        "level": "S2",
+        "oracle_by": "structured:full_brake",
+        "pertuned_grid": [
+          1.8,
+          1.45,
+          1.0
+        ],
+        "row_id": "S2-inst09-seed7545078",
+        "selection_rank_within_level": 1,
+        "selection_score_sha256": "1059fd8dd23dc58c53090b42b8537ee5cfd34beca295e8025d570356896b89ce",
+        "source_oracle_solved": true,
+        "source_pertuned_outcome": "collision"
+      },
+      {
+        "eval_seed": 7515091,
+        "instance": 3,
+        "level": "S2",
+        "oracle_by": "structured:full_brake",
+        "pertuned_grid": [
+          1.0,
+          1.45,
+          1.4
+        ],
+        "row_id": "S2-inst03-seed7515091",
+        "selection_rank_within_level": 2,
+        "selection_score_sha256": "1549302587a477231d45a3cd5116b2c79ee3877db6d20632dc5cfb5d3c1c7b43",
+        "source_oracle_solved": true,
+        "source_pertuned_outcome": "collision"
+      },
+      {
+        "eval_seed": 7540221,
+        "instance": 8,
+        "level": "S2",
+        "oracle_by": "structured:full_brake",
+        "pertuned_grid": [
+          1.8,
+          1.45,
+          1.0
+        ],
+        "row_id": "S2-inst08-seed7540221",
+        "selection_rank_within_level": 3,
+        "selection_score_sha256": "20196d8542ac3eab61bc259f4de1328d3f49e3f4349bf5725213025e3bf54f9f",
+        "source_oracle_solved": true,
+        "source_pertuned_outcome": "collision"
+      },
+      {
+        "eval_seed": 7715260,
+        "instance": 3,
+        "level": "S3",
+        "oracle_by": "structured:brake_steer_-0.7",
+        "pertuned_grid": [
+          1.0,
+          1.45,
+          1.0
+        ],
+        "row_id": "S3-inst03-seed7715260",
+        "selection_rank_within_level": 1,
+        "selection_score_sha256": "067190b9344953b5e8b45c80639f5299549770fe45e50a99ccf24b6c9fb91909",
+        "source_oracle_solved": true,
+        "source_pertuned_outcome": "collision"
+      },
+      {
+        "eval_seed": 7750065,
+        "instance": 10,
+        "level": "S3",
+        "oracle_by": "structured:brake_steer_+0.7",
+        "pertuned_grid": [
+          1.0,
+          1.45,
+          1.0
+        ],
+        "row_id": "S3-inst10-seed7750065",
+        "selection_rank_within_level": 2,
+        "selection_score_sha256": "07c9056c1beb5bb37fa20138c19e51aade1f521277b0bd9c60e02a881c3155da",
+        "source_oracle_solved": true,
+        "source_pertuned_outcome": "collision"
+      },
+      {
+        "eval_seed": 7725156,
+        "instance": 5,
+        "level": "S3",
+        "oracle_by": "structured:brake_steer_-0.4",
+        "pertuned_grid": [
+          1.0,
+          1.45,
+          1.0
+        ],
+        "row_id": "S3-inst05-seed7725156",
+        "selection_rank_within_level": 3,
+        "selection_score_sha256": "114b6ccc4ddba5e772f87abfdcbdf0f867455991779ad119c275d316c520b1bd",
+        "source_oracle_solved": true,
+        "source_pertuned_outcome": "collision"
+      }
+    ],
+    "unmapped_channel_handling": {
+      "iz_cf_cr_tire_shape": "Continuous Iz/cf/cr/tire-shape scales are not mapped; TMeasy fixture differences are discrete vehicle-model differences only.",
+      "lf_lr_cg_shift": "Continuous A3 lf/lr/cg_shift values are carried for provenance but not mapped into Chrono.",
+      "mass": "Chrono backend continues to match target total mass via the existing chassis-mass override.",
+      "vehicle_variants": "D1b uses sedan_tmeasy plus bmw_e90_tmeasy as the minimum CP-2 preregistered pair."
+    }
+  },
+  "progress_jsonl": "/home/quyaonan/workspace/autodrift/runs/feasibility_audit/chrono_native_oracle_pricing/progress_quick.jsonl",
+  "protocol": "d1b_chrono_native_oracle_pricing",
+  "quick_gates": {
+    "all_passed": true,
+    "both_variants_exercised": true,
+    "cem_search_exercised": true,
+    "reset_obs_finite_all": true,
+    "structured_search_exercised": true,
+    "summary_written": true,
+    "variant_match_all": true
+  },
+  "quick_mode": true,
+  "row_count": 22,
+  "variants": [
+    "sedan_tmeasy",
+    "bmw_e90_tmeasy"
+  ]
+}

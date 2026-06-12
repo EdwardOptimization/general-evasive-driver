@@ -1,0 +1,223 @@
+{
+  "arms": {
+    "native_oracle": "Chrono-native reveal-constrained search: v4_pertuned prefix until the obstacle-present obs72 bit is visible, then structured candidates plus CEM over piecewise action segments",
+    "v4_pertuned": "A3 per-instance 27-grid reflex winner replayed on Chrono observations"
+  },
+  "chrono_vehicle_variants": [
+    "sedan_tmeasy",
+    "bmw_e90_tmeasy"
+  ],
+  "claim_boundary": "D1b Chrono-native oracle direction-pricing only: a frozen subset of A3 C5-prime structural-gap rows is searched inside the Chrono backend with structured candidates plus reduced-budget CEM, then compared against the same-row per-instance tuned reflex floor. This is a protocol/pricing measurement only: no training, incumbent driver mutation, validation ranking, promotion, paper, repair-success, robustness-result, feasibility-proof, high-fidelity sufficiency, or self-ID claim.",
+  "decision_rule": "M3230 is only the D1b protocol smoke: it passes if quick mode writes a summary, variant/obs gates pass, and native search exercises structured and CEM candidates. The D1b CP-2 precondition itself requires a later full managed rollout with a direction verdict per preregistered vehicle.",
+  "frozen_at_utc": "20260612T043104Z",
+  "frozen_before_any_d1b_rollout": true,
+  "preregistered_readouts": {
+    "absolute_success_rates_are_claims": false,
+    "direction_positive": "direction_delta > 0 for each preregistered variant",
+    "primary_per_vehicle_full": "direction_delta = success_rate(native_oracle) - success_rate(v4_pertuned) on the frozen selected rows for that Chrono variant",
+    "quick_mode": "protocol smoke only; no D1b direction verdict"
+  },
+  "protocol": "d1b_chrono_native_oracle_pricing_preregistration",
+  "roadmap_unit": "D1b Chrono-native oracle pricing",
+  "runtime_gates": [
+    "preregistration file exists and is frozen before any D1b rollout",
+    "all reset observations are finite obs72",
+    "backend_info chrono_vehicle_variant matches the requested variant",
+    "quick mode exercises both preregistered Chrono variants",
+    "native_oracle executes at least one structured candidate and one CEM sample per quick row"
+  ],
+  "search_budget": {
+    "full": {
+      "cem_elites": 2,
+      "cem_iterations": 3,
+      "cem_population": 8,
+      "cem_segment_len": 8,
+      "cem_segments": 6,
+      "structured_limit": 15
+    },
+    "quick": {
+      "cem_elites": 2,
+      "cem_iterations": 1,
+      "cem_population": 4,
+      "cem_segment_len": 8,
+      "cem_segments": 3,
+      "structured_limit": 5
+    }
+  },
+  "seed_base": 20260818,
+  "selected_rows": [
+    {
+      "eval_seed": 7315000,
+      "instance": 3,
+      "level": "S1",
+      "oracle_by": "structured:brake_steer_-0.4",
+      "pertuned_grid": [
+        1.0,
+        1.45,
+        1.0
+      ],
+      "row_id": "S1-inst03-seed7315000",
+      "selection_rank_within_level": 1,
+      "selection_score_sha256": "0272973b4bbe8b7947cec1b5073545b775d6431a17dbcd13efe962d2dc2ce695",
+      "source_oracle_solved": true,
+      "source_pertuned_outcome": "collision"
+    },
+    {
+      "eval_seed": 7345052,
+      "instance": 9,
+      "level": "S1",
+      "oracle_by": "structured:brake_steer_-0.4",
+      "pertuned_grid": [
+        1.0,
+        1.45,
+        1.0
+      ],
+      "row_id": "S1-inst09-seed7345052",
+      "selection_rank_within_level": 2,
+      "selection_score_sha256": "0598ba9250ddd4ce433ca79a06aad815a30de536cdce2b9b50c11a1fd7b57c89",
+      "source_oracle_solved": true,
+      "source_pertuned_outcome": "collision"
+    },
+    {
+      "eval_seed": 7345091,
+      "instance": 9,
+      "level": "S1",
+      "oracle_by": "structured:full_brake",
+      "pertuned_grid": [
+        1.0,
+        1.45,
+        1.0
+      ],
+      "row_id": "S1-inst09-seed7345091",
+      "selection_rank_within_level": 3,
+      "selection_score_sha256": "15d4b45742c9bf17b3e313317c4a5bbcd57e48d89a476b1af5a79fa34d2f62ea",
+      "source_oracle_solved": true,
+      "source_pertuned_outcome": "collision"
+    },
+    {
+      "eval_seed": 7545078,
+      "instance": 9,
+      "level": "S2",
+      "oracle_by": "structured:full_brake",
+      "pertuned_grid": [
+        1.8,
+        1.45,
+        1.0
+      ],
+      "row_id": "S2-inst09-seed7545078",
+      "selection_rank_within_level": 1,
+      "selection_score_sha256": "1059fd8dd23dc58c53090b42b8537ee5cfd34beca295e8025d570356896b89ce",
+      "source_oracle_solved": true,
+      "source_pertuned_outcome": "collision"
+    },
+    {
+      "eval_seed": 7515091,
+      "instance": 3,
+      "level": "S2",
+      "oracle_by": "structured:full_brake",
+      "pertuned_grid": [
+        1.0,
+        1.45,
+        1.4
+      ],
+      "row_id": "S2-inst03-seed7515091",
+      "selection_rank_within_level": 2,
+      "selection_score_sha256": "1549302587a477231d45a3cd5116b2c79ee3877db6d20632dc5cfb5d3c1c7b43",
+      "source_oracle_solved": true,
+      "source_pertuned_outcome": "collision"
+    },
+    {
+      "eval_seed": 7540221,
+      "instance": 8,
+      "level": "S2",
+      "oracle_by": "structured:full_brake",
+      "pertuned_grid": [
+        1.8,
+        1.45,
+        1.0
+      ],
+      "row_id": "S2-inst08-seed7540221",
+      "selection_rank_within_level": 3,
+      "selection_score_sha256": "20196d8542ac3eab61bc259f4de1328d3f49e3f4349bf5725213025e3bf54f9f",
+      "source_oracle_solved": true,
+      "source_pertuned_outcome": "collision"
+    },
+    {
+      "eval_seed": 7715260,
+      "instance": 3,
+      "level": "S3",
+      "oracle_by": "structured:brake_steer_-0.7",
+      "pertuned_grid": [
+        1.0,
+        1.45,
+        1.0
+      ],
+      "row_id": "S3-inst03-seed7715260",
+      "selection_rank_within_level": 1,
+      "selection_score_sha256": "067190b9344953b5e8b45c80639f5299549770fe45e50a99ccf24b6c9fb91909",
+      "source_oracle_solved": true,
+      "source_pertuned_outcome": "collision"
+    },
+    {
+      "eval_seed": 7750065,
+      "instance": 10,
+      "level": "S3",
+      "oracle_by": "structured:brake_steer_+0.7",
+      "pertuned_grid": [
+        1.0,
+        1.45,
+        1.0
+      ],
+      "row_id": "S3-inst10-seed7750065",
+      "selection_rank_within_level": 2,
+      "selection_score_sha256": "07c9056c1beb5bb37fa20138c19e51aade1f521277b0bd9c60e02a881c3155da",
+      "source_oracle_solved": true,
+      "source_pertuned_outcome": "collision"
+    },
+    {
+      "eval_seed": 7725156,
+      "instance": 5,
+      "level": "S3",
+      "oracle_by": "structured:brake_steer_-0.4",
+      "pertuned_grid": [
+        1.0,
+        1.45,
+        1.0
+      ],
+      "row_id": "S3-inst05-seed7725156",
+      "selection_rank_within_level": 3,
+      "selection_score_sha256": "114b6ccc4ddba5e772f87abfdcbdf0f867455991779ad119c275d316c520b1bd",
+      "source_oracle_solved": true,
+      "source_pertuned_outcome": "collision"
+    }
+  ],
+  "source_artifacts": {
+    "a3_episode_rows_csv": "/home/quyaonan/workspace/autodrift/runs/feasibility_audit/c5prime_target_consolidation/episode_rows.csv",
+    "a3_results_json": "/home/quyaonan/workspace/autodrift/experiments/feasibility_audit/c5prime_target_consolidation.json",
+    "chrono_variant_selector_smoke": "experiments/feasibility_audit/s4_hf_lite_variant_selector_smoke.json",
+    "d1_tail_replay_proxy": "experiments/feasibility_audit/s4_hf_lite_chrono_pricing.json"
+  },
+  "source_row_filter": {
+    "eligible_counts_by_level": {
+      "S1": 23,
+      "S2": 31,
+      "S3": 25
+    },
+    "levels": [
+      "S1",
+      "S2",
+      "S3"
+    ],
+    "oracle_by_prefix": "structured:",
+    "oracle_solved": true,
+    "pertuned_outcome": "not success",
+    "selection_rule": "for each level, sort eligible rows by sha256('20260818:<level>:<surface>:<instance>:<eval_seed>'), then take the first 3 rows",
+    "surface": "T_limit"
+  },
+  "unmapped_channel_handling": {
+    "iz_cf_cr_tire_shape": "Continuous Iz/cf/cr/tire-shape scales are not mapped; TMeasy fixture differences are discrete vehicle-model differences only.",
+    "lf_lr_cg_shift": "Continuous A3 lf/lr/cg_shift values are carried for provenance but not mapped into Chrono.",
+    "mass": "Chrono backend continues to match target total mass via the existing chassis-mass override.",
+    "vehicle_variants": "D1b uses sedan_tmeasy plus bmw_e90_tmeasy as the minimum CP-2 preregistered pair."
+  }
+}

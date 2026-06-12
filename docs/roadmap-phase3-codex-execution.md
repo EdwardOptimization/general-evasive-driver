@@ -211,7 +211,7 @@ demonstrating the new axis, registered as a milestone. No training claims.
   direction-pricing only; it does not refute A3 current-sim pricing and does
   not price a fresh high-fidelity oracle or continuous lf/lr/Iz/cf/cr mapping.
 
-### D1b. Chrono-native oracle pricing [OPEN; CP-2 precondition]
+### D1b. Chrono-native oracle pricing [OPEN; M3230 protocol smoke passed; CP-2 precondition]
 - question: does the structural-ceiling gap exist under Chrono dynamics
   when the oracle is searched NATIVELY in Chrono (closed-loop /
   CEM-in-backend), rather than tail-replayed from current-sim (the M3227
@@ -228,6 +228,13 @@ demonstrating the new axis, registered as a milestone. No training claims.
 - acceptance: per-variant direction verdict; positive opens CP-2's
   precondition, negative scopes Track C claims to current-sim and CP-2
   re-evaluates.
+- result so far: `docs/m3230-d1b-chrono-native-oracle-pricing-smoke.md`
+  completed the protocol smoke only. Quick mode froze the D1b row/variant
+  preregistration, exercised `sedan_tmeasy` and `bmw_e90_tmeasy`, and passed
+  all quick gates in 276.6 s: finite obs72 resets, variant matches, and
+  both structured and CEM native-search candidates on each variant. Quick
+  mode is not a direction-pricing verdict; D1b remains open for the full
+  managed panel.
 
 ## Out of scope for Codex sessions
 
@@ -252,7 +259,7 @@ demonstrating the new axis, registered as a milestone. No training claims.
 - C2: BLOCKED on C1
 - C3: BLOCKED on C2 + D1b direction-positive + CP-2
 - D1: DONE (M3227; tail-replay proxy reversed in all three variants)
-- D1b: OPEN (Chrono-native oracle pricing; CP-2 precondition)
+- D1b: OPEN (M3230 protocol smoke passed; full Chrono-native oracle direction pricing still required for CP-2)
 
 Execution order note: cross-track priority is C1 and D1b first (CP-1
 disposition), then B1b, then B2b; within a track, lowest number first.

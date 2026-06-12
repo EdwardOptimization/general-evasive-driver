@@ -1,0 +1,191 @@
+{
+  "id": "m3230-d1b-chrono-native-oracle-pricing-smoke",
+  "priority": 32300,
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "milestone_intent": "evaluation_only",
+  "hypothesis": "A frozen D1b Chrono-native oracle pricing protocol smoke can execute per-instance tuned reflex baselines and native structured-plus-CEM oracle search inside at least two Chrono vehicle variants before training validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof paper or self-ID claim.",
+  "feasibility_pricing": {
+    "pricing_artifact": "experiments/feasibility_audit/c5prime_target_consolidation.json",
+    "priced_gap": 0.1597,
+    "threshold": 0.15,
+    "gap_meets_threshold": true
+  },
+  "lineage": {
+    "parent_checkpoint": [
+      "docs/roadmap-phase3-codex-execution.md",
+      "docs/current-status.md",
+      "docs/m3227-d1-s4-hf-lite-chrono-pricing.md",
+      "docs/m3229-c1-bc-warmstart-failure-localization.md"
+    ],
+    "parent_dataset": [
+      "runs/feasibility_audit/c5prime_target_consolidation/episode_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/feasibility_audit/chrono_native_oracle_pricing_prereg.json",
+      "scripts/feasibility_audit/chrono_native_oracle_pricing.py",
+      "scripts/feasibility_audit/chrono_backend_worker.py",
+      "src/autodrift/chrono_vehicle_backend.py"
+    ],
+    "parent_objective": [
+      "execute the roadmap D1b prerequisite after M3227 tail-replay reversal without continuing C1 BC local tuning"
+    ],
+    "derived_from": [
+      "M3222 A3 C5-prime target consolidation",
+      "M3227 D1 tail-replay proxy reversal in all three variants",
+      "CP-1 disposition requiring D1b direction-positive before CP-2 staged scale-up"
+    ],
+    "blocked_by": [
+      "D1b needs a native Chrono oracle-search protocol smoke before any hours-scale managed full rollout"
+    ],
+    "supersedes": [
+      "no roadmap unit is closed by M3230; it only admits a later D1b full managed pricing run"
+    ],
+    "invalidates": [
+      "treating the M3227 current-sim tail replay reversal as a native Chrono oracle price",
+      "starting C3 staged scale-up before D1b full direction pricing and CP-2"
+    ]
+  },
+  "review_artifact": "docs/reviews/m3230-d1b-chrono-native-oracle-pricing-smoke.md",
+  "public_gates": [
+    "M3230 must use a frozen D1b preregistration before quick rollout",
+    "M3230 quick mode must exercise sedan_tmeasy and bmw_e90_tmeasy",
+    "M3230 must run both the v4_pertuned Chrono baseline and native_oracle search on each quick row",
+    "M3230 native_oracle must exercise at least one structured candidate and one CEM sample per quick row",
+    "M3230 must report that quick mode gives no D1b direction verdict and does not satisfy CP-2",
+    "M3230 must not train, mutate ActiveSafetyReflexDriver, or change Chrono backend mappings"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not touch ActiveSafetyReflexDriver",
+    "do not train RL or create policy checkpoints",
+    "do not mutate Chrono backend mappings during the protocol smoke",
+    "do not claim high-fidelity sufficiency, driver performance, or CP-2 readiness from quick mode",
+    "do not reinterpret quick-mode success rates as validation or ranking evidence",
+    "do not continue C1 BC warm-start tuning inside this D1b milestone"
+  ],
+  "workflow_synthesis": {
+    "branch": "d1b_chrono_native_oracle_pricing",
+    "evidence_axis": "d1b_chrono_native_oracle_pricing_protocol_smoke",
+    "evidence_increment": "new executable Chrono-native oracle-search protocol smoke over frozen A3 current-sim gap rows",
+    "claim_scope": "Auxiliary D1b protocol smoke only; no D1b direction verdict, no CP-2 admission, no training admission, no validation ranking promotion, no driver-performance, no current-sim robustness claim, no high-fidelity sufficiency, no paper, no repair-success, no feasibility-proof, and no self-ID claim",
+    "stop_condition": [
+      "stop after one quick-mode smoke and document all variant/obs/search gates",
+      "stop if Chrono worker dependency fails instead of creating bookkeeping loops",
+      "stop if native search would require changing backend vehicle/tire mappings",
+      "stop if results are used as a D1b direction verdict"
+    ],
+    "fallback_plan": [
+      "on quick smoke failure, keep D1b open and document the failed protocol gate before any full rollout",
+      "on Chrono worker dependency failure, write an escalation note if the dependency failure repeats instead of adding neutral bookkeeping milestones",
+      "on quick smoke success, admit only a later D1b full managed pricing run"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "CP-1 opened Track C but added D1b direction-positive as a CP-2 precondition after the M3227 tail-replay reversal",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "Smoke-test D1b Chrono-native oracle search without training.",
+    "admission_evidence": [
+      "M3222 confirmed the A3 C5-prime current-sim structural-ceiling target",
+      "M3227 showed tail replay is not a valid high-fidelity price because the direction reversed in all Chrono variants",
+      "The roadmap D1b unit requires a native Chrono oracle search before CP-2"
+    ],
+    "blocked_shortcuts": [
+      "no train_ppo invocation",
+      "no checkpoint creation or update",
+      "no incumbent driver mutation",
+      "no C3 staged scale-up before D1b full direction pricing and CP-2"
+    ],
+    "allowed_updates": [
+      "scripts/feasibility_audit/chrono_native_oracle_pricing.py",
+      "tests/test_chrono_native_oracle_pricing.py",
+      "experiments/feasibility_audit/chrono_native_oracle_pricing_prereg.json",
+      "experiments/feasibility_audit/chrono_native_oracle_pricing_quick.json",
+      "docs/m3230-d1b-chrono-native-oracle-pricing-smoke.md",
+      "docs/reviews/m3230-d1b-chrono-native-oracle-pricing-smoke.md",
+      "M3230 queue, status, scoreboard, roadmap, current-status, research-log, and measurement-index rows"
+    ],
+    "next_stage_criteria": [
+      "quick summary JSON exists with protocol d1b_chrono_native_oracle_pricing",
+      "quick_gates.all_passed is true",
+      "result document states D1b remains open pending a full managed direction-pricing rollout"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "Not applicable: M3230 is scripted Chrono direction-pricing infrastructure with no learned-history policy and no self-identification claim.",
+    "history_necessity_tests": [
+      "none in M3230: pricing protocol smoke only"
+    ],
+    "temporal_evidence_window": "none: no history-attribution claim is made",
+    "negative_result_policy": "Protocol-smoke failure is reported at full fidelity and does not get repaired by loosening D1b direction criteria.",
+    "allowed_claims": [
+      "D1b preregistration exists before quick rollout",
+      "Chrono-native oracle search can execute structured and CEM candidates in quick mode",
+      "quick mode admits only a later full D1b pricing run"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_tool_or_infra",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "new D1b Chrono-native oracle-search executable and quick protocol artifact",
+    "paper_verdict_delta": "M3230 does not change the paper verdict; it creates the executable path needed to price whether C5-prime has high-fidelity direction support.",
+    "must_synthesize_if": [
+      "D1b quick smoke fails twice on the same protocol gate",
+      "Chrono worker dependency fails repeatedly",
+      "D1b work drifts into backend mapping or Track C training"
+    ]
+  },
+  "success_criteria": [
+    "experiments/feasibility_audit/chrono_native_oracle_pricing_prereg.json exists before quick rollout",
+    "experiments/feasibility_audit/chrono_native_oracle_pricing_quick.json exists with protocol d1b_chrono_native_oracle_pricing",
+    "quick_gates.all_passed is true",
+    "the result document separates measured artifacts from inferred interpretation and states that quick mode is not a D1b direction verdict"
+  ],
+  "failure_criteria": [
+    "quick rollout starts without frozen preregistration",
+    "any requested Chrono variant fails backend_info variant matching",
+    "native_oracle does not exercise structured and CEM candidates in quick mode",
+    "the milestone mutates ActiveSafetyReflexDriver, trains a policy, changes Chrono mappings, or claims CP-2 readiness"
+  ],
+  "decision_rule": "Accept M3230 as a D1b protocol smoke if quick mode writes the preregistered summary and all quick_gates pass. D1b itself remains open until a later full managed direction-pricing rollout.",
+  "commands": [
+    {
+      "name": "d1b_chrono_native_oracle_pricing_quick",
+      "command": "env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/chrono_native_oracle_pricing.py --quick"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "experiments/feasibility_audit/chrono_native_oracle_pricing_prereg.json",
+      "type": "json"
+    },
+    {
+      "path": "experiments/feasibility_audit/chrono_native_oracle_pricing_quick.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m3230-d1b-chrono-native-oracle-pricing-smoke.md",
+      "type": "markdown"
+    }
+  ],
+  "baseline_checkpoints": [
+    "docs/roadmap-phase3-codex-execution.md",
+    "docs/current-status.md",
+    "docs/m3222-a3-c5prime-target-consolidation.md",
+    "docs/m3227-d1-s4-hf-lite-chrono-pricing.md",
+    "docs/m3229-c1-bc-warmstart-failure-localization.md"
+  ],
+  "scoreboard_checkpoint": "experiments/feasibility_audit/chrono_native_oracle_pricing_quick.json",
+  "next_blocker": "D1b remains open after M3230; the next D1b step is a full managed native Chrono oracle pricing rollout with direction verdicts per preregistered vehicle.",
+  "status": "completed"
+}

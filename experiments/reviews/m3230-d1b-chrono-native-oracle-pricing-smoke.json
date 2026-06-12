@@ -1,0 +1,91 @@
+{
+  "decision_reason": "no structured gates defined",
+  "failure_criteria": [
+    "quick rollout starts without frozen preregistration",
+    "any requested Chrono variant fails backend_info variant matching",
+    "native_oracle does not exercise structured and CEM candidates in quick mode",
+    "the milestone mutates ActiveSafetyReflexDriver, trains a policy, changes Chrono mappings, or claims CP-2 readiness"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not touch ActiveSafetyReflexDriver",
+    "do not train RL or create policy checkpoints",
+    "do not mutate Chrono backend mappings during the protocol smoke",
+    "do not claim high-fidelity sufficiency, driver performance, or CP-2 readiness from quick mode",
+    "do not reinterpret quick-mode success rates as validation or ranking evidence",
+    "do not continue C1 BC warm-start tuning inside this D1b milestone"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260612T044417Z",
+  "hypothesis": "A frozen D1b Chrono-native oracle pricing protocol smoke can execute per-instance tuned reflex baselines and native structured-plus-CEM oracle search inside at least two Chrono vehicle variants before training validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof paper or self-ID claim.",
+  "lineage": {
+    "blocked_by": [
+      "D1b needs a native Chrono oracle-search protocol smoke before any hours-scale managed full rollout"
+    ],
+    "derived_from": [
+      "M3222 A3 C5-prime target consolidation",
+      "M3227 D1 tail-replay proxy reversal in all three variants",
+      "CP-1 disposition requiring D1b direction-positive before CP-2 staged scale-up"
+    ],
+    "invalidates": [
+      "treating the M3227 current-sim tail replay reversal as a native Chrono oracle price",
+      "starting C3 staged scale-up before D1b full direction pricing and CP-2"
+    ],
+    "parent_checkpoint": [
+      "docs/roadmap-phase3-codex-execution.md",
+      "docs/current-status.md",
+      "docs/m3227-d1-s4-hf-lite-chrono-pricing.md",
+      "docs/m3229-c1-bc-warmstart-failure-localization.md"
+    ],
+    "parent_config": [
+      "experiments/feasibility_audit/chrono_native_oracle_pricing_prereg.json",
+      "scripts/feasibility_audit/chrono_native_oracle_pricing.py",
+      "scripts/feasibility_audit/chrono_backend_worker.py",
+      "src/autodrift/chrono_vehicle_backend.py"
+    ],
+    "parent_dataset": [
+      "runs/feasibility_audit/c5prime_target_consolidation/episode_rows.csv"
+    ],
+    "parent_objective": [
+      "execute the roadmap D1b prerequisite after M3227 tail-replay reversal without continuing C1 BC local tuning"
+    ],
+    "supersedes": [
+      "no roadmap unit is closed by M3230; it only admits a later D1b full managed pricing run"
+    ]
+  },
+  "milestone": "m3230-d1b-chrono-native-oracle-pricing-smoke",
+  "next_blocker": "D1b remains open after M3230; the next D1b step is a full managed native Chrono oracle pricing rollout with direction verdicts per preregistered vehicle.",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "manual_review",
+  "public_gates": [
+    "M3230 must use a frozen D1b preregistration before quick rollout",
+    "M3230 quick mode must exercise sedan_tmeasy and bmw_e90_tmeasy",
+    "M3230 must run both the v4_pertuned Chrono baseline and native_oracle search on each quick row",
+    "M3230 native_oracle must exercise at least one structured candidate and one CEM sample per quick row",
+    "M3230 must report that quick mode gives no D1b direction verdict and does not satisfy CP-2",
+    "M3230 must not train, mutate ActiveSafetyReflexDriver, or change Chrono backend mappings"
+  ],
+  "scoreboard": {
+    "checkpoint": "experiments/feasibility_audit/chrono_native_oracle_pricing_quick.json",
+    "clearance_margin_mean": "",
+    "decision": "manual_review",
+    "milestone": "m3230-d1b-chrono-native-oracle-pricing-smoke",
+    "reason": "no structured gates defined",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "experiments/feasibility_audit/chrono_native_oracle_pricing_prereg.json exists before quick rollout",
+    "experiments/feasibility_audit/chrono_native_oracle_pricing_quick.json exists with protocol d1b_chrono_native_oracle_pricing",
+    "quick_gates.all_passed is true",
+    "the result document separates measured artifacts from inferred interpretation and states that quick mode is not a D1b direction verdict"
+  ],
+  "type": "infrastructure"
+}
