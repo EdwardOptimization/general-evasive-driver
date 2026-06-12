@@ -56488,3 +56488,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m3245-c1-v3-residual-rl-stage1_20260612T134531Z/command.log`
 - success artifact: `experiments/feasibility_audit/c5prime_c1_v3_residual_rl_stage1.json`
 - notes: Completed: C1-v3 stage-1 failed the frozen gate with 0/3 cells passing. v4_residual minus v4_pertuned was -0.6276/-0.4262/-0.3299 on S1/S2/S3 and all CI95 intervals were negative. No C2, C3, scale-up, driver-performance, high-fidelity sufficiency, repair-success, feasibility-proof, or self-ID claim is admitted.
+
+## 20260612T160708Z m3246-c1-v4-distill-stage-a
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: A preregistered C1-v4 Stage A distill-then-RL gate can train a supervised bounded residual to imitate v4_pertuned minus frozen v4 on disjoint C5-prime rollouts and test closed-loop success within 0.05 paired of v4_pertuned in all three frozen T-limit cells before validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof paper or self-ID claim.
+- command: `env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/c5prime_c1_v4_distill_stage_a.py --stage-a`
+- returncode: `0`
+- run dir: `runs/research/m3246-c1-v4-distill-stage-a_20260612T160635Z`
+- command log: `runs/research/m3246-c1-v4-distill-stage-a_20260612T160635Z/command.log`
+- success artifact: `experiments/feasibility_audit/c5prime_c1_v4_distill_stage_a.json`
+- notes: Completed: C1-v4 Stage A passed the frozen primary gate with 3/3 cells within -0.05 of `v4_pertuned`. Primary candidate minus `v4_pertuned` was +0.0139/-0.0208/+0.0000 on S1/S2/S3. Primary `delta_max` overbound was measured on 17.18% of teacher frames and exploratory widened `delta_max` also passed but is not the gate. Stage B guarded RL is admitted only after separate preregistration.

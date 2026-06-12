@@ -307,7 +307,7 @@ demonstrating the new axis, registered as a milestone. No training claims.
   scale-up, C2, C3, driver-performance, high-fidelity sufficiency,
   feasibility-proof, or self-ID claim.
 
-### C1-v4. Distill-then-RL — THE FINAL ATTEMPT [OPEN; PI disposition 2026-06-12]
+### C1-v4. Distill-then-RL — THE FINAL ATTEMPT [STAGE A PASS; STAGE B OPEN; PI disposition 2026-06-12]
 - **Finality clause**: this is the last pre-registered attempt at the C5'
   prize via learning. Any verdict closes Track C: PASS => C5' positive;
   FAIL => the bound "the structural prize is real in two simulators but
@@ -328,7 +328,12 @@ demonstrating the new axis, registered as a milestone. No training claims.
   delta_max for an exploratory arm (primary keeps M3245 bounds for
   comparability). Gate-A failure => architecture insufficiency, stop
   before any RL.
-- **Stage B — guarded RL from the distilled warm start**: realistic
+- **Stage A result (M3246)**: PASS. Primary M3245-bounded student was within
+  0.05 of `v4_pertuned` in all three frozen cells: +0.0139 (S1), -0.0208
+  (S2), +0.0000 (S3). Representation check found primary delta overbound on
+  17.18% of teacher frames, so the exploratory widened-delta arm was reported
+  but is not the gate. Stage B is admitted only by a new preregistration.
+- **Stage B — guarded RL from the distilled warm start [OPEN next]**: realistic
   budget — 1M steps/seed first rung (~20-30 min wall at measured
   throughput, 8 seeds), one extension to 4M steps/seed if the
   intermediate readout shows movement; entropy/log_std schedule frozen in
@@ -342,12 +347,12 @@ demonstrating the new axis, registered as a milestone. No training claims.
 ### C2. Capability pretrain + guarded RL smoke [SUPERSEDED by C1-v3 (the residual route trains directly); original BC-first chain closed by M3238]
 - superseded unit: do not run the original BC/pretrain-first chain. Its
   runnable replacement is C1-v3 residual RL on the frozen v4 base.
-### C3. Staged scale-up [BLOCKED by M3245 negative stage-1 + CP-2 (budget-only; D1b met)]
+### C3. Staged scale-up [BLOCKED pending C1-v4 Stage B verdict + CP-2 budget discipline]
 - **CP-2 (PI checkpoint)** before any run > 1 h compute: PI confirms budget
   AND unit D1b must have returned direction-positive (CP-1 disposition).
-  D1b is now direction-positive by M3231, but M3245 did not produce positive
-  stage-1 evidence. No C3 scale-up is admitted unless a synthesis or PI route
-  decision reopens a priced mechanism.
+  D1b is now direction-positive by M3231, and M3246 Stage A admitted only the
+  final C1-v4 Stage B rung. No C3 scale-up is admitted until Stage B returns a
+  positive frozen verdict.
 - verdict either way is accepted and recorded; no criteria loosening.
 
 ## Track D — high-fidelity / Chrono (continues M3218/M3219)

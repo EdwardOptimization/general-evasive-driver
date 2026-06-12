@@ -323,12 +323,15 @@ found no spread prize: 0/4 cells qualified, with S4L/T-limit at only
 target on fresh C5-F1 T-limit seeds and confirmed it by the frozen A3 rule:
 3/4 cells qualified, with S1/S2/S3 oracle-minus-pertuned gaps
 +0.1597/+0.2153/+0.1736 and CI95 lower bounds > 0; S0 remained positive but
-below the +0.15 effect-size bar (+0.1389). The remaining population question
-is now narrower and higher-fidelity: whether tire-shape, load-transfer,
-wheelbase-class, or Chrono vehicle-family dynamics move the boundary. M3218
-found Chrono resources for that extension but also found the repo wiring still
-hard-coded to Sedan + TMeasy; M3219 then added and smoked the reset-time
-selector on default Sedan, BMW_E90, and UAZBUS. S4 pricing now waits on a
-frozen preregistration, not on backend wiring. Claim C5 and the WP-RL program
-operationalize this discipline: price first, then train RL only against a
-measured, pre-registered gap after CP-1.
+below the +0.15 effect-size bar (+0.1389). D1 proxy replay then reversed under
+Chrono variants, but D1b native Chrono oracle search restored direction on
+Sedan and BMW_E90, satisfying the CP-2 direction precondition. The learning
+interface failures continued through direct BC, structured tail-family
+pretraining, selector repricing, and C1-v3 direct residual PPO. C1-v4 finally
+split the problem at the right place: supervised distillation of the
+per-tuned recalibration passed Stage A against `v4_pertuned` in all three
+frozen cells, while the remaining question is whether a guarded RL rung can
+move from that calibrated floor toward the structural oracle gap. Claim C5
+and the WP-RL program operationalize this discipline: price first, prove the
+interface can match the honest floor, then train RL only against a measured,
+pre-registered gap after CP-1/CP-2.

@@ -1,0 +1,231 @@
+{
+  "id": "m3246-c1-v4-distill-stage-a",
+  "priority": 32460,
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "milestone_intent": "training",
+  "hypothesis": "A preregistered C1-v4 Stage A distill-then-RL gate can train a supervised bounded residual to imitate v4_pertuned minus frozen v4 on disjoint C5-prime rollouts and test closed-loop success within 0.05 paired of v4_pertuned in all three frozen T-limit cells before validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof paper or self-ID claim.",
+  "feasibility_pricing": {
+    "pricing_artifact": "experiments/feasibility_audit/c5prime_target_consolidation.json",
+    "priced_gap": 0.1597,
+    "threshold": 0.15,
+    "gap_meets_threshold": true
+  },
+  "lineage": {
+    "parent_checkpoint": [
+      "docs/current-status.md",
+      "docs/roadmap-phase3-codex-execution.md",
+      "docs/m3245-c1-v3-residual-rl-stage1.md",
+      "docs/m3222-a3-c5prime-target-consolidation.md",
+      "docs/m3231-d1b-chrono-native-oracle-pricing-full.md"
+    ],
+    "parent_dataset": [
+      "runs/feasibility_audit/c5prime_target_consolidation/episode_rows.csv",
+      "experiments/feasibility_audit/c5prime_target_consolidation.json"
+    ],
+    "parent_config": [
+      "experiments/feasibility_audit/c5prime_prereg.json",
+      "experiments/feasibility_audit/c5prime_c1_v4_distill_stage_a_prereg.json",
+      "experiments/feasibility_audit/c5prime_c1_v4_distill_stage_a_quick.json"
+    ],
+    "parent_objective": [
+      "C1-v4 final attempt: distill per-instance v4_pertuned recalibration before any guarded RL",
+      "Primary Stage A gate is distilled residual closed-loop success minus v4_pertuned success by frozen A3 validation cell"
+    ],
+    "derived_from": [
+      "M3245 showed direct PPO over the bounded residual did not discover the simple recalibration at 65k steps",
+      "A3 confirmed the current-sim C5-prime structural gap in S1/S2/S3 T-limit cells",
+      "D1b Chrono-native oracle pricing was direction-positive and satisfies the CP-2 precondition",
+      "PI disposition opened C1-v4 as the final pre-registered learning attempt at the C5-prime prize"
+    ],
+    "blocked_by": [
+      "Stage B guarded RL is not admitted unless primary Stage A passes all three cells",
+      "Track C closes if C1-v4 produces a behavior verdict that fails the frozen route"
+    ],
+    "supersedes": [
+      "C1-v3 direct residual PPO continuation after M3245 stage-1 failure",
+      "local direct-MLP BC warm-start from M3228 and M3232",
+      "local tail-family interface pretrain from M3236",
+      "local family-selector route rejected by M3238"
+    ],
+    "invalidates": [
+      "treating exploratory widened delta_max as a Stage B admission gate",
+      "running C1-v4 RL before the supervised Stage A closed-loop gate",
+      "any self-ID or history-attribution claim from this engineering distillation readout"
+    ]
+  },
+  "review_artifact": "docs/reviews/m3246-c1-v4-distill-stage-a.md",
+  "public_gates": [
+    "M3246 must use the frozen ActiveSafetyReflexDriver v4 as the base and must not edit the incumbent driver",
+    "M3246 must use a preregistration frozen before the full Stage A run",
+    "M3246 must train on a new disjoint C1-v4 seed stream and must not train on A3 validation eval seeds",
+    "M3246 primary arm must keep the M3245 delta_max bounds for comparability",
+    "M3246 exploratory widened delta_max may be reported only as representation evidence and cannot admit Stage B",
+    "M3246 must report primary candidate minus v4_pertuned by cell with paired bootstrap CIs without loosening the frozen pass rule",
+    "M3246 must not make validation ranking driver-performance high-fidelity sufficiency paper repair-success robustness-result feasibility-proof or self-ID claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not touch ActiveSafetyReflexDriver",
+    "do not run PPO or guarded RL in Stage A",
+    "do not train on A3 validation rows or validation eval seeds",
+    "do not use exploratory widened delta_max as the primary gate",
+    "do not lower the within-0.05 all-cell bar after seeing the result",
+    "do not admit C2 C3 or Stage B unless the primary Stage A gate passes"
+  ],
+  "workflow_synthesis": {
+    "branch": "c5prime_c1_v4_distill_then_rl",
+    "evidence_axis": "distill_then_rl_stage_a_training_readout",
+    "evidence_increment": "supervised distillation plus closed-loop validation of the per-tuned recalibration residual before any final RL attempt",
+    "claim_scope": "Engineering Stage A readout only; incumbent unchanged; no validation ranking promotion driver-performance current-sim sufficiency high-fidelity sufficiency paper repair-success robustness-result feasibility-proof or self-ID claim",
+    "stop_condition": [
+      "stop if preregistration or seed discipline fails",
+      "stop before RL if primary Stage A fails any of the three cells",
+      "close Track C after the C1-v4 final-attempt verdict unless new pricing is produced"
+    ],
+    "fallback_plan": [
+      "if Stage A fails, report architecture insufficiency and do not run Stage B",
+      "if Stage A passes, preregister Stage B guarded RL before any training",
+      "if infrastructure fails, repair once and rerun the same frozen protocol"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M3245 failed direct residual PPO and PI opened the final C1-v4 distill-then-RL route",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "behavior_pretrain",
+    "stage_objective": "Train a supervised bounded residual student to imitate the per-instance v4_pertuned recalibration and test its deterministic closed-loop behavior before any RL.",
+    "admission_evidence": [
+      "A3 pricing proof confirmed the C5-prime structural gap in S1/S2/S3 T-limit cells",
+      "M3245 showed direct PPO over the same bounded residual did not recover the recalibration at stage-1 budget",
+      "M3246 quick mode passed protocol smoke and found the primary delta_max representation gap to be measurable before full Stage A"
+    ],
+    "blocked_shortcuts": [
+      "no PPO or guarded RL in Stage A",
+      "no incumbent driver mutation",
+      "no validation seed leakage into supervised training",
+      "no C2 C3 Stage B or scale-up admission from quick mode"
+    ],
+    "allowed_updates": [
+      "scripts/feasibility_audit/c5prime_c1_v4_distill_stage_a.py",
+      "tests/test_c5prime_c1_v4_distill_stage_a.py",
+      "experiments/feasibility_audit/c5prime_c1_v4_distill_stage_a_prereg.json",
+      "experiments/feasibility_audit/c5prime_c1_v4_distill_stage_a_quick.json",
+      "experiments/feasibility_audit/c5prime_c1_v4_distill_stage_a.json",
+      "runs/feasibility_audit/c5prime_c1_v4_distill_stage_a",
+      "docs/m3246-c1-v4-distill-stage-a.md",
+      "docs/reviews/m3246-c1-v4-distill-stage-a.md",
+      "docs/current-status.md",
+      "docs/roadmap-phase3-codex-execution.md",
+      "docs/research-log.md",
+      "scripts/feasibility_audit/README.md",
+      "experiments/research_queue.csv",
+      "experiments/research_status.json",
+      "experiments/scoreboard.csv"
+    ],
+    "next_stage_criteria": [
+      "Stage B is admitted only if primary Stage A passes all three S1/S2/S3 T-limit cells",
+      "If Stage A fails then stop before RL and close the C1-v4 attempt per finality clause",
+      "If only exploratory widened delta_max passes then report representation evidence but do not admit Stage B"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "Not applicable: M3246 is engineering-only supervised distillation over obs72 and makes no history-attribution claim.",
+    "history_necessity_tests": [
+      "none in M3246: no self-ID or history claim is made"
+    ],
+    "temporal_evidence_window": "single-frame MLP residual over obs72; no belief or history claim",
+    "negative_result_policy": "A failed or representation-limited Stage A result is reported at full fidelity and cannot justify criterion loosening.",
+    "allowed_claims": [
+      "supervised distillation Stage A executed or failed",
+      "primary bounded residual closed-loop readout passed or failed the frozen within-0.05 all-cell gate",
+      "exploratory widened delta_max representation evidence if primary bounds are insufficient",
+      "incumbent v4 remained frozen and unchanged"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_closed_loop_data",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "new supervised distillation dataset plus deterministic closed-loop validation for the PI-selected final C1-v4 route",
+    "paper_verdict_delta": "M3246 decides whether the C5-prime structural-ceiling route may enter the final guarded-RL rung or must close Track C and move to papers.",
+    "must_synthesize_if": [
+      "primary Stage A fails any cell",
+      "a Stage B run is proposed from exploratory-only success",
+      "another C1 learning attempt is proposed after C1-v4 fails without new pricing"
+    ]
+  },
+  "success_criteria": [
+    "experiments/feasibility_audit/c5prime_c1_v4_distill_stage_a_prereg.json exists before full Stage A execution",
+    "quick mode has run and written experiments/feasibility_audit/c5prime_c1_v4_distill_stage_a_quick.json before full Stage A interpretation",
+    "Stage A execution writes experiments/feasibility_audit/c5prime_c1_v4_distill_stage_a.json",
+    "result JSON reports primary representation check and primary candidate minus v4_pertuned by all three frozen cells",
+    "docs/m3246-c1-v4-distill-stage-a.md records measured versus inferred results"
+  ],
+  "failure_criteria": [
+    "the run edits or mutates ActiveSafetyReflexDriver",
+    "the run uses PPO or guarded RL during Stage A",
+    "training rows overlap A3 validation eval seeds",
+    "the exploratory widened delta_max arm is used as the primary pass gate",
+    "the Stage A result is interpreted without paired CIs or after loosening the within-0.05 all-cell rule"
+  ],
+  "decision_rule": "PASS iff primary distilled residual success is within 0.05 paired of v4_pertuned success in each of S1 S2 and S3 T-limit cells. Otherwise Stage A fails and Stage B RL is not admitted; exploratory widened delta_max cannot loosen this rule.",
+  "commands": [
+    {
+      "name": "c1_v4_distill_stage_a_write_prereg",
+      "command": "env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/c5prime_c1_v4_distill_stage_a.py --write-prereg"
+    },
+    {
+      "name": "c1_v4_distill_stage_a_quick",
+      "command": "env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/c5prime_c1_v4_distill_stage_a.py --quick"
+    },
+    {
+      "name": "c1_v4_distill_stage_a",
+      "command": "env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/c5prime_c1_v4_distill_stage_a.py --stage-a"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "experiments/feasibility_audit/c5prime_c1_v4_distill_stage_a_prereg.json",
+      "type": "json"
+    },
+    {
+      "path": "experiments/feasibility_audit/c5prime_c1_v4_distill_stage_a_quick.json",
+      "type": "json"
+    },
+    {
+      "path": "experiments/feasibility_audit/c5prime_c1_v4_distill_stage_a.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/feasibility_audit/c5prime_c1_v4_distill_stage_a/stage_a/candidate_rows_primary.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/feasibility_audit/c5prime_c1_v4_distill_stage_a/stage_a/distill_dataset_primary.npz",
+      "type": "npz"
+    },
+    {
+      "path": "docs/m3246-c1-v4-distill-stage-a.md",
+      "type": "markdown"
+    }
+  ],
+  "baseline_checkpoints": [
+    "docs/current-status.md",
+    "docs/roadmap-phase3-codex-execution.md",
+    "docs/m3245-c1-v3-residual-rl-stage1.md",
+    "docs/m3222-a3-c5prime-target-consolidation.md",
+    "docs/m3231-d1b-chrono-native-oracle-pricing-full.md"
+  ],
+  "scoreboard_checkpoint": "experiments/feasibility_audit/c5prime_c1_v4_distill_stage_a.json",
+  "next_blocker": "C1-v4 Stage B guarded RL is admitted by the primary Stage A pass, but must be preregistered as a separate M3247 unit before any RL run.",
+  "result_summary": "Completed: M3246 C1-v4 Stage A passed the frozen primary gate. Primary candidate minus v4_pertuned was +0.0139/-0.0208/+0.0000 on S1/S2/S3, so all three cells were within the -0.05 floor. Primary representation check found M3245 delta_max overbound on 17.18% of teacher frames; exploratory widened delta_max also passed but is not the gate. Stage B guarded RL is admitted only after a separate preregistration; no driver-performance high-fidelity sufficiency repair-success feasibility-proof paper or self-ID claim is admitted.",
+  "status": "completed"
+}

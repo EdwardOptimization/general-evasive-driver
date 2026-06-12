@@ -359,19 +359,22 @@ check (not "~1 command").
    ceiling target on fresh C5-F1 T-limit seeds by the frozen A3 rule: 3/4
    cells qualified, with S1/S2/S3 oracle-minus-pertuned gaps
    +0.1597/+0.2153/+0.1736 and CI95 lower bounds > 0; S0 was positive but
-   below the +0.15 bar (+0.1389). The Chrono variant-selector connector is
-   implemented and smoke-tested, but any S4-HF-lite pricing execution still
-   needs a frozen preregistration and a declared handling of the unmapped
-   continuous `lf/lr/Iz/cf/cr` lateral/tire channels. M3221 completed the
+   below the +0.15 bar (+0.1389). The Chrono variant-selector connector was
+   implemented and smoke-tested, D1 proxy pricing reversed under open-loop
+   current-sim oracle-tail replay, and D1b native Chrono oracle search then
+   returned direction-positive on Sedan (+0.2222) and BMW_E90 (+0.1111),
+   satisfying the CP-2 direction precondition. M3221 completed the
    obs-normalization audit and found a blocker; M3224 implemented and smoked
    an explicit 36 m/s profile (`vx/40`, `vy/40`, `ax/50`, `ay/60`,
    `road_y/60`, `rel_vy/30`, 2.5 s preview), closing the high-speed
    env-contract blocker for that profile only. M3239/M3240 priced the current
    flagged constant-velocity moving-crosser formulation negative (0/4 cells
    qualified), and M3241/M3242 priced the current M3224 high-speed formulation
-   negative (0/6 cells qualified). Population training still needs its own
-   preregistered profile/floors, and Track C remains blocked unless PI opens a
-   new priced route.
+   negative (0/6 cells qualified). M3245 rejected direct residual PPO at the
+   first rung, but M3246 passed the final C1-v4 Stage A distillation gate:
+   the primary bounded student matched `v4_pertuned` within 0.05 in all three
+   frozen T-limit cells. The only currently admitted Track C action is the
+   separately pre-registered C1-v4 Stage B guarded-RL rung.
    Four paired arms: fixed v4 / v4+RLS-retuned (the classical
    identification arm reviewers will demand) / per-instance-tuned v4
    (the "tune every car" upper bound, quantified to show its cost) /
