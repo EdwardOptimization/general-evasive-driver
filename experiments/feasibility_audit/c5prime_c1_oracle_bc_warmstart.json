@@ -1,0 +1,855 @@
+{
+  "bc_training": {
+    "checkpoint": "/home/quyaonan/workspace/autodrift/runs/feasibility_audit/c5prime_c1_oracle_bc_warmstart/full/checkpoint.pt",
+    "dataset_npz": "/home/quyaonan/workspace/autodrift/runs/feasibility_audit/c5prime_c1_oracle_bc_warmstart/full/dataset.npz",
+    "final": {
+      "best_epoch": 10,
+      "best_selection_mse": 0.074735,
+      "best_train_mse": 0.053852,
+      "history": [
+        {
+          "epoch": 5,
+          "selection_mse": 0.092477,
+          "train_mse": 0.080469
+        },
+        {
+          "epoch": 10,
+          "selection_mse": 0.074735,
+          "train_mse": 0.053852
+        },
+        {
+          "epoch": 15,
+          "selection_mse": 0.07735,
+          "train_mse": 0.040479
+        },
+        {
+          "epoch": 20,
+          "selection_mse": 0.080918,
+          "train_mse": 0.034685
+        },
+        {
+          "epoch": 25,
+          "selection_mse": 0.083542,
+          "train_mse": 0.033997
+        },
+        {
+          "epoch": 30,
+          "selection_mse": 0.084891,
+          "train_mse": 0.031043
+        },
+        {
+          "epoch": 35,
+          "selection_mse": 0.084127,
+          "train_mse": 0.029617
+        },
+        {
+          "epoch": 40,
+          "selection_mse": 0.084562,
+          "train_mse": 0.030522
+        },
+        {
+          "epoch": 45,
+          "selection_mse": 0.085371,
+          "train_mse": 0.027824
+        },
+        {
+          "epoch": 50,
+          "selection_mse": 0.085189,
+          "train_mse": 0.026982
+        },
+        {
+          "epoch": 55,
+          "selection_mse": 0.084355,
+          "train_mse": 0.026865
+        },
+        {
+          "epoch": 60,
+          "selection_mse": 0.083935,
+          "train_mse": 0.02551
+        }
+      ]
+    },
+    "initial": {
+      "best_epoch": 12,
+      "best_selection_mse": 0.069227,
+      "best_train_mse": 0.004471,
+      "history": [
+        {
+          "epoch": 6,
+          "selection_mse": 0.076461,
+          "train_mse": 0.015326
+        },
+        {
+          "epoch": 12,
+          "selection_mse": 0.069227,
+          "train_mse": 0.004471
+        }
+      ]
+    },
+    "model": {
+      "act_dim": 3,
+      "actor_encoder": "mlp",
+      "hidden_size": 128,
+      "obs_dim": 72
+    },
+    "validation_action_mse": 0.234184,
+    "validation_bc_rollouts": [
+      {
+        "outcome_bucket": "success_obstacle_pass",
+        "role": "validation",
+        "row_id": "S1-inst04-seed7320234",
+        "steps": 127,
+        "termination_reason": ""
+      },
+      {
+        "outcome_bucket": "success_obstacle_pass",
+        "role": "validation",
+        "row_id": "S1-inst06-seed7330273",
+        "steps": 90,
+        "termination_reason": ""
+      },
+      {
+        "outcome_bucket": "success_obstacle_pass",
+        "role": "validation",
+        "row_id": "S1-inst07-seed7335182",
+        "steps": 121,
+        "termination_reason": ""
+      },
+      {
+        "outcome_bucket": "success_obstacle_pass",
+        "role": "validation",
+        "row_id": "S1-inst08-seed7340208",
+        "steps": 181,
+        "termination_reason": ""
+      },
+      {
+        "outcome_bucket": "collision_failure",
+        "role": "validation",
+        "row_id": "S2-inst00-seed7500026",
+        "steps": 85,
+        "termination_reason": "obstacle_collision"
+      },
+      {
+        "outcome_bucket": "collision_failure",
+        "role": "validation",
+        "row_id": "S2-inst02-seed7510156",
+        "steps": 143,
+        "termination_reason": "obstacle_collision"
+      },
+      {
+        "outcome_bucket": "off_track_noncollision_noncompletion",
+        "role": "validation",
+        "row_id": "S2-inst08-seed7540299",
+        "steps": 123,
+        "termination_reason": "off_track"
+      },
+      {
+        "outcome_bucket": "off_track_noncollision_noncompletion",
+        "role": "validation",
+        "row_id": "S3-inst02-seed7710156",
+        "steps": 131,
+        "termination_reason": "off_track"
+      },
+      {
+        "outcome_bucket": "success_obstacle_pass",
+        "role": "validation",
+        "row_id": "S3-inst04-seed7720117",
+        "steps": 107,
+        "termination_reason": ""
+      },
+      {
+        "outcome_bucket": "collision_failure",
+        "role": "validation",
+        "row_id": "S3-inst09-seed7745039",
+        "steps": 54,
+        "termination_reason": "obstacle_collision"
+      }
+    ],
+    "validation_bc_success_rate_context": 0.5,
+    "validation_mse_gate_passed": false,
+    "validation_zero_action_baseline_mse": 0.501099
+  },
+  "claim_boundary": "C1 C5-prime oracle-demo and behavior-cloning warm-start engineering only: structured A3 oracle rows are replayed in current-sim, a small BC policy is fit with held-out epoch selection and a DAgger-lite relabeling pass, and the result is a warm-start artifact for later guarded stages. No incumbent driver mutation, validation ranking, promotion, high-fidelity sufficiency, paper, repair-success, robustness-result, feasibility-proof, or self-ID claim.",
+  "dagger_lite": {
+    "augmented_train_frames": 1173,
+    "base_train_frames": 2003,
+    "combined_train_frames": 3176,
+    "rollouts": [
+      {
+        "outcome_bucket": "off_track_noncollision_noncompletion",
+        "row_id": "S1-inst01-seed7305078",
+        "steps": 61,
+        "termination_reason": "off_track"
+      },
+      {
+        "outcome_bucket": "off_track_noncollision_noncompletion",
+        "row_id": "S1-inst02-seed7310091",
+        "steps": 72,
+        "termination_reason": "off_track"
+      },
+      {
+        "outcome_bucket": "off_track_noncollision_noncompletion",
+        "row_id": "S1-inst03-seed7315052",
+        "steps": 73,
+        "termination_reason": "off_track"
+      },
+      {
+        "outcome_bucket": "off_track_noncollision_noncompletion",
+        "row_id": "S1-inst05-seed7325169",
+        "steps": 61,
+        "termination_reason": "off_track"
+      },
+      {
+        "outcome_bucket": "off_track_noncollision_noncompletion",
+        "row_id": "S1-inst09-seed7345091",
+        "steps": 78,
+        "termination_reason": "off_track"
+      },
+      {
+        "outcome_bucket": "off_track_noncollision_noncompletion",
+        "row_id": "S1-inst10-seed7350000",
+        "steps": 67,
+        "termination_reason": "off_track"
+      },
+      {
+        "outcome_bucket": "off_track_noncollision_noncompletion",
+        "row_id": "S2-inst01-seed7505208",
+        "steps": 73,
+        "termination_reason": "off_track"
+      },
+      {
+        "outcome_bucket": "truncated_by_dagger_cap",
+        "row_id": "S2-inst06-seed7530208",
+        "steps": 80,
+        "termination_reason": ""
+      },
+      {
+        "outcome_bucket": "off_track_noncollision_noncompletion",
+        "row_id": "S2-inst07-seed7535013",
+        "steps": 74,
+        "termination_reason": "off_track"
+      },
+      {
+        "outcome_bucket": "off_track_noncollision_noncompletion",
+        "row_id": "S2-inst11-seed7555182",
+        "steps": 59,
+        "termination_reason": "off_track"
+      },
+      {
+        "outcome_bucket": "off_track_noncollision_noncompletion",
+        "row_id": "S3-inst00-seed7700221",
+        "steps": 73,
+        "termination_reason": "off_track"
+      },
+      {
+        "outcome_bucket": "truncated_by_dagger_cap",
+        "row_id": "S3-inst01-seed7705078",
+        "steps": 80,
+        "termination_reason": ""
+      },
+      {
+        "outcome_bucket": "off_track_noncollision_noncompletion",
+        "row_id": "S3-inst03-seed7715221",
+        "steps": 77,
+        "termination_reason": "off_track"
+      },
+      {
+        "outcome_bucket": "off_track_noncollision_noncompletion",
+        "row_id": "S3-inst05-seed7725195",
+        "steps": 62,
+        "termination_reason": "off_track"
+      },
+      {
+        "outcome_bucket": "off_track_noncollision_noncompletion",
+        "row_id": "S3-inst07-seed7735169",
+        "steps": 59,
+        "termination_reason": "off_track"
+      },
+      {
+        "outcome_bucket": "off_track_noncollision_noncompletion",
+        "row_id": "S3-inst08-seed7740117",
+        "steps": 60,
+        "termination_reason": "off_track"
+      },
+      {
+        "outcome_bucket": "off_track_noncollision_noncompletion",
+        "row_id": "S3-inst10-seed7750026",
+        "steps": 64,
+        "termination_reason": "off_track"
+      }
+    ],
+    "source": "BC rollouts on train-role rows, relabeled by frozen structured-oracle step rule"
+  },
+  "demo_frame_counts": {
+    "selection": 952,
+    "train": 2003,
+    "validation": 1179
+  },
+  "demo_outcomes": {
+    "S1-inst00-seed7300091": {
+      "oracle_by": "structured:brake_steer_+0.4",
+      "outcome_bucket": "success_obstacle_pass",
+      "role": "selection",
+      "steps": 116
+    },
+    "S1-inst01-seed7305078": {
+      "oracle_by": "structured:swerve_+1_n10",
+      "outcome_bucket": "success_obstacle_pass",
+      "role": "train",
+      "steps": 109
+    },
+    "S1-inst02-seed7310091": {
+      "oracle_by": "structured:brake_steer_-0.4",
+      "outcome_bucket": "success_obstacle_pass",
+      "role": "train",
+      "steps": 123
+    },
+    "S1-inst03-seed7315052": {
+      "oracle_by": "structured:brake_steer_-0.4",
+      "outcome_bucket": "success_obstacle_pass",
+      "role": "train",
+      "steps": 87
+    },
+    "S1-inst04-seed7320234": {
+      "oracle_by": "structured:brake_steer_-0.4",
+      "outcome_bucket": "success_obstacle_pass",
+      "role": "validation",
+      "steps": 122
+    },
+    "S1-inst05-seed7325169": {
+      "oracle_by": "structured:brake_steer_+0.4",
+      "outcome_bucket": "success_obstacle_pass",
+      "role": "train",
+      "steps": 122
+    },
+    "S1-inst06-seed7330273": {
+      "oracle_by": "structured:brake_steer_+0.4",
+      "outcome_bucket": "success_obstacle_pass",
+      "role": "validation",
+      "steps": 93
+    },
+    "S1-inst07-seed7335182": {
+      "oracle_by": "structured:brake_steer_+0.4",
+      "outcome_bucket": "success_obstacle_pass",
+      "role": "validation",
+      "steps": 114
+    },
+    "S1-inst08-seed7340208": {
+      "oracle_by": "structured:brake_steer_+0.7",
+      "outcome_bucket": "success_obstacle_pass",
+      "role": "validation",
+      "steps": 156
+    },
+    "S1-inst09-seed7345091": {
+      "oracle_by": "structured:full_brake",
+      "outcome_bucket": "success_obstacle_pass",
+      "role": "train",
+      "steps": 157
+    },
+    "S1-inst10-seed7350000": {
+      "oracle_by": "structured:brake_steer_-0.4",
+      "outcome_bucket": "success_obstacle_pass",
+      "role": "train",
+      "steps": 127
+    },
+    "S1-inst11-seed7355143": {
+      "oracle_by": "structured:brake_steer_-0.4",
+      "outcome_bucket": "success_obstacle_pass",
+      "role": "selection",
+      "steps": 115
+    },
+    "S2-inst00-seed7500026": {
+      "oracle_by": "structured:brake_steer_-0.4",
+      "outcome_bucket": "success_obstacle_pass",
+      "role": "validation",
+      "steps": 102
+    },
+    "S2-inst01-seed7505208": {
+      "oracle_by": "structured:brake_steer_-0.4",
+      "outcome_bucket": "success_obstacle_pass",
+      "role": "train",
+      "steps": 89
+    },
+    "S2-inst02-seed7510156": {
+      "oracle_by": "structured:brake_steer_-0.4",
+      "outcome_bucket": "success_obstacle_pass",
+      "role": "validation",
+      "steps": 135
+    },
+    "S2-inst03-seed7515052": {
+      "oracle_by": "structured:brake_steer_-0.4",
+      "outcome_bucket": "success_obstacle_pass",
+      "role": "selection",
+      "steps": 108
+    },
+    "S2-inst04-seed7520143": {
+      "oracle_by": "structured:brake_steer_-0.4",
+      "outcome_bucket": "success_obstacle_pass",
+      "role": "selection",
+      "steps": 103
+    },
+    "S2-inst05-seed7525208": {
+      "oracle_by": "structured:brake_steer_-1.0",
+      "outcome_bucket": "success_obstacle_pass",
+      "role": "selection",
+      "steps": 86
+    },
+    "S2-inst06-seed7530208": {
+      "oracle_by": "structured:brake_steer_-0.4",
+      "outcome_bucket": "success_obstacle_pass",
+      "role": "train",
+      "steps": 191
+    },
+    "S2-inst07-seed7535013": {
+      "oracle_by": "structured:brake_steer_-0.4",
+      "outcome_bucket": "success_obstacle_pass",
+      "role": "train",
+      "steps": 103
+    },
+    "S2-inst08-seed7540299": {
+      "oracle_by": "structured:coast_steer_-0.7",
+      "outcome_bucket": "success_obstacle_pass",
+      "role": "validation",
+      "steps": 176
+    },
+    "S2-inst09-seed7545208": {
+      "oracle_by": "structured:brake_steer_-0.4",
+      "outcome_bucket": "success_obstacle_pass",
+      "role": "selection",
+      "steps": 93
+    },
+    "S2-inst10-seed7550065": {
+      "oracle_by": "structured:brake_steer_-0.4",
+      "outcome_bucket": "success_obstacle_pass",
+      "role": "selection",
+      "steps": 155
+    },
+    "S2-inst11-seed7555182": {
+      "oracle_by": "structured:brake_steer_+0.4",
+      "outcome_bucket": "success_obstacle_pass",
+      "role": "train",
+      "steps": 114
+    },
+    "S3-inst00-seed7700221": {
+      "oracle_by": "structured:full_brake",
+      "outcome_bucket": "success_obstacle_pass",
+      "role": "train",
+      "steps": 95
+    },
+    "S3-inst01-seed7705078": {
+      "oracle_by": "structured:brake_steer_-0.4",
+      "outcome_bucket": "success_obstacle_pass",
+      "role": "train",
+      "steps": 91
+    },
+    "S3-inst02-seed7710156": {
+      "oracle_by": "structured:brake_steer_-0.4",
+      "outcome_bucket": "success_obstacle_pass",
+      "role": "validation",
+      "steps": 113
+    },
+    "S3-inst03-seed7715221": {
+      "oracle_by": "structured:brake_steer_-0.4",
+      "outcome_bucket": "success_obstacle_pass",
+      "role": "train",
+      "steps": 150
+    },
+    "S3-inst04-seed7720117": {
+      "oracle_by": "structured:coast_steer_+0.7",
+      "outcome_bucket": "success_obstacle_pass",
+      "role": "validation",
+      "steps": 104
+    },
+    "S3-inst05-seed7725195": {
+      "oracle_by": "structured:full_brake",
+      "outcome_bucket": "success_obstacle_pass",
+      "role": "train",
+      "steps": 74
+    },
+    "S3-inst06-seed7730104": {
+      "oracle_by": "structured:full_brake",
+      "outcome_bucket": "success_obstacle_pass",
+      "role": "selection",
+      "steps": 83
+    },
+    "S3-inst07-seed7735169": {
+      "oracle_by": "structured:brake_steer_+0.4",
+      "outcome_bucket": "success_obstacle_pass",
+      "role": "train",
+      "steps": 112
+    },
+    "S3-inst08-seed7740117": {
+      "oracle_by": "structured:brake_steer_-0.4",
+      "outcome_bucket": "success_obstacle_pass",
+      "role": "train",
+      "steps": 114
+    },
+    "S3-inst09-seed7745039": {
+      "oracle_by": "structured:full_brake",
+      "outcome_bucket": "success_obstacle_pass",
+      "role": "validation",
+      "steps": 64
+    },
+    "S3-inst10-seed7750026": {
+      "oracle_by": "structured:swerve_+1_n10",
+      "outcome_bucket": "success_obstacle_pass",
+      "role": "train",
+      "steps": 145
+    },
+    "S3-inst11-seed7755208": {
+      "oracle_by": "structured:coast_steer_-0.7",
+      "outcome_bucket": "success_obstacle_pass",
+      "role": "selection",
+      "steps": 93
+    }
+  },
+  "elapsed_s": 2.422,
+  "gates": {
+    "all_passed": false,
+    "checkpoint_exists": true,
+    "dataset_exists": true,
+    "demo_replay_all_success": true,
+    "validation_action_mse_gate_passed": false
+  },
+  "generated_by": "scripts/feasibility_audit/c5prime_c1_oracle_bc_warmstart.py",
+  "preregistration": "/home/quyaonan/workspace/autodrift/experiments/feasibility_audit/c5prime_c1_oracle_bc_prereg.json",
+  "preregistration_frozen_before_rollout": true,
+  "protocol": "c5prime_c1_oracle_bc_warmstart",
+  "quick_mode": false,
+  "role_counts": {
+    "selection": 9,
+    "train": 17,
+    "validation": 10
+  },
+  "selected_rows": [
+    {
+      "bc_role": "selection",
+      "eval_seed": 7300091,
+      "gap_row": false,
+      "instance": 0,
+      "level": "S1",
+      "oracle_by": "structured:brake_steer_+0.4",
+      "row_id": "S1-inst00-seed7300091"
+    },
+    {
+      "bc_role": "train",
+      "eval_seed": 7305078,
+      "gap_row": false,
+      "instance": 1,
+      "level": "S1",
+      "oracle_by": "structured:swerve_+1_n10",
+      "row_id": "S1-inst01-seed7305078"
+    },
+    {
+      "bc_role": "train",
+      "eval_seed": 7310091,
+      "gap_row": true,
+      "instance": 2,
+      "level": "S1",
+      "oracle_by": "structured:brake_steer_-0.4",
+      "row_id": "S1-inst02-seed7310091"
+    },
+    {
+      "bc_role": "train",
+      "eval_seed": 7315052,
+      "gap_row": false,
+      "instance": 3,
+      "level": "S1",
+      "oracle_by": "structured:brake_steer_-0.4",
+      "row_id": "S1-inst03-seed7315052"
+    },
+    {
+      "bc_role": "validation",
+      "eval_seed": 7320234,
+      "gap_row": true,
+      "instance": 4,
+      "level": "S1",
+      "oracle_by": "structured:brake_steer_-0.4",
+      "row_id": "S1-inst04-seed7320234"
+    },
+    {
+      "bc_role": "train",
+      "eval_seed": 7325169,
+      "gap_row": false,
+      "instance": 5,
+      "level": "S1",
+      "oracle_by": "structured:brake_steer_+0.4",
+      "row_id": "S1-inst05-seed7325169"
+    },
+    {
+      "bc_role": "validation",
+      "eval_seed": 7330273,
+      "gap_row": false,
+      "instance": 6,
+      "level": "S1",
+      "oracle_by": "structured:brake_steer_+0.4",
+      "row_id": "S1-inst06-seed7330273"
+    },
+    {
+      "bc_role": "validation",
+      "eval_seed": 7335182,
+      "gap_row": false,
+      "instance": 7,
+      "level": "S1",
+      "oracle_by": "structured:brake_steer_+0.4",
+      "row_id": "S1-inst07-seed7335182"
+    },
+    {
+      "bc_role": "validation",
+      "eval_seed": 7340208,
+      "gap_row": false,
+      "instance": 8,
+      "level": "S1",
+      "oracle_by": "structured:brake_steer_+0.7",
+      "row_id": "S1-inst08-seed7340208"
+    },
+    {
+      "bc_role": "train",
+      "eval_seed": 7345091,
+      "gap_row": true,
+      "instance": 9,
+      "level": "S1",
+      "oracle_by": "structured:full_brake",
+      "row_id": "S1-inst09-seed7345091"
+    },
+    {
+      "bc_role": "train",
+      "eval_seed": 7350000,
+      "gap_row": false,
+      "instance": 10,
+      "level": "S1",
+      "oracle_by": "structured:brake_steer_-0.4",
+      "row_id": "S1-inst10-seed7350000"
+    },
+    {
+      "bc_role": "selection",
+      "eval_seed": 7355143,
+      "gap_row": false,
+      "instance": 11,
+      "level": "S1",
+      "oracle_by": "structured:brake_steer_-0.4",
+      "row_id": "S1-inst11-seed7355143"
+    },
+    {
+      "bc_role": "validation",
+      "eval_seed": 7500026,
+      "gap_row": true,
+      "instance": 0,
+      "level": "S2",
+      "oracle_by": "structured:brake_steer_-0.4",
+      "row_id": "S2-inst00-seed7500026"
+    },
+    {
+      "bc_role": "train",
+      "eval_seed": 7505208,
+      "gap_row": false,
+      "instance": 1,
+      "level": "S2",
+      "oracle_by": "structured:brake_steer_-0.4",
+      "row_id": "S2-inst01-seed7505208"
+    },
+    {
+      "bc_role": "validation",
+      "eval_seed": 7510156,
+      "gap_row": false,
+      "instance": 2,
+      "level": "S2",
+      "oracle_by": "structured:brake_steer_-0.4",
+      "row_id": "S2-inst02-seed7510156"
+    },
+    {
+      "bc_role": "selection",
+      "eval_seed": 7515052,
+      "gap_row": true,
+      "instance": 3,
+      "level": "S2",
+      "oracle_by": "structured:brake_steer_-0.4",
+      "row_id": "S2-inst03-seed7515052"
+    },
+    {
+      "bc_role": "selection",
+      "eval_seed": 7520143,
+      "gap_row": false,
+      "instance": 4,
+      "level": "S2",
+      "oracle_by": "structured:brake_steer_-0.4",
+      "row_id": "S2-inst04-seed7520143"
+    },
+    {
+      "bc_role": "selection",
+      "eval_seed": 7525208,
+      "gap_row": false,
+      "instance": 5,
+      "level": "S2",
+      "oracle_by": "structured:brake_steer_-1.0",
+      "row_id": "S2-inst05-seed7525208"
+    },
+    {
+      "bc_role": "train",
+      "eval_seed": 7530208,
+      "gap_row": true,
+      "instance": 6,
+      "level": "S2",
+      "oracle_by": "structured:brake_steer_-0.4",
+      "row_id": "S2-inst06-seed7530208"
+    },
+    {
+      "bc_role": "train",
+      "eval_seed": 7535013,
+      "gap_row": false,
+      "instance": 7,
+      "level": "S2",
+      "oracle_by": "structured:brake_steer_-0.4",
+      "row_id": "S2-inst07-seed7535013"
+    },
+    {
+      "bc_role": "validation",
+      "eval_seed": 7540299,
+      "gap_row": false,
+      "instance": 8,
+      "level": "S2",
+      "oracle_by": "structured:coast_steer_-0.7",
+      "row_id": "S2-inst08-seed7540299"
+    },
+    {
+      "bc_role": "selection",
+      "eval_seed": 7545208,
+      "gap_row": false,
+      "instance": 9,
+      "level": "S2",
+      "oracle_by": "structured:brake_steer_-0.4",
+      "row_id": "S2-inst09-seed7545208"
+    },
+    {
+      "bc_role": "selection",
+      "eval_seed": 7550065,
+      "gap_row": true,
+      "instance": 10,
+      "level": "S2",
+      "oracle_by": "structured:brake_steer_-0.4",
+      "row_id": "S2-inst10-seed7550065"
+    },
+    {
+      "bc_role": "train",
+      "eval_seed": 7555182,
+      "gap_row": false,
+      "instance": 11,
+      "level": "S2",
+      "oracle_by": "structured:brake_steer_+0.4",
+      "row_id": "S2-inst11-seed7555182"
+    },
+    {
+      "bc_role": "train",
+      "eval_seed": 7700221,
+      "gap_row": false,
+      "instance": 0,
+      "level": "S3",
+      "oracle_by": "structured:full_brake",
+      "row_id": "S3-inst00-seed7700221"
+    },
+    {
+      "bc_role": "train",
+      "eval_seed": 7705078,
+      "gap_row": true,
+      "instance": 1,
+      "level": "S3",
+      "oracle_by": "structured:brake_steer_-0.4",
+      "row_id": "S3-inst01-seed7705078"
+    },
+    {
+      "bc_role": "validation",
+      "eval_seed": 7710156,
+      "gap_row": true,
+      "instance": 2,
+      "level": "S3",
+      "oracle_by": "structured:brake_steer_-0.4",
+      "row_id": "S3-inst02-seed7710156"
+    },
+    {
+      "bc_role": "train",
+      "eval_seed": 7715221,
+      "gap_row": false,
+      "instance": 3,
+      "level": "S3",
+      "oracle_by": "structured:brake_steer_-0.4",
+      "row_id": "S3-inst03-seed7715221"
+    },
+    {
+      "bc_role": "validation",
+      "eval_seed": 7720117,
+      "gap_row": false,
+      "instance": 4,
+      "level": "S3",
+      "oracle_by": "structured:coast_steer_+0.7",
+      "row_id": "S3-inst04-seed7720117"
+    },
+    {
+      "bc_role": "train",
+      "eval_seed": 7725195,
+      "gap_row": false,
+      "instance": 5,
+      "level": "S3",
+      "oracle_by": "structured:full_brake",
+      "row_id": "S3-inst05-seed7725195"
+    },
+    {
+      "bc_role": "selection",
+      "eval_seed": 7730104,
+      "gap_row": false,
+      "instance": 6,
+      "level": "S3",
+      "oracle_by": "structured:full_brake",
+      "row_id": "S3-inst06-seed7730104"
+    },
+    {
+      "bc_role": "train",
+      "eval_seed": 7735169,
+      "gap_row": false,
+      "instance": 7,
+      "level": "S3",
+      "oracle_by": "structured:brake_steer_+0.4",
+      "row_id": "S3-inst07-seed7735169"
+    },
+    {
+      "bc_role": "train",
+      "eval_seed": 7740117,
+      "gap_row": true,
+      "instance": 8,
+      "level": "S3",
+      "oracle_by": "structured:brake_steer_-0.4",
+      "row_id": "S3-inst08-seed7740117"
+    },
+    {
+      "bc_role": "validation",
+      "eval_seed": 7745039,
+      "gap_row": false,
+      "instance": 9,
+      "level": "S3",
+      "oracle_by": "structured:full_brake",
+      "row_id": "S3-inst09-seed7745039"
+    },
+    {
+      "bc_role": "train",
+      "eval_seed": 7750026,
+      "gap_row": false,
+      "instance": 10,
+      "level": "S3",
+      "oracle_by": "structured:swerve_+1_n10",
+      "row_id": "S3-inst10-seed7750026"
+    },
+    {
+      "bc_role": "selection",
+      "eval_seed": 7755208,
+      "gap_row": true,
+      "instance": 11,
+      "level": "S3",
+      "oracle_by": "structured:coast_steer_-0.7",
+      "row_id": "S3-inst11-seed7755208"
+    }
+  ],
+  "source_artifacts": {
+    "a3_episode_rows_csv": "/home/quyaonan/workspace/autodrift/runs/feasibility_audit/c5prime_target_consolidation/episode_rows.csv",
+    "a3_prereg": "experiments/feasibility_audit/c5prime_prereg.json",
+    "a3_summary_json": "/home/quyaonan/workspace/autodrift/experiments/feasibility_audit/c5prime_target_consolidation.json"
+  }
+}

@@ -1,0 +1,666 @@
+{
+  "bc_protocol": {
+    "dagger_lite": "after initial BC, roll the model on train-role rows and relabel visited states with the same frozen structured-oracle step rule; cap 80 steps/row",
+    "epoch_selection": "lowest selection-role action MSE; validation-role rows reported only after selection",
+    "final_bc_epochs": {
+      "full": 60,
+      "quick": 12
+    },
+    "initial_bc_epochs": {
+      "full": 12,
+      "quick": 4
+    },
+    "model": "ActorCritic(obs_dim=72, act_dim=3, hidden_size=128, actor_encoder=mlp)",
+    "primary_smoke_gate": "validation action MSE <= 0.12 and at least 25% lower than zero-action baseline MSE",
+    "target": "tanh(actor_mean(obs)) fitted to structured-oracle action labels"
+  },
+  "claim_boundary": "C1 C5-prime oracle-demo and behavior-cloning warm-start engineering only: structured A3 oracle rows are replayed in current-sim, a small BC policy is fit with held-out epoch selection and a DAgger-lite relabeling pass, and the result is a warm-start artifact for later guarded stages. No incumbent driver mutation, validation ranking, promotion, high-fidelity sufficiency, paper, repair-success, robustness-result, feasibility-proof, or self-ID claim.",
+  "decision_rule": "M3228 completes the C1 warm-start smoke if the selected structured-oracle demos replay successfully, the BC checkpoint is written, held-out epoch selection is used, and the validation action-MSE gate passes. BC rollout success is reported as context only and is not a driver-performance claim.",
+  "frozen_at_utc": "20260612T040226Z",
+  "frozen_before_any_c1_rollout": true,
+  "protocol": "c5prime_c1_oracle_bc_warmstart_preregistration",
+  "roadmap_unit": "C1 Oracle demo generator + BC warm-start",
+  "runtime_gates": [
+    "preregistration file exists and is marked frozen before any C1 rollout",
+    "all demo reset observations are finite obs72",
+    "all replayed structured-oracle demos succeed on the selected rows",
+    "BC checkpoint and dataset artifacts are written",
+    "validation action MSE clears the frozen smoke gate"
+  ],
+  "seed_base": 20260817,
+  "selected_rows": [
+    {
+      "bc_role": "selection",
+      "eval_seed": 7300091,
+      "gap_row": false,
+      "instance": 0,
+      "level": "S1",
+      "oracle_by": "structured:brake_steer_+0.4",
+      "pertuned_grid": [
+        1.0,
+        1.45,
+        1.0
+      ],
+      "reveal_step": 50,
+      "row_id": "S1-inst00-seed7300091",
+      "surface": "T_limit",
+      "v4_pertuned_outcome": "success"
+    },
+    {
+      "bc_role": "train",
+      "eval_seed": 7305078,
+      "gap_row": false,
+      "instance": 1,
+      "level": "S1",
+      "oracle_by": "structured:swerve_+1_n10",
+      "pertuned_grid": [
+        1.0,
+        1.45,
+        1.0
+      ],
+      "reveal_step": 26,
+      "row_id": "S1-inst01-seed7305078",
+      "surface": "T_limit",
+      "v4_pertuned_outcome": "success"
+    },
+    {
+      "bc_role": "train",
+      "eval_seed": 7310091,
+      "gap_row": true,
+      "instance": 2,
+      "level": "S1",
+      "oracle_by": "structured:brake_steer_-0.4",
+      "pertuned_grid": [
+        1.0,
+        1.45,
+        1.0
+      ],
+      "reveal_step": 45,
+      "row_id": "S1-inst02-seed7310091",
+      "surface": "T_limit",
+      "v4_pertuned_outcome": "collision"
+    },
+    {
+      "bc_role": "train",
+      "eval_seed": 7315052,
+      "gap_row": false,
+      "instance": 3,
+      "level": "S1",
+      "oracle_by": "structured:brake_steer_-0.4",
+      "pertuned_grid": [
+        1.0,
+        1.45,
+        1.0
+      ],
+      "reveal_step": 24,
+      "row_id": "S1-inst03-seed7315052",
+      "surface": "T_limit",
+      "v4_pertuned_outcome": "success"
+    },
+    {
+      "bc_role": "validation",
+      "eval_seed": 7320234,
+      "gap_row": true,
+      "instance": 4,
+      "level": "S1",
+      "oracle_by": "structured:brake_steer_-0.4",
+      "pertuned_grid": [
+        1.8,
+        1.45,
+        1.0
+      ],
+      "reveal_step": 41,
+      "row_id": "S1-inst04-seed7320234",
+      "surface": "T_limit",
+      "v4_pertuned_outcome": "offtrack"
+    },
+    {
+      "bc_role": "train",
+      "eval_seed": 7325169,
+      "gap_row": false,
+      "instance": 5,
+      "level": "S1",
+      "oracle_by": "structured:brake_steer_+0.4",
+      "pertuned_grid": [
+        1.8,
+        1.45,
+        1.0
+      ],
+      "reveal_step": 57,
+      "row_id": "S1-inst05-seed7325169",
+      "surface": "T_limit",
+      "v4_pertuned_outcome": "success"
+    },
+    {
+      "bc_role": "validation",
+      "eval_seed": 7330273,
+      "gap_row": false,
+      "instance": 6,
+      "level": "S1",
+      "oracle_by": "structured:brake_steer_+0.4",
+      "pertuned_grid": [
+        1.8,
+        1.45,
+        1.0
+      ],
+      "reveal_step": 23,
+      "row_id": "S1-inst06-seed7330273",
+      "surface": "T_limit",
+      "v4_pertuned_outcome": "success"
+    },
+    {
+      "bc_role": "validation",
+      "eval_seed": 7335182,
+      "gap_row": false,
+      "instance": 7,
+      "level": "S1",
+      "oracle_by": "structured:brake_steer_+0.4",
+      "pertuned_grid": [
+        1.8,
+        1.45,
+        1.0
+      ],
+      "reveal_step": 39,
+      "row_id": "S1-inst07-seed7335182",
+      "surface": "T_limit",
+      "v4_pertuned_outcome": "success"
+    },
+    {
+      "bc_role": "validation",
+      "eval_seed": 7340208,
+      "gap_row": false,
+      "instance": 8,
+      "level": "S1",
+      "oracle_by": "structured:brake_steer_+0.7",
+      "pertuned_grid": [
+        1.8,
+        1.45,
+        1.0
+      ],
+      "reveal_step": 78,
+      "row_id": "S1-inst08-seed7340208",
+      "surface": "T_limit",
+      "v4_pertuned_outcome": "success"
+    },
+    {
+      "bc_role": "train",
+      "eval_seed": 7345091,
+      "gap_row": true,
+      "instance": 9,
+      "level": "S1",
+      "oracle_by": "structured:full_brake",
+      "pertuned_grid": [
+        1.0,
+        1.45,
+        1.0
+      ],
+      "reveal_step": 80,
+      "row_id": "S1-inst09-seed7345091",
+      "surface": "T_limit",
+      "v4_pertuned_outcome": "collision"
+    },
+    {
+      "bc_role": "train",
+      "eval_seed": 7350000,
+      "gap_row": false,
+      "instance": 10,
+      "level": "S1",
+      "oracle_by": "structured:brake_steer_-0.4",
+      "pertuned_grid": [
+        1.0,
+        1.45,
+        1.0
+      ],
+      "reveal_step": 58,
+      "row_id": "S1-inst10-seed7350000",
+      "surface": "T_limit",
+      "v4_pertuned_outcome": "success"
+    },
+    {
+      "bc_role": "selection",
+      "eval_seed": 7355143,
+      "gap_row": false,
+      "instance": 11,
+      "level": "S1",
+      "oracle_by": "structured:brake_steer_-0.4",
+      "pertuned_grid": [
+        1.0,
+        1.45,
+        1.0
+      ],
+      "reveal_step": 31,
+      "row_id": "S1-inst11-seed7355143",
+      "surface": "T_limit",
+      "v4_pertuned_outcome": "success"
+    },
+    {
+      "bc_role": "validation",
+      "eval_seed": 7500026,
+      "gap_row": true,
+      "instance": 0,
+      "level": "S2",
+      "oracle_by": "structured:brake_steer_-0.4",
+      "pertuned_grid": [
+        0.6,
+        1.45,
+        1.0
+      ],
+      "reveal_step": 41,
+      "row_id": "S2-inst00-seed7500026",
+      "surface": "T_limit",
+      "v4_pertuned_outcome": "collision"
+    },
+    {
+      "bc_role": "train",
+      "eval_seed": 7505208,
+      "gap_row": false,
+      "instance": 1,
+      "level": "S2",
+      "oracle_by": "structured:brake_steer_-0.4",
+      "pertuned_grid": [
+        1.0,
+        1.45,
+        1.0
+      ],
+      "reveal_step": 19,
+      "row_id": "S2-inst01-seed7505208",
+      "surface": "T_limit",
+      "v4_pertuned_outcome": "success"
+    },
+    {
+      "bc_role": "validation",
+      "eval_seed": 7510156,
+      "gap_row": false,
+      "instance": 2,
+      "level": "S2",
+      "oracle_by": "structured:brake_steer_-0.4",
+      "pertuned_grid": [
+        1.0,
+        1.45,
+        1.0
+      ],
+      "reveal_step": 59,
+      "row_id": "S2-inst02-seed7510156",
+      "surface": "T_limit",
+      "v4_pertuned_outcome": "success"
+    },
+    {
+      "bc_role": "selection",
+      "eval_seed": 7515052,
+      "gap_row": true,
+      "instance": 3,
+      "level": "S2",
+      "oracle_by": "structured:brake_steer_-0.4",
+      "pertuned_grid": [
+        1.0,
+        1.45,
+        1.4
+      ],
+      "reveal_step": 51,
+      "row_id": "S2-inst03-seed7515052",
+      "surface": "T_limit",
+      "v4_pertuned_outcome": "collision"
+    },
+    {
+      "bc_role": "selection",
+      "eval_seed": 7520143,
+      "gap_row": false,
+      "instance": 4,
+      "level": "S2",
+      "oracle_by": "structured:brake_steer_-0.4",
+      "pertuned_grid": [
+        1.8,
+        1.45,
+        1.0
+      ],
+      "reveal_step": 33,
+      "row_id": "S2-inst04-seed7520143",
+      "surface": "T_limit",
+      "v4_pertuned_outcome": "success"
+    },
+    {
+      "bc_role": "selection",
+      "eval_seed": 7525208,
+      "gap_row": false,
+      "instance": 5,
+      "level": "S2",
+      "oracle_by": "structured:brake_steer_-1.0",
+      "pertuned_grid": [
+        1.0,
+        1.45,
+        1.0
+      ],
+      "reveal_step": 20,
+      "row_id": "S2-inst05-seed7525208",
+      "surface": "T_limit",
+      "v4_pertuned_outcome": "success"
+    },
+    {
+      "bc_role": "train",
+      "eval_seed": 7530208,
+      "gap_row": true,
+      "instance": 6,
+      "level": "S2",
+      "oracle_by": "structured:brake_steer_-0.4",
+      "pertuned_grid": [
+        1.0,
+        1.45,
+        1.0
+      ],
+      "reveal_step": 93,
+      "row_id": "S2-inst06-seed7530208",
+      "surface": "T_limit",
+      "v4_pertuned_outcome": "collision"
+    },
+    {
+      "bc_role": "train",
+      "eval_seed": 7535013,
+      "gap_row": false,
+      "instance": 7,
+      "level": "S2",
+      "oracle_by": "structured:brake_steer_-0.4",
+      "pertuned_grid": [
+        1.0,
+        1.45,
+        1.0
+      ],
+      "reveal_step": 24,
+      "row_id": "S2-inst07-seed7535013",
+      "surface": "T_limit",
+      "v4_pertuned_outcome": "success"
+    },
+    {
+      "bc_role": "validation",
+      "eval_seed": 7540299,
+      "gap_row": false,
+      "instance": 8,
+      "level": "S2",
+      "oracle_by": "structured:coast_steer_-0.7",
+      "pertuned_grid": [
+        1.8,
+        1.45,
+        1.0
+      ],
+      "reveal_step": 75,
+      "row_id": "S2-inst08-seed7540299",
+      "surface": "T_limit",
+      "v4_pertuned_outcome": "success"
+    },
+    {
+      "bc_role": "selection",
+      "eval_seed": 7545208,
+      "gap_row": false,
+      "instance": 9,
+      "level": "S2",
+      "oracle_by": "structured:brake_steer_-0.4",
+      "pertuned_grid": [
+        1.8,
+        1.45,
+        1.0
+      ],
+      "reveal_step": 33,
+      "row_id": "S2-inst09-seed7545208",
+      "surface": "T_limit",
+      "v4_pertuned_outcome": "success"
+    },
+    {
+      "bc_role": "selection",
+      "eval_seed": 7550065,
+      "gap_row": true,
+      "instance": 10,
+      "level": "S2",
+      "oracle_by": "structured:brake_steer_-0.4",
+      "pertuned_grid": [
+        1.0,
+        1.45,
+        1.0
+      ],
+      "reveal_step": 86,
+      "row_id": "S2-inst10-seed7550065",
+      "surface": "T_limit",
+      "v4_pertuned_outcome": "collision"
+    },
+    {
+      "bc_role": "train",
+      "eval_seed": 7555182,
+      "gap_row": false,
+      "instance": 11,
+      "level": "S2",
+      "oracle_by": "structured:brake_steer_+0.4",
+      "pertuned_grid": [
+        1.0,
+        1.45,
+        1.0
+      ],
+      "reveal_step": 53,
+      "row_id": "S2-inst11-seed7555182",
+      "surface": "T_limit",
+      "v4_pertuned_outcome": "success"
+    },
+    {
+      "bc_role": "train",
+      "eval_seed": 7700221,
+      "gap_row": false,
+      "instance": 0,
+      "level": "S3",
+      "oracle_by": "structured:full_brake",
+      "pertuned_grid": [
+        1.0,
+        1.45,
+        1.0
+      ],
+      "reveal_step": 30,
+      "row_id": "S3-inst00-seed7700221",
+      "surface": "T_limit",
+      "v4_pertuned_outcome": "success"
+    },
+    {
+      "bc_role": "train",
+      "eval_seed": 7705078,
+      "gap_row": true,
+      "instance": 1,
+      "level": "S3",
+      "oracle_by": "structured:brake_steer_-0.4",
+      "pertuned_grid": [
+        1.0,
+        1.45,
+        1.8
+      ],
+      "reveal_step": 40,
+      "row_id": "S3-inst01-seed7705078",
+      "surface": "T_limit",
+      "v4_pertuned_outcome": "collision"
+    },
+    {
+      "bc_role": "validation",
+      "eval_seed": 7710156,
+      "gap_row": true,
+      "instance": 2,
+      "level": "S3",
+      "oracle_by": "structured:brake_steer_-0.4",
+      "pertuned_grid": [
+        1.8,
+        1.45,
+        1.0
+      ],
+      "reveal_step": 57,
+      "row_id": "S3-inst02-seed7710156",
+      "surface": "T_limit",
+      "v4_pertuned_outcome": "collision"
+    },
+    {
+      "bc_role": "train",
+      "eval_seed": 7715221,
+      "gap_row": false,
+      "instance": 3,
+      "level": "S3",
+      "oracle_by": "structured:brake_steer_-0.4",
+      "pertuned_grid": [
+        1.0,
+        1.45,
+        1.0
+      ],
+      "reveal_step": 77,
+      "row_id": "S3-inst03-seed7715221",
+      "surface": "T_limit",
+      "v4_pertuned_outcome": "success"
+    },
+    {
+      "bc_role": "validation",
+      "eval_seed": 7720117,
+      "gap_row": false,
+      "instance": 4,
+      "level": "S3",
+      "oracle_by": "structured:coast_steer_+0.7",
+      "pertuned_grid": [
+        1.8,
+        1.45,
+        1.4
+      ],
+      "reveal_step": 36,
+      "row_id": "S3-inst04-seed7720117",
+      "surface": "T_limit",
+      "v4_pertuned_outcome": "success"
+    },
+    {
+      "bc_role": "train",
+      "eval_seed": 7725195,
+      "gap_row": false,
+      "instance": 5,
+      "level": "S3",
+      "oracle_by": "structured:full_brake",
+      "pertuned_grid": [
+        1.0,
+        1.45,
+        1.0
+      ],
+      "reveal_step": 13,
+      "row_id": "S3-inst05-seed7725195",
+      "surface": "T_limit",
+      "v4_pertuned_outcome": "success"
+    },
+    {
+      "bc_role": "selection",
+      "eval_seed": 7730104,
+      "gap_row": false,
+      "instance": 6,
+      "level": "S3",
+      "oracle_by": "structured:full_brake",
+      "pertuned_grid": [
+        1.0,
+        1.45,
+        1.0
+      ],
+      "reveal_step": 33,
+      "row_id": "S3-inst06-seed7730104",
+      "surface": "T_limit",
+      "v4_pertuned_outcome": "success"
+    },
+    {
+      "bc_role": "train",
+      "eval_seed": 7735169,
+      "gap_row": false,
+      "instance": 7,
+      "level": "S3",
+      "oracle_by": "structured:brake_steer_+0.4",
+      "pertuned_grid": [
+        1.0,
+        1.45,
+        1.0
+      ],
+      "reveal_step": 44,
+      "row_id": "S3-inst07-seed7735169",
+      "surface": "T_limit",
+      "v4_pertuned_outcome": "success"
+    },
+    {
+      "bc_role": "train",
+      "eval_seed": 7740117,
+      "gap_row": true,
+      "instance": 8,
+      "level": "S3",
+      "oracle_by": "structured:brake_steer_-0.4",
+      "pertuned_grid": [
+        1.0,
+        1.45,
+        1.0
+      ],
+      "reveal_step": 50,
+      "row_id": "S3-inst08-seed7740117",
+      "surface": "T_limit",
+      "v4_pertuned_outcome": "collision"
+    },
+    {
+      "bc_role": "validation",
+      "eval_seed": 7745039,
+      "gap_row": false,
+      "instance": 9,
+      "level": "S3",
+      "oracle_by": "structured:full_brake",
+      "pertuned_grid": [
+        1.0,
+        1.45,
+        1.0
+      ],
+      "reveal_step": 17,
+      "row_id": "S3-inst09-seed7745039",
+      "surface": "T_limit",
+      "v4_pertuned_outcome": "success"
+    },
+    {
+      "bc_role": "train",
+      "eval_seed": 7750026,
+      "gap_row": false,
+      "instance": 10,
+      "level": "S3",
+      "oracle_by": "structured:swerve_+1_n10",
+      "pertuned_grid": [
+        1.0,
+        1.45,
+        1.0
+      ],
+      "reveal_step": 72,
+      "row_id": "S3-inst10-seed7750026",
+      "surface": "T_limit",
+      "v4_pertuned_outcome": "success"
+    },
+    {
+      "bc_role": "selection",
+      "eval_seed": 7755208,
+      "gap_row": true,
+      "instance": 11,
+      "level": "S3",
+      "oracle_by": "structured:coast_steer_-0.7",
+      "pertuned_grid": [
+        1.0,
+        1.45,
+        1.0
+      ],
+      "reveal_step": 41,
+      "row_id": "S3-inst11-seed7755208",
+      "surface": "T_limit",
+      "v4_pertuned_outcome": "collision"
+    }
+  ],
+  "selection_rule": {
+    "role_counts": {
+      "selection": 9,
+      "train": 17,
+      "validation": 10
+    },
+    "role_split": "sha256(20260817:role:<level>:<instance>:<eval_seed>) % 6 => 0 validation, 1 selection, else train",
+    "row_filter": "oracle_solved == True and oracle_by starts with structured:",
+    "rows": "one reproducible structured-oracle A3 row per target level x instance",
+    "sort_key": "sha256(20260817:select:<level>:<instance>:<eval_seed>), then eval_seed",
+    "target_cells": [
+      "S1/T_limit",
+      "S2/T_limit",
+      "S3/T_limit"
+    ]
+  },
+  "source_artifacts": {
+    "a3_episode_rows_csv": "/home/quyaonan/workspace/autodrift/runs/feasibility_audit/c5prime_target_consolidation/episode_rows.csv",
+    "a3_prereg": "experiments/feasibility_audit/c5prime_prereg.json",
+    "a3_summary_json": "/home/quyaonan/workspace/autodrift/experiments/feasibility_audit/c5prime_target_consolidation.json"
+  }
+}

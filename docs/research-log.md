@@ -56257,3 +56257,28 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m3227-d1-s4-hf-lite-chrono-pricing_20260611T212929Z/command.log`
 - success artifact: `experiments/feasibility_audit/s4_hf_lite_chrono_pricing.json`
 - notes: Completed: pre-registered D1 Chrono multi-vehicle direction-pricing rollout executed through the harness in 1244.6 s; 108 Chrono episodes over Sedan/BMW_E90/UAZBUS; finite reset obs72 and variant matching passed; direction reversed in all three variants for structured current-sim oracle-tail replay vs v4_pertuned (Sedan -0.0833, BMW_E90 -0.0833, UAZBUS -0.5000). Negative direction-pricing only; no fresh HF oracle, continuous lf/lr/Iz/cf/cr mapping, driver mutation, training, high-fidelity sufficiency, validation, promotion, paper, repair-success, robustness-result, feasibility-proof, or self-ID claim.
+
+## 20260612T040435Z m3228-c1-c5prime-oracle-demo-bc-warmstart
+
+- status: `failed`
+- kind: `infrastructure`
+- hypothesis: A pre-registered C1 C5-prime oracle-demo generator and behavior-cloning warm-start can replay structured A3 oracle rows, fit a held-out-selected BC checkpoint with DAgger-lite relabeling, and produce a Track-C warm-start artifact before validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof paper or self-ID claim.
+- command: `env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/c5prime_c1_oracle_bc_warmstart.py --full`
+- returncode: `1`
+- run dir: `runs/research/m3228-c1-c5prime-oracle-demo-bc-warmstart_20260612T040431Z`
+- command log: `runs/research/m3228-c1-c5prime-oracle-demo-bc-warmstart_20260612T040431Z/command.log`
+- success artifact: `experiments/feasibility_audit/c5prime_c1_oracle_bc_warmstart.json`
+- notes: Failed: full C1 warm-start wrote prereg/checkpoint/dataset/summary but failed the frozen validation action-MSE gate (0.234184 vs <=0.12; zero-action baseline 0.501099). Quick smoke passed but C1 remains open and C2 is not admitted; M3229 localizes the failure.
+
+
+## 20260612T040823Z m3229-c1-bc-warmstart-failure-localization
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: A C1 BC warm-start failure-localization pass can decompose the failed M3228 preregistered action-MSE gate by role, level, oracle action, prefix/tail segment, and action channel before any revised C1 training validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof paper or self-ID claim.
+- command: `env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/c5prime_c1_failure_localization.py`
+- returncode: `0`
+- run dir: `runs/research/m3229-c1-bc-warmstart-failure-localization_20260612T040821Z`
+- command log: `runs/research/m3229-c1-bc-warmstart-failure-localization_20260612T040821Z/command.log`
+- success artifact: `experiments/feasibility_audit/c5prime_c1_failure_localization.json`
+- notes: Completed: localized M3228 failure without retraining or criterion changes; flags selection_validation_mse_gap, tail_action_generalization_dominates, rollout_context_better_than_action_mse_gate; C1 remains open pending revised preregistered warm-start design.

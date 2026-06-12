@@ -172,10 +172,18 @@ demonstrating the new axis, registered as a milestone. No training claims.
 
 ## Track C — C5' RL program (m1087 staged; opens after CP-1)
 
-### C1. Oracle demo generator + BC warm-start [OPEN per CP-1 disposition]
+### C1. Oracle demo generator + BC warm-start [OPEN per CP-1 disposition; M3228 failed first BC gate]
 - per-instance oracle demos on the frozen C5' cells; BC with DAgger-lite +
   held-out epoch selection (the G1' lessons are mandatory); capacity and
   seed discipline per the WP1 pattern.
+- result so far: `docs/m3228-c1-c5prime-oracle-demo-bc-warmstart.md` ran the
+  first preregistered structured-oracle demo + MLP BC warm-start. Quick smoke
+  passed, but full validation action MSE was 0.234184 against the frozen
+  <=0.12 gate, so M3228 failed and does not admit C2. `docs/m3229-c1-bc-warmstart-failure-localization.md`
+  localized the failure to a selection/validation tail-action generalization
+  gap (validation prefix MSE 0.026446 vs tail MSE 0.369957). C1 remains open;
+  any next C1 attempt needs a revised preregistration before new warm-start
+  training.
 ### C2. Capability pretrain + guarded RL smoke [BLOCKED on C1]
 - envelope-head pretrain; 1024-step guarded RL smoke first; reward
   recalibration 40/60 as measured; judging prereg frozen before any full
@@ -233,14 +241,14 @@ demonstrating the new axis, registered as a milestone. No training claims.
 
 - A1: DONE (M3220; 0/4 cells qualified under cg/Iz S4L rider)
 - A2: DONE (M3221; normalization/preview implementation blocker found)
-- A3: DONE (M3222; C5-prime target confirmed 3/4 T-limit cells; CP-1 still required)
+- A3: DONE (M3222; C5-prime target confirmed 3/4 T-limit cells; CP-1 conditional approval recorded)
 - B1: DONE (M3223; flagged constant-velocity crosser smoke passed)
 - B2: DONE (M3224; explicit 36 m/s normalization/preview smoke passed)
 - B3: DONE (M3225; geometry-channel degradation smoke passed; split-mu not expressible on the DriftObstacleEnv single-track path)
 - B4: DONE (M3226; 60 s warmup-to-obstacle-to-post-pass continuation smoke passed)
 - B1b: OPEN (moving-obstacle pricing; start after C1/D1b)
 - B2b: OPEN (high-speed pricing; start after C1/D1b)
-- C1: OPEN (CP-1 disposition 2026-06-12: conditional approval)
+- C1: OPEN (CP-1 disposition 2026-06-12: conditional approval; M3228 first BC warm-start failed, M3229 localized tail-action generalization gap)
 - C2: BLOCKED on C1
 - C3: BLOCKED on C2 + D1b direction-positive + CP-2
 - D1: DONE (M3227; tail-replay proxy reversed in all three variants)

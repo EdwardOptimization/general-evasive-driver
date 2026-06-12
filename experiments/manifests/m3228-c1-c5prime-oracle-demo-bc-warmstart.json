@@ -1,0 +1,206 @@
+{
+  "id": "m3228-c1-c5prime-oracle-demo-bc-warmstart",
+  "priority": 32280,
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "metric_artifact"
+  ],
+  "milestone_intent": "training",
+  "hypothesis": "A pre-registered C1 C5-prime oracle-demo generator and behavior-cloning warm-start can replay structured A3 oracle rows, fit a held-out-selected BC checkpoint with DAgger-lite relabeling, and produce a Track-C warm-start artifact before validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof paper or self-ID claim.",
+  "feasibility_pricing": {
+    "pricing_artifact": "experiments/feasibility_audit/c5prime_target_consolidation.json",
+    "priced_gap": 0.1597,
+    "threshold": 0.15,
+    "gap_meets_threshold": true
+  },
+  "lineage": {
+    "parent_checkpoint": [
+      "docs/roadmap-phase3-codex-execution.md",
+      "docs/current-status.md",
+      "docs/m3222-a3-c5prime-target-consolidation.md",
+      "docs/m3227-d1-s4-hf-lite-chrono-pricing.md"
+    ],
+    "parent_dataset": [
+      "runs/feasibility_audit/c5prime_target_consolidation/episode_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/feasibility_audit/c5prime_prereg.json",
+      "experiments/feasibility_audit/c5prime_c1_oracle_bc_prereg.json",
+      "scripts/feasibility_audit/c5prime_c1_oracle_bc_warmstart.py"
+    ],
+    "parent_objective": [
+      "execute roadmap C1 after CP-1 conditional approval using the frozen current-sim C5-prime target only"
+    ],
+    "derived_from": [
+      "M3222 A3 C5-prime target consolidation",
+      "CP-1 conditional approval on 2026-06-12",
+      "M3228 C1 quick smoke artifact"
+    ],
+    "blocked_by": [
+      "C1 requires preregistered oracle-demo generation and held-out-selected BC warm-start before C2"
+    ],
+    "supersedes": [
+      "the C1 OPEN status line if the full warm-start artifact, documentation, and review are completed"
+    ],
+    "invalidates": [
+      "starting guarded RL without a frozen C1 demo and BC warm-start artifact",
+      "treating BC warm-start rollout success as validation or driver-performance evidence"
+    ]
+  },
+  "review_artifact": "docs/reviews/m3228-c1-c5prime-oracle-demo-bc-warmstart.md",
+  "public_gates": [
+    "M3228 must use a frozen C1 preregistration before full C1 rollout",
+    "M3228 must select only structured A3 oracle rows from S1/S2/S3 T-limit target cells",
+    "M3228 must keep selection and validation roles held out from BC training",
+    "M3228 must use held-out epoch selection before reporting validation action MSE",
+    "M3228 must write a checkpoint and dataset artifact",
+    "M3228 must not run PPO, mutate ActiveSafetyReflexDriver, or make a driver-performance claim"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not touch ActiveSafetyReflexDriver",
+    "do not invoke train_ppo or create a guarded-RL checkpoint",
+    "do not use CEM-only A3 oracle rows because their action sequences were not persisted",
+    "do not train on selection or validation role frames",
+    "do not relax the validation action-MSE gate after seeing the result",
+    "do not claim current-sim validation, high-fidelity sufficiency, promotion readiness, or self-ID"
+  ],
+  "workflow_synthesis": {
+    "branch": "c5prime_track_c_c1_warmstart",
+    "evidence_axis": "c5prime_c1_oracle_demo_behavior_pretrain",
+    "evidence_increment": "new C1 oracle-demo dataset plus behavior-cloned warm-start checkpoint on frozen A3 target rows",
+    "claim_scope": "Auxiliary C1 warm-start engineering only; no validation ranking promotion, no driver-performance, no current-sim robustness claim, no high-fidelity sufficiency, no paper, no repair-success, no feasibility-proof, and no self-ID claim",
+    "stop_condition": [
+      "stop if the preregistration is absent or not frozen before rollout",
+      "stop if any selected structured-oracle demo fails to replay",
+      "stop if the validation action-MSE gate fails",
+      "stop after documenting the warm-start artifact and leave C2 guarded RL as the next separate unit"
+    ],
+    "fallback_plan": [
+      "on demo replay failure, keep C1 open and report the failing rows rather than changing target cells",
+      "on BC gate failure, document C1 as failed or incomplete and do not start C2",
+      "on success, mark C1 done and open C2 while D1b remains a CP-2 precondition for C3"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "Phase-3 roadmap CP-1 disposition opened C1 after A3 target confirmation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "behavior_pretrain",
+    "stage_objective": "Generate C1 structured-oracle demos and fit a BC warm-start checkpoint without PPO.",
+    "admission_evidence": [
+      "M3222 A3 confirmed the C5-prime current-sim structural ceiling target in 3/4 T-limit cells",
+      "CP-1 conditional approval opened C1 on 2026-06-12",
+      "M3228 quick smoke produced a finite C1 preregistered warm-start artifact before full C1",
+      "A2 normalization blocker does not block this current-sim frozen-target C1 warm-start smoke"
+    ],
+    "blocked_shortcuts": [
+      "no guarded RL or train_ppo invocation",
+      "no incumbent driver mutation",
+      "no validation ranking or promotion decision",
+      "no Track C staged scale-up before C2 plus D1b direction-positive plus CP-2"
+    ],
+    "allowed_updates": [
+      "scripts/feasibility_audit/c5prime_c1_oracle_bc_warmstart.py",
+      "tests/test_c5prime_c1_oracle_bc_warmstart.py",
+      "experiments/feasibility_audit/c5prime_c1_oracle_bc_prereg.json",
+      "experiments/feasibility_audit/c5prime_c1_oracle_bc_warmstart*.json",
+      "runs/feasibility_audit/c5prime_c1_oracle_bc_warmstart/*",
+      "docs/m3228-c1-c5prime-oracle-demo-bc-warmstart.md",
+      "docs/reviews/m3228-c1-c5prime-oracle-demo-bc-warmstart.md",
+      "M3228 queue, status, scoreboard, roadmap, current-status, research-log, and measurement-index rows"
+    ],
+    "next_stage_criteria": [
+      "full summary JSON exists with protocol c5prime_c1_oracle_bc_warmstart",
+      "demo replay, checkpoint, dataset, and validation action-MSE gates all pass",
+      "result document states BC rollout success is context only and does not admit C3"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "Not applicable: C1 is engineering-only behavior pretraining from structured oracle labels and makes no self-identification or history-attribution claim.",
+    "history_necessity_tests": [
+      "none in M3228: warm-start behavior pretraining only"
+    ],
+    "temporal_evidence_window": "none: no history-attribution claim is made",
+    "negative_result_policy": "A failed or weak BC warm-start is reported at full fidelity and does not get repaired by relaxing the gate.",
+    "allowed_claims": [
+      "C1 preregistration exists before full rollout",
+      "structured-oracle demos replay on frozen A3 target rows",
+      "a held-out-selected BC warm-start checkpoint is generated"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_dataset_or_panel",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "new C1 oracle-demo dataset and BC warm-start checkpoint",
+    "paper_verdict_delta": "C1 can enable the next engineering-stage C2 smoke if it succeeds; it is not itself a paper or controller outcome claim.",
+    "must_synthesize_if": [
+      "C1 BC gate fails twice behavior-neutrally",
+      "C1 expands into PPO or validation ranking",
+      "Track C is proposed for staged scale-up before D1b and CP-2"
+    ]
+  },
+  "success_criteria": [
+    "experiments/feasibility_audit/c5prime_c1_oracle_bc_prereg.json exists before full C1 rollout",
+    "experiments/feasibility_audit/c5prime_c1_oracle_bc_warmstart_quick.json exists from the quick smoke",
+    "experiments/feasibility_audit/c5prime_c1_oracle_bc_warmstart.json exists with protocol c5prime_c1_oracle_bc_warmstart",
+    "full summary gates.all_passed is true",
+    "full run writes a dataset NPZ and checkpoint PT under runs/feasibility_audit/c5prime_c1_oracle_bc_warmstart/full",
+    "the result document separates measured artifacts from inferred interpretation"
+  ],
+  "failure_criteria": [
+    "full C1 rollout starts without frozen preregistration",
+    "a selected structured-oracle demo does not replay to success",
+    "selection or validation role frames are used for BC training",
+    "validation action-MSE gate fails",
+    "the milestone runs PPO, mutates the incumbent, changes actor-input shape, or claims driver performance"
+  ],
+  "decision_rule": "Accept M3228 as completed C1 warm-start engineering only if the full preregistered demo+BC run passes all gates, writes checkpoint and dataset artifacts, and the result is documented and reviewed. BC rollout success is context only.",
+  "commands": [
+    {
+      "name": "c1_c5prime_oracle_bc_full",
+      "command": "env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/c5prime_c1_oracle_bc_warmstart.py --full"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "experiments/feasibility_audit/c5prime_c1_oracle_bc_prereg.json",
+      "type": "json"
+    },
+    {
+      "path": "experiments/feasibility_audit/c5prime_c1_oracle_bc_warmstart_quick.json",
+      "type": "json"
+    },
+    {
+      "path": "experiments/feasibility_audit/c5prime_c1_oracle_bc_warmstart.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/feasibility_audit/c5prime_c1_oracle_bc_warmstart/full/dataset.npz",
+      "type": "npz"
+    },
+    {
+      "path": "runs/feasibility_audit/c5prime_c1_oracle_bc_warmstart/full/checkpoint.pt",
+      "type": "torch_checkpoint"
+    },
+    {
+      "path": "docs/m3228-c1-c5prime-oracle-demo-bc-warmstart.md",
+      "type": "markdown"
+    }
+  ],
+  "baseline_checkpoints": [
+    "docs/roadmap-phase3-codex-execution.md",
+    "docs/current-status.md",
+    "docs/m3222-a3-c5prime-target-consolidation.md",
+    "docs/m3227-d1-s4-hf-lite-chrono-pricing.md"
+  ],
+  "scoreboard_checkpoint": "experiments/feasibility_audit/c5prime_c1_oracle_bc_warmstart.json",
+  "next_blocker": "After C1, C2 guarded RL smoke is the next Track-C unit; C3 staged scale-up remains blocked on C2, D1b direction-positive, and CP-2.",
+  "status": "failed"
+}

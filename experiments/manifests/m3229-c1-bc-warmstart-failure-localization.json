@@ -1,0 +1,175 @@
+{
+  "id": "m3229-c1-bc-warmstart-failure-localization",
+  "priority": 32290,
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "milestone_intent": "evaluation_only",
+  "hypothesis": "A C1 BC warm-start failure-localization pass can decompose the failed M3228 preregistered action-MSE gate by role, level, oracle action, prefix/tail segment, and action channel before any revised C1 training validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof paper or self-ID claim.",
+  "lineage": {
+    "parent_checkpoint": [
+      "experiments/feasibility_audit/c5prime_c1_oracle_bc_warmstart.json",
+      "runs/feasibility_audit/c5prime_c1_oracle_bc_warmstart/full/checkpoint.pt",
+      "docs/roadmap-phase3-codex-execution.md"
+    ],
+    "parent_dataset": [
+      "runs/feasibility_audit/c5prime_c1_oracle_bc_warmstart/full/dataset.npz",
+      "runs/feasibility_audit/c5prime_target_consolidation/episode_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/feasibility_audit/c5prime_c1_oracle_bc_prereg.json",
+      "scripts/feasibility_audit/c5prime_c1_oracle_bc_warmstart.py",
+      "scripts/feasibility_audit/c5prime_c1_failure_localization.py"
+    ],
+    "parent_objective": [
+      "localize the failed C1 warm-start gate without changing criteria or training a new model"
+    ],
+    "derived_from": [
+      "M3228 failed C1 BC warm-start full run",
+      "M3228 checkpoint and summary artifact"
+    ],
+    "blocked_by": [
+      "C1 remains open because M3228 failed the preregistered validation action-MSE gate"
+    ],
+    "supersedes": [
+      "unlocalized interpretation of the M3228 BC gate failure"
+    ],
+    "invalidates": [
+      "marking C1 complete from M3228 quick smoke alone",
+      "starting C2 guarded RL before the failed C1 warm-start path is redesigned or accepted by a new preregistration"
+    ]
+  },
+  "review_artifact": "docs/reviews/m3229-c1-bc-warmstart-failure-localization.md",
+  "public_gates": [
+    "M3229 must not train a new model or change M3228 criteria",
+    "M3229 must reload the failed M3228 checkpoint and frozen C1 preregistration",
+    "M3229 must decompose validation error by at least role and prefix/tail segment",
+    "M3229 must leave C1 open if M3228 failed its preregistered gate"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not rerun C1 training",
+    "do not relax the M3228 action-MSE gate",
+    "do not replace the failed M3228 summary",
+    "do not start PPO or C2 from this diagnostic",
+    "do not claim driver performance, validation ranking, promotion, or self-ID"
+  ],
+  "workflow_synthesis": {
+    "branch": "c5prime_track_c_c1_warmstart",
+    "evidence_axis": "c5prime_c1_failure_localization",
+    "evidence_increment": "new failure-localization artifact over the failed M3228 C1 warm-start checkpoint and labels",
+    "claim_scope": "Auxiliary C1 failure-localization only; no new training, no validation ranking promotion, no driver-performance, no current-sim robustness claim, no high-fidelity sufficiency, no paper, no repair-success, no feasibility-proof, and no self-ID claim",
+    "stop_condition": [
+      "stop after localizing M3228 failure and documenting whether C1 remains open",
+      "stop if the diagnostic would require changing the failed M3228 criteria",
+      "stop if the diagnostic drifts into new training or C2"
+    ],
+    "fallback_plan": [
+      "on missing M3228 artifacts, mark C1 blocked on artifact integrity rather than re-running unstaged training",
+      "on localization success, document a revised-C1 pre-registration requirement before any new warm-start attempt",
+      "on diagnostic ambiguity, keep C1 open and require a separate design milestone"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M3228 failed the pre-registered full C1 BC validation action-MSE gate",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "Analyze the failed M3228 C1 warm-start artifact without new training.",
+    "admission_evidence": [
+      "M3228 failed with validation action MSE 0.234184 against a <=0.12 preregistered gate",
+      "M3228 wrote the checkpoint and dataset needed for post-failure localization",
+      "C1 remains the lowest open Track-C unit after M3228 failure"
+    ],
+    "blocked_shortcuts": [
+      "no train_ppo invocation",
+      "no BC retraining",
+      "no checkpoint replacement",
+      "no C2 admission"
+    ],
+    "allowed_updates": [
+      "scripts/feasibility_audit/c5prime_c1_failure_localization.py",
+      "experiments/feasibility_audit/c5prime_c1_failure_localization.json",
+      "docs/m3229-c1-bc-warmstart-failure-localization.md",
+      "docs/reviews/m3229-c1-bc-warmstart-failure-localization.md",
+      "M3229 queue, status, scoreboard, roadmap, current-status, research-log, and measurement-index rows"
+    ],
+    "next_stage_criteria": [
+      "diagnostic JSON exists with protocol c5prime_c1_failure_localization",
+      "diagnosis flags and per-row MSE decomposition are documented",
+      "result document states that C1 remains open"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "Not applicable: M3229 reanalyzes a BC warm-start failure and makes no self-identification or history-attribution claim.",
+    "history_necessity_tests": [
+      "none in M3229: failure-localization only"
+    ],
+    "temporal_evidence_window": "none: no history-attribution claim is made",
+    "negative_result_policy": "The M3228 failure remains failed; M3229 reports localization without relaxing criteria.",
+    "allowed_claims": [
+      "M3228 failed its preregistered gate",
+      "error decomposition over the failed checkpoint and frozen labels",
+      "C1 remains open pending a revised preregistered warm-start design"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "evidence_reanalysis",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "new diagnostic decomposition of the failed C1 BC gate",
+    "paper_verdict_delta": "M3229 prevents misusing M3228 as a successful C1 admission artifact; it does not add a paper result.",
+    "must_synthesize_if": [
+      "a second C1 warm-start attempt fails behavior-neutrally",
+      "the branch proposes criterion changes without preregistration",
+      "C1 diagnostic work repeats without producing a revised design or new data"
+    ]
+  },
+  "success_criteria": [
+    "experiments/feasibility_audit/c5prime_c1_failure_localization.json exists with protocol c5prime_c1_failure_localization",
+    "the diagnostic reports diagnosis_flags including the M3228 failure mode",
+    "the diagnostic decision keeps C1 open",
+    "the result document separates measured artifacts from inferred interpretation"
+  ],
+  "failure_criteria": [
+    "M3229 trains a new model or changes M3228 criteria",
+    "M3229 cannot load the M3228 checkpoint or frozen preregistration",
+    "M3229 omits role or prefix/tail decomposition",
+    "M3229 starts C2 or claims C1 success"
+  ],
+  "decision_rule": "Accept M3229 as completed if it produces the failure-localization artifact and documents that M3228 failed the preregistered C1 warm-start gate while C1 remains open.",
+  "commands": [
+    {
+      "name": "c1_bc_failure_localization",
+      "command": "env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/c5prime_c1_failure_localization.py"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "experiments/feasibility_audit/c5prime_c1_oracle_bc_warmstart.json",
+      "type": "json"
+    },
+    {
+      "path": "experiments/feasibility_audit/c5prime_c1_failure_localization.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m3229-c1-bc-warmstart-failure-localization.md",
+      "type": "markdown"
+    }
+  ],
+  "baseline_checkpoints": [
+    "experiments/feasibility_audit/c5prime_c1_oracle_bc_warmstart.json",
+    "experiments/feasibility_audit/c5prime_c1_oracle_bc_prereg.json",
+    "docs/roadmap-phase3-codex-execution.md"
+  ],
+  "scoreboard_checkpoint": "experiments/feasibility_audit/c5prime_c1_failure_localization.json",
+  "next_blocker": "C1 remains open; the next C1 attempt needs a revised preregistered warm-start design that addresses the M3229 localization.",
+  "status": "completed"
+}
