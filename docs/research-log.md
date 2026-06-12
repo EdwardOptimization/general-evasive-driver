@@ -56344,3 +56344,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m3232-c1-v2-tail-balanced-warmstart-smoke_20260612T062602Z/command.log`
 - success artifact: `experiments/feasibility_audit/c5prime_c1_oracle_bc_warmstart_v2_quick.json`
 - notes: Failed: C1 v2 tail-balanced quick smoke replayed all selected demos and wrote checkpoint/dataset artifacts, but failed the frozen validation action-MSE gate (0.291470 vs <=0.12; zero-action baseline 0.559903). Validation rollout context was 2/3 success and cannot override the failed gate. C1 remains open; do not proceed to full v2 or C2 without C1 synthesis/repricing.
+
+## 20260612T064016Z m3233-c1-synthesis-repricing
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: A preregistered C1 synthesis/repricing pass over M3228/M3229/M3232 plus A3/D1b pricing can decide whether the local direct-MLP action-MSE warm-start branch should continue, pivot, or stop before validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof or self-ID claim.
+- command: `env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/c5prime_c1_synthesis_repricing.py`
+- returncode: `0`
+- run dir: `runs/research/m3233-c1-synthesis-repricing_20260612T064016Z`
+- command log: `runs/research/m3233-c1-synthesis-repricing_20260612T064016Z/command.log`
+- success artifact: `experiments/feasibility_audit/c5prime_c1_synthesis_repricing.json`
+- notes: Completed: M3233 synthesized existing pricing and C1 warm-start evidence; decision pivot away from the local direct-MLP/action-MSE warm-start branch. C1 remains open under c5prime_track_c_c1_admission_interface_pricing; C2/C3 remain blocked; no rollout, training, driver mutation, validation ranking, promotion, high-fidelity sufficiency, or self-ID claim.

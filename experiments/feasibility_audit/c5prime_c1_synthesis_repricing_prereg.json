@@ -1,0 +1,21 @@
+{
+  "decision_rule": {
+    "c1_remains_open_if": "A3 current-sim C5-prime target remains confirmed and D1b Chrono-native direction pricing is positive.",
+    "c2_remains_blocked_if": "The C1 admission artifact has not passed its frozen gate; rollout-context positives cannot override action-MSE failure without a new preregistered gate.",
+    "local_bc_branch_pivots_if": "At least two C1 direct MLP/action-MSE warm-start attempts fail the unchanged action-MSE gate, artifact/demo gates are healthy, the latest attempt improves validation MSE by less than the frozen minimum, and localization flags tail-action generalization."
+  },
+  "frozen_at_utc": "20260612T000000Z",
+  "protocol": "c5prime_c1_synthesis_repricing",
+  "source_artifacts": {
+    "a3_current_sim_target": "experiments/feasibility_audit/c5prime_target_consolidation.json",
+    "d1b_chrono_native_direction": "experiments/feasibility_audit/chrono_native_oracle_pricing.json",
+    "m3228_c1_full": "experiments/feasibility_audit/c5prime_c1_oracle_bc_warmstart.json",
+    "m3229_failure_localization": "experiments/feasibility_audit/c5prime_c1_failure_localization.json",
+    "m3232_c1_v2_quick": "experiments/feasibility_audit/c5prime_c1_oracle_bc_warmstart_v2_quick.json"
+  },
+  "thresholds": {
+    "max_action_mse_gate_failures_before_synthesis": 2,
+    "minimum_validation_mse_improvement_for_local_repair": 0.03,
+    "validation_action_mse_gate": 0.12
+  }
+}

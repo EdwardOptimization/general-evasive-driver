@@ -1,0 +1,218 @@
+{
+  "claim_boundary": "M3233 C1 synthesis/repricing only: reanalysis of existing C5-prime pricing and C1 warm-start artifacts. No new rollout, no training, no criterion relaxation, no driver mutation, no validation ranking, no promotion, no driver-performance claim, no high-fidelity sufficiency claim, and no self-ID claim.",
+  "decision": {
+    "another_local_mlp_bc_repair_admitted": false,
+    "artifact_path_healthy": true,
+    "c1_status": "open",
+    "c2_admitted": false,
+    "c3_admitted": false,
+    "closed_branch": "c5prime_track_c_c1_warmstart",
+    "failed_action_mse_gate_count": 2,
+    "full_v2_admitted": false,
+    "local_branch_pivots": true,
+    "minimum_improvement_for_local_repair": 0.03,
+    "next_branch": "c5prime_track_c_c1_admission_interface_pricing",
+    "reason": "A3 and D1b keep the C5-prime structural target priced, but two C1 direct MLP/action-MSE warm-start attempts failed the unchanged gate; the v2 quick attempt worsened validation MSE while artifact and demo gates stayed healthy, and M3229 localized the error to validation tail actions.",
+    "recommended_next": "Register a C1b process/pricing milestone for admission-interface design before any new warm-start training: keep the priced C5-prime target, but compare a new tail-action-family or mixture interface against the direct MLP action-MSE floor with frozen criteria.",
+    "synthesis_decision": "pivot",
+    "target_still_priced": true,
+    "validation_mse_improvement_m3228_minus_m3232": -0.057286
+  },
+  "elapsed_s": 0.001,
+  "generated_at_utc": "20260612T064016Z",
+  "generated_by": "scripts/feasibility_audit/c5prime_c1_synthesis_repricing.py",
+  "inferred": {
+    "action_mse_gate_context": "The rollout success contexts are informative but cannot override the frozen action-MSE gate; no replacement gate is priced in this milestone.",
+    "failure_mode": "Direct MLP imitation learns prefix/selection behavior but does not generalize the held-out tail action families at the current admission gate."
+  },
+  "measured": {
+    "failure_localization": {
+      "by_action_channel_frame_mse": {
+        "brake": 0.201318,
+        "steer": 0.073152,
+        "throttle": 0.009926
+      },
+      "by_level_frame_mse": {
+        "S1": 0.028084,
+        "S2": 0.124519,
+        "S3": 0.137524
+      },
+      "by_oracle_frame_mse": {
+        "structured:brake_steer_+0.4": 0.025201,
+        "structured:brake_steer_+0.7": 0.082411,
+        "structured:brake_steer_-0.4": 0.023384,
+        "structured:brake_steer_-1.0": 0.181039,
+        "structured:coast_steer_+0.7": 1.02453,
+        "structured:coast_steer_-0.7": 0.666028,
+        "structured:full_brake": 0.01404,
+        "structured:swerve_+1_n10": 0.018161
+      },
+      "diagnosis_flags": [
+        "selection_validation_mse_gap",
+        "tail_action_generalization_dominates",
+        "rollout_context_better_than_action_mse_gate"
+      ],
+      "dominant_action_channel": "brake",
+      "dominant_action_channel_mse": 0.201318,
+      "dominant_action_channel_share": 0.707879,
+      "validation_prefix_mse": 0.026446,
+      "validation_tail_minus_prefix_mse": 0.343511,
+      "validation_tail_mse": 0.369957,
+      "validation_tail_prefix_ratio": 13.989148
+    },
+    "priced_target": {
+      "a3_current_sim": {
+        "c5prime_target_confirmed": true,
+        "min_qualified_gap": 0.1597,
+        "qualified_cell_count": 3,
+        "qualifying_target_cells": [
+          "S1/T_limit",
+          "S2/T_limit",
+          "S3/T_limit"
+        ],
+        "rule": ">=3 T-limit cells with oracle_minus_pertuned >= 0.15 and paired CI95 lower > 0; CP-1 still required before Track C training",
+        "structural_gap_oracle_minus_pertuned": {
+          "S0/T_limit": {
+            "paired_bootstrap_ci95": [
+              0.0833,
+              0.1944
+            ],
+            "value": 0.1389
+          },
+          "S1/T_limit": {
+            "paired_bootstrap_ci95": [
+              0.1042,
+              0.2222
+            ],
+            "value": 0.1597
+          },
+          "S2/T_limit": {
+            "paired_bootstrap_ci95": [
+              0.1528,
+              0.2847
+            ],
+            "value": 0.2153
+          },
+          "S3/T_limit": {
+            "paired_bootstrap_ci95": [
+              0.1181,
+              0.2361
+            ],
+            "value": 0.1736
+          }
+        }
+      },
+      "d1b_chrono_native_direction": {
+        "absolute_numbers_are_claims": false,
+        "d1b_direction_positive_all_variants": true,
+        "variant_verdicts": {
+          "bmw_e90_tmeasy": {
+            "arm_n": {
+              "native_oracle": 9,
+              "v4_pertuned": 9
+            },
+            "arm_success_counts": {
+              "native_oracle": 8,
+              "v4_pertuned": 7
+            },
+            "candidate_attempts": 97,
+            "direction_delta_native_oracle_minus_pertuned": 0.1111,
+            "direction_verdict": "direction_positive"
+          },
+          "sedan_tmeasy": {
+            "arm_n": {
+              "native_oracle": 9,
+              "v4_pertuned": 9
+            },
+            "arm_success_counts": {
+              "native_oracle": 9,
+              "v4_pertuned": 7
+            },
+            "candidate_attempts": 88,
+            "direction_delta_native_oracle_minus_pertuned": 0.2222,
+            "direction_verdict": "direction_positive"
+          }
+        }
+      }
+    },
+    "warmstart_attempts": [
+      {
+        "action_mse_threshold": 0.12,
+        "artifact_gates": {
+          "all_passed": false,
+          "checkpoint_exists": true,
+          "dataset_exists": true,
+          "demo_replay_all_success": true
+        },
+        "demo_frame_counts": {
+          "selection": 952,
+          "train": 2003,
+          "validation": 1179
+        },
+        "milestone": "M3228",
+        "mode": "full",
+        "quick_mode": false,
+        "relative_improvement_vs_zero_baseline": 0.532659,
+        "revision": "v1_structured_oracle_bc",
+        "role_counts": {
+          "selection": 9,
+          "train": 17,
+          "validation": 10
+        },
+        "selected_epoch": 10,
+        "selected_row_count": 36,
+        "selection_mse_at_selected_epoch": 0.074735,
+        "train_mse_at_selected_epoch": 0.053852,
+        "validation_action_mse": 0.234184,
+        "validation_bc_success_rate_context": 0.5,
+        "validation_mse_gate_passed": false,
+        "validation_rollout_count": 10,
+        "validation_rollout_success_count": 5,
+        "zero_action_baseline_mse": 0.501099
+      },
+      {
+        "action_mse_threshold": 0.12,
+        "artifact_gates": {
+          "all_passed": false,
+          "checkpoint_exists": true,
+          "dataset_exists": true,
+          "demo_replay_all_success": true
+        },
+        "demo_frame_counts": {
+          "selection": 270,
+          "train": 684,
+          "validation": 364
+        },
+        "milestone": "M3232",
+        "mode": "quick",
+        "quick_mode": true,
+        "relative_improvement_vs_zero_baseline": 0.479428,
+        "revision": "v2_tail_balanced",
+        "role_counts": {
+          "selection": 2,
+          "train": 6,
+          "validation": 3
+        },
+        "selected_epoch": 12,
+        "selected_row_count": 11,
+        "selection_mse_at_selected_epoch": 0.026215,
+        "train_mse_at_selected_epoch": 0.135366,
+        "validation_action_mse": 0.29147,
+        "validation_bc_success_rate_context": 0.6667,
+        "validation_mse_gate_passed": false,
+        "validation_rollout_count": 3,
+        "validation_rollout_success_count": 2,
+        "zero_action_baseline_mse": 0.559903
+      }
+    ]
+  },
+  "preregistration": "experiments/feasibility_audit/c5prime_c1_synthesis_repricing_prereg.json",
+  "protocol": "c5prime_c1_synthesis_repricing",
+  "source_artifacts": {
+    "a3_current_sim_target": "experiments/feasibility_audit/c5prime_target_consolidation.json",
+    "d1b_chrono_native_direction": "experiments/feasibility_audit/chrono_native_oracle_pricing.json",
+    "m3228_c1_full": "experiments/feasibility_audit/c5prime_c1_oracle_bc_warmstart.json",
+    "m3229_failure_localization": "experiments/feasibility_audit/c5prime_c1_failure_localization.json",
+    "m3232_c1_v2_quick": "experiments/feasibility_audit/c5prime_c1_oracle_bc_warmstart_v2_quick.json"
+  }
+}
