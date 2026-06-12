@@ -56476,3 +56476,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m3244-c1-v3-residual-rl-smoke_20260612T131835Z/command.log`
 - success artifact: `experiments/feasibility_audit/c5prime_c1_v3_residual_rl_smoke.json`
 - notes: Completed: C1-v3 residual-on-frozen-v4 PPO smoke passed all quick gates in 1.285 s with 1024 steps, 10 episodes, S1/S2/S3 coverage, finite bounded actions, and checkpoint plus metrics written; smoke only; no stage-1 admission, driver-performance claim, high-fidelity claim, repair-success claim, feasibility-proof, or self-ID claim.
+
+## 20260612T134752Z m3245-c1-v3-residual-rl-stage1
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: A preregistered C1-v3 residual-RL stage-1 run can train eight bounded residual policies on disjoint C5-prime rows over the frozen v4 reflex and judge fixed v4 versus v4_pertuned versus v4 residual versus oracle on frozen A3 validation rows before validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof paper or self-ID claim.
+- command: `env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/c5prime_c1_v3_residual_rl_stage1.py --stage1`
+- returncode: `0`
+- run dir: `runs/research/m3245-c1-v3-residual-rl-stage1_20260612T134531Z`
+- command log: `runs/research/m3245-c1-v3-residual-rl-stage1_20260612T134531Z/command.log`
+- success artifact: `experiments/feasibility_audit/c5prime_c1_v3_residual_rl_stage1.json`
+- notes: Completed: C1-v3 stage-1 failed the frozen gate with 0/3 cells passing. v4_residual minus v4_pertuned was -0.6276/-0.4262/-0.3299 on S1/S2/S3 and all CI95 intervals were negative. No C2, C3, scale-up, driver-performance, high-fidelity sufficiency, repair-success, feasibility-proof, or self-ID claim is admitted.

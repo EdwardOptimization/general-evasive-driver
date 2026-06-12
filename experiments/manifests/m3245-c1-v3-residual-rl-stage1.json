@@ -1,0 +1,219 @@
+{
+  "id": "m3245-c1-v3-residual-rl-stage1",
+  "priority": 32450,
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "milestone_intent": "training",
+  "hypothesis": "A preregistered C1-v3 residual-RL stage-1 run can train eight bounded residual policies on disjoint C5-prime rows over the frozen v4 reflex and judge fixed v4 versus v4_pertuned versus v4 residual versus oracle on frozen A3 validation rows before validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof paper or self-ID claim.",
+  "feasibility_pricing": {
+    "pricing_artifact": "experiments/feasibility_audit/c5prime_target_consolidation.json",
+    "priced_gap": 0.1597,
+    "threshold": 0.15,
+    "gap_meets_threshold": true
+  },
+  "lineage": {
+    "parent_checkpoint": [
+      "docs/current-status.md",
+      "docs/roadmap-phase3-codex-execution.md",
+      "docs/m3244-c1-v3-residual-rl-smoke.md",
+      "docs/m3222-a3-c5prime-target-consolidation.md",
+      "docs/m3231-d1b-chrono-native-oracle-pricing-full.md"
+    ],
+    "parent_dataset": [
+      "runs/feasibility_audit/c5prime_target_consolidation/episode_rows.csv",
+      "experiments/feasibility_audit/c5prime_target_consolidation.json"
+    ],
+    "parent_config": [
+      "experiments/feasibility_audit/c5prime_prereg.json",
+      "experiments/feasibility_audit/c5prime_c1_v3_residual_rl_smoke_prereg.json",
+      "experiments/feasibility_audit/c5prime_c1_v3_residual_rl_stage1_prereg.json"
+    ],
+    "parent_objective": [
+      "C1-v3 residual RL on the frozen v4 reflex base",
+      "Primary readout is v4_residual minus v4_pertuned by frozen A3 validation cell"
+    ],
+    "derived_from": [
+      "M3244 passed the residual-on-frozen-v4 1024-step PPO smoke",
+      "A3 confirmed the current-sim C5-prime structural gap in S1/S2/S3 T-limit cells",
+      "D1b Chrono-native oracle pricing was direction-positive and satisfied the CP-2 precondition",
+      "PI reopened C1 as C1-v3 after local imitation and selector-interface routes failed"
+    ],
+    "blocked_by": [
+      "C3 scale-up is not admitted from the negative M3245 stage-1 result",
+      "Further C1-v3 work requires synthesis or PI route selection"
+    ],
+    "supersedes": [
+      "local direct-MLP BC warm-start from M3228 and M3232",
+      "local tail-family interface pretrain from M3236",
+      "local family-selector route rejected by M3238"
+    ],
+    "invalidates": [
+      "treating M3244 smoke as a performance result",
+      "using supervised oracle-demo labels in C1-v3",
+      "any self-ID or history-attribution claim from this engineering RL readout"
+    ]
+  },
+  "review_artifact": "docs/reviews/m3245-c1-v3-residual-rl-stage1.md",
+  "public_gates": [
+    "M3245 must use the frozen ActiveSafetyReflexDriver v4 as the base and must not edit the incumbent driver",
+    "M3245 must use a preregistration frozen before the stage-1 run",
+    "M3245 must train eight residual policies with model seeds disjoint from M3244 and validation seeds",
+    "M3245 must evaluate fixed v4 v4_pertuned v4_residual and oracle on the frozen A3 validation rows",
+    "M3245 must report seed-clustered SE and paired bootstrap CIs without loosening the pass rule",
+    "M3245 must not make validation ranking driver-performance high-fidelity sufficiency paper repair-success robustness-result feasibility-proof or self-ID claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not touch ActiveSafetyReflexDriver",
+    "do not use supervised oracle-demo labels or BC warm-start checkpoints",
+    "do not train on A3 validation rows or validation eval seeds",
+    "do not lower the recapture bar or reinterpret quick mode as a stage-1 result",
+    "do not admit C2 or C3 without the stage-1 verdict and PI checkpoint"
+  ],
+  "workflow_synthesis": {
+    "branch": "c5prime_c1_v3_residual_rl",
+    "evidence_axis": "guarded_rl_stage1_training_readout",
+    "evidence_increment": "first preregistered multi-seed performance readout for residual RL on the frozen v4 reflex",
+    "claim_scope": "Engineering stage-1 readout only; incumbent unchanged; no validation ranking promotion driver-performance current-sim sufficiency high-fidelity sufficiency paper repair-success robustness-result feasibility-proof or self-ID claim",
+    "stop_condition": [
+      "stop if preregistered seed discipline or four-arm validation wiring fails",
+      "stop if stage-1 fails the frozen recapture rule",
+      "two behavior-neutral C1-v3 results require synthesis before another attempt"
+    ],
+    "fallback_plan": [
+      "report the full negative or neutral result without criteria loosening",
+      "if the failure is infrastructure-only then repair once and rerun the same frozen protocol",
+      "if the behavior result is neutral then count it toward the C1-v3 stop rule"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M3244 admitted a separate C1-v3 stage-1 run and M3245 executed that frozen stage-1 protocol",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "guarded_rl",
+    "stage_objective": "Train eight bounded residual policies on disjoint C5-prime training rows and evaluate deterministic residual means on frozen A3 validation rows.",
+    "admission_evidence": [
+      "Pretrain and local interface routes M3228-M3238 failed and are superseded by the PI residual route",
+      "A3 current-sim pricing proof confirmed the C5-prime structural gap in S1/S2/S3 T-limit cells",
+      "D1b Chrono-native direction-pricing proof was positive and satisfies the CP-2 precondition",
+      "Rollback protection is built in through bounded residual deltas over a frozen v4 base while the incumbent driver remains unchanged"
+    ],
+    "blocked_shortcuts": [
+      "no BC or supervised oracle-demo labels",
+      "no incumbent driver mutation",
+      "no validation seed leakage into training",
+      "no C2 or C3 admission from quick mode"
+    ],
+    "allowed_updates": [
+      "scripts/feasibility_audit/c5prime_c1_v3_residual_rl_stage1.py",
+      "tests/test_c5prime_c1_v3_residual_rl_stage1.py",
+      "experiments/feasibility_audit/c5prime_c1_v3_residual_rl_stage1_prereg.json",
+      "experiments/feasibility_audit/c5prime_c1_v3_residual_rl_stage1_quick.json",
+      "experiments/feasibility_audit/c5prime_c1_v3_residual_rl_stage1.json",
+      "runs/feasibility_audit/c5prime_c1_v3_residual_rl_stage1",
+      "docs/m3245-c1-v3-residual-rl-stage1.md",
+      "docs/reviews/m3245-c1-v3-residual-rl-stage1.md",
+      "docs/current-status.md",
+      "docs/roadmap-phase3-codex-execution.md",
+      "docs/research-log.md",
+      "scripts/feasibility_audit/README.md",
+      "experiments/research_queue.csv",
+      "experiments/research_status.json",
+      "experiments/scoreboard.csv"
+    ],
+    "next_stage_criteria": [
+      "If stage-1 passes then stop for CP-2 budget approval before any run over one hour",
+      "If stage-1 fails or is neutral then record the behavior result and do not loosen criteria",
+      "If infrastructure fails then repair the stage-1 harness before interpreting behavior"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "Not applicable: M3245 is engineering-only residual RL and makes no history-attribution claim.",
+    "history_necessity_tests": [
+      "none in M3245: no self-ID or history claim is made"
+    ],
+    "temporal_evidence_window": "single-frame MLP residual policy over obs72; no belief or history claim",
+    "negative_result_policy": "A failed or neutral stage-1 result is reported at full fidelity and does not justify criterion loosening.",
+    "allowed_claims": [
+      "bounded residual stage-1 training executed or failed",
+      "frozen A3 four-arm validation readout passed or failed the recapture rule",
+      "incumbent v4 remained frozen and unchanged"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_closed_loop_data",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "first multi-seed closed-loop residual-RL readout for the PI-selected nonlocal C1-v3 route",
+    "paper_verdict_delta": "Only affects whether the C5-prime structural-ceiling route has stage-1 engineering evidence; no paper or driver claim follows directly.",
+    "must_synthesize_if": [
+      "M3245 stage-1 is behavior-neutral and a second C1-v3 behavior-neutral result follows",
+      "seed discipline or validation leakage is found",
+      "a further C1-v3 attempt is proposed after a failed frozen behavior gate without repricing or synthesis"
+    ]
+  },
+  "success_criteria": [
+    "experiments/feasibility_audit/c5prime_c1_v3_residual_rl_stage1_prereg.json exists before stage-1 execution",
+    "quick mode has run and written experiments/feasibility_audit/c5prime_c1_v3_residual_rl_stage1_quick.json before full stage-1 interpretation",
+    "stage-1 execution writes experiments/feasibility_audit/c5prime_c1_v3_residual_rl_stage1.json",
+    "result JSON reports eight training seeds and 432 frozen validation rows",
+    "docs/m3245-c1-v3-residual-rl-stage1.md records measured versus inferred results"
+  ],
+  "failure_criteria": [
+    "the run edits or mutates ActiveSafetyReflexDriver",
+    "the run uses BC labels or oracle-demo supervised targets",
+    "training rows overlap A3 validation eval seeds",
+    "the stage-1 result is interpreted without paired CIs and seed-clustered SE",
+    "the recapture criterion is loosened after seeing the result"
+  ],
+  "decision_rule": "PASS iff recapture_fraction is at least 0.5 in at least two of S1 S2 S3 T-limit cells; otherwise FAIL or NEUTRAL is accepted without criteria loosening.",
+  "commands": [
+    {
+      "name": "c1_v3_residual_rl_stage1_write_prereg",
+      "command": "env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/c5prime_c1_v3_residual_rl_stage1.py --write-prereg"
+    },
+    {
+      "name": "c1_v3_residual_rl_stage1_quick",
+      "command": "env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/c5prime_c1_v3_residual_rl_stage1.py --quick"
+    },
+    {
+      "name": "c1_v3_residual_rl_stage1",
+      "command": "env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/c5prime_c1_v3_residual_rl_stage1.py --stage1"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "experiments/feasibility_audit/c5prime_c1_v3_residual_rl_stage1_prereg.json",
+      "type": "json"
+    },
+    {
+      "path": "experiments/feasibility_audit/c5prime_c1_v3_residual_rl_stage1_quick.json",
+      "type": "json"
+    },
+    {
+      "path": "experiments/feasibility_audit/c5prime_c1_v3_residual_rl_stage1.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m3245-c1-v3-residual-rl-stage1.md",
+      "type": "markdown"
+    }
+  ],
+  "baseline_checkpoints": [
+    "docs/current-status.md",
+    "docs/roadmap-phase3-codex-execution.md",
+    "docs/m3244-c1-v3-residual-rl-smoke.md",
+    "docs/m3222-a3-c5prime-target-consolidation.md",
+    "docs/m3231-d1b-chrono-native-oracle-pricing-full.md"
+  ],
+  "scoreboard_checkpoint": "experiments/feasibility_audit/c5prime_c1_v3_residual_rl_stage1.json",
+  "next_blocker": "C3 scale-up and any run over one hour are not admitted from the negative stage-1 result; synthesis or PI route selection is required before further C1-v3 attempts.",
+  "status": "completed"
+}

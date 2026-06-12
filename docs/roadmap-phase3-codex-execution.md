@@ -27,9 +27,13 @@
   CI lower bound 0; scale-aware fixed_star/v4_pertuned 46/48). M3243 recorded
   the temporary blocked-dependency stop, then PI reopened C1 as C1-v3:
   residual RL on the frozen v4 reflex base. M3244 completed the 1024-step
-  C1-v3 residual smoke and passed all quick gates. The next dependency-
-  satisfied unit is C1-v3 stage-1 preregistration; CP-2 remains budget-only
-  because D1b is already direction-positive.
+  C1-v3 residual smoke and passed all quick gates. M3245 completed the
+  preregistered <=1 h stage-1 run and failed the frozen gate: 0/3 cells
+  passed, with v4+residual below `v4_pertuned` in every qualified cell. C3
+  scale-up is not admitted from this result; further C1-v3 work requires a
+  synthesis or PI route decision. CP-2 remains budget-only in principle
+  because D1b is already direction-positive, but there is no admitted >1 h
+  run to approve from M3245.
 
 ## Track A — pricing/science completion (CPU only, zero training)
 
@@ -259,7 +263,7 @@ demonstrating the new axis, registered as a milestone. No training claims.
   blocked pending PI or a new nonlocal-interface pricing route. C2 remains
   blocked; no controlled rollout design, full C1 training, or C2 work is
   admitted from the local selector artifacts.
-### C1-v3. Residual RL on the reflex base (nonlocal route) [OPEN; M3244 smoke DONE]
+### C1-v3. Residual RL on the reflex base (nonlocal route) [STAGE-1 DONE NEGATIVE: M3245]
 - **PI route decision (resolves the M3243 escalation)**: the prize is real
   in both simulators (A3 +0.16-0.22 current-sim; D1b +0.11-0.22
   Chrono-native), and M3228-M3238 established WHY local imitation fails —
@@ -295,15 +299,23 @@ demonstrating the new axis, registered as a milestone. No training claims.
   plus metrics artifacts were written. This admits only the stage-1
   preregistration step; it is not a performance, C2, C3, high-fidelity, or
   self-ID claim.
+- stage-1 result: `docs/m3245-c1-v3-residual-rl-stage1.md` completed the
+  preregistered eight-seed first run and failed the frozen PASS rule. 0/3
+  cells passed; v4+residual minus `v4_pertuned` was
+  -0.6276/-0.4262/-0.3299 on S1/S2/S3, with paired CI95 entirely negative in
+  all cells. This rejects this residual-on-v4 stage-1 attempt and admits no
+  scale-up, C2, C3, driver-performance, high-fidelity sufficiency,
+  feasibility-proof, or self-ID claim.
 
 ### C2. Capability pretrain + guarded RL smoke [SUPERSEDED by C1-v3 (the residual route trains directly); original BC-first chain closed by M3238]
 - superseded unit: do not run the original BC/pretrain-first chain. Its
   runnable replacement is C1-v3 residual RL on the frozen v4 base.
-### C3. Staged scale-up [BLOCKED on C1-v3 stage-1 + CP-2 (budget-only; D1b met)]
+### C3. Staged scale-up [BLOCKED by M3245 negative stage-1 + CP-2 (budget-only; D1b met)]
 - **CP-2 (PI checkpoint)** before any run > 1 h compute: PI confirms budget
   AND unit D1b must have returned direction-positive (CP-1 disposition).
-  D1b is now direction-positive by M3231; C1-v3 stage-1 evidence and PI CP-2
-  budget approval remain open.
+  D1b is now direction-positive by M3231, but M3245 did not produce positive
+  stage-1 evidence. No C3 scale-up is admitted unless a synthesis or PI route
+  decision reopens a priced mechanism.
 - verdict either way is accepted and recorded; no criteria loosening.
 
 ## Track D — high-fidelity / Chrono (continues M3218/M3219)
@@ -371,18 +383,19 @@ demonstrating the new axis, registered as a milestone. No training claims.
 - B4: DONE (M3226; 60 s warmup-to-obstacle-to-post-pass continuation smoke passed)
 - B1b: DONE (M3239 smoke + M3240 full negative; current moving-crosser formulation 0/4 cells qualified)
 - B2b: DONE (M3241 smoke + M3242 full negative; current high-speed formulation 0/6 cells qualified)
-- C1: chain M3228-M3238 closed (local imitation interfaces); **C1-v3 OPEN** (M3244 smoke passed; next is stage-1 preregistration)
+- C1: chain M3228-M3238 closed (local imitation interfaces); **C1-v3 stage-1 DONE NEGATIVE** (M3244 smoke passed; M3245 failed 0/3 cells)
 - C2: SUPERSEDED by C1-v3
-- C3: BLOCKED on C1-v3 stage-1 + CP-2 (budget-only; D1b precondition met by M3231)
+- C3: BLOCKED by M3245 negative stage-1 + CP-2 (budget-only; D1b precondition met by M3231)
 - D1: DONE (M3227; tail-replay proxy reversed in all three variants)
 - D1b: DONE (M3231; native Chrono oracle direction-positive on Sedan/BMW_E90)
 
 Execution order note: M3243 recorded the brief roadmap-exhausted stop after
 B1b/B2b closed negative; PI has since reopened C1 as C1-v3. M3244 passed the
-1024-step residual-RL smoke. The next Codex-admissible unit is the C1-v3
-stage-1 preregistration and <=1 h first run; any run over one hour still stops
-at CP-2 for budget approval. Do not resume local imitation/interface repairs,
-C2, C3, or any driver-performance claim from the smoke.
+1024-step residual-RL smoke, and M3245 failed the preregistered stage-1 gate.
+There is currently no admitted C1-v3 scale-up or C3 run from this result; a
+synthesis or PI route decision is required before another C1-v3 attempt. Do
+not resume local imitation/interface repairs, C2, C3, or any
+driver-performance claim from the smoke or negative stage-1.
 - WP6.2 guardrails: **MERGED** (commit 05607bcd — validator V7 live in the
   pre-commit hook, escalation protocol in docs/escalations/, managed-run
   helper scripts/run_managed.sh). Codex execution may begin.
