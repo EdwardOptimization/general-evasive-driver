@@ -16,8 +16,9 @@
 - default path note: the C5 spread formulation was rejected by pricing
   (`docs/c5-reflex-degradation-2026-06.md`), and the A1 S4-lateral rider was
   also negative (`docs/m3220-a1-s4-lateral-spread-rider-pricing.md`). The
-  default forward path is therefore C5'-main (structural-ceiling prize),
-  pending CP-1. PI may override at CP-1.
+  default forward path is therefore C5'-main (structural-ceiling prize).
+  CP-1 conditionally opened C1; M3231 satisfied the D1b direction-positive
+  precondition for CP-2, but C3 remains blocked on C2 and PI CP-2.
 
 ## Track A — pricing/science completion (CPU only, zero training)
 
@@ -96,7 +97,7 @@ demonstrating the new axis, registered as a milestone. No training claims.
   smoke frames; dynamic labels carry obstacle lateral velocity and predicted
   lateral offset at arrival; deterministic replay passed 4/4 seeds.
 
-### B1b. Moving-obstacle pricing [OPEN; after C1/D1b]
+### B1b. Moving-obstacle pricing [OPEN; after C1]
 - question: does the constant-velocity crosser axis (built in B1/M3223)
   create type-(b) regions — per-instance oracle succeeds, best
   reflex-family arm fails — via the timing/prediction demand that
@@ -124,7 +125,7 @@ demonstrating the new axis, registered as a milestone. No training claims.
   the high-speed env-contract blocker only; it does not admit training or a
   controller-performance claim.
 
-### B2b. High-speed domain pricing [OPEN; after C1/D1b]
+### B2b. High-speed domain pricing [OPEN; after C1]
 - question: does window compression at production speeds (24/30/36 m/s,
   on the M3224 high-speed observation/preview profile) open type-(b)
   gaps (the K2 effect amplified), and — secondary, reported not gated —
@@ -188,9 +189,10 @@ demonstrating the new axis, registered as a milestone. No training claims.
 - envelope-head pretrain; 1024-step guarded RL smoke first; reward
   recalibration 40/60 as measured; judging prereg frozen before any full
   run (engineering-only, four-arm, frozen validation seeds).
-### C3. Staged scale-up [BLOCKED on C2 + D1b]
+### C3. Staged scale-up [BLOCKED on C2 + CP-2]
 - **CP-2 (PI checkpoint)** before any run > 1 h compute: PI confirms budget
   AND unit D1b must have returned direction-positive (CP-1 disposition).
+  D1b is now direction-positive by M3231; C2 and PI CP-2 remain open.
 - verdict either way is accepted and recorded; no criteria loosening.
 
 ## Track D — high-fidelity / Chrono (continues M3218/M3219)
@@ -211,7 +213,7 @@ demonstrating the new axis, registered as a milestone. No training claims.
   direction-pricing only; it does not refute A3 current-sim pricing and does
   not price a fresh high-fidelity oracle or continuous lf/lr/Iz/cf/cr mapping.
 
-### D1b. Chrono-native oracle pricing [OPEN; M3230 protocol smoke passed; CP-2 precondition]
+### D1b. Chrono-native oracle pricing [DONE: M3231; CP-2 precondition satisfied]
 - question: does the structural-ceiling gap exist under Chrono dynamics
   when the oracle is searched NATIVELY in Chrono (closed-loop /
   CEM-in-backend), rather than tail-replayed from current-sim (the M3227
@@ -228,13 +230,16 @@ demonstrating the new axis, registered as a milestone. No training claims.
 - acceptance: per-variant direction verdict; positive opens CP-2's
   precondition, negative scopes Track C claims to current-sim and CP-2
   re-evaluates.
-- result so far: `docs/m3230-d1b-chrono-native-oracle-pricing-smoke.md`
-  completed the protocol smoke only. Quick mode froze the D1b row/variant
-  preregistration, exercised `sedan_tmeasy` and `bmw_e90_tmeasy`, and passed
-  all quick gates in 276.6 s: finite obs72 resets, variant matches, and
-  both structured and CEM native-search candidates on each variant. Quick
-  mode is not a direction-pricing verdict; D1b remains open for the full
-  managed panel.
+- result: `docs/m3230-d1b-chrono-native-oracle-pricing-smoke.md`
+  completed the protocol smoke, then
+  `docs/m3231-d1b-chrono-native-oracle-pricing-full.md` completed the full
+  frozen panel. Verdict: D1b direction-positive in both preregistered Chrono
+  variants. Native Chrono oracle minus same-row `v4_pertuned` was +0.2222 on
+  `sedan_tmeasy` (9/9 vs 7/9) and +0.1111 on `bmw_e90_tmeasy` (8/9 vs 7/9).
+  This satisfies the CP-2 D1b direction-positive precondition, but remains
+  high-fidelity direction-pricing only: no training, no incumbent mutation,
+  no validation/ranking/promotion, no driver-performance claim, and no
+  high-fidelity sufficiency claim.
 
 ## Out of scope for Codex sessions
 
@@ -253,16 +258,16 @@ demonstrating the new axis, registered as a milestone. No training claims.
 - B2: DONE (M3224; explicit 36 m/s normalization/preview smoke passed)
 - B3: DONE (M3225; geometry-channel degradation smoke passed; split-mu not expressible on the DriftObstacleEnv single-track path)
 - B4: DONE (M3226; 60 s warmup-to-obstacle-to-post-pass continuation smoke passed)
-- B1b: OPEN (moving-obstacle pricing; start after C1/D1b)
-- B2b: OPEN (high-speed pricing; start after C1/D1b)
+- B1b: OPEN (moving-obstacle pricing; start after C1)
+- B2b: OPEN (high-speed pricing; start after C1)
 - C1: OPEN (CP-1 disposition 2026-06-12: conditional approval; M3228 first BC warm-start failed, M3229 localized tail-action generalization gap)
 - C2: BLOCKED on C1
-- C3: BLOCKED on C2 + D1b direction-positive + CP-2
+- C3: BLOCKED on C2 + CP-2 (D1b direction-positive satisfied by M3231)
 - D1: DONE (M3227; tail-replay proxy reversed in all three variants)
-- D1b: OPEN (M3230 protocol smoke passed; full Chrono-native oracle direction pricing still required for CP-2)
+- D1b: DONE (M3231; native Chrono oracle direction-positive on Sedan/BMW_E90)
 
-Execution order note: cross-track priority is C1 and D1b first (CP-1
-disposition), then B1b, then B2b; within a track, lowest number first.
+Execution order note: cross-track priority is C1 next (CP-1 disposition),
+then B1b, then B2b; within a track, lowest number first.
 - WP6.2 guardrails: **MERGED** (commit 05607bcd — validator V7 live in the
   pre-commit hook, escalation protocol in docs/escalations/, managed-run
   helper scripts/run_managed.sh). Codex execution may begin.

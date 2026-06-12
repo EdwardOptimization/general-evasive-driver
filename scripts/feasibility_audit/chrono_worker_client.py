@@ -11,6 +11,7 @@ from __future__ import annotations
 
 import json
 import os
+import select
 import subprocess
 from pathlib import Path
 from typing import Any
@@ -28,12 +29,19 @@ class ChronoWorkerError(RuntimeError):
 
 
 class ChronoWorkerClient:
-    def __init__(self, *, launch: tuple[str, ...] = DEFAULT_LAUNCH, stderr_log: Path | None = None):
+    def __init__(
+        self,
+        *,
+        launch: tuple[str, ...] = DEFAULT_LAUNCH,
+        stderr_log: Path | None = None,
+        read_timeout_s: float | None = 120.0,
+    ):
+        self._read_timeout_s = read_timeout_s
         self._stderr_handle = None
         stderr_target = subprocess.DEVNULL
         if stderr_log is not None:
             stderr_log.parent.mkdir(parents=True, exist_ok=True)
-            self._stderr_handle = open(stderr_log, "w", encoding="utf-8")
+            self._stderr_handle = open(stderr_log, "a", encoding="utf-8")
             stderr_target = self._stderr_handle
         env = dict(os.environ)
         env.pop("PYTHONPATH", None)  # the worker inserts the repo src path itself
@@ -53,6 +61,13 @@ class ChronoWorkerClient:
 
     def _read(self) -> dict[str, Any]:
         while True:
+            if self._read_timeout_s is not None:
+                ready, _, _ = select.select([self._proc.stdout], [], [], float(self._read_timeout_s))
+                if not ready:
+                    raise ChronoWorkerError(
+                        f"worker stdout timeout after {self._read_timeout_s:g}s "
+                        f"(pid={self._proc.pid}, returncode={self._proc.poll()})"
+                    )
             line = self._proc.stdout.readline()
             if line == "":
                 raise ChronoWorkerError("worker terminated unexpectedly (EOF on stdout)")

@@ -65,3 +65,24 @@ def test_segments_tail_holds_last_segment_after_horizon():
     np.testing.assert_allclose(tail(0), segments[0])
     np.testing.assert_allclose(tail(5), segments[1])
     np.testing.assert_allclose(tail(99), segments[-1])
+
+
+def test_resume_cleanup_drops_partial_rows_without_native_oracle(tmp_path):
+    mod = _load_module()
+    rows_csv = tmp_path / "candidate_rows.csv"
+    mod._write_rows(
+        rows_csv,
+        [
+            {"variant": "sedan_tmeasy", "row_id": "done", "arm": "v4_pertuned"},
+            {"variant": "sedan_tmeasy", "row_id": "done", "arm": "native_oracle"},
+            {"variant": "sedan_tmeasy", "row_id": "partial", "arm": "v4_pertuned"},
+        ],
+    )
+
+    done = mod._done_keys(rows_csv)
+    dropped = mod._drop_partial_resume_rows(rows_csv, done)
+    remaining = mod._read_csv_rows(rows_csv)
+
+    assert done == {("sedan_tmeasy", "done")}
+    assert dropped == 1
+    assert [row["row_id"] for row in remaining] == ["done", "done"]

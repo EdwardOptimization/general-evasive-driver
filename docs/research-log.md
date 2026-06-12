@@ -56307,3 +56307,28 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m3230-d1b-chrono-native-oracle-pricing-smoke_20260612T043835Z/command.log`
 - success artifact: `experiments/feasibility_audit/chrono_native_oracle_pricing_quick.json`
 - notes: Completed: D1b protocol smoke rerun passed all quick gates in 276.6 s; sedan_tmeasy and bmw_e90_tmeasy both exercised v4_pertuned plus native structured/CEM search; quick mode gives no D1b direction verdict and does not satisfy CP-2.
+
+## 20260612T055808Z m3231-d1b-chrono-native-oracle-pricing-full
+
+- status: `failed`
+- kind: `infrastructure`
+- hypothesis: A frozen D1b Chrono-native oracle pricing full rollout can decide whether native structured-plus-CEM oracle search preserves the C5-prime structural-ceiling direction over the preregistered Sedan/BMW Chrono variants before training validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof paper or self-ID claim.
+- command: `env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/chrono_native_oracle_pricing.py --full --resume`
+- returncode: `-15`
+- run dir: `runs/research/m3231-d1b-chrono-native-oracle-pricing-full_20260612T045005Z`
+- command log: `runs/research/m3231-d1b-chrono-native-oracle-pricing-full_20260612T045005Z/command.log`
+- success artifact: `experiments/feasibility_audit/chrono_native_oracle_pricing.json`
+- notes: Failed infrastructure attempt: operator-terminated after the managed run stopped making progress at 14/18 row-variant pairs with the Chrono worker and client both waiting on pipes. No D1b direction verdict from this attempt; completed rows were preserved for `--resume`.
+
+
+## 20260612T060917Z m3231-d1b-chrono-native-oracle-pricing-full
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: A frozen D1b Chrono-native oracle pricing full rollout can decide whether native structured-plus-CEM oracle search preserves the C5-prime structural-ceiling direction over the preregistered Sedan/BMW Chrono variants before training validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof paper or self-ID claim.
+- command: `env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/chrono_native_oracle_pricing.py --full --resume`
+- returncode: `0`
+- run dir: `runs/research/m3231-d1b-chrono-native-oracle-pricing-full_20260612T060103Z`
+- command log: `runs/research/m3231-d1b-chrono-native-oracle-pricing-full_20260612T060103Z/command.log`
+- success artifact: `experiments/feasibility_audit/chrono_native_oracle_pricing.json`
+- notes: Completed: D1b full native Chrono oracle direction-pricing panel passed; retry dropped 1 partial baseline-only row, completed the frozen panel, and measured native_oracle minus same-row v4_pertuned as Sedan +0.2222 and BMW_E90 +0.1111. CP-2 D1b direction-positive precondition satisfied; no training, incumbent mutation, validation ranking, driver-performance, high-fidelity sufficiency, or self-ID claim.

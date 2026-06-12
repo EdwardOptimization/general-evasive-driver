@@ -545,10 +545,30 @@ def _append_row(path: Path, row: dict[str, Any]) -> None:
         writer.writerow({key: _jsonable(row.get(key, "")) for key in FIELDNAMES})
 
 
+def _write_rows(path: Path, rows: list[dict[str, Any]]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("w", newline="", encoding="utf-8") as handle:
+        writer = csv.DictWriter(handle, fieldnames=FIELDNAMES, lineterminator="\n")
+        writer.writeheader()
+        for row in rows:
+            writer.writerow({key: _jsonable(row.get(key, "")) for key in FIELDNAMES})
+
+
 def _done_keys(path: Path) -> set[tuple[str, str]]:
     if not path.exists():
         return set()
     return {(str(row["variant"]), str(row["row_id"])) for row in _read_csv_rows(path) if row["arm"] == "native_oracle"}
+
+
+def _drop_partial_resume_rows(path: Path, done_keys: set[tuple[str, str]]) -> int:
+    if not path.exists():
+        return 0
+    rows = _read_csv_rows(path)
+    kept = [row for row in rows if (str(row["variant"]), str(row["row_id"])) in done_keys]
+    dropped = len(rows) - len(kept)
+    if dropped:
+        _write_rows(path, kept)
+    return dropped
 
 
 def _run_native_oracle_search(
@@ -723,20 +743,21 @@ def run_rollout(*, prereg: dict[str, Any], quick: bool, resume: bool) -> dict[st
     selected_rows = _selected_for_mode(prereg, quick=quick)
     budget = QUICK_BUDGET if quick else FULL_BUDGET
     fixed_done = _done_keys(rows_csv) if resume else set()
+    dropped_partial_rows = _drop_partial_resume_rows(rows_csv, fixed_done) if resume else 0
     total = len(selected_rows) * len(prereg["chrono_vehicle_variants"])
     completed = len(fixed_done)
     t0 = time.time()
-    client = ChronoWorkerClient(stderr_log=STDERR_LOG)
-    try:
-        for variant in prereg["chrono_vehicle_variants"]:
-            if variant not in CHRONO_VEHICLE_VARIANTS:
-                raise RuntimeError(f"unknown Chrono variant in prereg: {variant}")
-            for selected in selected_rows:
-                key = (variant, selected.row_id)
-                if key in fixed_done:
-                    continue
-                scenario = _scenario_for(selected, variant)
-                pertuned_policy = _fixed_grid_policy(selected.pertuned_grid)
+    for variant in prereg["chrono_vehicle_variants"]:
+        if variant not in CHRONO_VEHICLE_VARIANTS:
+            raise RuntimeError(f"unknown Chrono variant in prereg: {variant}")
+        for selected in selected_rows:
+            key = (variant, selected.row_id)
+            if key in fixed_done:
+                continue
+            scenario = _scenario_for(selected, variant)
+            pertuned_policy = _fixed_grid_policy(selected.pertuned_grid)
+            client = ChronoWorkerClient(stderr_log=STDERR_LOG)
+            try:
                 baseline = run_chrono_episode(client, scenario, pertuned_policy, requested_variant=variant)
                 baseline_score = _score_result(baseline, int(scenario["max_steps"]) + 5)
                 _append_row(
@@ -787,8 +808,8 @@ def run_rollout(*, prereg: dict[str, Any], quick: bool, resume: bool) -> dict[st
                     f"native_best={best['chrono_outcome']} attempts={len(attempts)}",
                     flush=True,
                 )
-    finally:
-        client.close()
+            finally:
+                client.close()
 
     rows = _read_csv_rows(rows_csv)
     summary = _summarize(rows, prereg, quick=quick)
@@ -797,6 +818,7 @@ def run_rollout(*, prereg: dict[str, Any], quick: bool, resume: bool) -> dict[st
         "selected_source_rows": len(selected_rows),
         "chrono_row_variant_pairs": total,
         "search_budget": budget.__dict__,
+        "dropped_partial_resume_rows": dropped_partial_rows,
     }
     summary["progress_jsonl"] = str(progress_jsonl)
     _write_json(results_json, summary)
