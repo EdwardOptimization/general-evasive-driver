@@ -16,8 +16,8 @@ tail-family interface smoke, the M3236 tail-family interface pretrain quick
 negative, the M3237 C1 interface synthesis/repricing pivot, and the M3238
 C1 family-selector repricing negative, the M3239 B1b moving-obstacle
 pricing protocol smoke, the M3240 full B1b moving-obstacle pricing
-negative, the M3241 B2b high-speed pricing protocol smoke, and the M3242
-full B2b high-speed pricing negative).
+negative, the M3241 B2b high-speed pricing protocol smoke, the M3242
+full B2b high-speed pricing negative, and the M3243 PI/new-route escalation).
 
 ## Project Identity
 
@@ -33,8 +33,8 @@ full B2b high-speed pricing negative).
 
 History in one paragraph: the autonomous harness loop ran through M3214
 before manual takeover; the manual takeover has since registered
-M3215-M3242. `experiments/research_status.json` now records
-3244 completed / 7 failed / 2 blocked task entries, with `next_task:
+M3215-M3243. `experiments/research_status.json` now records
+3244 completed / 7 failed / 3 blocked task entries, with `next_task:
 null`. On
 2026-06-11 an independent feasibility audit showed the M3108–M3212
 residual-repair branch was repairing physically unsolvable rows, and the
@@ -266,7 +266,10 @@ panel shows weak high-speed pockets and a scale-adapter transfer effect but
 no priced type-(b) window-compression prize. No high-speed Track C extension,
 C2 admission, training, or driver-performance claim is admitted. With B1b and
 B2b closed negative, the roadmap has no dependency-satisfied autonomous OPEN
-unit unless PI reopens C1 or registers a new independent unit.
+unit unless PI reopens C1 or registers a new independent unit. M3243 records
+that state as a blocked-dependency escalation under
+`docs/escalations/2026-06-12-phase3-roadmap-exhausted-pi-route.md`; this is a
+process stop, not a measurement or admission claim.
 
 ## Pointer Table
 
@@ -277,6 +280,7 @@ unit unless PI reopens C1 or registers a new independent unit.
 | Takeover decision (why M3213 was blocked) | `docs/feasibility-takeover-2026-06-route-decision.md` |
 | Gate protocol v2 (anchors before informative actions; R²≤0.1 self-check) | `docs/selfid-gate-protocol-v2-2026-06.md` |
 | Latest harness milestone (M3242: B2b high-speed pricing full) | `docs/m3242-b2b-high-speed-pricing-full.md` |
+| Current blocked-dependency escalation (M3243: PI/new-route required) | `docs/escalations/2026-06-12-phase3-roadmap-exhausted-pi-route.md` |
 | Thesis capstone + RL re-entry (Sections 10-11) | `docs/capability-boundary-tracking-thesis-2026-06.md` |
 | Data coverage map (C5 sampling design authority) | `docs/data-coverage-map-2026-06.md` |
 | Incumbent deployed driver (v4, untouched) | `src/autodrift/active_safety_reflex_driver.py`, `DRIVER_ID = active_safety_reflex_driver_m3105_incumbent_v4_no_regression` |

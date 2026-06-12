@@ -26,7 +26,9 @@
   high-speed formulation (0/6 cells qualified; two weak 0.125 pockets with
   CI lower bound 0; scale-aware fixed_star/v4_pertuned 46/48). The local
   autonomous queue has no dependency-satisfied OPEN unit unless PI reopens C1
-  or registers a new independent pricing unit.
+  or registers a new independent pricing unit. M3243 records this as a
+  blocked-dependency escalation in
+  `docs/escalations/2026-06-12-phase3-roadmap-exhausted-pi-route.md`.
 
 ## Track A — pricing/science completion (CPU only, zero training)
 
@@ -341,7 +343,8 @@ Execution order note: C1 is not an autonomous-session OPEN unit after M3238
 unless PI supplies a new nonlocal-interface pricing route. B1b and B2b are now
 both done-negative. There is no dependency-satisfied autonomous OPEN unit in
 this roadmap at the end of M3242; continue only after PI registers/reopens a
-unit.
+unit. M3243 records that external dependency as a blocked queue row and
+escalation note.
 - WP6.2 guardrails: **MERGED** (commit 05607bcd — validator V7 live in the
   pre-commit hook, escalation protocol in docs/escalations/, managed-run
   helper scripts/run_managed.sh). Codex execution may begin.

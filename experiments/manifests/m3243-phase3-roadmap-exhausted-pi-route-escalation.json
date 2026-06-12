@@ -1,0 +1,181 @@
+{
+  "id": "m3243-phase3-roadmap-exhausted-pi-route-escalation",
+  "priority": 32430,
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "milestone_intent": "process",
+  "hypothesis": "A bounded process gate can record that the Phase-3 Codex execution roadmap has no dependency-satisfied autonomous OPEN unit after M3242, and can escalate the missing PI/new-route decision before validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof paper or self-ID claim.",
+  "lineage": {
+    "parent_checkpoint": [
+      "docs/current-status.md",
+      "docs/roadmap-phase3-codex-execution.md",
+      "docs/m3240-b1b-moving-obstacle-pricing-full.md",
+      "docs/m3242-b2b-high-speed-pricing-full.md"
+    ],
+    "parent_dataset": [
+      "experiments/feasibility_audit/moving_obstacle_pricing.json",
+      "experiments/feasibility_audit/high_speed_pricing.json"
+    ],
+    "parent_config": [
+      "docs/roadmap-phase3-codex-execution.md",
+      "docs/escalations/README.md"
+    ],
+    "parent_objective": [
+      "continue the ordered Phase-3 Codex execution roadmap without inventing non-admitted work"
+    ],
+    "derived_from": [
+      "M3238 C1 family-selector repricing negative",
+      "M3240 B1b moving-obstacle pricing negative",
+      "M3242 B2b high-speed pricing negative",
+      "roadmap status lines show B1b/B2b DONE and C1/C2/C3 BLOCKED"
+    ],
+    "blocked_by": [
+      "PI has not reopened C1 with a nonlocal-interface pricing route",
+      "no new independent preregistered pricing unit is registered",
+      "C2 remains blocked on C1 and C3 remains blocked on C2 plus PI CP-2"
+    ],
+    "supersedes": [
+      "continuing autonomous bookkeeping milestones after the roadmap queue is exhausted"
+    ],
+    "invalidates": [
+      "opening Track C extension or C2 from B1b/B2b negative pricing",
+      "self-approving a PI checkpoint",
+      "running training from the current blocked roadmap state"
+    ]
+  },
+  "review_artifact": "docs/escalations/2026-06-12-phase3-roadmap-exhausted-pi-route.md",
+  "public_gates": [
+    "M3243 must not execute training, evaluation, rollout, or driver mutation",
+    "M3243 must name the blocked branch and blocked milestone in docs/escalations/",
+    "M3243 must leave next_task null unless PI registers or reopens a runnable unit",
+    "M3243 must not convert negative B1b/B2b pricing into an admission claim"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not touch ActiveSafetyReflexDriver",
+    "do not invoke train_ppo, supervised training, PPO, guarded RL, or rollout measurement",
+    "do not register a replacement work unit without PI/new-route evidence",
+    "do not admit Track C extension, C2, validation ranking, promotion, driver-performance, high-fidelity sufficiency, paper, repair-success, robustness-result, feasibility-proof, or self-ID claims"
+  ],
+  "workflow_synthesis": {
+    "branch": "phase3_codex_execution_queue",
+    "evidence_axis": "roadmap_exhaustion_pi_route_escalation",
+    "evidence_increment": "records that all dependency-satisfied autonomous roadmap units are closed and the remaining units require PI or an upstream route decision",
+    "claim_scope": "Process escalation only; no measurement, validation ranking, promotion, driver-performance, current-sim result, high-fidelity result, paper claim, repair-success, robustness-result, feasibility-proof, or self-ID claim",
+    "stop_condition": [
+      "stop autonomous execution while no dependency-satisfied OPEN unit exists",
+      "stop if a proposed next unit lacks PI/new-route admission",
+      "stop if a proposed next unit targets a certified dead end without new pricing"
+    ],
+    "fallback_plan": [
+      "wait for PI to reopen C1 with a concrete nonlocal-interface pricing route",
+      "wait for PI to register a new independent preregistered pricing unit",
+      "resume only through the roadmap and harness after the dependency is resolved"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M3242 closed B2b negative and left no dependency-satisfied autonomous OPEN unit",
+    "synthesis_decision": "stop",
+    "synthesis_artifact": "docs/escalations/2026-06-12-phase3-roadmap-exhausted-pi-route.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "Record the blocked PI/new-route dependency without running measurement or model updates.",
+    "admission_evidence": [
+      "docs/roadmap-phase3-codex-execution.md status lines after M3242",
+      "docs/current-status.md M3242 ledger",
+      "docs/escalations/README.md blocked-dependency protocol"
+    ],
+    "blocked_shortcuts": [
+      "no supervised pretraining",
+      "no PPO or guarded RL",
+      "no incumbent driver mutation",
+      "no C2 admission",
+      "no high-speed or moving-obstacle Track C extension from negative pricing"
+    ],
+    "allowed_updates": [
+      "docs/escalations/2026-06-12-phase3-roadmap-exhausted-pi-route.md",
+      "experiments/research_queue.csv",
+      "experiments/research_status.json",
+      "docs/current-status.md",
+      "docs/roadmap-phase3-codex-execution.md",
+      "experiments/manifests/m3243-phase3-roadmap-exhausted-pi-route-escalation.json"
+    ],
+    "next_stage_criteria": [
+      "PI reopens C1 with a concrete nonlocal-interface pricing route",
+      "PI registers a new independent preregistered pricing unit",
+      "roadmap status lines are updated to expose a dependency-satisfied OPEN unit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "Not applicable: M3243 is process escalation and makes no history-attribution claim.",
+    "history_necessity_tests": [
+      "none in M3243: no self-ID or history claim is made"
+    ],
+    "temporal_evidence_window": "none: no new measurement is run",
+    "negative_result_policy": "Preserve the B1b/B2b negative pricing results and do not convert them into training admission.",
+    "allowed_claims": [
+      "the roadmap queue is blocked pending PI/new-route decision",
+      "no dependency-satisfied autonomous OPEN unit exists at the end of M3242"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "synthesis_decision",
+    "process_overhead": "low",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "formal blocked-dependency escalation instead of another local bookkeeping milestone",
+    "paper_verdict_delta": "No paper verdict delta; this preserves queue hygiene after B1b/B2b negatives.",
+    "must_synthesize_if": [
+      "another autonomous milestone is proposed without PI/new-route admission",
+      "a proposed next unit attempts to train from B1b/B2b negative pricing",
+      "a proposed next unit targets a certified dead end without new pricing"
+    ]
+  },
+  "success_criteria": [
+    "docs/escalations/2026-06-12-phase3-roadmap-exhausted-pi-route.md exists and names phase3_codex_execution_queue",
+    "experiments/research_queue.csv contains M3243 with status blocked",
+    "experiments/research_status.json counts the blocked row and keeps next_task null",
+    "docs/current-status.md and docs/roadmap-phase3-codex-execution.md point to the escalation"
+  ],
+  "failure_criteria": [
+    "M3243 executes training, rollout measurement, or driver mutation",
+    "M3243 marks the goal complete while PI/new-route dependency remains unresolved",
+    "M3243 opens Track C extension, C2, or driver-performance claims from negative pricing",
+    "M3243 leaves the blocked dependency unrecorded in docs/escalations/"
+  ],
+  "decision_rule": "Accept M3243 as a blocked process gate only if the escalation file and blocked queue row exist, status remains internally consistent, next_task remains null, and no new measurement or admission claim is made.",
+  "commands": [
+    {
+      "name": "phase3_roadmap_exhausted_pi_route_escalation",
+      "command": "true"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/escalations/2026-06-12-phase3-roadmap-exhausted-pi-route.md",
+      "type": "markdown"
+    }
+  ],
+  "baseline_checkpoints": [
+    "docs/current-status.md",
+    "docs/roadmap-phase3-codex-execution.md",
+    "docs/m3242-b2b-high-speed-pricing-full.md"
+  ],
+  "scoreboard_checkpoint": "docs/escalations/2026-06-12-phase3-roadmap-exhausted-pi-route.md",
+  "next_blocker": "PI/new-route decision required before autonomous execution can resume.",
+  "status": "blocked"
+}
