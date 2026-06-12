@@ -20,7 +20,10 @@
   CP-1 conditionally opened C1, but M3238 has since blocked the local
   selector/interface route pending PI or new nonlocal-interface pricing.
   M3231 satisfied the D1b direction-positive precondition for CP-2, but C3
-  remains blocked on C2 and PI CP-2.
+  remains blocked on C2 and PI CP-2. M3239 passed the B1b
+  moving-obstacle pricing protocol smoke; M3240 then ran the full B1b panel
+  and rejected the current moving-crosser formulation (0/4 cells qualified,
+  all rows reflex-solvable).
 
 ## Track A — pricing/science completion (CPU only, zero training)
 
@@ -99,7 +102,7 @@ demonstrating the new axis, registered as a milestone. No training claims.
   smoke frames; dynamic labels carry obstacle lateral velocity and predicted
   lateral offset at arrival; deterministic replay passed 4/4 seeds.
 
-### B1b. Moving-obstacle pricing [OPEN; after C1]
+### B1b. Moving-obstacle pricing [DONE: M3239 smoke + M3240 full negative]
 - question: does the constant-velocity crosser axis (built in B1/M3223)
   create type-(b) regions — per-instance oracle succeeds, best
   reflex-family arm fails — via the timing/prediction demand that
@@ -114,6 +117,14 @@ demonstrating the new axis, registered as a milestone. No training claims.
 - acceptance: pre-registered (oracle - per-tuned) per cell with paired
   CIs; gap >= 0.15 CI-excluding-0 in >= 2 cells => a new priced prize
   (Track C extension candidate, post-CP-2); either verdict feeds papers.
+- result: `docs/m3239-b1b-moving-obstacle-pricing-smoke.md` completed the
+  quick protocol smoke. `docs/m3240-b1b-moving-obstacle-pricing-full.md`
+  then completed the full panel and rejected the current B1b formulation:
+  0/4 cells qualified, oracle-minus-pertuned gap was 0.0000 in every cell,
+  oracle solvability was 1.0, and fixed_star/v4_rls/v4_pertuned all succeeded
+  32/32. All rows were `aeb_feasible`; the moving-crosser axis as priced here
+  does not create a type-(b) timing/prediction prize. Any later
+  moving-obstacle hardening requires a new preregistration.
 
 ### B2. > 20 m/s speed domain [DONE: M3224]
 - scenario configs to 36 m/s; preview/normalization per A2 recommendation;

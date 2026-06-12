@@ -4,7 +4,7 @@ This file is the compact official state for the project. Milestone documents
 and `docs/research-log.md` remain the detailed log of the autonomous-harness
 era; the Phase-2 plan and thesis (pointer table below) define the active
 program. Last full refresh: 2026-06-12 (the 2026-06-11 WP6.3 refresh
-replaced the stale paper-route state; this update folds in M3215-M3238,
+replaced the stale paper-route state; this update folds in M3215-M3240,
 the C5 pricing disposition, the S4-HF-lite backend connector/pricing work,
 WP6.2 guardrails, the A1 lateral-channel rider, the A2 obs-normalization
 audit, the A3 C5-prime target consolidation, B1/B2/B3/B4 env-engineering
@@ -14,7 +14,9 @@ the C1 v2 tail-balanced quick-smoke negative, the M3233 C1
 synthesis/repricing pivot, M3234 C1 admission-interface pricing, M3235 C1
 tail-family interface smoke, the M3236 tail-family interface pretrain quick
 negative, the M3237 C1 interface synthesis/repricing pivot, and the M3238
-C1 family-selector repricing negative).
+C1 family-selector repricing negative, the M3239 B1b moving-obstacle
+pricing protocol smoke, and the M3240 full B1b moving-obstacle pricing
+negative).
 
 ## Project Identity
 
@@ -30,8 +32,8 @@ C1 family-selector repricing negative).
 
 History in one paragraph: the autonomous harness loop ran through M3214
 before manual takeover; the manual takeover has since registered
-M3215-M3238. `experiments/research_status.json` now records
-3240 completed / 7 failed / 2 blocked task entries, with `next_task:
+M3215-M3240. `experiments/research_status.json` now records
+3242 completed / 7 failed / 2 blocked task entries, with `next_task:
 null`. On
 2026-06-11 an independent feasibility audit showed the M3108–M3212
 residual-repair branch was repairing physically unsolvable rows, and the
@@ -103,7 +105,12 @@ A2 obs-normalization audit **completed / blocker found**
 follow-up normalization/preview implementation before population or high-speed
 training); B1 moving-obstacle env axis **completed / smoke passed** (flagged
 constant-velocity crosser, dynamic labels, deterministic replay, legacy
-zero-relvel preserved); B2 high-speed env axis **completed / smoke passed**
+zero-relvel preserved); B1b moving-obstacle pricing **completed / negative**
+(M3239 passed the protocol smoke; M3240 full panel rejected the current
+moving-crosser formulation with 0/4 cells qualifying, oracle-minus-pertuned
+gap 0.0000 in every cell, oracle solvability 1.0, and fixed_star/v4_rls/
+v4_pertuned all succeeding 32/32; all rows were `aeb_feasible`); B2
+high-speed env axis **completed / smoke passed**
 (explicit 36 m/s profile, selected-channel max abs 0.900, 2.5 s road preview,
 high-speed labels 592/592; env-contract only, no training admission); B3
 geometry-channel degradation **completed / smoke passed** (config-gated road
@@ -126,7 +133,7 @@ ceiling route); WP6 **current guardrails live** (6.0/6.1/6.2/6.3 done;
 validator V7, escalation protocol, and managed-run helper are merged).
 
 Harness ledger: M3215, M3216, M3217, M3218, M3219, M3220, M3221, M3222,
-M3223, M3224, M3225, M3226, M3227, M3228, M3229, M3230, M3231, M3232, M3233, M3234, M3235, M3236, M3237, and M3238 registered and
+M3223, M3224, M3225, M3226, M3227, M3228, M3229, M3230, M3231, M3232, M3233, M3234, M3235, M3236, M3237, M3238, M3239, and M3240 registered and
 executed through the harness (research-validate passed in pending state;
 M3228 failed its full gate, M3229 completed, M3230 completed after a
 same-turn rerun tightened the quick gate to require both structured and CEM
@@ -135,8 +142,10 @@ resume cleanup, M3232 failed the revised C1 v2 quick behavior gate, M3233
 completed the C1 synthesis/repricing pivot, M3234 completed positive
 admission-interface pricing, M3235 completed the no-PPO tail-family
 interface smoke, M3236 failed the supervised tail-family pretrain quick,
-M3237 completed the interface synthesis/repricing pivot, and M3238 completed
-the family-selector repricing negative);
+M3237 completed the interface synthesis/repricing pivot, M3238 completed
+the family-selector repricing negative, M3239 completed the B1b
+moving-obstacle pricing protocol smoke, and M3240 completed the full B1b
+moving-obstacle pricing negative);
 leak gates stopped two dataset leaks and one terminal
 iteration, all per pre-registration.
 
@@ -223,6 +232,17 @@ floor, but predicted-family reconstruction MSE was 0.268415 vs <=0.1 and
 `structured:brake_steer_-1.0` with negative margin. C1 local selector/interface
 training is now blocked pending PI or a new nonlocal-interface pricing route;
 C2/C3 remain blocked.
+M3239 then moved to the next independent roadmap unit, B1b moving-obstacle
+pricing, but only as a quick protocol smoke. It passed all protocol gates in
+3.4 s: two moving-obstacle cells, disjoint selection/validation streams,
+fixed*/inert RLS/per-cell tuned/oracle arms, and reveal-constrained oracle
+attempts on every validation row. M3240 then ran the full four-cell panel and
+rejected the current B1b formulation: 0/4 cells qualified, oracle-minus-
+pertuned gap was 0.0000 in every cell, oracle solvability was 1.0, and
+fixed_star/v4_rls/v4_pertuned all succeeded 32/32. All rows were
+`aeb_feasible`, so the moving-crosser axis as priced here does not create a
+type-(b) timing/prediction prize. No moving-obstacle Track C extension,
+C2 admission, training, or driver-performance claim is admitted.
 
 ## Pointer Table
 
@@ -232,7 +252,7 @@ C2/C3 remain blocked.
 | Phase-2 plan v2 (active program definition) | `docs/research-plan-phase2-capability-boundary-tracking.md` |
 | Takeover decision (why M3213 was blocked) | `docs/feasibility-takeover-2026-06-route-decision.md` |
 | Gate protocol v2 (anchors before informative actions; R²≤0.1 self-check) | `docs/selfid-gate-protocol-v2-2026-06.md` |
-| Latest harness milestone (M3238: C1 family-selector repricing) | `docs/m3238-c1-family-selector-repricing.md` |
+| Latest harness milestone (M3240: B1b moving-obstacle pricing full) | `docs/m3240-b1b-moving-obstacle-pricing-full.md` |
 | Thesis capstone + RL re-entry (Sections 10-11) | `docs/capability-boundary-tracking-thesis-2026-06.md` |
 | Data coverage map (C5 sampling design authority) | `docs/data-coverage-map-2026-06.md` |
 | Incumbent deployed driver (v4, untouched) | `src/autodrift/active_safety_reflex_driver.py`, `DRIVER_ID = active_safety_reflex_driver_m3105_incumbent_v4_no_regression` |

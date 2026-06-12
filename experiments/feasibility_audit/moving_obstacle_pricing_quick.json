@@ -1,0 +1,420 @@
+{
+  "protocol": "b1b_moving_obstacle_pricing",
+  "generated_by": "scripts/feasibility_audit/moving_obstacle_pricing.py",
+  "quick_mode": true,
+  "claim_boundary": "B1b moving-obstacle pricing measurement only: scripted reflex baselines, a nominal/no-spread inert RLS arm, a disjoint-selection per-cell tuned reflex upper bound, and a reveal-constrained privileged oracle compared on flagged constant-velocity crosser scenarios. Zero training; no incumbent driver mutation, validation ranking, promotion, driver-performance, high-fidelity sufficiency, paper, repair-success, robustness-result, feasibility-proof, or self-ID claim. Quick mode is protocol smoke only and is not a pricing verdict.",
+  "preregistration_echo": {
+    "file": "/home/quyaonan/workspace/autodrift/experiments/feasibility_audit/moving_obstacle_pricing_prereg.json",
+    "decision_rule": "B1b full pricing is positive iff >=2 full-panel cells have oracle_minus_pertuned >= 0.15 with paired bootstrap CI95 lower > 0 on the oracle-solved denominator. Either verdict feeds the roadmap and papers; no training is admitted by this artifact alone.",
+    "quick_decision_rule": "Accept M3239 quick protocol smoke iff the script exercises two cells, disjoint selection/validation seeds, finite dynamic moving-obstacle rows, all validation rows reveal the obstacle under fixed_star, every validation row attempts oracle search, and each row either reaches CEM coverage or is solved by structured search. Quick mode is not a B1b pricing verdict."
+  },
+  "seed_base": 20260912,
+  "cells": {
+    "fast_late_centering": {
+      "n_rows_unfiltered": 4,
+      "n_rows_oracle_solved": 4,
+      "oracle_solvability": 1.0,
+      "oracle_solved_denominator": {
+        "fixed_v4_incumbent": {
+          "success": 1.0,
+          "n": 4,
+          "wilson_ci95": [
+            0.5101,
+            1.0
+          ],
+          "failure_modes": {
+            "success": 4,
+            "collision": 0,
+            "offtrack": 0,
+            "speed_too_low": 0,
+            "timeout_other": 0
+          }
+        },
+        "fixed_star": {
+          "success": 1.0,
+          "n": 4,
+          "wilson_ci95": [
+            0.5101,
+            1.0
+          ],
+          "failure_modes": {
+            "success": 4,
+            "collision": 0,
+            "offtrack": 0,
+            "speed_too_low": 0,
+            "timeout_other": 0
+          }
+        },
+        "v4_rls": {
+          "success": 1.0,
+          "n": 4,
+          "wilson_ci95": [
+            0.5101,
+            1.0
+          ],
+          "failure_modes": {
+            "success": 4,
+            "collision": 0,
+            "offtrack": 0,
+            "speed_too_low": 0,
+            "timeout_other": 0
+          }
+        },
+        "v4_pertuned": {
+          "success": 1.0,
+          "n": 4,
+          "wilson_ci95": [
+            0.5101,
+            1.0
+          ],
+          "failure_modes": {
+            "success": 4,
+            "collision": 0,
+            "offtrack": 0,
+            "speed_too_low": 0,
+            "timeout_other": 0
+          }
+        }
+      },
+      "unfiltered": {
+        "fixed_v4_incumbent": {
+          "success": 1.0,
+          "n": 4,
+          "wilson_ci95": [
+            0.5101,
+            1.0
+          ],
+          "failure_modes": {
+            "success": 4,
+            "collision": 0,
+            "offtrack": 0,
+            "speed_too_low": 0,
+            "timeout_other": 0
+          }
+        },
+        "fixed_star": {
+          "success": 1.0,
+          "n": 4,
+          "wilson_ci95": [
+            0.5101,
+            1.0
+          ],
+          "failure_modes": {
+            "success": 4,
+            "collision": 0,
+            "offtrack": 0,
+            "speed_too_low": 0,
+            "timeout_other": 0
+          }
+        },
+        "v4_rls": {
+          "success": 1.0,
+          "n": 4,
+          "wilson_ci95": [
+            0.5101,
+            1.0
+          ],
+          "failure_modes": {
+            "success": 4,
+            "collision": 0,
+            "offtrack": 0,
+            "speed_too_low": 0,
+            "timeout_other": 0
+          }
+        },
+        "v4_pertuned": {
+          "success": 1.0,
+          "n": 4,
+          "wilson_ci95": [
+            0.5101,
+            1.0
+          ],
+          "failure_modes": {
+            "success": 4,
+            "collision": 0,
+            "offtrack": 0,
+            "speed_too_low": 0,
+            "timeout_other": 0
+          }
+        }
+      },
+      "readouts_oracle_solved_denominator": {
+        "structural_gap_oracle_minus_pertuned": {
+          "value": 0.0,
+          "paired_bootstrap_ci95": [
+            0.0,
+            0.0
+          ],
+          "newcombe_ci95": [
+            -0.4899,
+            0.4899
+          ]
+        },
+        "structural_gap_oracle_minus_fixed_star": {
+          "value": 0.0,
+          "paired_bootstrap_ci95": [
+            0.0,
+            0.0
+          ]
+        },
+        "pertuned_minus_fixed_star": {
+          "value": 0.0,
+          "paired_bootstrap_ci95": [
+            0.0,
+            0.0
+          ]
+        },
+        "pertuned_minus_rls": {
+          "value": 0.0,
+          "paired_bootstrap_ci95": [
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    "slow_early_centering": {
+      "n_rows_unfiltered": 4,
+      "n_rows_oracle_solved": 4,
+      "oracle_solvability": 1.0,
+      "oracle_solved_denominator": {
+        "fixed_v4_incumbent": {
+          "success": 1.0,
+          "n": 4,
+          "wilson_ci95": [
+            0.5101,
+            1.0
+          ],
+          "failure_modes": {
+            "success": 4,
+            "collision": 0,
+            "offtrack": 0,
+            "speed_too_low": 0,
+            "timeout_other": 0
+          }
+        },
+        "fixed_star": {
+          "success": 1.0,
+          "n": 4,
+          "wilson_ci95": [
+            0.5101,
+            1.0
+          ],
+          "failure_modes": {
+            "success": 4,
+            "collision": 0,
+            "offtrack": 0,
+            "speed_too_low": 0,
+            "timeout_other": 0
+          }
+        },
+        "v4_rls": {
+          "success": 1.0,
+          "n": 4,
+          "wilson_ci95": [
+            0.5101,
+            1.0
+          ],
+          "failure_modes": {
+            "success": 4,
+            "collision": 0,
+            "offtrack": 0,
+            "speed_too_low": 0,
+            "timeout_other": 0
+          }
+        },
+        "v4_pertuned": {
+          "success": 1.0,
+          "n": 4,
+          "wilson_ci95": [
+            0.5101,
+            1.0
+          ],
+          "failure_modes": {
+            "success": 4,
+            "collision": 0,
+            "offtrack": 0,
+            "speed_too_low": 0,
+            "timeout_other": 0
+          }
+        }
+      },
+      "unfiltered": {
+        "fixed_v4_incumbent": {
+          "success": 1.0,
+          "n": 4,
+          "wilson_ci95": [
+            0.5101,
+            1.0
+          ],
+          "failure_modes": {
+            "success": 4,
+            "collision": 0,
+            "offtrack": 0,
+            "speed_too_low": 0,
+            "timeout_other": 0
+          }
+        },
+        "fixed_star": {
+          "success": 1.0,
+          "n": 4,
+          "wilson_ci95": [
+            0.5101,
+            1.0
+          ],
+          "failure_modes": {
+            "success": 4,
+            "collision": 0,
+            "offtrack": 0,
+            "speed_too_low": 0,
+            "timeout_other": 0
+          }
+        },
+        "v4_rls": {
+          "success": 1.0,
+          "n": 4,
+          "wilson_ci95": [
+            0.5101,
+            1.0
+          ],
+          "failure_modes": {
+            "success": 4,
+            "collision": 0,
+            "offtrack": 0,
+            "speed_too_low": 0,
+            "timeout_other": 0
+          }
+        },
+        "v4_pertuned": {
+          "success": 1.0,
+          "n": 4,
+          "wilson_ci95": [
+            0.5101,
+            1.0
+          ],
+          "failure_modes": {
+            "success": 4,
+            "collision": 0,
+            "offtrack": 0,
+            "speed_too_low": 0,
+            "timeout_other": 0
+          }
+        }
+      },
+      "readouts_oracle_solved_denominator": {
+        "structural_gap_oracle_minus_pertuned": {
+          "value": 0.0,
+          "paired_bootstrap_ci95": [
+            0.0,
+            0.0
+          ],
+          "newcombe_ci95": [
+            -0.4899,
+            0.4899
+          ]
+        },
+        "structural_gap_oracle_minus_fixed_star": {
+          "value": 0.0,
+          "paired_bootstrap_ci95": [
+            0.0,
+            0.0
+          ]
+        },
+        "pertuned_minus_fixed_star": {
+          "value": 0.0,
+          "paired_bootstrap_ci95": [
+            0.0,
+            0.0
+          ]
+        },
+        "pertuned_minus_rls": {
+          "value": 0.0,
+          "paired_bootstrap_ci95": [
+            0.0,
+            0.0
+          ]
+        }
+      }
+    }
+  },
+  "cell_specs": [
+    {
+      "cell": "slow_early_centering",
+      "crosser_speed_abs_mps": 2.6,
+      "speed_mps": 12.0,
+      "mu": 0.82,
+      "distance_m": 30.0,
+      "half_width_m": 0.75,
+      "reveal_distance_m": 28.0,
+      "target_lateral_offset_at_arrival_m": 0.0
+    },
+    {
+      "cell": "fast_late_centering",
+      "crosser_speed_abs_mps": 4.2,
+      "speed_mps": 14.0,
+      "mu": 0.9,
+      "distance_m": 31.0,
+      "half_width_m": 0.8,
+      "reveal_distance_m": 18.0,
+      "target_lateral_offset_at_arrival_m": 0.0
+    }
+  ],
+  "fixed_star": {
+    "grid": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "grid_index": 9,
+    "selection_success": 4,
+    "selection_n": 4,
+    "identity_selection_success": 4
+  },
+  "pertuned_choice": {
+    "slow_early_centering": {
+      "grid_index": 9,
+      "grid": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "fast_late_centering": {
+      "grid_index": 9,
+      "grid": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    }
+  },
+  "rls_arm_policy": {
+    "status": "inert_no_vehicle_spread_axis",
+    "config": "v4_rls is preregistered identical to fixed_star because B1b varies moving-obstacle timing, not vehicle population parameters."
+  },
+  "b1b_decision": {
+    "mode": "protocol_smoke",
+    "accepted": true,
+    "quick_protocol_smoke_pass": true,
+    "full_pricing_positive": false,
+    "qualifying_cells": [],
+    "rule": "Accept M3239 quick protocol smoke iff the script exercises two cells, disjoint selection/validation seeds, finite dynamic moving-obstacle rows, all validation rows reveal the obstacle under fixed_star, every validation row attempts oracle search, and each row either reaches CEM coverage or is solved by structured search. Quick mode is not a B1b pricing verdict.",
+    "interpretation": "Quick mode validates the protocol only; it does not price B1b."
+  },
+  "protocol_gates": {
+    "selection_validation_seed_disjoint": true,
+    "all_oracle_attempted": true,
+    "all_rows_visible_under_fixed_star": true,
+    "structured_and_cem_or_success_coverage": true,
+    "validation_rows": 8,
+    "rows_with_reveal": 8,
+    "oracle_attempted_rows": 8
+  },
+  "budget": {
+    "selection_episodes": 108,
+    "validation_arm_episodes": 32,
+    "oracle_rollouts": 12,
+    "elapsed_s": 3.4
+  },
+  "episode_rows_csv": "/home/quyaonan/workspace/autodrift/runs/feasibility_audit/moving_obstacle_pricing/episode_rows_quick.csv"
+}

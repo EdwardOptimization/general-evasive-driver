@@ -1,0 +1,184 @@
+{
+  "id": "m3240-b1b-moving-obstacle-pricing-full",
+  "priority": 32400,
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "milestone_intent": "evaluation_only",
+  "hypothesis": "A preregistered B1b moving-obstacle full pricing panel can decide whether the flagged constant-velocity crosser axis creates type-b regions where a reveal-constrained oracle beats the best disjoint-selection reflex-family arm before any training validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof paper or self-ID claim.",
+  "lineage": {
+    "parent_checkpoint": [
+      "docs/current-status.md",
+      "docs/roadmap-phase3-codex-execution.md",
+      "docs/m3223-b1-moving-obstacle-kinematics-smoke.md",
+      "docs/m3239-b1b-moving-obstacle-pricing-smoke.md"
+    ],
+    "parent_dataset": [
+      "experiments/feasibility_audit/moving_obstacle_pricing_quick.json"
+    ],
+    "parent_config": [
+      "experiments/feasibility_audit/moving_obstacle_pricing_prereg.json",
+      "scripts/feasibility_audit/moving_obstacle_pricing.py"
+    ],
+    "parent_objective": [
+      "full B1b moving-obstacle pricing after M3239 protocol smoke"
+    ],
+    "derived_from": [
+      "M3223 flagged constant-velocity crosser env axis",
+      "M3239 B1b pricing protocol smoke passed",
+      "M3239 quick cells were all-success for reflex arms, so full pricing must be interpreted without assuming a positive prize"
+    ],
+    "blocked_by": [
+      "Moving-obstacle Track C extension remains blocked until full B1b pricing is positive"
+    ],
+    "supersedes": [
+      "using M3239 quick mode as a pricing verdict"
+    ],
+    "invalidates": [
+      "opening moving-obstacle Track C training without full pricing",
+      "claiming B1b prize from protocol smoke"
+    ]
+  },
+  "review_artifact": "docs/reviews/m3240-b1b-moving-obstacle-pricing-full.md",
+  "public_gates": [
+    "M3240 must use the frozen B1b preregistration decision rule",
+    "M3240 must run the full four-cell panel, not quick mode",
+    "M3240 must report oracle-solved denominator and oracle-infeasible rows separately",
+    "M3240 must preserve the inert/no-spread status of the RLS arm",
+    "M3240 must not admit training unless the full pricing rule is positive and a later PI/admission gate opens it"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not touch ActiveSafetyReflexDriver",
+    "do not invoke train_ppo, supervised training, PPO, or guarded RL",
+    "do not mutate the incumbent driver",
+    "do not change the preregistered full decision rule after seeing M3239 quick results",
+    "do not admit Track C training or C2 from a negative or inconclusive B1b full result",
+    "do not claim driver performance, validation ranking, promotion, high-fidelity sufficiency, repair-success, robustness-result, feasibility-proof, paper, or self-ID"
+  ],
+  "workflow_synthesis": {
+    "branch": "b1b_moving_obstacle_pricing",
+    "evidence_axis": "b1b_moving_obstacle_full_pricing",
+    "evidence_increment": "full four-cell moving-obstacle pricing panel with fixed*, inert RLS, per-cell tuned reflex, and reveal-constrained oracle arms",
+    "claim_scope": "Full B1b pricing only; no driver-performance claim, no high-fidelity sufficiency, no validation ranking promotion, no training admission, no paper claim, and no self-ID claim",
+    "stop_condition": [
+      "stop after full B1b pricing decision is written",
+      "stop if the full panel fails protocol gates",
+      "stop if the pricing rule is negative or inconclusive"
+    ],
+    "fallback_plan": [
+      "if full pricing is positive, route to a separate Track C extension admission decision after CP-2/PI",
+      "if full pricing is negative, mark B1b done-negative and move to the next roadmap OPEN unit",
+      "if protocol gates fail, repair or harden the panel under a new preregistration"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M3239 completed the B1b protocol smoke and admitted full pricing only",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "Full moving-obstacle pricing; no model update.",
+    "admission_evidence": [
+      "M3223 moving-obstacle env axis passed smoke",
+      "M3239 quick protocol smoke passed",
+      "B1b roadmap requires full pricing before any moving-obstacle Track C extension"
+    ],
+    "blocked_shortcuts": [
+      "no supervised pretraining",
+      "no PPO or guarded RL",
+      "no incumbent driver mutation",
+      "no C2 admission"
+    ],
+    "allowed_updates": [
+      "experiments/feasibility_audit/moving_obstacle_pricing.json",
+      "docs/m3240-b1b-moving-obstacle-pricing-full.md",
+      "docs/reviews/m3240-b1b-moving-obstacle-pricing-full.md",
+      "M3240 queue, status, scoreboard, roadmap, current-status, research-log, and measurement-index rows"
+    ],
+    "next_stage_criteria": [
+      "if >=2 full cells qualify by the frozen rule, route to a separate admission/PI decision before any training",
+      "if fewer than 2 full cells qualify, close B1b current formulation as negative and move to B2b",
+      "C1/C2/C3 remain blocked by their existing gates"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "Not applicable: M3240 is engineering/pricing and makes no history-attribution claim.",
+    "history_necessity_tests": [
+      "none in M3240: no self-ID or history claim is made"
+    ],
+    "temporal_evidence_window": "none: moving-obstacle pricing only",
+    "negative_result_policy": "A negative B1b full result must be preserved and cannot be converted into a training admission.",
+    "allowed_claims": [
+      "B1b full pricing positive, negative, or inconclusive",
+      "moving-obstacle Track C extension admission remains blocked unless separately admitted",
+      "C1/C2/C3 remain blocked"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_baseline_comparison",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "full moving-obstacle pricing comparison over four preregistered cells",
+    "paper_verdict_delta": "M3240 can add a B1b positive or negative pricing result; it is not a controller outcome claim.",
+    "must_synthesize_if": [
+      "full pricing is negative and another moving-obstacle hardening run is proposed",
+      "training is proposed from a negative or inconclusive B1b result",
+      "B2b is skipped without a roadmap reason"
+    ]
+  },
+  "success_criteria": [
+    "experiments/feasibility_audit/moving_obstacle_pricing.json exists with protocol b1b_moving_obstacle_pricing and quick_mode false",
+    "result reports all four preregistered full cells",
+    "result reports oracle-solved denominator structural gaps and qualifying cells",
+    "result decision applies the frozen >=2 qualifying cells rule",
+    "the result document separates measured and inferred sections"
+  ],
+  "failure_criteria": [
+    "M3240 runs quick mode instead of full mode",
+    "M3240 runs training or writes a policy checkpoint",
+    "M3240 mutates ActiveSafetyReflexDriver or the incumbent driver",
+    "M3240 admits Track C training or C2 directly",
+    "M3240 changes the full decision rule after seeing results"
+  ],
+  "decision_rule": "Accept M3240 as completed if the full panel runs under the frozen preregistration, writes the full JSON and episode-row CSV, reports the full B1b pricing decision, and keeps training gates blocked.",
+  "commands": [
+    {
+      "name": "b1b_moving_obstacle_pricing_full",
+      "command": "env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/moving_obstacle_pricing.py"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "experiments/feasibility_audit/moving_obstacle_pricing_prereg.json",
+      "type": "json"
+    },
+    {
+      "path": "experiments/feasibility_audit/moving_obstacle_pricing.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m3240-b1b-moving-obstacle-pricing-full.md",
+      "type": "markdown"
+    }
+  ],
+  "baseline_checkpoints": [
+    "docs/current-status.md",
+    "docs/roadmap-phase3-codex-execution.md",
+    "docs/m3239-b1b-moving-obstacle-pricing-smoke.md",
+    "experiments/feasibility_audit/moving_obstacle_pricing_quick.json"
+  ],
+  "scoreboard_checkpoint": "experiments/feasibility_audit/moving_obstacle_pricing.json",
+  "next_blocker": "B1b current moving-obstacle formulation is done-negative. Move to the next independent OPEN roadmap unit, B2b high-speed domain pricing, unless a new preregistered moving-obstacle hardening unit is explicitly opened later.",
+  "result_summary": {
+    "artifact": "experiments/feasibility_audit/moving_obstacle_pricing.json",
+    "decision": "b1b_moving_obstacle_pricing_negative",
+    "notes": "Full B1b moving-obstacle pricing was negative by the frozen rule: 0/4 cells qualified, oracle-minus-pertuned gap was 0.0000 in every cell, oracle solvability was 1.0, and fixed_star/v4_rls/v4_pertuned all succeeded 32/32. All rows were aeb_feasible, with fixed_star min clearance margin 4.1125 m. No moving-obstacle Track C extension, C2 admission, training, or driver-performance claim is admitted."
+  },
+  "status": "completed"
+}

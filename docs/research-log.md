@@ -56416,3 +56416,27 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m3238-c1-family-selector-repricing_20260612T074049Z/command.log`
 - success artifact: `experiments/feasibility_audit/c5prime_c1_family_selector_repricing.json`
 - notes: Completed: M3238 rejected the local family-selector route. Best train-only row selector reached validation accuracy 0.803119 over the 0.538012 majority floor, but predicted-family reconstruction MSE was 0.268415 vs <=0.1 and structured:coast_steer_-0.7 stayed 0/101, predicted as structured:brake_steer_-1.0. C1 local selector/interface training is blocked pending PI or new nonlocal-interface pricing; C2/C3 remain blocked.
+
+## 20260612T080036Z m3239-b1b-moving-obstacle-pricing-smoke
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: A preregistered B1b moving-obstacle pricing protocol smoke can exercise the constant-velocity crosser panel with fixed*, inert RLS, per-cell tuned reflex, and reveal-constrained oracle arms before any full B1b pricing verdict, training, validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof paper or self-ID claim.
+- command: `env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/moving_obstacle_pricing.py --quick`
+- returncode: `0`
+- run dir: `runs/research/m3239-b1b-moving-obstacle-pricing-smoke_20260612T080032Z`
+- command log: `runs/research/m3239-b1b-moving-obstacle-pricing-smoke_20260612T080032Z/command.log`
+- success artifact: `experiments/feasibility_audit/moving_obstacle_pricing_quick.json`
+- notes: Completed: M3239 quick protocol smoke passed all gates in 3.4 s, exercising two moving-obstacle cells, disjoint selection/validation streams, fixed*/inert RLS/per-cell tuned/oracle arms, and reveal-constrained oracle attempts. Quick cells were all-success for the reflex arms, so this is not a B1b pricing verdict; full pricing remains unrun.
+
+## 20260612T080627Z m3240-b1b-moving-obstacle-pricing-full
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: A preregistered B1b moving-obstacle full pricing panel can decide whether the flagged constant-velocity crosser axis creates type-b regions where a reveal-constrained oracle beats the best disjoint-selection reflex-family arm before any training validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof paper or self-ID claim.
+- command: `env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/moving_obstacle_pricing.py`
+- returncode: `0`
+- run dir: `runs/research/m3240-b1b-moving-obstacle-pricing-full_20260612T080610Z`
+- command log: `runs/research/m3240-b1b-moving-obstacle-pricing-full_20260612T080610Z/command.log`
+- success artifact: `experiments/feasibility_audit/moving_obstacle_pricing.json`
+- notes: Completed: full B1b moving-obstacle pricing was negative by the frozen rule. 0/4 cells qualified, oracle-minus-pertuned gap was 0.0000 in every cell, oracle solvability was 1.0, and fixed_star/v4_rls/v4_pertuned all succeeded 32/32. All rows were aeb_feasible; current moving-crosser formulation does not create a type-b prize.

@@ -1,0 +1,72 @@
+{
+  "protocol": "b1b_moving_obstacle_pricing_preregistration",
+  "roadmap_unit": "B1b moving-obstacle pricing",
+  "frozen_at_utc": "20260612T075257Z",
+  "frozen_before_quick_smoke": true,
+  "claim_under_pricing": "Does the flagged constant-velocity crosser axis create type-(b) regions where a reveal-constrained per-instance oracle succeeds but the best disjoint-selection reflex-family arm fails because moving-obstacle timing/prediction is required?",
+  "claim_boundary": "B1b moving-obstacle pricing measurement only: scripted reflex baselines, a nominal/no-spread inert RLS arm, a disjoint-selection per-cell tuned reflex upper bound, and a reveal-constrained privileged oracle compared on flagged constant-velocity crosser scenarios. Zero training; no incumbent driver mutation, validation ranking, promotion, driver-performance, high-fidelity sufficiency, paper, repair-success, robustness-result, feasibility-proof, or self-ID claim. Quick mode is protocol smoke only and is not a pricing verdict.",
+  "seed_discipline": {
+    "seed_base": 20260912,
+    "selection_stream": "seed_base + cell_index * 10000 + row_index * 37",
+    "validation_stream": "seed_base + cell_index * 10000 + 5000 + row_index * 37",
+    "oracle_stream": "numpy Generator([seed_base, 51, cell_index, row_index, quick_flag])",
+    "quick_selection_rows_per_cell": 2,
+    "quick_validation_rows_per_cell": 4,
+    "full_selection_rows_per_cell": 5,
+    "full_validation_rows_per_cell": 8,
+    "selection_validation_reuse": "forbidden"
+  },
+  "scenario_panel": {
+    "quick_cells": [
+      "slow_early_centering",
+      "fast_late_centering"
+    ],
+    "full_cells": [
+      "slow_early_centering",
+      "fast_late_centering",
+      "slow_late_edge",
+      "fast_mid_opposite_edge"
+    ],
+    "axes": [
+      "crosser speed",
+      "perception reveal distance",
+      "arrival geometry"
+    ],
+    "placement_rule": "Initial lateral offset is chosen so the crosser is near the ego lane at nominal arrival, with row jitter; obstacle labels are re-derived with obstacle_lateral_velocity and predicted_lateral_offset_at_arrival.",
+    "fixed_environment": {
+      "track_kind": "circle",
+      "track_radius": 60.0,
+      "track_width": 8.5,
+      "obstacle_motion_mode": "constant_velocity_crosser",
+      "obstacle_relative_velocity_mode": "ego",
+      "friction_limited_speed": false,
+      "vehicle_population": "nominal current-sim vehicle only"
+    }
+  },
+  "arms": {
+    "fixed_v4_incumbent": "canonical M3105 v4-v2 fallback hard-safety direct-action reflex, used as a secondary incumbent transfer readout",
+    "fixed_star": "one global 27-grid reflex retune selected on pooled selection rows only",
+    "v4_rls": "nominal/no-spread inert arm identical to fixed_star; B1b varies obstacle timing rather than vehicle population parameters, so no honest vehicle RLS signal exists on this panel",
+    "v4_pertuned": "per-cell 27-grid reflex winner selected on disjoint selection rows only",
+    "oracle": "reveal-constrained privileged tail search after the obstacle is visible under fixed_star; structured candidates first, then CEM fallback"
+  },
+  "grid": {
+    "brake_multipliers": [0.6, 1.0, 1.8],
+    "steer_multipliers": [1.0, 1.45, 1.9],
+    "relevance_distance_multipliers": [1.0, 1.4, 1.8]
+  },
+  "preregistered_readouts": {
+    "primary_prize": "oracle - v4_pertuned success rate on the oracle-solved denominator",
+    "secondary_floor_gap": "oracle - fixed_star success rate on the oracle-solved denominator",
+    "classical_residual": "v4_pertuned - v4_rls success rate; because v4_rls is inert on this panel, this also reports the per-cell tuning lift over fixed_star",
+    "oracle_denominator": "Rows where the reveal-constrained oracle solves are included in the primary denominator; oracle-infeasible rows are excluded and reported separately."
+  },
+  "quick_decision_rule": "Accept M3239 quick protocol smoke iff the script exercises two cells, disjoint selection/validation seeds, finite dynamic moving-obstacle rows, all validation rows reveal the obstacle under fixed_star, every validation row attempts oracle search, and each row either reaches CEM coverage or is solved by structured search. Quick mode is not a B1b pricing verdict.",
+  "decision_rule": "B1b full pricing is positive iff >=2 full-panel cells have oracle_minus_pertuned >= 0.15 with paired bootstrap CI95 lower > 0 on the oracle-solved denominator. Either verdict feeds the roadmap and papers; no training is admitted by this artifact alone.",
+  "runtime_gates": [
+    "composed_action must match the canonical v4 function bit-for-bit on random obs72 samples",
+    "selection and validation seeds must be disjoint",
+    "all probe rows must use constant_velocity_crosser with nonzero obstacle_lateral_velocity and finite predicted_lateral_offset_at_arrival",
+    "quick smoke must pass before a full pricing run is interpreted"
+  ]
+}
