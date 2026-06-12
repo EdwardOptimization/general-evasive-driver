@@ -1,6 +1,6 @@
 # Feasibility Audit Measurement Index (2026-06)
 
-Index of every script in this directory (44 as of 2026-06-12), mapped to its
+Index of every script in this directory (45 as of 2026-06-12), mapped to its
 primary result artifacts and the conclusion document that interprets them.
 All scripts are deterministic, CPU-only, and run as
 `PYTHONPATH=src python scripts/feasibility_audit/<script>.py` from the repo
@@ -100,6 +100,7 @@ Created as WP6.3 of `docs/research-plan-phase2-capability-boundary-tracking.md`.
 | `c5prime_c1_oracle_bc_warmstart.py` | `experiments/feasibility_audit/c5prime_c1_oracle_bc_prereg.json`, `c5prime_c1_oracle_bc_warmstart_quick.json`, `c5prime_c1_oracle_bc_warmstart.json`; `experiments/feasibility_audit/c5prime_c1_oracle_bc_v2_prereg.json`, `c5prime_c1_oracle_bc_warmstart_v2_quick.json`; `runs/feasibility_audit/c5prime_c1_oracle_bc_warmstart/full/checkpoint.pt`, `dataset.npz`; `runs/feasibility_audit/c5prime_c1_oracle_bc_warmstart/v2_tail_balanced/quick/checkpoint.pt`, `dataset.npz` | `docs/m3228-c1-c5prime-oracle-demo-bc-warmstart.md`; `docs/m3232-c1-v2-tail-balanced-warmstart-smoke.md` | Does the CP-1-opened C1 structured-oracle demo + BC warm-start pass its frozen held-out action-MSE gate? Not yet: M3228 full failed validation action MSE 0.234184 vs <=0.12; M3232 v2 rare-tail-balanced quick also failed the unchanged quick gate at 0.291470 despite demo replay/checkpoint/dataset success. C1 remains open; no C2 admission. |
 | `c5prime_c1_failure_localization.py` | `experiments/feasibility_audit/c5prime_c1_failure_localization.json` | `docs/m3229-c1-bc-warmstart-failure-localization.md` | Why did M3228 fail? The error is a selection/validation tail-action generalization failure: validation prefix MSE 0.026446 vs tail MSE 0.369957, brake-channel MSE 0.201318; no new training or criterion change was made. |
 | `c5prime_c1_synthesis_repricing.py` | `experiments/feasibility_audit/c5prime_c1_synthesis_repricing_prereg.json`, `c5prime_c1_synthesis_repricing.json` | `docs/m3233-c1-synthesis-repricing.md` | What should happen after M3228 and M3232 both failed the C1 action-MSE gate? Pivot the local direct-MLP/action-MSE warm-start branch; C1 remains open under `c5prime_track_c_c1_admission_interface_pricing`, while C2/C3 remain blocked. |
+| `c5prime_c1_admission_interface_pricing.py` | `experiments/feasibility_audit/c5prime_c1_admission_interface_pricing_prereg.json`, `c5prime_c1_admission_interface_pricing.json` | `docs/m3234-c1-admission-interface-pricing.md` | Is a structured tail-family admission interface worth a no-PPO quick smoke after M3233? Yes: priced tail-MSE reduction 0.369957 vs 0.15 threshold and v2 held-out family train coverage 1.0; admits only a separate quick-smoke registration, not C2 or full training. |
 
 ## Artifacts without a script in this directory
 

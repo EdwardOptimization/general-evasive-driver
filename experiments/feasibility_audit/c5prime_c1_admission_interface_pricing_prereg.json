@@ -1,0 +1,21 @@
+{
+  "decision_rule": {
+    "interface_positive_if": "M3233 keeps the C5-prime target priced and pivots the local direct-MLP branch, the structured tail-family oracle anchor removes at least 0.15 validation tail MSE, all held-out v2 oracle families have train support, and no v2 family is outside the structured action library.",
+    "next_training_admission": "No training is admitted by this pricing milestone. A positive result admits only a separate no-PPO quick smoke with its own preregistration and frozen gates."
+  },
+  "frozen_at_utc": "20260612T000000Z",
+  "protocol": "c5prime_c1_admission_interface_pricing",
+  "source_artifacts": {
+    "m3228_prereg": "experiments/feasibility_audit/c5prime_c1_oracle_bc_prereg.json",
+    "m3228_summary": "experiments/feasibility_audit/c5prime_c1_oracle_bc_warmstart.json",
+    "m3229_localization": "experiments/feasibility_audit/c5prime_c1_failure_localization.json",
+    "m3232_prereg": "experiments/feasibility_audit/c5prime_c1_oracle_bc_v2_prereg.json",
+    "m3232_summary": "experiments/feasibility_audit/c5prime_c1_oracle_bc_warmstart_v2_quick.json",
+    "m3233_synthesis": "experiments/feasibility_audit/c5prime_c1_synthesis_repricing.json"
+  },
+  "thresholds": {
+    "direct_action_mse_gate": 0.12,
+    "min_heldout_family_train_coverage": 1.0,
+    "min_tail_mse_reduction": 0.15
+  }
+}

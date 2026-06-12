@@ -173,7 +173,7 @@ demonstrating the new axis, registered as a milestone. No training claims.
 
 ## Track C — C5' RL program (m1087 staged; opens after CP-1)
 
-### C1. Oracle demo generator + BC warm-start [OPEN per CP-1 disposition; M3233 pivoted local MLP/action-MSE branch]
+### C1. Oracle demo generator + BC warm-start [OPEN per CP-1 disposition; M3234 tail-family interface pricing positive]
 - per-instance oracle demos on the frozen C5' cells; BC with DAgger-lite +
   held-out epoch selection (the G1' lessons are mandatory); capacity and
   seed discipline per the WP1 pattern.
@@ -189,10 +189,15 @@ demonstrating the new axis, registered as a milestone. No training claims.
   but failed the frozen quick validation action-MSE gate (0.291470 vs <=0.12).
   `docs/m3233-c1-synthesis-repricing.md` then completed the required
   synthesis/repricing: A3/D1b keep the C5-prime target priced, but the local
-  direct-MLP/action-MSE warm-start branch pivots after two gate failures. C1
-  remains open under `c5prime_track_c_c1_admission_interface_pricing`; do not
-  proceed to full v2, another local direct-MLP BC repair, or C2 from the failed
-  artifacts.
+  direct-MLP/action-MSE warm-start branch pivots after two gate failures.
+  `docs/m3234-c1-admission-interface-pricing.md` then priced the successor
+  interface positive: a structured tail-family oracle anchor removes 0.369957
+  validation tail MSE vs the 0.15 threshold, and v2 held-out family train
+  coverage is 1.0. C1 remains open under
+  `c5prime_track_c_c1_tail_family_interface_smoke`; do not proceed to full v2,
+  another local direct-MLP BC repair, full C1 training, or C2 from the failed
+  artifacts. Next C1 unit is a no-PPO tail-family interface quick smoke with
+  frozen family-coverage and tail-reconstruction gates.
 ### C2. Capability pretrain + guarded RL smoke [BLOCKED on C1]
 - envelope-head pretrain; 1024-step guarded RL smoke first; reward
   recalibration 40/60 as measured; judging prereg frozen before any full
@@ -268,14 +273,14 @@ demonstrating the new axis, registered as a milestone. No training claims.
 - B4: DONE (M3226; 60 s warmup-to-obstacle-to-post-pass continuation smoke passed)
 - B1b: OPEN (moving-obstacle pricing; start after C1)
 - B2b: OPEN (high-speed pricing; start after C1)
-- C1: OPEN (CP-1 disposition 2026-06-12: conditional approval; M3228 first BC warm-start failed, M3229 localized tail-action generalization gap, M3232 v2 quick failed, M3233 synthesis/repricing pivoted away from local direct-MLP/action-MSE warm-start; next C1 step is admission-interface pricing under `c5prime_track_c_c1_admission_interface_pricing`)
+- C1: OPEN (CP-1 disposition 2026-06-12: conditional approval; M3228 first BC warm-start failed, M3229 localized tail-action generalization gap, M3232 v2 quick failed, M3233 synthesis/repricing pivoted away from local direct-MLP/action-MSE warm-start, M3234 admission-interface pricing positive; next C1 step is no-PPO tail-family interface quick smoke under `c5prime_track_c_c1_tail_family_interface_smoke`)
 - C2: BLOCKED on C1
 - C3: BLOCKED on C2 + CP-2 (D1b direction-positive satisfied by M3231)
 - D1: DONE (M3227; tail-replay proxy reversed in all three variants)
 - D1b: DONE (M3231; native Chrono oracle direction-positive on Sedan/BMW_E90)
 
 Execution order note: cross-track priority is C1 next (CP-1 disposition;
-after M3233, admission-interface pricing before any new C1 training),
+after M3234, no-PPO tail-family interface quick smoke before any full C1 training),
 then B1b, then B2b; within a track, lowest number first.
 - WP6.2 guardrails: **MERGED** (commit 05607bcd — validator V7 live in the
   pre-commit hook, escalation protocol in docs/escalations/, managed-run

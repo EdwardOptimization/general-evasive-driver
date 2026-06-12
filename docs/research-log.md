@@ -56356,3 +56356,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m3233-c1-synthesis-repricing_20260612T064016Z/command.log`
 - success artifact: `experiments/feasibility_audit/c5prime_c1_synthesis_repricing.json`
 - notes: Completed: M3233 synthesized existing pricing and C1 warm-start evidence; decision pivot away from the local direct-MLP/action-MSE warm-start branch. C1 remains open under c5prime_track_c_c1_admission_interface_pricing; C2/C3 remain blocked; no rollout, training, driver mutation, validation ranking, promotion, high-fidelity sufficiency, or self-ID claim.
+
+## 20260612T064955Z m3234-c1-admission-interface-pricing
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: A preregistered read-only C1 admission-interface pricing pass can compare a structured tail-family interface against the failed direct-MLP action-MSE floor and decide whether a no-PPO interface quick smoke is worth registering before validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof or self-ID claim.
+- command: `env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/c5prime_c1_admission_interface_pricing.py`
+- returncode: `0`
+- run dir: `runs/research/m3234-c1-admission-interface-pricing_20260612T064954Z`
+- command log: `runs/research/m3234-c1-admission-interface-pricing_20260612T064954Z/command.log`
+- success artifact: `experiments/feasibility_audit/c5prime_c1_admission_interface_pricing.json`
+- notes: Completed: structured tail-family admission interface priced positive against the failed direct-MLP/action-MSE floor. It admits only a separate no-PPO quick-smoke registration under c5prime_track_c_c1_tail_family_interface_smoke. C2/C3 remain blocked; no rollout, training, driver mutation, validation ranking, promotion, high-fidelity sufficiency, or self-ID claim.
