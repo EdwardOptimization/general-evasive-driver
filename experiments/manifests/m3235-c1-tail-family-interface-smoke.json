@@ -1,0 +1,197 @@
+{
+  "baseline_checkpoints": [
+    "docs/current-status.md",
+    "docs/roadmap-phase3-codex-execution.md",
+    "docs/m3234-c1-admission-interface-pricing.md",
+    "experiments/feasibility_audit/c5prime_c1_admission_interface_pricing.json"
+  ],
+  "commands": [
+    {
+      "command": "env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/c5prime_c1_tail_family_interface_smoke.py",
+      "name": "c1_tail_family_interface_smoke"
+    }
+  ],
+  "decision_rule": "Accept M3235 as completed if the no-PPO tail-family interface quick smoke passes frozen family-coverage and tail-reconstruction gates, writes interface target artifacts, and keeps C2 blocked.",
+  "failure_criteria": [
+    "M3235 runs PPO or behavior pretraining",
+    "M3235 writes a policy checkpoint",
+    "M3235 admits C2 or full C1 training",
+    "M3235 changes the structured action decoder to pass the smoke"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "feasibility_pricing": {
+    "gap_meets_threshold": true,
+    "priced_gap": 0.1597,
+    "pricing_artifact": "experiments/feasibility_audit/c5prime_target_consolidation.json",
+    "threshold": 0.15
+  },
+  "forbidden_shortcuts": [
+    "do not touch ActiveSafetyReflexDriver",
+    "do not invoke train_ppo or behavior pretraining",
+    "do not write a policy checkpoint",
+    "do not admit C2 or full C1 training",
+    "do not claim driver performance, validation ranking, promotion, high-fidelity sufficiency, or self-ID"
+  ],
+  "gate_tier": "infrastructure",
+  "hypothesis": "A no-PPO C1 structured tail-family interface quick smoke can replay the frozen v2 structured-oracle quick rows, encode prefix/tail interface targets, and pass family-coverage plus exact tail-reconstruction gates before validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof or self-ID claim.",
+  "id": "m3235-c1-tail-family-interface-smoke",
+  "lineage": {
+    "blocked_by": [
+      "C1 remains open; C2 is blocked until a C1 admission artifact passes"
+    ],
+    "derived_from": [
+      "M3234 positive admission-interface pricing",
+      "M3232 v2 rare-tail preregistration",
+      "M3229 tail-action failure localization"
+    ],
+    "invalidates": [
+      "starting tail-family pretraining without an interface smoke",
+      "using a process-only pricing artifact as C2 admission"
+    ],
+    "parent_checkpoint": [
+      "experiments/feasibility_audit/c5prime_c1_admission_interface_pricing.json",
+      "experiments/feasibility_audit/c5prime_c1_oracle_bc_v2_prereg.json"
+    ],
+    "parent_config": [
+      "experiments/feasibility_audit/c5prime_c1_tail_family_interface_smoke_prereg.json",
+      "scripts/feasibility_audit/c5prime_c1_tail_family_interface_smoke.py"
+    ],
+    "parent_dataset": [
+      "runs/feasibility_audit/c5prime_target_consolidation/episode_rows.csv"
+    ],
+    "parent_objective": [
+      "smoke the positive M3234 tail-family admission interface before any pretraining"
+    ],
+    "supersedes": [
+      "unexecuted tail-family interface smoke proposal after M3234"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_tool_or_infra",
+    "evidence_expansion": "new interface target artifact and exact tail-reconstruction smoke for the tail-family C1 path",
+    "local_search_risk": "medium",
+    "must_synthesize_if": [
+      "the tail-family interface quick smoke fails",
+      "a tail-family pretrain attempt fails behavior-neutrally",
+      "C1 proposes C2 admission from non-training smoke artifacts"
+    ],
+    "paper_verdict_delta": "M3235 can admit only a tail-family pretrain design/quick milestone; it is not a paper or controller outcome claim.",
+    "process_overhead": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0
+  },
+  "milestone_intent": "evaluation_only",
+  "next_blocker": "C1 remains open; if M3235 passes, the next C1 unit is a tail-family interface pretrain design/quick milestone. C2 remains blocked.",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "not_applicable",
+  "public_gates": [
+    "M3235 must be preregistered before execution",
+    "M3235 must use the M3232 v2 frozen row design",
+    "M3235 must not run PPO or behavior pretraining",
+    "M3235 must not write a policy checkpoint",
+    "M3235 must pass family-coverage and exact tail-reconstruction gates",
+    "M3235 must keep C2 blocked"
+  ],
+  "required_artifacts": [
+    {
+      "path": "experiments/feasibility_audit/c5prime_c1_tail_family_interface_smoke_prereg.json",
+      "type": "json"
+    },
+    {
+      "path": "experiments/feasibility_audit/c5prime_c1_tail_family_interface_smoke.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/feasibility_audit/c5prime_c1_tail_family_interface_smoke/quick/interface_targets.npz",
+      "type": "npz"
+    },
+    {
+      "path": "docs/m3235-c1-tail-family-interface-smoke.md",
+      "type": "markdown"
+    }
+  ],
+  "review_artifact": "docs/reviews/m3235-c1-tail-family-interface-smoke.md",
+  "scoreboard_checkpoint": "experiments/feasibility_audit/c5prime_c1_tail_family_interface_smoke.json",
+  "self_id_evidence_discipline": {
+    "allowed_claims": [
+      "no-PPO C1 interface smoke result",
+      "tail-family target encoding and reconstruction gate result",
+      "C2 remains blocked"
+    ],
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "Not applicable: M3235 is engineering-only interface smoke and makes no history-attribution claim.",
+    "history_necessity_tests": [
+      "none in M3235: interface smoke only"
+    ],
+    "negative_result_policy": "A failed interface smoke stops the tail-family branch until repriced or redesigned.",
+    "temporal_evidence_window": "none: no self-ID or history claim is made"
+  },
+  "result_summary": {
+    "artifact": "experiments/feasibility_audit/c5prime_c1_tail_family_interface_smoke.json",
+    "decision": "tail_family_interface_smoke_passed",
+    "gates_all_passed": true,
+    "interface_target_artifact": "runs/feasibility_audit/c5prime_c1_tail_family_interface_smoke/quick/interface_targets.npz",
+    "next_branch": "c5prime_track_c_c1_tail_family_interface_pretrain_design",
+    "notes": "M3235 passed the no-PPO structured tail-family interface smoke: 11/11 frozen demo replays succeeded, held-out family train coverage was 1.0, tail reconstruction MSE and max abs error were 0, and no policy checkpoint was written. C1 remains open; C2/C3 remain blocked."
+  },
+  "status": "completed",
+  "success_criteria": [
+    "experiments/feasibility_audit/c5prime_c1_tail_family_interface_smoke.json exists with protocol c5prime_c1_tail_family_interface_smoke",
+    "runs/feasibility_audit/c5prime_c1_tail_family_interface_smoke/quick/interface_targets.npz exists",
+    "gates.all_passed is true",
+    "the decision keeps C2 blocked",
+    "the result document separates measured and inferred sections"
+  ],
+  "training_stage": {
+    "admission_evidence": [
+      "M3234 priced the structured tail-family interface positive",
+      "M3229 localized the direct-MLP failure to validation tail actions",
+      "M3232 v2 preregistration supplies rare-tail validation probes"
+    ],
+    "allowed_updates": [
+      "scripts/feasibility_audit/c5prime_c1_tail_family_interface_smoke.py",
+      "tests/test_c5prime_c1_tail_family_interface_smoke.py",
+      "experiments/feasibility_audit/c5prime_c1_tail_family_interface_smoke_prereg.json",
+      "experiments/feasibility_audit/c5prime_c1_tail_family_interface_smoke.json",
+      "runs/feasibility_audit/c5prime_c1_tail_family_interface_smoke/quick/interface_targets.npz",
+      "docs/m3235-c1-tail-family-interface-smoke.md",
+      "docs/reviews/m3235-c1-tail-family-interface-smoke.md",
+      "M3235 queue, status, scoreboard, roadmap, current-status, research-log, and measurement-index rows"
+    ],
+    "blocked_shortcuts": [
+      "no PPO",
+      "no behavior pretraining",
+      "no policy checkpoint",
+      "no C2 admission"
+    ],
+    "next_stage_criteria": [
+      "a pass can register only a tail-family interface pretrain design/quick milestone",
+      "C2 remains blocked until a C1 admission artifact passes",
+      "any pretraining must have its own frozen gates"
+    ],
+    "stage": "evaluation_only",
+    "stage_objective": "Smoke the structured tail-family interface target path without policy training."
+  },
+  "type": "infrastructure",
+  "workflow_synthesis": {
+    "branch": "c5prime_track_c_c1_tail_family_interface_smoke",
+    "claim_scope": "Auxiliary C1 interface smoke only; no C1 completion, no C2 admission, no validation ranking promotion, no driver-performance, no current-sim robustness claim, no high-fidelity sufficiency, no paper, no repair-success, no feasibility-proof, and no self-ID claim",
+    "evidence_axis": "c5prime_c1_tail_family_interface_smoke",
+    "evidence_increment": "new no-PPO tail-family interface target artifact and exact reconstruction smoke",
+    "fallback_plan": [
+      "if source artifacts are missing, mark C1 blocked on artifact integrity",
+      "if reconstruction fails, re-price or redesign the C1 admission interface before training",
+      "if the smoke passes, register a separate pretrain design/quick milestone"
+    ],
+    "stop_condition": [
+      "stop after emitting the interface smoke verdict",
+      "stop if smoke would require PPO or behavior pretraining",
+      "stop if C2 admission would depend on this interface smoke alone"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_decision": "not_applicable",
+    "synthesis_trigger": "M3234 priced the structured tail-family admission interface positive"
+  }
+}

@@ -1,0 +1,353 @@
+{
+  "claim_boundary": "M3235 C1 tail-family interface quick smoke only: structured-oracle demo replay and interface target encoding. No PPO, no behavior pretraining, no policy checkpoint, no incumbent mutation, no validation ranking, no C2 admission, no driver-performance claim, no high-fidelity sufficiency claim, and no self-ID claim.",
+  "decision": {
+    "c1_status": "open",
+    "c2_admitted": false,
+    "c3_admitted": false,
+    "next_branch": "c5prime_track_c_c1_tail_family_interface_pretrain_design",
+    "next_training_admitted": false,
+    "quick_smoke_passed": true,
+    "recommended_next": "Register a tail-family interface pretrain design/quick milestone with frozen family classification and tail reconstruction criteria; do not admit C2."
+  },
+  "demo_outcomes": {
+    "S1-inst00-seed7300026": {
+      "oracle_by": "structured:brake_steer_+0.4",
+      "outcome_bucket": "success_obstacle_pass",
+      "role": "validation",
+      "steps": 84
+    },
+    "S1-inst01-seed7305013": {
+      "oracle_by": "structured:full_brake",
+      "outcome_bucket": "success_obstacle_pass",
+      "role": "train",
+      "steps": 159
+    },
+    "S1-inst02-seed7310039": {
+      "oracle_by": "structured:brake_steer_+1.0",
+      "outcome_bucket": "success_obstacle_pass",
+      "role": "train",
+      "steps": 106
+    },
+    "S1-inst02-seed7310052": {
+      "oracle_by": "structured:brake_steer_-0.4",
+      "outcome_bucket": "success_obstacle_pass",
+      "role": "train",
+      "steps": 93
+    },
+    "S1-inst03-seed7315156": {
+      "oracle_by": "structured:coast_steer_+0.7",
+      "outcome_bucket": "success_obstacle_pass",
+      "role": "train",
+      "steps": 108
+    },
+    "S1-inst04-seed7320234": {
+      "oracle_by": "structured:brake_steer_-0.4",
+      "outcome_bucket": "success_obstacle_pass",
+      "role": "train",
+      "steps": 122
+    },
+    "S1-inst05-seed7325130": {
+      "oracle_by": "structured:brake_steer_+0.4",
+      "outcome_bucket": "success_obstacle_pass",
+      "role": "selection",
+      "steps": 131
+    },
+    "S2-inst04-seed7520052": {
+      "oracle_by": "structured:brake_steer_+0.4",
+      "outcome_bucket": "success_obstacle_pass",
+      "role": "selection",
+      "steps": 139
+    },
+    "S2-inst04-seed7520169": {
+      "oracle_by": "structured:coast_steer_-0.7",
+      "outcome_bucket": "success_obstacle_pass",
+      "role": "train",
+      "steps": 96
+    },
+    "S2-inst08-seed7540299": {
+      "oracle_by": "structured:coast_steer_-0.7",
+      "outcome_bucket": "success_obstacle_pass",
+      "role": "validation",
+      "steps": 176
+    },
+    "S3-inst04-seed7720117": {
+      "oracle_by": "structured:coast_steer_+0.7",
+      "outcome_bucket": "success_obstacle_pass",
+      "role": "validation",
+      "steps": 104
+    }
+  },
+  "elapsed_s": 0.215,
+  "family_coverage": {
+    "all_families_supported_by_structured_library": true,
+    "heldout_families": [
+      "structured:brake_steer_+0.4",
+      "structured:brake_steer_+1.0",
+      "structured:brake_steer_-0.4",
+      "structured:coast_steer_+0.7",
+      "structured:coast_steer_-0.7",
+      "structured:full_brake"
+    ],
+    "heldout_family_count": 6,
+    "heldout_family_train_coverage": 1.0,
+    "missing_train_support_for_heldout": [],
+    "supported_structured_families": [
+      "structured:brake_steer_+0.4",
+      "structured:brake_steer_+1.0",
+      "structured:brake_steer_-0.4",
+      "structured:brake_steer_-0.7",
+      "structured:brake_steer_-1.0",
+      "structured:coast_steer_+0.7",
+      "structured:coast_steer_-0.7",
+      "structured:full_brake",
+      "structured:swerve_+1_n10",
+      "structured:swerve_-1_n10"
+    ],
+    "train_families": [
+      "structured:brake_steer_+0.4",
+      "structured:brake_steer_+1.0",
+      "structured:brake_steer_-0.4",
+      "structured:brake_steer_-0.7",
+      "structured:brake_steer_-1.0",
+      "structured:coast_steer_+0.7",
+      "structured:coast_steer_-0.7",
+      "structured:full_brake",
+      "structured:swerve_+1_n10",
+      "structured:swerve_-1_n10"
+    ],
+    "unsupported_structured_families": []
+  },
+  "gates": {
+    "all_passed": true,
+    "all_structured_families_supported": true,
+    "demo_replay_all_success": true,
+    "heldout_family_train_coverage_passed": true,
+    "interface_target_artifact_exists": true,
+    "m3234_interface_pricing_positive": true,
+    "no_policy_checkpoint_written": true,
+    "required_validation_probes_present": true,
+    "tail_frames_gate_passed": true,
+    "tail_max_abs_error_passed": true,
+    "tail_reconstruction_mse_passed": true
+  },
+  "generated_at_utc": "20260612T065820Z",
+  "generated_by": "scripts/feasibility_audit/c5prime_c1_tail_family_interface_smoke.py",
+  "interface_targets": {
+    "artifact": "runs/feasibility_audit/c5prime_c1_tail_family_interface_smoke/quick/interface_targets.npz",
+    "family_names": [
+      "structured:brake_steer_+0.4",
+      "structured:brake_steer_+1.0",
+      "structured:brake_steer_-0.4",
+      "structured:coast_steer_+0.7",
+      "structured:coast_steer_-0.7",
+      "structured:full_brake"
+    ],
+    "frames": 1318,
+    "per_row": [
+      {
+        "oracle_by": "structured:coast_steer_+0.7",
+        "reveal_step": 53,
+        "role": "train",
+        "row_id": "S1-inst03-seed7315156",
+        "steps": 108,
+        "tail_frames": 55,
+        "tail_max_abs_error": 0.0,
+        "tail_reconstruction_mse": 0.0
+      },
+      {
+        "oracle_by": "structured:coast_steer_-0.7",
+        "reveal_step": 37,
+        "role": "train",
+        "row_id": "S2-inst04-seed7520169",
+        "steps": 96,
+        "tail_frames": 59,
+        "tail_max_abs_error": 0.0,
+        "tail_reconstruction_mse": 0.0
+      },
+      {
+        "oracle_by": "structured:brake_steer_+1.0",
+        "reveal_step": 24,
+        "role": "train",
+        "row_id": "S1-inst02-seed7310039",
+        "steps": 106,
+        "tail_frames": 82,
+        "tail_max_abs_error": 0.0,
+        "tail_reconstruction_mse": 0.0
+      },
+      {
+        "oracle_by": "structured:full_brake",
+        "reveal_step": 81,
+        "role": "train",
+        "row_id": "S1-inst01-seed7305013",
+        "steps": 159,
+        "tail_frames": 78,
+        "tail_max_abs_error": 0.0,
+        "tail_reconstruction_mse": 0.0
+      },
+      {
+        "oracle_by": "structured:brake_steer_-0.4",
+        "reveal_step": 26,
+        "role": "train",
+        "row_id": "S1-inst02-seed7310052",
+        "steps": 93,
+        "tail_frames": 67,
+        "tail_max_abs_error": 0.0,
+        "tail_reconstruction_mse": 0.0
+      },
+      {
+        "oracle_by": "structured:brake_steer_-0.4",
+        "reveal_step": 41,
+        "role": "train",
+        "row_id": "S1-inst04-seed7320234",
+        "steps": 122,
+        "tail_frames": 81,
+        "tail_max_abs_error": 0.0,
+        "tail_reconstruction_mse": 0.0
+      },
+      {
+        "oracle_by": "structured:brake_steer_+0.4",
+        "reveal_step": 71,
+        "role": "selection",
+        "row_id": "S1-inst05-seed7325130",
+        "steps": 131,
+        "tail_frames": 60,
+        "tail_max_abs_error": 0.0,
+        "tail_reconstruction_mse": 0.0
+      },
+      {
+        "oracle_by": "structured:brake_steer_+0.4",
+        "reveal_step": 27,
+        "role": "selection",
+        "row_id": "S2-inst04-seed7520052",
+        "steps": 139,
+        "tail_frames": 112,
+        "tail_max_abs_error": 0.0,
+        "tail_reconstruction_mse": 0.0
+      },
+      {
+        "oracle_by": "structured:coast_steer_+0.7",
+        "reveal_step": 36,
+        "role": "validation",
+        "row_id": "S3-inst04-seed7720117",
+        "steps": 104,
+        "tail_frames": 68,
+        "tail_max_abs_error": 0.0,
+        "tail_reconstruction_mse": 0.0
+      },
+      {
+        "oracle_by": "structured:coast_steer_-0.7",
+        "reveal_step": 75,
+        "role": "validation",
+        "row_id": "S2-inst08-seed7540299",
+        "steps": 176,
+        "tail_frames": 101,
+        "tail_max_abs_error": 0.0,
+        "tail_reconstruction_mse": 0.0
+      },
+      {
+        "oracle_by": "structured:brake_steer_+0.4",
+        "reveal_step": 16,
+        "role": "validation",
+        "row_id": "S1-inst00-seed7300026",
+        "steps": 84,
+        "tail_frames": 68,
+        "tail_max_abs_error": 0.0,
+        "tail_reconstruction_mse": 0.0
+      }
+    ],
+    "tail_frame_share": 0.630501,
+    "tail_frames": 831,
+    "tail_max_abs_error": 0.0,
+    "tail_reconstruction_mse": 0.0
+  },
+  "preregistration": "experiments/feasibility_audit/c5prime_c1_tail_family_interface_smoke_prereg.json",
+  "protocol": "c5prime_c1_tail_family_interface_smoke",
+  "role_counts": {
+    "selection": 2,
+    "train": 6,
+    "validation": 3
+  },
+  "selected_rows": [
+    {
+      "oracle_by": "structured:coast_steer_+0.7",
+      "reveal_step": 53,
+      "role": "train",
+      "row_id": "S1-inst03-seed7315156",
+      "selection_source": "rare_tail_train_support"
+    },
+    {
+      "oracle_by": "structured:coast_steer_-0.7",
+      "reveal_step": 37,
+      "role": "train",
+      "row_id": "S2-inst04-seed7520169",
+      "selection_source": "rare_tail_train_support"
+    },
+    {
+      "oracle_by": "structured:brake_steer_+1.0",
+      "reveal_step": 24,
+      "role": "train",
+      "row_id": "S1-inst02-seed7310039",
+      "selection_source": "heldout_oracle_family_support"
+    },
+    {
+      "oracle_by": "structured:full_brake",
+      "reveal_step": 81,
+      "role": "train",
+      "row_id": "S1-inst01-seed7305013",
+      "selection_source": "base"
+    },
+    {
+      "oracle_by": "structured:brake_steer_-0.4",
+      "reveal_step": 26,
+      "role": "train",
+      "row_id": "S1-inst02-seed7310052",
+      "selection_source": "base"
+    },
+    {
+      "oracle_by": "structured:brake_steer_-0.4",
+      "reveal_step": 41,
+      "role": "train",
+      "row_id": "S1-inst04-seed7320234",
+      "selection_source": "base"
+    },
+    {
+      "oracle_by": "structured:brake_steer_+0.4",
+      "reveal_step": 71,
+      "role": "selection",
+      "row_id": "S1-inst05-seed7325130",
+      "selection_source": "base"
+    },
+    {
+      "oracle_by": "structured:brake_steer_+0.4",
+      "reveal_step": 27,
+      "role": "selection",
+      "row_id": "S2-inst04-seed7520052",
+      "selection_source": "base"
+    },
+    {
+      "oracle_by": "structured:coast_steer_+0.7",
+      "reveal_step": 36,
+      "role": "validation",
+      "row_id": "S3-inst04-seed7720117",
+      "selection_source": "rare_tail_validation_probe"
+    },
+    {
+      "oracle_by": "structured:coast_steer_-0.7",
+      "reveal_step": 75,
+      "role": "validation",
+      "row_id": "S2-inst08-seed7540299",
+      "selection_source": "rare_tail_validation_probe"
+    },
+    {
+      "oracle_by": "structured:brake_steer_+0.4",
+      "reveal_step": 16,
+      "role": "validation",
+      "row_id": "S1-inst00-seed7300026",
+      "selection_source": "base"
+    }
+  ],
+  "source_artifacts": {
+    "m3232_v2_prereg": "experiments/feasibility_audit/c5prime_c1_oracle_bc_v2_prereg.json",
+    "m3234_interface_pricing": "experiments/feasibility_audit/c5prime_c1_admission_interface_pricing.json"
+  }
+}

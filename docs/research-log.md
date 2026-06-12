@@ -56368,3 +56368,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m3234-c1-admission-interface-pricing_20260612T064954Z/command.log`
 - success artifact: `experiments/feasibility_audit/c5prime_c1_admission_interface_pricing.json`
 - notes: Completed: structured tail-family admission interface priced positive against the failed direct-MLP/action-MSE floor. It admits only a separate no-PPO quick-smoke registration under c5prime_track_c_c1_tail_family_interface_smoke. C2/C3 remain blocked; no rollout, training, driver mutation, validation ranking, promotion, high-fidelity sufficiency, or self-ID claim.
+
+## 20260612T065820Z m3235-c1-tail-family-interface-smoke
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: A no-PPO C1 structured tail-family interface quick smoke can replay the frozen v2 structured-oracle quick rows, encode prefix/tail interface targets, and pass family-coverage plus exact tail-reconstruction gates before validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof or self-ID claim.
+- command: `env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/c5prime_c1_tail_family_interface_smoke.py`
+- returncode: `0`
+- run dir: `runs/research/m3235-c1-tail-family-interface-smoke_20260612T065819Z`
+- command log: `runs/research/m3235-c1-tail-family-interface-smoke_20260612T065819Z/command.log`
+- success artifact: `experiments/feasibility_audit/c5prime_c1_tail_family_interface_smoke.json`
+- notes: Completed: no-PPO C1 tail-family interface smoke passed all frozen gates; 11/11 demo replays succeeded, held-out family train coverage was 1.0, tail reconstruction MSE/max error were 0, and no policy checkpoint was written. C1 remains open under c5prime_track_c_c1_tail_family_interface_pretrain_design; C2/C3 remain blocked.

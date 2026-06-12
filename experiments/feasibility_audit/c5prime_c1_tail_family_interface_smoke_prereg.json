@@ -1,0 +1,22 @@
+{
+  "decision_rule": {
+    "quick_smoke_pass_if": "M3234 interface pricing is positive, frozen v2 held-out-family train coverage is 1.0, required rare validation probes are present, all quick demos replay successfully, interface target artifact is written, tail reconstruction MSE <= 1e-12, tail max absolute error <= 1e-6, at least 200 tail frames are encoded, and no policy checkpoint is written.",
+    "next_training_admission": "A pass admits only a separate tail-family interface pretrain design/quick milestone. It does not admit full C1 training or C2."
+  },
+  "frozen_at_utc": "20260612T000000Z",
+  "protocol": "c5prime_c1_tail_family_interface_smoke",
+  "required_validation_probe_families": [
+    "structured:coast_steer_+0.7",
+    "structured:coast_steer_-0.7"
+  ],
+  "source_artifacts": {
+    "m3232_v2_prereg": "experiments/feasibility_audit/c5prime_c1_oracle_bc_v2_prereg.json",
+    "m3234_interface_pricing": "experiments/feasibility_audit/c5prime_c1_admission_interface_pricing.json"
+  },
+  "thresholds": {
+    "max_tail_abs_error": 1e-06,
+    "max_tail_reconstruction_mse": 1e-12,
+    "min_heldout_family_train_coverage": 1.0,
+    "min_tail_frames": 200
+  }
+}
