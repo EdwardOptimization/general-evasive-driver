@@ -371,10 +371,11 @@ check (not "~1 command").
    flagged constant-velocity moving-crosser formulation negative (0/4 cells
    qualified), and M3241/M3242 priced the current M3224 high-speed formulation
    negative (0/6 cells qualified). M3245 rejected direct residual PPO at the
-   first rung, but M3246 passed the final C1-v4 Stage A distillation gate:
-   the primary bounded student matched `v4_pertuned` within 0.05 in all three
-   frozen T-limit cells. The only currently admitted Track C action is the
-   separately pre-registered C1-v4 Stage B guarded-RL rung.
+   first rung, M3246 passed the final C1-v4 Stage A distillation gate, and
+   M3247 then failed the C1-v4 Stage B guarded-RL first rung: 0/3 pass cells,
+   0/3 movement cells, no extension. Track C is closed unless new pricing
+   evidence appears; the active next route is paper/synthesis rather than
+   another local learning-interface repair.
    Four paired arms: fixed v4 / v4+RLS-retuned (the classical
    identification arm reviewers will demand) / per-instance-tuned v4
    (the "tune every car" upper bound, quantified to show its cost) /

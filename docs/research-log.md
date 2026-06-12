@@ -56500,3 +56500,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m3246-c1-v4-distill-stage-a_20260612T160635Z/command.log`
 - success artifact: `experiments/feasibility_audit/c5prime_c1_v4_distill_stage_a.json`
 - notes: Completed: C1-v4 Stage A passed the frozen primary gate with 3/3 cells within -0.05 of `v4_pertuned`. Primary candidate minus `v4_pertuned` was +0.0139/-0.0208/+0.0000 on S1/S2/S3. Primary `delta_max` overbound was measured on 17.18% of teacher frames and exploratory widened `delta_max` also passed but is not the gate. Stage B guarded RL is admitted only after separate preregistration.
+
+## 20260612T163000Z m3247-c1-v4-stage-b-guarded-rl
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: A preregistered C1-v4 Stage B guarded-RL first rung can initialize from the M3246 primary distiller train eight fixed-log-std bounded residual policies for 1M current-sim steps per seed and judge fixed v4 versus v4_pertuned versus v4_stage_b versus oracle on frozen A3 validation rows before validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof paper or self-ID claim.
+- command: `env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/c5prime_c1_v4_stage_b_guarded_rl.py --stage-b`
+- returncode: `0`
+- run dir: `runs/research/m3247-c1-v4-stage-b-guarded-rl_20260612T162234Z`
+- command log: `runs/research/m3247-c1-v4-stage-b-guarded-rl_20260612T162234Z/command.log`
+- success artifact: `experiments/feasibility_audit/c5prime_c1_v4_stage_b_guarded_rl.json`
+- notes: Completed: C1-v4 Stage B first rung failed the frozen rule with 0/3 pass cells and 0/3 movement cells. `v4_stage_b` minus `v4_pertuned` was -0.0651/-0.0425/-0.0052 on S1/S2/S3, with negative recapture fractions. No 4M extension, C2, C3, scale-up, driver-performance, high-fidelity sufficiency, repair-success, feasibility-proof, or self-ID claim is admitted.

@@ -330,8 +330,8 @@ interface failures continued through direct BC, structured tail-family
 pretraining, selector repricing, and C1-v3 direct residual PPO. C1-v4 finally
 split the problem at the right place: supervised distillation of the
 per-tuned recalibration passed Stage A against `v4_pertuned` in all three
-frozen cells, while the remaining question is whether a guarded RL rung can
-move from that calibrated floor toward the structural oracle gap. Claim C5
-and the WP-RL program operationalize this discipline: price first, prove the
-interface can match the honest floor, then train RL only against a measured,
-pre-registered gap after CP-1/CP-2.
+frozen cells, but the guarded-RL Stage B first rung failed without pass cells
+or extension movement. Claim C5 and the WP-RL program therefore end as a
+priced-but-not-converted structural-ceiling result: price first, prove the
+interface can match the honest floor, then accept the negative when outcome RL
+does not robustly convert a measured, pre-registered gap after CP-1/CP-2.

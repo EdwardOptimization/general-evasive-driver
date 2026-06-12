@@ -307,7 +307,7 @@ demonstrating the new axis, registered as a milestone. No training claims.
   scale-up, C2, C3, driver-performance, high-fidelity sufficiency,
   feasibility-proof, or self-ID claim.
 
-### C1-v4. Distill-then-RL — THE FINAL ATTEMPT [STAGE A PASS; STAGE B OPEN; PI disposition 2026-06-12]
+### C1-v4. Distill-then-RL — THE FINAL ATTEMPT [DONE: STAGE B FAIL; TRACK C CLOSED]
 - **Finality clause**: this is the last pre-registered attempt at the C5'
   prize via learning. Any verdict closes Track C: PASS => C5' positive;
   FAIL => the bound "the structural prize is real in two simulators but
@@ -332,27 +332,36 @@ demonstrating the new axis, registered as a milestone. No training claims.
   0.05 of `v4_pertuned` in all three frozen cells: +0.0139 (S1), -0.0208
   (S2), +0.0000 (S3). Representation check found primary delta overbound on
   17.18% of teacher frames, so the exploratory widened-delta arm was reported
-  but is not the gate. Stage B is admitted only by a new preregistration.
-- **Stage B — guarded RL from the distilled warm start [OPEN next]**: realistic
+  but is not the gate. This admitted Stage B, which M3247 then ran.
+- **Stage B — guarded RL from the distilled warm start**: realistic
   budget — 1M steps/seed first rung (~20-30 min wall at measured
   throughput, 8 seeds), one extension to 4M steps/seed if the
   intermediate readout shows movement; entropy/log_std schedule frozen in
   the prereg; behavior-neutral x2 stop rule.
+- **Stage B result (M3247)**: FAIL. First rung ran 8 seeds x 1M steps from
+  the M3246 primary distiller. 0/3 cells passed and 0/3 cells met the frozen
+  movement threshold for extension. `v4_stage_b - v4_pertuned` was -0.0651
+  (S1), -0.0425 (S2), -0.0052 (S3); recapture fractions were all negative.
+  No 4M extension is admitted.
 - **Judging**: identical frozen criteria to C1-v3 (four arms, primary =
   v4+residual - v4_pertuned per cell, paired CIs, seed-clustered SE,
   PASS = recapture >= 50% of the A3 gap in >= 2 of 3 cells). No criteria
   loosening. **CP-2 budget approved by PI disposition: <= 6 h CPU total
   for this attempt** (D1b precondition met by M3231).
+- **Disposition**: Track C is closed. The accepted bound is now: the C5-prime
+  structural prize is priced in A3 and direction-positive under D1b Chrono
+  native oracle search, Stage A can distill the `v4_pertuned` floor, but the
+  final guarded-RL rung did not robustly convert the gap into a policy. No
+  fifth attempt without new pricing evidence.
 
 ### C2. Capability pretrain + guarded RL smoke [SUPERSEDED by C1-v3 (the residual route trains directly); original BC-first chain closed by M3238]
 - superseded unit: do not run the original BC/pretrain-first chain. Its
   runnable replacement is C1-v3 residual RL on the frozen v4 base.
-### C3. Staged scale-up [BLOCKED pending C1-v4 Stage B verdict + CP-2 budget discipline]
+### C3. Staged scale-up [CLOSED / NOT ADMITTED]
 - **CP-2 (PI checkpoint)** before any run > 1 h compute: PI confirms budget
   AND unit D1b must have returned direction-positive (CP-1 disposition).
-  D1b is now direction-positive by M3231, and M3246 Stage A admitted only the
-  final C1-v4 Stage B rung. No C3 scale-up is admitted until Stage B returns a
-  positive frozen verdict.
+  D1b is direction-positive by M3231, but M3247 Stage B failed and did not
+  trigger the extension rule. No C3 scale-up is admitted.
 - verdict either way is accepted and recorded; no criteria loosening.
 
 ## Track D — high-fidelity / Chrono (continues M3218/M3219)
