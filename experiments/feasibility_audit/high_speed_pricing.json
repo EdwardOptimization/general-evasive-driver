@@ -1,0 +1,1164 @@
+{
+  "protocol": "b2b_high_speed_pricing",
+  "generated_by": "scripts/feasibility_audit/high_speed_pricing.py",
+  "quick_mode": false,
+  "claim_boundary": "B2b high-speed pricing measurement only: scripted reflex baselines on the M3224 high-speed observation/preview profile, an explicitly scale-aware fixed* and per-cell tuned reflex floor, a nominal/no-spread inert RLS arm, and a reveal-constrained privileged oracle compared on high-speed obstacle windows. Zero training; no incumbent driver mutation, validation ranking, promotion, driver-performance, high-fidelity sufficiency, paper, repair-success, robustness-result, feasibility-proof, or self-ID claim. Quick mode is protocol smoke only and is not a pricing verdict.",
+  "preregistration_echo": {
+    "file": "/home/quyaonan/workspace/autodrift/experiments/feasibility_audit/high_speed_pricing_prereg.json",
+    "decision_rule": "B2b full pricing is positive iff >=2 full-panel cells have oracle_minus_pertuned >= 0.15 with paired bootstrap CI95 lower > 0 on the oracle-solved denominator. Either verdict feeds the roadmap and papers; no training is admitted by this artifact alone.",
+    "quick_decision_rule": "Accept M3241 quick protocol smoke iff the script exercises two cells, disjoint selection/validation seeds, finite high-speed rows on the M3224 profile, all validation rows reveal the obstacle under fixed_star, every validation row attempts oracle search, and each row either reaches CEM coverage or is solved by structured search. Quick mode is not a B2b pricing verdict."
+  },
+  "seed_base": 20260924,
+  "high_speed_profile": {
+    "track_radius_m": 250.0,
+    "track_width_m": 12.0,
+    "max_speed_limit_mps": 45.0,
+    "observation_scale": {
+      "ego_vx": 40.0,
+      "ego_vy": 40.0,
+      "ego_ax": 50.0,
+      "ego_ay": 60.0,
+      "road_y": 60.0,
+      "obstacle_rel_vy": 30.0,
+      "road_lookahead_time_s": 2.5,
+      "road_lookahead_max_distance": 120.0
+    },
+    "scale_adapter": "primary classical arms canonicalize high-speed obs back to legacy controller scales; raw incumbent transfer is reported separately"
+  },
+  "cells": {
+    "hs24_tight_mu055": {
+      "n_rows_unfiltered": 8,
+      "n_rows_oracle_solved": 8,
+      "oracle_solvability": 1.0,
+      "labels": {
+        "drift_required": 8
+      },
+      "oracle_solved_denominator": {
+        "fixed_v4_incumbent": {
+          "success": 0.875,
+          "n": 8,
+          "wilson_ci95": [
+            0.5291,
+            0.9776
+          ],
+          "failure_modes": {
+            "success": 7,
+            "collision": 1,
+            "offtrack": 0,
+            "speed_too_low": 0,
+            "timeout_other": 0
+          }
+        },
+        "fixed_star": {
+          "success": 0.875,
+          "n": 8,
+          "wilson_ci95": [
+            0.5291,
+            0.9776
+          ],
+          "failure_modes": {
+            "success": 7,
+            "collision": 1,
+            "offtrack": 0,
+            "speed_too_low": 0,
+            "timeout_other": 0
+          }
+        },
+        "v4_rls": {
+          "success": 0.875,
+          "n": 8,
+          "wilson_ci95": [
+            0.5291,
+            0.9776
+          ],
+          "failure_modes": {
+            "success": 7,
+            "collision": 1,
+            "offtrack": 0,
+            "speed_too_low": 0,
+            "timeout_other": 0
+          }
+        },
+        "v4_pertuned": {
+          "success": 0.875,
+          "n": 8,
+          "wilson_ci95": [
+            0.5291,
+            0.9776
+          ],
+          "failure_modes": {
+            "success": 7,
+            "collision": 1,
+            "offtrack": 0,
+            "speed_too_low": 0,
+            "timeout_other": 0
+          }
+        }
+      },
+      "unfiltered": {
+        "fixed_v4_incumbent": {
+          "success": 0.875,
+          "n": 8,
+          "wilson_ci95": [
+            0.5291,
+            0.9776
+          ],
+          "failure_modes": {
+            "success": 7,
+            "collision": 1,
+            "offtrack": 0,
+            "speed_too_low": 0,
+            "timeout_other": 0
+          }
+        },
+        "fixed_star": {
+          "success": 0.875,
+          "n": 8,
+          "wilson_ci95": [
+            0.5291,
+            0.9776
+          ],
+          "failure_modes": {
+            "success": 7,
+            "collision": 1,
+            "offtrack": 0,
+            "speed_too_low": 0,
+            "timeout_other": 0
+          }
+        },
+        "v4_rls": {
+          "success": 0.875,
+          "n": 8,
+          "wilson_ci95": [
+            0.5291,
+            0.9776
+          ],
+          "failure_modes": {
+            "success": 7,
+            "collision": 1,
+            "offtrack": 0,
+            "speed_too_low": 0,
+            "timeout_other": 0
+          }
+        },
+        "v4_pertuned": {
+          "success": 0.875,
+          "n": 8,
+          "wilson_ci95": [
+            0.5291,
+            0.9776
+          ],
+          "failure_modes": {
+            "success": 7,
+            "collision": 1,
+            "offtrack": 0,
+            "speed_too_low": 0,
+            "timeout_other": 0
+          }
+        }
+      },
+      "readouts_oracle_solved_denominator": {
+        "structural_gap_oracle_minus_pertuned": {
+          "value": 0.125,
+          "paired_bootstrap_ci95": [
+            0.0,
+            0.375
+          ],
+          "newcombe_ci95": [
+            -0.2152,
+            0.4709
+          ]
+        },
+        "structural_gap_oracle_minus_fixed_star": {
+          "value": 0.125,
+          "paired_bootstrap_ci95": [
+            0.0,
+            0.375
+          ]
+        },
+        "pertuned_minus_fixed_star": {
+          "value": 0.0,
+          "paired_bootstrap_ci95": [
+            0.0,
+            0.0
+          ]
+        },
+        "scale_adapter_lift_fixed_star_minus_raw_incumbent": {
+          "value": 0.0,
+          "paired_bootstrap_ci95": [
+            -0.375,
+            0.375
+          ]
+        }
+      }
+    },
+    "hs30_mid_mu055": {
+      "n_rows_unfiltered": 8,
+      "n_rows_oracle_solved": 8,
+      "oracle_solvability": 1.0,
+      "labels": {
+        "aes_feasible": 3,
+        "drift_required": 5
+      },
+      "oracle_solved_denominator": {
+        "fixed_v4_incumbent": {
+          "success": 1.0,
+          "n": 8,
+          "wilson_ci95": [
+            0.6756,
+            1.0
+          ],
+          "failure_modes": {
+            "success": 8,
+            "collision": 0,
+            "offtrack": 0,
+            "speed_too_low": 0,
+            "timeout_other": 0
+          }
+        },
+        "fixed_star": {
+          "success": 1.0,
+          "n": 8,
+          "wilson_ci95": [
+            0.6756,
+            1.0
+          ],
+          "failure_modes": {
+            "success": 8,
+            "collision": 0,
+            "offtrack": 0,
+            "speed_too_low": 0,
+            "timeout_other": 0
+          }
+        },
+        "v4_rls": {
+          "success": 1.0,
+          "n": 8,
+          "wilson_ci95": [
+            0.6756,
+            1.0
+          ],
+          "failure_modes": {
+            "success": 8,
+            "collision": 0,
+            "offtrack": 0,
+            "speed_too_low": 0,
+            "timeout_other": 0
+          }
+        },
+        "v4_pertuned": {
+          "success": 1.0,
+          "n": 8,
+          "wilson_ci95": [
+            0.6756,
+            1.0
+          ],
+          "failure_modes": {
+            "success": 8,
+            "collision": 0,
+            "offtrack": 0,
+            "speed_too_low": 0,
+            "timeout_other": 0
+          }
+        }
+      },
+      "unfiltered": {
+        "fixed_v4_incumbent": {
+          "success": 1.0,
+          "n": 8,
+          "wilson_ci95": [
+            0.6756,
+            1.0
+          ],
+          "failure_modes": {
+            "success": 8,
+            "collision": 0,
+            "offtrack": 0,
+            "speed_too_low": 0,
+            "timeout_other": 0
+          }
+        },
+        "fixed_star": {
+          "success": 1.0,
+          "n": 8,
+          "wilson_ci95": [
+            0.6756,
+            1.0
+          ],
+          "failure_modes": {
+            "success": 8,
+            "collision": 0,
+            "offtrack": 0,
+            "speed_too_low": 0,
+            "timeout_other": 0
+          }
+        },
+        "v4_rls": {
+          "success": 1.0,
+          "n": 8,
+          "wilson_ci95": [
+            0.6756,
+            1.0
+          ],
+          "failure_modes": {
+            "success": 8,
+            "collision": 0,
+            "offtrack": 0,
+            "speed_too_low": 0,
+            "timeout_other": 0
+          }
+        },
+        "v4_pertuned": {
+          "success": 1.0,
+          "n": 8,
+          "wilson_ci95": [
+            0.6756,
+            1.0
+          ],
+          "failure_modes": {
+            "success": 8,
+            "collision": 0,
+            "offtrack": 0,
+            "speed_too_low": 0,
+            "timeout_other": 0
+          }
+        }
+      },
+      "readouts_oracle_solved_denominator": {
+        "structural_gap_oracle_minus_pertuned": {
+          "value": 0.0,
+          "paired_bootstrap_ci95": [
+            0.0,
+            0.0
+          ],
+          "newcombe_ci95": [
+            -0.3244,
+            0.3244
+          ]
+        },
+        "structural_gap_oracle_minus_fixed_star": {
+          "value": 0.0,
+          "paired_bootstrap_ci95": [
+            0.0,
+            0.0
+          ]
+        },
+        "pertuned_minus_fixed_star": {
+          "value": 0.0,
+          "paired_bootstrap_ci95": [
+            0.0,
+            0.0
+          ]
+        },
+        "scale_adapter_lift_fixed_star_minus_raw_incumbent": {
+          "value": 0.0,
+          "paired_bootstrap_ci95": [
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    "hs30_tight_mu075": {
+      "n_rows_unfiltered": 8,
+      "n_rows_oracle_solved": 8,
+      "oracle_solvability": 1.0,
+      "labels": {
+        "drift_required": 8
+      },
+      "oracle_solved_denominator": {
+        "fixed_v4_incumbent": {
+          "success": 0.875,
+          "n": 8,
+          "wilson_ci95": [
+            0.5291,
+            0.9776
+          ],
+          "failure_modes": {
+            "success": 7,
+            "collision": 1,
+            "offtrack": 0,
+            "speed_too_low": 0,
+            "timeout_other": 0
+          }
+        },
+        "fixed_star": {
+          "success": 1.0,
+          "n": 8,
+          "wilson_ci95": [
+            0.6756,
+            1.0
+          ],
+          "failure_modes": {
+            "success": 8,
+            "collision": 0,
+            "offtrack": 0,
+            "speed_too_low": 0,
+            "timeout_other": 0
+          }
+        },
+        "v4_rls": {
+          "success": 1.0,
+          "n": 8,
+          "wilson_ci95": [
+            0.6756,
+            1.0
+          ],
+          "failure_modes": {
+            "success": 8,
+            "collision": 0,
+            "offtrack": 0,
+            "speed_too_low": 0,
+            "timeout_other": 0
+          }
+        },
+        "v4_pertuned": {
+          "success": 1.0,
+          "n": 8,
+          "wilson_ci95": [
+            0.6756,
+            1.0
+          ],
+          "failure_modes": {
+            "success": 8,
+            "collision": 0,
+            "offtrack": 0,
+            "speed_too_low": 0,
+            "timeout_other": 0
+          }
+        }
+      },
+      "unfiltered": {
+        "fixed_v4_incumbent": {
+          "success": 0.875,
+          "n": 8,
+          "wilson_ci95": [
+            0.5291,
+            0.9776
+          ],
+          "failure_modes": {
+            "success": 7,
+            "collision": 1,
+            "offtrack": 0,
+            "speed_too_low": 0,
+            "timeout_other": 0
+          }
+        },
+        "fixed_star": {
+          "success": 1.0,
+          "n": 8,
+          "wilson_ci95": [
+            0.6756,
+            1.0
+          ],
+          "failure_modes": {
+            "success": 8,
+            "collision": 0,
+            "offtrack": 0,
+            "speed_too_low": 0,
+            "timeout_other": 0
+          }
+        },
+        "v4_rls": {
+          "success": 1.0,
+          "n": 8,
+          "wilson_ci95": [
+            0.6756,
+            1.0
+          ],
+          "failure_modes": {
+            "success": 8,
+            "collision": 0,
+            "offtrack": 0,
+            "speed_too_low": 0,
+            "timeout_other": 0
+          }
+        },
+        "v4_pertuned": {
+          "success": 1.0,
+          "n": 8,
+          "wilson_ci95": [
+            0.6756,
+            1.0
+          ],
+          "failure_modes": {
+            "success": 8,
+            "collision": 0,
+            "offtrack": 0,
+            "speed_too_low": 0,
+            "timeout_other": 0
+          }
+        }
+      },
+      "readouts_oracle_solved_denominator": {
+        "structural_gap_oracle_minus_pertuned": {
+          "value": 0.0,
+          "paired_bootstrap_ci95": [
+            0.0,
+            0.0
+          ],
+          "newcombe_ci95": [
+            -0.3244,
+            0.3244
+          ]
+        },
+        "structural_gap_oracle_minus_fixed_star": {
+          "value": 0.0,
+          "paired_bootstrap_ci95": [
+            0.0,
+            0.0
+          ]
+        },
+        "pertuned_minus_fixed_star": {
+          "value": 0.0,
+          "paired_bootstrap_ci95": [
+            0.0,
+            0.0
+          ]
+        },
+        "scale_adapter_lift_fixed_star_minus_raw_incumbent": {
+          "value": 0.125,
+          "paired_bootstrap_ci95": [
+            0.0,
+            0.375
+          ]
+        }
+      }
+    },
+    "hs36_mid_mu075": {
+      "n_rows_unfiltered": 8,
+      "n_rows_oracle_solved": 8,
+      "oracle_solvability": 1.0,
+      "labels": {
+        "aes_feasible": 2,
+        "drift_required": 6
+      },
+      "oracle_solved_denominator": {
+        "fixed_v4_incumbent": {
+          "success": 1.0,
+          "n": 8,
+          "wilson_ci95": [
+            0.6756,
+            1.0
+          ],
+          "failure_modes": {
+            "success": 8,
+            "collision": 0,
+            "offtrack": 0,
+            "speed_too_low": 0,
+            "timeout_other": 0
+          }
+        },
+        "fixed_star": {
+          "success": 1.0,
+          "n": 8,
+          "wilson_ci95": [
+            0.6756,
+            1.0
+          ],
+          "failure_modes": {
+            "success": 8,
+            "collision": 0,
+            "offtrack": 0,
+            "speed_too_low": 0,
+            "timeout_other": 0
+          }
+        },
+        "v4_rls": {
+          "success": 1.0,
+          "n": 8,
+          "wilson_ci95": [
+            0.6756,
+            1.0
+          ],
+          "failure_modes": {
+            "success": 8,
+            "collision": 0,
+            "offtrack": 0,
+            "speed_too_low": 0,
+            "timeout_other": 0
+          }
+        },
+        "v4_pertuned": {
+          "success": 1.0,
+          "n": 8,
+          "wilson_ci95": [
+            0.6756,
+            1.0
+          ],
+          "failure_modes": {
+            "success": 8,
+            "collision": 0,
+            "offtrack": 0,
+            "speed_too_low": 0,
+            "timeout_other": 0
+          }
+        }
+      },
+      "unfiltered": {
+        "fixed_v4_incumbent": {
+          "success": 1.0,
+          "n": 8,
+          "wilson_ci95": [
+            0.6756,
+            1.0
+          ],
+          "failure_modes": {
+            "success": 8,
+            "collision": 0,
+            "offtrack": 0,
+            "speed_too_low": 0,
+            "timeout_other": 0
+          }
+        },
+        "fixed_star": {
+          "success": 1.0,
+          "n": 8,
+          "wilson_ci95": [
+            0.6756,
+            1.0
+          ],
+          "failure_modes": {
+            "success": 8,
+            "collision": 0,
+            "offtrack": 0,
+            "speed_too_low": 0,
+            "timeout_other": 0
+          }
+        },
+        "v4_rls": {
+          "success": 1.0,
+          "n": 8,
+          "wilson_ci95": [
+            0.6756,
+            1.0
+          ],
+          "failure_modes": {
+            "success": 8,
+            "collision": 0,
+            "offtrack": 0,
+            "speed_too_low": 0,
+            "timeout_other": 0
+          }
+        },
+        "v4_pertuned": {
+          "success": 1.0,
+          "n": 8,
+          "wilson_ci95": [
+            0.6756,
+            1.0
+          ],
+          "failure_modes": {
+            "success": 8,
+            "collision": 0,
+            "offtrack": 0,
+            "speed_too_low": 0,
+            "timeout_other": 0
+          }
+        }
+      },
+      "readouts_oracle_solved_denominator": {
+        "structural_gap_oracle_minus_pertuned": {
+          "value": 0.0,
+          "paired_bootstrap_ci95": [
+            0.0,
+            0.0
+          ],
+          "newcombe_ci95": [
+            -0.3244,
+            0.3244
+          ]
+        },
+        "structural_gap_oracle_minus_fixed_star": {
+          "value": 0.0,
+          "paired_bootstrap_ci95": [
+            0.0,
+            0.0
+          ]
+        },
+        "pertuned_minus_fixed_star": {
+          "value": 0.0,
+          "paired_bootstrap_ci95": [
+            0.0,
+            0.0
+          ]
+        },
+        "scale_adapter_lift_fixed_star_minus_raw_incumbent": {
+          "value": 0.0,
+          "paired_bootstrap_ci95": [
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    "hs36_tight_mu075": {
+      "n_rows_unfiltered": 8,
+      "n_rows_oracle_solved": 8,
+      "oracle_solvability": 1.0,
+      "labels": {
+        "drift_required": 8
+      },
+      "oracle_solved_denominator": {
+        "fixed_v4_incumbent": {
+          "success": 0.875,
+          "n": 8,
+          "wilson_ci95": [
+            0.5291,
+            0.9776
+          ],
+          "failure_modes": {
+            "success": 7,
+            "collision": 1,
+            "offtrack": 0,
+            "speed_too_low": 0,
+            "timeout_other": 0
+          }
+        },
+        "fixed_star": {
+          "success": 0.875,
+          "n": 8,
+          "wilson_ci95": [
+            0.5291,
+            0.9776
+          ],
+          "failure_modes": {
+            "success": 7,
+            "collision": 1,
+            "offtrack": 0,
+            "speed_too_low": 0,
+            "timeout_other": 0
+          }
+        },
+        "v4_rls": {
+          "success": 0.875,
+          "n": 8,
+          "wilson_ci95": [
+            0.5291,
+            0.9776
+          ],
+          "failure_modes": {
+            "success": 7,
+            "collision": 1,
+            "offtrack": 0,
+            "speed_too_low": 0,
+            "timeout_other": 0
+          }
+        },
+        "v4_pertuned": {
+          "success": 0.875,
+          "n": 8,
+          "wilson_ci95": [
+            0.5291,
+            0.9776
+          ],
+          "failure_modes": {
+            "success": 7,
+            "collision": 1,
+            "offtrack": 0,
+            "speed_too_low": 0,
+            "timeout_other": 0
+          }
+        }
+      },
+      "unfiltered": {
+        "fixed_v4_incumbent": {
+          "success": 0.875,
+          "n": 8,
+          "wilson_ci95": [
+            0.5291,
+            0.9776
+          ],
+          "failure_modes": {
+            "success": 7,
+            "collision": 1,
+            "offtrack": 0,
+            "speed_too_low": 0,
+            "timeout_other": 0
+          }
+        },
+        "fixed_star": {
+          "success": 0.875,
+          "n": 8,
+          "wilson_ci95": [
+            0.5291,
+            0.9776
+          ],
+          "failure_modes": {
+            "success": 7,
+            "collision": 1,
+            "offtrack": 0,
+            "speed_too_low": 0,
+            "timeout_other": 0
+          }
+        },
+        "v4_rls": {
+          "success": 0.875,
+          "n": 8,
+          "wilson_ci95": [
+            0.5291,
+            0.9776
+          ],
+          "failure_modes": {
+            "success": 7,
+            "collision": 1,
+            "offtrack": 0,
+            "speed_too_low": 0,
+            "timeout_other": 0
+          }
+        },
+        "v4_pertuned": {
+          "success": 0.875,
+          "n": 8,
+          "wilson_ci95": [
+            0.5291,
+            0.9776
+          ],
+          "failure_modes": {
+            "success": 7,
+            "collision": 1,
+            "offtrack": 0,
+            "speed_too_low": 0,
+            "timeout_other": 0
+          }
+        }
+      },
+      "readouts_oracle_solved_denominator": {
+        "structural_gap_oracle_minus_pertuned": {
+          "value": 0.125,
+          "paired_bootstrap_ci95": [
+            0.0,
+            0.375
+          ],
+          "newcombe_ci95": [
+            -0.2152,
+            0.4709
+          ]
+        },
+        "structural_gap_oracle_minus_fixed_star": {
+          "value": 0.125,
+          "paired_bootstrap_ci95": [
+            0.0,
+            0.375
+          ]
+        },
+        "pertuned_minus_fixed_star": {
+          "value": 0.0,
+          "paired_bootstrap_ci95": [
+            0.0,
+            0.0
+          ]
+        },
+        "scale_adapter_lift_fixed_star_minus_raw_incumbent": {
+          "value": 0.0,
+          "paired_bootstrap_ci95": [
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    "hs36_tight_mu095": {
+      "n_rows_unfiltered": 8,
+      "n_rows_oracle_solved": 8,
+      "oracle_solvability": 1.0,
+      "labels": {
+        "drift_required": 8
+      },
+      "oracle_solved_denominator": {
+        "fixed_v4_incumbent": {
+          "success": 0.625,
+          "n": 8,
+          "wilson_ci95": [
+            0.3057,
+            0.8632
+          ],
+          "failure_modes": {
+            "success": 5,
+            "collision": 3,
+            "offtrack": 0,
+            "speed_too_low": 0,
+            "timeout_other": 0
+          }
+        },
+        "fixed_star": {
+          "success": 1.0,
+          "n": 8,
+          "wilson_ci95": [
+            0.6756,
+            1.0
+          ],
+          "failure_modes": {
+            "success": 8,
+            "collision": 0,
+            "offtrack": 0,
+            "speed_too_low": 0,
+            "timeout_other": 0
+          }
+        },
+        "v4_rls": {
+          "success": 1.0,
+          "n": 8,
+          "wilson_ci95": [
+            0.6756,
+            1.0
+          ],
+          "failure_modes": {
+            "success": 8,
+            "collision": 0,
+            "offtrack": 0,
+            "speed_too_low": 0,
+            "timeout_other": 0
+          }
+        },
+        "v4_pertuned": {
+          "success": 1.0,
+          "n": 8,
+          "wilson_ci95": [
+            0.6756,
+            1.0
+          ],
+          "failure_modes": {
+            "success": 8,
+            "collision": 0,
+            "offtrack": 0,
+            "speed_too_low": 0,
+            "timeout_other": 0
+          }
+        }
+      },
+      "unfiltered": {
+        "fixed_v4_incumbent": {
+          "success": 0.625,
+          "n": 8,
+          "wilson_ci95": [
+            0.3057,
+            0.8632
+          ],
+          "failure_modes": {
+            "success": 5,
+            "collision": 3,
+            "offtrack": 0,
+            "speed_too_low": 0,
+            "timeout_other": 0
+          }
+        },
+        "fixed_star": {
+          "success": 1.0,
+          "n": 8,
+          "wilson_ci95": [
+            0.6756,
+            1.0
+          ],
+          "failure_modes": {
+            "success": 8,
+            "collision": 0,
+            "offtrack": 0,
+            "speed_too_low": 0,
+            "timeout_other": 0
+          }
+        },
+        "v4_rls": {
+          "success": 1.0,
+          "n": 8,
+          "wilson_ci95": [
+            0.6756,
+            1.0
+          ],
+          "failure_modes": {
+            "success": 8,
+            "collision": 0,
+            "offtrack": 0,
+            "speed_too_low": 0,
+            "timeout_other": 0
+          }
+        },
+        "v4_pertuned": {
+          "success": 1.0,
+          "n": 8,
+          "wilson_ci95": [
+            0.6756,
+            1.0
+          ],
+          "failure_modes": {
+            "success": 8,
+            "collision": 0,
+            "offtrack": 0,
+            "speed_too_low": 0,
+            "timeout_other": 0
+          }
+        }
+      },
+      "readouts_oracle_solved_denominator": {
+        "structural_gap_oracle_minus_pertuned": {
+          "value": 0.0,
+          "paired_bootstrap_ci95": [
+            0.0,
+            0.0
+          ],
+          "newcombe_ci95": [
+            -0.3244,
+            0.3244
+          ]
+        },
+        "structural_gap_oracle_minus_fixed_star": {
+          "value": 0.0,
+          "paired_bootstrap_ci95": [
+            0.0,
+            0.0
+          ]
+        },
+        "pertuned_minus_fixed_star": {
+          "value": 0.0,
+          "paired_bootstrap_ci95": [
+            0.0,
+            0.0
+          ]
+        },
+        "scale_adapter_lift_fixed_star_minus_raw_incumbent": {
+          "value": 0.375,
+          "paired_bootstrap_ci95": [
+            0.0,
+            0.75
+          ]
+        }
+      }
+    }
+  },
+  "cell_specs": [
+    {
+      "cell": "hs24_tight_mu055",
+      "speed_mps": 24.0,
+      "mu": 0.55,
+      "reveal_m": 22.0,
+      "distance_m": 26.0,
+      "half_width_m": 1.0
+    },
+    {
+      "cell": "hs30_tight_mu075",
+      "speed_mps": 30.0,
+      "mu": 0.75,
+      "reveal_m": 30.0,
+      "distance_m": 34.0,
+      "half_width_m": 1.0
+    },
+    {
+      "cell": "hs36_tight_mu095",
+      "speed_mps": 36.0,
+      "mu": 0.95,
+      "reveal_m": 30.0,
+      "distance_m": 34.0,
+      "half_width_m": 1.0
+    },
+    {
+      "cell": "hs36_tight_mu075",
+      "speed_mps": 36.0,
+      "mu": 0.75,
+      "reveal_m": 30.0,
+      "distance_m": 34.0,
+      "half_width_m": 1.05
+    },
+    {
+      "cell": "hs36_mid_mu075",
+      "speed_mps": 36.0,
+      "mu": 0.75,
+      "reveal_m": 38.0,
+      "distance_m": 42.0,
+      "half_width_m": 1.05
+    },
+    {
+      "cell": "hs30_mid_mu055",
+      "speed_mps": 30.0,
+      "mu": 0.55,
+      "reveal_m": 38.0,
+      "distance_m": 42.0,
+      "half_width_m": 1.1
+    }
+  ],
+  "fixed_star": {
+    "grid": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "grid_index": 9,
+    "selection_success": 21,
+    "selection_n": 24,
+    "identity_selection_success": 21
+  },
+  "pertuned_choice": {
+    "hs24_tight_mu055": {
+      "grid_index": 9,
+      "grid": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "hs30_tight_mu075": {
+      "grid_index": 9,
+      "grid": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "hs36_tight_mu095": {
+      "grid_index": 9,
+      "grid": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "hs36_tight_mu075": {
+      "grid_index": 9,
+      "grid": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "hs36_mid_mu075": {
+      "grid_index": 9,
+      "grid": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "hs30_mid_mu055": {
+      "grid_index": 9,
+      "grid": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    }
+  },
+  "b2b_decision": {
+    "mode": "full_pricing",
+    "accepted": false,
+    "quick_protocol_smoke_pass": false,
+    "full_pricing_positive": false,
+    "qualifying_cells": [],
+    "rule": "B2b full pricing is positive iff >=2 full-panel cells have oracle_minus_pertuned >= 0.15 with paired bootstrap CI95 lower > 0 on the oracle-solved denominator. Either verdict feeds the roadmap and papers; no training is admitted by this artifact alone.",
+    "interpretation": "Full mode is positive iff >=2 cells satisfy oracle-minus-pertuned >=0.15 with paired CI95 lower >0 on the oracle-solved denominator."
+  },
+  "protocol_gates": {
+    "selection_validation_seed_disjoint": true,
+    "all_oracle_attempted": true,
+    "all_rows_visible_under_fixed_star": true,
+    "structured_and_cem_or_success_coverage": true,
+    "validation_rows": 48,
+    "rows_with_reveal": 48,
+    "oracle_attempted_rows": 48
+  },
+  "budget": {
+    "selection_episodes": 648,
+    "validation_arm_episodes": 192,
+    "oracle_rollouts": 197,
+    "elapsed_s": 11.5
+  },
+  "episode_rows_csv": "/home/quyaonan/workspace/autodrift/runs/feasibility_audit/high_speed_pricing/episode_rows.csv"
+}

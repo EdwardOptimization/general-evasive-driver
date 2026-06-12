@@ -366,9 +366,12 @@ check (not "~1 command").
    obs-normalization audit and found a blocker; M3224 implemented and smoked
    an explicit 36 m/s profile (`vx/40`, `vy/40`, `ax/50`, `ay/60`,
    `road_y/60`, `rel_vy/30`, 2.5 s preview), closing the high-speed
-   env-contract blocker for that profile only. Population training still
-   needs its own preregistered profile/floors, and Track C remains blocked
-   until CP-1.
+   env-contract blocker for that profile only. M3239/M3240 priced the current
+   flagged constant-velocity moving-crosser formulation negative (0/4 cells
+   qualified), and M3241/M3242 priced the current M3224 high-speed formulation
+   negative (0/6 cells qualified). Population training still needs its own
+   preregistered profile/floors, and Track C remains blocked unless PI opens a
+   new priced route.
    Four paired arms: fixed v4 / v4+RLS-retuned (the classical
    identification arm reviewers will demand) / per-instance-tuned v4
    (the "tune every car" upper bound, quantified to show its cost) /
@@ -391,9 +394,12 @@ check (not "~1 command").
    (i) S4 population tier + **obs-normalization implementation after the
    M3221 audit** (B2 high-speed profile implemented in M3224; any population
    variant still needs explicit preregistration); (ii) moving obstacles (B1
-   env engineering complete in M3223, outcome panels still unpriced);
-   (iii) > 20 m/s speed domain (B2 env engineering complete in M3224,
-   outcome panels still unpriced); (iv) geometry-channel degradation (B3 env
+   env engineering complete in M3223; the B1b current moving-crosser outcome
+   panel is priced negative by M3240, and any new topology needs a new
+   preregistration); (iii) > 20 m/s speed domain (B2 env engineering complete
+   in M3224; the B2b current six-cell high-speed outcome panel is priced
+   negative by M3242, and any high-speed hardening/degraded-sensing rider
+   needs a new preregistration); (iv) geometry-channel degradation (B3 env
    engineering complete in M3225, outcome panels still unpriced) and split-mu
    (M3225 audited as not expressible in the current `DriftObstacleEnv`
    single-track path); (v) minute-scale drive structure (B4 env engineering

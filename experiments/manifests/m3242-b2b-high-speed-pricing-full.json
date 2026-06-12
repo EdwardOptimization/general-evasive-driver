@@ -1,0 +1,184 @@
+{
+  "id": "m3242-b2b-high-speed-pricing-full",
+  "priority": 32420,
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "milestone_intent": "evaluation_only",
+  "hypothesis": "A preregistered B2b high-speed full pricing panel can decide whether the M3224 production-speed observation/preview profile creates type-b window-compression regions where a reveal-constrained oracle beats the best scale-aware disjoint-selection reflex-family arm before any training validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof paper or self-ID claim.",
+  "lineage": {
+    "parent_checkpoint": [
+      "docs/current-status.md",
+      "docs/roadmap-phase3-codex-execution.md",
+      "docs/m3224-b2-high-speed-domain-normalization-preview-smoke.md",
+      "docs/m3241-b2b-high-speed-pricing-smoke.md"
+    ],
+    "parent_dataset": [
+      "experiments/feasibility_audit/high_speed_pricing_quick.json"
+    ],
+    "parent_config": [
+      "experiments/feasibility_audit/high_speed_pricing_prereg.json",
+      "scripts/feasibility_audit/high_speed_pricing.py"
+    ],
+    "parent_objective": [
+      "full B2b high-speed domain pricing after M3241 protocol smoke"
+    ],
+    "derived_from": [
+      "M3224 high-speed observation/preview profile",
+      "M3241 B2b pricing protocol smoke passed",
+      "M3241 quick mode showed weak direction-positive evidence in one cell but no pricing verdict"
+    ],
+    "blocked_by": [
+      "High-speed Track C extension remains blocked until full B2b pricing is positive"
+    ],
+    "supersedes": [
+      "using M3241 quick mode as a pricing verdict"
+    ],
+    "invalidates": [
+      "opening high-speed Track C training without full pricing",
+      "claiming B2b prize from protocol smoke"
+    ]
+  },
+  "review_artifact": "docs/reviews/m3242-b2b-high-speed-pricing-full.md",
+  "public_gates": [
+    "M3242 must use the frozen B2b preregistration decision rule",
+    "M3242 must run the full six-cell panel, not quick mode",
+    "M3242 must report oracle-solved denominator and oracle-infeasible rows separately",
+    "M3242 must preserve the raw-incumbent versus scale-aware classical floor distinction",
+    "M3242 must not admit training unless the full pricing rule is positive and a later PI/admission gate opens it"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not touch ActiveSafetyReflexDriver",
+    "do not invoke train_ppo, supervised training, PPO, or guarded RL",
+    "do not mutate the incumbent driver",
+    "do not change the preregistered full decision rule after seeing M3241 quick results",
+    "do not admit Track C training or C2 from a negative or inconclusive B2b full result",
+    "do not claim driver performance, validation ranking, promotion, high-fidelity sufficiency, repair-success, robustness-result, feasibility-proof, paper, or self-ID"
+  ],
+  "workflow_synthesis": {
+    "branch": "b2b_high_speed_pricing",
+    "evidence_axis": "b2b_high_speed_full_pricing",
+    "evidence_increment": "full six-cell high-speed pricing panel with raw incumbent, scale-aware fixed*, inert RLS, per-cell tuned reflex, and reveal-constrained oracle arms",
+    "claim_scope": "Full B2b pricing only; no driver-performance claim, no high-fidelity sufficiency, no validation ranking promotion, no training admission, no paper claim, and no self-ID claim",
+    "stop_condition": [
+      "stop after full B2b pricing decision is written",
+      "stop if the full panel fails protocol gates",
+      "stop if the pricing rule is negative or inconclusive"
+    ],
+    "fallback_plan": [
+      "if full pricing is positive, route to a separate Track C extension admission decision after CP-2/PI",
+      "if full pricing is negative, mark B2b done-negative and move to the next roadmap OPEN unit",
+      "if protocol gates fail, repair or harden the panel under a new preregistration"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M3241 completed the B2b protocol smoke and admitted full pricing only",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "Full high-speed pricing; no model update.",
+    "admission_evidence": [
+      "M3224 high-speed env-contract profile passed smoke",
+      "M3241 quick protocol smoke passed",
+      "B2b roadmap requires full pricing before any high-speed Track C extension"
+    ],
+    "blocked_shortcuts": [
+      "no supervised pretraining",
+      "no PPO or guarded RL",
+      "no incumbent driver mutation",
+      "no C2 admission"
+    ],
+    "allowed_updates": [
+      "experiments/feasibility_audit/high_speed_pricing.json",
+      "docs/m3242-b2b-high-speed-pricing-full.md",
+      "docs/reviews/m3242-b2b-high-speed-pricing-full.md",
+      "M3242 queue, status, scoreboard, roadmap, current-status, research-log, and measurement-index rows"
+    ],
+    "next_stage_criteria": [
+      "if >=2 full cells qualify by the frozen rule, route to a separate admission/PI decision before any training",
+      "if fewer than 2 full cells qualify, close B2b current formulation as negative and move to the next roadmap unit",
+      "C1/C2/C3 remain blocked by their existing gates"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "Not applicable: M3242 is engineering/pricing and makes no history-attribution claim.",
+    "history_necessity_tests": [
+      "none in M3242: no self-ID or history claim is made"
+    ],
+    "temporal_evidence_window": "none: high-speed pricing only",
+    "negative_result_policy": "A negative B2b full result must be preserved and cannot be converted into a training admission.",
+    "allowed_claims": [
+      "B2b full pricing positive, negative, or inconclusive",
+      "high-speed Track C extension admission remains blocked unless separately admitted",
+      "C1/C2/C3 remain blocked"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_baseline_comparison",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "full high-speed pricing comparison over six preregistered cells",
+    "paper_verdict_delta": "M3242 can add a B2b positive or negative pricing result; it is not a controller outcome claim.",
+    "must_synthesize_if": [
+      "full pricing is negative and another high-speed hardening run is proposed",
+      "training is proposed from a negative or inconclusive B2b result",
+      "the next roadmap unit is skipped without a roadmap reason"
+    ]
+  },
+  "success_criteria": [
+    "experiments/feasibility_audit/high_speed_pricing.json exists with protocol b2b_high_speed_pricing and quick_mode false",
+    "result reports all six preregistered full cells",
+    "result reports oracle-solved denominator structural gaps and qualifying cells",
+    "result decision applies the frozen >=2 qualifying cells rule",
+    "the result document separates measured and inferred sections"
+  ],
+  "failure_criteria": [
+    "M3242 runs quick mode instead of full mode",
+    "M3242 runs training or writes a policy checkpoint",
+    "M3242 mutates ActiveSafetyReflexDriver or the incumbent driver",
+    "M3242 admits Track C training or C2 directly",
+    "M3242 changes the full decision rule after seeing results"
+  ],
+  "decision_rule": "Accept M3242 as completed if the full panel runs under the frozen preregistration, writes the full JSON and episode-row CSV, reports the full B2b pricing decision, and keeps training gates blocked.",
+  "commands": [
+    {
+      "name": "b2b_high_speed_pricing_full",
+      "command": "env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/high_speed_pricing.py"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "experiments/feasibility_audit/high_speed_pricing_prereg.json",
+      "type": "json"
+    },
+    {
+      "path": "experiments/feasibility_audit/high_speed_pricing.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m3242-b2b-high-speed-pricing-full.md",
+      "type": "markdown"
+    }
+  ],
+  "baseline_checkpoints": [
+    "docs/current-status.md",
+    "docs/roadmap-phase3-codex-execution.md",
+    "docs/m3241-b2b-high-speed-pricing-smoke.md",
+    "experiments/feasibility_audit/high_speed_pricing_quick.json"
+  ],
+  "scoreboard_checkpoint": "experiments/feasibility_audit/high_speed_pricing.json",
+  "next_blocker": "B2b current high-speed formulation is done-negative by the frozen rule. Move to the next independent OPEN roadmap unit unless a new preregistered high-speed hardening or degraded-sensing descriptive unit is explicitly opened later.",
+  "result_summary": {
+    "artifact": "experiments/feasibility_audit/high_speed_pricing.json",
+    "decision": "b2b_high_speed_pricing_negative",
+    "notes": "Full B2b high-speed pricing was negative by the frozen rule: 0/6 cells qualified, oracle solvability was 1.0, oracle-minus-pertuned gap was 0.125 in hs24_tight_mu055 and hs36_tight_mu075 and 0.0000 in four cells; all paired CI95 lower bounds were 0. Scale-aware fixed_star/v4_pertuned succeeded 46/48 versus raw incumbent 42/48. No high-speed Track C extension, C2 admission, training, or driver-performance claim is admitted."
+  },
+  "status": "completed"
+}

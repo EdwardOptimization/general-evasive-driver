@@ -20,10 +20,13 @@
   CP-1 conditionally opened C1, but M3238 has since blocked the local
   selector/interface route pending PI or new nonlocal-interface pricing.
   M3231 satisfied the D1b direction-positive precondition for CP-2, but C3
-  remains blocked on C2 and PI CP-2. M3239 passed the B1b
-  moving-obstacle pricing protocol smoke; M3240 then ran the full B1b panel
-  and rejected the current moving-crosser formulation (0/4 cells qualified,
-  all rows reflex-solvable).
+  remains blocked on C2 and PI CP-2. M3239/M3240 completed B1b and rejected
+  the current moving-crosser formulation (0/4 cells qualified, all rows
+  reflex-solvable). M3241/M3242 completed B2b and rejected the current
+  high-speed formulation (0/6 cells qualified; two weak 0.125 pockets with
+  CI lower bound 0; scale-aware fixed_star/v4_pertuned 46/48). The local
+  autonomous queue has no dependency-satisfied OPEN unit unless PI reopens C1
+  or registers a new independent pricing unit.
 
 ## Track A — pricing/science completion (CPU only, zero training)
 
@@ -138,7 +141,7 @@ demonstrating the new axis, registered as a milestone. No training claims.
   the high-speed env-contract blocker only; it does not admit training or a
   controller-performance claim.
 
-### B2b. High-speed domain pricing [OPEN; after C1]
+### B2b. High-speed domain pricing [DONE: M3241 smoke + M3242 full negative]
 - question: does window compression at production speeds (24/30/36 m/s,
   on the M3224 high-speed observation/preview profile) open type-(b)
   gaps (the K2 effect amplified), and — secondary, reported not gated —
@@ -152,6 +155,18 @@ demonstrating the new axis, registered as a milestone. No training claims.
   tightest cells. Prereg first, new SEED_BASE, managed run.
 - acceptance: pre-registered gap table with paired CIs; secondary
   VoI(belief) table descriptive only.
+- result: `docs/m3241-b2b-high-speed-pricing-smoke.md` completed the quick
+  protocol smoke. `docs/m3242-b2b-high-speed-pricing-full.md` then completed
+  the full panel and rejected the current B2b formulation by the frozen rule:
+  0/6 cells qualified, oracle solvability was 1.0, oracle-minus-pertuned gap
+  was 0.125 in `hs24_tight_mu055` and `hs36_tight_mu075` and 0.0000 in the
+  other four cells, and all paired CI95 lower bounds were 0. Scale-aware
+  `fixed_star`/`v4_pertuned` succeeded 46/48 versus raw incumbent 42/48, so
+  the panel shows weak high-speed pockets and a real scale-adapter transfer
+  effect but no priced type-(b) window-compression prize. Any later high-speed
+  hardening or degraded-sensing descriptive rider requires a new
+  preregistration; M3242 admits no Track C extension, C2, training, or
+  driver-performance claim.
 
 ### B3. Geometry-channel degradation + split-mu [DONE: M3225]
 - wrapper extension to obstacle/boundary channels (the only sensing axis
@@ -314,8 +329,8 @@ demonstrating the new axis, registered as a milestone. No training claims.
 - B2: DONE (M3224; explicit 36 m/s normalization/preview smoke passed)
 - B3: DONE (M3225; geometry-channel degradation smoke passed; split-mu not expressible on the DriftObstacleEnv single-track path)
 - B4: DONE (M3226; 60 s warmup-to-obstacle-to-post-pass continuation smoke passed)
-- B1b: OPEN (moving-obstacle pricing; next autonomous unit after M3238 blocked local C1 continuation)
-- B2b: OPEN (high-speed pricing; after B1b unless PI reopens C1)
+- B1b: DONE (M3239 smoke + M3240 full negative; current moving-crosser formulation 0/4 cells qualified)
+- B2b: DONE (M3241 smoke + M3242 full negative; current high-speed formulation 0/6 cells qualified)
 - C1: BLOCKED pending PI/new-interface pricing (CP-1 disposition 2026-06-12: conditional approval; M3228 first BC warm-start failed, M3229 localized tail-action generalization gap, M3232 v2 quick failed, M3233 synthesis/repricing pivoted away from local direct-MLP/action-MSE warm-start, M3234 admission-interface pricing positive, M3235 no-PPO tail-family interface smoke passed, M3236 supervised pretrain quick failed rare-family/reconstruction gates, M3237 synthesis/repricing closed local frame-wise pretraining, and M3238 rejected the local family-selector route; no local selector/interface training, controlled rollout design, full C1 training, or C2 work is admitted)
 - C2: BLOCKED on C1
 - C3: BLOCKED on C2 + CP-2 (D1b direction-positive satisfied by M3231)
@@ -323,9 +338,10 @@ demonstrating the new axis, registered as a milestone. No training claims.
 - D1b: DONE (M3231; native Chrono oracle direction-positive on Sedan/BMW_E90)
 
 Execution order note: C1 is not an autonomous-session OPEN unit after M3238
-unless PI supplies a new nonlocal-interface pricing route. The next autonomous
-OPEN unit is B1b moving-obstacle pricing, then B2b high-speed pricing; within a
-track, lowest number first.
+unless PI supplies a new nonlocal-interface pricing route. B1b and B2b are now
+both done-negative. There is no dependency-satisfied autonomous OPEN unit in
+this roadmap at the end of M3242; continue only after PI registers/reopens a
+unit.
 - WP6.2 guardrails: **MERGED** (commit 05607bcd — validator V7 live in the
   pre-commit hook, escalation protocol in docs/escalations/, managed-run
   helper scripts/run_managed.sh). Codex execution may begin.

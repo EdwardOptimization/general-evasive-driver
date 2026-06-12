@@ -1,0 +1,89 @@
+{
+  "protocol": "b2b_high_speed_pricing_preregistration",
+  "roadmap_unit": "B2b high-speed domain pricing",
+  "frozen_at_utc": "20260612T081200Z",
+  "frozen_before_quick_smoke": true,
+  "claim_under_pricing": "Does the M3224 high-speed observation/preview profile expose production-speed window-compression cells where a reveal-constrained oracle succeeds but the best disjoint-selection reflex-family arm fails?",
+  "claim_boundary": "B2b high-speed pricing measurement only: scripted reflex baselines on the M3224 high-speed observation/preview profile, an explicitly scale-aware fixed* and per-cell tuned reflex floor, a nominal/no-spread inert RLS arm, and a reveal-constrained privileged oracle compared on high-speed obstacle windows. Zero training; no incumbent driver mutation, validation ranking, promotion, driver-performance, high-fidelity sufficiency, paper, repair-success, robustness-result, feasibility-proof, or self-ID claim. Quick mode is protocol smoke only and is not a pricing verdict.",
+  "seed_discipline": {
+    "seed_base": 20260924,
+    "selection_stream": "seed_base + cell_index * 10000 + row_index * 37",
+    "validation_stream": "seed_base + cell_index * 10000 + 6000 + row_index * 37",
+    "oracle_stream": "numpy Generator([seed_base, 51, cell_index, row_index, quick_flag])",
+    "quick_selection_rows_per_cell": 2,
+    "quick_validation_rows_per_cell": 4,
+    "full_selection_rows_per_cell": 4,
+    "full_validation_rows_per_cell": 8,
+    "selection_validation_reuse": "forbidden"
+  },
+  "scenario_panel": {
+    "quick_cells": [
+      "hs24_tight_mu055",
+      "hs30_tight_mu075"
+    ],
+    "full_cells": [
+      "hs24_tight_mu055",
+      "hs30_tight_mu075",
+      "hs36_tight_mu095",
+      "hs36_tight_mu075",
+      "hs36_mid_mu075",
+      "hs30_mid_mu055"
+    ],
+    "axes": [
+      "speed tier",
+      "reveal distance",
+      "mu"
+    ],
+    "placement_rule": "Static centered obstacle with row jitter; distance is kept at least 2 m beyond reveal distance so the obstacle is initially hidden and then revealed under the M3224 high-speed profile.",
+    "fixed_environment": {
+      "track_kind": "circle",
+      "track_radius": 250.0,
+      "track_width": 12.0,
+      "friction_limited_speed": false,
+      "max_speed_limit": 45.0,
+      "obstacle_motion_mode": "static",
+      "obstacle_relative_velocity_mode": "ego",
+      "vehicle_population": "nominal current-sim vehicle only"
+    }
+  },
+  "high_speed_observation_profile": {
+    "source": "M3224 high_speed_domain_smoke.py",
+    "ego_vx": 40.0,
+    "ego_vy": 40.0,
+    "ego_ax": 50.0,
+    "ego_ay": 60.0,
+    "road_y": 60.0,
+    "obstacle_rel_vy": 30.0,
+    "road_lookahead_time_s": 2.5,
+    "road_lookahead_max_distance": 120.0,
+    "scale_adapter_policy": "fixed_star, v4_rls, and v4_pertuned use known M3224 observation-scale canonicalization before applying the legacy scripted v2/v4 reflex formulas; fixed_v4_incumbent is reported as raw transfer on the scaled obs."
+  },
+  "arms": {
+    "fixed_v4_incumbent": "canonical M3105 v4-v2 fallback reflex applied raw to the M3224 scaled obs; secondary transfer readout",
+    "fixed_star": "one global 27-grid scale-aware reflex retune selected on pooled selection rows only",
+    "v4_rls": "nominal/no-spread inert arm identical to fixed_star; B2b varies speed windows rather than vehicle population parameters",
+    "v4_pertuned": "per-cell 27-grid scale-aware reflex winner selected on disjoint selection rows only",
+    "oracle": "reveal-constrained privileged tail search after the obstacle is visible under fixed_star; structured candidates first, then CEM fallback"
+  },
+  "grid": {
+    "brake_multipliers": [0.7, 1.0, 1.6],
+    "steer_multipliers": [1.0, 1.5, 2.2],
+    "relevance_distance_multipliers": [1.0, 1.6, 2.4]
+  },
+  "preregistered_readouts": {
+    "primary_prize": "oracle - v4_pertuned success rate on the oracle-solved denominator",
+    "secondary_floor_gap": "oracle - fixed_star success rate on the oracle-solved denominator",
+    "scale_adapter_lift": "fixed_star - fixed_v4_incumbent success rate on the oracle-solved denominator, reported as baseline engineering context only",
+    "oracle_denominator": "Rows where the reveal-constrained oracle solves are included in the primary denominator; oracle-infeasible rows are excluded and reported separately.",
+    "secondary_degradation_axis": "not run in this milestone; high-speed clean pricing must be adjudicated first. A degraded-sensing VoI table requires a separate preregistration if opened later."
+  },
+  "quick_decision_rule": "Accept M3241 quick protocol smoke iff the script exercises two cells, disjoint selection/validation seeds, finite high-speed rows on the M3224 profile, all validation rows reveal the obstacle under fixed_star, every validation row attempts oracle search, and each row either reaches CEM coverage or is solved by structured search. Quick mode is not a B2b pricing verdict.",
+  "decision_rule": "B2b full pricing is positive iff >=2 full-panel cells have oracle_minus_pertuned >= 0.15 with paired bootstrap CI95 lower > 0 on the oracle-solved denominator. Either verdict feeds the roadmap and papers; no training is admitted by this artifact alone.",
+  "runtime_gates": [
+    "raw composed_action must match the canonical v4 function bit-for-bit on random obs72 samples",
+    "the scale adapter must map a 36 m/s M3224-scaled speed channel back to 36 m/s under the legacy v4 decoder",
+    "selection and validation seeds must be disjoint",
+    "all probe rows must use the M3224 high-speed observation profile with preview time >= 2.45 s",
+    "quick smoke must pass before a full pricing run is interpreted"
+  ]
+}

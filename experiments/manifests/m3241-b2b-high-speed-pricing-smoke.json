@@ -1,0 +1,187 @@
+{
+  "id": "m3241-b2b-high-speed-pricing-smoke",
+  "priority": 32410,
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "milestone_intent": "evaluation_only",
+  "hypothesis": "A preregistered B2b high-speed pricing protocol smoke can exercise the M3224 high-speed observation/preview profile with raw incumbent, scale-aware fixed*, inert RLS, per-cell tuned reflex, and reveal-constrained oracle arms before any full B2b pricing verdict, training, validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof paper or self-ID claim.",
+  "lineage": {
+    "parent_checkpoint": [
+      "docs/current-status.md",
+      "docs/roadmap-phase3-codex-execution.md",
+      "docs/m3224-b2-high-speed-domain-normalization-preview-smoke.md",
+      "docs/m3240-b1b-moving-obstacle-pricing-full.md"
+    ],
+    "parent_dataset": [
+      "experiments/feasibility_audit/high_speed_domain_smoke.json"
+    ],
+    "parent_config": [
+      "experiments/feasibility_audit/high_speed_pricing_prereg.json",
+      "scripts/feasibility_audit/high_speed_pricing.py"
+    ],
+    "parent_objective": [
+      "price whether production-speed window compression opens type-b gaps"
+    ],
+    "derived_from": [
+      "M3224 high-speed observation/preview profile",
+      "M3240 closed B1b moving-obstacle current formulation negative",
+      "roadmap B2b is the next independent OPEN unit"
+    ],
+    "blocked_by": [
+      "Full B2b pricing is not interpretable until this protocol smoke passes"
+    ],
+    "supersedes": [
+      "direct full B2b pricing without a protocol smoke"
+    ],
+    "invalidates": [
+      "claiming high-speed prize from quick mode",
+      "opening training or C2 from B2b smoke"
+    ]
+  },
+  "review_artifact": "docs/reviews/m3241-b2b-high-speed-pricing-smoke.md",
+  "public_gates": [
+    "M3241 must be quick protocol smoke only, not a B2b full pricing verdict",
+    "M3241 must use disjoint selection and validation seed streams",
+    "M3241 must exercise raw incumbent, scale-aware fixed_star, inert RLS, per-cell tuned reflex, and oracle arms",
+    "M3241 must keep v4_rls explicitly inert/no-spread on this speed-window-only panel",
+    "M3241 must keep C1/C2/C3 training blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not touch ActiveSafetyReflexDriver",
+    "do not invoke train_ppo, supervised training, PPO, or guarded RL",
+    "do not mutate the incumbent driver",
+    "do not interpret quick mode as a B2b pricing verdict",
+    "do not admit Track C training or C2 from this smoke",
+    "do not claim driver performance, validation ranking, promotion, high-fidelity sufficiency, repair-success, robustness-result, feasibility-proof, paper, or self-ID"
+  ],
+  "workflow_synthesis": {
+    "branch": "b2b_high_speed_pricing",
+    "evidence_axis": "b2b_high_speed_pricing_protocol_smoke",
+    "evidence_increment": "new high-speed pricing panel protocol with M3224 scale-aware classical floors and reveal-constrained oracle arms",
+    "claim_scope": "Protocol smoke only; no full B2b pricing verdict, no driver-performance claim, no high-fidelity sufficiency, no validation ranking promotion, no training admission, no paper claim, and no self-ID claim",
+    "stop_condition": [
+      "stop if preregistration is missing",
+      "stop if high-speed profile rows are not exercised",
+      "stop after quick protocol decision is written"
+    ],
+    "fallback_plan": [
+      "if quick smoke passes, register a separate full B2b pricing run",
+      "if quick smoke fails, repair the protocol before full pricing",
+      "in every case, keep C1/C2/C3 training blocked"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M3240 closed B1b current formulation negative and roadmap B2b is the next OPEN unit",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "Quick protocol smoke for high-speed pricing; no model update.",
+    "admission_evidence": [
+      "M3224 high-speed env-contract profile passed smoke",
+      "M3240 closed B1b current formulation negative",
+      "roadmap B2b requests pricing before any Track C extension"
+    ],
+    "blocked_shortcuts": [
+      "no supervised pretraining",
+      "no PPO or guarded RL",
+      "no incumbent driver mutation",
+      "no C2 admission"
+    ],
+    "allowed_updates": [
+      "scripts/feasibility_audit/high_speed_pricing.py",
+      "tests/test_high_speed_pricing.py",
+      "experiments/feasibility_audit/high_speed_pricing_prereg.json",
+      "experiments/feasibility_audit/high_speed_pricing_quick.json",
+      "docs/m3241-b2b-high-speed-pricing-smoke.md",
+      "docs/reviews/m3241-b2b-high-speed-pricing-smoke.md",
+      "M3241 queue, status, scoreboard, roadmap, current-status, research-log, and measurement-index rows"
+    ],
+    "next_stage_criteria": [
+      "only if quick protocol smoke passes may a separate full B2b pricing run be registered",
+      "full B2b pricing remains required before any high-speed Track C extension",
+      "C1/C2/C3 remain blocked by their existing gates"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "Not applicable: M3241 is engineering/pricing protocol smoke and makes no history-attribution claim.",
+    "history_necessity_tests": [
+      "none in M3241: no self-ID or history claim is made"
+    ],
+    "temporal_evidence_window": "none: high-speed pricing protocol only",
+    "negative_result_policy": "A negative or failed quick smoke must be preserved and cannot be converted into a training admission.",
+    "allowed_claims": [
+      "B2b pricing protocol smoke pass or fail",
+      "full B2b pricing admission or protocol repair requirement",
+      "C1/C2/C3 remain blocked"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_dataset_or_panel",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "new high-speed pricing panel protocol and quick validation rows",
+    "paper_verdict_delta": "M3241 can only admit full B2b pricing; it is not a paper or controller outcome claim.",
+    "must_synthesize_if": [
+      "quick smoke fails repeatedly",
+      "full B2b pricing is proposed without this smoke passing",
+      "training is proposed from quick-mode evidence"
+    ]
+  },
+  "success_criteria": [
+    "experiments/feasibility_audit/high_speed_pricing_quick.json exists with protocol b2b_high_speed_pricing",
+    "quick result reports two high-speed cells and disjoint selection/validation seed streams",
+    "quick result reports raw incumbent plus scale-aware fixed_star/v4_rls/v4_pertuned and oracle attempts",
+    "decision says quick mode is protocol smoke only and not a B2b pricing verdict",
+    "the result document separates measured and inferred sections"
+  ],
+  "failure_criteria": [
+    "M3241 runs training or writes a policy checkpoint",
+    "M3241 mutates ActiveSafetyReflexDriver or the incumbent driver",
+    "M3241 interprets quick mode as a B2b pricing verdict",
+    "M3241 admits Track C training or C2",
+    "M3241 omits the scale-adapter/raw-incumbent distinction"
+  ],
+  "decision_rule": "Accept M3241 as completed if the quick protocol smoke passes its preregistered gates, writes the quick JSON and episode-row CSV, documents that quick mode is not a full B2b pricing verdict, and keeps all training gates blocked.",
+  "commands": [
+    {
+      "name": "b2b_high_speed_pricing_quick",
+      "command": "env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/high_speed_pricing.py --quick"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "experiments/feasibility_audit/high_speed_pricing_prereg.json",
+      "type": "json"
+    },
+    {
+      "path": "experiments/feasibility_audit/high_speed_pricing_quick.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m3241-b2b-high-speed-pricing-smoke.md",
+      "type": "markdown"
+    }
+  ],
+  "baseline_checkpoints": [
+    "docs/current-status.md",
+    "docs/roadmap-phase3-codex-execution.md",
+    "docs/m3224-b2-high-speed-domain-normalization-preview-smoke.md",
+    "experiments/feasibility_audit/high_speed_domain_smoke.json"
+  ],
+  "scoreboard_checkpoint": "experiments/feasibility_audit/high_speed_pricing_quick.json",
+  "next_blocker": "Full B2b pricing remains unrun. M3241 quick smoke passed the protocol gates and showed only weak quick-mode prize evidence (hs24_tight_mu055 gap 0.25 with CI lower 0).",
+  "result_summary": {
+    "artifact": "experiments/feasibility_audit/high_speed_pricing_quick.json",
+    "decision": "b2b_pricing_protocol_smoke_passed",
+    "notes": "M3241 quick protocol smoke passed in 2.0 s with two high-speed cells, disjoint selection/validation streams, raw incumbent plus scale-aware fixed*/inert RLS/pertuned arms, and reveal-constrained oracle attempts on 8 validation rows. hs24_tight_mu055 showed oracle-minus-pertuned 0.25 with paired CI95 lower 0; hs30_tight_mu075 showed 0. Quick mode is not a B2b pricing verdict. Full pricing remains unrun."
+  },
+  "status": "completed"
+}

@@ -56440,3 +56440,27 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m3240-b1b-moving-obstacle-pricing-full_20260612T080610Z/command.log`
 - success artifact: `experiments/feasibility_audit/moving_obstacle_pricing.json`
 - notes: Completed: full B1b moving-obstacle pricing was negative by the frozen rule. 0/4 cells qualified, oracle-minus-pertuned gap was 0.0000 in every cell, oracle solvability was 1.0, and fixed_star/v4_rls/v4_pertuned all succeeded 32/32. All rows were aeb_feasible; current moving-crosser formulation does not create a type-b prize.
+
+## 20260612T082234Z m3241-b2b-high-speed-pricing-smoke
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: A preregistered B2b high-speed pricing protocol smoke can exercise the M3224 high-speed observation/preview profile with raw incumbent, scale-aware fixed*, inert RLS, per-cell tuned reflex, and reveal-constrained oracle arms before any full B2b pricing verdict, training, validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof paper or self-ID claim.
+- command: `env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/high_speed_pricing.py --quick`
+- returncode: `0`
+- run dir: `runs/research/m3241-b2b-high-speed-pricing-smoke_20260612T082229Z`
+- command log: `runs/research/m3241-b2b-high-speed-pricing-smoke_20260612T082229Z/command.log`
+- success artifact: `experiments/feasibility_audit/high_speed_pricing_quick.json`
+- notes: Completed: M3241 quick protocol smoke passed all gates in 2.0 s, exercising two high-speed cells, disjoint selection/validation streams, raw incumbent plus scale-aware fixed*/inert RLS/pertuned arms, and reveal-constrained oracle attempts. Quick mode is not a B2b pricing verdict; full pricing remains unrun.
+
+## 20260612T082658Z m3242-b2b-high-speed-pricing-full
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: A preregistered B2b high-speed full pricing panel can decide whether the M3224 production-speed observation/preview profile creates type-b window-compression regions where a reveal-constrained oracle beats the best scale-aware disjoint-selection reflex-family arm before any training validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof paper or self-ID claim.
+- command: `env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/high_speed_pricing.py`
+- returncode: `0`
+- run dir: `runs/research/m3242-b2b-high-speed-pricing-full_20260612T082644Z`
+- command log: `runs/research/m3242-b2b-high-speed-pricing-full_20260612T082644Z/command.log`
+- success artifact: `experiments/feasibility_audit/high_speed_pricing.json`
+- notes: Completed: full B2b high-speed pricing was negative by the frozen rule. 0/6 cells qualified, oracle solvability was 1.0, oracle-minus-pertuned gap was 0.125 in two cells and 0.0000 in four cells, all paired CI95 lower bounds were 0, and scale-aware fixed_star/v4_pertuned succeeded 46/48. No high-speed Track C extension, C2 admission, training, or driver-performance claim is admitted.
