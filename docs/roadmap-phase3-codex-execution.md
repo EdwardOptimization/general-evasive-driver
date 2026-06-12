@@ -173,7 +173,7 @@ demonstrating the new axis, registered as a milestone. No training claims.
 
 ## Track C — C5' RL program (m1087 staged; opens after CP-1)
 
-### C1. Oracle demo generator + BC warm-start [OPEN per CP-1 disposition; M3228 failed first BC gate]
+### C1. Oracle demo generator + BC warm-start [OPEN per CP-1 disposition; M3228 failed first BC gate; M3232 v2 quick failed]
 - per-instance oracle demos on the frozen C5' cells; BC with DAgger-lite +
   held-out epoch selection (the G1' lessons are mandatory); capacity and
   seed discipline per the WP1 pattern.
@@ -182,9 +182,13 @@ demonstrating the new axis, registered as a milestone. No training claims.
   passed, but full validation action MSE was 0.234184 against the frozen
   <=0.12 gate, so M3228 failed and does not admit C2. `docs/m3229-c1-bc-warmstart-failure-localization.md`
   localized the failure to a selection/validation tail-action generalization
-  gap (validation prefix MSE 0.026446 vs tail MSE 0.369957). C1 remains open;
-  any next C1 attempt needs a revised preregistration before new warm-start
-  training.
+  gap (validation prefix MSE 0.026446 vs tail MSE 0.369957).
+  `docs/m3232-c1-v2-tail-balanced-warmstart-smoke.md` then quick-smoked a
+  revised v2 preregistration with rare coast-steer train support and
+  validation probes. It replayed demos and wrote checkpoint/dataset artifacts
+  but failed the frozen quick validation action-MSE gate (0.291470 vs <=0.12).
+  C1 remains open; do not proceed to full v2 or C2 without C1
+  synthesis/repricing.
 ### C2. Capability pretrain + guarded RL smoke [BLOCKED on C1]
 - envelope-head pretrain; 1024-step guarded RL smoke first; reward
   recalibration 40/60 as measured; judging prereg frozen before any full
@@ -260,13 +264,14 @@ demonstrating the new axis, registered as a milestone. No training claims.
 - B4: DONE (M3226; 60 s warmup-to-obstacle-to-post-pass continuation smoke passed)
 - B1b: OPEN (moving-obstacle pricing; start after C1)
 - B2b: OPEN (high-speed pricing; start after C1)
-- C1: OPEN (CP-1 disposition 2026-06-12: conditional approval; M3228 first BC warm-start failed, M3229 localized tail-action generalization gap)
+- C1: OPEN (CP-1 disposition 2026-06-12: conditional approval; M3228 first BC warm-start failed, M3229 localized tail-action generalization gap, M3232 v2 quick failed; next C1 step should synthesize/reprice before more local BC repair)
 - C2: BLOCKED on C1
 - C3: BLOCKED on C2 + CP-2 (D1b direction-positive satisfied by M3231)
 - D1: DONE (M3227; tail-replay proxy reversed in all three variants)
 - D1b: DONE (M3231; native Chrono oracle direction-positive on Sedan/BMW_E90)
 
-Execution order note: cross-track priority is C1 next (CP-1 disposition),
+Execution order note: cross-track priority is C1 next (CP-1 disposition;
+after M3232, synthesis/repricing before another local BC repair),
 then B1b, then B2b; within a track, lowest number first.
 - WP6.2 guardrails: **MERGED** (commit 05607bcd — validator V7 live in the
   pre-commit hook, escalation protocol in docs/escalations/, managed-run

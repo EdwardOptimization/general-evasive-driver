@@ -2,18 +2,18 @@
   "counts": {
     "blocked": 2,
     "completed": 3235,
-    "failed": 5,
+    "failed": 6,
     "pending": 0,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m3231-d1b-chrono-native-oracle-pricing-full_20260612T060103Z/command.log",
-    "returncode": 0,
-    "run_dir": "runs/research/m3231-d1b-chrono-native-oracle-pricing-full_20260612T060103Z",
-    "status": "completed",
-    "task_id": "m3231-d1b-chrono-native-oracle-pricing-full"
+    "command_log": "runs/research/m3232-c1-v2-tail-balanced-warmstart-smoke_20260612T062602Z/command.log",
+    "returncode": 1,
+    "run_dir": "runs/research/m3232-c1-v2-tail-balanced-warmstart-smoke_20260612T062602Z",
+    "status": "failed",
+    "task_id": "m3232-c1-v2-tail-balanced-warmstart-smoke"
   },
   "next_task": null,
-  "updated_at_utc": "20260612T060917Z"
+  "updated_at_utc": "20260612T062605Z"
 }

@@ -61,3 +61,44 @@ def test_c1_prereg_selects_one_structured_row_per_target_instance():
     role_counts = payload["selection_rule"]["role_counts"]
     assert role_counts["train"] > role_counts["selection"] >= 1
     assert role_counts["validation"] >= 1
+
+
+def test_c1_v2_tail_balanced_prereg_adds_train_support_for_heldout_oracles():
+    mod = _load_module()
+    payload = mod.build_preregistration(revision=mod.REVISION_V2)
+    rows = payload["selected_rows"]
+
+    assert payload["revision"] == "v2_tail_balanced"
+    assert payload["seed_base"] != mod.SEED_BASE
+    assert len(rows) >= 36
+
+    train_oracles = {row["oracle_by"] for row in rows if row["bc_role"] == "train"}
+    heldout_oracles = {
+        row["oracle_by"]
+        for row in rows
+        if row["bc_role"] in {"selection", "validation"}
+    }
+    support_rows = [
+        row
+        for row in rows
+        if row.get("selection_source") in {"heldout_oracle_family_support", "rare_tail_train_support"}
+    ]
+    validation_probes = [
+        row for row in rows if row.get("selection_source") == "rare_tail_validation_probe"
+    ]
+
+    assert heldout_oracles <= train_oracles
+    assert support_rows
+    assert all(row["bc_role"] == "train" for row in support_rows)
+    assert {
+        row["oracle_by"]
+        for row in support_rows
+    } <= heldout_oracles
+    assert {
+        "structured:coast_steer_+0.7",
+        "structured:coast_steer_-0.7",
+    } <= train_oracles
+    assert {
+        "structured:coast_steer_+0.7",
+        "structured:coast_steer_-0.7",
+    } <= {row["oracle_by"] for row in validation_probes}

@@ -1,0 +1,207 @@
+{
+  "id": "m3232-c1-v2-tail-balanced-warmstart-smoke",
+  "priority": 32320,
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "metric_artifact"
+  ],
+  "milestone_intent": "training",
+  "hypothesis": "A revised C1 v2 tail-balanced oracle-demo and behavior-cloning warm-start quick smoke can freeze rare-tail support/probe rows, replay structured A3 oracle demos, and exercise the BC checkpoint/dataset path before validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof or self-ID claim.",
+  "feasibility_pricing": {
+    "pricing_artifact": "experiments/feasibility_audit/c5prime_target_consolidation.json",
+    "priced_gap": 0.1597,
+    "threshold": 0.15,
+    "gap_meets_threshold": true
+  },
+  "lineage": {
+    "parent_checkpoint": [
+      "docs/roadmap-phase3-codex-execution.md",
+      "docs/current-status.md",
+      "docs/m3228-c1-c5prime-oracle-demo-bc-warmstart.md",
+      "docs/m3229-c1-bc-warmstart-failure-localization.md",
+      "docs/m3231-d1b-chrono-native-oracle-pricing-full.md"
+    ],
+    "parent_dataset": [
+      "runs/feasibility_audit/c5prime_target_consolidation/episode_rows.csv",
+      "experiments/feasibility_audit/c5prime_c1_oracle_bc_v2_prereg.json"
+    ],
+    "parent_config": [
+      "scripts/feasibility_audit/c5prime_c1_oracle_bc_warmstart.py",
+      "experiments/feasibility_audit/c5prime_prereg.json",
+      "experiments/feasibility_audit/c5prime_c1_oracle_bc_v2_prereg.json"
+    ],
+    "parent_objective": [
+      "revise the C1 warm-start design after M3229 localized the M3228 failure to tail-action generalization"
+    ],
+    "derived_from": [
+      "M3222 A3 C5-prime target consolidation",
+      "M3228 failed C1 warm-start gate",
+      "M3229 failure localization: held-out tail-action generalization dominates",
+      "M3231 D1b direction-positive CP-2 precondition satisfied"
+    ],
+    "blocked_by": [
+      "C1 remains open; M3228 full and M3232 v2 quick both failed action-MSE gates, so another local warm-start repair needs synthesis/repricing first"
+    ],
+    "supersedes": [
+      "the v2 quick-smoke pending state only; it does not supersede the C1 OPEN roadmap status"
+    ],
+    "invalidates": [
+      "re-running M3228 unchanged after the tail-action generalization failure",
+      "starting C2 from M3228 failed checkpoint or from a quick-only artifact"
+    ]
+  },
+  "review_artifact": "docs/reviews/m3232-c1-v2-tail-balanced-warmstart-smoke.md",
+  "public_gates": [
+    "M3232 must use the v2 preregistration frozen before the quick rollout",
+    "M3232 must preserve the original C1 validation action-MSE gate instead of relaxing criteria",
+    "M3232 must include rare coast-steer train support and validation probe rows in the v2 preregistration",
+    "M3232 must run only quick-mode behavior pretraining; it must not admit C2",
+    "M3232 must write quick summary, checkpoint, and dataset artifacts under the v2 run directory",
+    "M3232 must not run PPO, mutate ActiveSafetyReflexDriver, or make a driver-performance claim"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not touch ActiveSafetyReflexDriver",
+    "do not invoke train_ppo or create a guarded-RL checkpoint",
+    "do not train on selection or validation role frames",
+    "do not relax the validation action-MSE gate after M3228 failed",
+    "do not mark C1 complete from a quick smoke",
+    "do not claim current-sim validation, high-fidelity sufficiency, promotion readiness, or self-ID"
+  ],
+  "workflow_synthesis": {
+    "branch": "c5prime_track_c_c1_warmstart",
+    "evidence_axis": "c5prime_c1_v2_tail_balanced_warmstart_smoke",
+    "evidence_increment": "new v2 C1 quick smoke with frozen rare-tail support/probe preregistration",
+    "claim_scope": "Auxiliary C1 warm-start protocol smoke only; no C1 completion, no validation ranking promotion, no driver-performance, no current-sim robustness claim, no high-fidelity sufficiency, no paper, no repair-success, no feasibility-proof, and no self-ID claim",
+    "stop_condition": [
+      "stop if v2 preregistration is absent or not frozen before quick rollout",
+      "stop if rare-tail support/probe rows are missing from the v2 preregistration",
+      "stop if any selected structured-oracle quick demo fails to replay",
+      "stop after documenting quick smoke result; full C1 remains a separate run"
+    ],
+    "fallback_plan": [
+      "record M3232 as a negative quick-smoke result and keep C1 open",
+      "do not proceed to full v2 because quick failed the frozen behavior gate",
+      "perform a C1 synthesis/repricing step before any further local warm-start repair"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M3229 localized the M3228 C1 warm-start failure and roadmap keeps C1 as the next OPEN unit",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "behavior_pretrain",
+    "stage_objective": "Quick-smoke the revised v2 C1 oracle-demo and BC warm-start path without PPO.",
+    "admission_evidence": [
+      "M3222 A3 confirmed the C5-prime current-sim structural ceiling target in 3/4 T-limit cells",
+      "M3229 localized the first C1 failure to selection/validation tail-action generalization",
+      "M3231 satisfied the D1b direction-positive CP-2 precondition but C2 is still blocked on C1"
+    ],
+    "blocked_shortcuts": [
+      "no guarded RL or train_ppo invocation",
+      "no incumbent driver mutation",
+      "no C2 admission from quick mode",
+      "no Track C staged scale-up before C2 plus PI CP-2"
+    ],
+    "allowed_updates": [
+      "scripts/feasibility_audit/c5prime_c1_oracle_bc_warmstart.py",
+      "tests/test_c5prime_c1_oracle_bc_warmstart.py",
+      "experiments/feasibility_audit/c5prime_c1_oracle_bc_v2_prereg.json",
+      "experiments/feasibility_audit/c5prime_c1_oracle_bc_warmstart_v2_quick.json",
+      "runs/feasibility_audit/c5prime_c1_oracle_bc_warmstart/v2_tail_balanced/quick/*",
+      "docs/m3232-c1-v2-tail-balanced-warmstart-smoke.md",
+      "docs/reviews/m3232-c1-v2-tail-balanced-warmstart-smoke.md",
+      "M3232 queue, status, scoreboard, roadmap, current-status, research-log, and measurement-index rows"
+    ],
+    "next_stage_criteria": [
+      "quick summary JSON exists with protocol c5prime_c1_oracle_bc_warmstart and revision v2_tail_balanced",
+      "quick summary gates.all_passed is true",
+      "result document states C1 remains open pending full v2 run"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "Not applicable: C1 is engineering-only behavior pretraining from structured oracle labels and makes no self-identification or history-attribution claim.",
+    "history_necessity_tests": [
+      "none in M3232: warm-start behavior pretraining quick smoke only"
+    ],
+    "temporal_evidence_window": "none: no history-attribution claim is made",
+    "negative_result_policy": "A failed v2 quick smoke is reported at full fidelity and does not get repaired by relaxing the gate.",
+    "allowed_claims": [
+      "v2 C1 preregistration exists before quick rollout",
+      "rare-tail support/probe rows are frozen in the v2 preregistration",
+      "quick structured-oracle demos replay and a quick BC checkpoint/dataset are generated if gates pass"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_dataset_or_panel",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 2,
+    "same_public_gate_repair_count": 1,
+    "evidence_expansion": "new v2 preregistered quick dataset/checkpoint with rare-tail support and probe rows",
+    "paper_verdict_delta": "M3232 can enable a full revised C1 attempt if it succeeds; it is not itself a paper or controller outcome claim.",
+    "must_synthesize_if": [
+      "any further C1 warm-start attempt is proposed after M3228 and M3232 action-MSE gate failures",
+      "C1 expands into PPO or validation ranking",
+      "another C1 local repair is proposed without new pricing or design synthesis"
+    ]
+  },
+  "success_criteria": [
+    "experiments/feasibility_audit/c5prime_c1_oracle_bc_v2_prereg.json exists before quick rollout",
+    "v2 preregistration contains rare_tail_train_support and rare_tail_validation_probe rows for coast_steer_+0.7 and coast_steer_-0.7",
+    "experiments/feasibility_audit/c5prime_c1_oracle_bc_warmstart_v2_quick.json exists with revision v2_tail_balanced",
+    "quick summary gates.all_passed is true",
+    "quick run writes a dataset NPZ and checkpoint PT under the v2 quick run directory",
+    "the result document separates measured artifacts from inferred interpretation and keeps C1 open"
+  ],
+  "failure_criteria": [
+    "quick C1 v2 rollout starts without frozen v2 preregistration",
+    "rare-tail support/probe rows are absent from the v2 preregistration",
+    "a selected structured-oracle quick demo does not replay to success",
+    "selection or validation role frames are used for BC training",
+    "quick validation action-MSE gate fails",
+    "the milestone runs PPO, mutates the incumbent, changes actor-input shape, or claims driver performance"
+  ],
+  "decision_rule": "Accept M3232 as completed if the revised v2 quick smoke passes all gates, writes quick checkpoint/dataset artifacts, and the result is documented while C1 remains open for a separate full run.",
+  "commands": [
+    {
+      "name": "c1_v2_tail_balanced_quick",
+      "command": "env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/c5prime_c1_oracle_bc_warmstart.py --revision v2_tail_balanced --quick"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "experiments/feasibility_audit/c5prime_c1_oracle_bc_v2_prereg.json",
+      "type": "json"
+    },
+    {
+      "path": "experiments/feasibility_audit/c5prime_c1_oracle_bc_warmstart_v2_quick.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/feasibility_audit/c5prime_c1_oracle_bc_warmstart/v2_tail_balanced/quick/dataset.npz",
+      "type": "npz"
+    },
+    {
+      "path": "runs/feasibility_audit/c5prime_c1_oracle_bc_warmstart/v2_tail_balanced/quick/checkpoint.pt",
+      "type": "torch_checkpoint"
+    },
+    {
+      "path": "docs/m3232-c1-v2-tail-balanced-warmstart-smoke.md",
+      "type": "markdown"
+    }
+  ],
+  "baseline_checkpoints": [
+    "docs/roadmap-phase3-codex-execution.md",
+    "docs/current-status.md",
+    "docs/m3228-c1-c5prime-oracle-demo-bc-warmstart.md",
+    "docs/m3229-c1-bc-warmstart-failure-localization.md",
+    "docs/m3231-d1b-chrono-native-oracle-pricing-full.md"
+  ],
+  "scoreboard_checkpoint": "experiments/feasibility_audit/c5prime_c1_oracle_bc_warmstart_v2_quick.json",
+  "next_blocker": "C1 remains open; because M3228 full and M3232 quick both failed action-MSE gates, the next C1 step should be synthesis/repricing rather than another local BC repair.",
+  "status": "failed",
+  "result_summary": "Failed: C1 v2 tail-balanced quick smoke replayed all demos and wrote checkpoint/dataset, but failed the frozen validation action-MSE gate (0.291470 vs <=0.12; zero-action baseline 0.559903); validation rollout context 0.6667. C1 remains open; do not proceed to full v2 or C2 without C1 synthesis/repricing."
+}

@@ -1,0 +1,347 @@
+{
+  "bc_training": {
+    "checkpoint": "/home/quyaonan/workspace/autodrift/runs/feasibility_audit/c5prime_c1_oracle_bc_warmstart/v2_tail_balanced/quick/checkpoint.pt",
+    "dataset_npz": "/home/quyaonan/workspace/autodrift/runs/feasibility_audit/c5prime_c1_oracle_bc_warmstart/v2_tail_balanced/quick/dataset.npz",
+    "final": {
+      "best_epoch": 12,
+      "best_selection_mse": 0.026215,
+      "best_train_mse": 0.135366,
+      "history": [
+        {
+          "epoch": 2,
+          "selection_mse": 0.252551,
+          "train_mse": 0.316481
+        },
+        {
+          "epoch": 4,
+          "selection_mse": 0.12846,
+          "train_mse": 0.23935
+        },
+        {
+          "epoch": 6,
+          "selection_mse": 0.076967,
+          "train_mse": 0.191365
+        },
+        {
+          "epoch": 8,
+          "selection_mse": 0.053064,
+          "train_mse": 0.164184
+        },
+        {
+          "epoch": 10,
+          "selection_mse": 0.032834,
+          "train_mse": 0.147224
+        },
+        {
+          "epoch": 12,
+          "selection_mse": 0.026215,
+          "train_mse": 0.135366
+        }
+      ]
+    },
+    "initial": {
+      "best_epoch": 4,
+      "best_selection_mse": 0.168059,
+      "best_train_mse": 0.220627,
+      "history": [
+        {
+          "epoch": 2,
+          "selection_mse": 0.301533,
+          "train_mse": 0.337925
+        },
+        {
+          "epoch": 4,
+          "selection_mse": 0.168059,
+          "train_mse": 0.220627
+        }
+      ]
+    },
+    "model": {
+      "act_dim": 3,
+      "actor_encoder": "mlp",
+      "hidden_size": 128,
+      "obs_dim": 72
+    },
+    "validation_action_mse": 0.29147,
+    "validation_bc_rollouts": [
+      {
+        "outcome_bucket": "success_obstacle_pass",
+        "role": "validation",
+        "row_id": "S3-inst04-seed7720117",
+        "steps": 115,
+        "termination_reason": ""
+      },
+      {
+        "outcome_bucket": "off_track_noncollision_noncompletion",
+        "role": "validation",
+        "row_id": "S2-inst08-seed7540299",
+        "steps": 138,
+        "termination_reason": "off_track"
+      },
+      {
+        "outcome_bucket": "success_obstacle_pass",
+        "role": "validation",
+        "row_id": "S1-inst00-seed7300026",
+        "steps": 81,
+        "termination_reason": ""
+      }
+    ],
+    "validation_bc_success_rate_context": 0.6667,
+    "validation_mse_gate_passed": false,
+    "validation_zero_action_baseline_mse": 0.559903
+  },
+  "claim_boundary": "C1 C5-prime oracle-demo and behavior-cloning warm-start engineering only: structured A3 oracle rows are replayed in current-sim, a small BC policy is fit with held-out epoch selection and a DAgger-lite relabeling pass, and the result is a warm-start artifact for later guarded stages. No incumbent driver mutation, validation ranking, promotion, high-fidelity sufficiency, paper, repair-success, robustness-result, feasibility-proof, or self-ID claim.",
+  "dagger_lite": {
+    "augmented_train_frames": 402,
+    "base_train_frames": 684,
+    "combined_train_frames": 1086,
+    "rollouts": [
+      {
+        "outcome_bucket": "off_track_noncollision_noncompletion",
+        "row_id": "S1-inst03-seed7315156",
+        "steps": 61,
+        "termination_reason": "off_track"
+      },
+      {
+        "outcome_bucket": "off_track_noncollision_noncompletion",
+        "row_id": "S2-inst04-seed7520169",
+        "steps": 57,
+        "termination_reason": "off_track"
+      },
+      {
+        "outcome_bucket": "off_track_noncollision_noncompletion",
+        "row_id": "S1-inst02-seed7310039",
+        "steps": 69,
+        "termination_reason": "off_track"
+      },
+      {
+        "outcome_bucket": "off_track_noncollision_noncompletion",
+        "row_id": "S1-inst01-seed7305013",
+        "steps": 65,
+        "termination_reason": "off_track"
+      },
+      {
+        "outcome_bucket": "off_track_noncollision_noncompletion",
+        "row_id": "S1-inst02-seed7310052",
+        "steps": 70,
+        "termination_reason": "off_track"
+      },
+      {
+        "outcome_bucket": "truncated_by_dagger_cap",
+        "row_id": "S1-inst04-seed7320234",
+        "steps": 80,
+        "termination_reason": ""
+      }
+    ],
+    "source": "BC rollouts on train-role rows, relabeled by frozen structured-oracle step rule"
+  },
+  "demo_frame_counts": {
+    "selection": 270,
+    "train": 684,
+    "validation": 364
+  },
+  "demo_outcomes": {
+    "S1-inst00-seed7300026": {
+      "oracle_by": "structured:brake_steer_+0.4",
+      "outcome_bucket": "success_obstacle_pass",
+      "role": "validation",
+      "steps": 84
+    },
+    "S1-inst01-seed7305013": {
+      "oracle_by": "structured:full_brake",
+      "outcome_bucket": "success_obstacle_pass",
+      "role": "train",
+      "steps": 159
+    },
+    "S1-inst02-seed7310039": {
+      "oracle_by": "structured:brake_steer_+1.0",
+      "outcome_bucket": "success_obstacle_pass",
+      "role": "train",
+      "steps": 106
+    },
+    "S1-inst02-seed7310052": {
+      "oracle_by": "structured:brake_steer_-0.4",
+      "outcome_bucket": "success_obstacle_pass",
+      "role": "train",
+      "steps": 93
+    },
+    "S1-inst03-seed7315156": {
+      "oracle_by": "structured:coast_steer_+0.7",
+      "outcome_bucket": "success_obstacle_pass",
+      "role": "train",
+      "steps": 108
+    },
+    "S1-inst04-seed7320234": {
+      "oracle_by": "structured:brake_steer_-0.4",
+      "outcome_bucket": "success_obstacle_pass",
+      "role": "train",
+      "steps": 122
+    },
+    "S1-inst05-seed7325130": {
+      "oracle_by": "structured:brake_steer_+0.4",
+      "outcome_bucket": "success_obstacle_pass",
+      "role": "selection",
+      "steps": 131
+    },
+    "S2-inst04-seed7520052": {
+      "oracle_by": "structured:brake_steer_+0.4",
+      "outcome_bucket": "success_obstacle_pass",
+      "role": "selection",
+      "steps": 139
+    },
+    "S2-inst04-seed7520169": {
+      "oracle_by": "structured:coast_steer_-0.7",
+      "outcome_bucket": "success_obstacle_pass",
+      "role": "train",
+      "steps": 96
+    },
+    "S2-inst08-seed7540299": {
+      "oracle_by": "structured:coast_steer_-0.7",
+      "outcome_bucket": "success_obstacle_pass",
+      "role": "validation",
+      "steps": 176
+    },
+    "S3-inst04-seed7720117": {
+      "oracle_by": "structured:coast_steer_+0.7",
+      "outcome_bucket": "success_obstacle_pass",
+      "role": "validation",
+      "steps": 104
+    }
+  },
+  "elapsed_s": 1.288,
+  "gates": {
+    "all_passed": false,
+    "checkpoint_exists": true,
+    "dataset_exists": true,
+    "demo_replay_all_success": true,
+    "validation_action_mse_gate_passed": false
+  },
+  "generated_by": "scripts/feasibility_audit/c5prime_c1_oracle_bc_warmstart.py",
+  "preregistration": "/home/quyaonan/workspace/autodrift/experiments/feasibility_audit/c5prime_c1_oracle_bc_v2_prereg.json",
+  "preregistration_frozen_before_rollout": true,
+  "protocol": "c5prime_c1_oracle_bc_warmstart",
+  "quick_mode": true,
+  "revision": "v2_tail_balanced",
+  "role_counts": {
+    "selection": 2,
+    "train": 6,
+    "validation": 3
+  },
+  "selected_rows": [
+    {
+      "bc_role": "train",
+      "eval_seed": 7315156,
+      "gap_row": false,
+      "instance": 3,
+      "level": "S1",
+      "oracle_by": "structured:coast_steer_+0.7",
+      "row_id": "S1-inst03-seed7315156",
+      "selection_source": "rare_tail_train_support"
+    },
+    {
+      "bc_role": "train",
+      "eval_seed": 7520169,
+      "gap_row": true,
+      "instance": 4,
+      "level": "S2",
+      "oracle_by": "structured:coast_steer_-0.7",
+      "row_id": "S2-inst04-seed7520169",
+      "selection_source": "rare_tail_train_support"
+    },
+    {
+      "bc_role": "train",
+      "eval_seed": 7310039,
+      "gap_row": false,
+      "instance": 2,
+      "level": "S1",
+      "oracle_by": "structured:brake_steer_+1.0",
+      "row_id": "S1-inst02-seed7310039",
+      "selection_source": "heldout_oracle_family_support"
+    },
+    {
+      "bc_role": "train",
+      "eval_seed": 7305013,
+      "gap_row": true,
+      "instance": 1,
+      "level": "S1",
+      "oracle_by": "structured:full_brake",
+      "row_id": "S1-inst01-seed7305013",
+      "selection_source": "base"
+    },
+    {
+      "bc_role": "train",
+      "eval_seed": 7310052,
+      "gap_row": false,
+      "instance": 2,
+      "level": "S1",
+      "oracle_by": "structured:brake_steer_-0.4",
+      "row_id": "S1-inst02-seed7310052",
+      "selection_source": "base"
+    },
+    {
+      "bc_role": "train",
+      "eval_seed": 7320234,
+      "gap_row": true,
+      "instance": 4,
+      "level": "S1",
+      "oracle_by": "structured:brake_steer_-0.4",
+      "row_id": "S1-inst04-seed7320234",
+      "selection_source": "base"
+    },
+    {
+      "bc_role": "selection",
+      "eval_seed": 7325130,
+      "gap_row": false,
+      "instance": 5,
+      "level": "S1",
+      "oracle_by": "structured:brake_steer_+0.4",
+      "row_id": "S1-inst05-seed7325130",
+      "selection_source": "base"
+    },
+    {
+      "bc_role": "selection",
+      "eval_seed": 7520052,
+      "gap_row": false,
+      "instance": 4,
+      "level": "S2",
+      "oracle_by": "structured:brake_steer_+0.4",
+      "row_id": "S2-inst04-seed7520052",
+      "selection_source": "base"
+    },
+    {
+      "bc_role": "validation",
+      "eval_seed": 7720117,
+      "gap_row": false,
+      "instance": 4,
+      "level": "S3",
+      "oracle_by": "structured:coast_steer_+0.7",
+      "row_id": "S3-inst04-seed7720117",
+      "selection_source": "rare_tail_validation_probe"
+    },
+    {
+      "bc_role": "validation",
+      "eval_seed": 7540299,
+      "gap_row": false,
+      "instance": 8,
+      "level": "S2",
+      "oracle_by": "structured:coast_steer_-0.7",
+      "row_id": "S2-inst08-seed7540299",
+      "selection_source": "rare_tail_validation_probe"
+    },
+    {
+      "bc_role": "validation",
+      "eval_seed": 7300026,
+      "gap_row": false,
+      "instance": 0,
+      "level": "S1",
+      "oracle_by": "structured:brake_steer_+0.4",
+      "row_id": "S1-inst00-seed7300026",
+      "selection_source": "base"
+    }
+  ],
+  "source_artifacts": {
+    "a3_episode_rows_csv": "/home/quyaonan/workspace/autodrift/runs/feasibility_audit/c5prime_target_consolidation/episode_rows.csv",
+    "a3_prereg": "experiments/feasibility_audit/c5prime_prereg.json",
+    "a3_summary_json": "/home/quyaonan/workspace/autodrift/experiments/feasibility_audit/c5prime_target_consolidation.json"
+  }
+}

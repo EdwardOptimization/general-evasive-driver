@@ -10,6 +10,8 @@ Usage:
     PYTHONPATH=src python scripts/feasibility_audit/c5prime_c1_oracle_bc_warmstart.py --write-prereg
     PYTHONPATH=src python scripts/feasibility_audit/c5prime_c1_oracle_bc_warmstart.py --quick
     PYTHONPATH=src python scripts/feasibility_audit/c5prime_c1_oracle_bc_warmstart.py --full
+    PYTHONPATH=src python scripts/feasibility_audit/c5prime_c1_oracle_bc_warmstart.py --revision v2_tail_balanced --write-prereg
+    PYTHONPATH=src python scripts/feasibility_audit/c5prime_c1_oracle_bc_warmstart.py --revision v2_tail_balanced --quick
 """
 
 from __future__ import annotations
@@ -49,11 +51,20 @@ RESULTS_JSON = REPO / "experiments" / "feasibility_audit" / "c5prime_c1_oracle_b
 QUICK_RESULTS_JSON = (
     REPO / "experiments" / "feasibility_audit" / "c5prime_c1_oracle_bc_warmstart_quick.json"
 )
+PREREG_JSON_V2 = REPO / "experiments" / "feasibility_audit" / "c5prime_c1_oracle_bc_v2_prereg.json"
+RESULTS_JSON_V2 = REPO / "experiments" / "feasibility_audit" / "c5prime_c1_oracle_bc_warmstart_v2.json"
+QUICK_RESULTS_JSON_V2 = (
+    REPO / "experiments" / "feasibility_audit" / "c5prime_c1_oracle_bc_warmstart_v2_quick.json"
+)
 RUN_DIR = REPO / "runs" / "feasibility_audit" / "c5prime_c1_oracle_bc_warmstart"
 SOURCE_ROWS_CSV = REPO / "runs" / "feasibility_audit" / "c5prime_target_consolidation" / "episode_rows.csv"
 SOURCE_RESULTS_JSON = REPO / "experiments" / "feasibility_audit" / "c5prime_target_consolidation.json"
 
 SEED_BASE = 20260817
+SEED_BASE_V2 = 20260819
+REVISION_M3228 = "m3228"
+REVISION_V2 = "v2_tail_balanced"
+REVISIONS = (REVISION_M3228, REVISION_V2)
 TARGET_LEVELS = ("S1", "S2", "S3")
 SURFACE = "T_limit"
 OBS_DIM = 72
@@ -61,6 +72,7 @@ ACT_DIM = 3
 HIDDEN = 128
 ROLE_MOD = 6
 ROLE_BY_MOD = {0: "validation", 1: "selection"}
+RARE_TAIL_ORACLES_V2 = ("structured:coast_steer_+0.7", "structured:coast_steer_-0.7")
 
 CLAIM_BOUNDARY = (
     "C1 C5-prime oracle-demo and behavior-cloning warm-start engineering only: "
@@ -81,8 +93,8 @@ def _stable_hash(*parts: object) -> str:
     return hashlib.sha256(":".join(str(part) for part in parts).encode("utf-8")).hexdigest()
 
 
-def _role_for(level: str, instance: int, eval_seed: int) -> str:
-    value = int(_stable_hash(SEED_BASE, "role", level, instance, eval_seed)[:8], 16)
+def _role_for(level: str, instance: int, eval_seed: int, *, seed_base: int = SEED_BASE) -> str:
+    value = int(_stable_hash(seed_base, "role", level, instance, eval_seed)[:8], 16)
     return ROLE_BY_MOD.get(value % ROLE_MOD, "train")
 
 
@@ -96,6 +108,27 @@ def _eligible_rows() -> list[dict[str, str]]:
         and row.get("oracle_solved") == "True"
         and str(row.get("oracle_by", "")).startswith("structured:")
     ]
+
+
+def _source_row_id(row: dict[str, str]) -> str:
+    return f"{row['level']}-inst{int(row['instance']):02d}-seed{int(row['eval_seed'])}"
+
+
+def _selected_record(row: dict[str, str], *, role: str, selection_source: str) -> dict[str, Any]:
+    return {
+        "row_id": _source_row_id(row),
+        "level": row["level"],
+        "surface": SURFACE,
+        "instance": int(row["instance"]),
+        "eval_seed": int(row["eval_seed"]),
+        "bc_role": role,
+        "oracle_by": row["oracle_by"],
+        "v4_pertuned_outcome": row["v4_pertuned_outcome"],
+        "gap_row": row["v4_pertuned_outcome"] != "success",
+        "reveal_step": int(row["reveal_step"]),
+        "pertuned_grid": list(ast.literal_eval(row["pertuned_grid"])),
+        "selection_source": selection_source,
+    }
 
 
 def select_prereg_rows() -> list[dict[str, Any]]:
@@ -116,33 +149,119 @@ def select_prereg_rows() -> list[dict[str, Any]]:
             )
             row = candidates[0]
             eval_seed = int(row["eval_seed"])
-            selected.append(
-                {
-                    "row_id": f"{level}-inst{instance:02d}-seed{eval_seed}",
-                    "level": level,
-                    "surface": SURFACE,
-                    "instance": instance,
-                    "eval_seed": eval_seed,
-                    "bc_role": _role_for(level, instance, eval_seed),
-                    "oracle_by": row["oracle_by"],
-                    "v4_pertuned_outcome": row["v4_pertuned_outcome"],
-                    "gap_row": row["v4_pertuned_outcome"] != "success",
-                    "reveal_step": int(row["reveal_step"]),
-                    "pertuned_grid": list(ast.literal_eval(row["pertuned_grid"])),
-                }
-            )
+            selected.append(_selected_record(row, role=_role_for(level, instance, eval_seed), selection_source="base"))
     return selected
 
 
-def build_preregistration() -> dict[str, Any]:
-    rows = select_prereg_rows()
+def select_prereg_rows_v2() -> list[dict[str, Any]]:
+    selected: list[dict[str, Any]] = []
+    eligible = _eligible_rows()
+    selected_ids: set[str] = set()
+    for level in TARGET_LEVELS:
+        for instance in range(12):
+            candidates = [
+                row for row in eligible if row["level"] == level and int(row["instance"]) == instance
+            ]
+            if not candidates:
+                raise RuntimeError(f"missing structured oracle row for {level}/inst{instance}")
+            candidates.sort(
+                key=lambda row: (
+                    _stable_hash(SEED_BASE_V2, "select", level, instance, row["eval_seed"]),
+                    int(row["eval_seed"]),
+                )
+            )
+            row = candidates[0]
+            eval_seed = int(row["eval_seed"])
+            selected.append(
+                _selected_record(
+                    row,
+                    role=_role_for(level, instance, eval_seed, seed_base=SEED_BASE_V2),
+                    selection_source="base",
+                )
+            )
+            selected_ids.add(_source_row_id(row))
+
+    def ensure_oracle_role(oracle_by: str, role: str, selection_source: str) -> None:
+        nonlocal selected_ids
+        if any(row["oracle_by"] == oracle_by and row["bc_role"] == role for row in selected):
+            return
+        candidates = [
+            row
+            for row in eligible
+            if row["oracle_by"] == oracle_by and _source_row_id(row) not in selected_ids
+        ]
+        if not candidates:
+            raise RuntimeError(f"cannot add v2 {role} row for required oracle family {oracle_by}")
+        candidates.sort(
+            key=lambda row: (
+                _stable_hash(SEED_BASE_V2, selection_source, oracle_by, row["level"], row["instance"], row["eval_seed"]),
+                row["level"],
+                int(row["instance"]),
+                int(row["eval_seed"]),
+            )
+        )
+        chosen = candidates[0]
+        selected.append(_selected_record(chosen, role=role, selection_source=selection_source))
+        selected_ids.add(_source_row_id(chosen))
+
+    for oracle_by in RARE_TAIL_ORACLES_V2:
+        ensure_oracle_role(oracle_by, "train", "rare_tail_train_support")
+        ensure_oracle_role(oracle_by, "validation", "rare_tail_validation_probe")
+
+    train_oracles = {row["oracle_by"] for row in selected if row["bc_role"] == "train"}
+    heldout_oracles = {row["oracle_by"] for row in selected if row["bc_role"] in {"selection", "validation"}}
+    missing_support = sorted(heldout_oracles - train_oracles)
+    for oracle_by in missing_support:
+        candidates = [
+            row
+            for row in eligible
+            if row["oracle_by"] == oracle_by and _source_row_id(row) not in selected_ids
+        ]
+        if not candidates:
+            raise RuntimeError(f"cannot add v2 train support row for held-out oracle family {oracle_by}")
+        candidates.sort(
+            key=lambda row: (
+                _stable_hash(SEED_BASE_V2, "support", oracle_by, row["level"], row["instance"], row["eval_seed"]),
+                row["level"],
+                int(row["instance"]),
+                int(row["eval_seed"]),
+            )
+        )
+        support = candidates[0]
+        selected.append(_selected_record(support, role="train", selection_source="heldout_oracle_family_support"))
+        selected_ids.add(_source_row_id(support))
+    return selected
+
+
+def _paths_for_revision(revision: str) -> tuple[Path, Path, Path, Path]:
+    if revision == REVISION_M3228:
+        return PREREG_JSON, RESULTS_JSON, QUICK_RESULTS_JSON, RUN_DIR
+    if revision == REVISION_V2:
+        return PREREG_JSON_V2, RESULTS_JSON_V2, QUICK_RESULTS_JSON_V2, RUN_DIR / "v2_tail_balanced"
+    raise ValueError(f"unknown C1 revision {revision!r}")
+
+
+def _seed_base_for_revision(revision: str) -> int:
+    if revision == REVISION_M3228:
+        return SEED_BASE
+    if revision == REVISION_V2:
+        return SEED_BASE_V2
+    raise ValueError(f"unknown C1 revision {revision!r}")
+
+
+def build_preregistration(revision: str = REVISION_M3228) -> dict[str, Any]:
+    rows = select_prereg_rows_v2() if revision == REVISION_V2 else select_prereg_rows()
+    seed_base = _seed_base_for_revision(revision)
     role_counts = {role: sum(row["bc_role"] == role for row in rows) for role in ("train", "selection", "validation")}
+    train_oracles = sorted({row["oracle_by"] for row in rows if row["bc_role"] == "train"})
+    heldout_oracles = sorted({row["oracle_by"] for row in rows if row["bc_role"] in {"selection", "validation"}})
     return {
         "protocol": "c5prime_c1_oracle_bc_warmstart_preregistration",
+        "revision": revision,
         "roadmap_unit": "C1 Oracle demo generator + BC warm-start",
         "frozen_at_utc": utc_timestamp(),
         "frozen_before_any_c1_rollout": True,
-        "seed_base": SEED_BASE,
+        "seed_base": seed_base,
         "claim_boundary": CLAIM_BOUNDARY,
         "source_artifacts": {
             "a3_summary_json": str(SOURCE_RESULTS_JSON),
@@ -153,9 +272,18 @@ def build_preregistration() -> dict[str, Any]:
             "target_cells": [f"{level}/{SURFACE}" for level in TARGET_LEVELS],
             "rows": "one reproducible structured-oracle A3 row per target level x instance",
             "row_filter": "oracle_solved == True and oracle_by starts with structured:",
-            "sort_key": "sha256(20260817:select:<level>:<instance>:<eval_seed>), then eval_seed",
-            "role_split": "sha256(20260817:role:<level>:<instance>:<eval_seed>) % 6 => 0 validation, 1 selection, else train",
+            "sort_key": f"sha256({seed_base}:select:<level>:<instance>:<eval_seed>), then eval_seed",
+            "role_split": f"sha256({seed_base}:role:<level>:<instance>:<eval_seed>) % 6 => 0 validation, 1 selection, else train",
             "role_counts": role_counts,
+            "v2_tail_balanced_rule": (
+                "if revision == v2_tail_balanced, add distinct train-role support and validation "
+                "probe rows for rare coast-steer tail families, then add train-role support rows "
+                "for any other oracle_by action family present in selection/validation but absent "
+                "from train"
+            ),
+            "v2_required_rare_tail_oracles": list(RARE_TAIL_ORACLES_V2),
+            "train_oracle_families": train_oracles,
+            "heldout_oracle_families": heldout_oracles,
         },
         "selected_rows": rows,
         "bc_protocol": {
@@ -169,6 +297,11 @@ def build_preregistration() -> dict[str, Any]:
             ),
             "epoch_selection": "lowest selection-role action MSE; validation-role rows reported only after selection",
             "primary_smoke_gate": "validation action MSE <= 0.12 and at least 25% lower than zero-action baseline MSE",
+            "v2_revision_motivation": (
+                "M3229 localized the first failure to selection/validation tail-action generalization, "
+                "especially held-out coast-steer tails absent from train. The v2 revision freezes "
+                "oracle-family support before rollout instead of relaxing the MSE gate."
+            ),
         },
         "runtime_gates": [
             "preregistration file exists and is marked frozen before any C1 rollout",
@@ -178,7 +311,7 @@ def build_preregistration() -> dict[str, Any]:
             "validation action MSE clears the frozen smoke gate",
         ],
         "decision_rule": (
-            "M3228 completes the C1 warm-start smoke if the selected structured-oracle "
+            "The C1 warm-start smoke completes if the selected structured-oracle "
             "demos replay successfully, the BC checkpoint is written, held-out epoch "
             "selection is used, and the validation action-MSE gate passes. BC rollout "
             "success is reported as context only and is not a driver-performance claim."
@@ -186,18 +319,23 @@ def build_preregistration() -> dict[str, Any]:
     }
 
 
-def write_preregistration(path: Path = PREREG_JSON) -> dict[str, Any]:
-    payload = build_preregistration()
+def write_preregistration(path: Path | None = None, revision: str = REVISION_M3228) -> dict[str, Any]:
+    prereg_path, _results_path, _quick_path, _run_root = _paths_for_revision(revision)
+    payload = build_preregistration(revision=revision)
+    path = path or prereg_path
     write_json(path, payload)
     return payload
 
 
-def load_preregistration() -> dict[str, Any]:
-    if not PREREG_JSON.exists():
-        raise FileNotFoundError(f"missing preregistration {PREREG_JSON}; run --write-prereg first")
-    payload = json.loads(PREREG_JSON.read_text(encoding="utf-8"))
+def load_preregistration(revision: str = REVISION_M3228) -> dict[str, Any]:
+    prereg_path, _results_path, _quick_path, _run_root = _paths_for_revision(revision)
+    if not prereg_path.exists():
+        raise FileNotFoundError(f"missing preregistration {prereg_path}; run --write-prereg first")
+    payload = json.loads(prereg_path.read_text(encoding="utf-8"))
     if not payload.get("frozen_before_any_c1_rollout"):
-        raise ValueError(f"{PREREG_JSON} is not marked frozen_before_any_c1_rollout")
+        raise ValueError(f"{prereg_path} is not marked frozen_before_any_c1_rollout")
+    if payload.get("revision", REVISION_M3228) != revision:
+        raise ValueError(f"{prereg_path} revision {payload.get('revision')} != requested {revision}")
     return payload
 
 
@@ -401,6 +539,7 @@ def _train_bc(
     sel_actions: np.ndarray,
     *,
     seed: int,
+    seed_base: int,
     epochs: int,
     eval_every: int,
     batch_size: int,
@@ -411,7 +550,7 @@ def _train_bc(
     optimizer = torch.optim.Adam(model.parameters(), lr=3e-4)
     x = torch.as_tensor(train_obs, dtype=torch.float32)
     y = torch.as_tensor(train_actions, dtype=torch.float32)
-    rng = np.random.default_rng([SEED_BASE, seed, len(train_obs), epochs])
+    rng = np.random.default_rng([seed_base, seed, len(train_obs), epochs])
     best = {
         "selection_mse": float("inf"),
         "epoch": 0,
@@ -457,20 +596,39 @@ def _rows_for_mode(prereg: dict[str, Any], quick: bool) -> list[dict[str, Any]]:
     by_role: dict[str, list[dict[str, Any]]] = {"train": [], "selection": [], "validation": []}
     for row in rows:
         by_role[str(row["bc_role"])].append(row)
-    quick_rows = by_role["train"][:3] + by_role["selection"][:2] + by_role["validation"][:1]
+    if prereg.get("revision") == REVISION_V2:
+        support_rows = [
+            row
+            for row in by_role["train"]
+            if row.get("selection_source") in {"heldout_oracle_family_support", "rare_tail_train_support"}
+        ]
+        support_sources = {"heldout_oracle_family_support", "rare_tail_train_support"}
+        base_train = [row for row in by_role["train"] if row.get("selection_source") not in support_sources]
+        train_rows = support_rows + base_train[: max(3, 6 - len(support_rows))]
+        validation_probes = [
+            row for row in by_role["validation"] if row.get("selection_source") == "rare_tail_validation_probe"
+        ]
+        base_validation = [
+            row for row in by_role["validation"] if row.get("selection_source") != "rare_tail_validation_probe"
+        ]
+        quick_rows = train_rows + by_role["selection"][:2] + validation_probes + base_validation[:1]
+    else:
+        quick_rows = by_role["train"][:3] + by_role["selection"][:2] + by_role["validation"][:1]
     if len(quick_rows) < 6:
         raise RuntimeError(f"quick C1 row split too small: { {k: len(v) for k, v in by_role.items()} }")
     return quick_rows
 
 
-def run(quick: bool) -> dict[str, Any]:
+def run(quick: bool, revision: str = REVISION_M3228) -> dict[str, Any]:
     torch.set_num_threads(1)
     t0 = time.time()
-    prereg = load_preregistration()
+    prereg_path, results_path, quick_results_path, run_root = _paths_for_revision(revision)
+    seed_base = _seed_base_for_revision(revision)
+    prereg = load_preregistration(revision=revision)
     selected_rows = _rows_for_mode(prereg, quick)
     source_rows = _source_row_by_id()
     fixed_cfg = _fixed_star_cfg()
-    run_dir = RUN_DIR / ("quick" if quick else "full")
+    run_dir = run_root / ("quick" if quick else "full")
     run_dir.mkdir(parents=True, exist_ok=True)
 
     demos: list[dict[str, Any]] = []
@@ -493,7 +651,8 @@ def run(quick: bool) -> dict[str, Any]:
         train_actions,
         sel_obs,
         sel_actions,
-        seed=SEED_BASE + 1,
+        seed=seed_base + 1,
+        seed_base=seed_base,
         epochs=initial_epochs,
         eval_every=max(1, initial_epochs // 2),
         batch_size=batch_size,
@@ -521,7 +680,8 @@ def run(quick: bool) -> dict[str, Any]:
         combined_train_actions,
         sel_obs,
         sel_actions,
-        seed=SEED_BASE + 2,
+        seed=seed_base + 2,
+        seed_base=seed_base,
         epochs=final_epochs,
         eval_every=eval_every,
         batch_size=batch_size,
@@ -552,7 +712,7 @@ def run(quick: bool) -> dict[str, Any]:
                 "hidden_size": HIDDEN,
                 "actor_encoder": "mlp",
             },
-            "preregistration": str(PREREG_JSON),
+            "preregistration": str(prereg_path),
             "claim_boundary": CLAIM_BOUNDARY,
         },
         checkpoint_path,
@@ -568,16 +728,27 @@ def run(quick: bool) -> dict[str, Any]:
     }
     summary = {
         "protocol": "c5prime_c1_oracle_bc_warmstart",
+        "revision": revision,
         "generated_by": "scripts/feasibility_audit/c5prime_c1_oracle_bc_warmstart.py",
         "quick_mode": quick,
         "claim_boundary": CLAIM_BOUNDARY,
-        "preregistration": str(PREREG_JSON),
+        "preregistration": str(prereg_path),
         "preregistration_frozen_before_rollout": bool(prereg.get("frozen_before_any_c1_rollout")),
         "source_artifacts": prereg["source_artifacts"],
         "selected_rows": [
             {
                 key: row[key]
-                for key in ("row_id", "level", "instance", "eval_seed", "bc_role", "oracle_by", "gap_row")
+                for key in (
+                    "row_id",
+                    "level",
+                    "instance",
+                    "eval_seed",
+                    "bc_role",
+                    "oracle_by",
+                    "gap_row",
+                    "selection_source",
+                )
+                if key in row
             }
             for row in selected_rows
         ],
@@ -623,7 +794,7 @@ def run(quick: bool) -> dict[str, Any]:
         },
         "elapsed_s": round(time.time() - t0, 3),
     }
-    out_path = QUICK_RESULTS_JSON if quick else RESULTS_JSON
+    out_path = quick_results_path if quick else results_path
     write_json(out_path, summary)
     if not validation_gate:
         raise RuntimeError(
@@ -634,18 +805,21 @@ def run(quick: bool) -> dict[str, Any]:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--revision", choices=REVISIONS, default=REVISION_M3228)
     parser.add_argument("--write-prereg", action="store_true")
     parser.add_argument("--quick", action="store_true")
     parser.add_argument("--full", action="store_true")
     args = parser.parse_args()
     if args.write_prereg:
-        payload = write_preregistration()
-        print(f"wrote {PREREG_JSON} rows={len(payload['selected_rows'])}")
+        prereg_path, _results_path, _quick_path, _run_root = _paths_for_revision(args.revision)
+        payload = write_preregistration(revision=args.revision)
+        print(f"wrote {prereg_path} rows={len(payload['selected_rows'])}")
     if args.quick and args.full:
         raise SystemExit("--quick and --full are mutually exclusive")
     if args.quick or args.full:
-        summary = run(quick=args.quick)
-        out_path = QUICK_RESULTS_JSON if args.quick else RESULTS_JSON
+        _prereg_path, results_path, quick_results_path, _run_root = _paths_for_revision(args.revision)
+        summary = run(quick=args.quick, revision=args.revision)
+        out_path = quick_results_path if args.quick else results_path
         print(
             f"wrote {out_path} demos={len(summary['selected_rows'])} "
             f"val_mse={summary['bc_training']['validation_action_mse']}"
