@@ -173,7 +173,7 @@ demonstrating the new axis, registered as a milestone. No training claims.
 
 ## Track C — C5' RL program (m1087 staged; opens after CP-1)
 
-### C1. Oracle demo generator + BC warm-start [OPEN per CP-1 disposition; M3236 pretrain quick failed]
+### C1. Oracle demo generator + BC warm-start [OPEN per CP-1 disposition; M3237 pivot to family-selector repricing]
 - per-instance oracle demos on the frozen C5' cells; BC with DAgger-lite +
   held-out epoch selection (the G1' lessons are mandatory); capacity and
   seed discipline per the WP1 pattern.
@@ -210,6 +210,15 @@ demonstrating the new axis, registered as a milestone. No training claims.
   `c5prime_track_c_c1_tail_family_interface_reprice`; do not continue local
   interface pretraining or controlled rollout design until a synthesis/repricing
   unit adjudicates M3234-M3236.
+  `docs/m3237-c1-tail-family-interface-synthesis-repricing.md` completed that
+  adjudication: the target remains priced and the structured representation is
+  exact if the family is known, but local frame-wise interface pretraining is
+  closed because aggregate validation accuracy masked a complete rare-family
+  collapse. C1 remains open under
+  `c5prime_track_c_c1_family_selector_repricing`; the next C1 unit is
+  read-only family-selector/separability repricing. No local interface
+  pretraining, controlled rollout design, full C1 training, or C2 work is
+  admitted before that repricing.
 ### C2. Capability pretrain + guarded RL smoke [BLOCKED on C1]
 - envelope-head pretrain; 1024-step guarded RL smoke first; reward
   recalibration 40/60 as measured; judging prereg frozen before any full
@@ -285,14 +294,14 @@ demonstrating the new axis, registered as a milestone. No training claims.
 - B4: DONE (M3226; 60 s warmup-to-obstacle-to-post-pass continuation smoke passed)
 - B1b: OPEN (moving-obstacle pricing; start after C1)
 - B2b: OPEN (high-speed pricing; start after C1)
-- C1: OPEN (CP-1 disposition 2026-06-12: conditional approval; M3228 first BC warm-start failed, M3229 localized tail-action generalization gap, M3232 v2 quick failed, M3233 synthesis/repricing pivoted away from local direct-MLP/action-MSE warm-start, M3234 admission-interface pricing positive, M3235 no-PPO tail-family interface smoke passed, M3236 supervised pretrain quick failed rare-family/reconstruction gates; next C1 step is synthesis/repricing under `c5prime_track_c_c1_tail_family_interface_reprice`)
+- C1: OPEN (CP-1 disposition 2026-06-12: conditional approval; M3228 first BC warm-start failed, M3229 localized tail-action generalization gap, M3232 v2 quick failed, M3233 synthesis/repricing pivoted away from local direct-MLP/action-MSE warm-start, M3234 admission-interface pricing positive, M3235 no-PPO tail-family interface smoke passed, M3236 supervised pretrain quick failed rare-family/reconstruction gates, M3237 synthesis/repricing closed local frame-wise pretraining; next C1 step is read-only family-selector/separability repricing under `c5prime_track_c_c1_family_selector_repricing`)
 - C2: BLOCKED on C1
 - C3: BLOCKED on C2 + CP-2 (D1b direction-positive satisfied by M3231)
 - D1: DONE (M3227; tail-replay proxy reversed in all three variants)
 - D1b: DONE (M3231; native Chrono oracle direction-positive on Sedan/BMW_E90)
 
 Execution order note: cross-track priority is C1 next (CP-1 disposition;
-after M3236, synthesis/repricing before any further local interface pretraining),
+after M3237, read-only family-selector/separability repricing before any further local interface training),
 then B1b, then B2b; within a track, lowest number first.
 - WP6.2 guardrails: **MERGED** (commit 05607bcd — validator V7 live in the
   pre-commit hook, escalation protocol in docs/escalations/, managed-run

@@ -1,0 +1,112 @@
+{
+  "claim_boundary": "M3237 C1 tail-family interface synthesis/repricing only: read-only analysis of M3234-M3236 and existing C5-prime pricing artifacts. No new rollout, no training, no checkpoint, no incumbent mutation, no validation ranking, no driver-performance claim, no high-fidelity sufficiency claim, no C2 admission, and no self-ID claim.",
+  "decision": {
+    "aggregate_metric_masked_rare_family_failure": true,
+    "c1_status": "open",
+    "c2_admitted": false,
+    "c3_admitted": false,
+    "closed_branch": "c5prime_track_c_c1_tail_family_interface_pretrain_design",
+    "controlled_rollout_design_admitted": false,
+    "local_framewise_pretraining_closed": true,
+    "more_local_interface_pretraining_admitted": false,
+    "next_branch": "c5prime_track_c_c1_family_selector_repricing",
+    "next_process_admitted": true,
+    "next_training_admitted": false,
+    "reason": "M3234/M3235 show the structured tail-family interface can represent the tail target, and A3/D1b keep the C5-prime prize priced. M3236 shows the local frame-wise supervised selector is not sufficient: aggregate validation accuracy beats simple floors, but a rare coast-steer family collapses and the decoded predicted-family action fails reconstruction.",
+    "recommended_next": "Register a read-only family-selector/separability repricing milestone. Do not continue local frame-wise interface pretraining or controlled rollout design until that pricing says the rare-family selector is learnable and worth training.",
+    "representation_alive_if_family_known": true,
+    "synthesis_decision": "pivot_to_family_selector_repricing",
+    "target_still_priced": true
+  },
+  "elapsed_s": 0.001,
+  "generated_at_utc": "20260612T072433Z",
+  "generated_by": "scripts/feasibility_audit/c5prime_c1_tail_family_interface_synthesis_repricing.py",
+  "inferred": {
+    "aggregate_metric_warning": "Aggregate validation accuracy is not a safe admission criterion here because it can pass while a required rare family fails completely.",
+    "representation_vs_learning": "The structured decoder remains exact when the family is known; the failed component is the local frame-wise family selector, not the representation itself."
+  },
+  "measured": {
+    "pretrain_failure": {
+      "aggregate_validation_would_mislead": true,
+      "failed_gates": [
+        "all_passed",
+        "predicted_family_reconstruction_gate_passed",
+        "required_rare_validation_family_gate_passed",
+        "validation_family_min_gate_passed"
+      ],
+      "quick_pretrain_passed": false,
+      "selection_accuracy": 0.927305,
+      "validation_accuracy": 0.766082,
+      "validation_accuracy_over_best_floor": 0.22807,
+      "validation_best_simple_floor": 0.538012,
+      "validation_family_metrics": {
+        "structured:brake_steer_+0.4": {
+          "accuracy": 1.0,
+          "frames": 68,
+          "predicted_counts": {
+            "structured:brake_steer_+0.4": 68
+          }
+        },
+        "structured:brake_steer_-0.4": {
+          "accuracy": 0.934783,
+          "frames": 276,
+          "predicted_counts": {
+            "structured:brake_steer_-0.4": 258,
+            "structured:brake_steer_-1.0": 18
+          }
+        },
+        "structured:coast_steer_+0.7": {
+          "accuracy": 0.985294,
+          "frames": 68,
+          "predicted_counts": {
+            "structured:brake_steer_-0.4": 1,
+            "structured:coast_steer_+0.7": 67
+          }
+        },
+        "structured:coast_steer_-0.7": {
+          "accuracy": 0.0,
+          "frames": 101,
+          "predicted_counts": {
+            "structured:brake_steer_-1.0": 101
+          }
+        }
+      },
+      "worst_validation_family": "structured:coast_steer_-0.7",
+      "worst_validation_family_accuracy": 0.0,
+      "worst_validation_family_frames": 101,
+      "worst_validation_family_predicted_counts": {
+        "structured:brake_steer_-1.0": 101
+      }
+    },
+    "representation_status": {
+      "m3235_tail_frames": 831,
+      "m3235_tail_reconstruction_mse": 0.0,
+      "m3235_target_path_smoke_passed": true,
+      "m3236_predicted_family_validation_reconstruction_mse": 0.27601,
+      "m3236_true_family_validation_reconstruction_mse": 0.0,
+      "representationally_valid_if_family_known": true
+    },
+    "target_status": {
+      "a3_c5prime_target_confirmed": true,
+      "a3_qualifying_target_cells": [
+        "S1/T_limit",
+        "S2/T_limit",
+        "S3/T_limit"
+      ],
+      "d1b_direction_positive_all_variants": true,
+      "heldout_family_train_coverage": 1.0,
+      "m3234_interface_pricing_positive": true,
+      "m3234_priced_tail_mse_reduction": 0.369957,
+      "m3234_tail_mse_reduction_threshold": 0.15
+    }
+  },
+  "preregistration": "experiments/feasibility_audit/c5prime_c1_tail_family_interface_synthesis_repricing_prereg.json",
+  "protocol": "c5prime_c1_tail_family_interface_synthesis_repricing",
+  "source_artifacts": {
+    "a3_c5prime_target_consolidation": "experiments/feasibility_audit/c5prime_target_consolidation.json",
+    "d1b_chrono_native_oracle_pricing": "experiments/feasibility_audit/chrono_native_oracle_pricing.json",
+    "m3234_admission_interface_pricing": "experiments/feasibility_audit/c5prime_c1_admission_interface_pricing.json",
+    "m3235_tail_family_interface_smoke": "experiments/feasibility_audit/c5prime_c1_tail_family_interface_smoke.json",
+    "m3236_tail_family_interface_pretrain_quick": "experiments/feasibility_audit/c5prime_c1_tail_family_interface_pretrain_quick.json"
+  }
+}

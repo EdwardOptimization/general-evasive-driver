@@ -56392,3 +56392,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m3236-c1-tail-family-interface-pretrain-quick_20260612T071553Z/command.log`
 - success artifact: `experiments/feasibility_audit/c5prime_c1_tail_family_interface_pretrain_quick.json`
 - notes: Failed: M3236 replayed 43/43 demos and trained the supervised interface head, but failed rare-family and predicted-family reconstruction gates. Selection accuracy 0.927305 and validation accuracy 0.766082 beat simple floors, but structured:coast_steer_-0.7 validation was 0/101 frames and predicted-family reconstruction MSE was 0.276010 vs <=0.1. C1 remains open under c5prime_track_c_c1_tail_family_interface_reprice; C2/C3 remain blocked.
+
+## 20260612T072433Z m3237-c1-tail-family-interface-synthesis-repricing
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: A preregistered C1 tail-family interface synthesis/repricing pass can adjudicate M3234-M3236 evidence, close unsafe local interface pretraining after the rare-family failure, and route only read-only family-selector repricing before validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof or self-ID claim.
+- command: `env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/c5prime_c1_tail_family_interface_synthesis_repricing.py`
+- returncode: `0`
+- run dir: `runs/research/m3237-c1-tail-family-interface-synthesis-repricing_20260612T072433Z`
+- command log: `runs/research/m3237-c1-tail-family-interface-synthesis-repricing_20260612T072433Z/command.log`
+- success artifact: `experiments/feasibility_audit/c5prime_c1_tail_family_interface_synthesis_repricing.json`
+- notes: Completed: M3237 pivoted to family-selector/separability repricing. A3/D1b and M3234 keep the target priced, and M3235/M3236 true-family reconstruction keep the representation alive, but M3236 closes local frame-wise interface pretraining because aggregate validation accuracy masked a 0/101 structured:coast_steer_-0.7 failure. C1 remains open under c5prime_track_c_c1_family_selector_repricing; C2/C3 remain blocked.
