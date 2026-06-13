@@ -48,7 +48,12 @@
   trace rows, original early-fire rate 0.5, reconciled early-fire rate 0.0,
   detector miss rate 0.1667, and E2' dependency ready. M3258 then confirmed
   the E2' clean flip on Sedan/TMeasy plus UAZBUS/TMeasy with 30 validation
-  seeds per cell. Track F remains blocked on the later PI GPU-days checkpoint.
+  seeds per cell, and M3259 confirmed the structural gap in Chrono
+  (native_oracle - pertuned +0.18) while spread revival stayed unsupported.
+  The harden-first CP-3 disposition is satisfied; PI then gave FULL APPROVAL
+  of Track F at 100M env steps with no time limit and no intermediate budget
+  gate. Track F is OPEN at F1 (infra + smoke + throughput, then directly
+  into the 100M managed run; judging prereg frozen before launch).
 
 ## Track A — pricing/science completion (CPU only, zero training)
 
@@ -558,34 +563,55 @@ it does not admit Track F, training, driver-performance, high-fidelity
 sufficiency, paper, feasibility-proof, repair-success, robustness-result, or
 self-ID claims.
 
-### Track F — robotics-parity RL protocol (stage 2; opens only after the later PI GPU-days checkpoint)
+### Track F — robotics-parity RL protocol (stage 2; CP-3 budget APPROVED)
 
-F1. Training infrastructure [BLOCKED on later PI GPU-days budget checkpoint]: vectorized parallel
-Chrono workers for training; throughput benchmark; GPU feasibility
-re-check (the earlier CUDA-slower finding was tiny-GRU-on-toy-env; bigger
-nets + batched Chrono rollouts is a different regime — measure, do not
-assume).
+**CP-3 GPU-days disposition (PI, 2026-06-13): FULL APPROVAL — 100M env
+steps, no time limit, no intermediate budget gate.** E2' confirmed the
+clean-flip prize at power on two vehicles and E1' confirmed the structural
+gap in Chrono, so the prize is real; PI commits to the full robotics-parity
+scale (100M, the literature-standard upper end) directly, with no
+PI stop between smoke and the full run and no calendar cap. The one
+retained discipline is make-it-work hygiene, NOT a budget gate: F1 builds
+the infra and runs a brief smoke + throughput benchmark, then proceeds
+DIRECTLY into the 100M run without stopping — its only job is to verify the
+training loop is correct and to report the projected wall-clock so the
+"no time limit" decision is informed, not to gate.
 
-F2. Asymmetric actor-critic + teacher-student [BLOCKED on F1 + CP-3]:
+F1. Training infrastructure [OPEN; first]: vectorized parallel Chrono
+workers for training; end-to-end smoke (sane gradients, obs72/action3
+contract held, finite losses, deterministic seed handling); throughput
+benchmark + GPU-vs-CPU feasibility re-check (the earlier CUDA-slower
+finding was tiny-GRU-on-toy-env; bigger nets + batched Chrono rollouts is a
+different regime — measure). Acceptance: smoke green + a throughput number
++ projected 100M-step wall-clock reported. No PI gate after F1; proceed to
+F2.
+
+F2. Asymmetric actor-critic + teacher-student [OPEN after F1 smoke]:
 robotics-field-standard recipe — privileged critic/teacher (true mu +
 vehicle params), obs72+short-history student distillation (RMA-style),
-curriculum, **50-100M env steps**, >= 8 seeds. **Judging preregisters BOTH
-readings upfront** (fixing the C1-v4 tension): primary = seed-robust
-criterion (paired, seed-clustered); secondary-but-preregistered =
-validated-best-seed engineering criterion (selection on selection seeds,
+curriculum, **100M env steps**, >= 8 seeds. Launch as a MANAGED background
+process (`scripts/run_managed.sh` + progress.jsonl + --resume) — a
+multi-day run must NEVER live in an agent session (the
+agent-dies-measurement-dies rule). **Judging prereg frozen BEFORE the full
+run launches** (both readings, fixing the C1-v4 tension): primary =
+seed-robust criterion (paired, seed-clustered); secondary-but-preregistered
+= validated-best-seed engineering criterion (selection on selection seeds,
 report on validation seeds). No criteria loosening after freeze.
 
 F3. Judging [part of F2 prereg]: four arms in Chrono on the Track-E
 frozen cells (fixed* / RLS-retuned / per-instance-tuned / native oracle);
-PASS thresholds frozen before any full run.
+two confirmed prizes to beat — the structural-ceiling gap (E1' native
+oracle - per-tuned +0.18) and clean-sensing belief value (E2' VoI up to
++0.77); PASS thresholds frozen before any full run.
 
-**CP-3 (PI checkpoint) [DISPOSITION A RECORDED 2026-06-13]**: PI chose
-option A — harden Track E first (Track E' above). E2' has now confirmed the
-flip under M3258, but Track F GPU budget is NOT yet approved. The next PI
-decision is the Track F GPU-days budget (a second checkpoint). The escalation
+**CP-3 (PI checkpoint) [FULLY RESOLVED 2026-06-13]**: disposition A
+(harden first) was satisfied — E3-fix (M3257), E2' flip-confirmation at
+power (M3258), and E1' oracle-adequate spread repricing (M3259) all
+completed. The follow-on GPU-days checkpoint is then resolved by PI **FULL
+APPROVAL: 100M env steps, no time limit, no intermediate budget gate** (see
+the Track F header). Track F is OPEN at F1; the escalation
 `docs/escalations/2026-06-13-phase4-cp3-track-f-pi-checkpoint.md` resolution
-records this disposition. E3-fix was completed under M3257, E2' hardening
-was completed under M3258, and E1' repricing was completed under M3259.
+records both halves of the disposition.
 
 ## Out of scope for Codex sessions
 
@@ -636,7 +662,7 @@ GPU-days checkpoint.
 - E1: DONE (M3249 quick protocol smoke passed; M3250 full pricing negative with 0/3 qualifying variants)
 - E2: DONE (M3251 quick protocol smoke passed; M3252 full Sedan/TMeasy verdict positive with 2 clean reveals qualifying)
 - E3: DONE (M3253 passed protocol smoke; M3254 confirmed tire-truth telemetry; M3255 full measurement A/C completed with 24/24 latency rows, 72/72 recovery rows, all protocol gates passed, CP-3 evidence ready, Track F not admitted)
-- CP-3: DISPOSITION A (PI 2026-06-13) — harden Track E before any GPU
+- CP-3: FULLY RESOLVED (PI 2026-06-13) — harden-first satisfied, then FULL APPROVAL of Track F at 100M steps, no time/budget cap
 - E3-fix: DONE (M3257; detector-onset reconciliation completed, corrected early-fire rate 0.0, E2' dependency ready)
 - E2': DONE (M3258; flip confirmed with >=30 seeds/cell on Sedan/TMeasy + UAZBUS/TMeasy; Track F not admitted)
 - E1': DONE (M3259; oracle adequacy gate passed, 24 validation units per variant, 0/3 variants qualified; spread revival not supported; Track F not admitted)
