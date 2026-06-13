@@ -607,13 +607,21 @@ mostly fail-to-enter plus some fail-to-stabilize. The `lift_off_recovery`
 cell was near-neutral at +0.0500, CI95 [-0.0480, 0.1480], with reflex
 failures all fail-to-stabilize. Track F/F2 remain blocked; this is pricing
 evidence only, not training or driver-performance evidence.
-- **PI stop (2026-06-14): Codex completed E4 and now STOPS for PI review.**
-  E4 result is written, F1/F2 are blocked-on-PI, and Codex must NOT start F1 or F2 —
-  PI reviews the drift-regime pricing and decides the Track F target and go
-  before any training-infrastructure or training work begins. E4 is a hard
-  checkpoint: the drift prize must be priced and reviewed before any GPU.
+- **PI stop (2026-06-14): Codex completed E4 and STOPPED for PI review.**
+- **PI E4 disposition (2026-06-14): Track F APPROVED, full-scenario target.**
+  E4 confirmed the largest reflex gap in the project in the drift regime
+  (+0.40, reflex 0/0/0 vs drift-specialized oracle 0.40, dominant failure
+  fail_to_enter). PI decision: train ONE driver across the FULL scenario
+  distribution — not a drift specialist. Track F target = avoidance cells
+  (E2'/E1' regime: belief value up to +0.77, structural gap +0.18) PLUS
+  drift cells (E4 low_mu_power_oversteer: +0.40). Teacher is per-regime:
+  the avoidance oracle for avoidance cells AND the drift-specialized oracle
+  for drift cells (the generic CEM found nothing in drift — 0.0 — so the
+  drift teacher MUST be the specialized feedback oracle, not search).
+  Curriculum spans both regimes. The F1 wall-clock stop still applies before
+  the 100M launch.
 
-### Track F — robotics-parity RL protocol (stage 2; DEFERRED until E4 review + F1 wall-clock + PI go)
+### Track F — robotics-parity RL protocol (stage 2; APPROVED full-scenario; F1 wall-clock stop before 100M)
 
 **CP-3 GPU-days disposition (PI, 2026-06-13): 100M env steps approved in
 principle, no time limit — but DEFERRED behind E4, and STOP AFTER F1.**
@@ -627,7 +635,7 @@ in hand before launching the multi-day F2 run (the last price-before-train,
 applied to compute cost). This is NOT a budget cut: 100M/no-time-limit
 stands; F1 just makes the calendar cost real first.
 
-F1. Training infrastructure [BLOCKED on post-E4 PI review; then STOP for PI]: vectorized
+F1. Training infrastructure [OPEN — NEXT; then STOP for PI wall-clock review]: vectorized
 parallel Chrono workers for training; end-to-end smoke (sane gradients,
 obs72/action3 contract held, finite losses, deterministic seed handling);
 throughput benchmark + GPU-vs-CPU feasibility re-check (the earlier
@@ -637,23 +645,30 @@ aggregate throughput (steps/s at max parallel workers) + projected
 100M-step wall-clock. **Then STOP and report to PI** — write the result and
 mark F2 blocked-on-PI; do NOT launch F2.
 
-F2. Asymmetric actor-critic + teacher-student [BLOCKED on post-E4 PI review + F1 + PI go]:
+F2. Asymmetric actor-critic + teacher-student [BLOCKED on F1 wall-clock review + PI go]:
 robotics-field-standard recipe — privileged critic/teacher (true mu +
 vehicle params), obs72+short-history student distillation (RMA-style),
-curriculum, **100M env steps**, >= 8 seeds. Launch as a MANAGED background
-process (`scripts/run_managed.sh` + progress.jsonl + --resume) — a
-multi-day run must NEVER live in an agent session (the
+curriculum, **100M env steps**, >= 8 seeds. **Training distribution = the
+FULL scenario set, ONE driver (PI 2026-06-14)**: avoidance cells (E2'/E1'
+regime) + drift cells (E4 low_mu_power_oversteer beyond-saturation), with a
+curriculum spanning both. **Per-regime teacher**: avoidance oracle for
+avoidance cells, drift-specialized feedback oracle for drift cells (the
+generic CEM oracle scored 0.0 in drift, so the drift teacher MUST be the
+specialized controller — search demos will not teach drift entry). Launch
+as a MANAGED background process (`scripts/run_managed.sh` + progress.jsonl
++ --resume) — a multi-day run must NEVER live in an agent session (the
 agent-dies-measurement-dies rule). **Judging prereg frozen BEFORE the full
 run launches** (both readings, fixing the C1-v4 tension): primary =
 seed-robust criterion (paired, seed-clustered); secondary-but-preregistered
-= validated-best-seed engineering criterion (selection on selection seeds,
-report on validation seeds). No criteria loosening after freeze.
+= validated-best-seed engineering criterion. No criteria loosening.
 
-F3. Judging [part of F2 prereg]: four arms in Chrono on the Track-E
-frozen cells (fixed* / RLS-retuned / per-instance-tuned / native oracle);
-two confirmed prizes to beat — the structural-ceiling gap (E1' native
-oracle - per-tuned +0.18) and clean-sensing belief value (E2' VoI up to
-+0.77); PASS thresholds frozen before any full run.
+F3. Judging [part of F2 prereg]: four arms in Chrono on the frozen cells
+(fixed* / RLS-retuned / per-instance-tuned / per-regime oracle), reported
+**per regime AND pooled**; three confirmed prizes to beat — avoidance
+structural-ceiling gap (E1' +0.18), clean-sensing belief value (E2' up to
++0.77), and the drift gap (E4 +0.40, the largest); plus an
+all-regimes-competence readout (the one driver must not regress ordinary
+avoidance while gaining drift). PASS thresholds frozen before any full run.
 
 **CP-3 (PI checkpoint) [FULLY RESOLVED 2026-06-13]**: disposition A
 (harden first) was satisfied — E3-fix (M3257), E2' flip-confirmation at
@@ -719,8 +734,9 @@ post-E4 PI review.
 - E2': DONE (M3258; flip confirmed with >=30 seeds/cell on Sedan/TMeasy + UAZBUS/TMeasy; AVOIDANCE regime only)
 - E1': DONE (M3259; oracle adequacy gate passed, spread revival not supported, structural gap +0.18 confirmed; AVOIDANCE regime only)
 - E4: DONE (M3260; full Chrono drift / beyond-saturation pricing completed, with one positive low-mu power-oversteer cell and one near-neutral lift-off recovery cell; **Codex stops for PI review**)
-- F1: BLOCKED on the post-E4 PI review (infra + throughput only after PI resumes it; then a further PI go/scale stop)
-- F2-F3: BLOCKED on post-E4 PI review + F1 + PI go (100M managed run; target informed by E4)
+- E4 review: DONE (PI 2026-06-14) — Track F APPROVED at FULL-SCENARIO scope: ONE driver over avoidance + drift, per-regime teacher (drift teacher = specialized oracle, not CEM)
+- F1: OPEN — NEXT (infra + smoke + throughput + projected 100M wall-clock; then STOP for PI wall-clock review)
+- F2-F3: BLOCKED on F1 wall-clock review + PI go (100M managed run; full-scenario, three prizes: avoidance +0.18, belief +0.77, drift +0.40)
 - WP6.2 guardrails: **MERGED** (commit 05607bcd — validator V7 live in the
   pre-commit hook, escalation protocol in docs/escalations/, managed-run
   helper scripts/run_managed.sh). Codex execution may begin.
