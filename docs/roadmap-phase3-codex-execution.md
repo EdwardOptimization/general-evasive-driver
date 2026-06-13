@@ -50,11 +50,14 @@
   the E2' clean flip on Sedan/TMeasy plus UAZBUS/TMeasy with 30 validation
   seeds per cell, and M3259 confirmed the structural gap in Chrono
   (native_oracle - pertuned +0.18) while spread revival stayed unsupported.
-  The harden-first CP-3 disposition is satisfied; PI then gave FULL APPROVAL
-  of Track F at 100M env steps with no time limit and no intermediate budget
-  gate. Track F is OPEN at F1 (infra + smoke + throughput + projected 100M
-  wall-clock), then STOPS for a PI go/scale confirmation before the
-  multi-day F2 run launches.
+  The harden-first CP-3 disposition is satisfied and PI approved Track F at
+  100M steps / no time limit in principle, but then DEFERRED Track F behind
+  a new Track E4 (Chrono drift / beyond-saturation pricing): E1'/E2'
+  confirmed prizes in the avoidance regime only, never the drift regime
+  (toy-sim reflex 0/84, thesis-queued) which Chrono's TMeasy tires can now
+  represent. Next OPEN units: E4 (drift pricing) and F1 (infra + throughput,
+  independent), then F1 STOPS for a PI go/scale confirmation; F2 is blocked
+  on E4 + F1 + PI go.
 
 ## Track A — pricing/science completion (CPU only, zero training)
 
@@ -564,10 +567,43 @@ it does not admit Track F, training, driver-performance, high-fidelity
 sufficiency, paper, feasibility-proof, repair-success, robustness-result, or
 self-ID claims.
 
-### Track F — robotics-parity RL protocol (stage 2; CP-3 budget APPROVED)
+### Track E4 — Chrono drift / beyond-saturation pricing [OPEN; precedes Track F]
+
+**PI re-ordering (2026-06-13): Track F is DEFERRED until the drift regime is
+priced.** E1'/E2' confirmed their prizes in the handling-limit AVOIDANCE
+regime only (entry-speed commitment + threshold-braking + obstacle reveal;
+the controllers ride just inside the boundary, F1-line-tracking style). No
+E-unit tested sustained drift / beyond-rear-saturation operation — the
+regime where the toy-sim reflex scored 0/84 and which the thesis (Section
+5.1) explicitly queued/de-scoped because the toy tanh tire cannot represent
+a stable drift equilibrium. Chrono's TMeasy combined-slip tires CAN
+represent large sideslip and beyond-saturation dynamics, so this is the
+first place the drift-regime reflex-vs-learned question is measurable. The
+avoidance-regime prizes (structural gap +0.18, belief value up to +0.77)
+may be much larger in the drift regime, where RL's advantage should be
+greatest — so price it BEFORE committing GPU, and let it inform Track F's
+training target.
+
+E4. Drift-regime pricing [OPEN; CPU, zero training; depends E0 fixtures]:
+construct Chrono scenarios that require sustained controlled operation
+beyond rear-tire saturation (e.g. high-speed corner entry and/or low-mu
+emergency steer that forces large sideslip), with sideslip/yaw/tire-
+saturation telemetry recorded (absent from E1'/E2'). Four arms: v4 reflex
+(one global retune, fixed*) / per-instance-tuned reflex / native Chrono
+oracle (structured + CEM, allowed drift maneuvers) / drift-specialized
+oracle. Prereg first, new SEED_BASE, >= 20 validation units/cell, paired
+CIs, oracle-adequacy gate (as E1'). Acceptance: per-cell (oracle - fixed*)
+and (oracle - per-tuned) with CIs, and a documented characterization of
+WHERE/WHY the reflex fails in the drift regime (does it fail to enter, fail
+to stabilize, or fail to recover?). Either verdict feeds Track F's target
+choice and the papers. Stretch: re-run the toy-sim's 3 drift_required rows'
+geometry in Chrono to see if they are now solvable by an oracle.
+
+### Track F — robotics-parity RL protocol (stage 2; DEFERRED until E4 + F1 wall-clock + PI go)
 
 **CP-3 GPU-days disposition (PI, 2026-06-13): 100M env steps approved in
-principle, no time limit — but STOP AFTER F1.** E2'/E1' confirmed the prize,
+principle, no time limit — but DEFERRED behind E4, and STOP AFTER F1.**
+E2'/E1' confirmed the prize,
 so PI commits to the full robotics-parity scale (100M, the
 literature-standard upper end). One refinement (PI, 2026-06-13): Codex runs
 F1 only (infra + smoke + throughput benchmark + projected 100M wall-clock)
@@ -577,7 +613,7 @@ in hand before launching the multi-day F2 run (the last price-before-train,
 applied to compute cost). This is NOT a budget cut: 100M/no-time-limit
 stands; F1 just makes the calendar cost real first.
 
-F1. Training infrastructure [OPEN; first, then STOP for PI]: vectorized
+F1. Training infrastructure [OPEN; independent of E4, runs after/alongside it; then STOP for PI]: vectorized
 parallel Chrono workers for training; end-to-end smoke (sane gradients,
 obs72/action3 contract held, finite losses, deterministic seed handling);
 throughput benchmark + GPU-vs-CPU feasibility re-check (the earlier
@@ -587,7 +623,7 @@ aggregate throughput (steps/s at max parallel workers) + projected
 100M-step wall-clock. **Then STOP and report to PI** — write the result and
 mark F2 blocked-on-PI; do NOT launch F2.
 
-F2. Asymmetric actor-critic + teacher-student [BLOCKED on F1 + PI go]:
+F2. Asymmetric actor-critic + teacher-student [BLOCKED on E4 + F1 + PI go]:
 robotics-field-standard recipe — privileged critic/teacher (true mu +
 vehicle params), obs72+short-history student distillation (RMA-style),
 curriculum, **100M env steps**, >= 8 seeds. Launch as a MANAGED background
