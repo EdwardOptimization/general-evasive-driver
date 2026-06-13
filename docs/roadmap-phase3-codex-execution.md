@@ -52,8 +52,9 @@
   (native_oracle - pertuned +0.18) while spread revival stayed unsupported.
   The harden-first CP-3 disposition is satisfied; PI then gave FULL APPROVAL
   of Track F at 100M env steps with no time limit and no intermediate budget
-  gate. Track F is OPEN at F1 (infra + smoke + throughput, then directly
-  into the 100M managed run; judging prereg frozen before launch).
+  gate. Track F is OPEN at F1 (infra + smoke + throughput + projected 100M
+  wall-clock), then STOPS for a PI go/scale confirmation before the
+  multi-day F2 run launches.
 
 ## Track A — pricing/science completion (CPU only, zero training)
 
@@ -565,28 +566,28 @@ self-ID claims.
 
 ### Track F — robotics-parity RL protocol (stage 2; CP-3 budget APPROVED)
 
-**CP-3 GPU-days disposition (PI, 2026-06-13): FULL APPROVAL — 100M env
-steps, no time limit, no intermediate budget gate.** E2' confirmed the
-clean-flip prize at power on two vehicles and E1' confirmed the structural
-gap in Chrono, so the prize is real; PI commits to the full robotics-parity
-scale (100M, the literature-standard upper end) directly, with no
-PI stop between smoke and the full run and no calendar cap. The one
-retained discipline is make-it-work hygiene, NOT a budget gate: F1 builds
-the infra and runs a brief smoke + throughput benchmark, then proceeds
-DIRECTLY into the 100M run without stopping — its only job is to verify the
-training loop is correct and to report the projected wall-clock so the
-"no time limit" decision is informed, not to gate.
+**CP-3 GPU-days disposition (PI, 2026-06-13): 100M env steps approved in
+principle, no time limit — but STOP AFTER F1.** E2'/E1' confirmed the prize,
+so PI commits to the full robotics-parity scale (100M, the
+literature-standard upper end). One refinement (PI, 2026-06-13): Codex runs
+F1 only (infra + smoke + throughput benchmark + projected 100M wall-clock)
+and STOPS for a PI go/scale confirmation, because Chrono is CPU physics and
+100M steps may be days-to-weeks of wall-clock — PI wants the measured cost
+in hand before launching the multi-day F2 run (the last price-before-train,
+applied to compute cost). This is NOT a budget cut: 100M/no-time-limit
+stands; F1 just makes the calendar cost real first.
 
-F1. Training infrastructure [OPEN; first]: vectorized parallel Chrono
-workers for training; end-to-end smoke (sane gradients, obs72/action3
-contract held, finite losses, deterministic seed handling); throughput
-benchmark + GPU-vs-CPU feasibility re-check (the earlier CUDA-slower
-finding was tiny-GRU-on-toy-env; bigger nets + batched Chrono rollouts is a
-different regime — measure). Acceptance: smoke green + a throughput number
-+ projected 100M-step wall-clock reported. No PI gate after F1; proceed to
-F2.
+F1. Training infrastructure [OPEN; first, then STOP for PI]: vectorized
+parallel Chrono workers for training; end-to-end smoke (sane gradients,
+obs72/action3 contract held, finite losses, deterministic seed handling);
+throughput benchmark + GPU-vs-CPU feasibility re-check (the earlier
+CUDA-slower finding was tiny-GRU-on-toy-env; bigger nets + batched Chrono
+rollouts is a different regime — measure). Acceptance: smoke green +
+aggregate throughput (steps/s at max parallel workers) + projected
+100M-step wall-clock. **Then STOP and report to PI** — write the result and
+mark F2 blocked-on-PI; do NOT launch F2.
 
-F2. Asymmetric actor-critic + teacher-student [OPEN after F1 smoke]:
+F2. Asymmetric actor-critic + teacher-student [BLOCKED on F1 + PI go]:
 robotics-field-standard recipe — privileged critic/teacher (true mu +
 vehicle params), obs72+short-history student distillation (RMA-style),
 curriculum, **100M env steps**, >= 8 seeds. Launch as a MANAGED background

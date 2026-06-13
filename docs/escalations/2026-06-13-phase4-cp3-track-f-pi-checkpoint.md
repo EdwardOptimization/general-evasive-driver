@@ -40,4 +40,4 @@ bookkeeping milestones while waiting for the CP-3 decision.
   and E1' (oracle-adequate spread repricing). Track F GPU budget is NOT
   approved; it is reconsidered only if E2' confirms the flip. Codex resumes
   on E3-fix.
-- followup (GPU-days checkpoint): PI FULL APPROVAL 2026-06-13 — Track F at 100M env steps, no time limit, no intermediate budget gate. F1 builds infra + smoke + throughput (make-it-work, not a gate), then proceeds directly to the 100M managed run; judging prereg frozen before launch. Track F OPEN at F1.
+- followup (GPU-days checkpoint): PI FULL APPROVAL 2026-06-13 — Track F at 100M env steps, no time limit, no intermediate budget gate. F1 (infra + smoke + throughput + projected 100M wall-clock) runs first, then STOPS for a PI go/scale confirmation (PI wants the measured Chrono wall-clock in hand before the multi-day F2 launch). 100M/no-time-limit stands; this is the last price-before-train applied to compute cost. Track F OPEN at F1.
