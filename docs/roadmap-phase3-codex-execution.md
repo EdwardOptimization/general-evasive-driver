@@ -507,9 +507,48 @@ detector miss rate 0.1667, p90 latency 1.346 s, early-fire rate 0.5, v4
 recovery 1.0, baseline recovery 1.0, v4-baseline delta 0.0. Track F remains
 blocked until PI CP-3 confirms targets and budget.
 
-### Track F — robotics-parity RL protocol (stage 2; opens after CP-3)
+### Track E' — Track-E hardening (CP-3 disposition A; CPU, zero training; OPEN)
 
-F1. Training infrastructure [BLOCKED on CP-3 / M3256]: vectorized parallel
+**CP-3 disposition (PI, 2026-06-13): option A — harden Track E before any
+GPU.** The E2 headline flip (clean VoI(belief) > 0 in Chrono, the opposite
+of the toy-sim VoI=0) is the most consequential result of the program if it
+holds, but every Track-E full run was smoke-scale in power (E2 n=8/cell,
+E1 3-6/arm, E3 12-24/axis), Sedan/TMeasy only, with one detector anomaly
+and an underpowered native oracle in E1. Price-before-train one more level:
+confirm the flip at adequate power BEFORE spending GPU-days on Track F.
+
+E3-fix. Detector-onset reconciliation [OPEN, FIRST — E2' depends on it]:
+the longitudinal axis fired ~35 steps BEFORE the Chrono tire-truth onset
+(early-fire rate 0.5). Audit and reconcile the obs72 shortfall detector
+vs the Chrono tire-truth onset definition (which is "truth"? is the
+detector noise-triggering early, or is the truth-onset threshold late?);
+re-measure latency/miss with the reconciled definitions. Frozen acceptance:
+a single documented onset definition, early-fire rate reported, and the
+corrected latency/miss table. The seeker in E2' uses the reconciled
+detector.
+
+E2'. Two-regime law hardened [OPEN; depends E3-fix]: re-run E2 with
+**>= 30 validation seeds per cell**, on **>= 2 vehicle variants** (Sedan +
+one non-Sedan, e.g. UAZBUS for the largest mass/geometry contrast), all
+five clean reveal tiers + the degraded spot, paired CIs, new SEED_BASE,
+prereg first. **Flip-confirmation criterion (frozen, gates Track F):** clean
+VoI(belief) CI95 lower bound > 0 in >= 2 tight reveal cells on >= 2 vehicle
+variants. If confirmed, the toy-sim two-regime headline is formally scoped
+toy-sim-only and Track F is justified; if not, the flip was a small-N/port
+artifact and the toy-sim conclusion survives — either verdict is paper-grade.
+
+E1'. Spread-revival repricing [OPEN; depends E0; parallel to E2']: re-run
+E1 with a **native Chrono oracle budget large enough that the oracle does
+not underperform per-tuned** (the M3250 native arm lost to per-tuned, an
+oracle-budget artifact that invalidates the spread comparison) and
+**>= 20 validation units per variant**; prereg the oracle-adequacy gate
+(native >= per-tuned on selection rows) BEFORE reading the spread verdict.
+Only then is "spread revival not supported" a real result rather than an
+underpowered oracle.
+
+### Track F — robotics-parity RL protocol (stage 2; opens after Track E' confirms the flip + CP-3 budget)
+
+F1. Training infrastructure [BLOCKED on E2' flip-confirmation + CP-3 budget]: vectorized parallel
 Chrono workers for training; throughput benchmark; GPU feasibility
 re-check (the earlier CUDA-slower finding was tiny-GRU-on-toy-env; bigger
 nets + batched Chrono rollouts is a different regime — measure, do not
@@ -528,12 +567,15 @@ F3. Judging [part of F2 prereg]: four arms in Chrono on the Track-E
 frozen cells (fixed* / RLS-retuned / per-instance-tuned / native oracle);
 PASS thresholds frozen before any full run.
 
-**CP-3 (PI checkpoint) [BLOCKED: M3256]**: after full Track E results,
-before any Track F run beyond smoke: PI confirms targets and the GPU-days
-budget. The blocker is recorded in
-`docs/escalations/2026-06-13-phase4-cp3-track-f-pi-checkpoint.md`; resume
-only after PI records approval, rejection, or a concrete additional
-preregistered unit.
+**CP-3 (PI checkpoint) [DISPOSITION A RECORDED 2026-06-13]**: PI chose
+option A — harden Track E first (Track E' above). Track F GPU budget is NOT
+yet approved; it is reconsidered after E2' returns. If E2' confirms the
+flip, the next PI decision is the Track F GPU-days budget (a second
+checkpoint); if E2' refutes it, Track F is dropped and the program goes to
+papers with the toy-sim conclusion intact. The escalation
+`docs/escalations/2026-06-13-phase4-cp3-track-f-pi-checkpoint.md` resolution
+records this disposition; the new dependency-satisfied OPEN units are
+E3-fix (first), then E2' and E1'.
 
 ## Out of scope for Codex sessions
 
@@ -582,7 +624,11 @@ blocked before PI approval.
 - E1: DONE (M3249 quick protocol smoke passed; M3250 full pricing negative with 0/3 qualifying variants)
 - E2: DONE (M3251 quick protocol smoke passed; M3252 full Sedan/TMeasy verdict positive with 2 clean reveals qualifying)
 - E3: DONE (M3253 passed protocol smoke; M3254 confirmed tire-truth telemetry; M3255 full measurement A/C completed with 24/24 latency rows, 72/72 recovery rows, all protocol gates passed, CP-3 evidence ready, Track F not admitted)
-- F1-F3: BLOCKED on CP-3 / M3256 (robotics-parity RL, GPU-days budget)
+- CP-3: DISPOSITION A (PI 2026-06-13) — harden Track E before any GPU
+- E3-fix: OPEN (detector-onset reconciliation; FIRST, gates E2')
+- E2': OPEN (depends E3-fix; >=30 seeds/cell, >=2 vehicles; frozen flip-confirmation gate for Track F)
+- E1': OPEN (depends E0; oracle-adequate spread repricing)
+- F1-F3: BLOCKED on E2' flip-confirmation + CP-3 GPU-days budget (a second checkpoint)
 - WP6.2 guardrails: **MERGED** (commit 05607bcd — validator V7 live in the
   pre-commit hook, escalation protocol in docs/escalations/, managed-run
   helper scripts/run_managed.sh). Codex execution may begin.

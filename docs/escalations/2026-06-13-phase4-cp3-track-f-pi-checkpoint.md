@@ -31,5 +31,12 @@ bookkeeping milestones while waiting for the CP-3 decision.
 
 ## Resolution (filled in when unblocked)
 
-- date:
-- outcome:
+- date: 2026-06-13
+- outcome: CP-3 disposition A (PI) — harden Track E before any GPU. The E2
+  flip (clean VoI(belief) > 0 in Chrono) is the program's most consequential
+  result but every Track-E full was smoke-scale in power. New OPEN units
+  (Track E' in the roadmap): E3-fix (detector-onset reconciliation, first),
+  then E2' (>= 30 seeds/cell, >= 2 vehicles, frozen flip-confirmation gate)
+  and E1' (oracle-adequate spread repricing). Track F GPU budget is NOT
+  approved; it is reconsidered only if E2' confirms the flip. Codex resumes
+  on E3-fix.
