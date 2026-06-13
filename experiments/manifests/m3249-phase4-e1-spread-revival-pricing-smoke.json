@@ -1,0 +1,284 @@
+{
+  "id": "m3249-phase4-e1-spread-revival-pricing-smoke",
+  "priority": 32490,
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "milestone_intent": "audit",
+  "hypothesis": "A preregistered Phase-4 E1 spread-revival pricing smoke can exercise the fixed*, RLS-retuned, per-instance tuned, and native Chrono oracle arms across the M3248-admitted Chrono vehicle fixtures before validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof paper or self-ID claim.",
+  "feasibility_pricing": {
+    "pricing_artifact": "experiments/feasibility_audit/chrono_spread_expressibility_audit.json",
+    "priced_gap": 1.0,
+    "threshold": 1.0,
+    "gap_meets_threshold": true
+  },
+  "lineage": {
+    "parent_checkpoint": [
+      "docs/current-status.md",
+      "docs/roadmap-phase3-codex-execution.md",
+      "docs/m3248-phase4-e0-chrono-spread-expressibility-audit.md",
+      "docs/m3231-d1b-chrono-native-oracle-pricing-full.md",
+      "docs/m3222-a3-c5prime-target-consolidation.md"
+    ],
+    "parent_dataset": [
+      "experiments/feasibility_audit/chrono_spread_expressibility_audit.json",
+      "runs/feasibility_audit/chrono_spread_expressibility/variant_reset_rows.csv",
+      "experiments/feasibility_audit/c5prime_target_consolidation.json",
+      "runs/feasibility_audit/c5prime_target_consolidation/episode_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/feasibility_audit/phase4_e1_spread_revival_prereg.json",
+      "scripts/feasibility_audit/phase4_e1_spread_revival_pricing.py",
+      "scripts/feasibility_audit/chrono_native_oracle_pricing.py",
+      "src/autodrift/chrono_vehicle_backend.py"
+    ],
+    "parent_objective": [
+      "Phase-4 Track E E1: price spread revival in Chrono after E0 freezes the expressible envelope",
+      "M3249 is only the E1 quick protocol smoke; a separate full E1 milestone is required for a verdict"
+    ],
+    "derived_from": [
+      "M3248 admitted E1 on selected Chrono vehicle fixtures with load-transfer physics active",
+      "M3248 blocked payload-position, h_cg, tire-family, split-mu, and continuous lf/lr/Iz/cf/cr axes without new connectors",
+      "M3231 provides reusable native Chrono oracle-search machinery",
+      "M3222 provides frozen C5-prime T-limit source rows for protocol exercise"
+    ],
+    "blocked_by": [
+      "Full E1 verdict remains blocked until a separate full milestone freezes selection rows, validation rows, paired CIs, and decision thresholds",
+      "Track F remains blocked on Track E plus CP-3"
+    ],
+    "supersedes": [
+      "starting full E1 pricing without a quick smoke of all four arms"
+    ],
+    "invalidates": [
+      "interpreting M3249 quick numbers as an E1 spread-revival verdict",
+      "using E1 to claim independent payload-position, h_cg, tire-family, split-mu, or continuous lf/lr/Iz/cf/cr coverage",
+      "starting Track F from a protocol smoke"
+    ]
+  },
+  "review_artifact": "docs/reviews/m3249-phase4-e1-spread-revival-pricing-smoke.md",
+  "public_gates": [
+    "M3249 must load the M3248 E0 artifact and refuse to run if E0 did not admit E1",
+    "M3249 must write a preregistration before the quick smoke",
+    "M3249 must exercise every M3248-admitted Chrono variant in quick mode",
+    "M3249 must write fixed_star, v4_rls, v4_pertuned, and native_oracle rows for every quick variant",
+    "M3249 must exercise at least one structured and one CEM native-oracle candidate per quick variant",
+    "M3249 must label quick mode as protocol-smoke only and must not admit an E1 full verdict"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not interpret quick-mode success counts as spread-revival pricing",
+    "do not use one quick row as both selection and validation evidence for a verdict",
+    "do not claim payload-position, h_cg, tire-family, split-mu, or continuous lf/lr/Iz/cf/cr coverage",
+    "do not edit ActiveSafetyReflexDriver",
+    "do not start Track F or GPU training from M3249"
+  ],
+  "workflow_synthesis": {
+    "branch": "phase4_track_e_chrono_repricing",
+    "evidence_axis": "e1_spread_revival_pricing_protocol_smoke",
+    "evidence_increment": "first E1 quick smoke exercising fixed*, RLS, per-instance tuned, and native Chrono oracle arms across the E0 variants",
+    "claim_scope": "Infrastructure/protocol smoke only; incumbent unchanged; no E1 spread-revival verdict, validation ranking, promotion, driver-performance, current-sim sufficiency, high-fidelity sufficiency, paper, repair-success, robustness-result, feasibility-proof, or self-ID claim",
+    "stop_condition": [
+      "stop if E0 does not admit E1",
+      "stop if any quick variant lacks all four arms",
+      "stop if native-oracle structured or CEM candidate paths are not exercised",
+      "do not proceed to full E1 without separate preregistration"
+    ],
+    "fallback_plan": [
+      "if M3249 passes, register a separate full E1 pricing milestone",
+      "if M3249 fails, repair the E1 protocol before any full pricing",
+      "if a blocked E0 axis is requested, write a connector milestone instead of E1 full pricing"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M3248 completed E0 and admitted E1 preregistration",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "Smoke the E1 Chrono four-arm pricing protocol before a full pricing verdict milestone.",
+    "admission_evidence": [
+      "M3248 E0 passed and admitted E1 on selected Chrono vehicle fixtures",
+      "M3231 proved native Chrono oracle search is executable on the D1b panel",
+      "M3222 provides T-limit C5-prime structured rows for quick protocol exercise"
+    ],
+    "blocked_shortcuts": [
+      "no full verdict from quick mode",
+      "no RL or PPO",
+      "no incumbent mutation",
+      "no blocked E0 axis usage"
+    ],
+    "allowed_updates": [
+      "scripts/feasibility_audit/phase4_e1_spread_revival_pricing.py",
+      "tests/test_phase4_e1_spread_revival_pricing.py",
+      "experiments/feasibility_audit/phase4_e1_spread_revival_prereg.json",
+      "experiments/feasibility_audit/phase4_e1_spread_revival_quick.json",
+      "runs/feasibility_audit/phase4_e1_spread_revival",
+      "docs/m3249-phase4-e1-spread-revival-pricing-smoke.md",
+      "docs/reviews/m3249-phase4-e1-spread-revival-pricing-smoke.md",
+      "docs/current-status.md",
+      "docs/roadmap-phase3-codex-execution.md",
+      "docs/research-log.md",
+      "scripts/feasibility_audit/README.md",
+      "experiments/research_queue.csv",
+      "experiments/research_status.json",
+      "experiments/scoreboard.csv"
+    ],
+    "next_stage_criteria": [
+      "If quick smoke passes, register full E1 pricing with frozen selection/validation rows and paired CIs",
+      "If quick smoke fails, repair the E1 protocol before full pricing",
+      "Track F remains blocked on Track E plus CP-3"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "Not applicable: M3249 is a Chrono pricing-protocol smoke and makes no history or belief claim.",
+    "history_necessity_tests": [
+      "none in M3249"
+    ],
+    "temporal_evidence_window": "not applicable; no learned history policy is evaluated",
+    "negative_result_policy": "A failed quick smoke is reported at full fidelity and blocks full E1 pricing until repaired.",
+    "allowed_claims": [
+      "E1 four-arm quick protocol executed or failed",
+      "full E1 remains unrun and undecided",
+      "incumbent v4 remained frozen and unchanged"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_tool_or_infra",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "adds the first E1 Chrono four-arm protocol smoke on top of M3248",
+    "paper_verdict_delta": "M3249 does not decide the paper result; it gates whether full E1 can be registered.",
+    "must_synthesize_if": [
+      "another E1 protocol smoke is proposed after M3249 passes",
+      "full E1 is proposed without selection/validation split and paired CIs",
+      "Track F is proposed before Track E and CP-3"
+    ]
+  },
+  "success_criteria": [
+    "experiments/feasibility_audit/phase4_e1_spread_revival_prereg.json exists before quick execution",
+    "experiments/feasibility_audit/phase4_e1_spread_revival_quick.json exists after quick execution",
+    "runs/feasibility_audit/phase4_e1_spread_revival/episode_rows_quick.csv includes all quick variants and all four arms",
+    "runs/feasibility_audit/phase4_e1_spread_revival/metrics_quick.csv reports status_pass=1",
+    "docs/m3249-phase4-e1-spread-revival-pricing-smoke.md states that quick mode is not an E1 full verdict"
+  ],
+  "failure_criteria": [
+    "E0 is missing or does not admit E1",
+    "any quick variant lacks fixed_star, v4_rls, v4_pertuned, or native_oracle rows",
+    "native oracle search does not exercise both structured and CEM candidates",
+    "quick mode is interpreted as spread-revival pricing",
+    "M3249 edits or mutates ActiveSafetyReflexDriver"
+  ],
+  "decision_rule": "PASS iff quick mode writes all four arms for every quick variant, exercises structured and CEM native-oracle candidates, reset/variant gates pass, and the artifact labels itself as protocol-smoke only. M3249 never decides E1.",
+  "decision_labels": {
+    "pass": "e1_protocol_smoke_passed",
+    "fail": "e1_protocol_smoke_failed"
+  },
+  "commands": [
+    {
+      "name": "phase4_e1_write_prereg",
+      "command": "env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/phase4_e1_spread_revival_pricing.py --write-prereg"
+    },
+    {
+      "name": "phase4_e1_quick",
+      "command": "env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/phase4_e1_spread_revival_pricing.py --quick"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "experiments/feasibility_audit/phase4_e1_spread_revival_prereg.json",
+      "type": "json"
+    },
+    {
+      "path": "experiments/feasibility_audit/phase4_e1_spread_revival_quick.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/feasibility_audit/phase4_e1_spread_revival/episode_rows_quick.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/feasibility_audit/phase4_e1_spread_revival/metrics_quick.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m3249-phase4-e1-spread-revival-pricing-smoke.md",
+      "type": "markdown"
+    }
+  ],
+  "baseline_checkpoints": [
+    "docs/current-status.md",
+    "docs/roadmap-phase3-codex-execution.md",
+    "docs/m3248-phase4-e0-chrono-spread-expressibility-audit.md",
+    "docs/m3231-d1b-chrono-native-oracle-pricing-full.md",
+    "docs/m3222-a3-c5prime-target-consolidation.md"
+  ],
+  "metric_extractors": [
+    {
+      "metric": "success_rate",
+      "type": "csv",
+      "path": "runs/feasibility_audit/phase4_e1_spread_revival/metrics_quick.csv",
+      "match": {
+        "metric": "status_pass"
+      },
+      "column": "value"
+    },
+    {
+      "metric": "quick_mode_not_verdict",
+      "type": "csv",
+      "path": "runs/feasibility_audit/phase4_e1_spread_revival/metrics_quick.csv",
+      "match": {
+        "metric": "quick_mode_not_verdict"
+      },
+      "column": "value"
+    },
+    {
+      "metric": "structured_candidates_min",
+      "type": "csv",
+      "path": "runs/feasibility_audit/phase4_e1_spread_revival/metrics_quick.csv",
+      "match": {
+        "metric": "structured_candidates_min"
+      },
+      "column": "value"
+    },
+    {
+      "metric": "cem_candidates_min",
+      "type": "csv",
+      "path": "runs/feasibility_audit/phase4_e1_spread_revival/metrics_quick.csv",
+      "match": {
+        "metric": "cem_candidates_min"
+      },
+      "column": "value"
+    }
+  ],
+  "gates": [
+    {
+      "name": "status_pass",
+      "metric": "success_rate",
+      "op": "==",
+      "threshold": 1.0
+    },
+    {
+      "name": "quick_mode_not_verdict",
+      "metric": "quick_mode_not_verdict",
+      "op": "==",
+      "threshold": 1.0
+    },
+    {
+      "name": "structured_candidates_exercised",
+      "metric": "structured_candidates_min",
+      "op": ">=",
+      "threshold": 1.0
+    },
+    {
+      "name": "cem_candidates_exercised",
+      "metric": "cem_candidates_min",
+      "op": ">=",
+      "threshold": 1.0
+    }
+  ]
+}

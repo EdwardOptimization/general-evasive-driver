@@ -322,6 +322,97 @@ def _move_towards(value: float, target: float, max_delta: float) -> float:
     return max(value - max_delta, target)
 
 
+def _float_or_nan(value: Any) -> float:
+    try:
+        number = float(value)
+    except Exception:
+        return float("nan")
+    return number if math.isfinite(number) else float("nan")
+
+
+def _vec3_xyz(vector: Any) -> tuple[float, float, float]:
+    return (
+        _float_or_nan(getattr(vector, "x", float("nan"))),
+        _float_or_nan(getattr(vector, "y", float("nan"))),
+        _float_or_nan(getattr(vector, "z", float("nan"))),
+    )
+
+
+def _max_abs(rows: list[dict[str, Any]], key: str) -> float:
+    values = [abs(value) for row in rows if math.isfinite(value := _float_or_nan(row.get(key, float("nan"))))]
+    return max(values) if values else float("nan")
+
+
+def _min_value(rows: list[dict[str, Any]], key: str) -> float:
+    values = [value for row in rows if math.isfinite(value := _float_or_nan(row.get(key, float("nan"))))]
+    return min(values) if values else float("nan")
+
+
+def _max_value(rows: list[dict[str, Any]], key: str) -> float:
+    values = [value for row in rows if math.isfinite(value := _float_or_nan(row.get(key, float("nan"))))]
+    return max(values) if values else float("nan")
+
+
+def _collect_tire_telemetry_from_vehicle(
+    vehicle: Any,
+    veh_module: Any,
+    terrain: Any,
+) -> tuple[list[dict[str, Any]], dict[str, Any]]:
+    """Collect per-wheel tire truth from a Chrono vehicle without touching obs72."""
+
+    axles = vehicle.GetAxles()
+    axle_count = len(axles)
+    sides = (("left", veh_module.LEFT), ("right", veh_module.RIGHT))
+    rows: list[dict[str, Any]] = []
+    for axle_index in range(axle_count):
+        if axle_index == 0:
+            axle_name = "front"
+        elif axle_index == axle_count - 1:
+            axle_name = "rear"
+        else:
+            axle_name = f"axle{axle_index}"
+        for side_name, side_value in sides:
+            tire = vehicle.GetTire(axle_index, side_value)
+            wheel = vehicle.GetWheel(axle_index, side_value)
+            force_report = tire.ReportTireForce(terrain)
+            force_x, force_y, force_z = _vec3_xyz(force_report.force)
+            wheel_state = wheel.GetState()
+            local_force = wheel_state.rot.RotateBack(force_report.force)
+            local_force_x, local_force_y, local_force_z = _vec3_xyz(local_force)
+            row = {
+                "axle_index": int(axle_index),
+                "axle": axle_name,
+                "side": side_name,
+                "side_index": int(side_value),
+                "slip_angle_rad": _float_or_nan(tire.GetSlipAngle()),
+                "longitudinal_slip": _float_or_nan(tire.GetLongitudinalSlip()),
+                "camber_angle_rad": _float_or_nan(tire.GetCamberAngle()),
+                "tire_radius_m": _float_or_nan(tire.GetRadius()),
+                "wheel_omega_rad_s": _float_or_nan(getattr(wheel_state, "omega", float("nan"))),
+                "force_x_n": force_x,
+                "force_y_n": force_y,
+                "force_z_n": force_z,
+                "local_force_x_n": local_force_x,
+                "local_force_y_n": local_force_y,
+                "local_force_z_n": local_force_z,
+                "normal_load_n": abs(force_z),
+            }
+            rows.append(row)
+    aggregate = {
+        "tire_telemetry_available": bool(rows),
+        "tire_telemetry_wheel_count": int(len(rows)),
+        "tire_telemetry_force_frame": "global_report_force_plus_wheel_state_local_projection",
+        "max_abs_tire_slip_angle_rad": _max_abs(rows, "slip_angle_rad"),
+        "max_abs_tire_longitudinal_slip": _max_abs(rows, "longitudinal_slip"),
+        "max_abs_tire_camber_angle_rad": _max_abs(rows, "camber_angle_rad"),
+        "max_abs_tire_longitudinal_force_n": _max_abs(rows, "local_force_x_n"),
+        "max_abs_tire_lateral_force_n": _max_abs(rows, "local_force_y_n"),
+        "max_tire_normal_load_n": _max_value(rows, "normal_load_n"),
+        "min_tire_normal_load_n": _min_value(rows, "normal_load_n"),
+    }
+    return rows, aggregate
+
+
 class ChronoVehicleBackend:
     """HF dynamics backend: Chrono Sedan vehicle + AutoDrift task geometry."""
 
@@ -883,7 +974,29 @@ class ChronoVehicleBackend:
         min_clearance_margin = (
             float(self.min_obstacle_clearance - collision_radius) if ob.get("enabled") else float("nan")
         )
-        return {
+        try:
+            tire_telemetry, tire_aggregates = _collect_tire_telemetry_from_vehicle(
+                self._vehicle,
+                self._veh,
+                self._terrain,
+            )
+            tire_error = ""
+        except Exception as exc:
+            tire_telemetry = []
+            tire_aggregates = {
+                "tire_telemetry_available": False,
+                "tire_telemetry_wheel_count": 0,
+                "tire_telemetry_force_frame": "",
+                "max_abs_tire_slip_angle_rad": float("nan"),
+                "max_abs_tire_longitudinal_slip": float("nan"),
+                "max_abs_tire_camber_angle_rad": float("nan"),
+                "max_abs_tire_longitudinal_force_n": float("nan"),
+                "max_abs_tire_lateral_force_n": float("nan"),
+                "max_tire_normal_load_n": float("nan"),
+                "min_tire_normal_load_n": float("nan"),
+            }
+            tire_error = f"{type(exc).__name__}: {exc}"
+        diagnostics = {
             "backend_id": self.backend_id,
             "step": int(self.step_count),
             "mu": float(self._mu_current),
@@ -914,4 +1027,8 @@ class ChronoVehicleBackend:
             "failure_events": list(self.first_failure_events),
             "throttle_input": float(_clamp(self._drive_actuator_states()[0] * self._drive_scale, 0.0, 1.0)),
             "brake_input": float(_clamp(self._drive_actuator_states()[1] * self._brake_scale, 0.0, 1.0)),
+            "tire_telemetry": tire_telemetry,
+            "tire_telemetry_error": tire_error,
         }
+        diagnostics.update(tire_aggregates)
+        return diagnostics

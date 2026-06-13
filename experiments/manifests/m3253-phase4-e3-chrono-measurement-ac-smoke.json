@@ -1,0 +1,288 @@
+{
+  "id": "m3253-phase4-e3-chrono-measurement-ac-smoke",
+  "priority": 32530,
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "milestone_intent": "evaluation_only",
+  "hypothesis": "A preregistered Phase-4 E3 Chrono measurement-A/C protocol smoke can collect obs72 slip-detector traces under scripted brake/steer ramps and planar overshoot recovery traces on the default Sedan/TMeasy fixture before validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof paper or self-ID claim.",
+  "feasibility_pricing": {
+    "pricing_artifact": "experiments/feasibility_audit/phase4_e2_chrono_two_regime_full.json",
+    "priced_gap": 1.0,
+    "threshold": 1.0,
+    "gap_meets_threshold": true
+  },
+  "lineage": {
+    "parent_checkpoint": [
+      "docs/current-status.md",
+      "docs/roadmap-phase3-codex-execution.md",
+      "docs/m3248-phase4-e0-chrono-spread-expressibility-audit.md",
+      "docs/m3251-phase4-e2-chrono-two-regime-smoke.md",
+      "docs/m3252-phase4-e2-chrono-two-regime-full.md",
+      "docs/selfid-threshold-seeking-onset-2026-06.md",
+      "docs/selfid-reflex-recovery-budget-2026-06.md"
+    ],
+    "parent_dataset": [
+      "experiments/feasibility_audit/chrono_spread_expressibility_audit.json",
+      "experiments/feasibility_audit/phase4_e2_chrono_two_regime_full.json",
+      "experiments/feasibility_audit/slip_onset_detectability.json",
+      "experiments/feasibility_audit/reflex_overshoot_recovery.json"
+    ],
+    "parent_config": [
+      "experiments/feasibility_audit/phase4_e3_chrono_measurement_ac_prereg.json",
+      "scripts/feasibility_audit/phase4_e3_chrono_measurement_ac_smoke.py",
+      "scripts/feasibility_audit/slip_onset_detectability.py",
+      "scripts/feasibility_audit/reflex_overshoot_recovery.py",
+      "scripts/feasibility_audit/chrono_worker_client.py",
+      "src/autodrift/chrono_vehicle_backend.py"
+    ],
+    "parent_objective": [
+      "Phase-4 Track E E3: Chrono re-run of measurements A and C after E0 and full E2",
+      "M3253 verifies the A/C data path before any full E3 verdict or Track F checkpoint decision"
+    ],
+    "derived_from": [
+      "M3248 admitted the selected Chrono vehicle fixture envelope",
+      "M3252 completed the full E2 Chrono two-regime-law verdict and left E3 as the next Track E unit",
+      "slip_onset_detectability.py defines the obs72 SlipOnsetDetector used for measurement A",
+      "reflex_overshoot_recovery.py defines the current-sim recovery-budget framing for measurement C"
+    ],
+    "blocked_by": [
+      "M3253 does not provide full E3 truth definitions or safety-gating thresholds",
+      "Track F remains blocked on full E3 disposition plus CP-3 regardless of M3253 smoke result",
+      "Chrono worker currently exposes obs72 and diagnostics but not a full tire-force truth telemetry contract for measurement A"
+    ],
+    "supersedes": [
+      "treating toy-sim measurement A/C as sufficient for Track F safety gating",
+      "starting Track F after E2 without any E3 Chrono A/C protocol evidence"
+    ],
+    "invalidates": [
+      "interpreting M3253 quick rows as a Chrono detection-latency verdict",
+      "interpreting M3253 quick rows as a full recoverable-set budget",
+      "opening Track F before full E3 disposition and CP-3"
+    ]
+  },
+  "review_artifact": "docs/reviews/m3253-phase4-e3-chrono-measurement-ac-smoke.md",
+  "public_gates": [
+    "M3253 must write the E3 A/C preregistration before any quick rollout",
+    "M3253 must require the M3248 E0 and M3252 full E2 artifacts before the quick run",
+    "M3253 must write measurement A long and lateral detector trace rows",
+    "M3253 must write measurement C baseline_coast and v4_incumbent recovery trace rows",
+    "M3253 must report finite obs72 reset and Chrono variant-match gates",
+    "M3253 must label quick mode as non-verdict and keep Track F blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not treat M3253 as the full E3 Chrono measurement A/C verdict",
+    "do not tune detector thresholds, recovery thresholds, cases, or seed streams after quick rows are observed",
+    "do not edit ActiveSafetyReflexDriver",
+    "do not invoke PPO, supervised training, guarded RL, or policy checkpoint writing",
+    "do not claim detection latency, full recoverable-set budget, driver performance, high-fidelity sufficiency, or self-ID from M3253",
+    "do not admit Track F from M3253"
+  ],
+  "workflow_synthesis": {
+    "branch": "phase4_track_e_chrono_repricing",
+    "evidence_axis": "e3_chrono_measurement_ac_protocol_smoke",
+    "evidence_increment": "quick Chrono plumbing proof for obs72 slip-detector traces and planar overshoot recovery traces",
+    "claim_scope": "Protocol smoke only on the default Chrono Sedan/TMeasy fixture; incumbent unchanged; no validation ranking, promotion, driver-performance, current-sim sufficiency, full high-fidelity sufficiency, paper, repair-success, robustness-result, feasibility-proof, Track F admission, or self-ID claim",
+    "stop_condition": [
+      "stop after the E3 A/C quick protocol smoke verdict is written",
+      "stop if any expected A or C quick row is missing",
+      "stop if reset obs or variant match fails",
+      "stop if quick artifacts try to decide full measurement A/C or open Track F"
+    ],
+    "fallback_plan": [
+      "if M3253 passes, register a full E3 or E3-design milestone with frozen Chrono truth definitions, cells, seed streams, paired readouts, and safety-gating thresholds",
+      "if M3253 fails because of plumbing, repair the E3 protocol before full E3",
+      "if M3253 exposes missing Chrono truth telemetry as blocking full E3, write an escalation note instead of bookkeeping loops"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "roadmap marks E3 as the lowest-numbered dependency-satisfied OPEN unit after M3252",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "Run the E3 Chrono measurement A/C protocol smoke; no model update.",
+    "admission_evidence": [
+      "M3248 E0 passed and admitted the Chrono fixture envelope",
+      "M3252 full E2 completed and left E3 as the lowest-numbered OPEN Track E unit",
+      "phase4_e3_chrono_measurement_ac_prereg.json freezes the quick A/C smoke scope"
+    ],
+    "blocked_shortcuts": [
+      "no RL or PPO",
+      "no incumbent mutation",
+      "no full E3 verdict from quick rows",
+      "no Track F admission"
+    ],
+    "allowed_updates": [
+      "scripts/feasibility_audit/phase4_e3_chrono_measurement_ac_smoke.py",
+      "tests/test_phase4_e3_chrono_measurement_ac_smoke.py",
+      "experiments/feasibility_audit/phase4_e3_chrono_measurement_ac_prereg.json",
+      "experiments/feasibility_audit/phase4_e3_chrono_measurement_ac_quick.json",
+      "runs/feasibility_audit/phase4_e3_chrono_measurement_ac/episode_rows_quick.csv",
+      "runs/feasibility_audit/phase4_e3_chrono_measurement_ac/metrics_quick.csv",
+      "docs/m3253-phase4-e3-chrono-measurement-ac-smoke.md",
+      "docs/reviews/m3253-phase4-e3-chrono-measurement-ac-smoke.md",
+      "docs/current-status.md",
+      "docs/roadmap-phase3-codex-execution.md",
+      "docs/research-log.md",
+      "docs/data-coverage-map-2026-06.md",
+      "scripts/feasibility_audit/README.md",
+      "experiments/research_queue.csv",
+      "experiments/research_status.json",
+      "experiments/scoreboard.csv"
+    ],
+    "next_stage_criteria": [
+      "After M3253 pass, full E3 still requires separate preregistration or escalation if truth telemetry is missing",
+      "Track F remains blocked until full E3 disposition and CP-3 confirms targets and budget"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M3253 makes no history or self-ID claim; it collects scripted controller and recovery traces only.",
+    "history_necessity_tests": [
+      "none in M3253"
+    ],
+    "temporal_evidence_window": "not applicable; no learned history policy is evaluated",
+    "negative_result_policy": "A failed E3 protocol smoke is reported at full fidelity and cannot be converted into Track F admission.",
+    "allowed_claims": [
+      "E3 quick protocol smoke passed or failed",
+      "the A/C smoke data path executed or failed to execute on the Chrono worker interface",
+      "quick rows are non-verdict and Track F remains blocked"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_closed_loop_data",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "opens the first E3 Chrono measurement A/C protocol evidence after E2 completion",
+    "paper_verdict_delta": "M3253 does not decide papers; it determines whether full E3 Chrono safety measurement is runnable.",
+    "must_synthesize_if": [
+      "another E3 quick smoke is proposed after M3253 without a failed protocol gate",
+      "full E3 is proposed without frozen truth definitions, cells, seed streams, paired readouts, and safety-gating thresholds",
+      "Track F is proposed before full E3 disposition and CP-3"
+    ]
+  },
+  "success_criteria": [
+    "experiments/feasibility_audit/phase4_e3_chrono_measurement_ac_prereg.json exists before the quick run",
+    "experiments/feasibility_audit/phase4_e3_chrono_measurement_ac_quick.json exists after the quick run",
+    "runs/feasibility_audit/phase4_e3_chrono_measurement_ac/episode_rows_quick.csv includes all expected A/C quick rows",
+    "runs/feasibility_audit/phase4_e3_chrono_measurement_ac/metrics_quick.csv reports protocol_gates_passed=1 and quick_mode_is_verdict=0",
+    "docs/m3253-phase4-e3-chrono-measurement-ac-smoke.md reports measured and inferred sections plus the non-verdict boundary"
+  ],
+  "failure_criteria": [
+    "M3253 runs without preregistration",
+    "M3253 omits a measurement A axis or measurement C driver",
+    "M3253 mutates ActiveSafetyReflexDriver or the incumbent driver",
+    "M3253 admits Track F or claims a full measurement A/C verdict",
+    "M3253 invokes training or writes a policy checkpoint"
+  ],
+  "decision_rule": "Accept M3253 as completed if the quick E3 A/C smoke runs under the frozen preregistration, writes JSON/CSV/doc artifacts, passes protocol gates, and keeps quick mode non-verdict with Track F blocked.",
+  "decision_labels": {
+    "pass": "e3_chrono_measurement_ac_protocol_smoke_passed",
+    "fail": "e3_chrono_measurement_ac_protocol_smoke_failed"
+  },
+  "commands": [
+    {
+      "name": "phase4_e3_ac_prereg",
+      "command": "env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/phase4_e3_chrono_measurement_ac_smoke.py --write-prereg"
+    },
+    {
+      "name": "phase4_e3_ac_quick",
+      "command": "env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/phase4_e3_chrono_measurement_ac_smoke.py --quick --resume"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "experiments/feasibility_audit/phase4_e3_chrono_measurement_ac_prereg.json",
+      "type": "json"
+    },
+    {
+      "path": "experiments/feasibility_audit/phase4_e3_chrono_measurement_ac_quick.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/feasibility_audit/phase4_e3_chrono_measurement_ac/episode_rows_quick.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/feasibility_audit/phase4_e3_chrono_measurement_ac/metrics_quick.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m3253-phase4-e3-chrono-measurement-ac-smoke.md",
+      "type": "markdown"
+    }
+  ],
+  "baseline_checkpoints": [
+    "docs/current-status.md",
+    "docs/roadmap-phase3-codex-execution.md",
+    "docs/m3248-phase4-e0-chrono-spread-expressibility-audit.md",
+    "docs/m3252-phase4-e2-chrono-two-regime-full.md",
+    "experiments/feasibility_audit/phase4_e3_chrono_measurement_ac_prereg.json"
+  ],
+  "metric_extractors": [
+    {
+      "metric": "success_rate",
+      "type": "csv",
+      "path": "runs/feasibility_audit/phase4_e3_chrono_measurement_ac/metrics_quick.csv",
+      "match": {
+        "metric": "protocol_gates_passed"
+      },
+      "column": "value"
+    },
+    {
+      "metric": "quick_mode_is_verdict",
+      "type": "csv",
+      "path": "runs/feasibility_audit/phase4_e3_chrono_measurement_ac/metrics_quick.csv",
+      "match": {
+        "metric": "quick_mode_is_verdict"
+      },
+      "column": "value"
+    },
+    {
+      "metric": "row_count",
+      "type": "csv",
+      "path": "runs/feasibility_audit/phase4_e3_chrono_measurement_ac/metrics_quick.csv",
+      "match": {
+        "metric": "row_count"
+      },
+      "column": "value"
+    },
+    {
+      "metric": "expected_row_count",
+      "type": "csv",
+      "path": "runs/feasibility_audit/phase4_e3_chrono_measurement_ac/metrics_quick.csv",
+      "match": {
+        "metric": "expected_row_count"
+      },
+      "column": "value"
+    }
+  ],
+  "gates": [
+    {
+      "name": "protocol_gates_passed",
+      "metric": "success_rate",
+      "op": "==",
+      "threshold": 1.0
+    },
+    {
+      "name": "quick_mode_is_nonverdict",
+      "metric": "quick_mode_is_verdict",
+      "op": "==",
+      "threshold": 0.0
+    },
+    {
+      "name": "all_quick_rows_written",
+      "aggregation": "difference",
+      "left_metric": "row_count",
+      "right_metric": "expected_row_count",
+      "op": "==",
+      "threshold": 0.0
+    }
+  ]
+}

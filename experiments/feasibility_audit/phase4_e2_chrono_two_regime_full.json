@@ -1,0 +1,528 @@
+{
+  "calibration": {
+    "sedan_tmeasy": {
+      "max_shortfall": 0.3737,
+      "mu": 0.8125,
+      "outcome": "timeout_other",
+      "reset_obs_finite": true,
+      "reveal_m": 30.0,
+      "seed": 1902024309,
+      "tau": 0.44844,
+      "variant": "sedan_tmeasy",
+      "variant_match": true
+    }
+  },
+  "claim_boundary": "Phase-4 E2 full Chrono two-regime-law pricing only: scripted oracle, threshold-seeker, and fixed belief-free controller families are compared on the default Chrono Sedan/TMeasy fixture over frozen clean reveal tiers plus one delay25 tight degraded spot. This is zero-training pricing evidence; it makes no incumbent mutation, validation ranking, promotion, driver-performance, full high-fidelity sufficiency, paper, repair-success, robustness-result, feasibility-proof, or self-ID claim.",
+  "clean_readouts": {
+    "12": {
+      "best_seeker_minus_best_fixed": {
+        "n_pairs": 8,
+        "paired_bootstrap_ci95": [
+          -0.625,
+          0.375
+        ],
+        "raw_differences": [
+          0.0,
+          -1.0,
+          -1.0,
+          -1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        "value": -0.125
+      },
+      "oracle_minus_best_floor": {
+        "n_pairs": 8,
+        "paired_bootstrap_ci95": [
+          0.25,
+          0.875
+        ],
+        "raw_differences": [
+          0.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          1.0,
+          1.0
+        ],
+        "value": 0.625
+      },
+      "oracle_minus_best_seeker": {
+        "n_pairs": 8,
+        "paired_bootstrap_ci95": [
+          0.25,
+          1.0
+        ],
+        "raw_differences": [
+          0.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          1.0,
+          1.0
+        ],
+        "value": 0.625
+      },
+      "qualifies_clean_positive": true
+    },
+    "16": {
+      "best_seeker_minus_best_fixed": {
+        "n_pairs": 8,
+        "paired_bootstrap_ci95": [
+          0.0,
+          0.0
+        ],
+        "raw_differences": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "value": 0.0
+      },
+      "oracle_minus_best_floor": {
+        "n_pairs": 8,
+        "paired_bootstrap_ci95": [
+          0.0,
+          0.625
+        ],
+        "raw_differences": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          1.0
+        ],
+        "value": 0.25
+      },
+      "oracle_minus_best_seeker": {
+        "n_pairs": 8,
+        "paired_bootstrap_ci95": [
+          0.0,
+          0.625
+        ],
+        "raw_differences": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          1.0
+        ],
+        "value": 0.25
+      },
+      "qualifies_clean_positive": false
+    },
+    "22": {
+      "best_seeker_minus_best_fixed": {
+        "n_pairs": 8,
+        "paired_bootstrap_ci95": [
+          -0.75,
+          -0.125
+        ],
+        "raw_differences": [
+          0.0,
+          0.0,
+          -1.0,
+          -1.0,
+          0.0,
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "value": -0.375
+      },
+      "oracle_minus_best_floor": {
+        "n_pairs": 8,
+        "paired_bootstrap_ci95": [
+          0.0,
+          0.625
+        ],
+        "raw_differences": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          1.0
+        ],
+        "value": 0.25
+      },
+      "oracle_minus_best_seeker": {
+        "n_pairs": 8,
+        "paired_bootstrap_ci95": [
+          0.25,
+          0.875
+        ],
+        "raw_differences": [
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          0.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "value": 0.625
+      },
+      "qualifies_clean_positive": false
+    },
+    "30": {
+      "best_seeker_minus_best_fixed": {
+        "n_pairs": 8,
+        "paired_bootstrap_ci95": [
+          -0.875,
+          -0.25
+        ],
+        "raw_differences": [
+          0.0,
+          0.0,
+          -1.0,
+          -1.0,
+          -1.0,
+          -1.0,
+          0.0,
+          -1.0
+        ],
+        "value": -0.625
+      },
+      "oracle_minus_best_floor": {
+        "n_pairs": 8,
+        "paired_bootstrap_ci95": [
+          0.0,
+          0.375
+        ],
+        "raw_differences": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        "value": 0.125
+      },
+      "oracle_minus_best_seeker": {
+        "n_pairs": 8,
+        "paired_bootstrap_ci95": [
+          0.375,
+          1.0
+        ],
+        "raw_differences": [
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "value": 0.75
+      },
+      "qualifies_clean_positive": false
+    },
+    "9.5": {
+      "best_seeker_minus_best_fixed": {
+        "n_pairs": 8,
+        "paired_bootstrap_ci95": [
+          -0.625,
+          0.0
+        ],
+        "raw_differences": [
+          -1.0,
+          -1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "value": -0.25
+      },
+      "oracle_minus_best_floor": {
+        "n_pairs": 8,
+        "paired_bootstrap_ci95": [
+          0.375,
+          1.0
+        ],
+        "raw_differences": [
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "value": 0.75
+      },
+      "oracle_minus_best_seeker": {
+        "n_pairs": 8,
+        "paired_bootstrap_ci95": [
+          1.0,
+          1.0
+        ],
+        "raw_differences": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "value": 1.0
+      },
+      "qualifies_clean_positive": true
+    }
+  },
+  "created_at_utc": "20260612T195807Z",
+  "decision": {
+    "e2_full_verdict": "chrono_clean_belief_value_positive",
+    "max_clean_oracle_minus_floor": 0.75,
+    "next_admitted_step": "E3 remains open; Track F remains blocked on Track E plus CP-3.",
+    "positive_rule": "Chrono clean belief value is positive iff at least one clean reveal tier has oracle - best_floor >= 0.15 and paired CI95 lower > 0. Otherwise the clean two-regime null is not rejected by this frozen panel.",
+    "qualifying_clean_reveals_m": [
+      9.5,
+      12.0
+    ],
+    "track_f_admitted": false
+  },
+  "degraded_spot_readouts": {
+    "delay25_tight": {
+      "by_reveal": {
+        "9.5": {
+          "best_seeker_minus_best_fixed": {
+            "n_pairs": 8,
+            "paired_bootstrap_ci95": [
+              0.0,
+              0.0
+            ],
+            "raw_differences": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "value": 0.0
+          },
+          "oracle_minus_best_floor": {
+            "n_pairs": 8,
+            "paired_bootstrap_ci95": [
+              0.0,
+              0.375
+            ],
+            "raw_differences": [
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "value": 0.125
+          },
+          "oracle_minus_best_seeker": {
+            "n_pairs": 8,
+            "paired_bootstrap_ci95": [
+              0.0,
+              0.375
+            ],
+            "raw_differences": [
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "value": 0.125
+          }
+        }
+      },
+      "delay_steps": 25,
+      "noise_std": 0.0
+    }
+  },
+  "elapsed_s": 1093.6,
+  "metrics_csv": "runs/feasibility_audit/phase4_e2_chrono_two_regime/metrics_full.csv",
+  "milestone": "m3252-phase4-e2-chrono-two-regime-full",
+  "mode": "full",
+  "preregistration": "experiments/feasibility_audit/phase4_e2_chrono_two_regime_full_prereg.json",
+  "preregistration_sha256": "ecfe447a92c304be89e635f9e7ebf5a0da82716f772fc4bbbdd0bf129828a478",
+  "protocol_gates": {
+    "all_passed": true,
+    "calibration_written": true,
+    "paired_clean_readouts_present": true,
+    "reset_obs_finite_all": true,
+    "selection_rows_complete": true,
+    "track_f_not_admitted": true,
+    "validation_rows_complete": true,
+    "variant_match_all": true
+  },
+  "rows_csv": "runs/feasibility_audit/phase4_e2_chrono_two_regime/episode_rows_full.csv",
+  "schema_version": 1,
+  "selection_row_count": 280,
+  "selection_row_count_expected": 280,
+  "selections": {
+    "sedan_tmeasy|12": {
+      "best_fixed": "fixedspeed_v7.5",
+      "best_floor": "seeker_r20000_tm1_b0.06_hold",
+      "best_seeker": "seeker_r20000_tm1_b0.06_hold",
+      "oracle_by_mu": {
+        "0.3625": "oracle_dv-0.5",
+        "0.5875": "oracle_dv-0.5",
+        "0.8125": "oracle_dv-0.5",
+        "1.0375": "oracle_dv-0.5"
+      },
+      "selection_scores": {
+        "best_fixed": [
+          0.5,
+          515.715292
+        ],
+        "best_floor": [
+          0.75,
+          756.67001875
+        ],
+        "best_seeker": [
+          0.75,
+          756.67001875
+        ]
+      }
+    },
+    "sedan_tmeasy|16": {
+      "best_fixed": "fixedspeed_v9.5",
+      "best_floor": "fixedspeed_v9.5",
+      "best_seeker": "seeker_r20000_tm1_b0.06_hold",
+      "oracle_by_mu": {
+        "0.3625": "oracle_dv-0.5",
+        "0.5875": "oracle_dv-0.5",
+        "0.8125": "oracle_dv-0.5",
+        "1.0375": "oracle_dv-0.5"
+      },
+      "selection_scores": {
+        "best_fixed": [
+          0.75,
+          756.4997197499999
+        ],
+        "best_floor": [
+          0.75,
+          756.4997197499999
+        ],
+        "best_seeker": [
+          0.75,
+          755.47172175
+        ]
+      }
+    },
+    "sedan_tmeasy|22": {
+      "best_fixed": "fixedspeed_v9.5",
+      "best_floor": "fixedspeed_v9.5",
+      "best_seeker": "seeker_r6000_tm0.75_b0.06_hold",
+      "oracle_by_mu": {
+        "0.3625": "oracle_dv-0.5",
+        "0.5875": "oracle_dv-0.5",
+        "0.8125": "oracle_dv-0.5",
+        "1.0375": "oracle_dv-0.5"
+      },
+      "selection_scores": {
+        "best_fixed": [
+          1.0,
+          1009.190603
+        ],
+        "best_floor": [
+          1.0,
+          1009.190603
+        ],
+        "best_seeker": [
+          0.5,
+          508.99360325
+        ]
+      }
+    },
+    "sedan_tmeasy|30": {
+      "best_fixed": "fixedspeed_v9.5",
+      "best_floor": "fixedspeed_v9.5",
+      "best_seeker": "seeker_r2000_tm1_b0.06_hold",
+      "oracle_by_mu": {
+        "0.3625": "oracle_dv-0.5",
+        "0.5875": "oracle_dv-0.5",
+        "0.8125": "oracle_dv-0.5",
+        "1.0375": "oracle_dv-0.5"
+      },
+      "selection_scores": {
+        "best_fixed": [
+          1.0,
+          1009.08048775
+        ],
+        "best_floor": [
+          1.0,
+          1009.08048775
+        ],
+        "best_seeker": [
+          0.25,
+          269.26774424999996
+        ]
+      }
+    },
+    "sedan_tmeasy|9.5": {
+      "best_fixed": "fixedspeed_v5.5",
+      "best_floor": "fixedspeed_v5.5",
+      "best_seeker": "seeker_r20000_tm1.25_b0.15_hold",
+      "oracle_by_mu": {
+        "0.3625": "oracle_dv+0.5",
+        "0.5875": "oracle_dv+0.5",
+        "0.8125": "oracle_dv+0.5",
+        "1.0375": "oracle_dv+0.5"
+      },
+      "selection_scores": {
+        "best_fixed": [
+          0.25,
+          269.21668874999995
+        ],
+        "best_floor": [
+          0.25,
+          269.21668874999995
+        ],
+        "best_seeker": [
+          0.25,
+          262.45767724999996
+        ]
+      }
+    }
+  },
+  "validation_row_count": 192,
+  "validation_row_count_expected": 192
+}

@@ -56427,7 +56427,7 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - run dir: `runs/research/m3239-b1b-moving-obstacle-pricing-smoke_20260612T080032Z`
 - command log: `runs/research/m3239-b1b-moving-obstacle-pricing-smoke_20260612T080032Z/command.log`
 - success artifact: `experiments/feasibility_audit/moving_obstacle_pricing_quick.json`
-- notes: Completed: M3239 quick protocol smoke passed all gates in 3.4 s, exercising two moving-obstacle cells, disjoint selection/validation streams, fixed*/inert RLS/per-cell tuned/oracle arms, and reveal-constrained oracle attempts. Quick cells were all-success for the reflex arms, so this is not a B1b pricing verdict; full pricing remains unrun.
+- notes: Completed: M3239 quick protocol smoke passed all gates in 3.4 s, exercising two moving-obstacle cells, disjoint selection/validation streams, fixed*/inert RLS/per-cell tuned/oracle arms, and reveal-constrained oracle attempts. Quick cells were all-success for the reflex arms, so this was not a B1b pricing verdict; full pricing later ran and closed negative in M3240.
 
 ## 20260612T080627Z m3240-b1b-moving-obstacle-pricing-full
 
@@ -56451,7 +56451,7 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - run dir: `runs/research/m3241-b2b-high-speed-pricing-smoke_20260612T082229Z`
 - command log: `runs/research/m3241-b2b-high-speed-pricing-smoke_20260612T082229Z/command.log`
 - success artifact: `experiments/feasibility_audit/high_speed_pricing_quick.json`
-- notes: Completed: M3241 quick protocol smoke passed all gates in 2.0 s, exercising two high-speed cells, disjoint selection/validation streams, raw incumbent plus scale-aware fixed*/inert RLS/pertuned arms, and reveal-constrained oracle attempts. Quick mode is not a B2b pricing verdict; full pricing remains unrun.
+- notes: Completed: M3241 quick protocol smoke passed all gates in 2.0 s, exercising two high-speed cells, disjoint selection/validation streams, raw incumbent plus scale-aware fixed*/inert RLS/pertuned arms, and reveal-constrained oracle attempts. Quick mode was not a B2b pricing verdict; full pricing later ran and closed negative in M3242.
 
 ## 20260612T082658Z m3242-b2b-high-speed-pricing-full
 
@@ -56512,3 +56512,99 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m3247-c1-v4-stage-b-guarded-rl_20260612T162234Z/command.log`
 - success artifact: `experiments/feasibility_audit/c5prime_c1_v4_stage_b_guarded_rl.json`
 - notes: Completed: C1-v4 Stage B first rung failed the frozen rule with 0/3 pass cells and 0/3 movement cells. `v4_stage_b` minus `v4_pertuned` was -0.0651/-0.0425/-0.0052 on S1/S2/S3, with negative recapture fractions. No 4M extension, C2, C3, scale-up, driver-performance, high-fidelity sufficiency, repair-success, feasibility-proof, or self-ID claim is admitted.
+
+## 20260612T173602Z m3248-phase4-e0-chrono-spread-expressibility-audit
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: A preregistered Phase-4 E0 Chrono spread expressibility audit can freeze the vehicle-class mass load-transfer tire and unmapped-axis envelope that E1 is allowed to price before validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof paper or self-ID claim.
+- command: `env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/chrono_spread_expressibility_audit.py --run`
+- returncode: `0`
+- run dir: `runs/research/m3248-phase4-e0-chrono-spread-expressibility-audit_20260612T173538Z`
+- command log: `runs/research/m3248-phase4-e0-chrono-spread-expressibility-audit_20260612T173538Z/command.log`
+- success artifact: `experiments/feasibility_audit/chrono_spread_expressibility_audit.json`
+- notes: Completed: Phase-4 E0 passed. All three Chrono variants reset/stepped with finite obs72 and matching backend_info. The frozen spread-axis table admits E1 on selected vehicle fixtures with load-transfer physics active while blocking independent payload-position, h_cg, tire-family, split-mu, and continuous lf/lr/Iz/cf/cr axes without new connectors.
+
+## 20260612T175514Z m3249-phase4-e1-spread-revival-pricing-smoke
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: A preregistered Phase-4 E1 spread-revival pricing smoke can exercise the fixed* RLS-retuned per-instance tuned and native Chrono oracle arms across the M3248-admitted Chrono vehicle fixtures before validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof paper or self-ID claim.
+- command: `env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/phase4_e1_spread_revival_pricing.py --quick`
+- returncode: `0`
+- run dir: `runs/research/m3249-phase4-e1-spread-revival-pricing-smoke_20260612T175022Z`
+- command log: `runs/research/m3249-phase4-e1-spread-revival-pricing-smoke_20260612T175022Z/command.log`
+- success artifact: `experiments/feasibility_audit/phase4_e1_spread_revival_quick.json`
+- notes: Completed: E1 quick protocol smoke passed. Sedan/BMW_E90/UAZBUS all exercised fixed_star, v4_rls, v4_pertuned, and native_oracle rows; native oracle ran structured and CEM candidates per variant. Quick mode was not a spread-revival verdict; full E1 pricing later ran and closed negative in M3250.
+
+## 20260612T190522Z m3250-phase4-e1-spread-revival-pricing-full
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: A preregistered Phase-4 E1 full Chrono spread-revival pricing panel can decide whether same-instance per-vehicle tuning beats a global fixed* reflex and RLS-retuned reflex across the M3248-admitted Chrono vehicle fixtures before validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof paper or self-ID claim.
+- command: `env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/phase4_e1_spread_revival_pricing_full.py --full --resume`
+- returncode: `0`
+- run dir: `runs/research/m3250-phase4-e1-spread-revival-pricing-full_20260612T181536Z`
+- command log: `runs/research/m3250-phase4-e1-spread-revival-pricing-full_20260612T181536Z/command.log`
+- success artifact: `experiments/feasibility_audit/phase4_e1_spread_revival_full.json`
+- notes: Completed: full E1 pricing rejected spread revival by the frozen rule. 0/3 variants qualified; pooled v4_pertuned minus fixed_star was -0.0556 with CI95 [-0.1667, 0.0], pooled v4_pertuned minus v4_rls was 0.0000 with CI95 [-0.1667, 0.1667], and Track F remains blocked on full E3 plus CP-3. No training, driver-performance, high-fidelity sufficiency, paper, repair-success, feasibility-proof, or self-ID claim is admitted.
+
+## 20260612T192139Z m3251-phase4-e2-chrono-two-regime-smoke
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: A preregistered Phase-4 E2 Chrono two-regime-law protocol smoke can port the threshold-seeker and shortfall detector controller family onto the Chrono worker interface and exercise clean plus degraded-spot rows before validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof paper or self-ID claim.
+- command: `env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/phase4_e2_chrono_two_regime_smoke.py --quick --resume`
+- returncode: `0`
+- run dir: `runs/research/m3251-phase4-e2-chrono-two-regime-smoke_20260612T192054Z`
+- command log: `runs/research/m3251-phase4-e2-chrono-two-regime-smoke_20260612T192054Z/command.log`
+- success artifact: `experiments/feasibility_audit/phase4_e2_chrono_two_regime_quick.json`
+- notes: Completed: E2 Chrono two-regime protocol smoke passed all structured gates. It wrote 18/18 expected Sedan quick rows over clean 9.5/30 m reveal tiers plus a delay25 tight degraded spot with oracle_ramp threshold_seeker and fixed_ramp arms; reset obs finite and variant-match gates passed. Quick mode is not the E2 two-regime-law verdict and Track F remains blocked.
+
+## 20260612T195808Z m3252-phase4-e2-chrono-two-regime-full
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: A preregistered Phase-4 E2 full Chrono two-regime-law pricing panel can decide whether clean-sensing belief value is positive on the default Sedan/TMeasy fixture after the M3251 protocol smoke before validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof paper or self-ID claim.
+- command: `env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/phase4_e2_chrono_two_regime_full.py --full --resume`
+- returncode: `0`
+- run dir: `runs/research/m3252-phase4-e2-chrono-two-regime-full_20260612T193953Z`
+- command log: `runs/research/m3252-phase4-e2-chrono-two-regime-full_20260612T193953Z/command.log`
+- success artifact: `experiments/feasibility_audit/phase4_e2_chrono_two_regime_full.json`
+- notes: Completed: full E2 Chrono two-regime pricing was positive by the frozen clean rule on the Sedan/TMeasy fixture. Selection rows 280/280 and validation rows 192/192 were written; all protocol gates passed. Clean oracle-minus-best-floor qualified at 9.5 m (+0.75 CI95 [0.375, 1.0]) and 12 m (+0.625 CI95 [0.25, 0.875]); the delay25_tight spot was secondary only (+0.125 CI95 [0.0, 0.375]). Track F remains blocked on full E3 plus CP-3.
+
+## 20260612T201711Z m3253-phase4-e3-chrono-measurement-ac-smoke
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: A preregistered Phase-4 E3 Chrono measurement-A/C protocol smoke can collect obs72 slip-detector traces under scripted brake/steer ramps and planar overshoot recovery traces on the default Sedan/TMeasy fixture before validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof paper or self-ID claim.
+- command: `env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/phase4_e3_chrono_measurement_ac_smoke.py --quick --resume`
+- returncode: `0`
+- run dir: `runs/research/m3253-phase4-e3-chrono-measurement-ac-smoke_20260612T201621Z`
+- command log: `runs/research/m3253-phase4-e3-chrono-measurement-ac-smoke_20260612T201621Z/command.log`
+- success artifact: `experiments/feasibility_audit/phase4_e3_chrono_measurement_ac_quick.json`
+- notes: Completed: E3 Chrono measurement A/C protocol smoke passed all structured gates. It wrote 4/4 expected Sedan/TMeasy quick rows: A long and A lat detector traces plus C baseline_coast and v4_incumbent recovery traces; reset obs were finite, variant-match gates passed, quick mode is non-verdict, and Track F remains blocked on full E3 plus CP-3.
+
+## 20260613T013913Z m3254-phase4-e3-chrono-tire-telemetry-smoke
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: A preregistered Phase-4 E3 Chrono tire-truth telemetry connector smoke can expose finite four-wheel tire slip force wheel-speed local-force and normal-load diagnostics through the Chrono worker without changing obs72 action3 actor observation or incumbent driver behavior before validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof paper or self-ID claim.
+- command: `env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/phase4_e3_chrono_tire_telemetry_smoke.py --quick --resume`
+- returncode: `0`
+- run dir: `runs/research/m3254-phase4-e3-chrono-tire-telemetry-smoke_20260613T013849Z`
+- command log: `runs/research/m3254-phase4-e3-chrono-tire-telemetry-smoke_20260613T013849Z/command.log`
+- success artifact: `experiments/feasibility_audit/phase4_e3_chrono_tire_telemetry_quick.json`
+- notes: Completed: E3 tire-truth telemetry connector smoke passed all structured gates. It wrote 8/8 expected samples and 32/32 wheel rows on Sedan/TMeasy; obs72 stayed finite, every sample exposed four tire rows, wheel numeric fields were finite, normal loads were positive, quick mode is non-verdict, and Track F remains blocked on full E3 plus CP-3.
+
+## 20260613T022210Z m3255-phase4-e3-chrono-measurement-ac-full
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: A preregistered Phase-4 E3 full Chrono measurement A/C panel can decide the Sedan/TMeasy detector-latency table and recoverable-set budget under frozen tire-truth definitions after M3253/M3254 before validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof paper or self-ID claim.
+- command: `env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/phase4_e3_chrono_measurement_ac_full.py --full --resume`
+- returncode: `0`
+- run dir: `runs/research/m3255-phase4-e3-chrono-measurement-ac-full_20260613T020301Z`
+- command log: `runs/research/m3255-phase4-e3-chrono-measurement-ac-full_20260613T020301Z/command.log`
+- success artifact: `experiments/feasibility_audit/phase4_e3_chrono_measurement_ac_full.json`
+- notes: Completed: full E3 Chrono measurement A/C panel passed all structured gates under frozen tire-truth definitions. Latency rows 24/24 and recovery rows 72/72 were written; detector miss rate 0.1667, p90 latency 1.346 s, early-fire rate 0.5, v4 recovery 1.0, baseline recovery 1.0, v4-baseline delta 0.0, cp3_evidence_ready=1, Track F admitted=0. Track F remains blocked before PI CP-3; no training driver-performance high-fidelity sufficiency paper repair-success feasibility-proof or self-ID claim is admitted.

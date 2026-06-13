@@ -1,0 +1,321 @@
+{
+  "id": "m3252-phase4-e2-chrono-two-regime-full",
+  "priority": 32520,
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "milestone_intent": "evaluation_only",
+  "hypothesis": "A preregistered Phase-4 E2 full Chrono two-regime-law pricing panel can decide whether clean-sensing belief value is positive on the default Sedan/TMeasy fixture after the M3251 protocol smoke before validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof paper or self-ID claim.",
+  "feasibility_pricing": {
+    "pricing_artifact": "experiments/feasibility_audit/phase4_e2_chrono_two_regime_quick.json",
+    "priced_gap": 1.0,
+    "threshold": 1.0,
+    "gap_meets_threshold": true
+  },
+  "lineage": {
+    "parent_checkpoint": [
+      "docs/current-status.md",
+      "docs/roadmap-phase3-codex-execution.md",
+      "docs/m3248-phase4-e0-chrono-spread-expressibility-audit.md",
+      "docs/m3250-phase4-e1-spread-revival-pricing-full.md",
+      "docs/m3251-phase4-e2-chrono-two-regime-smoke.md",
+      "docs/selfid-threshold-seeking-regime-2026-06.md",
+      "docs/selfid-degraded-regime-final-2026-06.md"
+    ],
+    "parent_dataset": [
+      "experiments/feasibility_audit/chrono_spread_expressibility_audit.json",
+      "experiments/feasibility_audit/phase4_e1_spread_revival_full.json",
+      "experiments/feasibility_audit/phase4_e2_chrono_two_regime_quick.json",
+      "experiments/feasibility_audit/ramp_policy_voi_regime.json",
+      "experiments/feasibility_audit/degraded_regime_final.json"
+    ],
+    "parent_config": [
+      "experiments/feasibility_audit/phase4_e2_chrono_two_regime_full_prereg.json",
+      "scripts/feasibility_audit/phase4_e2_chrono_two_regime_full.py",
+      "scripts/feasibility_audit/phase4_e2_chrono_two_regime_smoke.py",
+      "scripts/feasibility_audit/ramp_policy_voi_regime.py",
+      "src/autodrift/chrono_vehicle_backend.py"
+    ],
+    "parent_objective": [
+      "Phase-4 Track E E2: full Chrono version of the two-regime law after E0, E1, and M3251",
+      "M3252 decides the Sedan/TMeasy clean-sensing Chrono belief-value readout under frozen reveal tiers, mu points, seed streams, controller candidates, and paired CIs"
+    ],
+    "derived_from": [
+      "M3248 admitted the selected Chrono vehicle fixture envelope",
+      "M3250 closed E1 negative and left E2/E3 open",
+      "M3251 proved the E2 threshold-seeker, oracle, fixed-ramp, and degraded-observation plumbing executes in Chrono",
+      "ramp_policy_voi_regime.py defines the current-sim clean threshold-seeker and oracle controller family"
+    ],
+    "blocked_by": [
+      "Track F remains blocked on Track E plus CP-3 regardless of M3252 verdict",
+      "E3 remains a separate open Track E unit after M3252",
+      "Non-Sedan E2 generalization is not covered by M3252"
+    ],
+    "supersedes": [
+      "treating M3251 quick readouts as the full E2 two-regime-law verdict",
+      "starting Track F from E1 plus E2 smoke alone"
+    ],
+    "invalidates": [
+      "claiming Chrono two-regime-law scope from the toy-sim measurement without M3252",
+      "claiming self-ID, history necessity, or learned-policy performance from scripted E2 controllers",
+      "opening Track F before E3 and CP-3"
+    ]
+  },
+  "review_artifact": "docs/reviews/m3252-phase4-e2-chrono-two-regime-full.md",
+  "public_gates": [
+    "M3252 must write the full E2 preregistration before any full rollout",
+    "M3252 must require the passed M3251 quick artifact before the full panel",
+    "M3252 must use namespace-separated selection and validation seed streams",
+    "M3252 must write every clean selection candidate row over frozen reveal tiers and mu points",
+    "M3252 must choose best_seeker, best_fixed, best_floor, and oracle candidates from selection rows before validation",
+    "M3252 must write clean validation rows and the delay25_tight secondary degraded spot",
+    "M3252 must report paired CIs for oracle minus best_floor on every clean reveal tier",
+    "M3252 must keep Track F blocked and make no self-ID, paper, driver-performance, promotion, or high-fidelity sufficiency claim"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run M3252 without the full preregistration",
+    "do not use validation rows to choose seeker, fixed, floor, or oracle candidates",
+    "do not tune reveal tiers, mu points, controller candidates, seed streams, degraded spots, CIs, or thresholds after observing full rows",
+    "do not edit ActiveSafetyReflexDriver",
+    "do not invoke train_ppo, supervised training, PPO, guarded RL, or policy checkpoint writing",
+    "do not use the delay25_tight secondary spot to open Track F",
+    "do not claim self-ID or history necessity from M3252"
+  ],
+  "workflow_synthesis": {
+    "branch": "phase4_track_e_chrono_repricing",
+    "evidence_axis": "e2_chrono_two_regime_full_pricing",
+    "evidence_increment": "full Sedan/TMeasy Chrono two-regime-law pricing panel with selection/validation seed streams and paired clean belief-value readouts",
+    "claim_scope": "Full E2 pricing on the default Chrono Sedan/TMeasy fixture only; incumbent unchanged; no validation ranking, promotion, driver-performance, current-sim sufficiency, full high-fidelity sufficiency, paper, repair-success, robustness-result, feasibility-proof, or self-ID claim",
+    "stop_condition": [
+      "stop after the full E2 pricing verdict is written",
+      "stop if preregistration, row-count, reset-finite, variant-match, or paired-readout gates fail",
+      "stop if the result tries to open Track F before E3 and CP-3"
+    ],
+    "fallback_plan": [
+      "if clean belief value is positive, keep E3 open and route CP-3 only after Track E completes",
+      "if the clean threshold-seeker null is not rejected, report the negative at full fidelity and continue to E3",
+      "if protocol gates fail, repair or reprice E2 under a new preregistration"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M3251 E2 quick protocol smoke passed and roadmap marks full E2 as the lowest-numbered OPEN unit",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "Run the full E2 Chrono two-regime-law pricing verdict; no model update.",
+    "admission_evidence": [
+      "M3248 E0 passed and admitted the Chrono fixture envelope",
+      "M3250 E1 completed and left E2 as the next Track E unit",
+      "M3251 E2 protocol smoke passed all quick gates",
+      "phase4_e2_chrono_two_regime_full_prereg.json freezes the full E2 panel"
+    ],
+    "blocked_shortcuts": [
+      "no RL or PPO",
+      "no incumbent mutation",
+      "no validation-row tuning",
+      "no full Track F admission",
+      "no self-ID or history-attribution claim"
+    ],
+    "allowed_updates": [
+      "scripts/feasibility_audit/phase4_e2_chrono_two_regime_full.py",
+      "tests/test_phase4_e2_chrono_two_regime_full.py",
+      "experiments/feasibility_audit/phase4_e2_chrono_two_regime_full_prereg.json",
+      "experiments/feasibility_audit/phase4_e2_chrono_two_regime_full.json",
+      "runs/feasibility_audit/phase4_e2_chrono_two_regime/episode_rows_full.csv",
+      "runs/feasibility_audit/phase4_e2_chrono_two_regime/metrics_full.csv",
+      "docs/m3252-phase4-e2-chrono-two-regime-full.md",
+      "docs/reviews/m3252-phase4-e2-chrono-two-regime-full.md",
+      "docs/current-status.md",
+      "docs/roadmap-phase3-codex-execution.md",
+      "docs/research-log.md",
+      "docs/data-coverage-map-2026-06.md",
+      "scripts/feasibility_audit/README.md",
+      "experiments/research_queue.csv",
+      "experiments/research_status.json",
+      "experiments/scoreboard.csv"
+    ],
+    "next_stage_criteria": [
+      "After M3252, E3 remains the next Track E unit",
+      "Track F remains blocked until Track E completes and CP-3 confirms targets and budget"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M3252 makes no history or self-ID claim; it compares scripted controller outcomes under closed-loop Chrono rows only.",
+    "history_necessity_tests": [
+      "none in M3252"
+    ],
+    "temporal_evidence_window": "not applicable; no learned history policy is evaluated",
+    "negative_result_policy": "A negative E2 full pricing verdict is reported at full fidelity and cannot be converted into training admission.",
+    "allowed_claims": [
+      "E2 full clean Chrono belief value positive or not rejected under the frozen Sedan/TMeasy panel",
+      "delay25_tight degraded-spot readouts are secondary and non-gating",
+      "Track F remains blocked after M3252"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_baseline_comparison",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "adds the first full E2 Chrono two-regime-law pricing verdict after the M3251 protocol smoke",
+    "paper_verdict_delta": "M3252 decides whether the toy-sim clean zero-VoI half survives on the default Chrono Sedan/TMeasy fixture.",
+    "must_synthesize_if": [
+      "another E2 full run is proposed after M3252 without a failed protocol gate or new target",
+      "Track F is proposed before E3 and CP-3",
+      "M3252 is interpreted as non-Sedan or learned-policy generalization"
+    ]
+  },
+  "success_criteria": [
+    "experiments/feasibility_audit/phase4_e2_chrono_two_regime_full_prereg.json exists before the full run",
+    "experiments/feasibility_audit/phase4_e2_chrono_two_regime_full.json exists after the full run",
+    "runs/feasibility_audit/phase4_e2_chrono_two_regime/episode_rows_full.csv includes all expected selection and validation rows",
+    "runs/feasibility_audit/phase4_e2_chrono_two_regime/metrics_full.csv reports protocol_gates_passed=1",
+    "docs/m3252-phase4-e2-chrono-two-regime-full.md reports measured and inferred sections plus the frozen verdict"
+  ],
+  "failure_criteria": [
+    "M3252 runs without full preregistration",
+    "M3252 uses validation rows for arm selection",
+    "M3252 omits clean paired CIs or the delay25_tight secondary readout",
+    "M3252 mutates ActiveSafetyReflexDriver or the incumbent driver",
+    "M3252 admits Track F, training, driver-performance, full high-fidelity sufficiency, paper, feasibility-proof, or self-ID claims"
+  ],
+  "decision_rule": "Accept M3252 as completed if the full E2 panel runs under the frozen preregistration, writes the full JSON/CSV/doc artifacts, reports paired CIs for every clean reveal tier, applies the clean positive rule, and keeps Track F blocked.",
+  "decision_labels": {
+    "pass": "e2_full_pricing_completed",
+    "fail": "e2_full_pricing_protocol_failed"
+  },
+  "commands": [
+    {
+      "name": "phase4_e2_full_prereg",
+      "command": "env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/phase4_e2_chrono_two_regime_full.py --write-prereg"
+    },
+    {
+      "name": "phase4_e2_full",
+      "command": "env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/phase4_e2_chrono_two_regime_full.py --full --resume"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "experiments/feasibility_audit/phase4_e2_chrono_two_regime_full_prereg.json",
+      "type": "json"
+    },
+    {
+      "path": "experiments/feasibility_audit/phase4_e2_chrono_two_regime_full.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/feasibility_audit/phase4_e2_chrono_two_regime/episode_rows_full.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/feasibility_audit/phase4_e2_chrono_two_regime/metrics_full.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m3252-phase4-e2-chrono-two-regime-full.md",
+      "type": "markdown"
+    }
+  ],
+  "baseline_checkpoints": [
+    "docs/current-status.md",
+    "docs/roadmap-phase3-codex-execution.md",
+    "docs/m3251-phase4-e2-chrono-two-regime-smoke.md",
+    "experiments/feasibility_audit/phase4_e2_chrono_two_regime_quick.json",
+    "experiments/feasibility_audit/phase4_e2_chrono_two_regime_full_prereg.json"
+  ],
+  "metric_extractors": [
+    {
+      "metric": "success_rate",
+      "type": "csv",
+      "path": "runs/feasibility_audit/phase4_e2_chrono_two_regime/metrics_full.csv",
+      "match": {
+        "metric": "protocol_gates_passed"
+      },
+      "column": "value"
+    },
+    {
+      "metric": "clean_positive_reveal_count",
+      "type": "csv",
+      "path": "runs/feasibility_audit/phase4_e2_chrono_two_regime/metrics_full.csv",
+      "match": {
+        "metric": "clean_positive_reveal_count"
+      },
+      "column": "value"
+    },
+    {
+      "metric": "max_clean_oracle_minus_floor",
+      "type": "csv",
+      "path": "runs/feasibility_audit/phase4_e2_chrono_two_regime/metrics_full.csv",
+      "match": {
+        "metric": "max_clean_oracle_minus_floor"
+      },
+      "column": "value"
+    },
+    {
+      "metric": "selection_row_count",
+      "type": "csv",
+      "path": "runs/feasibility_audit/phase4_e2_chrono_two_regime/metrics_full.csv",
+      "match": {
+        "metric": "selection_row_count"
+      },
+      "column": "value"
+    },
+    {
+      "metric": "selection_row_count_expected",
+      "type": "csv",
+      "path": "runs/feasibility_audit/phase4_e2_chrono_two_regime/metrics_full.csv",
+      "match": {
+        "metric": "selection_row_count_expected"
+      },
+      "column": "value"
+    },
+    {
+      "metric": "validation_row_count",
+      "type": "csv",
+      "path": "runs/feasibility_audit/phase4_e2_chrono_two_regime/metrics_full.csv",
+      "match": {
+        "metric": "validation_row_count"
+      },
+      "column": "value"
+    },
+    {
+      "metric": "validation_row_count_expected",
+      "type": "csv",
+      "path": "runs/feasibility_audit/phase4_e2_chrono_two_regime/metrics_full.csv",
+      "match": {
+        "metric": "validation_row_count_expected"
+      },
+      "column": "value"
+    }
+  ],
+  "gates": [
+    {
+      "name": "protocol_gates_passed",
+      "metric": "success_rate",
+      "op": "==",
+      "threshold": 1.0
+    },
+    {
+      "name": "all_selection_rows_written",
+      "aggregation": "difference",
+      "left_metric": "selection_row_count",
+      "right_metric": "selection_row_count_expected",
+      "op": "==",
+      "threshold": 0.0
+    },
+    {
+      "name": "all_validation_rows_written",
+      "aggregation": "difference",
+      "left_metric": "validation_row_count",
+      "right_metric": "validation_row_count_expected",
+      "op": "==",
+      "threshold": 0.0
+    }
+  ]
+}

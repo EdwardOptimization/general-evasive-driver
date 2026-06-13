@@ -1,0 +1,303 @@
+{
+  "id": "m3248-phase4-e0-chrono-spread-expressibility-audit",
+  "priority": 32480,
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "milestone_intent": "audit",
+  "hypothesis": "A preregistered Phase-4 E0 Chrono spread expressibility audit can freeze the vehicle-class, mass, load-transfer, tire, and unmapped-axis envelope that E1 is allowed to price before validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof paper or self-ID claim.",
+  "lineage": {
+    "parent_checkpoint": [
+      "docs/current-status.md",
+      "docs/roadmap-phase3-codex-execution.md",
+      "docs/m3218-s4-hf-lite-backend-inventory-preflight.md",
+      "docs/m3219-s4-hf-lite-chrono-variant-selector-smoke.md",
+      "docs/m3227-d1-s4-hf-lite-chrono-pricing.md",
+      "docs/m3231-d1b-chrono-native-oracle-pricing-full.md",
+      "docs/m3247-c1-v4-stage-b-guarded-rl.md"
+    ],
+    "parent_dataset": [
+      "experiments/feasibility_audit/s4_hf_lite_backend_inventory.json",
+      "experiments/feasibility_audit/s4_hf_lite_variant_selector_smoke.json",
+      "experiments/feasibility_audit/s4_hf_lite_chrono_pricing.json",
+      "experiments/feasibility_audit/chrono_native_oracle_pricing.json"
+    ],
+    "parent_config": [
+      "src/autodrift/chrono_vehicle_backend.py",
+      "scripts/feasibility_audit/chrono_worker_client.py",
+      "experiments/feasibility_audit/chrono_spread_expressibility_prereg.json",
+      "experiments/feasibility_audit/chrono_spread_expressibility_quick.json"
+    ],
+    "parent_objective": [
+      "Phase-4 Track E: move decisive pricing questions to Chrono before any robotics-parity RL work",
+      "E0 acceptance: frozen spread-axis table feeding E1"
+    ],
+    "derived_from": [
+      "M3218 found Chrono resources but no original variant selector",
+      "M3219 added and smoked the whitelisted Sedan/BMW_E90/UAZBUS selector",
+      "M3227 and M3231 showed that Chrono-side direction pricing depends on native backend evidence rather than current-sim tail replay",
+      "M3247 closed current-sim Track C without a performance or self-ID claim"
+    ],
+    "blocked_by": [
+      "E1/E2/E3 cannot be preregistered until E0 declares the expressible Chrono spread envelope",
+      "Track F remains blocked on Track E plus CP-3"
+    ],
+    "supersedes": [
+      "treating M3218/M3219 as sufficient E1 expressibility without a frozen Phase-4 axis table"
+    ],
+    "invalidates": [
+      "starting E1 with payload-position, h_cg, tire-family, split-mu, or continuous lf/lr/Iz/cf/cr axes under the current backend",
+      "using total-mass override as a proxy for payload-position or CG-height control"
+    ]
+  },
+  "review_artifact": "docs/reviews/m3248-phase4-e0-chrono-spread-expressibility-audit.md",
+  "public_gates": [
+    "M3248 must write a preregistration before the full E0 run",
+    "M3248 must reset/step all full E0 Chrono variants with finite obs72 and matching backend_info variant ids",
+    "M3248 must freeze an axis table with control_class, current_status, mechanism, E1 use, evidence, and forbidden interpretation",
+    "M3248 must explicitly block payload-position or CG-height control unless a new connector exists",
+    "M3248 must distinguish selected Chrono fixture load-transfer physics from an independent h_cg or payload sweep",
+    "M3248 must not mutate ActiveSafetyReflexDriver or make any driver-performance, high-fidelity sufficiency, paper, or self-ID claim"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not start E1 pricing before the full E0 artifact exists",
+    "do not treat Chrono resource availability as wired tire-family control",
+    "do not treat total-mass override as payload-position or CG-height control",
+    "do not add or edit ActiveSafetyReflexDriver",
+    "do not use E0 quick mode as the E1 admission artifact",
+    "do not claim a learned-policy, driver-performance, high-fidelity sufficiency, repair-success, or self-ID result"
+  ],
+  "workflow_synthesis": {
+    "branch": "phase4_track_e_chrono_repricing",
+    "evidence_axis": "chrono_spread_expressibility_audit",
+    "evidence_increment": "first frozen Phase-4 E0 axis table and E1 spread-envelope declaration",
+    "claim_scope": "Infrastructure/audit only; incumbent unchanged; no validation ranking promotion driver-performance current-sim sufficiency high-fidelity sufficiency paper repair-success robustness-result feasibility-proof or self-ID claim",
+    "stop_condition": [
+      "stop if any required Chrono variant cannot reset/step with finite obs72",
+      "stop if payload-position or CG-height remains ambiguous",
+      "stop if E1 would require an unmapped axis without a connector smoke",
+      "do not proceed to Track F before Track E and CP-3"
+    ],
+    "fallback_plan": [
+      "if E0 passes, register E1 spread-revival pricing against the frozen E0 envelope",
+      "if E0 fails on a variant selector or backend_info gate, repair that connector before E1",
+      "if E0 finds no admitted vehicle-class axis, escalate instead of creating bookkeeping milestones"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "Phase-4 roadmap opened E0 as the first dependency-satisfied unit",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "Freeze the expressible Chrono vehicle-spread envelope for Track E before any pricing or training run.",
+    "admission_evidence": [
+      "Phase-4 roadmap states E0 is the first open Track E unit",
+      "M3219 proved the current whitelisted Chrono selector can reset and step Sedan/BMW_E90/UAZBUS",
+      "M3231 proved native Chrono pricing machinery can produce direction evidence when the target is expressible"
+    ],
+    "blocked_shortcuts": [
+      "no pricing run from quick mode",
+      "no RL or PPO",
+      "no incumbent mutation",
+      "no unregistered payload-position, h_cg, tire-family, split-mu, or continuous lf/lr/Iz/cf/cr axis"
+    ],
+    "allowed_updates": [
+      "scripts/feasibility_audit/chrono_spread_expressibility_audit.py",
+      "tests/test_phase4_e0_chrono_spread_expressibility.py",
+      "experiments/feasibility_audit/chrono_spread_expressibility_prereg.json",
+      "experiments/feasibility_audit/chrono_spread_expressibility_quick.json",
+      "experiments/feasibility_audit/chrono_spread_expressibility_audit.json",
+      "runs/feasibility_audit/chrono_spread_expressibility",
+      "docs/m3248-phase4-e0-chrono-spread-expressibility-audit.md",
+      "docs/reviews/m3248-phase4-e0-chrono-spread-expressibility-audit.md",
+      "docs/current-status.md",
+      "docs/roadmap-phase3-codex-execution.md",
+      "docs/research-log.md",
+      "scripts/feasibility_audit/README.md",
+      "experiments/research_queue.csv",
+      "experiments/research_status.json",
+      "experiments/scoreboard.csv"
+    ],
+    "next_stage_criteria": [
+      "If E0 passes, E1 may be preregistered using only the frozen allowed axes and explicit forbidden-axis language",
+      "If E0 fails, repair the Chrono connector or escalate before E1",
+      "Track F remains blocked on Track E plus CP-3"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "Not applicable: E0 is a backend expressibility audit and makes no history or belief claim.",
+    "history_necessity_tests": [
+      "none in E0"
+    ],
+    "temporal_evidence_window": "not applicable; no learned policy or history window is evaluated",
+    "negative_result_policy": "Any blocked or unmapped axis is reported at full fidelity and cannot be silently aliased to a different controllable axis.",
+    "allowed_claims": [
+      "which Chrono spread axes are currently expressible",
+      "which axes require a new connector before E1",
+      "whether E1 preregistration is admitted by the frozen E0 table"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_tool_or_infra",
+    "process_overhead": "low",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "freezes the first Phase-4 Chrono spread-axis table and E1 envelope",
+    "paper_verdict_delta": "M3248 determines what Phase-4 can honestly claim about Chrono vehicle spread before E1 pricing.",
+    "must_synthesize_if": [
+      "E0 fails and another connector audit is proposed without a repair",
+      "E1 is proposed using an axis that E0 marks blocked",
+      "Track F is proposed before Track E and CP-3"
+    ]
+  },
+  "success_criteria": [
+    "experiments/feasibility_audit/chrono_spread_expressibility_prereg.json exists before the full E0 run",
+    "experiments/feasibility_audit/chrono_spread_expressibility_quick.json exists before full interpretation",
+    "experiments/feasibility_audit/chrono_spread_expressibility_audit.json exists after the full run",
+    "runs/feasibility_audit/chrono_spread_expressibility/variant_reset_rows.csv records all three full variants",
+    "runs/feasibility_audit/chrono_spread_expressibility/metrics.csv reports status_pass=1 and e1_preregistration_admitted=1",
+    "docs/m3248-phase4-e0-chrono-spread-expressibility-audit.md separates measured reset/step evidence from inferred E1 envelope limits"
+  ],
+  "failure_criteria": [
+    "a full E0 variant fails reset/step, obs72 finite, or variant-match gates",
+    "payload-position or CG-height is admitted without a backend connector",
+    "E0 quick mode is used as the final E1 admission artifact",
+    "M3248 edits or mutates ActiveSafetyReflexDriver",
+    "M3248 makes a driver-performance, high-fidelity sufficiency, paper, repair-success, feasibility-proof, robustness, or self-ID claim"
+  ],
+  "decision_rule": "PASS iff all three full Chrono variants reset/step with finite obs72 and matching backend_info, the frozen axis table has the required schema, vehicle_model_fixture is admitted for E1, and payload_position_or_cg_height is explicitly blocked.",
+  "decision_labels": {
+    "pass": "e0_passed",
+    "fail": "e0_failed"
+  },
+  "commands": [
+    {
+      "name": "phase4_e0_write_prereg",
+      "command": "env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/chrono_spread_expressibility_audit.py --write-prereg"
+    },
+    {
+      "name": "phase4_e0_quick",
+      "command": "env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/chrono_spread_expressibility_audit.py --quick"
+    },
+    {
+      "name": "phase4_e0_full",
+      "command": "env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/chrono_spread_expressibility_audit.py --run"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "experiments/feasibility_audit/chrono_spread_expressibility_prereg.json",
+      "type": "json"
+    },
+    {
+      "path": "experiments/feasibility_audit/chrono_spread_expressibility_quick.json",
+      "type": "json"
+    },
+    {
+      "path": "experiments/feasibility_audit/chrono_spread_expressibility_audit.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/feasibility_audit/chrono_spread_expressibility/variant_reset_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/feasibility_audit/chrono_spread_expressibility/metrics.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m3248-phase4-e0-chrono-spread-expressibility-audit.md",
+      "type": "markdown"
+    }
+  ],
+  "baseline_checkpoints": [
+    "docs/current-status.md",
+    "docs/roadmap-phase3-codex-execution.md",
+    "docs/m3218-s4-hf-lite-backend-inventory-preflight.md",
+    "docs/m3219-s4-hf-lite-chrono-variant-selector-smoke.md",
+    "docs/m3227-d1-s4-hf-lite-chrono-pricing.md",
+    "docs/m3231-d1b-chrono-native-oracle-pricing-full.md",
+    "docs/m3247-c1-v4-stage-b-guarded-rl.md"
+  ],
+  "metric_extractors": [
+    {
+      "metric": "success_rate",
+      "type": "csv",
+      "path": "runs/feasibility_audit/chrono_spread_expressibility/metrics.csv",
+      "match": {
+        "metric": "status_pass"
+      },
+      "column": "value"
+    },
+    {
+      "metric": "e1_preregistration_admitted",
+      "type": "csv",
+      "path": "runs/feasibility_audit/chrono_spread_expressibility/metrics.csv",
+      "match": {
+        "metric": "e1_preregistration_admitted"
+      },
+      "column": "value"
+    },
+    {
+      "metric": "variant_pass_count",
+      "type": "csv",
+      "path": "runs/feasibility_audit/chrono_spread_expressibility/metrics.csv",
+      "match": {
+        "metric": "variant_pass_count"
+      },
+      "column": "value"
+    },
+    {
+      "metric": "variant_count",
+      "type": "csv",
+      "path": "runs/feasibility_audit/chrono_spread_expressibility/metrics.csv",
+      "match": {
+        "metric": "variant_count"
+      },
+      "column": "value"
+    },
+    {
+      "metric": "payload_position_cg_height_blocked",
+      "type": "csv",
+      "path": "runs/feasibility_audit/chrono_spread_expressibility/metrics.csv",
+      "match": {
+        "metric": "payload_position_cg_height_blocked"
+      },
+      "column": "value"
+    }
+  ],
+  "gates": [
+    {
+      "name": "status_pass",
+      "metric": "success_rate",
+      "op": "==",
+      "threshold": 1.0
+    },
+    {
+      "name": "e1_preregistration_admitted",
+      "metric": "e1_preregistration_admitted",
+      "op": "==",
+      "threshold": 1.0
+    },
+    {
+      "name": "all_variants_pass",
+      "aggregation": "difference",
+      "left_metric": "variant_pass_count",
+      "right_metric": "variant_count",
+      "op": "==",
+      "threshold": 0.0
+    },
+    {
+      "name": "payload_position_cg_height_blocked",
+      "metric": "payload_position_cg_height_blocked",
+      "op": "==",
+      "threshold": 1.0
+    }
+  ]
+}

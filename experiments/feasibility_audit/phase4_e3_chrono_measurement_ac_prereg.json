@@ -1,0 +1,58 @@
+{
+  "chrono_variant": "sedan_tmeasy",
+  "claim_boundary": "Phase-4 E3 Chrono measurement-A/C protocol smoke only: scripted brake/steer ramps collect obs72 slip-detector traces, and injected planar overshoot states collect coast/v4 recovery traces on the default Chrono Sedan/TMeasy fixture. Quick mode is not a Chrono detection-latency verdict, not a full reflex recoverable-set budget, and makes no incumbent mutation, validation ranking, promotion, driver-performance, full high-fidelity sufficiency, paper, repair-success, robustness-result, feasibility-proof, Track-F-admission, or self-ID claim.",
+  "decision_rule": "M3253 PASS iff all smoke rows run, detector/recovery summaries are finite, variant matches pass, and the artifact refuses a full A/C verdict or Track-F admission.",
+  "e0_artifact": "experiments/feasibility_audit/chrono_spread_expressibility_audit.json",
+  "e2_full_artifact": "experiments/feasibility_audit/phase4_e2_chrono_two_regime_full.json",
+  "frozen_at_utc": "20260612T201330Z",
+  "frozen_before_any_e3_chrono_rollout": true,
+  "full_e3_placeholder": {
+    "needed_next": "A full E3 milestone must freeze Chrono truth definitions for measurement A, overshoot-state construction for measurement C, cells, seed streams, paired readouts, and Track-F safety-gating thresholds before any E3 verdict.",
+    "status": "not_registered_by_M3253"
+  },
+  "measurement_a_cases": [
+    {
+      "axis": "long",
+      "mu": 0.5875,
+      "rate": 0.3,
+      "speed_mps": 8.0,
+      "tau": 0.15
+    },
+    {
+      "axis": "lat",
+      "mu": 0.5875,
+      "rate": 0.25,
+      "speed_mps": 8.0,
+      "tau": 0.03
+    }
+  ],
+  "measurement_c_cases": [
+    {
+      "driver": "baseline_coast",
+      "mu": 0.5875,
+      "offset_m": 1.5,
+      "overshoot": 1.15,
+      "speed_mps": 8.0
+    },
+    {
+      "driver": "v4_incumbent",
+      "mu": 0.5875,
+      "offset_m": 1.5,
+      "overshoot": 1.15,
+      "speed_mps": 8.0
+    }
+  ],
+  "milestone": "m3253-phase4-e3-chrono-measurement-ac-smoke",
+  "protocol": "phase4_e3_chrono_measurement_ac_smoke_preregistration",
+  "quick_mode_is_verdict": false,
+  "roadmap_unit": "Phase-4 E3 Chrono measurements A/C protocol smoke",
+  "runtime_gates": [
+    "E0 artifact admits the Chrono fixture envelope",
+    "M3252 full E2 artifact exists before E3 smoke",
+    "measurement A writes long and lateral detector trace summaries",
+    "measurement C writes baseline_coast and v4_incumbent recovery trace summaries",
+    "reset obs are finite obs72 and backend_info variant ids match",
+    "quick mode is explicitly non-verdict and cannot open Track F"
+  ],
+  "seed_base": 2026061305
+}

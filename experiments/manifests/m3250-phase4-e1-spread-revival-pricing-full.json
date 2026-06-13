@@ -1,0 +1,264 @@
+{
+  "id": "m3250-phase4-e1-spread-revival-pricing-full",
+  "priority": 32500,
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "milestone_intent": "evaluation_only",
+  "hypothesis": "A preregistered Phase-4 E1 full Chrono spread-revival pricing panel can decide whether same-instance per-vehicle tuning beats a global fixed* reflex and RLS-retuned reflex across the M3248-admitted Chrono vehicle fixtures before validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof paper or self-ID claim.",
+  "feasibility_pricing": {
+    "pricing_artifact": "experiments/feasibility_audit/chrono_spread_expressibility_audit.json",
+    "priced_gap": 1.0,
+    "threshold": 1.0,
+    "gap_meets_threshold": true
+  },
+  "lineage": {
+    "parent_checkpoint": [
+      "docs/current-status.md",
+      "docs/roadmap-phase3-codex-execution.md",
+      "docs/m3248-phase4-e0-chrono-spread-expressibility-audit.md",
+      "docs/m3249-phase4-e1-spread-revival-pricing-smoke.md",
+      "docs/m3231-d1b-chrono-native-oracle-pricing-full.md",
+      "docs/m3222-a3-c5prime-target-consolidation.md"
+    ],
+    "parent_dataset": [
+      "experiments/feasibility_audit/chrono_spread_expressibility_audit.json",
+      "experiments/feasibility_audit/phase4_e1_spread_revival_quick.json",
+      "experiments/feasibility_audit/c5prime_target_consolidation.json",
+      "runs/feasibility_audit/c5prime_target_consolidation/episode_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/feasibility_audit/phase4_e1_spread_revival_full_prereg.json",
+      "scripts/feasibility_audit/phase4_e1_spread_revival_pricing_full.py",
+      "scripts/feasibility_audit/chrono_native_oracle_pricing.py",
+      "src/autodrift/chrono_vehicle_backend.py"
+    ],
+    "parent_objective": [
+      "Phase-4 Track E E1: full Chrono spread-revival pricing after E0 and M3249",
+      "M3250 decides the E1 full pricing verdict under frozen selection/validation rows and paired CIs"
+    ],
+    "derived_from": [
+      "M3248 admitted E1 on selected Chrono vehicle fixtures with load-transfer physics active",
+      "M3249 proved the four-arm E1 protocol executes across Sedan/BMW_E90/UAZBUS",
+      "M3231 provides reusable native Chrono oracle-search machinery",
+      "M3222 provides C5-prime T-limit source rows with enough same-instance disjoint rows for selection/validation"
+    ],
+    "blocked_by": [
+      "Track F remains blocked on Track E plus CP-3 regardless of M3250 verdict",
+      "E2/E3 remain separate open Track E units after E1"
+    ],
+    "supersedes": [
+      "using M3249 quick mode as an E1 spread-revival verdict",
+      "starting Track F before a full E1 verdict"
+    ],
+    "invalidates": [
+      "interpreting M3250 as independent payload-position, h_cg, tire-family, split-mu, or continuous lf/lr/Iz/cf/cr coverage",
+      "starting robotics-parity RL from E1 alone without E2/E3 and CP-3",
+      "treating the attempt-limited native oracle as a full high-fidelity sufficiency proof"
+    ]
+  },
+  "review_artifact": "docs/reviews/m3250-phase4-e1-spread-revival-pricing-full.md",
+  "public_gates": [
+    "M3250 must load the M3248 E0 artifact and refuse a full run if E0 did not admit E1",
+    "M3250 must require the M3249 quick protocol artifact before full pricing",
+    "M3250 must write a full preregistration before the full run",
+    "M3250 must use disjoint same-instance selection and validation source rows",
+    "M3250 must choose fixed* and per-instance tuned grids only from selection rows",
+    "M3250 must write fixed_star, v4_rls, v4_pertuned, and native_oracle validation rows for every variant/pair",
+    "M3250 must report paired CIs and apply the frozen >=2 qualifying variants rule",
+    "M3250 must not admit Track F, driver-performance, high-fidelity sufficiency, paper, or self-ID claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not use validation rows for grid selection",
+    "do not reinterpret M3249 quick rows as full pricing evidence",
+    "do not claim payload-position, h_cg, tire-family, split-mu, or continuous lf/lr/Iz/cf/cr coverage",
+    "do not edit ActiveSafetyReflexDriver",
+    "do not invoke train_ppo, supervised training, PPO, or guarded RL",
+    "do not start Track F from M3250 without completing Track E and CP-3"
+  ],
+  "workflow_synthesis": {
+    "branch": "phase4_track_e_chrono_repricing",
+    "evidence_axis": "e1_spread_revival_full_pricing",
+    "evidence_increment": "full E1 Chrono spread-revival pricing panel with disjoint selection/validation rows and paired readouts",
+    "claim_scope": "Full E1 pricing only; incumbent unchanged; no validation ranking, promotion, driver-performance, current-sim sufficiency, full high-fidelity sufficiency, paper, repair-success, robustness-result, feasibility-proof, or self-ID claim",
+    "stop_condition": [
+      "stop after the full E1 pricing verdict is written",
+      "stop if selection/validation row disjointness fails",
+      "stop if any validation variant/pair lacks a four-arm paired row",
+      "stop if the full result tries to open Track F without E2/E3 and CP-3"
+    ],
+    "fallback_plan": [
+      "if M3250 is positive, keep E2/E3 open and route CP-3 only after Track E completes",
+      "if M3250 is negative, update the papers and continue to E2/E3",
+      "if M3250 protocol gates fail, repair or reprice E1 under a new preregistration"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M3249 E1 quick protocol smoke passed and roadmap marks full E1 as the lowest-numbered OPEN unit",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "Run the full E1 Chrono spread-revival pricing verdict; no model update.",
+    "admission_evidence": [
+      "M3248 E0 passed and admitted E1 on selected Chrono vehicle fixtures",
+      "M3249 quick protocol smoke passed across Sedan/BMW_E90/UAZBUS",
+      "A3 source rows provide disjoint same-instance selection/validation candidates",
+      "M3231 proved native Chrono oracle search is executable"
+    ],
+    "blocked_shortcuts": [
+      "no RL or PPO",
+      "no incumbent mutation",
+      "no validation-row tuning",
+      "no blocked E0 axis usage",
+      "no Track F admission"
+    ],
+    "allowed_updates": [
+      "scripts/feasibility_audit/phase4_e1_spread_revival_pricing_full.py",
+      "tests/test_phase4_e1_spread_revival_pricing_full.py",
+      "experiments/feasibility_audit/phase4_e1_spread_revival_full_prereg.json",
+      "experiments/feasibility_audit/phase4_e1_spread_revival_full.json",
+      "runs/feasibility_audit/phase4_e1_spread_revival/episode_rows_full.csv",
+      "runs/feasibility_audit/phase4_e1_spread_revival/metrics_full.csv",
+      "docs/m3250-phase4-e1-spread-revival-pricing-full.md",
+      "docs/reviews/m3250-phase4-e1-spread-revival-pricing-full.md",
+      "docs/current-status.md",
+      "docs/roadmap-phase3-codex-execution.md",
+      "docs/research-log.md",
+      "scripts/feasibility_audit/README.md",
+      "experiments/research_queue.csv",
+      "experiments/research_status.json",
+      "experiments/scoreboard.csv"
+    ],
+    "next_stage_criteria": [
+      "After M3250, E2 and E3 remain the next Track E units",
+      "Track F remains blocked until Track E completes and CP-3 confirms targets and budget"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "Not applicable: M3250 is Chrono pricing and makes no history or belief claim.",
+    "history_necessity_tests": [
+      "none in M3250"
+    ],
+    "temporal_evidence_window": "not applicable; no learned history policy is evaluated",
+    "negative_result_policy": "A negative E1 full pricing verdict is reported at full fidelity and cannot be converted into training admission.",
+    "allowed_claims": [
+      "E1 full pricing positive or not supported under the frozen rule",
+      "the verdict is scoped to the E0-admitted Chrono fixture envelope",
+      "incumbent v4 remained frozen and unchanged"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_baseline_comparison",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "adds the first full E1 Chrono spread-revival pricing verdict after the protocol smoke",
+    "paper_verdict_delta": "M3250 decides whether the original spread thesis revives on the current Chrono fixture envelope.",
+    "must_synthesize_if": [
+      "another E1 run is proposed after M3250 without new pricing target or failed protocol gate",
+      "Track F is proposed before E2/E3 and CP-3",
+      "a blocked E0 axis is proposed without a connector milestone"
+    ]
+  },
+  "success_criteria": [
+    "experiments/feasibility_audit/phase4_e1_spread_revival_full_prereg.json exists before the full run",
+    "experiments/feasibility_audit/phase4_e1_spread_revival_full.json exists after the full run",
+    "runs/feasibility_audit/phase4_e1_spread_revival/episode_rows_full.csv includes selection rows and paired validation rows",
+    "runs/feasibility_audit/phase4_e1_spread_revival/metrics_full.csv reports protocol_gates_passed=1",
+    "docs/m3250-phase4-e1-spread-revival-pricing-full.md reports measured and inferred sections plus the frozen verdict"
+  ],
+  "failure_criteria": [
+    "M3250 runs without a full preregistration",
+    "M3250 uses validation rows for grid selection",
+    "M3250 runs training or writes a policy checkpoint",
+    "M3250 mutates ActiveSafetyReflexDriver or the incumbent driver",
+    "M3250 admits Track F, C2/C3, driver-performance, high-fidelity sufficiency, paper, or self-ID claims"
+  ],
+  "decision_rule": "Accept M3250 as completed if the full E1 panel runs under the frozen preregistration, writes the full JSON/CSV/doc artifacts, reports paired CIs, applies the >=2 qualifying variants rule, and keeps Track F blocked.",
+  "decision_labels": {
+    "pass": "e1_full_pricing_completed",
+    "fail": "e1_full_pricing_protocol_failed"
+  },
+  "commands": [
+    {
+      "name": "phase4_e1_full_prereg",
+      "command": "env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/phase4_e1_spread_revival_pricing_full.py --write-prereg"
+    },
+    {
+      "name": "phase4_e1_full",
+      "command": "env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/phase4_e1_spread_revival_pricing_full.py --full --resume"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "experiments/feasibility_audit/phase4_e1_spread_revival_full_prereg.json",
+      "type": "json"
+    },
+    {
+      "path": "experiments/feasibility_audit/phase4_e1_spread_revival_full.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/feasibility_audit/phase4_e1_spread_revival/episode_rows_full.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/feasibility_audit/phase4_e1_spread_revival/metrics_full.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m3250-phase4-e1-spread-revival-pricing-full.md",
+      "type": "markdown"
+    }
+  ],
+  "baseline_checkpoints": [
+    "docs/current-status.md",
+    "docs/roadmap-phase3-codex-execution.md",
+    "docs/m3248-phase4-e0-chrono-spread-expressibility-audit.md",
+    "docs/m3249-phase4-e1-spread-revival-pricing-smoke.md",
+    "experiments/feasibility_audit/phase4_e1_spread_revival_quick.json"
+  ],
+  "metric_extractors": [
+    {
+      "metric": "success_rate",
+      "type": "csv",
+      "path": "runs/feasibility_audit/phase4_e1_spread_revival/metrics_full.csv",
+      "match": {
+        "metric": "protocol_gates_passed"
+      },
+      "column": "value"
+    },
+    {
+      "metric": "qualifying_variant_count",
+      "type": "csv",
+      "path": "runs/feasibility_audit/phase4_e1_spread_revival/metrics_full.csv",
+      "match": {
+        "metric": "qualifying_variant_count"
+      },
+      "column": "value"
+    },
+    {
+      "metric": "pooled_pertuned_minus_fixed_star",
+      "type": "csv",
+      "path": "runs/feasibility_audit/phase4_e1_spread_revival/metrics_full.csv",
+      "match": {
+        "metric": "pooled_pertuned_minus_fixed_star"
+      },
+      "column": "value"
+    }
+  ],
+  "gates": [
+    {
+      "name": "protocol_gates_passed",
+      "metric": "success_rate",
+      "op": "==",
+      "threshold": 1.0
+    }
+  ]
+}

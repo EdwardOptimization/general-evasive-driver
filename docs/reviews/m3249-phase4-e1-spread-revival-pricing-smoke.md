@@ -1,0 +1,73 @@
+# m3249-phase4-e1-spread-revival-pricing-smoke Research Review
+
+## Summary
+
+- Generated at UTC: 20260612T175537Z
+- Type: infrastructure
+- Gate tier: infrastructure
+- Promotion decision: not_applicable
+- Decision reason: PASS iff quick mode writes all four arms for every quick variant, exercises structured and CEM native-oracle candidates, reset/variant gates pass, and the artifact labels itself as protocol-smoke only. M3249 never decides E1.
+
+## Hypothesis
+
+A preregistered Phase-4 E1 spread-revival pricing smoke can exercise the fixed*, RLS-retuned, per-instance tuned, and native Chrono oracle arms across the M3248-admitted Chrono vehicle fixtures before validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof paper or self-ID claim.
+
+## Lineage
+
+- parent_checkpoint: docs/current-status.md, docs/roadmap-phase3-codex-execution.md, docs/m3248-phase4-e0-chrono-spread-expressibility-audit.md, docs/m3231-d1b-chrono-native-oracle-pricing-full.md, docs/m3222-a3-c5prime-target-consolidation.md
+- parent_dataset: experiments/feasibility_audit/chrono_spread_expressibility_audit.json, runs/feasibility_audit/chrono_spread_expressibility/variant_reset_rows.csv, experiments/feasibility_audit/c5prime_target_consolidation.json, runs/feasibility_audit/c5prime_target_consolidation/episode_rows.csv
+- parent_config: experiments/feasibility_audit/phase4_e1_spread_revival_prereg.json, scripts/feasibility_audit/phase4_e1_spread_revival_pricing.py, scripts/feasibility_audit/chrono_native_oracle_pricing.py, src/autodrift/chrono_vehicle_backend.py
+- parent_objective: Phase-4 Track E E1: price spread revival in Chrono after E0 freezes the expressible envelope, M3249 is only the E1 quick protocol smoke; a separate full E1 milestone is required for a verdict
+- derived_from: M3248 admitted E1 on selected Chrono vehicle fixtures with load-transfer physics active, M3248 blocked payload-position, h_cg, tire-family, split-mu, and continuous lf/lr/Iz/cf/cr axes without new connectors, M3231 provides reusable native Chrono oracle-search machinery, M3222 provides frozen C5-prime T-limit source rows for protocol exercise
+- blocked_by: Full E1 verdict remains blocked until a separate full milestone freezes selection rows, validation rows, paired CIs, and decision thresholds, Track F remains blocked on Track E plus CP-3
+- supersedes: starting full E1 pricing without a quick smoke of all four arms
+- invalidates: interpreting M3249 quick numbers as an E1 spread-revival verdict, using E1 to claim independent payload-position, h_cg, tire-family, split-mu, or continuous lf/lr/Iz/cf/cr coverage, starting Track F from a protocol smoke
+
+## Success Criteria
+
+- experiments/feasibility_audit/phase4_e1_spread_revival_prereg.json exists before quick execution
+- experiments/feasibility_audit/phase4_e1_spread_revival_quick.json exists after quick execution
+- runs/feasibility_audit/phase4_e1_spread_revival/episode_rows_quick.csv includes all quick variants and all four arms
+- runs/feasibility_audit/phase4_e1_spread_revival/metrics_quick.csv reports status_pass=1
+- docs/m3249-phase4-e1-spread-revival-pricing-smoke.md states that quick mode is not an E1 full verdict
+
+## Failure Criteria
+
+- E0 is missing or does not admit E1
+- any quick variant lacks fixed_star, v4_rls, v4_pertuned, or native_oracle rows
+- native oracle search does not exercise both structured and CEM candidates
+- quick mode is interpreted as spread-revival pricing
+- M3249 edits or mutates ActiveSafetyReflexDriver
+
+## Evidence Gates
+
+- M3249 must load the M3248 E0 artifact and refuse to run if E0 did not admit E1
+- M3249 must write a preregistration before the quick smoke
+- M3249 must exercise every M3248-admitted Chrono variant in quick mode
+- M3249 must write fixed_star, v4_rls, v4_pertuned, and native_oracle rows for every quick variant
+- M3249 must exercise at least one structured and one CEM native-oracle candidate per quick variant
+- M3249 must label quick mode as protocol-smoke only and must not admit an E1 full verdict
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not interpret quick-mode success counts as spread-revival pricing
+- do not use one quick row as both selection and validation evidence for a verdict
+- do not claim payload-position, h_cg, tire-family, split-mu, or continuous lf/lr/Iz/cf/cr coverage
+- do not edit ActiveSafetyReflexDriver
+- do not start Track F or GPU training from M3249
+
+## Failure Taxonomy
+
+- none
+
+## Scoreboard
+
+- No scoreboard row recorded.
+
+## Next Blocker
+
+None recorded.

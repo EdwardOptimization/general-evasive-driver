@@ -1,0 +1,90 @@
+{
+  "calibration": {
+    "sedan_tmeasy": {
+      "max_shortfall": 0.3737,
+      "mu": 0.8125,
+      "outcome": "timeout_other",
+      "reset_obs_finite": true,
+      "reveal_m": 30.0,
+      "seed": 1902024309,
+      "tau": 0.44844,
+      "variant": "sedan_tmeasy",
+      "variant_match": true
+    }
+  },
+  "claim_boundary": "Phase-4 E2 Chrono two-regime-law protocol smoke only: the current-sim threshold-seeker / shortfall-detector controller family is ported to the Chrono worker interface and exercised on a tiny clean plus degraded spot panel. Quick mode is not a clean VoI(belief) or degraded revival verdict; it makes no training, validation ranking, promotion, driver-performance, full high-fidelity sufficiency, paper, repair-success, robustness-result, feasibility-proof, or self-ID claim.",
+  "created_at_utc": "20260612T192138Z",
+  "decision": {
+    "e2_quick_verdict": "protocol_smoke_passed",
+    "next_admitted_step": "Register full E2 pricing with frozen variants/reveals/mu/seeds/CIs, or proceed to E3 only after E2 disposition per roadmap.",
+    "track_f_admitted": false,
+    "two_regime_law_verdict": "not_decided_by_quick_mode"
+  },
+  "e0_artifact": "experiments/feasibility_audit/chrono_spread_expressibility_audit.json",
+  "e1_full_artifact": "experiments/feasibility_audit/phase4_e1_spread_revival_full.json",
+  "elapsed_s": 41.7,
+  "expected_row_count": 18,
+  "metrics_csv": "runs/feasibility_audit/phase4_e2_chrono_two_regime/metrics_quick.csv",
+  "milestone": "m3251-phase4-e2-chrono-two-regime-smoke",
+  "mode": "quick",
+  "preregistration": "experiments/feasibility_audit/phase4_e2_chrono_two_regime_prereg.json",
+  "preregistration_sha256": "f67cee53186e25a2d851c580678230ed014012ad0ea197263d24dc5c90795d48",
+  "protocol_gates": {
+    "all_expected_rows_written": true,
+    "all_passed": true,
+    "calibration_written": true,
+    "clean_rows_present": true,
+    "degraded_spot_rows_present": true,
+    "quick_mode_is_not_verdict": true,
+    "reset_obs_finite_all": true,
+    "variant_match_all": true
+  },
+  "quick_mode_is_verdict": false,
+  "quick_readouts": {
+    "clean": {
+      "by_reveal": {
+        "30": {
+          "indicative_detection_value_seeker_minus_fixed": 0.0,
+          "indicative_voi_oracle_minus_seeker": 0.5,
+          "rows": 6,
+          "success_rates": {
+            "fixed_ramp": 0.5,
+            "oracle_ramp": 1.0,
+            "threshold_seeker": 0.5
+          }
+        },
+        "9.5": {
+          "indicative_detection_value_seeker_minus_fixed": 0.5,
+          "indicative_voi_oracle_minus_seeker": 0.0,
+          "rows": 6,
+          "success_rates": {
+            "fixed_ramp": 0.0,
+            "oracle_ramp": 0.5,
+            "threshold_seeker": 0.5
+          }
+        }
+      },
+      "delay_steps": 0,
+      "noise_std": 0.0
+    },
+    "delay25_tight": {
+      "by_reveal": {
+        "9.5": {
+          "indicative_detection_value_seeker_minus_fixed": 0.0,
+          "indicative_voi_oracle_minus_seeker": 0.0,
+          "rows": 6,
+          "success_rates": {
+            "fixed_ramp": 0.0,
+            "oracle_ramp": 0.0,
+            "threshold_seeker": 0.0
+          }
+        }
+      },
+      "delay_steps": 25,
+      "noise_std": 0.0
+    }
+  },
+  "row_count": 18,
+  "rows_csv": "runs/feasibility_audit/phase4_e2_chrono_two_regime/episode_rows_quick.csv",
+  "schema_version": 1
+}

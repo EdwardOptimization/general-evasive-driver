@@ -3,8 +3,8 @@
 This file is the compact official state for the project. Milestone documents
 and `docs/research-log.md` remain the detailed log of the autonomous-harness
 era; the Phase-2 plan and thesis (pointer table below) define the active
-program. Last full refresh: 2026-06-12 (the 2026-06-11 WP6.3 refresh
-replaced the stale paper-route state; this update folds in M3215-M3247,
+program. Last full refresh: 2026-06-13 (the 2026-06-11 WP6.3 refresh
+replaced the stale paper-route state; this update folds in M3215-M3255,
 the C5 pricing disposition, the S4-HF-lite backend connector/pricing work,
 WP6.2 guardrails, the A1 lateral-channel rider, the A2 obs-normalization
 audit, the A3 C5-prime target consolidation, B1/B2/B3/B4 env-engineering
@@ -20,7 +20,14 @@ negative, the M3241 B2b high-speed pricing protocol smoke, the M3242
 full B2b high-speed pricing negative, the M3243 PI/new-route escalation,
 the M3244 C1-v3 residual-RL smoke, the M3245 C1-v3 residual-RL
 stage-1 negative, the M3246 C1-v4 distillation Stage-A pass, and the M3247
-C1-v4 guarded-RL first-rung failure that closes Track C).
+C1-v4 guarded-RL first-rung failure that closes Track C, the M3248
+Phase-4 E0 Chrono spread expressibility audit that opens E1, the M3249
+E1 quick protocol smoke, the M3250 full E1 spread-revival pricing
+negative, the M3251 E2 Chrono two-regime protocol smoke, the M3252
+full E2 Chrono two-regime verdict, the M3253 E3 measurement-A/C
+protocol smoke, the M3254 E3 tire-truth telemetry connector smoke, the
+M3255 full E3 Chrono measurement A/C verdict, and the M3256 blocked CP-3
+Track-F PI checkpoint).
 
 ## Project Identity
 
@@ -36,8 +43,8 @@ C1-v4 guarded-RL first-rung failure that closes Track C).
 
 History in one paragraph: the autonomous harness loop ran through M3214
 before manual takeover; the manual takeover has since registered
-M3215-M3247. `experiments/research_status.json` now records
-3248 completed / 7 failed / 3 blocked task entries, with `next_task:
+M3215-M3256. `experiments/research_status.json` now records
+3256 completed / 7 failed / 4 blocked task entries, with `next_task:
 null`. On
 2026-06-11 an independent feasibility audit showed the M3108–M3212
 residual-repair branch was repairing physically unsolvable rows, and the
@@ -64,7 +71,7 @@ v2) started 2026-06-11 to test the law's generality (C1), belief
 learnability (C2), FIR-vs-IIR (C3), and the deployable
 belief→verifier→reflex stack (C4).
 
-## Program Progress Ledger (refresh 2026-06-12)
+## Program Progress Ledger (refresh 2026-06-13)
 
 Claims:
 
@@ -75,6 +82,72 @@ Claims:
 | C3 FIR vs IIR | **not adjudicated** (pre-registered condition not triggered: no history arm cleared the floor) | M3216 doc |
 | C4 deployable stack | **closed** (WP2 never opened per G-B) | plan Section 2 |
 | C5 one policy for all passenger cars (RL as engineering) | **spread formulation rejected by pricing**. S0-S3 mass/brake/drive/tau spread failed its pre-registered bar (0/8 cells): the fixed reflex's degradation curve was flat, per-instance grid tuning had nothing to buy, and kappa-RLS retuning self-harmed at corners. M3220 then gave the final cheap current-sim lateral-channel rider (cg/Iz S4L): 0/4 cells qualified; S4L/T-limit prize was only +0.007 with CI95 [-0.014, 0.028]. **Measured current-sim survivor (C5' candidate): the reflex structural ceiling gap. M3222 fresh-seed A3 consolidation confirmed the C5-prime target by the frozen rule: 3/4 T-limit cells qualified with oracle - per-tuned gaps +0.1597 to +0.2153 and CI lower bounds > 0; S0 was positive but below the +0.15 effect-size bar (+0.1389).** M3218/M3219 completed the Chrono connector inventory + selector smoke. M3227 then ran the preregistered S4-HF-lite multi-vehicle direction-pricing proxy on frozen A3 structured-gap rows and found the direction **reversed in all three Chrono variants**: structured current-sim oracle-tail replay underperformed `v4_pertuned` on Sedan, BMW_E90, and UAZBUS. M3230/M3231 then re-priced the high-fidelity direction with native Chrono oracle search and found it direction-positive on Sedan (+0.2222) and BMW_E90 (+0.1111), satisfying the CP-2 direction precondition. The local C1 imitation chain then failed and pivoted repeatedly: M3228/M3232 direct MLP BC failed action-MSE gates, M3229 localized tail-action generalization, M3233 pivoted, M3234/M3235 priced and smoked a structured tail-family interface, M3236 failed rare-family pretraining, M3237 pivoted again, and M3238 rejected the local family selector. M3243 recorded that blocked dependency; PI reopened C1 as C1-v3, residual RL over frozen v4 with no supervised oracle imitation. M3244 proved the residual route runnable at 1024-step smoke scale. **M3245 then ran the preregistered C1-v3 stage-1 and failed the frozen gate: 0/3 cells passed, v4+residual minus `v4_pertuned` was -0.6276/-0.4262/-0.3299 on S1/S2/S3, and all CI95 intervals were negative. PI then opened C1-v4 as the final distill-then-RL route. M3246 passed the frozen Stage-A distillation gate, but M3247 failed the Stage-B guarded-RL first rung: 0/3 cells passed, 0/3 cells met the extension movement threshold, and `v4_stage_b - v4_pertuned` was -0.0651/-0.0425/-0.0052 on S1/S2/S3.** No 4M extension, C2, C3, scale-up, driver-performance, high-fidelity sufficiency, repair-success, feasibility-proof, paper, or self-ID claim is admitted; Track C is closed absent new pricing evidence. | `docs/c5-reflex-degradation-2026-06.md`, `docs/m3220-a1-s4-lateral-spread-rider-pricing.md`, `docs/m3222-a3-c5prime-target-consolidation.md`, `docs/m3219-s4-hf-lite-chrono-variant-selector-smoke.md`, `docs/m3227-d1-s4-hf-lite-chrono-pricing.md`, `docs/m3228-c1-c5prime-oracle-demo-bc-warmstart.md`, `docs/m3229-c1-bc-warmstart-failure-localization.md`, `docs/m3230-d1b-chrono-native-oracle-pricing-smoke.md`, `docs/m3231-d1b-chrono-native-oracle-pricing-full.md`, `docs/m3232-c1-v2-tail-balanced-warmstart-smoke.md`, `docs/m3233-c1-synthesis-repricing.md`, `docs/m3234-c1-admission-interface-pricing.md`, `docs/m3235-c1-tail-family-interface-smoke.md`, `docs/m3236-c1-tail-family-interface-pretrain-quick.md`, `docs/m3237-c1-tail-family-interface-synthesis-repricing.md`, `docs/m3238-c1-family-selector-repricing.md`, `docs/m3244-c1-v3-residual-rl-smoke.md`, `docs/m3245-c1-v3-residual-rl-stage1.md`, `docs/m3246-c1-v4-distill-stage-a.md`, `docs/m3247-c1-v4-stage-b-guarded-rl.md` |
+
+Phase-4 Track E addendum: M3248 E0 **completed / passed**. All three
+whitelisted Chrono variants (`sedan_tmeasy`, `bmw_e90_tmeasy`,
+`uazbus_tmeasy`) reset/stepped with finite obs72 and matching backend_info.
+The frozen spread-axis table admits E1 on selected vehicle fixtures with
+load-transfer physics active, while blocking independent payload-position,
+h_cg, tire-family, split-mu, and continuous lf/lr/Iz/cf/cr axes without new
+connectors (`docs/m3248-phase4-e0-chrono-spread-expressibility-audit.md`).
+M3249 E1 quick protocol smoke **completed / passed**: Sedan/BMW_E90/UAZBUS
+all exercised fixed*, RLS-retuned, per-instance tuned, and native-oracle rows;
+native oracle ran structured and CEM candidates per variant. M3250 E1 full
+pricing then **completed / negative by the frozen rule**: 0/3 variants
+qualified, pooled `v4_pertuned - fixed_star` was -0.0556 with CI95
+[-0.1667, 0.0], pooled `v4_pertuned - v4_rls` was 0.0000 with CI95
+[-0.1667, 0.1667], and the attempt-limited native-oracle anchor was below
+`v4_pertuned` in this panel (-0.4444, CI95 [-0.6667, -0.2222]). E1 did not
+admit Track F (`docs/m3250-phase4-e1-spread-revival-pricing-full.md`).
+M3251 E2 Chrono two-regime protocol smoke **completed / passed**: 18/18
+expected quick rows were written on the Sedan fixture, covering clean reveal
+9.5 m and 30 m plus a delay25 tight degraded spot with oracle_ramp,
+threshold_seeker, and fixed_ramp arms; reset obs finite, variant match, and
+non-verdict gates all passed. Quick indicative readouts are not a two-regime
+law verdict (`docs/m3251-phase4-e2-chrono-two-regime-smoke.md`). M3252 then
+ran the full frozen E2 Sedan/TMeasy panel and returned a **positive clean
+Chrono belief-value verdict**: 280/280 selection rows and 192/192 validation
+rows were written, all protocol gates passed, and clean oracle - best-floor
+qualified at reveal 9.5 m (+0.75, CI95 [0.375, 1.0]) and 12 m (+0.625, CI95
+[0.25, 0.875]). The delay25_tight spot is secondary only (+0.125, CI95
+[0.0, 0.375]); Track F remained blocked pending E3 plus CP-3, and now remains
+blocked on CP-3 after M3255 (`docs/m3252-phase4-e2-chrono-two-regime-full.md`).
+M3253 E3 measurement-A/C protocol smoke **completed / passed**: 4/4 expected
+quick rows were written on the Sedan/TMeasy fixture, reset obs were finite,
+variant matching passed, and quick mode stayed non-verdict. Measurement A
+rows produced obs72 detector traces for long and lateral ramps
+(fired_step 50 and 125); measurement C rows produced planar overshoot
+recovery traces for baseline_coast and v4_incumbent (recovered at steps 9
+and 11). M3253 does not decide Chrono detection latency, the full recoverable
+set, or Track F admission; full E3 still needs a separate preregistration
+with frozen truth definitions, cells, seed streams, paired readouts, and
+safety-gating thresholds (`docs/m3253-phase4-e3-chrono-measurement-ac-smoke.md`).
+M3254 E3 tire-truth telemetry connector smoke **completed / passed**: 8/8
+expected samples and 32/32 wheel rows were written on the Sedan/TMeasy
+fixture, obs72 stayed finite, every sample exposed four tire-telemetry rows,
+wheel numeric fields were finite, and normal loads were positive
+(3195.13-4952.06 N). M3254 does not decide full E3 or Track F; it only
+confirms that full E3 can now preregister Chrono tire-truth definitions
+instead of relying on obs72-only traces
+(`docs/m3254-phase4-e3-chrono-tire-telemetry-smoke.md`). M3255 then ran the
+full frozen E3 Sedan/TMeasy measurement A/C panel and **completed / passed**
+all protocol gates: 24/24 detector-latency rows and 72/72 recovery-budget
+rows were written, obs72 stayed finite, variant and telemetry gates passed,
+truth onsets were observed in all measurement-A rows, and Track F remained
+not admitted. Measured safety readouts: detector miss rate 0.1667, p90
+latency 1.346 s, early-fire rate 0.5, v4 recovery 1.0, baseline recovery
+1.0, and v4-baseline recovery delta 0.0 across the frozen overshoot panel.
+M3255 marks the Track-E Sedan/TMeasy evidence package ready for PI CP-3
+review, but does not self-approve Track F, driver-performance, full
+high-fidelity sufficiency, paper, feasibility-proof, repair-success, or
+self-ID claims (`docs/m3255-phase4-e3-chrono-measurement-ac-full.md`).
+M3256 records the resulting process blocker as a **blocked** CP-3 gate row:
+Track F F1/F2/F3 remain blocked until PI records a CP-3 disposition approving
+targets and GPU-days budget, rejecting Track F, or requesting a concrete
+additional preregistered unit. The escalation note is
+`docs/escalations/2026-06-13-phase4-cp3-track-f-pi-checkpoint.md`; this is
+not a training, promotion, performance, paper, feasibility-proof, or self-ID
+claim.
 
 Work packages: WP0 **complete** (wrapper modes M3215-validated, family #2
 frozen with clean acceptance after one pre-registered repair, statistical
@@ -148,8 +221,13 @@ raw pass recorded at steps 991-999, minimum post-pass continuation 2001 steps,
 deterministic replay 2/2; env-contract only, no controller outcome claim); WP4 spot
 checks **partially updated**
 (Chrono outcome coverage now includes D1 Sedan/BMW_E90/UAZBUS direction
-pricing plus D1b Sedan/BMW_E90 native oracle direction-pricing, but not UAZBUS
-D1b native search or continuous lateral/tire channel mapping); WP5 papers
+pricing plus D1b Sedan/BMW_E90 native oracle direction-pricing, M3248
+freezes the Phase-4 E0 expressibility envelope for Sedan/BMW_E90/UAZBUS,
+M3252 gives a full E2 two-regime-law verdict on Sedan/TMeasy only, and
+M3255 gives a full E3 detector-latency/recovery-budget verdict on
+Sedan/TMeasy only. It still does not cover UAZBUS D1b native search,
+non-Sedan E2/E3, independent payload-position/h_cg, tire-family, split-mu,
+or continuous lateral/tire channel mapping); WP5 papers
 **pending**
 (scope fixed: family-scoped mode-dependent two-regime law + estimator
 positive + the capstone bound; plus C5' only if PI accepts the structural
@@ -157,7 +235,7 @@ ceiling route as a priced-but-not-converted negative); WP6 **current guardrails 
 validator V7, escalation protocol, and managed-run helper are merged).
 
 Harness ledger: M3215, M3216, M3217, M3218, M3219, M3220, M3221, M3222,
-M3223, M3224, M3225, M3226, M3227, M3228, M3229, M3230, M3231, M3232, M3233, M3234, M3235, M3236, M3237, M3238, M3239, M3240, M3241, M3242, M3244, M3245, M3246, and M3247 registered and
+M3223, M3224, M3225, M3226, M3227, M3228, M3229, M3230, M3231, M3232, M3233, M3234, M3235, M3236, M3237, M3238, M3239, M3240, M3241, M3242, M3244, M3245, M3246, M3247, M3248, M3249, M3250, M3251, M3252, M3253, and M3254 registered and
 executed through the harness (research-validate passed in pending state;
 M3228 failed its full gate, M3229 completed, M3230 completed after a
 same-turn rerun tightened the quick gate to require both structured and CEM
@@ -174,7 +252,13 @@ protocol smoke, M3242 completed the full B2b high-speed pricing negative,
 M3244 completed the C1-v3 residual-on-frozen-v4 PPO smoke, M3245
 completed the C1-v3 stage-1 negative, M3246 completed the C1-v4
 distillation Stage-A pass, and M3247 completed the C1-v4 Stage-B first-rung
-negative); M3243 remains a
+negative, M3248 completed the Phase-4 E0 Chrono spread expressibility
+audit, M3249 completed the E1 quick protocol smoke, M3250 completed the
+full E1 spread-revival pricing negative, M3251 completed the E2 Chrono
+two-regime protocol smoke, M3252 completed the full E2 Chrono two-regime
+pricing verdict, M3253 completed the E3 measurement-A/C protocol smoke, and
+M3254 completed the E3 tire-truth telemetry connector smoke);
+M3243 remains a
 blocked-dependency escalation row with a resolution note because it records the
 temporary roadmap stop rather than a measurement;
 leak gates stopped two dataset leaks and one terminal
@@ -308,6 +392,30 @@ steps and failed the frozen rule: 0/3 pass cells, 0/3 movement cells, and
 `v4_stage_b - v4_pertuned` -0.0651/-0.0425/-0.0052 on S1/S2/S3. No 4M
 extension is admitted; Track C is closed unless a future proposal brings new
 pricing evidence rather than another local learning-interface repair.
+M3248 then opened Phase-4 Track E by completing E0: all three whitelisted
+Chrono variants reset/stepped with finite obs72, and the frozen axis table
+admits E1 only on selected vehicle fixtures with load-transfer physics active
+while blocking independent payload-position, h_cg, tire-family, split-mu, and
+continuous lf/lr/Iz/cf/cr axes without new connectors.
+M3249 then passed the E1 protocol smoke across Sedan/BMW_E90/UAZBUS, writing
+all four arms and structured+CEM native-oracle candidates. M3250 then ran the
+full frozen E1 panel and rejected spread revival: 0/3 variants qualified,
+pooled `v4_pertuned - fixed_star` was -0.0556 with CI95 [-0.1667, 0.0], and
+Track F remained blocked pending the rest of Track E plus CP-3. M3251 then
+passed the E2 Chrono protocol smoke: 18/18 expected quick rows, clean 9.5/30 m
+reveals plus delay25 tight spot, finite reset obs and variant-match gates
+true. M3252 completed the full E2 verdict on the Sedan/TMeasy fixture:
+all row-count and protocol gates passed, clean oracle - best-floor qualified
+at 9.5 m and 12 m, and the verdict is
+`chrono_clean_belief_value_positive`. The delay25_tight readout remains
+secondary. M3253 then passed the E3 A/C protocol smoke with 4/4 rows,
+finite reset obs, variant matches, A long/lat detector traces, and C
+baseline/v4 recovery traces. Quick mode was non-verdict. M3254 then passed
+the E3 tire-truth telemetry connector smoke with 8/8 samples and 32/32 wheel
+rows; every sample exposed four finite wheel rows with positive normal loads.
+M3255 completed the full frozen E3 panel: 24/24 latency rows, 72/72 recovery
+rows, all protocol gates passed, CP-3 evidence ready, and Track F still not
+admitted. CP-3 is now the hard stop before Track F.
 
 ## Pointer Table
 
@@ -317,7 +425,7 @@ pricing evidence rather than another local learning-interface repair.
 | Phase-2 plan v2 (active program definition) | `docs/research-plan-phase2-capability-boundary-tracking.md` |
 | Takeover decision (why M3213 was blocked) | `docs/feasibility-takeover-2026-06-route-decision.md` |
 | Gate protocol v2 (anchors before informative actions; R²≤0.1 self-check) | `docs/selfid-gate-protocol-v2-2026-06.md` |
-| Latest harness milestone (M3247: C1-v4 Stage-B first-rung failure) | `docs/m3247-c1-v4-stage-b-guarded-rl.md` |
+| Latest harness milestone (M3254: Phase-4 E3 Chrono tire telemetry smoke) | `docs/m3254-phase4-e3-chrono-tire-telemetry-smoke.md` |
 | Resolved blocked-dependency escalation (M3243: PI reopened C1-v3) | `docs/escalations/2026-06-12-phase3-roadmap-exhausted-pi-route.md` |
 | Thesis capstone + RL re-entry (Sections 10-11) | `docs/capability-boundary-tracking-thesis-2026-06.md` |
 | Data coverage map (C5 sampling design authority) | `docs/data-coverage-map-2026-06.md` |

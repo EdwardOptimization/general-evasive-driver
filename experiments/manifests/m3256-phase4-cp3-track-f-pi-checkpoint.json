@@ -1,0 +1,183 @@
+{
+  "id": "m3256-phase4-cp3-track-f-pi-checkpoint",
+  "priority": 32560,
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "milestone_intent": "process",
+  "hypothesis": "A Phase-4 CP-3 process gate can record that the Track-E Sedan/TMeasy evidence package is complete while Track F remains blocked on PI target and GPU-days budget confirmation before validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof paper or self-ID claim.",
+  "lineage": {
+    "parent_checkpoint": [
+      "docs/current-status.md",
+      "docs/roadmap-phase3-codex-execution.md",
+      "docs/escalations/2026-06-13-phase4-cp3-track-f-pi-checkpoint.md"
+    ],
+    "parent_dataset": [
+      "experiments/feasibility_audit/phase4_e1_spread_revival_full.json",
+      "experiments/feasibility_audit/phase4_e2_chrono_two_regime_full.json",
+      "experiments/feasibility_audit/phase4_e3_chrono_measurement_ac_full.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m3250-phase4-e1-spread-revival-pricing-full.json",
+      "experiments/manifests/m3252-phase4-e2-chrono-two-regime-full.json",
+      "experiments/manifests/m3255-phase4-e3-chrono-measurement-ac-full.json"
+    ],
+    "parent_objective": [
+      "Phase-4 Track E has completed E1/E2/E3 on the default Chrono Sedan/TMeasy fixture",
+      "Track F may not start before PI CP-3 confirms targets and budget"
+    ],
+    "derived_from": [
+      "M3250 rejected E1 spread revival",
+      "M3252 completed the full E2 clean Chrono belief-value verdict",
+      "M3255 completed the full E3 detector-latency and recovery-budget verdict with CP-3 evidence ready"
+    ],
+    "blocked_by": [
+      "PI CP-3 disposition is missing",
+      "Track F targets and GPU-days budget are not approved",
+      "Codex sessions may not self-approve Track F"
+    ],
+    "supersedes": [
+      "treating next_task=null as an implicit Track-F approval",
+      "starting F1 from completed Track E without an explicit CP-3 disposition"
+    ],
+    "invalidates": [
+      "launching robotics-parity RL before CP-3",
+      "using M3255 CP-3 evidence readiness as CP-3 approval",
+      "creating completed bookkeeping milestones while waiting for PI"
+    ]
+  },
+  "review_artifact": "docs/escalations/2026-06-13-phase4-cp3-track-f-pi-checkpoint.md",
+  "public_gates": [
+    "The CP-3 gate must cite completed E1, E2, and E3 artifacts",
+    "The CP-3 gate must record that Track F remains blocked until PI confirms targets and budget",
+    "The CP-3 gate must not run training, mutate the incumbent, or admit Track F",
+    "The CP-3 gate must be represented as a blocked queue row, not a completed bookkeeping milestone"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not self-approve CP-3",
+    "do not start F1/F2/F3 before the PI disposition",
+    "do not launch PPO, supervised training, guarded RL, or policy checkpoints from this gate",
+    "do not change ActiveSafetyReflexDriver",
+    "do not claim driver performance, full high-fidelity sufficiency, paper readiness, repair success, feasibility proof, Track F admission, or self-ID from this process gate"
+  ],
+  "workflow_synthesis": {
+    "branch": "phase4_track_f_cp3_checkpoint",
+    "evidence_axis": "cp3_pi_checkpoint_blocker",
+    "evidence_increment": "records that Track E is complete and Track F is blocked on PI CP-3 rather than on missing E evidence",
+    "claim_scope": "Process blocker only; incumbent unchanged; no validation ranking, promotion, driver-performance, current-sim sufficiency, full high-fidelity sufficiency, paper, repair-success, robustness-result, feasibility-proof, Track F admission, or self-ID claim",
+    "stop_condition": [
+      "stop while CP-3 has no PI disposition",
+      "resume only after PI records approval, rejection, or a concrete additional preregistered unit",
+      "do not convert this blocked gate into a completed bookkeeping milestone"
+    ],
+    "fallback_plan": [
+      "if PI approves Track F, register the first F1 infrastructure unit with preregistered scope and managed-run discipline",
+      "if PI rejects Track F, record the rejection and close Phase-4 Track F",
+      "if PI requests more evidence, register that exact preregistered pricing or measurement unit"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M3255 completed full E3 and roadmap marks F1-F3 blocked on CP-3",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "Record the CP-3 blocker after Track E completion; no model update.",
+    "admission_evidence": [
+      "M3250 E1 full pricing completed",
+      "M3252 E2 full pricing completed",
+      "M3255 E3 full safety measurement completed",
+      "docs/roadmap-phase3-codex-execution.md marks F1-F3 blocked on CP-3"
+    ],
+    "blocked_shortcuts": [
+      "no RL or PPO",
+      "no incumbent mutation",
+      "no Track F admission",
+      "no self-ID or history-attribution claim"
+    ],
+    "allowed_updates": [
+      "docs/escalations/2026-06-13-phase4-cp3-track-f-pi-checkpoint.md",
+      "experiments/research_queue.csv",
+      "experiments/research_status.json",
+      "docs/current-status.md",
+      "docs/roadmap-phase3-codex-execution.md"
+    ],
+    "next_stage_criteria": [
+      "PI CP-3 approval, rejection, or explicit request for an additional preregistered unit",
+      "After approval, the next executable unit must be F1 infrastructure and not F2/F3 training"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "This process gate makes no history or self-ID claim.",
+    "history_necessity_tests": [
+      "none in the CP-3 process gate"
+    ],
+    "temporal_evidence_window": "not applicable; no learned policy is evaluated",
+    "negative_result_policy": "If CP-3 is not approved, report that decision directly rather than converting it into training admission.",
+    "allowed_claims": [
+      "Track E evidence is complete for the Sedan/TMeasy fixture",
+      "Track F is blocked on PI CP-3",
+      "No Track F admission exists before PI disposition"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "synthesis_decision",
+    "process_overhead": "low",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "records the external CP-3 decision dependency after completed Track-E evidence",
+    "paper_verdict_delta": "No paper verdict; this preserves the boundary that Track F cannot start without PI.",
+    "must_synthesize_if": [
+      "another CP-3 waiting row is proposed without PI disposition",
+      "Track F work is proposed before CP-3",
+      "M3255 evidence readiness is treated as approval"
+    ]
+  },
+  "success_criteria": [
+    "docs/escalations/2026-06-13-phase4-cp3-track-f-pi-checkpoint.md records the blocker and resume condition",
+    "experiments/research_queue.csv carries m3256 as blocked",
+    "make research-plan reports no pending task before PI CP-3",
+    "make research-validate passes"
+  ],
+  "failure_criteria": [
+    "m3256 is marked completed without PI CP-3 disposition",
+    "m3256 admits Track F or starts F1/F2/F3",
+    "m3256 claims driver performance, high-fidelity sufficiency, paper readiness, repair success, feasibility proof, or self-ID",
+    "m3256 omits the escalation/resume condition"
+  ],
+  "decision_rule": "Keep M3256 blocked until PI records a CP-3 disposition. This gate passes only as a blocked-state consistency record; it is not executable research.",
+  "commands": [
+    {
+      "name": "blocked_on_cp3",
+      "command": "python -c \"raise SystemExit('blocked pending PI CP-3 disposition')\""
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/escalations/2026-06-13-phase4-cp3-track-f-pi-checkpoint.md",
+      "type": "markdown"
+    },
+    {
+      "path": "docs/current-status.md",
+      "type": "markdown"
+    },
+    {
+      "path": "docs/roadmap-phase3-codex-execution.md",
+      "type": "markdown"
+    }
+  ],
+  "baseline_checkpoints": [
+    "docs/current-status.md",
+    "docs/roadmap-phase3-codex-execution.md",
+    "docs/m3250-phase4-e1-spread-revival-pricing-full.md",
+    "docs/m3252-phase4-e2-chrono-two-regime-full.md",
+    "docs/m3255-phase4-e3-chrono-measurement-ac-full.md"
+  ],
+  "metric_extractors": [],
+  "gates": []
+}

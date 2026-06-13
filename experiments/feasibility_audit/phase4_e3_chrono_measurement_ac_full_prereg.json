@@ -1,0 +1,1089 @@
+{
+  "chrono_variant": "sedan_tmeasy",
+  "claim_boundary": "Phase-4 E3 full Chrono measurement A/C only: measurement A compares the obs72 shortfall detector to frozen Chrono tire-truth onset definitions, and measurement C quantifies the baseline/v4 recoverable-set budget from frozen injected planar overshoot states on Sedan/TMeasy. This is zero training and makes no incumbent mutation, validation ranking, promotion, driver-performance, full high-fidelity sufficiency, paper, repair-success, robustness-result, feasibility-proof, Track-F-admission, or self-ID claim.",
+  "decision_rule": "M3255 completes full E3 iff row-count and protocol gates pass. Detector-latency and recovery-budget safety readouts are reported as measured; negative safety readouts do not become protocol failures and do not admit Track F.",
+  "dependencies": {
+    "e0_artifact": "experiments/feasibility_audit/chrono_spread_expressibility_audit.json",
+    "e2_full_artifact": "experiments/feasibility_audit/phase4_e2_chrono_two_regime_full.json",
+    "e3_smoke_artifact": "experiments/feasibility_audit/phase4_e3_chrono_measurement_ac_quick.json",
+    "tire_telemetry_smoke_artifact": "experiments/feasibility_audit/phase4_e3_chrono_tire_telemetry_quick.json"
+  },
+  "dt": 0.02,
+  "expected_full_latency_rows": 24,
+  "expected_full_recovery_rows": 72,
+  "expected_quick_latency_rows": 2,
+  "expected_quick_recovery_rows": 4,
+  "frozen_at_utc": "20260613T020100Z",
+  "frozen_before_any_full_e3_rollout": true,
+  "measurement_a": {
+    "cases": [
+      {
+        "axis": "long",
+        "case_id": "A_long_mu0.45_rate0.2_s0",
+        "mu": 0.45,
+        "rate": 0.2,
+        "seed": 194823266,
+        "seed_index": 0,
+        "tau": 0.15,
+        "truth_threshold": 0.25
+      },
+      {
+        "axis": "long",
+        "case_id": "A_long_mu0.45_rate0.2_s1",
+        "mu": 0.45,
+        "rate": 0.2,
+        "seed": 1720827143,
+        "seed_index": 1,
+        "tau": 0.15,
+        "truth_threshold": 0.25
+      },
+      {
+        "axis": "long",
+        "case_id": "A_long_mu0.45_rate0.3_s0",
+        "mu": 0.45,
+        "rate": 0.3,
+        "seed": 171499013,
+        "seed_index": 0,
+        "tau": 0.15,
+        "truth_threshold": 0.25
+      },
+      {
+        "axis": "long",
+        "case_id": "A_long_mu0.45_rate0.3_s1",
+        "mu": 0.45,
+        "rate": 0.3,
+        "seed": 977878430,
+        "seed_index": 1,
+        "tau": 0.15,
+        "truth_threshold": 0.25
+      },
+      {
+        "axis": "long",
+        "case_id": "A_long_mu0.5875_rate0.2_s0",
+        "mu": 0.5875,
+        "rate": 0.2,
+        "seed": 1806907434,
+        "seed_index": 0,
+        "tau": 0.15,
+        "truth_threshold": 0.25
+      },
+      {
+        "axis": "long",
+        "case_id": "A_long_mu0.5875_rate0.2_s1",
+        "mu": 0.5875,
+        "rate": 0.2,
+        "seed": 1189913880,
+        "seed_index": 1,
+        "tau": 0.15,
+        "truth_threshold": 0.25
+      },
+      {
+        "axis": "long",
+        "case_id": "A_long_mu0.5875_rate0.3_s0",
+        "mu": 0.5875,
+        "rate": 0.3,
+        "seed": 262842833,
+        "seed_index": 0,
+        "tau": 0.15,
+        "truth_threshold": 0.25
+      },
+      {
+        "axis": "long",
+        "case_id": "A_long_mu0.5875_rate0.3_s1",
+        "mu": 0.5875,
+        "rate": 0.3,
+        "seed": 409521844,
+        "seed_index": 1,
+        "tau": 0.15,
+        "truth_threshold": 0.25
+      },
+      {
+        "axis": "long",
+        "case_id": "A_long_mu0.85_rate0.2_s0",
+        "mu": 0.85,
+        "rate": 0.2,
+        "seed": 474738594,
+        "seed_index": 0,
+        "tau": 0.15,
+        "truth_threshold": 0.25
+      },
+      {
+        "axis": "long",
+        "case_id": "A_long_mu0.85_rate0.2_s1",
+        "mu": 0.85,
+        "rate": 0.2,
+        "seed": 1427932591,
+        "seed_index": 1,
+        "tau": 0.15,
+        "truth_threshold": 0.25
+      },
+      {
+        "axis": "long",
+        "case_id": "A_long_mu0.85_rate0.3_s0",
+        "mu": 0.85,
+        "rate": 0.3,
+        "seed": 405490067,
+        "seed_index": 0,
+        "tau": 0.15,
+        "truth_threshold": 0.25
+      },
+      {
+        "axis": "long",
+        "case_id": "A_long_mu0.85_rate0.3_s1",
+        "mu": 0.85,
+        "rate": 0.3,
+        "seed": 376600173,
+        "seed_index": 1,
+        "tau": 0.15,
+        "truth_threshold": 0.25
+      },
+      {
+        "axis": "lat",
+        "case_id": "A_lat_mu0.45_rate0.18_s0",
+        "mu": 0.45,
+        "rate": 0.18,
+        "seed": 1125940445,
+        "seed_index": 0,
+        "tau": 0.03,
+        "truth_threshold": 0.05
+      },
+      {
+        "axis": "lat",
+        "case_id": "A_lat_mu0.45_rate0.18_s1",
+        "mu": 0.45,
+        "rate": 0.18,
+        "seed": 13569038,
+        "seed_index": 1,
+        "tau": 0.03,
+        "truth_threshold": 0.05
+      },
+      {
+        "axis": "lat",
+        "case_id": "A_lat_mu0.45_rate0.25_s0",
+        "mu": 0.45,
+        "rate": 0.25,
+        "seed": 254032652,
+        "seed_index": 0,
+        "tau": 0.03,
+        "truth_threshold": 0.05
+      },
+      {
+        "axis": "lat",
+        "case_id": "A_lat_mu0.45_rate0.25_s1",
+        "mu": 0.45,
+        "rate": 0.25,
+        "seed": 1329809564,
+        "seed_index": 1,
+        "tau": 0.03,
+        "truth_threshold": 0.05
+      },
+      {
+        "axis": "lat",
+        "case_id": "A_lat_mu0.5875_rate0.18_s0",
+        "mu": 0.5875,
+        "rate": 0.18,
+        "seed": 862458493,
+        "seed_index": 0,
+        "tau": 0.03,
+        "truth_threshold": 0.05
+      },
+      {
+        "axis": "lat",
+        "case_id": "A_lat_mu0.5875_rate0.18_s1",
+        "mu": 0.5875,
+        "rate": 0.18,
+        "seed": 399311588,
+        "seed_index": 1,
+        "tau": 0.03,
+        "truth_threshold": 0.05
+      },
+      {
+        "axis": "lat",
+        "case_id": "A_lat_mu0.5875_rate0.25_s0",
+        "mu": 0.5875,
+        "rate": 0.25,
+        "seed": 1949167561,
+        "seed_index": 0,
+        "tau": 0.03,
+        "truth_threshold": 0.05
+      },
+      {
+        "axis": "lat",
+        "case_id": "A_lat_mu0.5875_rate0.25_s1",
+        "mu": 0.5875,
+        "rate": 0.25,
+        "seed": 1892286120,
+        "seed_index": 1,
+        "tau": 0.03,
+        "truth_threshold": 0.05
+      },
+      {
+        "axis": "lat",
+        "case_id": "A_lat_mu0.85_rate0.18_s0",
+        "mu": 0.85,
+        "rate": 0.18,
+        "seed": 64851520,
+        "seed_index": 0,
+        "tau": 0.03,
+        "truth_threshold": 0.05
+      },
+      {
+        "axis": "lat",
+        "case_id": "A_lat_mu0.85_rate0.18_s1",
+        "mu": 0.85,
+        "rate": 0.18,
+        "seed": 100612728,
+        "seed_index": 1,
+        "tau": 0.03,
+        "truth_threshold": 0.05
+      },
+      {
+        "axis": "lat",
+        "case_id": "A_lat_mu0.85_rate0.25_s0",
+        "mu": 0.85,
+        "rate": 0.25,
+        "seed": 307868451,
+        "seed_index": 0,
+        "tau": 0.03,
+        "truth_threshold": 0.05
+      },
+      {
+        "axis": "lat",
+        "case_id": "A_lat_mu0.85_rate0.25_s1",
+        "mu": 0.85,
+        "rate": 0.25,
+        "seed": 221988971,
+        "seed_index": 1,
+        "tau": 0.03,
+        "truth_threshold": 0.05
+      }
+    ],
+    "description": "obs72 SlipOnsetDetector latency against Chrono tire-truth onset",
+    "quick_cases": [
+      {
+        "axis": "long",
+        "case_id": "A_long_mu0.45_rate0.2_s0",
+        "mu": 0.45,
+        "rate": 0.2,
+        "seed": 194823266,
+        "seed_index": 0,
+        "tau": 0.15,
+        "truth_threshold": 0.25
+      },
+      {
+        "axis": "lat",
+        "case_id": "A_lat_mu0.45_rate0.18_s0",
+        "mu": 0.45,
+        "rate": 0.18,
+        "seed": 1125940445,
+        "seed_index": 0,
+        "tau": 0.03,
+        "truth_threshold": 0.05
+      }
+    ],
+    "safety_gating_thresholds": {
+      "miss_rate_max": 0.25,
+      "p90_latency_s_max": 3.0,
+      "p90_latency_steps_max": 150
+    },
+    "truth_definitions": {
+      "lat": "first step >= 10 where max_abs_tire_slip_angle_rad >= 0.05 for 2 consecutive steps",
+      "long": "first step >= 10 where max_abs_tire_longitudinal_slip >= 0.25 for 2 consecutive steps",
+      "truth_min_step": 10,
+      "truth_persist_steps": 2
+    }
+  },
+  "measurement_c": {
+    "cases": [
+      {
+        "case_id": "C_mu0.45_o1.05_off0.5_baseline_coast_s0",
+        "driver": "baseline_coast",
+        "mu": 0.45,
+        "offset_m": 0.5,
+        "overshoot": 1.05,
+        "seed": 1591833954,
+        "seed_index": 0,
+        "speed_mps": 8.0
+      },
+      {
+        "case_id": "C_mu0.45_o1.05_off0.5_baseline_coast_s1",
+        "driver": "baseline_coast",
+        "mu": 0.45,
+        "offset_m": 0.5,
+        "overshoot": 1.05,
+        "seed": 1592035627,
+        "seed_index": 1,
+        "speed_mps": 8.0
+      },
+      {
+        "case_id": "C_mu0.45_o1.05_off0.5_v4_incumbent_s0",
+        "driver": "v4_incumbent",
+        "mu": 0.45,
+        "offset_m": 0.5,
+        "overshoot": 1.05,
+        "seed": 1209035526,
+        "seed_index": 0,
+        "speed_mps": 8.0
+      },
+      {
+        "case_id": "C_mu0.45_o1.05_off0.5_v4_incumbent_s1",
+        "driver": "v4_incumbent",
+        "mu": 0.45,
+        "offset_m": 0.5,
+        "overshoot": 1.05,
+        "seed": 549724156,
+        "seed_index": 1,
+        "speed_mps": 8.0
+      },
+      {
+        "case_id": "C_mu0.45_o1.05_off1.5_baseline_coast_s0",
+        "driver": "baseline_coast",
+        "mu": 0.45,
+        "offset_m": 1.5,
+        "overshoot": 1.05,
+        "seed": 1839128967,
+        "seed_index": 0,
+        "speed_mps": 8.0
+      },
+      {
+        "case_id": "C_mu0.45_o1.05_off1.5_baseline_coast_s1",
+        "driver": "baseline_coast",
+        "mu": 0.45,
+        "offset_m": 1.5,
+        "overshoot": 1.05,
+        "seed": 1893703394,
+        "seed_index": 1,
+        "speed_mps": 8.0
+      },
+      {
+        "case_id": "C_mu0.45_o1.05_off1.5_v4_incumbent_s0",
+        "driver": "v4_incumbent",
+        "mu": 0.45,
+        "offset_m": 1.5,
+        "overshoot": 1.05,
+        "seed": 1507515943,
+        "seed_index": 0,
+        "speed_mps": 8.0
+      },
+      {
+        "case_id": "C_mu0.45_o1.05_off1.5_v4_incumbent_s1",
+        "driver": "v4_incumbent",
+        "mu": 0.45,
+        "offset_m": 1.5,
+        "overshoot": 1.05,
+        "seed": 31977622,
+        "seed_index": 1,
+        "speed_mps": 8.0
+      },
+      {
+        "case_id": "C_mu0.45_o1.15_off0.5_baseline_coast_s0",
+        "driver": "baseline_coast",
+        "mu": 0.45,
+        "offset_m": 0.5,
+        "overshoot": 1.15,
+        "seed": 1621834706,
+        "seed_index": 0,
+        "speed_mps": 8.0
+      },
+      {
+        "case_id": "C_mu0.45_o1.15_off0.5_baseline_coast_s1",
+        "driver": "baseline_coast",
+        "mu": 0.45,
+        "offset_m": 0.5,
+        "overshoot": 1.15,
+        "seed": 1176439182,
+        "seed_index": 1,
+        "speed_mps": 8.0
+      },
+      {
+        "case_id": "C_mu0.45_o1.15_off0.5_v4_incumbent_s0",
+        "driver": "v4_incumbent",
+        "mu": 0.45,
+        "offset_m": 0.5,
+        "overshoot": 1.15,
+        "seed": 1100010227,
+        "seed_index": 0,
+        "speed_mps": 8.0
+      },
+      {
+        "case_id": "C_mu0.45_o1.15_off0.5_v4_incumbent_s1",
+        "driver": "v4_incumbent",
+        "mu": 0.45,
+        "offset_m": 0.5,
+        "overshoot": 1.15,
+        "seed": 1093984271,
+        "seed_index": 1,
+        "speed_mps": 8.0
+      },
+      {
+        "case_id": "C_mu0.45_o1.15_off1.5_baseline_coast_s0",
+        "driver": "baseline_coast",
+        "mu": 0.45,
+        "offset_m": 1.5,
+        "overshoot": 1.15,
+        "seed": 1851356304,
+        "seed_index": 0,
+        "speed_mps": 8.0
+      },
+      {
+        "case_id": "C_mu0.45_o1.15_off1.5_baseline_coast_s1",
+        "driver": "baseline_coast",
+        "mu": 0.45,
+        "offset_m": 1.5,
+        "overshoot": 1.15,
+        "seed": 68634317,
+        "seed_index": 1,
+        "speed_mps": 8.0
+      },
+      {
+        "case_id": "C_mu0.45_o1.15_off1.5_v4_incumbent_s0",
+        "driver": "v4_incumbent",
+        "mu": 0.45,
+        "offset_m": 1.5,
+        "overshoot": 1.15,
+        "seed": 246211396,
+        "seed_index": 0,
+        "speed_mps": 8.0
+      },
+      {
+        "case_id": "C_mu0.45_o1.15_off1.5_v4_incumbent_s1",
+        "driver": "v4_incumbent",
+        "mu": 0.45,
+        "offset_m": 1.5,
+        "overshoot": 1.15,
+        "seed": 660073799,
+        "seed_index": 1,
+        "speed_mps": 8.0
+      },
+      {
+        "case_id": "C_mu0.45_o1.3_off0.5_baseline_coast_s0",
+        "driver": "baseline_coast",
+        "mu": 0.45,
+        "offset_m": 0.5,
+        "overshoot": 1.3,
+        "seed": 63410974,
+        "seed_index": 0,
+        "speed_mps": 8.0
+      },
+      {
+        "case_id": "C_mu0.45_o1.3_off0.5_baseline_coast_s1",
+        "driver": "baseline_coast",
+        "mu": 0.45,
+        "offset_m": 0.5,
+        "overshoot": 1.3,
+        "seed": 1074159339,
+        "seed_index": 1,
+        "speed_mps": 8.0
+      },
+      {
+        "case_id": "C_mu0.45_o1.3_off0.5_v4_incumbent_s0",
+        "driver": "v4_incumbent",
+        "mu": 0.45,
+        "offset_m": 0.5,
+        "overshoot": 1.3,
+        "seed": 1096263107,
+        "seed_index": 0,
+        "speed_mps": 8.0
+      },
+      {
+        "case_id": "C_mu0.45_o1.3_off0.5_v4_incumbent_s1",
+        "driver": "v4_incumbent",
+        "mu": 0.45,
+        "offset_m": 0.5,
+        "overshoot": 1.3,
+        "seed": 1239222711,
+        "seed_index": 1,
+        "speed_mps": 8.0
+      },
+      {
+        "case_id": "C_mu0.45_o1.3_off1.5_baseline_coast_s0",
+        "driver": "baseline_coast",
+        "mu": 0.45,
+        "offset_m": 1.5,
+        "overshoot": 1.3,
+        "seed": 659183340,
+        "seed_index": 0,
+        "speed_mps": 8.0
+      },
+      {
+        "case_id": "C_mu0.45_o1.3_off1.5_baseline_coast_s1",
+        "driver": "baseline_coast",
+        "mu": 0.45,
+        "offset_m": 1.5,
+        "overshoot": 1.3,
+        "seed": 1029855860,
+        "seed_index": 1,
+        "speed_mps": 8.0
+      },
+      {
+        "case_id": "C_mu0.45_o1.3_off1.5_v4_incumbent_s0",
+        "driver": "v4_incumbent",
+        "mu": 0.45,
+        "offset_m": 1.5,
+        "overshoot": 1.3,
+        "seed": 1375613805,
+        "seed_index": 0,
+        "speed_mps": 8.0
+      },
+      {
+        "case_id": "C_mu0.45_o1.3_off1.5_v4_incumbent_s1",
+        "driver": "v4_incumbent",
+        "mu": 0.45,
+        "offset_m": 1.5,
+        "overshoot": 1.3,
+        "seed": 219167571,
+        "seed_index": 1,
+        "speed_mps": 8.0
+      },
+      {
+        "case_id": "C_mu0.5875_o1.05_off0.5_baseline_coast_s0",
+        "driver": "baseline_coast",
+        "mu": 0.5875,
+        "offset_m": 0.5,
+        "overshoot": 1.05,
+        "seed": 1171075667,
+        "seed_index": 0,
+        "speed_mps": 8.0
+      },
+      {
+        "case_id": "C_mu0.5875_o1.05_off0.5_baseline_coast_s1",
+        "driver": "baseline_coast",
+        "mu": 0.5875,
+        "offset_m": 0.5,
+        "overshoot": 1.05,
+        "seed": 1142015867,
+        "seed_index": 1,
+        "speed_mps": 8.0
+      },
+      {
+        "case_id": "C_mu0.5875_o1.05_off0.5_v4_incumbent_s0",
+        "driver": "v4_incumbent",
+        "mu": 0.5875,
+        "offset_m": 0.5,
+        "overshoot": 1.05,
+        "seed": 1735937289,
+        "seed_index": 0,
+        "speed_mps": 8.0
+      },
+      {
+        "case_id": "C_mu0.5875_o1.05_off0.5_v4_incumbent_s1",
+        "driver": "v4_incumbent",
+        "mu": 0.5875,
+        "offset_m": 0.5,
+        "overshoot": 1.05,
+        "seed": 1451311107,
+        "seed_index": 1,
+        "speed_mps": 8.0
+      },
+      {
+        "case_id": "C_mu0.5875_o1.05_off1.5_baseline_coast_s0",
+        "driver": "baseline_coast",
+        "mu": 0.5875,
+        "offset_m": 1.5,
+        "overshoot": 1.05,
+        "seed": 1700043830,
+        "seed_index": 0,
+        "speed_mps": 8.0
+      },
+      {
+        "case_id": "C_mu0.5875_o1.05_off1.5_baseline_coast_s1",
+        "driver": "baseline_coast",
+        "mu": 0.5875,
+        "offset_m": 1.5,
+        "overshoot": 1.05,
+        "seed": 1442387283,
+        "seed_index": 1,
+        "speed_mps": 8.0
+      },
+      {
+        "case_id": "C_mu0.5875_o1.05_off1.5_v4_incumbent_s0",
+        "driver": "v4_incumbent",
+        "mu": 0.5875,
+        "offset_m": 1.5,
+        "overshoot": 1.05,
+        "seed": 535789117,
+        "seed_index": 0,
+        "speed_mps": 8.0
+      },
+      {
+        "case_id": "C_mu0.5875_o1.05_off1.5_v4_incumbent_s1",
+        "driver": "v4_incumbent",
+        "mu": 0.5875,
+        "offset_m": 1.5,
+        "overshoot": 1.05,
+        "seed": 386251598,
+        "seed_index": 1,
+        "speed_mps": 8.0
+      },
+      {
+        "case_id": "C_mu0.5875_o1.15_off0.5_baseline_coast_s0",
+        "driver": "baseline_coast",
+        "mu": 0.5875,
+        "offset_m": 0.5,
+        "overshoot": 1.15,
+        "seed": 713689592,
+        "seed_index": 0,
+        "speed_mps": 8.0
+      },
+      {
+        "case_id": "C_mu0.5875_o1.15_off0.5_baseline_coast_s1",
+        "driver": "baseline_coast",
+        "mu": 0.5875,
+        "offset_m": 0.5,
+        "overshoot": 1.15,
+        "seed": 1689674144,
+        "seed_index": 1,
+        "speed_mps": 8.0
+      },
+      {
+        "case_id": "C_mu0.5875_o1.15_off0.5_v4_incumbent_s0",
+        "driver": "v4_incumbent",
+        "mu": 0.5875,
+        "offset_m": 0.5,
+        "overshoot": 1.15,
+        "seed": 1021769873,
+        "seed_index": 0,
+        "speed_mps": 8.0
+      },
+      {
+        "case_id": "C_mu0.5875_o1.15_off0.5_v4_incumbent_s1",
+        "driver": "v4_incumbent",
+        "mu": 0.5875,
+        "offset_m": 0.5,
+        "overshoot": 1.15,
+        "seed": 717726994,
+        "seed_index": 1,
+        "speed_mps": 8.0
+      },
+      {
+        "case_id": "C_mu0.5875_o1.15_off1.5_baseline_coast_s0",
+        "driver": "baseline_coast",
+        "mu": 0.5875,
+        "offset_m": 1.5,
+        "overshoot": 1.15,
+        "seed": 1703583753,
+        "seed_index": 0,
+        "speed_mps": 8.0
+      },
+      {
+        "case_id": "C_mu0.5875_o1.15_off1.5_baseline_coast_s1",
+        "driver": "baseline_coast",
+        "mu": 0.5875,
+        "offset_m": 1.5,
+        "overshoot": 1.15,
+        "seed": 1682828508,
+        "seed_index": 1,
+        "speed_mps": 8.0
+      },
+      {
+        "case_id": "C_mu0.5875_o1.15_off1.5_v4_incumbent_s0",
+        "driver": "v4_incumbent",
+        "mu": 0.5875,
+        "offset_m": 1.5,
+        "overshoot": 1.15,
+        "seed": 1702207919,
+        "seed_index": 0,
+        "speed_mps": 8.0
+      },
+      {
+        "case_id": "C_mu0.5875_o1.15_off1.5_v4_incumbent_s1",
+        "driver": "v4_incumbent",
+        "mu": 0.5875,
+        "offset_m": 1.5,
+        "overshoot": 1.15,
+        "seed": 177187493,
+        "seed_index": 1,
+        "speed_mps": 8.0
+      },
+      {
+        "case_id": "C_mu0.5875_o1.3_off0.5_baseline_coast_s0",
+        "driver": "baseline_coast",
+        "mu": 0.5875,
+        "offset_m": 0.5,
+        "overshoot": 1.3,
+        "seed": 924450503,
+        "seed_index": 0,
+        "speed_mps": 8.0
+      },
+      {
+        "case_id": "C_mu0.5875_o1.3_off0.5_baseline_coast_s1",
+        "driver": "baseline_coast",
+        "mu": 0.5875,
+        "offset_m": 0.5,
+        "overshoot": 1.3,
+        "seed": 1556725236,
+        "seed_index": 1,
+        "speed_mps": 8.0
+      },
+      {
+        "case_id": "C_mu0.5875_o1.3_off0.5_v4_incumbent_s0",
+        "driver": "v4_incumbent",
+        "mu": 0.5875,
+        "offset_m": 0.5,
+        "overshoot": 1.3,
+        "seed": 1618481542,
+        "seed_index": 0,
+        "speed_mps": 8.0
+      },
+      {
+        "case_id": "C_mu0.5875_o1.3_off0.5_v4_incumbent_s1",
+        "driver": "v4_incumbent",
+        "mu": 0.5875,
+        "offset_m": 0.5,
+        "overshoot": 1.3,
+        "seed": 999744230,
+        "seed_index": 1,
+        "speed_mps": 8.0
+      },
+      {
+        "case_id": "C_mu0.5875_o1.3_off1.5_baseline_coast_s0",
+        "driver": "baseline_coast",
+        "mu": 0.5875,
+        "offset_m": 1.5,
+        "overshoot": 1.3,
+        "seed": 947366882,
+        "seed_index": 0,
+        "speed_mps": 8.0
+      },
+      {
+        "case_id": "C_mu0.5875_o1.3_off1.5_baseline_coast_s1",
+        "driver": "baseline_coast",
+        "mu": 0.5875,
+        "offset_m": 1.5,
+        "overshoot": 1.3,
+        "seed": 606917745,
+        "seed_index": 1,
+        "speed_mps": 8.0
+      },
+      {
+        "case_id": "C_mu0.5875_o1.3_off1.5_v4_incumbent_s0",
+        "driver": "v4_incumbent",
+        "mu": 0.5875,
+        "offset_m": 1.5,
+        "overshoot": 1.3,
+        "seed": 614192224,
+        "seed_index": 0,
+        "speed_mps": 8.0
+      },
+      {
+        "case_id": "C_mu0.5875_o1.3_off1.5_v4_incumbent_s1",
+        "driver": "v4_incumbent",
+        "mu": 0.5875,
+        "offset_m": 1.5,
+        "overshoot": 1.3,
+        "seed": 816926349,
+        "seed_index": 1,
+        "speed_mps": 8.0
+      },
+      {
+        "case_id": "C_mu0.85_o1.05_off0.5_baseline_coast_s0",
+        "driver": "baseline_coast",
+        "mu": 0.85,
+        "offset_m": 0.5,
+        "overshoot": 1.05,
+        "seed": 538921453,
+        "seed_index": 0,
+        "speed_mps": 8.0
+      },
+      {
+        "case_id": "C_mu0.85_o1.05_off0.5_baseline_coast_s1",
+        "driver": "baseline_coast",
+        "mu": 0.85,
+        "offset_m": 0.5,
+        "overshoot": 1.05,
+        "seed": 857450462,
+        "seed_index": 1,
+        "speed_mps": 8.0
+      },
+      {
+        "case_id": "C_mu0.85_o1.05_off0.5_v4_incumbent_s0",
+        "driver": "v4_incumbent",
+        "mu": 0.85,
+        "offset_m": 0.5,
+        "overshoot": 1.05,
+        "seed": 1264785814,
+        "seed_index": 0,
+        "speed_mps": 8.0
+      },
+      {
+        "case_id": "C_mu0.85_o1.05_off0.5_v4_incumbent_s1",
+        "driver": "v4_incumbent",
+        "mu": 0.85,
+        "offset_m": 0.5,
+        "overshoot": 1.05,
+        "seed": 263342278,
+        "seed_index": 1,
+        "speed_mps": 8.0
+      },
+      {
+        "case_id": "C_mu0.85_o1.05_off1.5_baseline_coast_s0",
+        "driver": "baseline_coast",
+        "mu": 0.85,
+        "offset_m": 1.5,
+        "overshoot": 1.05,
+        "seed": 807708806,
+        "seed_index": 0,
+        "speed_mps": 8.0
+      },
+      {
+        "case_id": "C_mu0.85_o1.05_off1.5_baseline_coast_s1",
+        "driver": "baseline_coast",
+        "mu": 0.85,
+        "offset_m": 1.5,
+        "overshoot": 1.05,
+        "seed": 729078214,
+        "seed_index": 1,
+        "speed_mps": 8.0
+      },
+      {
+        "case_id": "C_mu0.85_o1.05_off1.5_v4_incumbent_s0",
+        "driver": "v4_incumbent",
+        "mu": 0.85,
+        "offset_m": 1.5,
+        "overshoot": 1.05,
+        "seed": 171521173,
+        "seed_index": 0,
+        "speed_mps": 8.0
+      },
+      {
+        "case_id": "C_mu0.85_o1.05_off1.5_v4_incumbent_s1",
+        "driver": "v4_incumbent",
+        "mu": 0.85,
+        "offset_m": 1.5,
+        "overshoot": 1.05,
+        "seed": 1227285886,
+        "seed_index": 1,
+        "speed_mps": 8.0
+      },
+      {
+        "case_id": "C_mu0.85_o1.15_off0.5_baseline_coast_s0",
+        "driver": "baseline_coast",
+        "mu": 0.85,
+        "offset_m": 0.5,
+        "overshoot": 1.15,
+        "seed": 383466116,
+        "seed_index": 0,
+        "speed_mps": 8.0
+      },
+      {
+        "case_id": "C_mu0.85_o1.15_off0.5_baseline_coast_s1",
+        "driver": "baseline_coast",
+        "mu": 0.85,
+        "offset_m": 0.5,
+        "overshoot": 1.15,
+        "seed": 621376061,
+        "seed_index": 1,
+        "speed_mps": 8.0
+      },
+      {
+        "case_id": "C_mu0.85_o1.15_off0.5_v4_incumbent_s0",
+        "driver": "v4_incumbent",
+        "mu": 0.85,
+        "offset_m": 0.5,
+        "overshoot": 1.15,
+        "seed": 184063669,
+        "seed_index": 0,
+        "speed_mps": 8.0
+      },
+      {
+        "case_id": "C_mu0.85_o1.15_off0.5_v4_incumbent_s1",
+        "driver": "v4_incumbent",
+        "mu": 0.85,
+        "offset_m": 0.5,
+        "overshoot": 1.15,
+        "seed": 1989634243,
+        "seed_index": 1,
+        "speed_mps": 8.0
+      },
+      {
+        "case_id": "C_mu0.85_o1.15_off1.5_baseline_coast_s0",
+        "driver": "baseline_coast",
+        "mu": 0.85,
+        "offset_m": 1.5,
+        "overshoot": 1.15,
+        "seed": 1668464254,
+        "seed_index": 0,
+        "speed_mps": 8.0
+      },
+      {
+        "case_id": "C_mu0.85_o1.15_off1.5_baseline_coast_s1",
+        "driver": "baseline_coast",
+        "mu": 0.85,
+        "offset_m": 1.5,
+        "overshoot": 1.15,
+        "seed": 143663399,
+        "seed_index": 1,
+        "speed_mps": 8.0
+      },
+      {
+        "case_id": "C_mu0.85_o1.15_off1.5_v4_incumbent_s0",
+        "driver": "v4_incumbent",
+        "mu": 0.85,
+        "offset_m": 1.5,
+        "overshoot": 1.15,
+        "seed": 55233487,
+        "seed_index": 0,
+        "speed_mps": 8.0
+      },
+      {
+        "case_id": "C_mu0.85_o1.15_off1.5_v4_incumbent_s1",
+        "driver": "v4_incumbent",
+        "mu": 0.85,
+        "offset_m": 1.5,
+        "overshoot": 1.15,
+        "seed": 865403947,
+        "seed_index": 1,
+        "speed_mps": 8.0
+      },
+      {
+        "case_id": "C_mu0.85_o1.3_off0.5_baseline_coast_s0",
+        "driver": "baseline_coast",
+        "mu": 0.85,
+        "offset_m": 0.5,
+        "overshoot": 1.3,
+        "seed": 1402802212,
+        "seed_index": 0,
+        "speed_mps": 8.0
+      },
+      {
+        "case_id": "C_mu0.85_o1.3_off0.5_baseline_coast_s1",
+        "driver": "baseline_coast",
+        "mu": 0.85,
+        "offset_m": 0.5,
+        "overshoot": 1.3,
+        "seed": 1222065227,
+        "seed_index": 1,
+        "speed_mps": 8.0
+      },
+      {
+        "case_id": "C_mu0.85_o1.3_off0.5_v4_incumbent_s0",
+        "driver": "v4_incumbent",
+        "mu": 0.85,
+        "offset_m": 0.5,
+        "overshoot": 1.3,
+        "seed": 881063840,
+        "seed_index": 0,
+        "speed_mps": 8.0
+      },
+      {
+        "case_id": "C_mu0.85_o1.3_off0.5_v4_incumbent_s1",
+        "driver": "v4_incumbent",
+        "mu": 0.85,
+        "offset_m": 0.5,
+        "overshoot": 1.3,
+        "seed": 1550172603,
+        "seed_index": 1,
+        "speed_mps": 8.0
+      },
+      {
+        "case_id": "C_mu0.85_o1.3_off1.5_baseline_coast_s0",
+        "driver": "baseline_coast",
+        "mu": 0.85,
+        "offset_m": 1.5,
+        "overshoot": 1.3,
+        "seed": 494982420,
+        "seed_index": 0,
+        "speed_mps": 8.0
+      },
+      {
+        "case_id": "C_mu0.85_o1.3_off1.5_baseline_coast_s1",
+        "driver": "baseline_coast",
+        "mu": 0.85,
+        "offset_m": 1.5,
+        "overshoot": 1.3,
+        "seed": 252844479,
+        "seed_index": 1,
+        "speed_mps": 8.0
+      },
+      {
+        "case_id": "C_mu0.85_o1.3_off1.5_v4_incumbent_s0",
+        "driver": "v4_incumbent",
+        "mu": 0.85,
+        "offset_m": 1.5,
+        "overshoot": 1.3,
+        "seed": 1964653461,
+        "seed_index": 0,
+        "speed_mps": 8.0
+      },
+      {
+        "case_id": "C_mu0.85_o1.3_off1.5_v4_incumbent_s1",
+        "driver": "v4_incumbent",
+        "mu": 0.85,
+        "offset_m": 1.5,
+        "overshoot": 1.3,
+        "seed": 446950658,
+        "seed_index": 1,
+        "speed_mps": 8.0
+      }
+    ],
+    "description": "paired baseline_coast and v4_incumbent recovery from frozen planar overshoot states",
+    "quick_cases": [
+      {
+        "case_id": "C_mu0.45_o1.05_off0.5_baseline_coast_s0",
+        "driver": "baseline_coast",
+        "mu": 0.45,
+        "offset_m": 0.5,
+        "overshoot": 1.05,
+        "seed": 1591833954,
+        "seed_index": 0,
+        "speed_mps": 8.0
+      },
+      {
+        "case_id": "C_mu0.45_o1.05_off0.5_v4_incumbent_s0",
+        "driver": "v4_incumbent",
+        "mu": 0.45,
+        "offset_m": 0.5,
+        "overshoot": 1.05,
+        "seed": 1209035526,
+        "seed_index": 0,
+        "speed_mps": 8.0
+      },
+      {
+        "case_id": "C_mu0.45_o1.15_off0.5_baseline_coast_s0",
+        "driver": "baseline_coast",
+        "mu": 0.45,
+        "offset_m": 0.5,
+        "overshoot": 1.15,
+        "seed": 1621834706,
+        "seed_index": 0,
+        "speed_mps": 8.0
+      },
+      {
+        "case_id": "C_mu0.45_o1.15_off0.5_v4_incumbent_s0",
+        "driver": "v4_incumbent",
+        "mu": 0.45,
+        "offset_m": 0.5,
+        "overshoot": 1.15,
+        "seed": 1100010227,
+        "seed_index": 0,
+        "speed_mps": 8.0
+      }
+    ],
+    "recovery_definition": {
+      "horizon_steps": 180,
+      "stable_beta_rad": 0.08,
+      "stable_lateral_error_m": 2.5,
+      "stable_min_speed_mps": 1.5,
+      "stable_run_steps": 10,
+      "stable_yaw_surplus_radps": 0.2
+    },
+    "safety_gating_readouts": [
+      "baseline_coast recovery rate by overshoot tier",
+      "v4_incumbent recovery rate by overshoot tier",
+      "v4 minus baseline paired recovery delta for overshoot <= 1.15"
+    ]
+  },
+  "milestone": "m3255-phase4-e3-chrono-measurement-ac-full",
+  "protocol": "phase4_e3_chrono_measurement_ac_full_preregistration",
+  "roadmap_unit": "Phase-4 E3 full Chrono measurements A/C",
+  "runtime_gates": [
+    "all frozen measurement A and C rows are written",
+    "reset and runtime obs are finite obs72",
+    "backend_info variant ids match Sedan/TMeasy",
+    "tire telemetry is available with four wheel rows whenever sampled through diagnostics",
+    "measurement A writes tire-truth onset and obs72 detector latency readouts",
+    "measurement C writes paired baseline/v4 recovery readouts",
+    "Track F remains blocked pending PI CP-3"
+  ],
+  "seed_base": 2026061307
+}

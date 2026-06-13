@@ -1,0 +1,76 @@
+{
+  "calibration": {
+    "mu": 0.8125,
+    "reveal_m": 30.0,
+    "steps": 90,
+    "tau_rule": "tau = max(1.2 * max_shortfall_on_sublimit_fixed_ramp, 0.08)",
+    "variant_scope": "per quick Chrono vehicle variant"
+  },
+  "claim_boundary": "Phase-4 E2 Chrono two-regime-law protocol smoke only: the current-sim threshold-seeker / shortfall-detector controller family is ported to the Chrono worker interface and exercised on a tiny clean plus degraded spot panel. Quick mode is not a clean VoI(belief) or degraded revival verdict; it makes no training, validation ranking, promotion, driver-performance, full high-fidelity sufficiency, paper, repair-success, robustness-result, feasibility-proof, or self-ID claim.",
+  "decision_rule": "M3251 PASS iff the preregistered quick Chrono panel runs, all protocol gates pass, and the JSON/doc explicitly refuse a two-regime-law verdict. M3251 never opens Track F.",
+  "degradation_filter": {
+    "channels": "ego channels 0-8 only",
+    "command_history_channels": "unchanged",
+    "geometry_channels": "unchanged",
+    "spot_cell": "delay25_tight applies 25-step delay to the policy observation only"
+  },
+  "e0_artifact": "experiments/feasibility_audit/chrono_spread_expressibility_audit.json",
+  "e0_axis_table_sha256": "e5e7d2724585e4a997e079dd628d1efdf8829dfb00e4e0618a553fb30c2afe18",
+  "e1_full_artifact": "experiments/feasibility_audit/phase4_e1_spread_revival_full.json",
+  "e1_full_verdict": "e1_spread_revival_not_supported",
+  "frozen_at_utc": "20260612T191836Z",
+  "frozen_before_any_e2_chrono_rollout": true,
+  "full_e2_placeholder": {
+    "needed_next": "A separate full E2 milestone must freeze Chrono variants, clean reveal tiers, mu points, selection/validation seeds, degraded spot cells, paired CIs, and pass/negative thresholds before any two-regime-law verdict.",
+    "status": "not_registered_by_M3251"
+  },
+  "milestone": "m3251-phase4-e2-chrono-two-regime-smoke",
+  "protocol": "phase4_e2_chrono_two_regime_smoke_preregistration",
+  "quick_arms": [
+    "oracle_ramp",
+    "threshold_seeker",
+    "fixed_ramp"
+  ],
+  "quick_cells": [
+    {
+      "cell_id": "clean",
+      "delay_steps": 0,
+      "noise_std": 0.0,
+      "reveals": [
+        9.5,
+        30.0
+      ]
+    },
+    {
+      "cell_id": "delay25_tight",
+      "delay_steps": 25,
+      "noise_std": 0.0,
+      "reveals": [
+        9.5
+      ]
+    }
+  ],
+  "quick_mode_is_verdict": false,
+  "quick_mu_points": [
+    0.3625,
+    0.8125
+  ],
+  "quick_reveals": [
+    9.5,
+    30.0
+  ],
+  "quick_variants": [
+    "sedan_tmeasy"
+  ],
+  "roadmap_unit": "Phase-4 E2 Chrono two-regime law protocol smoke",
+  "runtime_gates": [
+    "E0 artifact admits the Chrono vehicle fixture envelope",
+    "E1 full artifact exists and keeps Track F blocked",
+    "the quick panel writes oracle_ramp, threshold_seeker, and fixed_ramp rows",
+    "clean rows cover both quick reveal tiers",
+    "the degraded spot writes delay25_tight rows at reveal 9.5 m",
+    "reset obs are finite obs72 and backend_info variant ids match",
+    "the artifact labels quick mode as non-verdict"
+  ],
+  "seed_base": 2026061303
+}

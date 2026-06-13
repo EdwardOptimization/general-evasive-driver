@@ -1,0 +1,151 @@
+{
+  "arms": {
+    "fixed_star": "global Chrono mini-grid winner across quick variants (protocol smoke only)",
+    "native_oracle": "Chrono-native reveal-constrained structured + CEM search with v4_pertuned prefix",
+    "v4_pertuned": "per quick row/variant Chrono mini-grid winner (protocol smoke only)",
+    "v4_rls": "C5 kappa-RLS retuning map applied to the quick fixed_star grid"
+  },
+  "blocked_by_e0_without_new_connector": [
+    "payload_position_or_cg_height",
+    "tire_model_family",
+    "continuous_lf_lr_iz_cf_cr",
+    "split_mu_or_per_wheel_contact_surface"
+  ],
+  "claim_boundary": "Phase-4 E1 Chrono spread-revival pricing protocol smoke only: exercises the fixed*, RLS-retuned, per-instance tuned, and native Chrono oracle arms inside the E0-frozen expressibility envelope. Quick mode is not a spread pricing verdict and makes no driver-performance, high-fidelity sufficiency, validation ranking, promotion, repair-success, feasibility-proof, paper, robustness, or self-ID claim.",
+  "decision_rule": "M3249 PASS iff quick mode writes rows for every quick variant and all four arms, native oracle structured/CEM candidates are exercised, reset/variant gates pass, and the artifact labels itself as protocol smoke only. M3249 never decides E1.",
+  "e0_allowed_envelope": {
+    "allowed_e1_axes": [
+      {
+        "axis": "vehicle_model_fixture",
+        "control_class": "discrete_reset_time_selector",
+        "limit": "Do not treat this as a continuous passenger-fleet coverage proof."
+      },
+      {
+        "axis": "wheelbase_and_track",
+        "control_class": "discrete_variant_fixture",
+        "limit": "Do not infer continuous lf/lr mapping from wheelbase metadata."
+      },
+      {
+        "axis": "target_total_mass",
+        "control_class": "continuous_reset_time_partial",
+        "limit": "This does not move CG height, axle split, inertia, or payload position."
+      },
+      {
+        "axis": "load_transfer",
+        "control_class": "emergent_chrono_fixture_not_direct_axis",
+        "limit": "Do not claim a load-transfer parameter sweep or payload-height experiment."
+      },
+      {
+        "axis": "tire_parameter_set",
+        "control_class": "discrete_variant_bound_fixture",
+        "limit": "Do not claim winter/summer, Fiala, Pacejka, or continuous cf/cr tire coverage."
+      }
+    ],
+    "blocked_without_new_connector": [
+      {
+        "axis": "payload_position_or_cg_height",
+        "connector_needed": "Not allowed as an independent E1 axis until a backend connector exposes it and is smoked.",
+        "reason": "no scenario key currently sets chassis CG height or payload position"
+      },
+      {
+        "axis": "tire_model_family",
+        "connector_needed": "Not allowed as an E1 factor without a new selector and reset/step smoke.",
+        "reason": "whitelisted backend selector fixes tire_model='TMEASY' for every variant"
+      },
+      {
+        "axis": "continuous_lf_lr_iz_cf_cr",
+        "connector_needed": "Not allowed as independent E1 axes under the current backend.",
+        "reason": "scenario carries lf/lr/iz/cf/cr for provenance but backend leaves fixture geometry/inertia/tires unchanged"
+      },
+      {
+        "axis": "split_mu_or_per_wheel_contact_surface",
+        "connector_needed": "Not allowed for E1 unless a per-wheel/per-side terrain connector is added and smoked.",
+        "reason": "current executable path exposes one FlatTerrain scalar friction coefficient"
+      }
+    ],
+    "recommended_e1_population_panel": {
+      "arms": [
+        "fixed reflex with one global Chrono retune (fixed*)",
+        "RLS-retuned",
+        "per-instance tuned",
+        "per-instance Chrono-native oracle"
+      ],
+      "required_language": "E1 prices selected Chrono vehicle fixtures with load-transfer physics active; it does not price independent payload-position, h_cg, tire-family, or continuous lf/lr/Iz/cf/cr axes.",
+      "surface": "T-limit rows only until E1 preregisters any additional surface axis",
+      "vehicle_variants": [
+        "sedan_tmeasy",
+        "bmw_e90_tmeasy",
+        "uazbus_tmeasy"
+      ]
+    }
+  },
+  "e0_artifact": "experiments/feasibility_audit/chrono_spread_expressibility_audit.json",
+  "e0_axis_table_sha256": "e5e7d2724585e4a997e079dd628d1efdf8829dfb00e4e0618a553fb30c2afe18",
+  "frozen_at_utc": "20260612T174814Z",
+  "frozen_before_any_e1_run": true,
+  "full_mode_placeholder": {
+    "needed_next": "A separate M3250 full E1 milestone must freeze selection and validation rows, full grid budget, paired CIs, and stop/decision thresholds before any verdict.",
+    "status": "not_registered_by_M3249"
+  },
+  "milestone": "m3249-phase4-e1-spread-revival-pricing-smoke",
+  "protocol": "phase4_e1_spread_revival_pricing_preregistration",
+  "quick_grid_values": [
+    [
+      1.0,
+      1.0,
+      1.0
+    ],
+    [
+      1.8,
+      1.45,
+      1.4
+    ],
+    [
+      0.6,
+      1.0,
+      1.0
+    ]
+  ],
+  "quick_mode_is_verdict": false,
+  "quick_oracle_budget": {
+    "cem_elites": 1,
+    "cem_iterations": 1,
+    "cem_population": 2,
+    "cem_segment_len": 8,
+    "cem_segments": 2,
+    "structured_limit": 2
+  },
+  "quick_selected_rows": [
+    {
+      "eval_seed": 7315000,
+      "instance": 3,
+      "level": "S1",
+      "oracle_by": "structured:brake_steer_-0.4",
+      "pertuned_grid": [
+        1.0,
+        1.45,
+        1.0
+      ],
+      "row_id": "S1-inst03-seed7315000",
+      "selection_rank_within_level": 1,
+      "selection_score_sha256": "0272973b4bbe8b7947cec1b5073545b775d6431a17dbcd13efe962d2dc2ce695",
+      "source_oracle_solved": true,
+      "source_pertuned_outcome": "collision"
+    }
+  ],
+  "quick_variants": [
+    "sedan_tmeasy",
+    "bmw_e90_tmeasy",
+    "uazbus_tmeasy"
+  ],
+  "roadmap_unit": "Phase-4 E1 Spread-revival pricing",
+  "runtime_gates": [
+    "E0 artifact admits E1",
+    "quick smoke exercises every quick variant",
+    "fixed_star, v4_rls, v4_pertuned, and native_oracle rows are written for every quick variant",
+    "native_oracle search exercises at least one structured and one CEM candidate per quick variant",
+    "all reset observations are finite and backend_info variant ids match",
+    "quick result explicitly refuses an E1 spread-revival verdict"
+  ],
+  "seed_base": 2026061301
+}

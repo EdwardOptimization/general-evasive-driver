@@ -1,0 +1,67 @@
+{
+  "cases": [
+    {
+      "action": [
+        0.0,
+        -1.0,
+        -1.0
+      ],
+      "case_id": "coast_hold",
+      "description": "zero steer, zero throttle, zero brake hold after reset",
+      "mu": 0.5875,
+      "speed_mps": 8.0
+    },
+    {
+      "action": [
+        0.25,
+        -1.0,
+        1.0
+      ],
+      "case_id": "brake_steer",
+      "description": "moderate right steer with full braking to exercise tire-force response",
+      "mu": 0.5875,
+      "speed_mps": 8.0
+    }
+  ],
+  "chrono_variant": "sedan_tmeasy",
+  "claim_boundary": "Phase-4 E3 Chrono tire-truth telemetry connector smoke only: the Chrono worker diagnostics expose finite four-wheel tire slip, wheel speed, tire force, local-force projection, and normal-load rows on the default Sedan/TMeasy fixture. Quick mode is not a Chrono detection-latency verdict, not a full reflex recoverable-set budget, and makes no incumbent mutation, validation ranking, promotion, driver-performance, full high-fidelity sufficiency, paper, repair-success, robustness-result, feasibility-proof, Track-F-admission, or self-ID claim.",
+  "decision_rule": "M3254 PASS iff all quick samples and wheel rows are written, obs72 remains finite, telemetry is available with four finite wheel rows per sample, normal loads are positive, and the artifact refuses a full E3 or Track-F verdict.",
+  "e0_artifact": "experiments/feasibility_audit/chrono_spread_expressibility_audit.json",
+  "e2_full_artifact": "experiments/feasibility_audit/phase4_e2_chrono_two_regime_full.json",
+  "e3_smoke_artifact": "experiments/feasibility_audit/phase4_e3_chrono_measurement_ac_quick.json",
+  "frozen_at_utc": "20260613T013802Z",
+  "frozen_before_any_tire_telemetry_rollout": true,
+  "full_e3_placeholder": {
+    "needed_next": "Full E3 can now preregister concrete Chrono tire-truth definitions, cells, seed streams, paired detector/recovery readouts, and Track-F safety-gating thresholds before any E3 verdict.",
+    "status": "not_registered_by_M3254"
+  },
+  "milestone": "m3254-phase4-e3-chrono-tire-telemetry-smoke",
+  "protocol": "phase4_e3_chrono_tire_telemetry_smoke_preregistration",
+  "quick_mode_is_verdict": false,
+  "roadmap_unit": "Phase-4 E3 Chrono tire-truth telemetry connector smoke",
+  "runtime_gates": [
+    "E0 artifact admits the Chrono fixture envelope",
+    "M3252 full E2 and M3253 E3 A/C quick artifacts exist before M3254",
+    "reset and selected step samples preserve finite obs72",
+    "every sample exposes tire_telemetry_available=true with four wheel rows",
+    "per-wheel tire slip, wheel speed, force, local-force projection, and normal load are finite",
+    "normal loads are positive at every sampled wheel",
+    "quick mode is explicitly non-verdict and cannot open Track F"
+  ],
+  "sample_steps": [
+    0,
+    1,
+    6,
+    12
+  ],
+  "seed_base": 2026061306,
+  "truth_fields_frozen_for_full_e3_design": [
+    "slip_angle_rad",
+    "longitudinal_slip",
+    "camber_angle_rad",
+    "wheel_omega_rad_s",
+    "local_force_x_n",
+    "local_force_y_n",
+    "normal_load_n"
+  ]
+}

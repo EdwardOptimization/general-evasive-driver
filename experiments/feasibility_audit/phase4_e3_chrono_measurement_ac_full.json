@@ -1,0 +1,96 @@
+{
+  "claim_boundary": "Phase-4 E3 full Chrono measurement A/C only: measurement A compares the obs72 shortfall detector to frozen Chrono tire-truth onset definitions, and measurement C quantifies the baseline/v4 recoverable-set budget from frozen injected planar overshoot states on Sedan/TMeasy. This is zero training and makes no incumbent mutation, validation ranking, promotion, driver-performance, full high-fidelity sufficiency, paper, repair-success, robustness-result, feasibility-proof, Track-F-admission, or self-ID claim.",
+  "created_at_utc": "20260613T022210Z",
+  "decision": {
+    "cp3_evidence_ready": true,
+    "full_e3_verdict": "chrono_safety_measurement_completed",
+    "measurement_a_verdict": "detector_latency_table_completed",
+    "measurement_c_verdict": "recoverable_set_budget_completed",
+    "next_admitted_step": "PI CP-3 review of E1/E2/E3 targets and budget; Track F remains blocked before CP-3.",
+    "track_f_admitted": false
+  },
+  "elapsed_s": 1147.2,
+  "expected_latency_row_count": 24,
+  "expected_recovery_row_count": 72,
+  "latency_row_count": 24,
+  "latency_rows_csv": "runs/feasibility_audit/phase4_e3_chrono_measurement_ac_full/latency_rows_full.csv",
+  "measurement_a_summary": {
+    "by_axis": {
+      "lat": {
+        "detector_fire_rate": 0.6666666666666666,
+        "median_latency_steps": 60.0,
+        "p90_latency_steps": 88.0,
+        "row_count": 12,
+        "truth_onset_rate": 1.0
+      },
+      "long": {
+        "detector_fire_rate": 1.0,
+        "median_latency_steps": -35.0,
+        "p90_latency_steps": -19.099999999999994,
+        "row_count": 12,
+        "truth_onset_rate": 1.0
+      }
+    },
+    "detector_miss_rate": 0.16666666666666666,
+    "early_fire_rate": 0.5,
+    "median_latency_s": -0.47,
+    "median_latency_steps": -23.5,
+    "p90_latency_s": 1.3460000000000008,
+    "p90_latency_steps": 67.30000000000004,
+    "truth_onset_rate": 1.0
+  },
+  "measurement_c_summary": {
+    "baseline_recovery_rate": 1.0,
+    "by_overshoot": {
+      "1.05": {
+        "baseline_recovery_rate": 1.0,
+        "row_count": 24,
+        "v4_minus_baseline": 0.0,
+        "v4_recovery_rate": 1.0
+      },
+      "1.15": {
+        "baseline_recovery_rate": 1.0,
+        "row_count": 24,
+        "v4_minus_baseline": 0.0,
+        "v4_recovery_rate": 1.0
+      },
+      "1.3": {
+        "baseline_recovery_rate": 1.0,
+        "row_count": 24,
+        "v4_minus_baseline": 0.0,
+        "v4_recovery_rate": 1.0
+      }
+    },
+    "v4_minus_baseline": 0.0,
+    "v4_recovery_rate": 1.0
+  },
+  "metrics_csv": "runs/feasibility_audit/phase4_e3_chrono_measurement_ac_full/metrics_full.csv",
+  "milestone": "m3255-phase4-e3-chrono-measurement-ac-full",
+  "mode": "full",
+  "preregistration": "experiments/feasibility_audit/phase4_e3_chrono_measurement_ac_full_prereg.json",
+  "preregistration_sha256": "cbb25b37a68243704d5af41546dfb4392092a1ad538e80e2328386117af53261",
+  "protocol_gates": {
+    "all_passed": true,
+    "latency_obs_finite_all": true,
+    "latency_row_count_complete": true,
+    "measurement_a_truth_onsets_observed": true,
+    "measurement_c_drivers_present": true,
+    "recovery_obs_finite_all": true,
+    "recovery_row_count_complete": true,
+    "telemetry_available_all": true,
+    "track_f_not_admitted": true,
+    "variant_match_all": true,
+    "wheel_count_all_four": true
+  },
+  "recovery_row_count": 72,
+  "recovery_rows_csv": "runs/feasibility_audit/phase4_e3_chrono_measurement_ac_full/recovery_rows_full.csv",
+  "safety_gating_readouts": {
+    "measurement_a_early_fire_rate_reported": true,
+    "measurement_a_miss_rate_le_threshold": true,
+    "measurement_a_p90_latency_le_threshold": true,
+    "measurement_c_baseline_low_mid_recovery_rate": 1.0,
+    "measurement_c_v4_low_mid_recovery_rate": 1.0,
+    "measurement_c_v4_minus_baseline_low_mid": 0.0
+  },
+  "schema_version": 1
+}

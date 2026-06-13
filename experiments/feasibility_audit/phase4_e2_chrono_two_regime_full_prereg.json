@@ -1,0 +1,187 @@
+{
+  "calibration": {
+    "source": "phase4_e2_chrono_two_regime_smoke.calibrate_tau_for_variant",
+    "tau_rule": "tau = max(1.2 * max_shortfall_on_sublimit_fixed_ramp, 0.08)",
+    "variant_scope": "per full Chrono vehicle variant"
+  },
+  "chrono_variants": [
+    "sedan_tmeasy"
+  ],
+  "claim_boundary": "Phase-4 E2 full Chrono two-regime-law pricing only: scripted oracle, threshold-seeker, and fixed belief-free controller families are compared on the default Chrono Sedan/TMeasy fixture over frozen clean reveal tiers plus one delay25 tight degraded spot. This is zero-training pricing evidence; it makes no incumbent mutation, validation ranking, promotion, driver-performance, full high-fidelity sufficiency, paper, repair-success, robustness-result, feasibility-proof, or self-ID claim.",
+  "clean_reveal_tiers_m": [
+    9.5,
+    12.0,
+    16.0,
+    22.0,
+    30.0
+  ],
+  "controller_candidates": [
+    {
+      "dv": -0.5,
+      "group": "oracle",
+      "kind": "oracle",
+      "name": "oracle_dv-0.5"
+    },
+    {
+      "dv": 0.0,
+      "group": "oracle",
+      "kind": "oracle",
+      "name": "oracle_dv+0"
+    },
+    {
+      "dv": 0.5,
+      "group": "oracle",
+      "kind": "oracle",
+      "name": "oracle_dv+0.5"
+    },
+    {
+      "backoff": 0.06,
+      "dv": 0.0,
+      "group": "seeker",
+      "kind": "seeker",
+      "name": "seeker_r2000_tm1_b0.06_hold",
+      "ramp_rate": 2000.0,
+      "strategy": "hold",
+      "tau_mult": 1.0
+    },
+    {
+      "backoff": 0.06,
+      "dv": 0.0,
+      "group": "seeker",
+      "kind": "seeker",
+      "name": "seeker_r6000_tm1_b0.06_hold",
+      "ramp_rate": 6000.0,
+      "strategy": "hold",
+      "tau_mult": 1.0
+    },
+    {
+      "backoff": 0.06,
+      "dv": 0.0,
+      "group": "seeker",
+      "kind": "seeker",
+      "name": "seeker_r20000_tm1_b0.06_hold",
+      "ramp_rate": 20000.0,
+      "strategy": "hold",
+      "tau_mult": 1.0
+    },
+    {
+      "backoff": 0.06,
+      "dv": 0.0,
+      "group": "seeker",
+      "kind": "seeker",
+      "name": "seeker_r6000_tm0.75_b0.06_hold",
+      "ramp_rate": 6000.0,
+      "strategy": "hold",
+      "tau_mult": 0.75
+    },
+    {
+      "backoff": 0.15,
+      "dv": 0.0,
+      "group": "seeker",
+      "kind": "seeker",
+      "name": "seeker_r6000_tm1.25_b0.15_hold",
+      "ramp_rate": 6000.0,
+      "strategy": "hold",
+      "tau_mult": 1.25
+    },
+    {
+      "backoff": 0.15,
+      "dv": 0.0,
+      "group": "seeker",
+      "kind": "seeker",
+      "name": "seeker_r20000_tm1.25_b0.15_hold",
+      "ramp_rate": 20000.0,
+      "strategy": "hold",
+      "tau_mult": 1.25
+    },
+    {
+      "fixed_frac": 0.35,
+      "fixed_hold_s": 1.0,
+      "group": "fixed",
+      "kind": "fixed_ramp",
+      "name": "fixedramp_f0.35_h1"
+    },
+    {
+      "fixed_frac": 0.7,
+      "fixed_hold_s": 1.0,
+      "group": "fixed",
+      "kind": "fixed_ramp",
+      "name": "fixedramp_f0.7_h1"
+    },
+    {
+      "group": "fixed",
+      "kind": "fixed_speed",
+      "name": "fixedspeed_v5.5",
+      "v_entry": 5.5
+    },
+    {
+      "group": "fixed",
+      "kind": "fixed_speed",
+      "name": "fixedspeed_v7.5",
+      "v_entry": 7.5
+    },
+    {
+      "group": "fixed",
+      "kind": "fixed_speed",
+      "name": "fixedspeed_v9.5",
+      "v_entry": 9.5
+    }
+  ],
+  "decision_rule": "M3252 is completed when the full panel runs under this preregistration, writes full JSON/CSV/doc artifacts, reports paired CIs, and applies the clean positive rule. The delay25 spot is secondary and cannot open Track F by itself.",
+  "degraded_spots": [
+    {
+      "cell_id": "delay25_tight",
+      "delay_steps": 25,
+      "noise_std": 0.0,
+      "reveals": [
+        9.5
+      ]
+    }
+  ],
+  "e0_artifact": "experiments/feasibility_audit/chrono_spread_expressibility_audit.json",
+  "e0_axis_table_sha256": "e5e7d2724585e4a997e079dd628d1efdf8829dfb00e4e0618a553fb30c2afe18",
+  "e1_full_artifact": "experiments/feasibility_audit/phase4_e1_spread_revival_full.json",
+  "e1_full_verdict": "e1_spread_revival_not_supported",
+  "e2_quick_artifact": "experiments/feasibility_audit/phase4_e2_chrono_two_regime_quick.json",
+  "frozen_at_utc": "20260612T193710Z",
+  "frozen_before_any_e2_full_rollout": true,
+  "milestone": "m3252-phase4-e2-chrono-two-regime-full",
+  "mu_points": [
+    0.3625,
+    0.5875,
+    0.8125,
+    1.0375
+  ],
+  "preregistered_readouts": {
+    "degraded_spot_secondary": "same readouts on delay25_tight using the clean-selected arms",
+    "detection_value_clean": "success_rate(best_seeker) - success_rate(best_fixed), paired on validation units",
+    "positive_rule": "Chrono clean belief value is positive iff at least one clean reveal tier has oracle - best_floor >= 0.15 and paired CI95 lower > 0. Otherwise the clean two-regime null is not rejected by this frozen panel.",
+    "primary_clean_per_reveal": "success_rate(oracle) - success_rate(best_floor), paired on validation mu x seed units",
+    "secondary_clean_oracle_minus_seeker": "success_rate(oracle) - success_rate(best_seeker), paired on validation units"
+  },
+  "protocol": "phase4_e2_chrono_two_regime_full_preregistration",
+  "roadmap_unit": "Phase-4 E2 Chrono two-regime law full",
+  "runtime_gates": [
+    "E2 quick artifact exists and passed before full E2",
+    "selection and validation seed streams are disjoint",
+    "clean selection rows cover every candidate/reveal/mu/selection seed",
+    "clean validation rows cover oracle, best_seeker, best_fixed, and best_floor logical arms",
+    "delay25_tight degraded spot rows are written as secondary non-gating readouts",
+    "reset obs are finite obs72 and backend_info variant ids match",
+    "paired CIs are reported for oracle minus best_floor on every clean reveal tier",
+    "Track F remains blocked regardless of M3252 verdict"
+  ],
+  "seed_base": 2026061304,
+  "seed_streams": {
+    "disjointness_rule": "rollout seeds are sha256(seed_base, namespace, variant/cell/reveal/mu, seed_index); selection and validation use different namespaces even when seed_index labels overlap",
+    "selection_namespace": "selection",
+    "validation_namespace": "validation"
+  },
+  "selection_seeds": [
+    0
+  ],
+  "validation_seeds": [
+    0,
+    1
+  ]
+}

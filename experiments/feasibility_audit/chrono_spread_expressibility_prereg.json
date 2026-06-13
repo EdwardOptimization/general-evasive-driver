@@ -1,0 +1,46 @@
+{
+  "acceptance_criteria": [
+    "preregistration exists before full E0 run",
+    "axis table schema includes axis/control_class/current_status/mechanism/e1_use/evidence/forbidden_interpretation",
+    "full mode reset/steps all full_variants through the Chrono worker with finite obs72",
+    "backend_info selected variant matches every requested variant",
+    "at least one admitted_for_e1 primary vehicle-class axis is present",
+    "payload_position_or_cg_height is explicitly blocked rather than silently aliased to mass",
+    "E1 allowed and forbidden spread envelopes are written into the JSON and Markdown artifacts"
+  ],
+  "backend_id": "chrono_sedan_tmeasy_hf_backend",
+  "claim_boundary": "Phase-4 E0 Chrono expressibility audit only: freezes the vehicle-spread axes currently expressible by the Chrono worker/backend and declares the spread envelope that E1 may price. It is zero training and does not make a driver-performance, high-fidelity sufficiency, validation ranking, promotion, repair-success, feasibility-proof, robustness, paper, or self-ID claim.",
+  "decision_rule": "PASS iff all full_variants reset/step with finite obs72 and variant match, the frozen axis table has the required rows, and E1 has a declared vehicle-class spread envelope plus explicit blocked axes.",
+  "default_variant": "sedan_tmeasy",
+  "frozen_at_utc": "20260612T173105Z",
+  "frozen_axis_table_sha256": "e5e7d2724585e4a997e079dd628d1efdf8829dfb00e4e0618a553fb30c2afe18",
+  "frozen_before_any_e0_run": true,
+  "full_variants": [
+    "sedan_tmeasy",
+    "bmw_e90_tmeasy",
+    "uazbus_tmeasy"
+  ],
+  "milestone": "m3248-phase4-e0-chrono-spread-expressibility-audit",
+  "protocol": "phase4_e0_chrono_spread_expressibility_preregistration",
+  "quick_variants": [
+    "sedan_tmeasy",
+    "bmw_e90_tmeasy"
+  ],
+  "roadmap_unit": "Phase-4 E0 Expressibility audit",
+  "source_artifacts": {
+    "docs/m3218-s4-hf-lite-backend-inventory-preflight.md": true,
+    "docs/m3219-s4-hf-lite-chrono-variant-selector-smoke.md": true,
+    "docs/m3227-d1-s4-hf-lite-chrono-pricing.md": true,
+    "docs/m3231-d1b-chrono-native-oracle-pricing-full.md": true,
+    "experiments/feasibility_audit/chrono_native_oracle_pricing.json": true,
+    "experiments/feasibility_audit/s4_hf_lite_backend_inventory.json": true,
+    "experiments/feasibility_audit/s4_hf_lite_chrono_pricing.json": true,
+    "experiments/feasibility_audit/s4_hf_lite_variant_selector_smoke.json": true,
+    "src/autodrift/chrono_vehicle_backend.py": true
+  },
+  "variant_target_mass_kg": {
+    "bmw_e90_tmeasy": 1800.0,
+    "sedan_tmeasy": 1450.0,
+    "uazbus_tmeasy": 2858.0
+  }
+}

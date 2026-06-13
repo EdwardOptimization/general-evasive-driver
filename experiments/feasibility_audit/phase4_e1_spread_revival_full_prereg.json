@@ -1,0 +1,420 @@
+{
+  "arms": {
+    "fixed_star": "one global Chrono grid chosen only from selection rows, pooled across variants and pairs",
+    "native_oracle": "attempt-limited Chrono-native reveal-constrained structured + CEM search with the v4_pertuned prefix",
+    "v4_pertuned": "per variant/pair Chrono grid chosen only from the same-instance selection row",
+    "v4_rls": "C5 kappa-RLS retuning map applied to the global fixed_star grid on validation rows"
+  },
+  "blocked_by_e0_without_new_connector": [
+    "payload_position_or_cg_height",
+    "tire_model_family",
+    "continuous_lf_lr_iz_cf_cr",
+    "split_mu_or_per_wheel_contact_surface"
+  ],
+  "chrono_vehicle_variants": [
+    "sedan_tmeasy",
+    "bmw_e90_tmeasy",
+    "uazbus_tmeasy"
+  ],
+  "claim_boundary": "Phase-4 E1 full Chrono spread-revival pricing only: fixed*, RLS-retuned, same-instance selection-tuned reflex, and attempt-limited native Chrono oracle arms are compared on the E0-frozen Sedan/BMW_E90/UAZBUS fixture envelope. This is zero-training pricing evidence; it makes no incumbent mutation, validation ranking, promotion, driver-performance, full high-fidelity sufficiency, paper, repair-success, robustness-result, feasibility-proof, or self-ID claim.",
+  "decision_rule": "M3250 is completed when the full E1 panel runs under this preregistration, writes full JSON/CSV/doc artifacts, reports paired CIs, and applies the >=2 qualifying variants rule without admitting any training or driver-performance claim.",
+  "e0_allowed_envelope": {
+    "allowed_e1_axes": [
+      {
+        "axis": "vehicle_model_fixture",
+        "control_class": "discrete_reset_time_selector",
+        "limit": "Do not treat this as a continuous passenger-fleet coverage proof."
+      },
+      {
+        "axis": "wheelbase_and_track",
+        "control_class": "discrete_variant_fixture",
+        "limit": "Do not infer continuous lf/lr mapping from wheelbase metadata."
+      },
+      {
+        "axis": "target_total_mass",
+        "control_class": "continuous_reset_time_partial",
+        "limit": "This does not move CG height, axle split, inertia, or payload position."
+      },
+      {
+        "axis": "load_transfer",
+        "control_class": "emergent_chrono_fixture_not_direct_axis",
+        "limit": "Do not claim a load-transfer parameter sweep or payload-height experiment."
+      },
+      {
+        "axis": "tire_parameter_set",
+        "control_class": "discrete_variant_bound_fixture",
+        "limit": "Do not claim winter/summer, Fiala, Pacejka, or continuous cf/cr tire coverage."
+      }
+    ],
+    "blocked_without_new_connector": [
+      {
+        "axis": "payload_position_or_cg_height",
+        "connector_needed": "Not allowed as an independent E1 axis until a backend connector exposes it and is smoked.",
+        "reason": "no scenario key currently sets chassis CG height or payload position"
+      },
+      {
+        "axis": "tire_model_family",
+        "connector_needed": "Not allowed as an E1 factor without a new selector and reset/step smoke.",
+        "reason": "whitelisted backend selector fixes tire_model='TMEASY' for every variant"
+      },
+      {
+        "axis": "continuous_lf_lr_iz_cf_cr",
+        "connector_needed": "Not allowed as independent E1 axes under the current backend.",
+        "reason": "scenario carries lf/lr/iz/cf/cr for provenance but backend leaves fixture geometry/inertia/tires unchanged"
+      },
+      {
+        "axis": "split_mu_or_per_wheel_contact_surface",
+        "connector_needed": "Not allowed for E1 unless a per-wheel/per-side terrain connector is added and smoked.",
+        "reason": "current executable path exposes one FlatTerrain scalar friction coefficient"
+      }
+    ],
+    "recommended_e1_population_panel": {
+      "arms": [
+        "fixed reflex with one global Chrono retune (fixed*)",
+        "RLS-retuned",
+        "per-instance tuned",
+        "per-instance Chrono-native oracle"
+      ],
+      "required_language": "E1 prices selected Chrono vehicle fixtures with load-transfer physics active; it does not price independent payload-position, h_cg, tire-family, or continuous lf/lr/Iz/cf/cr axes.",
+      "surface": "T-limit rows only until E1 preregisters any additional surface axis",
+      "vehicle_variants": [
+        "sedan_tmeasy",
+        "bmw_e90_tmeasy",
+        "uazbus_tmeasy"
+      ]
+    }
+  },
+  "e0_artifact": "experiments/feasibility_audit/chrono_spread_expressibility_audit.json",
+  "e0_axis_table_sha256": "e5e7d2724585e4a997e079dd628d1efdf8829dfb00e4e0618a553fb30c2afe18",
+  "e0_decision": {
+    "all_variants_pass": true,
+    "axis_table_schema_ok": true,
+    "e0_completed": true,
+    "e1_preregistration_admitted": true,
+    "next_admitted_step": "E1 Spread-revival pricing preregistration using the frozen E0 spread envelope",
+    "payload_position_cg_height_blocked": true,
+    "status_pass": true,
+    "vehicle_axis_present": true,
+    "verdict": "passed"
+  },
+  "frozen_at_utc": "20260612T181210Z",
+  "frozen_before_any_e1_full_run": true,
+  "full_grid_values": [
+    [
+      1.0,
+      1.0,
+      1.0
+    ],
+    [
+      0.6,
+      1.0,
+      1.0
+    ],
+    [
+      1.8,
+      1.0,
+      1.0
+    ],
+    [
+      1.8,
+      1.45,
+      1.4
+    ],
+    [
+      0.6,
+      1.45,
+      1.4
+    ]
+  ],
+  "full_oracle_budget": {
+    "cem_elites": 1,
+    "cem_iterations": 1,
+    "cem_population": 2,
+    "cem_segment_len": 8,
+    "cem_segments": 3,
+    "structured_limit": 5
+  },
+  "milestone": "m3250-phase4-e1-spread-revival-pricing-full",
+  "preregistered_readouts": {
+    "classical_residual_per_variant": "success_rate(v4_pertuned) - success_rate(v4_rls), paired on validation pairs",
+    "oracle_anchor_per_variant": "success_rate(native_oracle) - success_rate(v4_pertuned), paired on validation pairs",
+    "pooled_readouts": "same readouts pooled across all validation variant/pair units",
+    "positive_rule": "E1 spread revival positive iff at least two of three Chrono variants have primary >= 0.15 with paired CI95 lower > 0 and classical residual >= 0.08. Otherwise the spread-revival thesis is not supported by this frozen full rule.",
+    "primary_per_variant": "success_rate(v4_pertuned) - success_rate(fixed_star), paired on validation pairs"
+  },
+  "protocol": "phase4_e1_spread_revival_pricing_full_preregistration",
+  "roadmap_unit": "Phase-4 E1 Spread-revival pricing full",
+  "row_pairs": [
+    {
+      "instance": 4,
+      "level": "S1",
+      "pair_id": "S1-inst04-pair1",
+      "selection_row": {
+        "eval_seed": 7320013,
+        "instance": 4,
+        "level": "S1",
+        "oracle_by": "structured:brake_steer_-0.7",
+        "pertuned_grid": [
+          1.8,
+          1.45,
+          1.0
+        ],
+        "row_id": "S1-inst04-seed7320013",
+        "row_role": "selection",
+        "selection_rank_within_level": 1,
+        "selection_score_sha256": "024e38c97289bdef4a6e21f55e25ae3ee22315eba24ab009533f52bb9fbbb8bc",
+        "source_oracle_solved": true,
+        "source_pertuned_outcome": "collision"
+      },
+      "validation_row": {
+        "eval_seed": 7320208,
+        "instance": 4,
+        "level": "S1",
+        "oracle_by": "structured:brake_steer_-0.4",
+        "pertuned_grid": [
+          1.8,
+          1.45,
+          1.0
+        ],
+        "row_id": "S1-inst04-seed7320208",
+        "row_role": "validation",
+        "selection_rank_within_level": 1,
+        "selection_score_sha256": "5995ab78fe93b2b4b78df49a877ab09a0b7937d853f70ceca3d264577760a2c7",
+        "source_oracle_solved": true,
+        "source_pertuned_outcome": "collision"
+      }
+    },
+    {
+      "instance": 2,
+      "level": "S1",
+      "pair_id": "S1-inst02-pair2",
+      "selection_row": {
+        "eval_seed": 7310091,
+        "instance": 2,
+        "level": "S1",
+        "oracle_by": "structured:brake_steer_-0.4",
+        "pertuned_grid": [
+          1.0,
+          1.45,
+          1.0
+        ],
+        "row_id": "S1-inst02-seed7310091",
+        "row_role": "selection",
+        "selection_rank_within_level": 2,
+        "selection_score_sha256": "b5f8fe4b6065b503c113504c04a4625a1d22ead946d29467357d395bd7f0ad9b",
+        "source_oracle_solved": true,
+        "source_pertuned_outcome": "collision"
+      },
+      "validation_row": {
+        "eval_seed": 7310143,
+        "instance": 2,
+        "level": "S1",
+        "oracle_by": "structured:brake_steer_-0.4",
+        "pertuned_grid": [
+          1.0,
+          1.45,
+          1.0
+        ],
+        "row_id": "S1-inst02-seed7310143",
+        "row_role": "validation",
+        "selection_rank_within_level": 2,
+        "selection_score_sha256": "dbf0326fa3f8c617087cd5256d566982af44a5d0516fe482c0d9013287005e80",
+        "source_oracle_solved": true,
+        "source_pertuned_outcome": "collision"
+      }
+    },
+    {
+      "instance": 10,
+      "level": "S2",
+      "pair_id": "S2-inst10-pair1",
+      "selection_row": {
+        "eval_seed": 7550091,
+        "instance": 10,
+        "level": "S2",
+        "oracle_by": "structured:brake_steer_-0.7",
+        "pertuned_grid": [
+          1.0,
+          1.45,
+          1.0
+        ],
+        "row_id": "S2-inst10-seed7550091",
+        "row_role": "selection",
+        "selection_rank_within_level": 1,
+        "selection_score_sha256": "a741ba8a417a314935530785ea363d3a8c2786704e2321fcd599270295c8691f",
+        "source_oracle_solved": true,
+        "source_pertuned_outcome": "collision"
+      },
+      "validation_row": {
+        "eval_seed": 7550065,
+        "instance": 10,
+        "level": "S2",
+        "oracle_by": "structured:brake_steer_-0.4",
+        "pertuned_grid": [
+          1.0,
+          1.45,
+          1.0
+        ],
+        "row_id": "S2-inst10-seed7550065",
+        "row_role": "validation",
+        "selection_rank_within_level": 1,
+        "selection_score_sha256": "9afb43010c0a9e55f0dfd0188e45ba28b4bf42f5ec0e5c6168a4556b60f331f0",
+        "source_oracle_solved": true,
+        "source_pertuned_outcome": "collision"
+      }
+    },
+    {
+      "instance": 6,
+      "level": "S2",
+      "pair_id": "S2-inst06-pair2",
+      "selection_row": {
+        "eval_seed": 7530078,
+        "instance": 6,
+        "level": "S2",
+        "oracle_by": "structured:brake_steer_-0.4",
+        "pertuned_grid": [
+          1.0,
+          1.45,
+          1.0
+        ],
+        "row_id": "S2-inst06-seed7530078",
+        "row_role": "selection",
+        "selection_rank_within_level": 2,
+        "selection_score_sha256": "a9e141189c5ab79af7c1d83b0a6ed8b0e8951e5279a3aa55da39a377f3e50bd5",
+        "source_oracle_solved": true,
+        "source_pertuned_outcome": "collision"
+      },
+      "validation_row": {
+        "eval_seed": 7530143,
+        "instance": 6,
+        "level": "S2",
+        "oracle_by": "structured:full_brake",
+        "pertuned_grid": [
+          1.0,
+          1.45,
+          1.0
+        ],
+        "row_id": "S2-inst06-seed7530143",
+        "row_role": "validation",
+        "selection_rank_within_level": 2,
+        "selection_score_sha256": "672ad22b1a5c25e574cfad05e0ba484f3174c865f6e75816cd8db52646de877b",
+        "source_oracle_solved": true,
+        "source_pertuned_outcome": "collision"
+      }
+    },
+    {
+      "instance": 10,
+      "level": "S3",
+      "pair_id": "S3-inst10-pair1",
+      "selection_row": {
+        "eval_seed": 7750130,
+        "instance": 10,
+        "level": "S3",
+        "oracle_by": "structured:brake_steer_-0.4",
+        "pertuned_grid": [
+          1.0,
+          1.45,
+          1.0
+        ],
+        "row_id": "S3-inst10-seed7750130",
+        "row_role": "selection",
+        "selection_rank_within_level": 1,
+        "selection_score_sha256": "ad19d5c86590ceba111ddf85e8151177a982458f4876667c9fa408ea87dc161a",
+        "source_oracle_solved": true,
+        "source_pertuned_outcome": "collision"
+      },
+      "validation_row": {
+        "eval_seed": 7750156,
+        "instance": 10,
+        "level": "S3",
+        "oracle_by": "structured:brake_steer_-0.7",
+        "pertuned_grid": [
+          1.0,
+          1.45,
+          1.0
+        ],
+        "row_id": "S3-inst10-seed7750156",
+        "row_role": "validation",
+        "selection_rank_within_level": 1,
+        "selection_score_sha256": "7fea60a3b8b67f33e9094ab4fc04a52ee64e54f58b6d8920534cd5bc20589048",
+        "source_oracle_solved": true,
+        "source_pertuned_outcome": "collision"
+      }
+    },
+    {
+      "instance": 2,
+      "level": "S3",
+      "pair_id": "S3-inst02-pair2",
+      "selection_row": {
+        "eval_seed": 7710143,
+        "instance": 2,
+        "level": "S3",
+        "oracle_by": "structured:brake_steer_-0.4",
+        "pertuned_grid": [
+          1.8,
+          1.45,
+          1.0
+        ],
+        "row_id": "S3-inst02-seed7710143",
+        "row_role": "selection",
+        "selection_rank_within_level": 2,
+        "selection_score_sha256": "a22138df5eca8c8ab3f43f63f0f47f400b877088157ade06fb2eaeffc546b531",
+        "source_oracle_solved": true,
+        "source_pertuned_outcome": "collision"
+      },
+      "validation_row": {
+        "eval_seed": 7710156,
+        "instance": 2,
+        "level": "S3",
+        "oracle_by": "structured:brake_steer_-0.4",
+        "pertuned_grid": [
+          1.8,
+          1.45,
+          1.0
+        ],
+        "row_id": "S3-inst02-seed7710156",
+        "row_role": "validation",
+        "selection_rank_within_level": 2,
+        "selection_score_sha256": "cede3310df5577354b5a2dbcce39d842a29f1f4602980c61f6567545cb89dda8",
+        "source_oracle_solved": true,
+        "source_pertuned_outcome": "collision"
+      }
+    }
+  ],
+  "runtime_gates": [
+    "E0 artifact admits E1",
+    "M3249 quick protocol smoke passed before M3250",
+    "selection and validation row_ids are disjoint",
+    "all requested Chrono variants match backend_info",
+    "all reset observations are finite obs72",
+    "each validation pair has fixed_star, v4_rls, v4_pertuned, and native_oracle rows",
+    "the full result reports paired CIs for pertuned-fixed, pertuned-RLS, and native-pertuned"
+  ],
+  "seed_base": 2026061302,
+  "source_artifacts": {
+    "a3_episode_rows_csv": "runs/feasibility_audit/c5prime_target_consolidation/episode_rows.csv",
+    "a3_results_json": "experiments/feasibility_audit/c5prime_target_consolidation.json",
+    "m3249_quick_json": "experiments/feasibility_audit/phase4_e1_spread_revival_quick.json"
+  },
+  "source_row_filter": {
+    "eligible_counts_by_level": {
+      "S1": 23,
+      "S2": 31,
+      "S3": 25
+    },
+    "levels": [
+      "S1",
+      "S2",
+      "S3"
+    ],
+    "oracle_by_prefix": "structured:",
+    "oracle_solved": true,
+    "pertuned_outcome": "not success",
+    "same_instance_counts_by_level": {
+      "S1": 9,
+      "S2": 11,
+      "S3": 10
+    },
+    "selection_rule": "within each S1/S2/S3 level, keep same-instance eligible groups with at least two rows, sort instances by a frozen sha256 seed, take two groups, then use the first frozen row for Chrono grid selection and the second for validation",
+    "surface": "T_limit"
+  }
+}

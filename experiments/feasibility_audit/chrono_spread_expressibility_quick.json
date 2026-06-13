@@ -1,0 +1,358 @@
+{
+  "axis_table": [
+    {
+      "axis": "vehicle_model_fixture",
+      "control_class": "discrete_reset_time_selector",
+      "current_status": "admitted_for_e1_primary_population_axis",
+      "e1_use": "Use as the primary E1 vehicle-class spread axis crossed with frozen T-limit cells.",
+      "evidence": [
+        "M3219 reset/step selector smoke",
+        "CHRONO_VEHICLE_VARIANTS in src/autodrift/chrono_vehicle_backend.py"
+      ],
+      "forbidden_interpretation": "Do not treat this as a continuous passenger-fleet coverage proof.",
+      "mechanism": "scenario['chrono_vehicle_variant'] selects a whitelisted Chrono wrapper at reset",
+      "values": [
+        {
+          "constructor_name": "Sedan",
+          "target_mass_kg": 1450.0,
+          "tire_model": "TMEASY",
+          "variant_id": "sedan_tmeasy"
+        },
+        {
+          "constructor_name": "BMW_E90",
+          "target_mass_kg": 1800.0,
+          "tire_model": "TMEASY",
+          "variant_id": "bmw_e90_tmeasy"
+        },
+        {
+          "constructor_name": "UAZBUS",
+          "target_mass_kg": 2858.0,
+          "tire_model": "TMEASY",
+          "variant_id": "uazbus_tmeasy"
+        }
+      ]
+    },
+    {
+      "axis": "wheelbase_and_track",
+      "control_class": "discrete_variant_fixture",
+      "current_status": "admitted_for_e1_variant_metadata",
+      "e1_use": "Use for stratification and mechanism interpretation, not as an independently swept axis.",
+      "evidence": [
+        "backend_info.chrono_wheelbase_m",
+        "backend_info.chrono_wheeltrack_m"
+      ],
+      "forbidden_interpretation": "Do not infer continuous lf/lr mapping from wheelbase metadata.",
+      "mechanism": "Chrono backend_info reports wheelbase and wheeltrack from the selected wrapper",
+      "values": "measured at reset in variant_reset_rows.csv"
+    },
+    {
+      "axis": "target_total_mass",
+      "control_class": "continuous_reset_time_partial",
+      "current_status": "admitted_with_limits",
+      "e1_use": "May be used as a total-mass stress within a selected fixture if preregistered; E1 must keep it separate from payload-position or CG-height claims.",
+      "evidence": [
+        "ChronoVehicleBackend._build_and_handoff mass override",
+        "M3219 mass-match smoke"
+      ],
+      "forbidden_interpretation": "This does not move CG height, axle split, inertia, or payload position.",
+      "mechanism": "scenario params.mass is matched by overriding Chrono chassis mass",
+      "values": "continuous target total mass; E0 probes one target mass per selected variant"
+    },
+    {
+      "axis": "payload_position_or_cg_height",
+      "control_class": "not_exposed_by_current_backend",
+      "current_status": "blocked_requires_connector",
+      "e1_use": "Not allowed as an independent E1 axis until a backend connector exposes it and is smoked.",
+      "evidence": [
+        "KNOWN_DIFFERENCES: CG height/shift and axle split remain selected Chrono vehicle fixture"
+      ],
+      "forbidden_interpretation": "Do not claim payload-position or SUV load-transfer coverage from mass override alone.",
+      "mechanism": "no scenario key currently sets chassis CG height or payload position",
+      "values": []
+    },
+    {
+      "axis": "load_transfer",
+      "control_class": "emergent_chrono_fixture_not_direct_axis",
+      "current_status": "admitted_as_fixture_physics_with_limits",
+      "e1_use": "E1 may say it prices the selected Chrono fixtures with load-transfer physics active.",
+      "evidence": [
+        "Chrono::Vehicle backend",
+        "selected vehicle wrapper reset smoke"
+      ],
+      "forbidden_interpretation": "Do not claim a load-transfer parameter sweep or payload-height experiment.",
+      "mechanism": "Chrono multibody vehicle dynamics include normal-load transfer inside each selected fixture, but E0 cannot independently sweep h_cg or axle load split.",
+      "values": "present through selected Chrono vehicle models; direct h_cg control unavailable"
+    },
+    {
+      "axis": "tire_parameter_set",
+      "control_class": "discrete_variant_bound_fixture",
+      "current_status": "admitted_with_limits",
+      "e1_use": "May be interpreted only as vehicle-bound TMeasy fixture variation; not as an independent tire-set sweep.",
+      "evidence": [
+        "CHRONO_VEHICLE_VARIANTS tire_model field",
+        "backend_info.chrono_tire_model"
+      ],
+      "forbidden_interpretation": "Do not claim winter/summer, Fiala, Pacejka, or continuous cf/cr tire coverage.",
+      "mechanism": "all whitelisted variants use TMeasy, with tire fixtures bound to the vehicle wrapper",
+      "values": [
+        {
+          "tire_model": "TMEASY",
+          "variant_id": "sedan_tmeasy"
+        },
+        {
+          "tire_model": "TMEASY",
+          "variant_id": "bmw_e90_tmeasy"
+        },
+        {
+          "tire_model": "TMEASY",
+          "variant_id": "uazbus_tmeasy"
+        }
+      ]
+    },
+    {
+      "axis": "tire_model_family",
+      "control_class": "not_exposed_by_current_selector",
+      "current_status": "blocked_requires_connector",
+      "e1_use": "Not allowed as an E1 factor without a new selector and reset/step smoke.",
+      "evidence": [
+        "CHRONO_VEHICLE_VARIANTS",
+        "M3219"
+      ],
+      "forbidden_interpretation": "Do not treat Chrono resource availability as wired tire-family control.",
+      "mechanism": "whitelisted backend selector fixes tire_model='TMEASY' for every variant",
+      "values": [
+        "TMEASY"
+      ]
+    },
+    {
+      "axis": "continuous_lf_lr_iz_cf_cr",
+      "control_class": "not_mapped_from_scenario_params",
+      "current_status": "blocked_requires_connector",
+      "e1_use": "Not allowed as independent E1 axes under the current backend.",
+      "evidence": [
+        "M3218 mapping table",
+        "KNOWN_DIFFERENCES"
+      ],
+      "forbidden_interpretation": "Do not reuse current-sim S4L cg/Iz labels as if Chrono maps them continuously.",
+      "mechanism": "scenario carries lf/lr/iz/cf/cr for provenance but backend leaves fixture geometry/inertia/tires unchanged",
+      "values": []
+    },
+    {
+      "axis": "drive_brake_authority",
+      "control_class": "control_layer_partial",
+      "current_status": "context_only_for_e1",
+      "e1_use": "Context/control-arm metadata only unless E1 preregisters it as a separate actuator axis.",
+      "evidence": [
+        "KNOWN_DIFFERENCES",
+        "ChronoVehicleBackend.step input mapping"
+      ],
+      "forbidden_interpretation": "Do not treat clipped command scaling as physical brake-system redesign.",
+      "mechanism": "drive/brake scales multiply normalized inputs and clip at 1.0",
+      "values": "available through scenario max_drive_force/max_brake_force but saturating above nominal"
+    },
+    {
+      "axis": "actuator_lag_and_steer_rate",
+      "control_class": "mapped_control_layer",
+      "current_status": "context_only_for_e1",
+      "e1_use": "May remain fixed from source rows; separate actuator-spread pricing requires its own preregistration.",
+      "evidence": [
+        "ChronoVehicleBackend._update_actuators"
+      ],
+      "forbidden_interpretation": "Do not merge actuator-lag effects into vehicle-class spread without labeling.",
+      "mechanism": "AutoDrift first-order/rate actuator filter is applied before Chrono driver inputs",
+      "values": "scenario steer_tau, drive_tau, max_steer_rate"
+    },
+    {
+      "axis": "surface_mu",
+      "control_class": "mapped_surface_axis",
+      "current_status": "not_vehicle_spread_but_available",
+      "e1_use": "Use only as the frozen T-limit surface/context axis, not as a vehicle-spread axis.",
+      "evidence": [
+        "M3218 mapping table",
+        "ChronoVehicleBackend._maybe_apply_friction_step"
+      ],
+      "forbidden_interpretation": "Do not call scalar mu a tire-curve shape or split-mu contact model.",
+      "mechanism": "scenario mu maps to Chrono FlatTerrain friction; friction step maps terrain mu replacement",
+      "values": "continuous scalar mu"
+    },
+    {
+      "axis": "split_mu_or_per_wheel_contact_surface",
+      "control_class": "not_exposed_in_executable_env_path",
+      "current_status": "blocked_requires_backend_connector",
+      "e1_use": "Not allowed for E1 unless a per-wheel/per-side terrain connector is added and smoked.",
+      "evidence": [
+        "M3225 split-mu expressibility note",
+        "ChronoVehicleBackend terrain construction"
+      ],
+      "forbidden_interpretation": "Do not claim ESC split-mu coverage from scalar FlatTerrain mu.",
+      "mechanism": "current executable path exposes one FlatTerrain scalar friction coefficient",
+      "values": []
+    }
+  ],
+  "axis_table_sha256": "e5e7d2724585e4a997e079dd628d1efdf8829dfb00e4e0618a553fb30c2afe18",
+  "backend_id": "chrono_sedan_tmeasy_hf_backend",
+  "claim_boundary": "Phase-4 E0 Chrono expressibility audit only: freezes the vehicle-spread axes currently expressible by the Chrono worker/backend and declares the spread envelope that E1 may price. It is zero training and does not make a driver-performance, high-fidelity sufficiency, validation ranking, promotion, repair-success, feasibility-proof, robustness, paper, or self-ID claim.",
+  "created_at_utc": "20260612T173327Z",
+  "decision": {
+    "all_variants_pass": true,
+    "axis_table_schema_ok": true,
+    "e0_completed": false,
+    "e1_preregistration_admitted": false,
+    "next_admitted_step": "run the full E0 audit through the harness",
+    "payload_position_cg_height_blocked": true,
+    "status_pass": true,
+    "vehicle_axis_present": true,
+    "verdict": "passed"
+  },
+  "e1_spread_envelope": {
+    "allowed_e1_axes": [
+      {
+        "axis": "vehicle_model_fixture",
+        "control_class": "discrete_reset_time_selector",
+        "limit": "Do not treat this as a continuous passenger-fleet coverage proof."
+      },
+      {
+        "axis": "wheelbase_and_track",
+        "control_class": "discrete_variant_fixture",
+        "limit": "Do not infer continuous lf/lr mapping from wheelbase metadata."
+      },
+      {
+        "axis": "target_total_mass",
+        "control_class": "continuous_reset_time_partial",
+        "limit": "This does not move CG height, axle split, inertia, or payload position."
+      },
+      {
+        "axis": "load_transfer",
+        "control_class": "emergent_chrono_fixture_not_direct_axis",
+        "limit": "Do not claim a load-transfer parameter sweep or payload-height experiment."
+      },
+      {
+        "axis": "tire_parameter_set",
+        "control_class": "discrete_variant_bound_fixture",
+        "limit": "Do not claim winter/summer, Fiala, Pacejka, or continuous cf/cr tire coverage."
+      }
+    ],
+    "blocked_without_new_connector": [
+      {
+        "axis": "payload_position_or_cg_height",
+        "connector_needed": "Not allowed as an independent E1 axis until a backend connector exposes it and is smoked.",
+        "reason": "no scenario key currently sets chassis CG height or payload position"
+      },
+      {
+        "axis": "tire_model_family",
+        "connector_needed": "Not allowed as an E1 factor without a new selector and reset/step smoke.",
+        "reason": "whitelisted backend selector fixes tire_model='TMEASY' for every variant"
+      },
+      {
+        "axis": "continuous_lf_lr_iz_cf_cr",
+        "connector_needed": "Not allowed as independent E1 axes under the current backend.",
+        "reason": "scenario carries lf/lr/iz/cf/cr for provenance but backend leaves fixture geometry/inertia/tires unchanged"
+      },
+      {
+        "axis": "split_mu_or_per_wheel_contact_surface",
+        "connector_needed": "Not allowed for E1 unless a per-wheel/per-side terrain connector is added and smoked.",
+        "reason": "current executable path exposes one FlatTerrain scalar friction coefficient"
+      }
+    ],
+    "recommended_e1_population_panel": {
+      "arms": [
+        "fixed reflex with one global Chrono retune (fixed*)",
+        "RLS-retuned",
+        "per-instance tuned",
+        "per-instance Chrono-native oracle"
+      ],
+      "required_language": "E1 prices selected Chrono vehicle fixtures with load-transfer physics active; it does not price independent payload-position, h_cg, tire-family, or continuous lf/lr/Iz/cf/cr axes.",
+      "surface": "T-limit rows only until E1 preregisters any additional surface axis",
+      "vehicle_variants": [
+        "sedan_tmeasy",
+        "bmw_e90_tmeasy"
+      ]
+    }
+  },
+  "known_differences": [
+    "vehicle model: default Chrono Sedan (double wishbone / multilink, TMeasy tires, RWD, 4-speed automatic) vs AutoDrift single-track analytic model; explicit S4-HF-lite smoke variants can select BMW_E90 or UAZBUS through scenario chrono_vehicle_variant",
+    "total mass matched by chassis-mass override; inertia, CG height/shift and per-axle load split remain the selected Chrono vehicle's, so iz / cg_shift / inertia_scale hidden parameters are NOT mapped",
+    "tire stiffness scales (cf/cr) NOT mapped (TMeasy parameters fixed by the Sedan tire JSON); effective grip at a given mu differs from mu*g (measured ~1.1-1.25x at full braking)",
+    "drive_scale / brake_scale mapped multiplicatively onto throttle/brake inputs and clipped at 1.0, so scales > 1.0 saturate",
+    "max steering angle: Chrono Sedan 0.4363 rad at full lock vs AutoDrift max_steer 0.62 rad; the normalized steer command maps full-scale to full lock, so the physical steer gain is ~0.70x",
+    "steer/drive first-order lags + steer rate limit replicated exactly at the 50 Hz control layer in front of the Chrono driver inputs; Chrono's own engine/transmission/brake dynamics act in addition (double shaping)",
+    "initial state: pose and planar velocity (x, y, psi, vx, vy, yaw_rate) matched exactly at handoff after spin-up; suspension/driveline internal state is the spun-up straight-line state, not a curved steady state",
+    "reset observation reports ax=ay=0 and zero actuator states (current-sim reports force-model accelerations at reset)",
+    "ego acceleration channels are body-frame finite differences of vx/vy over the 0.02 s control step (current-sim uses instantaneous force-model accelerations)",
+    "friction step changes terrain mu for the tires; AutoDrift additionally resamples speed_ref (reward-only, no actor/dynamics effect)",
+    "AutoDrift aerodynamic drag/rolling resistance coefficients are not transferred; the selected Chrono vehicle's own drag and rolling resistance apply"
+  ],
+  "metrics_csv": "runs/feasibility_audit/chrono_spread_expressibility/metrics_quick.csv",
+  "milestone": "m3248-phase4-e0-chrono-spread-expressibility-audit",
+  "mode": "quick",
+  "preregistration": "experiments/feasibility_audit/chrono_spread_expressibility_prereg.json",
+  "schema_version": 1,
+  "source_artifacts": {
+    "docs/m3218-s4-hf-lite-backend-inventory-preflight.md": true,
+    "docs/m3219-s4-hf-lite-chrono-variant-selector-smoke.md": true,
+    "docs/m3227-d1-s4-hf-lite-chrono-pricing.md": true,
+    "docs/m3231-d1b-chrono-native-oracle-pricing-full.md": true,
+    "experiments/feasibility_audit/chrono_native_oracle_pricing.json": true,
+    "experiments/feasibility_audit/s4_hf_lite_backend_inventory.json": true,
+    "experiments/feasibility_audit/s4_hf_lite_chrono_pricing.json": true,
+    "experiments/feasibility_audit/s4_hf_lite_variant_selector_smoke.json": true,
+    "src/autodrift/chrono_vehicle_backend.py": true
+  },
+  "variant_reset_rows": [
+    {
+      "backend_model": "Sedan",
+      "backend_tire_model": "TMEASY",
+      "backend_variant": "sedan_tmeasy",
+      "chassis_inertia_xx_kgm2": [
+        222.8,
+        944.1,
+        1053.5
+      ],
+      "mass_abs_error_kg": 0.0,
+      "max_steer_rad": 0.4363323129985824,
+      "pass": true,
+      "reset_obs_finite": true,
+      "seed": 324800,
+      "step_pass": true,
+      "step_statuses": [
+        "running"
+      ],
+      "target_mass_kg": 1450.0,
+      "variant_id": "sedan_tmeasy",
+      "vehicle_total_mass_kg": 1450.0,
+      "wheelbase_m": 2.776,
+      "wheeltrack_m": [
+        1.5958,
+        1.6
+      ]
+    },
+    {
+      "backend_model": "BMW_E90",
+      "backend_tire_model": "TMEASY",
+      "backend_variant": "bmw_e90_tmeasy",
+      "chassis_inertia_xx_kgm2": [
+        572.0,
+        2487.0,
+        2768.0
+      ],
+      "mass_abs_error_kg": 0.0,
+      "max_steer_rad": 0.4363323129985824,
+      "pass": true,
+      "reset_obs_finite": true,
+      "seed": 324801,
+      "step_pass": true,
+      "step_statuses": [
+        "running"
+      ],
+      "target_mass_kg": 1800.0,
+      "variant_id": "bmw_e90_tmeasy",
+      "vehicle_total_mass_kg": 1800.0,
+      "wheelbase_m": 2.776,
+      "wheeltrack_m": [
+        1.500124,
+        1.4986
+      ]
+    }
+  ],
+  "variant_reset_rows_csv": "runs/feasibility_audit/chrono_spread_expressibility/variant_reset_rows_quick.csv"
+}
