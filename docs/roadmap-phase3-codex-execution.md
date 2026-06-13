@@ -57,8 +57,11 @@
   (toy-sim reflex 0/84, thesis-queued) which Chrono's TMeasy tires can now
   represent. E4 is now completed by M3260; PI reviewed it on 2026-06-14 and
   approved Track F at full-scenario scope. M3261 completed F1 infrastructure
-  and measured the 100M-step wall-clock projection. Codex STOPS again here:
-  F2/F3 do not start until PI reviews the F1 wall-clock report and gives go.
+  and measured 2.1 steps/s -> 550-day projection. PI 2026-06-14: this is a
+  ~170x infra bottleneck (2 workers + per-step IPC to the separate-env
+  Chrono worker), not a Chrono limit; next OPEN unit is F1b throughput
+  optimization (~28 workers + in-process/batched stepping, target >=1000
+  steps/s), then STOP for PI before F2.
 
 ## Track A — pricing/science completion (CPU only, zero training)
 
@@ -647,7 +650,27 @@ projected 100M-step wall-clock was 13207.81 h / 550.33 days, and CUDA update
 throughput was 0.00415x CPU on the measured batch. M3262 records the
 blocked-on-PI wall-clock review gate; do NOT launch F2.
 
-F2. Asymmetric actor-critic + teacher-student [BLOCKED: M3262, on F1 wall-clock review + PI go]:
+**PI F1 disposition (2026-06-14): as-built 550 days is infeasible, but it is
+a ~170x INFRASTRUCTURE bottleneck, not a Chrono limit — do F1b optimization
+before F2.** Diagnosis: F1 used only 2 workers on a 32-core machine and pays
+a per-step IPC round-trip to the separate-conda-env Chrono worker; the
+historical in-process Chrono backend smoke ran ~3400 internal steps/s
+(~170 control steps/s single-worker) vs F1's ~1 control step/s/worker.
+F2 stays on CPU (CUDA confirmed 0.004x CPU for this small net).
+
+F1b. Training-throughput optimization [OPEN — NEXT; then STOP for PI]: raise
+env-stepping throughput by (a) scaling to ~max-1 cores of workers (~28-30),
+and (b) eliminating or amortizing the per-step IPC round-trip — run Chrono
+in-process where possible, or batch many env steps per IPC call /
+shared-memory transport. Keep the obs72/action3 contract, determinism, and
+mixed avoidance+drift coverage from F1. Acceptance: re-measured aggregate
+throughput + re-projected 100M wall-clock; target >= 1000 steps/s aggregate
+(100M <= ~28 h); if the target is missed, report the achieved number and
+the remaining bottleneck. **Then STOP and report to PI** — write the result,
+keep F2 blocked-on-PI; do NOT launch F2. (This is still the F1 wall-clock
+stop, just after the optimization that makes the number feasible.)
+
+F2. Asymmetric actor-critic + teacher-student [BLOCKED: M3262, on F1b throughput + PI go]:
 robotics-field-standard recipe — privileged critic/teacher (true mu +
 vehicle params), obs72+short-history student distillation (RMA-style),
 curriculum, **100M env steps**, >= 8 seeds. **Training distribution = the
@@ -742,7 +765,8 @@ before PI reviews the F1 wall-clock report.
 - E4: DONE (M3260; full Chrono drift / beyond-saturation pricing completed, with one positive low-mu power-oversteer cell and one near-neutral lift-off recovery cell; PI review completed 2026-06-14)
 - E4 review: DONE (PI 2026-06-14) — Track F APPROVED at FULL-SCENARIO scope: ONE driver over avoidance + drift, per-regime teacher (drift teacher = specialized oracle, not CEM)
 - F1: DONE (M3261; infra + smoke + throughput + projected 100M wall-clock completed: 48 steps, 2.1031 steps/s, 13207.81 h / 550.33 days projected for 100M; STOP for PI wall-clock review)
-- F2-F3: BLOCKED (M3262) on F1 wall-clock review + PI go (100M managed run; full-scenario, three prizes: avoidance +0.18, belief +0.77, drift +0.40)
+- F1b: OPEN — NEXT (throughput optimization: ~28 workers + kill per-step IPC; target >=1000 steps/s; then STOP for PI)
+- F2-F3: BLOCKED on F1b throughput + PI go (100M managed run; full-scenario, three prizes: avoidance +0.18, belief +0.77, drift +0.40)
 - WP6.2 guardrails: **MERGED** (commit 05607bcd — validator V7 live in the
   pre-commit hook, escalation protocol in docs/escalations/, managed-run
   helper scripts/run_managed.sh). Codex execution may begin.
