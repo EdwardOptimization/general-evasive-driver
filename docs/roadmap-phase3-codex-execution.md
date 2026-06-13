@@ -42,9 +42,12 @@
   available. M3255 completed the full frozen E3 Sedan/TMeasy measurement A/C
   panel: 24/24 detector-latency rows and 72/72 recovery-budget rows were
   written, all protocol gates passed, CP-3 evidence is ready, and Track F is
-  still not admitted. The next hard stop is PI CP-3; do not self-approve
-  Track F. M3256 records this as a blocked process gate in the queue, with
-  escalation note `docs/escalations/2026-06-13-phase4-cp3-track-f-pi-checkpoint.md`.
+  still not admitted. M3256 recorded PI CP-3 as a blocked process gate, then
+  PI recorded CP-3 disposition A: harden Track E before any GPU. M3257
+  completed E3-fix detector-onset reconciliation: 24/24 case rows and 3426
+  trace rows, original early-fire rate 0.5, reconciled early-fire rate 0.0,
+  detector miss rate 0.1667, and E2' dependency ready. Track F remains
+  blocked on E2' flip-confirmation plus a later GPU-days checkpoint.
 
 ## Track A — pricing/science completion (CPU only, zero training)
 
@@ -517,17 +520,18 @@ E1 3-6/arm, E3 12-24/axis), Sedan/TMeasy only, with one detector anomaly
 and an underpowered native oracle in E1. Price-before-train one more level:
 confirm the flip at adequate power BEFORE spending GPU-days on Track F.
 
-E3-fix. Detector-onset reconciliation [OPEN, FIRST — E2' depends on it]:
-the longitudinal axis fired ~35 steps BEFORE the Chrono tire-truth onset
-(early-fire rate 0.5). Audit and reconcile the obs72 shortfall detector
-vs the Chrono tire-truth onset definition (which is "truth"? is the
-detector noise-triggering early, or is the truth-onset threshold late?);
-re-measure latency/miss with the reconciled definitions. Frozen acceptance:
-a single documented onset definition, early-fire rate reported, and the
-corrected latency/miss table. The seeker in E2' uses the reconciled
-detector.
+E3-fix. Detector-onset reconciliation [DONE: M3257]:
+M3257 audited and reconciled the obs72 shortfall detector vs the Chrono
+tire-slip onset definition. Full result: 24/24 case rows, 3426 trace rows,
+all protocol gates passed, original early-fire rate 0.5, reconciled
+early-fire rate 0.0, detector miss rate 0.1667, corroborated early-fire rate
+0.5, uncorroborated detector-fire rate 0.0, and reconciled p90 latency
+1.346 s. The reconciled rule is now frozen for E2': use the detector fire
+step as actor-visible onset when it occurs before the M3255 tire-slip truth
+onset and that tire truth later occurs within the preregistered 150-step
+window; otherwise keep the M3255 tire-slip truth onset.
 
-E2'. Two-regime law hardened [OPEN; depends E3-fix]: re-run E2 with
+E2'. Two-regime law hardened [OPEN, NEXT; depends M3257]: re-run E2 with
 **>= 30 validation seeds per cell**, on **>= 2 vehicle variants** (Sedan +
 one non-Sedan, e.g. UAZBUS for the largest mass/geometry contrast), all
 five clean reveal tiers + the degraded spot, paired CIs, new SEED_BASE,
@@ -575,7 +579,7 @@ checkpoint); if E2' refutes it, Track F is dropped and the program goes to
 papers with the toy-sim conclusion intact. The escalation
 `docs/escalations/2026-06-13-phase4-cp3-track-f-pi-checkpoint.md` resolution
 records this disposition; the new dependency-satisfied OPEN units are
-E3-fix (first), then E2' and E1'.
+E2' and E1'. E3-fix was completed under M3257.
 
 ## Out of scope for Codex sessions
 
@@ -617,16 +621,17 @@ C1-v4, C2, C3, or any driver-performance claim from those smoke, distillation,
 or negative RL results. Phase-4 reopens the question only through new Chrono
 pricing evidence; E0 is complete, E1 is completed negative, and E2 is
 completed positive on the Sedan/TMeasy fixture. E3 protocol and telemetry
-smokes passed, and full E3 completed under M3255. CP-3 is now the next hard
-checkpoint; M3256 records this as a blocked process gate and Track F is still
-blocked before PI approval.
+smokes passed, full E3 completed under M3255, M3256 recorded CP-3, and PI
+resolved CP-3 as disposition A. M3257 completed E3-fix, so the next OPEN unit
+is E2' hardening; Track F remains blocked before E2' flip confirmation and a
+later GPU-days checkpoint.
 - E0: DONE (M3248; frozen Chrono spread-axis table and E1 envelope)
 - E1: DONE (M3249 quick protocol smoke passed; M3250 full pricing negative with 0/3 qualifying variants)
 - E2: DONE (M3251 quick protocol smoke passed; M3252 full Sedan/TMeasy verdict positive with 2 clean reveals qualifying)
 - E3: DONE (M3253 passed protocol smoke; M3254 confirmed tire-truth telemetry; M3255 full measurement A/C completed with 24/24 latency rows, 72/72 recovery rows, all protocol gates passed, CP-3 evidence ready, Track F not admitted)
 - CP-3: DISPOSITION A (PI 2026-06-13) — harden Track E before any GPU
-- E3-fix: OPEN (detector-onset reconciliation; FIRST, gates E2')
-- E2': OPEN (depends E3-fix; >=30 seeds/cell, >=2 vehicles; frozen flip-confirmation gate for Track F)
+- E3-fix: DONE (M3257; detector-onset reconciliation completed, corrected early-fire rate 0.0, E2' dependency ready)
+- E2': OPEN / NEXT (depends M3257; >=30 seeds/cell, >=2 vehicles; frozen flip-confirmation gate for Track F)
 - E1': OPEN (depends E0; oracle-adequate spread repricing)
 - F1-F3: BLOCKED on E2' flip-confirmation + CP-3 GPU-days budget (a second checkpoint)
 - WP6.2 guardrails: **MERGED** (commit 05607bcd — validator V7 live in the

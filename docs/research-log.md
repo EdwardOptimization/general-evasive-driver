@@ -56608,3 +56608,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m3255-phase4-e3-chrono-measurement-ac-full_20260613T020301Z/command.log`
 - success artifact: `experiments/feasibility_audit/phase4_e3_chrono_measurement_ac_full.json`
 - notes: Completed: full E3 Chrono measurement A/C panel passed all structured gates under frozen tire-truth definitions. Latency rows 24/24 and recovery rows 72/72 were written; detector miss rate 0.1667, p90 latency 1.346 s, early-fire rate 0.5, v4 recovery 1.0, baseline recovery 1.0, v4-baseline delta 0.0, cp3_evidence_ready=1, Track F admitted=0. Track F remains blocked before PI CP-3; no training driver-performance high-fidelity sufficiency paper repair-success feasibility-proof or self-ID claim is admitted.
+
+## 20260613T045906Z m3257-phase4-e3-detector-onset-reconciliation
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: A preregistered Phase-4 E3-fix detector-onset reconciliation can document a single actor-visible onset definition, report the M3255 early-fire anomaly, and write a corrected Chrono Measurement-A latency/miss table before validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof paper or self-ID claim.
+- command: `env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/phase4_e3_detector_onset_reconciliation.py --full --resume`
+- returncode: `0`
+- run dir: `runs/research/m3257-phase4-e3-detector-onset-reconciliation_20260613T045406Z`
+- command log: `runs/research/m3257-phase4-e3-detector-onset-reconciliation_20260613T045406Z/command.log`
+- success artifact: `experiments/feasibility_audit/phase4_e3_detector_onset_reconciliation.json`
+- notes: Completed: E3-fix detector-onset reconciliation passed all structured gates. It wrote 24/24 Measurement-A case rows and 3426 trace rows; original early-fire rate 0.5, reconciled early-fire rate 0.0, detector miss rate 0.1667, corroborated early-fire rate 0.5, uncorroborated detector-fire rate 0.0, E2 prime dependency ready=1, Track F admitted=0. Track F remains blocked before E2 prime flip confirmation plus a later GPU-days checkpoint.

@@ -1,0 +1,236 @@
+{
+  "id": "m3257-phase4-e3-detector-onset-reconciliation",
+  "priority": 32570,
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "milestone_intent": "evaluation_only",
+  "hypothesis": "A preregistered Phase-4 E3-fix detector-onset reconciliation can document a single actor-visible onset definition, report the M3255 early-fire anomaly, and write a corrected Chrono Measurement-A latency/miss table before validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof paper or self-ID claim.",
+  "lineage": {
+    "parent_checkpoint": [
+      "docs/current-status.md",
+      "docs/roadmap-phase3-codex-execution.md",
+      "docs/escalations/2026-06-13-phase4-cp3-track-f-pi-checkpoint.md"
+    ],
+    "parent_dataset": [
+      "experiments/feasibility_audit/phase4_e3_chrono_measurement_ac_full.json",
+      "runs/feasibility_audit/phase4_e3_chrono_measurement_ac_full/latency_rows_full.csv"
+    ],
+    "parent_config": [
+      "experiments/feasibility_audit/phase4_e3_detector_onset_reconciliation_prereg.json",
+      "scripts/feasibility_audit/phase4_e3_detector_onset_reconciliation.py",
+      "scripts/feasibility_audit/phase4_e3_chrono_measurement_ac_full.py",
+      "scripts/feasibility_audit/phase4_e3_chrono_measurement_ac_smoke.py",
+      "scripts/feasibility_audit/chrono_worker_client.py",
+      "scripts/feasibility_audit/chrono_backend_worker.py",
+      "src/autodrift/chrono_vehicle_backend.py"
+    ],
+    "parent_objective": [
+      "Track E' E3-fix: reconcile obs72 shortfall-detector onset versus Chrono tire-slip truth before E2' hardening",
+      "CP-3 disposition A requires Track-E hardening before any Track-F GPU budget"
+    ],
+    "derived_from": [
+      "M3255 completed full E3 but reported longitudinal detector fires about 35 steps before the M3255 tire-truth onset and early-fire rate 0.5",
+      "The CP-3 resolution opens Track E' and names E3-fix as the first dependency for E2'",
+      "M3254 confirmed Chrono tire-truth telemetry availability for per-step tracing"
+    ],
+    "blocked_by": [
+      "Track F remains blocked on E2' flip confirmation and a later GPU-days checkpoint",
+      "E2' remains blocked until M3257 writes the reconciled detector definition"
+    ],
+    "supersedes": [
+      "treating the M3255 negative longitudinal latency as a final detector-truth mismatch without per-step reconciliation",
+      "starting E2' while the seeker detector onset definition is still ambiguous"
+    ],
+    "invalidates": [
+      "claiming Track F admission from M3257",
+      "using M3257 trace rows as learned-policy performance or self-ID evidence",
+      "changing detector thresholds after observing full M3257 rows"
+    ]
+  },
+  "review_artifact": "docs/reviews/m3257-phase4-e3-detector-onset-reconciliation.md",
+  "public_gates": [
+    "M3257 must write preregistration before any M3257 rollout",
+    "M3257 must run quick smoke before the managed full harness run",
+    "M3257 must rerun only frozen Measurement-A cases and must not edit ActiveSafetyReflexDriver",
+    "M3257 must write per-step traces containing obs72 detector signal and Chrono tire-slip truth fields",
+    "M3257 must document one reconciled onset definition before the full run",
+    "M3257 must report original and reconciled early-fire rates",
+    "M3257 must write the corrected latency/miss table and keep Track F blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run full M3257 without preregistration and quick smoke",
+    "do not tune detector thresholds, truth thresholds, cases, seed streams, or the corroboration window after observing full rows",
+    "do not edit ActiveSafetyReflexDriver",
+    "do not mutate obs72/action3 actor observation or action semantics",
+    "do not invoke PPO, supervised training, guarded RL, or policy checkpoint writing",
+    "do not claim driver performance, full high-fidelity sufficiency, paper readiness, repair success, robustness result, feasibility proof, Track F admission, or self-ID from M3257",
+    "do not self-approve the later Track-F GPU-days checkpoint"
+  ],
+  "workflow_synthesis": {
+    "branch": "phase4_track_e_prime_hardening",
+    "evidence_axis": "e3_chrono_detector_onset_reconciliation",
+    "evidence_increment": "full per-step Chrono Measurement-A trace panel plus corrected detector latency/miss table under a pre-registered detector-corroborated onset rule",
+    "claim_scope": "Track E' E3-fix detector-onset reconciliation on the default Chrono Sedan/TMeasy fixture only; incumbent unchanged; obs72/action3 unchanged; no validation ranking, promotion, driver-performance, current-sim sufficiency, full high-fidelity sufficiency, paper, repair-success, robustness-result, feasibility-proof, Track F admission, or self-ID claim",
+    "stop_condition": [
+      "stop after the full M3257 reconciliation table, doc, review, and ledger updates are written",
+      "stop if row-count, trace, obs-finite, variant-match, telemetry, wheel-count, onset-definition, early-fire-reporting, or corrected-table gates fail",
+      "stop if the result is interpreted as Track F admission or as training evidence"
+    ],
+    "fallback_plan": [
+      "if M3257 passes, route next to E2' hardening preregistration using the reconciled detector definition",
+      "if M3257 fails, write the negative at full fidelity and do not start E2'",
+      "if detector fires are uncorroborated or miss-prone, report that as the E2' detector constraint instead of tuning thresholds"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "CP-3 disposition A opened Track E' and made E3-fix the lowest-numbered dependency-satisfied OPEN unit",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "Rerun Measurement-A as a trace-only reconciliation panel; no model update.",
+    "admission_evidence": [
+      "M3255 full E3 completed and exposed the early-fire anomaly",
+      "CP-3 disposition A resolved M3256 by opening Track E' hardening",
+      "M3257 quick smoke passed before registering the full run"
+    ],
+    "blocked_shortcuts": [
+      "no RL or PPO",
+      "no incumbent mutation",
+      "no threshold or seed tuning after rows are observed",
+      "no Track F admission",
+      "no self-ID or history-attribution claim"
+    ],
+    "allowed_updates": [
+      "scripts/feasibility_audit/phase4_e3_detector_onset_reconciliation.py",
+      "tests/test_phase4_e3_detector_onset_reconciliation.py",
+      "experiments/feasibility_audit/phase4_e3_detector_onset_reconciliation_prereg.json",
+      "experiments/feasibility_audit/phase4_e3_detector_onset_reconciliation_quick.json",
+      "experiments/feasibility_audit/phase4_e3_detector_onset_reconciliation.json",
+      "runs/feasibility_audit/phase4_e3_detector_onset_reconciliation/case_rows_quick.csv",
+      "runs/feasibility_audit/phase4_e3_detector_onset_reconciliation/trace_rows_quick.csv",
+      "runs/feasibility_audit/phase4_e3_detector_onset_reconciliation/metrics_quick.csv",
+      "runs/feasibility_audit/phase4_e3_detector_onset_reconciliation/case_rows_full.csv",
+      "runs/feasibility_audit/phase4_e3_detector_onset_reconciliation/trace_rows_full.csv",
+      "runs/feasibility_audit/phase4_e3_detector_onset_reconciliation/metrics_full.csv",
+      "docs/m3257-phase4-e3-detector-onset-reconciliation.md",
+      "docs/reviews/m3257-phase4-e3-detector-onset-reconciliation.md",
+      "docs/current-status.md",
+      "docs/roadmap-phase3-codex-execution.md",
+      "docs/research-log.md",
+      "docs/data-coverage-map-2026-06.md",
+      "scripts/feasibility_audit/README.md",
+      "experiments/research_queue.csv",
+      "experiments/research_status.json",
+      "experiments/scoreboard.csv"
+    ],
+    "next_stage_criteria": [
+      "After M3257 pass, E2' hardening may preregister using the reconciled detector definition",
+      "Track F remains blocked until E2' confirms the flip and a later GPU-days checkpoint approves budget"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M3257 makes no history or self-ID claim; it measures scripted detector traces only.",
+    "history_necessity_tests": [
+      "none in M3257"
+    ],
+    "temporal_evidence_window": "not applicable; no learned history policy is evaluated",
+    "negative_result_policy": "Weak, missed, or uncorroborated detector readouts are reported at full fidelity and cannot be converted into Track F admission.",
+    "allowed_claims": [
+      "M3257 completed or failed the detector-onset reconciliation protocol",
+      "original and reconciled early-fire/miss/latency readouts on Sedan/TMeasy Measurement-A cases",
+      "E2' detector-definition dependency readiness if full protocol gates pass",
+      "Track F remains blocked"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_dataset_or_panel",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "adds the first per-step Chrono detector-versus-tire-truth trace panel after the M3255 early-fire anomaly",
+    "paper_verdict_delta": "M3257 decides whether the Chrono clean VoI hardening path has a documented detector onset definition for E2', without deciding papers or Track F.",
+    "must_synthesize_if": [
+      "another detector-onset reconciliation is proposed after M3257 without a failed protocol gate",
+      "E2' is proposed before M3257 completes",
+      "M3257 is interpreted as learned-policy performance or self-ID evidence"
+    ]
+  },
+  "success_criteria": [
+    "experiments/feasibility_audit/phase4_e3_detector_onset_reconciliation_prereg.json exists before the full run",
+    "experiments/feasibility_audit/phase4_e3_detector_onset_reconciliation.json exists after the full run",
+    "runs/feasibility_audit/phase4_e3_detector_onset_reconciliation/case_rows_full.csv includes all expected Measurement-A rows",
+    "runs/feasibility_audit/phase4_e3_detector_onset_reconciliation/trace_rows_full.csv includes per-step detector and tire-truth traces",
+    "runs/feasibility_audit/phase4_e3_detector_onset_reconciliation/metrics_full.csv reports protocol_gates_passed=1",
+    "docs/m3257-phase4-e3-detector-onset-reconciliation.md reports measured and inferred sections plus the frozen claim boundary"
+  ],
+  "failure_criteria": [
+    "M3257 runs without preregistration",
+    "M3257 omits a frozen Measurement-A case or trace",
+    "M3257 tunes thresholds, cases, seed streams, or the corroboration window after rows are observed",
+    "M3257 mutates ActiveSafetyReflexDriver or the actor observation contract",
+    "M3257 admits Track F, training, driver-performance, full high-fidelity sufficiency, paper, feasibility-proof, repair-success, or self-ID claims"
+  ],
+  "decision_rule": "Accept M3257 as completed if the full reconciliation panel runs under the frozen preregistration, writes full JSON/CSV/doc artifacts, passes protocol gates, marks E2' detector-definition dependency ready, and keeps Track F blocked.",
+  "decision_labels": {
+    "pass": "detector_onset_reconciliation_completed",
+    "fail": "detector_onset_reconciliation_failed"
+  },
+  "commands": [
+    {
+      "name": "phase4_e3_onset_reconciliation_prereg",
+      "command": "env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/phase4_e3_detector_onset_reconciliation.py --write-prereg"
+    },
+    {
+      "name": "phase4_e3_onset_reconciliation_quick",
+      "command": "env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/phase4_e3_detector_onset_reconciliation.py --quick --resume"
+    },
+    {
+      "name": "phase4_e3_onset_reconciliation_full",
+      "command": "env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/phase4_e3_detector_onset_reconciliation.py --full --resume"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "experiments/feasibility_audit/phase4_e3_detector_onset_reconciliation_prereg.json",
+      "type": "json"
+    },
+    {
+      "path": "experiments/feasibility_audit/phase4_e3_detector_onset_reconciliation.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/feasibility_audit/phase4_e3_detector_onset_reconciliation/case_rows_full.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/feasibility_audit/phase4_e3_detector_onset_reconciliation/trace_rows_full.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/feasibility_audit/phase4_e3_detector_onset_reconciliation/metrics_full.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m3257-phase4-e3-detector-onset-reconciliation.md",
+      "type": "markdown"
+    },
+    {
+      "path": "docs/reviews/m3257-phase4-e3-detector-onset-reconciliation.md",
+      "type": "markdown"
+    }
+  ],
+  "baseline_checkpoints": [
+    "docs/current-status.md",
+    "docs/roadmap-phase3-codex-execution.md",
+    "docs/escalations/2026-06-13-phase4-cp3-track-f-pi-checkpoint.md",
+    "experiments/feasibility_audit/phase4_e3_chrono_measurement_ac_full.json",
+    "runs/feasibility_audit/phase4_e3_chrono_measurement_ac_full/latency_rows_full.csv"
+  ]
+}

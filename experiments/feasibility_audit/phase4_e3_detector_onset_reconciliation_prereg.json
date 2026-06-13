@@ -1,0 +1,335 @@
+{
+  "baseline_anomaly": {
+    "m3255_by_axis": {
+      "lat": {
+        "detector_fire_rate": 0.6666666666666666,
+        "median_latency_steps": 60.0,
+        "p90_latency_steps": 88.0,
+        "row_count": 12,
+        "truth_onset_rate": 1.0
+      },
+      "long": {
+        "detector_fire_rate": 1.0,
+        "median_latency_steps": -35.0,
+        "p90_latency_steps": -19.099999999999994,
+        "row_count": 12,
+        "truth_onset_rate": 1.0
+      }
+    },
+    "m3255_detector_miss_rate": 0.16666666666666666,
+    "m3255_original_early_fire_rate": 0.5,
+    "m3255_p90_latency_s": 1.3460000000000008
+  },
+  "cases": [
+    {
+      "axis": "long",
+      "case_id": "A_long_mu0.45_rate0.2_s0",
+      "mu": 0.45,
+      "rate": 0.2,
+      "seed": 194823266,
+      "seed_index": 0,
+      "tau": 0.15,
+      "truth_threshold": 0.25
+    },
+    {
+      "axis": "long",
+      "case_id": "A_long_mu0.45_rate0.2_s1",
+      "mu": 0.45,
+      "rate": 0.2,
+      "seed": 1720827143,
+      "seed_index": 1,
+      "tau": 0.15,
+      "truth_threshold": 0.25
+    },
+    {
+      "axis": "long",
+      "case_id": "A_long_mu0.45_rate0.3_s0",
+      "mu": 0.45,
+      "rate": 0.3,
+      "seed": 171499013,
+      "seed_index": 0,
+      "tau": 0.15,
+      "truth_threshold": 0.25
+    },
+    {
+      "axis": "long",
+      "case_id": "A_long_mu0.45_rate0.3_s1",
+      "mu": 0.45,
+      "rate": 0.3,
+      "seed": 977878430,
+      "seed_index": 1,
+      "tau": 0.15,
+      "truth_threshold": 0.25
+    },
+    {
+      "axis": "long",
+      "case_id": "A_long_mu0.5875_rate0.2_s0",
+      "mu": 0.5875,
+      "rate": 0.2,
+      "seed": 1806907434,
+      "seed_index": 0,
+      "tau": 0.15,
+      "truth_threshold": 0.25
+    },
+    {
+      "axis": "long",
+      "case_id": "A_long_mu0.5875_rate0.2_s1",
+      "mu": 0.5875,
+      "rate": 0.2,
+      "seed": 1189913880,
+      "seed_index": 1,
+      "tau": 0.15,
+      "truth_threshold": 0.25
+    },
+    {
+      "axis": "long",
+      "case_id": "A_long_mu0.5875_rate0.3_s0",
+      "mu": 0.5875,
+      "rate": 0.3,
+      "seed": 262842833,
+      "seed_index": 0,
+      "tau": 0.15,
+      "truth_threshold": 0.25
+    },
+    {
+      "axis": "long",
+      "case_id": "A_long_mu0.5875_rate0.3_s1",
+      "mu": 0.5875,
+      "rate": 0.3,
+      "seed": 409521844,
+      "seed_index": 1,
+      "tau": 0.15,
+      "truth_threshold": 0.25
+    },
+    {
+      "axis": "long",
+      "case_id": "A_long_mu0.85_rate0.2_s0",
+      "mu": 0.85,
+      "rate": 0.2,
+      "seed": 474738594,
+      "seed_index": 0,
+      "tau": 0.15,
+      "truth_threshold": 0.25
+    },
+    {
+      "axis": "long",
+      "case_id": "A_long_mu0.85_rate0.2_s1",
+      "mu": 0.85,
+      "rate": 0.2,
+      "seed": 1427932591,
+      "seed_index": 1,
+      "tau": 0.15,
+      "truth_threshold": 0.25
+    },
+    {
+      "axis": "long",
+      "case_id": "A_long_mu0.85_rate0.3_s0",
+      "mu": 0.85,
+      "rate": 0.3,
+      "seed": 405490067,
+      "seed_index": 0,
+      "tau": 0.15,
+      "truth_threshold": 0.25
+    },
+    {
+      "axis": "long",
+      "case_id": "A_long_mu0.85_rate0.3_s1",
+      "mu": 0.85,
+      "rate": 0.3,
+      "seed": 376600173,
+      "seed_index": 1,
+      "tau": 0.15,
+      "truth_threshold": 0.25
+    },
+    {
+      "axis": "lat",
+      "case_id": "A_lat_mu0.45_rate0.18_s0",
+      "mu": 0.45,
+      "rate": 0.18,
+      "seed": 1125940445,
+      "seed_index": 0,
+      "tau": 0.03,
+      "truth_threshold": 0.05
+    },
+    {
+      "axis": "lat",
+      "case_id": "A_lat_mu0.45_rate0.18_s1",
+      "mu": 0.45,
+      "rate": 0.18,
+      "seed": 13569038,
+      "seed_index": 1,
+      "tau": 0.03,
+      "truth_threshold": 0.05
+    },
+    {
+      "axis": "lat",
+      "case_id": "A_lat_mu0.45_rate0.25_s0",
+      "mu": 0.45,
+      "rate": 0.25,
+      "seed": 254032652,
+      "seed_index": 0,
+      "tau": 0.03,
+      "truth_threshold": 0.05
+    },
+    {
+      "axis": "lat",
+      "case_id": "A_lat_mu0.45_rate0.25_s1",
+      "mu": 0.45,
+      "rate": 0.25,
+      "seed": 1329809564,
+      "seed_index": 1,
+      "tau": 0.03,
+      "truth_threshold": 0.05
+    },
+    {
+      "axis": "lat",
+      "case_id": "A_lat_mu0.5875_rate0.18_s0",
+      "mu": 0.5875,
+      "rate": 0.18,
+      "seed": 862458493,
+      "seed_index": 0,
+      "tau": 0.03,
+      "truth_threshold": 0.05
+    },
+    {
+      "axis": "lat",
+      "case_id": "A_lat_mu0.5875_rate0.18_s1",
+      "mu": 0.5875,
+      "rate": 0.18,
+      "seed": 399311588,
+      "seed_index": 1,
+      "tau": 0.03,
+      "truth_threshold": 0.05
+    },
+    {
+      "axis": "lat",
+      "case_id": "A_lat_mu0.5875_rate0.25_s0",
+      "mu": 0.5875,
+      "rate": 0.25,
+      "seed": 1949167561,
+      "seed_index": 0,
+      "tau": 0.03,
+      "truth_threshold": 0.05
+    },
+    {
+      "axis": "lat",
+      "case_id": "A_lat_mu0.5875_rate0.25_s1",
+      "mu": 0.5875,
+      "rate": 0.25,
+      "seed": 1892286120,
+      "seed_index": 1,
+      "tau": 0.03,
+      "truth_threshold": 0.05
+    },
+    {
+      "axis": "lat",
+      "case_id": "A_lat_mu0.85_rate0.18_s0",
+      "mu": 0.85,
+      "rate": 0.18,
+      "seed": 64851520,
+      "seed_index": 0,
+      "tau": 0.03,
+      "truth_threshold": 0.05
+    },
+    {
+      "axis": "lat",
+      "case_id": "A_lat_mu0.85_rate0.18_s1",
+      "mu": 0.85,
+      "rate": 0.18,
+      "seed": 100612728,
+      "seed_index": 1,
+      "tau": 0.03,
+      "truth_threshold": 0.05
+    },
+    {
+      "axis": "lat",
+      "case_id": "A_lat_mu0.85_rate0.25_s0",
+      "mu": 0.85,
+      "rate": 0.25,
+      "seed": 307868451,
+      "seed_index": 0,
+      "tau": 0.03,
+      "truth_threshold": 0.05
+    },
+    {
+      "axis": "lat",
+      "case_id": "A_lat_mu0.85_rate0.25_s1",
+      "mu": 0.85,
+      "rate": 0.25,
+      "seed": 221988971,
+      "seed_index": 1,
+      "tau": 0.03,
+      "truth_threshold": 0.05
+    }
+  ],
+  "chrono_variant": "sedan_tmeasy",
+  "claim_boundary": "Phase-4 E3-fix detector-onset reconciliation only: scripted Chrono Measurement-A brake/steer ramps compare the obs72 shortfall detector against M3255 tire-slip truth and a pre-registered detector-corroborated onset rule. This is zero training and makes no incumbent mutation, validation ranking, promotion, driver-performance, full high-fidelity sufficiency, paper, repair-success, robustness-result, feasibility-proof, Track-F-admission, or self-ID claim.",
+  "decision_rule": "M3257 completes iff row-count, trace, finite obs, variant, telemetry, wheel-count, definition, early-fire reporting, and corrected-table gates pass. The resulting detector definition may feed E2', but does not admit Track F or training.",
+  "dependencies": {
+    "cp3_disposition": "docs/escalations/2026-06-13-phase4-cp3-track-f-pi-checkpoint.md",
+    "m3255_full_artifact": "experiments/feasibility_audit/phase4_e3_chrono_measurement_ac_full.json",
+    "m3255_latency_rows": "runs/feasibility_audit/phase4_e3_chrono_measurement_ac_full/latency_rows_full.csv"
+  },
+  "dt": 0.02,
+  "expected_full_case_rows": 24,
+  "expected_quick_case_rows": 2,
+  "frozen_at_utc": "20260613T045117Z",
+  "frozen_before_any_m3257_rollout": true,
+  "milestone": "m3257-phase4-e3-detector-onset-reconciliation",
+  "onset_definitions": {
+    "obs72_detector": {
+      "class": "scripts/feasibility_audit/slip_onset_detectability.py::SlipOnsetDetector",
+      "input": "obs72 only; no tire telemetry or hidden parameter input",
+      "persist_steps": 3,
+      "tau_by_axis": {
+        "lat": 0.03,
+        "long": 0.15
+      }
+    },
+    "original_m3255_tire_truth": {
+      "lat": "first step >= 10 where max_abs_tire_slip_angle_rad >= 0.05 for 2 consecutive steps",
+      "long": "first step >= 10 where max_abs_tire_longitudinal_slip >= 0.25 for 2 consecutive steps",
+      "truth_min_step": 10,
+      "truth_persist_steps": 2
+    },
+    "reconciled_actor_visible_onset": {
+      "corroboration_max_lead_s": 3.0,
+      "corroboration_max_lead_steps": 150,
+      "rule": "Use the detector fire step as the corrected onset when it occurs before the M3255 tire-slip truth onset and that tire truth later occurs within CORROBORATION_MAX_LEAD_STEPS; otherwise keep the M3255 tire-slip truth onset. If the detector fires and no tire truth follows inside the window, report an uncorroborated early detector fire."
+    }
+  },
+  "protocol": "phase4_e3_detector_onset_reconciliation_preregistration",
+  "quick_cases": [
+    {
+      "axis": "long",
+      "case_id": "A_long_mu0.45_rate0.2_s0",
+      "mu": 0.45,
+      "rate": 0.2,
+      "seed": 194823266,
+      "seed_index": 0,
+      "tau": 0.15,
+      "truth_threshold": 0.25
+    },
+    {
+      "axis": "lat",
+      "case_id": "A_lat_mu0.45_rate0.18_s0",
+      "mu": 0.45,
+      "rate": 0.18,
+      "seed": 1125940445,
+      "seed_index": 0,
+      "tau": 0.03,
+      "truth_threshold": 0.05
+    }
+  ],
+  "roadmap_unit": "Phase-4 Track E' E3-fix detector-onset reconciliation",
+  "runtime_gates": [
+    "full M3255 anomaly artifact exists before M3257",
+    "all frozen Measurement-A rows are rerun and traced",
+    "trace rows include obs72 detector signal and Chrono tire-slip truth fields",
+    "one reconciled onset definition is documented in the preregistration",
+    "early-fire rate is reported under both original and reconciled definitions",
+    "corrected latency and miss tables are written",
+    "Track F remains blocked pending E2' flip confirmation plus a later GPU-days checkpoint"
+  ],
+  "seed_base": 2026061311
+}

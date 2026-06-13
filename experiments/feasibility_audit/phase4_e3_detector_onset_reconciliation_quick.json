@@ -1,0 +1,89 @@
+{
+  "case_row_count": 2,
+  "case_rows_csv": "runs/feasibility_audit/phase4_e3_detector_onset_reconciliation/case_rows_quick.csv",
+  "claim_boundary": "Phase-4 E3-fix detector-onset reconciliation only: scripted Chrono Measurement-A brake/steer ramps compare the obs72 shortfall detector against M3255 tire-slip truth and a pre-registered detector-corroborated onset rule. This is zero training and makes no incumbent mutation, validation ranking, promotion, driver-performance, full high-fidelity sufficiency, paper, repair-success, robustness-result, feasibility-proof, Track-F-admission, or self-ID claim.",
+  "decision": {
+    "e2_prime_dependency_ready": false,
+    "full_verdict": "not_decided_by_quick_mode",
+    "next_admitted_step": "Run full M3257 before E2'.",
+    "quick_verdict": "onset_reconciliation_protocol_smoke_passed",
+    "track_f_admitted": false
+  },
+  "elapsed_s": 26.105818033218384,
+  "expected_case_row_count": 2,
+  "generated_at_utc": "20260613T045153Z",
+  "metrics_csv": "runs/feasibility_audit/phase4_e3_detector_onset_reconciliation/metrics_quick.csv",
+  "milestone": "m3257-phase4-e3-detector-onset-reconciliation",
+  "mode": "quick",
+  "original": {
+    "by_axis": {
+      "lat": {
+        "detector_miss_rate": 0.0,
+        "early_fire_rate": 0.0,
+        "median_latency_steps": 55.0,
+        "p90_latency_steps": 55.0,
+        "row_count": 1
+      },
+      "long": {
+        "detector_miss_rate": 0.0,
+        "early_fire_rate": 1.0,
+        "median_latency_steps": -40.0,
+        "p90_latency_steps": -40.0,
+        "row_count": 1
+      }
+    },
+    "detector_miss_rate": 0.0,
+    "early_fire_rate": 0.5,
+    "median_latency_s": 0.15,
+    "median_latency_steps": 7.5,
+    "p90_latency_s": 0.91,
+    "p90_latency_steps": 45.5
+  },
+  "preregistration": "experiments/feasibility_audit/phase4_e3_detector_onset_reconciliation_prereg.json",
+  "preregistration_sha256": "ca12fadbb89677e86fb25a233ea8f09acf59361dd9090b56f24ae0775625c908",
+  "protocol_gates": {
+    "all_passed": true,
+    "case_row_count_complete": true,
+    "corrected_latency_table_written": true,
+    "early_fire_rate_reported": true,
+    "obs_finite_all": true,
+    "single_onset_definition_documented": true,
+    "telemetry_available_all": true,
+    "trace_rows_written": true,
+    "variant_match_all": true,
+    "wheel_count_all_four": true
+  },
+  "reconciled": {
+    "by_axis": {
+      "lat": {
+        "detector_miss_rate": 0.0,
+        "early_fire_rate": 0.0,
+        "median_latency_steps": 55.0,
+        "p90_latency_steps": 55.0,
+        "row_count": 1
+      },
+      "long": {
+        "detector_miss_rate": 0.0,
+        "early_fire_rate": 0.0,
+        "median_latency_steps": 0.0,
+        "p90_latency_steps": 0.0,
+        "row_count": 1
+      }
+    },
+    "corroborated_early_fire_rate": 0.5,
+    "definition": {
+      "corroboration_max_lead_s": 3.0,
+      "corroboration_max_lead_steps": 150,
+      "rule": "Use the detector fire step as the corrected onset when it occurs before the M3255 tire-slip truth onset and that tire truth later occurs within CORROBORATION_MAX_LEAD_STEPS; otherwise keep the M3255 tire-slip truth onset. If the detector fires and no tire truth follows inside the window, report an uncorroborated early detector fire."
+    },
+    "detector_miss_rate": 0.0,
+    "early_fire_rate": 0.0,
+    "median_latency_s": 0.55,
+    "median_latency_steps": 27.5,
+    "p90_latency_s": 0.99,
+    "p90_latency_steps": 49.5,
+    "uncorroborated_detector_fire_rate": 0.0
+  },
+  "trace_row_count": 296,
+  "trace_rows_csv": "runs/feasibility_audit/phase4_e3_detector_onset_reconciliation/trace_rows_quick.csv"
+}

@@ -4,7 +4,7 @@ This file is the compact official state for the project. Milestone documents
 and `docs/research-log.md` remain the detailed log of the autonomous-harness
 era; the Phase-2 plan and thesis (pointer table below) define the active
 program. Last full refresh: 2026-06-13 (the 2026-06-11 WP6.3 refresh
-replaced the stale paper-route state; this update folds in M3215-M3255,
+replaced the stale paper-route state; this update folds in M3215-M3257,
 the C5 pricing disposition, the S4-HF-lite backend connector/pricing work,
 WP6.2 guardrails, the A1 lateral-channel rider, the A2 obs-normalization
 audit, the A3 C5-prime target consolidation, B1/B2/B3/B4 env-engineering
@@ -26,8 +26,8 @@ E1 quick protocol smoke, the M3250 full E1 spread-revival pricing
 negative, the M3251 E2 Chrono two-regime protocol smoke, the M3252
 full E2 Chrono two-regime verdict, the M3253 E3 measurement-A/C
 protocol smoke, the M3254 E3 tire-truth telemetry connector smoke, the
-M3255 full E3 Chrono measurement A/C verdict, and the M3256 blocked CP-3
-Track-F PI checkpoint).
+M3255 full E3 Chrono measurement A/C verdict, the M3256 blocked CP-3
+Track-F PI checkpoint, and the M3257 E3-fix detector-onset reconciliation).
 
 ## Project Identity
 
@@ -43,8 +43,8 @@ Track-F PI checkpoint).
 
 History in one paragraph: the autonomous harness loop ran through M3214
 before manual takeover; the manual takeover has since registered
-M3215-M3256. `experiments/research_status.json` now records
-3256 completed / 7 failed / 4 blocked task entries, with `next_task:
+M3215-M3257. `experiments/research_status.json` now records
+3257 completed / 7 failed / 4 blocked task entries, with `next_task:
 null`. On
 2026-06-11 an independent feasibility audit showed the M3108–M3212
 residual-repair branch was repairing physically unsolvable rows, and the
@@ -147,7 +147,18 @@ targets and GPU-days budget, rejecting Track F, or requesting a concrete
 additional preregistered unit. The escalation note is
 `docs/escalations/2026-06-13-phase4-cp3-track-f-pi-checkpoint.md`; this is
 not a training, promotion, performance, paper, feasibility-proof, or self-ID
-claim.
+claim. PI then recorded CP-3 disposition A in that escalation: harden Track E
+before any GPU budget. M3257 E3-fix **completed / passed** the detector-onset
+reconciliation: 24/24 Measurement-A case rows and 3426 trace rows were written,
+all protocol gates passed, original early-fire rate was 0.5, reconciled
+early-fire rate was 0.0, detector miss rate stayed 0.1667, corroborated
+early-fire rate was 0.5, uncorroborated detector-fire rate was 0.0, and the
+reconciled p90 latency remained 1.346 s. The reconciled rule treats an obs72
+detector fire as actor-visible onset when later corroborated by the frozen
+M3255 tire-slip event inside the preregistered 150-step window; otherwise the
+M3255 tire-slip onset is retained. E2' is now the next Track-E' dependency, and
+Track F remains blocked until E2' flip confirmation plus a later GPU-days
+checkpoint (`docs/m3257-phase4-e3-detector-onset-reconciliation.md`).
 
 Work packages: WP0 **complete** (wrapper modes M3215-validated, family #2
 frozen with clean acceptance after one pre-registered repair, statistical
@@ -415,7 +426,12 @@ the E3 tire-truth telemetry connector smoke with 8/8 samples and 32/32 wheel
 rows; every sample exposed four finite wheel rows with positive normal loads.
 M3255 completed the full frozen E3 panel: 24/24 latency rows, 72/72 recovery
 rows, all protocol gates passed, CP-3 evidence ready, and Track F still not
-admitted. CP-3 is now the hard stop before Track F.
+admitted. M3256 recorded the CP-3 blocked checkpoint, PI resolved it as
+disposition A (harden Track E before any GPU), and M3257 completed E3-fix:
+24/24 detector-onset reconciliation rows, 3426 trace rows, original early-fire
+rate 0.5, reconciled early-fire rate 0.0, detector miss rate 0.1667, and E2'
+dependency ready. Track F remains blocked on E2' flip confirmation plus a later
+GPU-days checkpoint.
 
 ## Pointer Table
 
