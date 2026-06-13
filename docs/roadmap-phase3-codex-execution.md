@@ -1,4 +1,4 @@
-# Phase-3/4 Execution Roadmap (Codex-ready, refreshed 2026-06-13)
+# Phase-3/4 Execution Roadmap (Codex-ready, refreshed 2026-06-14)
 
 ## Status
 
@@ -55,9 +55,10 @@
   a new Track E4 (Chrono drift / beyond-saturation pricing): E1'/E2'
   confirmed prizes in the avoidance regime only, never the drift regime
   (toy-sim reflex 0/84, thesis-queued) which Chrono's TMeasy tires can now
-  represent. E4 is now completed by M3260. Codex STOPS for PI review —
-  F1/F2 do not start until PI reviews the
-  drift-regime pricing and sets the Track F target and go.
+  represent. E4 is now completed by M3260; PI reviewed it on 2026-06-14 and
+  approved Track F at full-scenario scope. M3261 completed F1 infrastructure
+  and measured the 100M-step wall-clock projection. Codex STOPS again here:
+  F2/F3 do not start until PI reviews the F1 wall-clock report and gives go.
 
 ## Track A — pricing/science completion (CPU only, zero training)
 
@@ -550,8 +551,8 @@ validation rows were written, all protocol gates passed, all five clean reveal
 tiers qualified on both variants, and the frozen flip-confirmation criterion
 passed with 4 positive tight clean cells across 2 variants. Max clean
 oracle-minus-floor was +0.7667. This confirms the Chrono clean flip for the
-scoped scripted-controller panel; it does not admit Track F by itself. Track F
-now requires the later PI GPU-days checkpoint.
+scoped scripted-controller panel; it did not admit Track F by itself. Track F
+then required the later PI review sequence, now advanced through E4 and F1.
 
 E1'. Spread-revival repricing [DONE: M3259; depends E0; parallel to E2']:
 M3259 re-ran E1 with the preregistered selection-row oracle-adequacy gate and
@@ -567,7 +568,7 @@ it does not admit Track F, training, driver-performance, high-fidelity
 sufficiency, paper, feasibility-proof, repair-success, robustness-result, or
 self-ID claims.
 
-### Track E4 — Chrono drift / beyond-saturation pricing [DONE: M3260; precedes post-E4 PI review]
+### Track E4 — Chrono drift / beyond-saturation pricing [DONE: M3260; E4 PI review resolved]
 
 **PI re-ordering (2026-06-13): Track F is DEFERRED until the drift regime is
 priced.** E1'/E2' confirmed their prizes in the handling-limit AVOIDANCE
@@ -605,8 +606,9 @@ all protocol gates passed, and 20 validation units per drift cell. The
 both fixed* and tuned reflex, CI95 [0.1797, 0.6203], with reflex failures
 mostly fail-to-enter plus some fail-to-stabilize. The `lift_off_recovery`
 cell was near-neutral at +0.0500, CI95 [-0.0480, 0.1480], with reflex
-failures all fail-to-stabilize. Track F/F2 remain blocked; this is pricing
-evidence only, not training or driver-performance evidence.
+failures all fail-to-stabilize. This is pricing evidence only, not training
+or driver-performance evidence; Track F admission came later through explicit
+PI review, followed by the M3261 F1 wall-clock stop.
 - **PI stop (2026-06-14): Codex completed E4 and STOPPED for PI review.**
 - **PI E4 disposition (2026-06-14): Track F APPROVED, full-scenario target.**
   E4 confirmed the largest reflex gap in the project in the drift regime
@@ -635,17 +637,17 @@ in hand before launching the multi-day F2 run (the last price-before-train,
 applied to compute cost). This is NOT a budget cut: 100M/no-time-limit
 stands; F1 just makes the calendar cost real first.
 
-F1. Training infrastructure [OPEN — NEXT; then STOP for PI wall-clock review]: vectorized
-parallel Chrono workers for training; end-to-end smoke (sane gradients,
-obs72/action3 contract held, finite losses, deterministic seed handling);
-throughput benchmark + GPU-vs-CPU feasibility re-check (the earlier
-CUDA-slower finding was tiny-GRU-on-toy-env; bigger nets + batched Chrono
-rollouts is a different regime — measure). Acceptance: smoke green +
-aggregate throughput (steps/s at max parallel workers) + projected
-100M-step wall-clock. **Then STOP and report to PI** — write the result and
-mark F2 blocked-on-PI; do NOT launch F2.
+F1. Training infrastructure [DONE: M3261; STOP for PI wall-clock review]:
+vectorized parallel Chrono workers for training; end-to-end smoke (sane
+gradients, obs72/action3 contract held, finite losses, deterministic seed
+handling); throughput benchmark + GPU-vs-CPU feasibility re-check. Result:
+prereg + quick + full run passed, 48 mixed-regime Chrono worker steps were
+written (avoidance 24, drift 24), aggregate throughput was 2.1031 steps/s,
+projected 100M-step wall-clock was 13207.81 h / 550.33 days, and CUDA update
+throughput was 0.00415x CPU on the measured batch. M3262 records the
+blocked-on-PI wall-clock review gate; do NOT launch F2.
 
-F2. Asymmetric actor-critic + teacher-student [BLOCKED on F1 wall-clock review + PI go]:
+F2. Asymmetric actor-critic + teacher-student [BLOCKED: M3262, on F1 wall-clock review + PI go]:
 robotics-field-standard recipe — privileged critic/teacher (true mu +
 vehicle params), obs72+short-history student distillation (RMA-style),
 curriculum, **100M env steps**, >= 8 seeds. **Training distribution = the
@@ -676,7 +678,10 @@ power (M3258), and E1' oracle-adequate spread repricing (M3259) all
 completed. The follow-on GPU-days checkpoint is then resolved by PI **FULL
 APPROVAL: 100M env steps, no time limit, no intermediate budget gate** (see
 the Track F header), but PI then inserted the E4 drift-pricing checkpoint.
-M3260 completed E4, and Track F remains blocked until the post-E4 PI review.
+M3260 completed E4; PI reviewed it on 2026-06-14 and approved Track F at
+full-scenario scope. M3261 completed F1 and re-imposes the next hard stop:
+F2/F3 remain blocked until PI reviews the measured wall-clock report and gives
+go; M3262 records that blocker in the queue/escalation ledger.
 The escalation `docs/escalations/2026-06-13-phase4-cp3-track-f-pi-checkpoint.md`
 records the earlier CP-3 disposition.
 
@@ -722,9 +727,10 @@ pricing evidence; E0 is complete, E1 is completed negative, and E2 is
 completed positive on the Sedan/TMeasy fixture. E3 protocol and telemetry
 smokes passed, full E3 completed under M3255, M3256 recorded CP-3, and PI
 resolved CP-3 as disposition A. M3257 completed E3-fix, M3258 completed
-E2' hardening, M3259 completed E1' spread-revival repricing negative, and
-M3260 completed E4 drift-regime pricing. No Track-F work is admitted before
-post-E4 PI review.
+E2' hardening, M3259 completed E1' spread-revival repricing negative, M3260
+completed E4 drift-regime pricing, PI approved Track F full-scenario scope on
+2026-06-14, and M3261 completed F1 infrastructure. No F2/F3 work is admitted
+before PI reviews the F1 wall-clock report.
 - E0: DONE (M3248; frozen Chrono spread-axis table and E1 envelope)
 - E1: DONE (M3249 quick protocol smoke passed; M3250 full pricing negative with 0/3 qualifying variants)
 - E2: DONE (M3251 quick protocol smoke passed; M3252 full Sedan/TMeasy verdict positive with 2 clean reveals qualifying)
@@ -733,10 +739,10 @@ post-E4 PI review.
 - E3-fix: DONE (M3257; detector-onset reconciliation completed, corrected early-fire rate 0.0, E2' dependency ready)
 - E2': DONE (M3258; flip confirmed with >=30 seeds/cell on Sedan/TMeasy + UAZBUS/TMeasy; AVOIDANCE regime only)
 - E1': DONE (M3259; oracle adequacy gate passed, spread revival not supported, structural gap +0.18 confirmed; AVOIDANCE regime only)
-- E4: DONE (M3260; full Chrono drift / beyond-saturation pricing completed, with one positive low-mu power-oversteer cell and one near-neutral lift-off recovery cell; **Codex stops for PI review**)
+- E4: DONE (M3260; full Chrono drift / beyond-saturation pricing completed, with one positive low-mu power-oversteer cell and one near-neutral lift-off recovery cell; PI review completed 2026-06-14)
 - E4 review: DONE (PI 2026-06-14) — Track F APPROVED at FULL-SCENARIO scope: ONE driver over avoidance + drift, per-regime teacher (drift teacher = specialized oracle, not CEM)
-- F1: OPEN — NEXT (infra + smoke + throughput + projected 100M wall-clock; then STOP for PI wall-clock review)
-- F2-F3: BLOCKED on F1 wall-clock review + PI go (100M managed run; full-scenario, three prizes: avoidance +0.18, belief +0.77, drift +0.40)
+- F1: DONE (M3261; infra + smoke + throughput + projected 100M wall-clock completed: 48 steps, 2.1031 steps/s, 13207.81 h / 550.33 days projected for 100M; STOP for PI wall-clock review)
+- F2-F3: BLOCKED (M3262) on F1 wall-clock review + PI go (100M managed run; full-scenario, three prizes: avoidance +0.18, belief +0.77, drift +0.40)
 - WP6.2 guardrails: **MERGED** (commit 05607bcd — validator V7 live in the
   pre-commit hook, escalation protocol in docs/escalations/, managed-run
   helper scripts/run_managed.sh). Codex execution may begin.

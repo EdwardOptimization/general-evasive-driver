@@ -1,0 +1,76 @@
+{
+  "acceptance": {
+    "device_recheck": "CPU measured; CUDA measured if available, otherwise explicitly recorded unavailable",
+    "obs72_action3_contract": "all reset and step observations finite shape 72; all policy actions finite shape 3 and bounded [-1, 1]",
+    "stop_rule": "after F1, F2 remains blocked on PI wall-clock/go review",
+    "throughput": "aggregate Chrono steps/s > 0 and projected 100M wall-clock reported",
+    "torch_update": "actor-critic loss and gradients finite; optimizer changes parameters"
+  },
+  "claim_boundary": "Phase-4 F1 training infrastructure only: parallel Chrono worker rollout, obs72/action3 contract smoke, finite torch actor-critic update, throughput benchmark, and 100M-step wall-clock projection for the PI stop. F1 does not launch F2, does not write a policy checkpoint for promotion, does not mutate ActiveSafetyReflexDriver, and makes no validation ranking, promotion, driver-performance, current-sim sufficiency, full high-fidelity sufficiency, paper, repair-success, robustness-result, feasibility-proof, or self-ID claim.",
+  "dependencies": {
+    "e1prime_artifact": "experiments/feasibility_audit/phase4_e1prime_spread_revival_repricing.json",
+    "e1prime_structural_gap": 0.1806,
+    "e2prime_artifact": "experiments/feasibility_audit/phase4_e2prime_chrono_two_regime_hardened.json",
+    "e2prime_max_clean_belief_value": 0.7667,
+    "e4_artifact": "experiments/feasibility_audit/phase4_e4_drift_regime_pricing.json",
+    "e4_low_mu_oracle_gap": 0.4,
+    "e4_positive_drift_prize_cells": [
+      "low_mu_power_oversteer"
+    ],
+    "pi_e4_disposition": "Track F approved at full-scenario scope; F1 only, then stop for PI wall-clock review"
+  },
+  "frozen_at_utc": "20260613T173930Z",
+  "frozen_before_any_f1_infra_run": true,
+  "full_scenario_training_target": {
+    "avoidance_regime": {
+      "priced_gaps": [
+        "E1' structural gap +0.1806",
+        "E2' clean belief value up to +0.7667"
+      ],
+      "source": "E2'/E1'",
+      "teacher": "avoidance oracle"
+    },
+    "drift_regime": {
+      "priced_gap": 0.4,
+      "source": "E4 low_mu_power_oversteer",
+      "teacher": "drift-specialized feedback oracle, not generic CEM"
+    },
+    "one_driver": true
+  },
+  "milestone": "m3261-phase4-f1-training-infrastructure",
+  "protocol": "phase4_f1_training_infra_preregistration",
+  "quick_mode_is_verdict": false,
+  "roadmap_unit": "Phase-4 F1 training infrastructure",
+  "seed_base": 2026061405,
+  "seed_streams": {
+    "avoidance_smoke": [
+      1231429602,
+      1732724583,
+      1624243959,
+      1965862595
+    ],
+    "drift_smoke": [
+      1701560392,
+      385620168,
+      91375050,
+      1783270137
+    ],
+    "torch_update": [
+      1881634132,
+      1189946797,
+      1969143936,
+      1563324178
+    ]
+  },
+  "worker_smoke": {
+    "chrono_variant": "sedan_tmeasy",
+    "full_steps_per_unit": 12,
+    "full_workers": 2,
+    "quick_steps_per_unit": 3,
+    "quick_workers": 1,
+    "regimes_smoked": [
+      "avoidance_clean_reveal_9p5",
+      "drift_low_mu_power_oversteer"
+    ]
+  }
+}

@@ -56668,3 +56668,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m3260-phase4-e4-drift-regime-pricing_20260613T161714Z/command.log`
 - success artifact: `experiments/feasibility_audit/phase4_e4_drift_regime_pricing.json`
 - notes: Completed: E4 full drift-regime pricing passed all protocol gates with 204 rows, 20 validation units per cell. low_mu_power_oversteer oracle-minus-fixed and oracle-minus-tuned were +0.4000 CI95 [0.1797, 0.6203]; lift_off_recovery was +0.0500 CI95 [-0.0480, 0.1480]. Track F/F2 remain blocked on post-E4 PI review; no training driver-performance high-fidelity sufficiency paper repair-success robustness-result feasibility-proof or self-ID claim is admitted.
+
+## 20260613T174034Z m3261-phase4-f1-training-infrastructure
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: A preregistered Phase-4 F1 training-infrastructure milestone can prove parallel Chrono worker rollout obs72/action3 policy smoke finite actor-critic gradients device feasibility re-check and projected 100M-step wall-clock for the PI stop before validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof paper F2-training admission or self-ID claim.
+- command: `env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/phase4_f1_training_infra_smoke.py --full --resume`
+- returncode: `0`
+- run dir: `runs/research/m3261-phase4-f1-training-infrastructure_20260613T174005Z`
+- command log: `runs/research/m3261-phase4-f1-training-infrastructure_20260613T174005Z/command.log`
+- success artifact: `experiments/feasibility_audit/phase4_f1_training_infra.json`
+- notes: Completed: F1 infrastructure gates passed with 48 mixed-regime Chrono worker steps, 2.1031 steps/s, projected 100M wall-clock 13207.81 h / 550.33 days, CUDA update speed ratio 0.00415x CPU, and F2/F3 blocked on PI wall-clock review.

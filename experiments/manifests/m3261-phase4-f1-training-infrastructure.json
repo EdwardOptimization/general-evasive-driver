@@ -1,0 +1,251 @@
+{
+  "id": "m3261-phase4-f1-training-infrastructure",
+  "priority": 32610,
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "milestone_intent": "training",
+  "feasibility_pricing": {
+    "pricing_artifact": "experiments/feasibility_audit/phase4_e4_drift_regime_pricing.json",
+    "priced_gap": 0.4,
+    "threshold": 0.15,
+    "gap_meets_threshold": true
+  },
+  "hypothesis": "A preregistered Phase-4 F1 training-infrastructure milestone can prove parallel Chrono worker rollout, obs72/action3 policy smoke, finite actor-critic gradients, device feasibility re-check, and projected 100M-step wall-clock for the PI stop before validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof paper F2-training admission or self-ID claim.",
+  "lineage": {
+    "parent_checkpoint": [
+      "docs/current-status.md",
+      "docs/roadmap-phase3-codex-execution.md",
+      "docs/m3260-phase4-e4-drift-regime-pricing.md"
+    ],
+    "parent_dataset": [
+      "experiments/feasibility_audit/phase4_e1prime_spread_revival_repricing.json",
+      "experiments/feasibility_audit/phase4_e2prime_chrono_two_regime_hardened.json",
+      "experiments/feasibility_audit/phase4_e4_drift_regime_pricing.json"
+    ],
+    "parent_config": [
+      "scripts/feasibility_audit/phase4_f1_training_infra_smoke.py",
+      "scripts/feasibility_audit/phase4_e2_chrono_two_regime_smoke.py",
+      "scripts/feasibility_audit/phase4_e4_drift_regime_pricing.py",
+      "scripts/feasibility_audit/chrono_worker_client.py",
+      "scripts/feasibility_audit/chrono_backend_worker.py",
+      "src/autodrift/train_ppo.py",
+      "src/autodrift/chrono_vehicle_backend.py"
+    ],
+    "parent_objective": [
+      "Track F approved at full-scenario scope after E4 PI disposition",
+      "F1 only proves infrastructure, throughput, and wall-clock projection before the PI stop"
+    ],
+    "derived_from": [
+      "M3258 confirmed clean-sensing belief value in Chrono at adequate power",
+      "M3259 rejected vehicle-spread reflex retuning but preserved the E1 structural gap as a full-scenario ingredient",
+      "M3260 priced drift-specialized oracle headroom in low_mu_power_oversteer at +0.4000",
+      "The roadmap marks F1 as the lowest-numbered OPEN unit after the 2026-06-14 E4 PI disposition"
+    ],
+    "blocked_by": [
+      "F2 and F3 remain blocked after M3261 until PI reviews measured F1 wall-clock and gives the next go"
+    ],
+    "supersedes": [
+      "treating E4 pricing alone as F2 training admission",
+      "launching a 100M-step F2 run before measuring the local Chrono worker wall-clock"
+    ],
+    "invalidates": [
+      "mutating ActiveSafetyReflexDriver inside F1",
+      "writing a promotion policy checkpoint from the F1 smoke",
+      "claiming validation ranking, driver performance, current-sim sufficiency, full high-fidelity sufficiency, paper readiness, repair success, feasibility proof, F2 admission, or self-ID from M3261"
+    ]
+  },
+  "review_artifact": "docs/reviews/m3261-phase4-f1-training-infrastructure.md",
+  "public_gates": [
+    "M3261 must write preregistration before any F1 smoke run",
+    "M3261 must run quick smoke before the full F1 run",
+    "M3261 must collect mixed avoidance and drift Chrono rows through worker clients",
+    "M3261 must preserve the obs72/action3 actor contract",
+    "M3261 must run a finite actor-critic update and change model parameters",
+    "M3261 must record CPU device timing and CUDA timing if CUDA is available",
+    "M3261 must report aggregate Chrono throughput and projected 100M-step wall-clock",
+    "M3261 must keep F2 training admission false and stop for PI wall-clock review"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run full M3261 without preregistration and quick smoke",
+    "do not launch PPO, F2, or a managed 100M-step training run",
+    "do not write a promotion checkpoint",
+    "do not mutate ActiveSafetyReflexDriver",
+    "do not change obs72/action3 semantics",
+    "do not tune the benchmark after rows are observed",
+    "do not claim driver performance, full high-fidelity sufficiency, paper readiness, repair success, robustness result, feasibility proof, F2 admission, or self-ID from M3261"
+  ],
+  "workflow_synthesis": {
+    "branch": "phase4_track_f_training_infra",
+    "evidence_axis": "phase4_f1_training_infrastructure_smoke",
+    "evidence_increment": "parallel Chrono worker rollout path plus finite obs72/action3 actor-critic update and wall-clock projection",
+    "claim_scope": "F1 infrastructure only; no policy promotion, no F2 launch, no driver-performance or self-ID claim",
+    "stop_condition": [
+      "stop after full F1 artifact, doc, review, scoreboard, and ledger updates are written",
+      "stop if preregistration, quick-before-full, mixed-regime coverage, obs/action contract, torch update, device re-check, throughput, or F2-blocked gates fail",
+      "stop if the result is interpreted as validation performance or as approval to start F2"
+    ],
+    "fallback_plan": [
+      "if Chrono worker rollout fails, repair only the infrastructure path under the same F1 claim boundary",
+      "if throughput is too slow for the PI wall-clock budget, report the wall-clock negative and keep F2 blocked",
+      "if CUDA is unavailable or slower, record CPU as the measured F1 baseline and leave F2 device choice to PI review"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "Post-E4 PI disposition approved Track F at full-scenario scope but inserted an F1 wall-clock stop before F2",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "Prove the F1 rollout/update/throughput infrastructure path for a future full-scenario learned driver without launching F2.",
+    "admission_evidence": [
+      "M3258 E2' confirmed clean belief value up to +0.7667 across Sedan/TMeasy and UAZBUS/TMeasy",
+      "M3259 E1' preserved a +0.1806 structural gap while rejecting vehicle-spread reflex retuning",
+      "M3260 E4 priced low_mu_power_oversteer drift-specialized oracle headroom at +0.4000",
+      "PI E4 disposition on 2026-06-14 approved Track F full-scenario scope but required F1 wall-clock review before F2"
+    ],
+    "blocked_shortcuts": [
+      "no PPO training",
+      "no policy promotion",
+      "no incumbent mutation",
+      "no F2 launch",
+      "no validation-row tuning",
+      "no self-ID or history-attribution claim"
+    ],
+    "allowed_updates": [
+      "scripts/feasibility_audit/phase4_f1_training_infra_smoke.py",
+      "tests/test_phase4_f1_training_infra_smoke.py",
+      "experiments/feasibility_audit/phase4_f1_training_infra_prereg.json",
+      "experiments/feasibility_audit/phase4_f1_training_infra_quick.json",
+      "experiments/feasibility_audit/phase4_f1_training_infra.json",
+      "runs/feasibility_audit/phase4_f1_training_infra/worker_step_rows_quick.csv",
+      "runs/feasibility_audit/phase4_f1_training_infra/worker_step_rows_full.csv",
+      "runs/feasibility_audit/phase4_f1_training_infra/metrics_quick.csv",
+      "runs/feasibility_audit/phase4_f1_training_infra/metrics_full.csv",
+      "runs/feasibility_audit/phase4_f1_training_infra/progress_quick.jsonl",
+      "runs/feasibility_audit/phase4_f1_training_infra/progress_full.jsonl",
+      "docs/m3261-phase4-f1-training-infrastructure.md",
+      "docs/reviews/m3261-phase4-f1-training-infrastructure.md",
+      "experiments/reviews/m3261-phase4-f1-training-infrastructure.json",
+      "docs/current-status.md",
+      "docs/roadmap-phase3-codex-execution.md",
+      "docs/research-log.md",
+      "docs/data-coverage-map-2026-06.md",
+      "scripts/feasibility_audit/README.md",
+      "experiments/research_queue.csv",
+      "experiments/research_status.json",
+      "experiments/scoreboard.csv"
+    ],
+    "next_stage_criteria": [
+      "After M3261, PI must review measured throughput and projected 100M-step wall-clock before F2 can move from blocked to pending",
+      "If M3261 fails or wall-clock is unacceptable, re-price or redesign the infrastructure target instead of launching F2"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M3261 makes no history or self-ID claim; it only exercises current obs72 rollout and update plumbing.",
+    "history_necessity_tests": [
+      "none in M3261"
+    ],
+    "temporal_evidence_window": "not applicable; no learned history policy is evaluated",
+    "negative_result_policy": "A failed F1 gate or unacceptable wall-clock projection is reported at full fidelity and cannot be converted into F2 admission.",
+    "allowed_claims": [
+      "F1 infrastructure protocol completed or failed",
+      "mixed-regime Chrono worker rollout and obs72/action3 update path were exercised",
+      "projected 100M-step wall-clock was measured from the local F1 smoke",
+      "F2 remains blocked pending PI wall-clock review"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_tool_or_infra",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "adds the first Track-F training-infrastructure artifact after E4 pricing approval",
+    "paper_verdict_delta": "M3261 does not change the paper verdict; it supplies the calendar-cost evidence needed before any F2 training admission decision.",
+    "must_synthesize_if": [
+      "another F1 infrastructure run is proposed after all F1 gates pass",
+      "F2 is proposed before PI reviews the M3261 wall-clock projection",
+      "M3261 is interpreted as driver-performance or self-ID evidence"
+    ]
+  },
+  "success_criteria": [
+    "experiments/feasibility_audit/phase4_f1_training_infra_prereg.json exists before quick and full runs",
+    "experiments/feasibility_audit/phase4_f1_training_infra_quick.json exists and passed before the full run",
+    "experiments/feasibility_audit/phase4_f1_training_infra.json exists after the full run",
+    "runs/feasibility_audit/phase4_f1_training_infra/worker_step_rows_full.csv includes both avoidance_clean_reveal_9p5 and drift_low_mu_power_oversteer rows",
+    "runs/feasibility_audit/phase4_f1_training_infra/metrics_full.csv reports protocol_gates_passed=1 and f2_training_admitted=0",
+    "docs/m3261-phase4-f1-training-infrastructure.md reports measured throughput, device re-check, projected 100M-step wall-clock, and the PI stop"
+  ],
+  "failure_criteria": [
+    "M3261 runs full mode without preregistration or quick smoke",
+    "M3261 omits either avoidance or drift worker rows",
+    "M3261 violates the obs72/action3 actor contract",
+    "M3261 reports non-finite loss or gradients or no optimizer parameter change",
+    "M3261 fails to report throughput or projected 100M-step wall-clock",
+    "M3261 mutates ActiveSafetyReflexDriver or writes a promotion checkpoint",
+    "M3261 admits F2, driver performance, full high-fidelity sufficiency, paper readiness, feasibility proof, repair success, or self-ID claims"
+  ],
+  "decision_rule": "Accept M3261 as completed if preregistration and quick smoke precede the full run, mixed-regime Chrono worker rollout succeeds, obs72/action3 and finite torch-update gates pass, throughput and 100M-step wall-clock are reported, device re-check is recorded, and F2 remains blocked for PI review.",
+  "decision_labels": {
+    "pass": "f1_training_infrastructure_completed",
+    "fail": "f1_training_infrastructure_failed"
+  },
+  "commands": [
+    {
+      "name": "phase4_f1_prereg",
+      "command": "env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/phase4_f1_training_infra_smoke.py --write-prereg"
+    },
+    {
+      "name": "phase4_f1_quick",
+      "command": "env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/phase4_f1_training_infra_smoke.py --quick --resume"
+    },
+    {
+      "name": "phase4_f1_full",
+      "command": "env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/phase4_f1_training_infra_smoke.py --full --resume"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "experiments/feasibility_audit/phase4_f1_training_infra_prereg.json",
+      "type": "json"
+    },
+    {
+      "path": "experiments/feasibility_audit/phase4_f1_training_infra_quick.json",
+      "type": "json"
+    },
+    {
+      "path": "experiments/feasibility_audit/phase4_f1_training_infra.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/feasibility_audit/phase4_f1_training_infra/worker_step_rows_full.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/feasibility_audit/phase4_f1_training_infra/metrics_full.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m3261-phase4-f1-training-infrastructure.md",
+      "type": "markdown"
+    },
+    {
+      "path": "docs/reviews/m3261-phase4-f1-training-infrastructure.md",
+      "type": "markdown"
+    }
+  ],
+  "baseline_checkpoints": [
+    "docs/current-status.md",
+    "docs/roadmap-phase3-codex-execution.md",
+    "experiments/feasibility_audit/phase4_e1prime_spread_revival_repricing.json",
+    "experiments/feasibility_audit/phase4_e2prime_chrono_two_regime_hardened.json",
+    "experiments/feasibility_audit/phase4_e4_drift_regime_pricing.json"
+  ],
+  "metric_extractors": [],
+  "gates": []
+}

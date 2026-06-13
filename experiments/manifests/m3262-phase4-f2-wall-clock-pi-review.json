@@ -1,0 +1,189 @@
+{
+  "id": "m3262-phase4-f2-wall-clock-pi-review",
+  "priority": 32620,
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "milestone_intent": "process",
+  "hypothesis": "A Phase-4 F2/F3 process gate can record that M3261 completed F1 training infrastructure while F2/F3 remain blocked on PI wall-clock review and explicit go before validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof paper F2-training admission or self-ID claim.",
+  "lineage": {
+    "parent_checkpoint": [
+      "docs/current-status.md",
+      "docs/roadmap-phase3-codex-execution.md",
+      "docs/m3261-phase4-f1-training-infrastructure.md",
+      "docs/escalations/2026-06-14-phase4-f2-wall-clock-pi-review.md"
+    ],
+    "parent_dataset": [
+      "experiments/feasibility_audit/phase4_f1_training_infra.json",
+      "experiments/feasibility_audit/phase4_f1_training_infra_quick.json",
+      "experiments/feasibility_audit/phase4_f1_training_infra_prereg.json",
+      "experiments/feasibility_audit/phase4_e4_drift_regime_pricing.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m3261-phase4-f1-training-infrastructure.json",
+      "scripts/feasibility_audit/phase4_f1_training_infra_smoke.py",
+      "scripts/feasibility_audit/chrono_worker_client.py",
+      "scripts/feasibility_audit/chrono_backend_worker.py"
+    ],
+    "parent_objective": [
+      "F1 measured the Chrono training-infrastructure wall-clock projection requested before F2",
+      "F2/F3 may not start until PI reviews the measured M3261 wall-clock report and gives go"
+    ],
+    "derived_from": [
+      "M3260 completed E4 drift pricing and PI approved Track F at full-scenario scope",
+      "M3261 completed F1 infrastructure with all gates passing",
+      "M3261 projected 100M-step wall-clock at 13207.81 h / 550.33 days"
+    ],
+    "blocked_by": [
+      "PI wall-clock review after M3261 is missing",
+      "F2/F3 explicit go is missing",
+      "Codex sessions may not self-approve the 100M-step F2 launch"
+    ],
+    "supersedes": [
+      "treating M3261 infrastructure success as F2 admission",
+      "using next_task null as implicit approval to launch F2"
+    ],
+    "invalidates": [
+      "launching F2/F3 before PI wall-clock review",
+      "writing policy checkpoints from the process gate",
+      "claiming validation ranking, driver performance, high-fidelity sufficiency, paper readiness, repair success, feasibility proof, F2 admission, or self-ID from M3262"
+    ]
+  },
+  "review_artifact": "docs/escalations/2026-06-14-phase4-f2-wall-clock-pi-review.md",
+  "public_gates": [
+    "The F2/F3 gate must cite the completed M3261 F1 artifact",
+    "The F2/F3 gate must record the measured M3261 wall-clock projection",
+    "The F2/F3 gate must keep F2 and F3 blocked until PI wall-clock review and explicit go",
+    "The F2/F3 gate must be represented as a blocked queue row, not a completed bookkeeping milestone"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not self-approve the F2/F3 launch",
+    "do not start PPO, teacher-student training, or a 100M-step managed run from this gate",
+    "do not write policy checkpoints",
+    "do not mutate ActiveSafetyReflexDriver",
+    "do not change obs72/action3 semantics",
+    "do not claim driver performance, high-fidelity sufficiency, paper readiness, repair success, feasibility proof, F2 admission, or self-ID from this process gate"
+  ],
+  "workflow_synthesis": {
+    "branch": "phase4_track_f_f2_wall_clock_pi_checkpoint",
+    "evidence_axis": "f2_f3_pi_wall_clock_blocker",
+    "evidence_increment": "records that F1 wall-clock evidence exists and F2/F3 are blocked on PI review rather than on missing F1 infrastructure",
+    "claim_scope": "Process blocker only; incumbent unchanged; no validation ranking, promotion, driver-performance, current-sim sufficiency, full high-fidelity sufficiency, paper, repair-success, robustness-result, feasibility-proof, F2 admission, or self-ID claim",
+    "stop_condition": [
+      "stop while PI wall-clock review has no disposition",
+      "resume only after PI approves, revises, rejects, or defers F2/F3",
+      "do not convert this blocked gate into a completed bookkeeping milestone"
+    ],
+    "fallback_plan": [
+      "if PI approves F2/F3, register the F2 preregistration and managed-run setup under the roadmap scope",
+      "if PI revises scale or compute topology, register that concrete preregistered infrastructure or pricing unit",
+      "if PI rejects or defers F2/F3, record the disposition and do not train"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M3261 completed F1 and the roadmap marks F2/F3 blocked on F1 wall-clock review plus PI go",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "Record the F2/F3 wall-clock review blocker after F1 completion; no model update.",
+    "admission_evidence": [
+      "M3260 E4 drift pricing completed and PI approved Track F full-scenario scope",
+      "M3261 F1 infrastructure completed with all protocol gates passing",
+      "M3261 reported 2.1031 steps/s and a 13207.81 h / 550.33 day 100M-step projection",
+      "docs/roadmap-phase3-codex-execution.md marks F2/F3 blocked on F1 wall-clock review plus PI go"
+    ],
+    "blocked_shortcuts": [
+      "no RL or PPO",
+      "no managed 100M-step run",
+      "no policy checkpoint",
+      "no incumbent mutation",
+      "no F2/F3 admission",
+      "no self-ID or history-attribution claim"
+    ],
+    "allowed_updates": [
+      "docs/escalations/2026-06-14-phase4-f2-wall-clock-pi-review.md",
+      "experiments/manifests/m3262-phase4-f2-wall-clock-pi-review.json",
+      "experiments/research_queue.csv",
+      "experiments/research_status.json",
+      "docs/current-status.md",
+      "docs/roadmap-phase3-codex-execution.md"
+    ],
+    "next_stage_criteria": [
+      "PI wall-clock approval, revision, rejection, or deferral",
+      "After approval, the next executable unit must be F2 preregistration / managed-run setup and not an inline training run"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "This process gate makes no history or self-ID claim.",
+    "history_necessity_tests": [
+      "none in the F2/F3 wall-clock process gate"
+    ],
+    "temporal_evidence_window": "not applicable; no learned policy is evaluated",
+    "negative_result_policy": "If PI does not approve F2/F3, report that decision directly rather than converting it into training admission.",
+    "allowed_claims": [
+      "F1 infrastructure evidence is complete",
+      "F2/F3 are blocked on PI wall-clock review",
+      "No F2/F3 admission exists before PI disposition"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "synthesis_decision",
+    "process_overhead": "low",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "records the external PI decision dependency after completed F1 wall-clock evidence",
+    "paper_verdict_delta": "No paper verdict; this preserves the boundary that F2/F3 cannot start without PI wall-clock review.",
+    "must_synthesize_if": [
+      "another F2/F3 waiting row is proposed without PI disposition",
+      "F2/F3 work is proposed before PI wall-clock review",
+      "M3261 infrastructure success is treated as F2/F3 approval"
+    ]
+  },
+  "success_criteria": [
+    "docs/escalations/2026-06-14-phase4-f2-wall-clock-pi-review.md records the blocker and resume condition",
+    "experiments/research_queue.csv carries m3262 as blocked",
+    "make research-plan reports no pending task before PI wall-clock review",
+    "make research-validate passes"
+  ],
+  "failure_criteria": [
+    "m3262 is marked completed without PI wall-clock disposition",
+    "m3262 admits or starts F2/F3",
+    "m3262 claims driver performance, high-fidelity sufficiency, paper readiness, repair success, feasibility proof, or self-ID",
+    "m3262 omits the escalation/resume condition"
+  ],
+  "decision_rule": "Keep M3262 blocked until PI records a wall-clock disposition. This gate passes only as a blocked-state consistency record; it is not executable research.",
+  "commands": [
+    {
+      "name": "blocked_on_pi_wall_clock_review",
+      "command": "python -c \"raise SystemExit('blocked pending PI wall-clock review')\""
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/escalations/2026-06-14-phase4-f2-wall-clock-pi-review.md",
+      "type": "markdown"
+    },
+    {
+      "path": "docs/current-status.md",
+      "type": "markdown"
+    },
+    {
+      "path": "docs/roadmap-phase3-codex-execution.md",
+      "type": "markdown"
+    }
+  ],
+  "baseline_checkpoints": [
+    "docs/current-status.md",
+    "docs/roadmap-phase3-codex-execution.md",
+    "docs/m3261-phase4-f1-training-infrastructure.md",
+    "experiments/feasibility_audit/phase4_f1_training_infra.json"
+  ],
+  "metric_extractors": [],
+  "gates": []
+}

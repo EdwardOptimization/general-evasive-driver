@@ -1,0 +1,91 @@
+{
+  "claim_boundary": "Phase-4 F1 training infrastructure only: parallel Chrono worker rollout, obs72/action3 contract smoke, finite torch actor-critic update, throughput benchmark, and 100M-step wall-clock projection for the PI stop. F1 does not launch F2, does not write a policy checkpoint for promotion, does not mutate ActiveSafetyReflexDriver, and makes no validation ranking, promotion, driver-performance, current-sim sufficiency, full high-fidelity sufficiency, paper, repair-success, robustness-result, feasibility-proof, or self-ID claim.",
+  "decision": {
+    "f1_completed": true,
+    "f1_verdict": "f1_training_infrastructure_completed",
+    "f2_training_admitted": false,
+    "next_step": "STOP_FOR_PI_WALL_CLOCK_REVIEW"
+  },
+  "device_recheck": {
+    "cpu": {
+      "batch_size": 48,
+      "device": "cpu",
+      "elapsed_s": 0.0018960959860123694,
+      "finite_gradients": true,
+      "grad_norm": 0.1021793378303026,
+      "loss_after": 0.003223835490643978,
+      "loss_before": 0.0043563866056501865,
+      "loss_finite": true,
+      "optimizer_changed_parameters": true,
+      "parameter_delta_l2": 0.02551939765643565
+    },
+    "cpu_batch_updates_per_s": 25315.174101996578,
+    "cuda": {
+      "batch_size": 48,
+      "device": "cuda",
+      "elapsed_s": 0.4565956160076894,
+      "finite_gradients": true,
+      "grad_norm": 0.2167221684638422,
+      "loss_after": 0.007727104239165783,
+      "loss_before": 0.010191217064857483,
+      "loss_finite": true,
+      "optimizer_changed_parameters": true,
+      "parameter_delta_l2": 0.02552019296770237
+    },
+    "cuda_available": true,
+    "cuda_batch_updates_per_s": 105.12584509613787,
+    "cuda_vs_cpu_update_speed_ratio": 0.004152681102353024,
+    "device_recheck_complete": true,
+    "selected_training_device_for_f2": "pending_pi_after_f1_report"
+  },
+  "elapsed_s": 26.8464151090011,
+  "generated_at_utc": "20260613T174033Z",
+  "milestone": "m3261-phase4-f1-training-infrastructure",
+  "mode": "full",
+  "preregistration": "experiments/feasibility_audit/phase4_f1_training_infra_prereg.json",
+  "protocol_gates": {
+    "action3_contract_held": true,
+    "all_passed": true,
+    "chrono_worker_count_met": true,
+    "deterministic_seed_handling": true,
+    "device_recheck_complete": true,
+    "f2_training_admitted_false": true,
+    "finite_gradients": true,
+    "finite_losses": true,
+    "mixed_regime_coverage": true,
+    "obs72_contract_held": true,
+    "optimizer_changed_parameters": true,
+    "preregistration_present": true,
+    "projected_wall_clock_present": true,
+    "quick_before_full": true,
+    "stop_for_pi_wall_clock_review": true,
+    "throughput_positive": true
+  },
+  "regime_step_counts": {
+    "avoidance_clean_reveal_9p5": 24,
+    "drift_low_mu_power_oversteer": 24
+  },
+  "row_count": 48,
+  "throughput": {
+    "aggregate_steps_per_s": 2.1031327121294,
+    "projected_100m_wall_clock_days": 550.3254267941772,
+    "projected_100m_wall_clock_hours": 13207.810243060254,
+    "projection_target_steps": 100000000,
+    "rollout_elapsed_s": 22.823096100008115,
+    "total_steps": 48,
+    "unit_count": 4,
+    "worker_count": 2,
+    "worker_launch_s": 1.539952302002348
+  },
+  "torch_update": {
+    "batch_size": 48,
+    "device": "cpu",
+    "finite_gradients": true,
+    "grad_norm": 0.1021793378303026,
+    "loss_after": 0.003223835490643978,
+    "loss_before": 0.0043563866056501865,
+    "loss_finite": true,
+    "optimizer_changed_parameters": true,
+    "parameter_delta_l2": 0.02551939765643565
+  }
+}
