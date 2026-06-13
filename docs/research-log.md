@@ -56656,3 +56656,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m3259-phase4-e1prime-spread-revival-repricing_20260613T115126Z/command.log`
 - success artifact: `experiments/feasibility_audit/phase4_e1prime_spread_revival_repricing.json`
 - notes: Completed: E1' oracle-adequate spread-revival repricing passed all protocol gates and the selection-row oracle-adequacy gate. Full validation used 24 units per variant across Sedan/TMeasy, BMW_E90/TMeasy, and UAZBUS/TMeasy; 0/3 variants qualified, pooled v4_pertuned minus fixed_star was -0.1389 with CI95 [-0.2222, -0.0556], pooled v4_pertuned minus v4_rls was -0.0833 with CI95 [-0.1806, 0.0139], pooled native_oracle minus v4_pertuned was +0.1806 with CI95 [0.0972, 0.2778], and Track F admitted=0. Track F remains blocked until a later PI GPU-days checkpoint; no training driver-performance high-fidelity sufficiency paper repair-success robustness-result feasibility-proof or self-ID claim is admitted.
+
+## 20260613T165814Z m3260-phase4-e4-drift-regime-pricing
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: A preregistered Phase-4 E4 Chrono drift-regime pricing panel can compare fixed v4 reflex, selection-row tuned reflex, native structured+CEM oracle, and drift-specialized oracle on frozen beyond-saturation cells with obs72 sideslip/yaw plus rear-tire telemetry before validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof paper Track-F admission F2-training admission or self-ID claim.
+- command: `env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/phase4_e4_drift_regime_pricing.py --full --resume`
+- returncode: `0`
+- run dir: `runs/research/m3260-phase4-e4-drift-regime-pricing_20260613T161714Z`
+- command log: `runs/research/m3260-phase4-e4-drift-regime-pricing_20260613T161714Z/command.log`
+- success artifact: `experiments/feasibility_audit/phase4_e4_drift_regime_pricing.json`
+- notes: Completed: E4 full drift-regime pricing passed all protocol gates with 204 rows, 20 validation units per cell. low_mu_power_oversteer oracle-minus-fixed and oracle-minus-tuned were +0.4000 CI95 [0.1797, 0.6203]; lift_off_recovery was +0.0500 CI95 [-0.0480, 0.1480]. Track F/F2 remain blocked on post-E4 PI review; no training driver-performance high-fidelity sufficiency paper repair-success robustness-result feasibility-proof or self-ID claim is admitted.

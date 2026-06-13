@@ -55,8 +55,8 @@
   a new Track E4 (Chrono drift / beyond-saturation pricing): E1'/E2'
   confirmed prizes in the avoidance regime only, never the drift regime
   (toy-sim reflex 0/84, thesis-queued) which Chrono's TMeasy tires can now
-  represent. Next OPEN unit: E4 (drift pricing). PI 2026-06-14: Codex completes E4 and
-  then STOPS for PI review — F1/F2 do not start until PI reviews the
+  represent. E4 is now completed by M3260. Codex STOPS for PI review —
+  F1/F2 do not start until PI reviews the
   drift-regime pricing and sets the Track F target and go.
 
 ## Track A — pricing/science completion (CPU only, zero training)
@@ -567,7 +567,7 @@ it does not admit Track F, training, driver-performance, high-fidelity
 sufficiency, paper, feasibility-proof, repair-success, robustness-result, or
 self-ID claims.
 
-### Track E4 — Chrono drift / beyond-saturation pricing [OPEN; precedes Track F]
+### Track E4 — Chrono drift / beyond-saturation pricing [DONE: M3260; precedes post-E4 PI review]
 
 **PI re-ordering (2026-06-13): Track F is DEFERRED until the drift regime is
 priced.** E1'/E2' confirmed their prizes in the handling-limit AVOIDANCE
@@ -584,7 +584,7 @@ may be much larger in the drift regime, where RL's advantage should be
 greatest — so price it BEFORE committing GPU, and let it inform Track F's
 training target.
 
-E4. Drift-regime pricing [OPEN; CPU, zero training; depends E0 fixtures]:
+E4. Drift-regime pricing [DONE: M3260; CPU, zero training; depends E0 fixtures]:
 construct Chrono scenarios that require sustained controlled operation
 beyond rear-tire saturation (e.g. high-speed corner entry and/or low-mu
 emergency steer that forces large sideslip), with sideslip/yaw/tire-
@@ -598,8 +598,17 @@ WHERE/WHY the reflex fails in the drift regime (does it fail to enter, fail
 to stabilize, or fail to recover?). Either verdict feeds Track F's target
 choice and the papers. Stretch: re-run the toy-sim's 3 drift_required rows'
 geometry in Chrono to see if they are now solvable by an oracle.
-- **PI stop (2026-06-14): Codex completes E4 and then STOPS for PI review.**
-  Write the E4 result, mark F1/F2 blocked-on-PI, and do NOT start F1 or F2 —
+
+M3260 result: full E4 completed with 204 rows (44 selection, 160 validation),
+all protocol gates passed, and 20 validation units per drift cell. The
+`low_mu_power_oversteer` cell showed a priced oracle gap of +0.4000 versus
+both fixed* and tuned reflex, CI95 [0.1797, 0.6203], with reflex failures
+mostly fail-to-enter plus some fail-to-stabilize. The `lift_off_recovery`
+cell was near-neutral at +0.0500, CI95 [-0.0480, 0.1480], with reflex
+failures all fail-to-stabilize. Track F/F2 remain blocked; this is pricing
+evidence only, not training or driver-performance evidence.
+- **PI stop (2026-06-14): Codex completed E4 and now STOPS for PI review.**
+  E4 result is written, F1/F2 are blocked-on-PI, and Codex must NOT start F1 or F2 —
   PI reviews the drift-regime pricing and decides the Track F target and go
   before any training-infrastructure or training work begins. E4 is a hard
   checkpoint: the drift prize must be priced and reviewed before any GPU.
@@ -618,7 +627,7 @@ in hand before launching the multi-day F2 run (the last price-before-train,
 applied to compute cost). This is NOT a budget cut: 100M/no-time-limit
 stands; F1 just makes the calendar cost real first.
 
-F1. Training infrastructure [OPEN; independent of E4, runs after/alongside it; then STOP for PI]: vectorized
+F1. Training infrastructure [BLOCKED on post-E4 PI review; then STOP for PI]: vectorized
 parallel Chrono workers for training; end-to-end smoke (sane gradients,
 obs72/action3 contract held, finite losses, deterministic seed handling);
 throughput benchmark + GPU-vs-CPU feasibility re-check (the earlier
@@ -628,7 +637,7 @@ aggregate throughput (steps/s at max parallel workers) + projected
 100M-step wall-clock. **Then STOP and report to PI** — write the result and
 mark F2 blocked-on-PI; do NOT launch F2.
 
-F2. Asymmetric actor-critic + teacher-student [BLOCKED on E4 + F1 + PI go]:
+F2. Asymmetric actor-critic + teacher-student [BLOCKED on post-E4 PI review + F1 + PI go]:
 robotics-field-standard recipe — privileged critic/teacher (true mu +
 vehicle params), obs72+short-history student distillation (RMA-style),
 curriculum, **100M env steps**, >= 8 seeds. Launch as a MANAGED background
@@ -651,9 +660,10 @@ oracle - per-tuned +0.18) and clean-sensing belief value (E2' VoI up to
 power (M3258), and E1' oracle-adequate spread repricing (M3259) all
 completed. The follow-on GPU-days checkpoint is then resolved by PI **FULL
 APPROVAL: 100M env steps, no time limit, no intermediate budget gate** (see
-the Track F header). Track F is OPEN at F1; the escalation
-`docs/escalations/2026-06-13-phase4-cp3-track-f-pi-checkpoint.md` resolution
-records both halves of the disposition.
+the Track F header), but PI then inserted the E4 drift-pricing checkpoint.
+M3260 completed E4, and Track F remains blocked until the post-E4 PI review.
+The escalation `docs/escalations/2026-06-13-phase4-cp3-track-f-pi-checkpoint.md`
+records the earlier CP-3 disposition.
 
 ## Out of scope for Codex sessions
 
@@ -697,9 +707,9 @@ pricing evidence; E0 is complete, E1 is completed negative, and E2 is
 completed positive on the Sedan/TMeasy fixture. E3 protocol and telemetry
 smokes passed, full E3 completed under M3255, M3256 recorded CP-3, and PI
 resolved CP-3 as disposition A. M3257 completed E3-fix, M3258 completed
-E2' hardening, and M3259 completed E1' spread-revival repricing negative.
-No dependency-satisfied Track-F work is admitted before the later PI
-GPU-days checkpoint.
+E2' hardening, M3259 completed E1' spread-revival repricing negative, and
+M3260 completed E4 drift-regime pricing. No Track-F work is admitted before
+post-E4 PI review.
 - E0: DONE (M3248; frozen Chrono spread-axis table and E1 envelope)
 - E1: DONE (M3249 quick protocol smoke passed; M3250 full pricing negative with 0/3 qualifying variants)
 - E2: DONE (M3251 quick protocol smoke passed; M3252 full Sedan/TMeasy verdict positive with 2 clean reveals qualifying)
@@ -708,9 +718,9 @@ GPU-days checkpoint.
 - E3-fix: DONE (M3257; detector-onset reconciliation completed, corrected early-fire rate 0.0, E2' dependency ready)
 - E2': DONE (M3258; flip confirmed with >=30 seeds/cell on Sedan/TMeasy + UAZBUS/TMeasy; AVOIDANCE regime only)
 - E1': DONE (M3259; oracle adequacy gate passed, spread revival not supported, structural gap +0.18 confirmed; AVOIDANCE regime only)
-- E4: OPEN (NEXT — Chrono drift / beyond-saturation pricing; **PI 2026-06-14: Codex completes E4, then STOPS for PI review** — do not start F1/F2)
-- F1: BLOCKED on the post-E4 PI review (infra + throughput; then a further PI go/scale stop)
-- F2-F3: BLOCKED on E4 + F1 + PI go (100M managed run; target informed by E4)
+- E4: DONE (M3260; full Chrono drift / beyond-saturation pricing completed, with one positive low-mu power-oversteer cell and one near-neutral lift-off recovery cell; **Codex stops for PI review**)
+- F1: BLOCKED on the post-E4 PI review (infra + throughput only after PI resumes it; then a further PI go/scale stop)
+- F2-F3: BLOCKED on post-E4 PI review + F1 + PI go (100M managed run; target informed by E4)
 - WP6.2 guardrails: **MERGED** (commit 05607bcd — validator V7 live in the
   pre-commit hook, escalation protocol in docs/escalations/, managed-run
   helper scripts/run_managed.sh). Codex execution may begin.

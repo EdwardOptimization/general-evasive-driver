@@ -1,0 +1,157 @@
+{
+  "cell_readouts": [
+    {
+      "arm_n": {
+        "drift_specialized_oracle": 20,
+        "fixed_star": 20,
+        "native_chrono_oracle": 20,
+        "per_instance_tuned_reflex": 20
+      },
+      "arm_success": {
+        "drift_specialized_oracle": 8,
+        "fixed_star": 0,
+        "native_chrono_oracle": 0,
+        "per_instance_tuned_reflex": 0
+      },
+      "arm_success_rate": {
+        "drift_specialized_oracle": 0.4,
+        "fixed_star": 0.0,
+        "native_chrono_oracle": 0.0,
+        "per_instance_tuned_reflex": 0.0
+      },
+      "cell_id": "low_mu_power_oversteer",
+      "drift_specialized_minus_per_instance_tuned_reflex": {
+        "ci95_high": 0.620285,
+        "ci95_low": 0.179715,
+        "mean": 0.4,
+        "n_pairs": 20
+      },
+      "max_observed_beta_rad": 0.241999,
+      "max_observed_rear_slip_angle_rad": 0.268711,
+      "native_minus_per_instance_tuned_reflex": {
+        "ci95_high": 0.0,
+        "ci95_low": 0.0,
+        "mean": 0.0,
+        "n_pairs": 20
+      },
+      "oracle_minus_fixed_star": {
+        "ci95_high": 0.620285,
+        "ci95_low": 0.179715,
+        "mean": 0.4,
+        "n_pairs": 20
+      },
+      "oracle_minus_per_instance_tuned_reflex": {
+        "ci95_high": 0.620285,
+        "ci95_low": 0.179715,
+        "mean": 0.4,
+        "n_pairs": 20
+      },
+      "reflex_failure_modes": {
+        "fail_to_enter": 34,
+        "fail_to_stabilize": 6
+      },
+      "selected_candidates": {
+        "drift_specialized_oracle": "drift:beta0p28_recover",
+        "native_chrono_oracle": "native:structured_soft_recover",
+        "per_instance_tuned_reflex": "reflex:v4_gain0p7_speed7_betadamp0p25"
+      },
+      "selection_row_count": 22,
+      "validation_units": 20
+    },
+    {
+      "arm_n": {
+        "drift_specialized_oracle": 20,
+        "fixed_star": 20,
+        "native_chrono_oracle": 20,
+        "per_instance_tuned_reflex": 20
+      },
+      "arm_success": {
+        "drift_specialized_oracle": 0,
+        "fixed_star": 0,
+        "native_chrono_oracle": 1,
+        "per_instance_tuned_reflex": 0
+      },
+      "arm_success_rate": {
+        "drift_specialized_oracle": 0.0,
+        "fixed_star": 0.0,
+        "native_chrono_oracle": 0.05,
+        "per_instance_tuned_reflex": 0.0
+      },
+      "cell_id": "lift_off_recovery",
+      "drift_specialized_minus_per_instance_tuned_reflex": {
+        "ci95_high": 0.0,
+        "ci95_low": 0.0,
+        "mean": 0.0,
+        "n_pairs": 20
+      },
+      "max_observed_beta_rad": 0.308777,
+      "max_observed_rear_slip_angle_rad": 0.363708,
+      "native_minus_per_instance_tuned_reflex": {
+        "ci95_high": 0.148,
+        "ci95_low": -0.048,
+        "mean": 0.05,
+        "n_pairs": 20
+      },
+      "oracle_minus_fixed_star": {
+        "ci95_high": 0.148,
+        "ci95_low": -0.048,
+        "mean": 0.05,
+        "n_pairs": 20
+      },
+      "oracle_minus_per_instance_tuned_reflex": {
+        "ci95_high": 0.148,
+        "ci95_low": -0.048,
+        "mean": 0.05,
+        "n_pairs": 20
+      },
+      "reflex_failure_modes": {
+        "fail_to_stabilize": 40
+      },
+      "selected_candidates": {
+        "drift_specialized_oracle": "drift:beta0p16_balanced",
+        "native_chrono_oracle": "native:cem_iter0_sample0",
+        "per_instance_tuned_reflex": "reflex:v4_gain0p5_speed6_betadamp0p35"
+      },
+      "selection_row_count": 22,
+      "validation_units": 20
+    }
+  ],
+  "claim_boundary": "Phase-4 E4 Chrono drift / beyond-saturation pricing only: fixed v4 reflex, selection-row per-cell tuned reflex, native Chrono structured+CEM oracle, and drift-specialized feedback oracle are compared on frozen low-mu circle drift cells with obs72 sideslip/yaw and Chrono rear-tire saturation telemetry. E4 does not mutate ActiveSafetyReflexDriver, does not train, does not admit Track F/F2, and makes no validation ranking, promotion, driver-performance, current-sim sufficiency, full high-fidelity sufficiency, paper, repair-success, robustness-result, feasibility-proof, or self-ID claim.",
+  "created_at_utc": "20260613T170627Z",
+  "decision": {
+    "e4_verdict": "drift_pricing_completed",
+    "f2_training_admitted": false,
+    "next_admitted_step": "E4 full pricing is complete; Track F/F2 still require F1 infrastructure and explicit PI approval.",
+    "positive_drift_prize_cells": [
+      "low_mu_power_oversteer"
+    ],
+    "track_f_admitted": false
+  },
+  "elapsed_s": 2459.4,
+  "metrics_csv": "runs/feasibility_audit/phase4_e4_drift_regime_pricing/metrics_full.csv",
+  "milestone": "m3260-phase4-e4-drift-regime-pricing",
+  "mode": "full",
+  "preregistration": "experiments/feasibility_audit/phase4_e4_drift_regime_pricing_prereg.json",
+  "preregistration_sha256": "4ca29652acf7c1006a23b33d27fb601864f11a7254234593f01a8563acc416cc",
+  "protocol_gates": {
+    "all_passed": true,
+    "cells_complete": true,
+    "obs72_yaw_sideslip_tire_telemetry_complete": true,
+    "oracle_adequacy_gate_passed": true,
+    "paired_ci_readouts_present": true,
+    "preregistration_frozen": true,
+    "quick_mode_is_nonverdict": true,
+    "selection_rows_present": true,
+    "track_f_admitted_false": true,
+    "validation_units_per_cell_complete": true
+  },
+  "row_count": 204,
+  "rows_csv": "runs/feasibility_audit/phase4_e4_drift_regime_pricing/episode_rows_full.csv",
+  "schema_version": 1,
+  "selection_adequacy_by_cell": {
+    "lift_off_recovery": true,
+    "low_mu_power_oversteer": true
+  },
+  "selection_row_count": 44,
+  "validation_row_count": 160
+}

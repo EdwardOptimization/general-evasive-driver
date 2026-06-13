@@ -1,0 +1,247 @@
+{
+  "arms": {
+    "drift_specialized_oracle": "per-cell selection-row choice among frozen obs72 sideslip/yaw feedback controllers",
+    "fixed_star": "unmodified ActiveSafetyReflexDriver v4 incumbent action on obs72",
+    "native_chrono_oracle": "per-cell selection-row choice among structured and CEM-seeded open-loop action schedules",
+    "oracle": "per validation unit max(success, score) over native_chrono_oracle and drift_specialized_oracle",
+    "per_instance_tuned_reflex": "per-cell selection-row choice among frozen reflex wrappers; incumbent unchanged"
+  },
+  "cells": [
+    {
+      "cell_id": "low_mu_power_oversteer",
+      "description": "low-mu power-oversteer entry with moderate radius and positive initial beta",
+      "heading_error_rad": -0.1,
+      "initial_beta_rad": 0.22,
+      "mu": 0.48,
+      "speed_mps": 9.0,
+      "track_radius": 70.0,
+      "track_width": 34.0,
+      "yaw_rate_scale": 1.2
+    },
+    {
+      "cell_id": "lift_off_recovery",
+      "description": "lift-off recovery from larger sideslip with slightly lower entry speed",
+      "heading_error_rad": 0.13,
+      "initial_beta_rad": -0.28,
+      "mu": 0.55,
+      "speed_mps": 8.0,
+      "track_radius": 60.0,
+      "track_width": 34.0,
+      "yaw_rate_scale": 1.35
+    }
+  ],
+  "cem_budget": {
+    "iterations": 1,
+    "population": 2,
+    "segment_steps": 30,
+    "segments": 3,
+    "selection_only": true
+  },
+  "chrono_vehicle_variant": "sedan_tmeasy",
+  "claim_boundary": "Phase-4 E4 Chrono drift / beyond-saturation pricing only: fixed v4 reflex, selection-row per-cell tuned reflex, native Chrono structured+CEM oracle, and drift-specialized feedback oracle are compared on frozen low-mu circle drift cells with obs72 sideslip/yaw and Chrono rear-tire saturation telemetry. E4 does not mutate ActiveSafetyReflexDriver, does not train, does not admit Track F/F2, and makes no validation ranking, promotion, driver-performance, current-sim sufficiency, full high-fidelity sufficiency, paper, repair-success, robustness-result, feasibility-proof, or self-ID claim.",
+  "decision_rule": "E4 is completed when quick and full artifacts exist under this preregistration, full protocol gates pass, every cell has >=20 validation units, selection-row oracle adequacy is nonnegative, paired CIs and failure modes are reported, and Track F/F2 remains blocked. A positive drift prize is descriptive only and does not admit training.",
+  "drift_feedback_candidates": [
+    {
+      "beta_gain": 2.0,
+      "brake_gain": 0.2,
+      "name": "beta0p16_balanced",
+      "speed_target": 7.0,
+      "steer_ff": 0.16,
+      "target_beta": 0.16,
+      "throttle_gain": 0.18,
+      "yaw_gain": 0.4
+    },
+    {
+      "beta_gain": 2.6,
+      "brake_gain": 0.16,
+      "name": "beta0p22_power",
+      "speed_target": 8.0,
+      "steer_ff": 0.22,
+      "target_beta": 0.22,
+      "throttle_gain": 0.2,
+      "yaw_gain": 0.55
+    },
+    {
+      "beta_gain": 3.2,
+      "brake_gain": 0.22,
+      "name": "beta0p28_recover",
+      "speed_target": 7.0,
+      "steer_ff": 0.3,
+      "target_beta": 0.28,
+      "throttle_gain": 0.14,
+      "yaw_gain": 0.7
+    }
+  ],
+  "dt": 0.02,
+  "frozen_at_utc": "20260613T161122Z",
+  "frozen_before_any_e4_drift_pricing_run": true,
+  "max_steps": 90,
+  "milestone": "m3260-phase4-e4-drift-regime-pricing",
+  "min_validation_units_per_cell": 20,
+  "native_structured_candidates": [
+    {
+      "name": "structured_countersteer_hold",
+      "segments": [
+        [
+          18,
+          -0.38,
+          0.25,
+          0.0
+        ],
+        [
+          72,
+          -0.24,
+          0.15,
+          0.0
+        ]
+      ]
+    },
+    {
+      "name": "structured_brake_rotate_power",
+      "segments": [
+        [
+          14,
+          -0.46,
+          0.0,
+          0.18
+        ],
+        [
+          24,
+          -0.3,
+          0.4,
+          0.0
+        ],
+        [
+          52,
+          -0.18,
+          0.22,
+          0.0
+        ]
+      ]
+    },
+    {
+      "name": "structured_soft_recover",
+      "segments": [
+        [
+          18,
+          -0.3,
+          0.1,
+          0.08
+        ],
+        [
+          72,
+          -0.12,
+          0.18,
+          0.0
+        ]
+      ]
+    }
+  ],
+  "predecessor_artifacts": {
+    "e0": "experiments/feasibility_audit/chrono_spread_expressibility_audit.json",
+    "e1prime": "experiments/feasibility_audit/phase4_e1prime_spread_revival_repricing.json",
+    "e2prime": "experiments/feasibility_audit/phase4_e2prime_chrono_two_regime_hardened.json",
+    "e3_full": "experiments/feasibility_audit/phase4_e3_chrono_measurement_ac_full.json"
+  },
+  "protocol": "phase4_e4_drift_regime_pricing_preregistration",
+  "quick_mode_is_verdict": false,
+  "reflex_tune_candidates": [
+    {
+      "beta_damping": 0.0,
+      "name": "v4_gain1p0_speed7_betadamp0",
+      "speed_target": 7.0,
+      "steer_gain": 1.0
+    },
+    {
+      "beta_damping": 0.25,
+      "name": "v4_gain0p7_speed7_betadamp0p25",
+      "speed_target": 7.0,
+      "steer_gain": 0.7
+    },
+    {
+      "beta_damping": 0.35,
+      "name": "v4_gain0p5_speed6_betadamp0p35",
+      "speed_target": 6.0,
+      "steer_gain": 0.5
+    }
+  ],
+  "roadmap_unit": "Track E4 - Chrono drift / beyond-saturation pricing",
+  "runtime_gates": [
+    "preregistration is frozen before quick/full rows",
+    "selection and validation seed streams are disjoint",
+    "quick smoke runs at least one cell and all four arms while remaining non-verdict",
+    "full run writes >=20 validation units per cell",
+    "all validation units have fixed*, per-tuned, native oracle, and drift-specialized oracle rows",
+    "obs72 sideslip/yaw and four-wheel Chrono tire telemetry are finite for interpreted rows",
+    "selection-row oracle adequacy is nonnegative versus per-tuned for every cell",
+    "per-cell paired CIs are reported for oracle-minus-fixed* and oracle-minus-per-tuned",
+    "Track F/F2/training admission remains false"
+  ],
+  "seed_base": 2026061404,
+  "selection_seeds": {
+    "lift_off_recovery": [
+      490633806,
+      1323199842
+    ],
+    "low_mu_power_oversteer": [
+      1531236010,
+      1572990555
+    ]
+  },
+  "thresholds": {
+    "beta_threshold_rad": 0.1,
+    "max_speed_mps": 28.0,
+    "min_enter_steps": 8,
+    "min_speed_mps": 2.0,
+    "min_sustain_steps": 24,
+    "rear_longitudinal_slip_threshold": 0.08,
+    "rear_slip_angle_threshold_rad": 0.1,
+    "yaw_rate_limit_rad_s": 2.7
+  },
+  "validation_seeds": {
+    "lift_off_recovery": [
+      1074395844,
+      1123140437,
+      1632172861,
+      1566627861,
+      1559803416,
+      275784622,
+      1599153873,
+      61125573,
+      1663643489,
+      321403095,
+      428657142,
+      1567106179,
+      1031085628,
+      1661520425,
+      113015965,
+      1313663519,
+      1192204397,
+      954659718,
+      1367283537,
+      1105369088
+    ],
+    "low_mu_power_oversteer": [
+      917797055,
+      1816201125,
+      1058388956,
+      1071960646,
+      9037931,
+      841610113,
+      273322492,
+      443869190,
+      798561251,
+      152845605,
+      1858426786,
+      845864274,
+      1788771845,
+      1999644804,
+      880009882,
+      1869985478,
+      415708680,
+      1144337448,
+      1379559136,
+      1439189297
+    ]
+  }
+}

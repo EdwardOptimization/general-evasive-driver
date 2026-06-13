@@ -3173,3 +3173,4 @@ m3255-phase4-e3-chrono-measurement-ac-full,infrastructure,,1,,,,,,,chrono_safety
 m3257-phase4-e3-detector-onset-reconciliation,infrastructure,,1,,,,,,,detector_onset_reconciliation_completed,all structured gates passed
 m3258-phase4-e2prime-chrono-two-regime-hardening,infrastructure,,1,,,,,,,e2prime_hardening_completed,all structured gates passed
 m3259-phase4-e1prime-spread-revival-repricing,infrastructure,,1,,,,,,,e1prime_repricing_completed,all structured gates passed and 0/3 variants qualified
+m3260-phase4-e4-drift-regime-pricing,infrastructure,,1,,,,,,,e4_drift_regime_pricing_completed,"all protocol gates passed; 204 rows; low_mu_power_oversteer oracle-minus-tuned +0.4000 CI95 [0.1797, 0.6203]; lift_off_recovery +0.0500 CI95 [-0.0480, 0.1480]; Track F/F2 blocked on post-E4 PI review"
