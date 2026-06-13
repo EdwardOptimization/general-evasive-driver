@@ -55,9 +55,9 @@
   a new Track E4 (Chrono drift / beyond-saturation pricing): E1'/E2'
   confirmed prizes in the avoidance regime only, never the drift regime
   (toy-sim reflex 0/84, thesis-queued) which Chrono's TMeasy tires can now
-  represent. Next OPEN units: E4 (drift pricing) and F1 (infra + throughput,
-  independent), then F1 STOPS for a PI go/scale confirmation; F2 is blocked
-  on E4 + F1 + PI go.
+  represent. Next OPEN unit: E4 (drift pricing). PI 2026-06-14: Codex completes E4 and
+  then STOPS for PI review — F1/F2 do not start until PI reviews the
+  drift-regime pricing and sets the Track F target and go.
 
 ## Track A — pricing/science completion (CPU only, zero training)
 
@@ -598,8 +598,13 @@ WHERE/WHY the reflex fails in the drift regime (does it fail to enter, fail
 to stabilize, or fail to recover?). Either verdict feeds Track F's target
 choice and the papers. Stretch: re-run the toy-sim's 3 drift_required rows'
 geometry in Chrono to see if they are now solvable by an oracle.
+- **PI stop (2026-06-14): Codex completes E4 and then STOPS for PI review.**
+  Write the E4 result, mark F1/F2 blocked-on-PI, and do NOT start F1 or F2 —
+  PI reviews the drift-regime pricing and decides the Track F target and go
+  before any training-infrastructure or training work begins. E4 is a hard
+  checkpoint: the drift prize must be priced and reviewed before any GPU.
 
-### Track F — robotics-parity RL protocol (stage 2; DEFERRED until E4 + F1 wall-clock + PI go)
+### Track F — robotics-parity RL protocol (stage 2; DEFERRED until E4 review + F1 wall-clock + PI go)
 
 **CP-3 GPU-days disposition (PI, 2026-06-13): 100M env steps approved in
 principle, no time limit — but DEFERRED behind E4, and STOP AFTER F1.**
@@ -699,11 +704,13 @@ GPU-days checkpoint.
 - E1: DONE (M3249 quick protocol smoke passed; M3250 full pricing negative with 0/3 qualifying variants)
 - E2: DONE (M3251 quick protocol smoke passed; M3252 full Sedan/TMeasy verdict positive with 2 clean reveals qualifying)
 - E3: DONE (M3253 passed protocol smoke; M3254 confirmed tire-truth telemetry; M3255 full measurement A/C completed with 24/24 latency rows, 72/72 recovery rows, all protocol gates passed, CP-3 evidence ready, Track F not admitted)
-- CP-3: FULLY RESOLVED (PI 2026-06-13) — harden-first satisfied, then FULL APPROVAL of Track F at 100M steps, no time/budget cap
+- CP-3: RESOLVED (PI 2026-06-13) — harden-first satisfied; Track F approved at 100M steps/no-time-limit in principle but DEFERRED behind Track E4 (drift pricing) and re-ordered 2026-06-14
 - E3-fix: DONE (M3257; detector-onset reconciliation completed, corrected early-fire rate 0.0, E2' dependency ready)
-- E2': DONE (M3258; flip confirmed with >=30 seeds/cell on Sedan/TMeasy + UAZBUS/TMeasy; Track F not admitted)
-- E1': DONE (M3259; oracle adequacy gate passed, 24 validation units per variant, 0/3 variants qualified; spread revival not supported; Track F not admitted)
-- F1-F3: BLOCKED on the later PI GPU-days budget checkpoint
+- E2': DONE (M3258; flip confirmed with >=30 seeds/cell on Sedan/TMeasy + UAZBUS/TMeasy; AVOIDANCE regime only)
+- E1': DONE (M3259; oracle adequacy gate passed, spread revival not supported, structural gap +0.18 confirmed; AVOIDANCE regime only)
+- E4: OPEN (NEXT — Chrono drift / beyond-saturation pricing; **PI 2026-06-14: Codex completes E4, then STOPS for PI review** — do not start F1/F2)
+- F1: BLOCKED on the post-E4 PI review (infra + throughput; then a further PI go/scale stop)
+- F2-F3: BLOCKED on E4 + F1 + PI go (100M managed run; target informed by E4)
 - WP6.2 guardrails: **MERGED** (commit 05607bcd — validator V7 live in the
   pre-commit hook, escalation protocol in docs/escalations/, managed-run
   helper scripts/run_managed.sh). Codex execution may begin.
