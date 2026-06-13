@@ -1,0 +1,207 @@
+{
+  "adjudication": {
+    "per_regime": {
+      "avoidance": {
+        "fixed_star": {
+          "collision_rate": 0.0,
+          "mean": 1.0,
+          "mean_reward": 72.0,
+          "n": 2,
+          "n_seeds": 1,
+          "seed_cluster_se": 0.0,
+          "success_rate": 1.0
+        },
+        "per_instance_tuned_reflex": {
+          "collision_rate": 0.0,
+          "mean": 1.0,
+          "mean_reward": 72.0,
+          "n": 2,
+          "n_seeds": 1,
+          "seed_cluster_se": 0.0,
+          "success_rate": 1.0
+        },
+        "per_regime_oracle": {
+          "collision_rate": 0.0,
+          "mean": 1.0,
+          "mean_reward": 72.0,
+          "n": 2,
+          "n_seeds": 1,
+          "seed_cluster_se": 0.0,
+          "success_rate": 1.0
+        },
+        "rls_retuned_reflex": {
+          "collision_rate": 0.0,
+          "mean": 1.0,
+          "mean_reward": 72.0,
+          "n": 2,
+          "n_seeds": 1,
+          "seed_cluster_se": 0.0,
+          "success_rate": 1.0
+        },
+        "student_policy": {
+          "collision_rate": 0.0,
+          "mean": 1.0,
+          "mean_reward": 72.0,
+          "n": 2,
+          "n_seeds": 1,
+          "seed_cluster_se": 0.0,
+          "success_rate": 1.0
+        }
+      },
+      "drift": {
+        "fixed_star": {
+          "collision_rate": 0.0,
+          "mean": 0.0,
+          "mean_reward": 2.0,
+          "n": 2,
+          "n_seeds": 1,
+          "seed_cluster_se": 0.0,
+          "success_rate": 0.0
+        },
+        "per_instance_tuned_reflex": {
+          "collision_rate": 0.0,
+          "mean": 0.0,
+          "mean_reward": 2.0,
+          "n": 2,
+          "n_seeds": 1,
+          "seed_cluster_se": 0.0,
+          "success_rate": 0.0
+        },
+        "per_regime_oracle": {
+          "collision_rate": 0.0,
+          "mean": 0.0,
+          "mean_reward": 2.0,
+          "n": 2,
+          "n_seeds": 1,
+          "seed_cluster_se": 0.0,
+          "success_rate": 0.0
+        },
+        "rls_retuned_reflex": {
+          "collision_rate": 0.0,
+          "mean": 0.0,
+          "mean_reward": 2.0,
+          "n": 2,
+          "n_seeds": 1,
+          "seed_cluster_se": 0.0,
+          "success_rate": 0.0
+        },
+        "student_policy": {
+          "collision_rate": 0.0,
+          "mean": 0.0,
+          "mean_reward": 2.0,
+          "n": 2,
+          "n_seeds": 1,
+          "seed_cluster_se": 0.0,
+          "success_rate": 0.0
+        }
+      }
+    },
+    "pooled": {
+      "fixed_star": {
+        "collision_rate": 0.0,
+        "mean": 0.5,
+        "mean_reward": 37.0,
+        "n": 4,
+        "n_seeds": 1,
+        "seed_cluster_se": 0.0,
+        "success_rate": 0.5
+      },
+      "per_instance_tuned_reflex": {
+        "collision_rate": 0.0,
+        "mean": 0.5,
+        "mean_reward": 37.0,
+        "n": 4,
+        "n_seeds": 1,
+        "seed_cluster_se": 0.0,
+        "success_rate": 0.5
+      },
+      "per_regime_oracle": {
+        "collision_rate": 0.0,
+        "mean": 0.5,
+        "mean_reward": 37.0,
+        "n": 4,
+        "n_seeds": 1,
+        "seed_cluster_se": 0.0,
+        "success_rate": 0.5
+      },
+      "rls_retuned_reflex": {
+        "collision_rate": 0.0,
+        "mean": 0.5,
+        "mean_reward": 37.0,
+        "n": 4,
+        "n_seeds": 1,
+        "seed_cluster_se": 0.0,
+        "success_rate": 0.5
+      },
+      "student_policy": {
+        "collision_rate": 0.0,
+        "mean": 0.5,
+        "mean_reward": 37.0,
+        "n": 4,
+        "n_seeds": 1,
+        "seed_cluster_se": 0.0,
+        "success_rate": 0.5
+      }
+    },
+    "prize_recovery": {
+      "avoidance_oracle_minus_floor": 0.0,
+      "avoidance_student_minus_floor": 0.0,
+      "drift_oracle_minus_floor": 0.0,
+      "drift_student_minus_floor": 0.0
+    },
+    "student_no_avoidance_regression": true
+  },
+  "claim_boundary": "Phase-4 F2 per-regime teacher-student training and four-arm adjudication only: asymmetric actor(obs72)/critic(obs72+privileged) rig, avoidance entry-speed-commitment oracle and drift DriftFeedbackSpec oracle as the per-regime distillation teachers, DAgger-lite + RL mixed loss, held-out epoch selection, curriculum, and a frozen {fixed*/RLS-retuned/per-instance-tuned/per-regime-oracle/student} four-arm validation comparison with seed-cluster and engineering double-readout. F2 is engineering-only: it does not mutate ActiveSafetyReflexDriver, makes no self-ID or history-attribution claim, and the --quick smoke proves only the end-to-end pipeline -- it is NOT a validation ranking, promotion, driver-performance, current-sim sufficiency, full high-fidelity sufficiency, paper, repair-success, robustness-result, or feasibility-proof claim.",
+  "decision": {
+    "f2_verdict": "quick_smoke_passed",
+    "incumbent_changed": false,
+    "next_step": "RUN_FULL_F2_MANAGED_AFTER_PI_FREEZE",
+    "quick_mode_is_verdict": false,
+    "self_id_claim": "none; engineering-only"
+  },
+  "elapsed_s": 160.64,
+  "generated_at_utc": "20260613T184307Z",
+  "milestone": "m3264-phase4-f2-per-regime-teacher-student",
+  "mode": "quick",
+  "obs72_mu_reconstruction_probe": {
+    "n": 8,
+    "note": "information only; engineering work makes no attribution claim",
+    "r2_linear": 1.0
+  },
+  "preregistration": "experiments/feasibility_audit/phase4_f2_prereg.json",
+  "protocol_gates": {
+    "all_five_arms_present": true,
+    "all_passed": true,
+    "asymmetric_actor_critic_built": true,
+    "both_regimes_evaluated": true,
+    "deterministic_seed_streams_disjoint": true,
+    "finite_update": true,
+    "four_arm_eval_finite": true,
+    "full_not_launched": true,
+    "held_out_epoch_selected": true,
+    "incumbent_unchanged": true,
+    "optimizer_changed_parameters": true,
+    "preregistration_present": true,
+    "reward_alignment_reported": true,
+    "student_input_obs72_only": true,
+    "teacher_demos_generated": true
+  },
+  "reward_alignment": {
+    "meets_0p9": true,
+    "n_groups": 10,
+    "spearman": 1.0
+  },
+  "row_count": 20,
+  "seeds": [
+    699570196
+  ],
+  "train_summaries": [
+    {
+      "all_finite": true,
+      "any_param_changed": true,
+      "best_epoch": 1,
+      "best_holdout_neg_mse": -0.36224934458732605,
+      "total_epochs": 2
+    }
+  ]
+}
