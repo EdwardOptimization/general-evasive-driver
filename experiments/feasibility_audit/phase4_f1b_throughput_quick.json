@@ -1,0 +1,94 @@
+{
+  "claim_boundary": "Phase-4 F1b throughput optimization only: batched Chrono worker transport, scaled worker-count rollout timing, obs72/action3 contract preservation, determinism replay, and 100M-step wall-clock re-projection for the PI stop. F1b does not launch F2, does not run PPO, does not write a policy checkpoint for promotion, does not mutate ActiveSafetyReflexDriver, and makes no validation ranking, promotion, driver-performance, current-sim sufficiency, full high-fidelity sufficiency, paper, repair-success, robustness-result, feasibility-proof, F2-training admission, or self-ID claim.",
+  "decision": {
+    "f1b_completed": false,
+    "f1b_verdict": "quick_smoke_passed",
+    "f2_training_admitted": false,
+    "next_step": "RUN_FULL_F1B",
+    "remaining_bottleneck": "closed_loop_policy_step_rpc_or_chrono_worker_throughput_below_pi_target",
+    "target_met": false
+  },
+  "determinism_replay": {
+    "max_abs_obs_sum_diff": 0.0,
+    "passed": true,
+    "seed": 1282684077,
+    "statuses_match": true,
+    "steps_requested": 2,
+    "trace_lengths": [
+      2,
+      2
+    ]
+  },
+  "elapsed_s": 27.198166666028555,
+  "generated_at_utc": "20260613T181352Z",
+  "milestone": "m3263-phase4-f1b-throughput-optimization",
+  "mode": "quick",
+  "preregistration": "experiments/feasibility_audit/phase4_f1b_throughput_prereg.json",
+  "protocol_gates": {
+    "action3_contract_held": true,
+    "all_passed": true,
+    "batched_transport_protocol_exercised": true,
+    "closed_loop_protocol_exercised": true,
+    "determinism_replay_passed": true,
+    "f2_training_admitted_false": true,
+    "mixed_regime_coverage": true,
+    "obs72_contract_held": true,
+    "preregistration_present": true,
+    "projected_wall_clock_present": true,
+    "quick_before_full": true,
+    "stop_for_pi_wall_clock_review": true,
+    "target_1000_steps_per_s_met": false,
+    "target_miss_reportable": true,
+    "throughput_positive": true,
+    "worker_count_scaled": true
+  },
+  "protocol_step_counts": {
+    "batched_action_sequence": 8,
+    "closed_loop_step": 8
+  },
+  "regime_step_counts": {
+    "avoidance_clean_reveal_9p5": 8,
+    "drift_low_mu_power_oversteer": 8
+  },
+  "row_count": 16,
+  "throughput": {
+    "batch_horizon": 2,
+    "batched_action_sequence": {
+      "aggregate_steps_per_s": 248.98491221827325,
+      "policy_elapsed_s": 0.005483270972035825,
+      "projected_100m_wall_clock_days": 4.6485041888512635,
+      "projected_100m_wall_clock_hours": 111.56410053243033,
+      "protocol": "batched_action_sequence",
+      "rollout_elapsed_s": 0.032130460953339934,
+      "rpc_elapsed_s": 0.026318435033317655,
+      "total_steps": 8,
+      "unit_count": 2,
+      "worker_count": 2,
+      "worker_launch_s": 0.7622164080385119
+    },
+    "best_aggregate_steps_per_s": 248.98491221827325,
+    "best_projected_100m_wall_clock_days": 4.6485041888512635,
+    "best_projected_100m_wall_clock_hours": 111.56410053243033,
+    "closed_loop": {
+      "aggregate_steps_per_s": 231.9329116794418,
+      "policy_elapsed_s": 0.0019794769468717277,
+      "projected_100m_wall_clock_days": 4.990268086691719,
+      "projected_100m_wall_clock_hours": 119.76643408060126,
+      "protocol": "closed_loop_step",
+      "rollout_elapsed_s": 0.03449273301521316,
+      "rpc_elapsed_s": 0.03221659705741331,
+      "total_steps": 8,
+      "unit_count": 2,
+      "worker_count": 2,
+      "worker_launch_s": 1.1934779770090245
+    },
+    "default_full_worker_count": 30,
+    "f1_baseline_aggregate_steps_per_s": 2.1031327121294,
+    "projection_target_steps": 100000000,
+    "speedup_vs_f1_baseline": 118.38763706270282,
+    "steps_per_unit": 4,
+    "target_100m_wall_clock_hours": 27.77777777777778,
+    "target_aggregate_steps_per_s": 1000.0,
+    "worker_count": 2
+  }
+}

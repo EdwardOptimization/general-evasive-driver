@@ -1,0 +1,31 @@
+{
+  "decision": {
+    "f1b_completed": true,
+    "f1b_verdict": "f1b_throughput_target_met",
+    "f2_training_admitted": false,
+    "next_step": "STOP_FOR_PI_WALL_CLOCK_REVIEW",
+    "remaining_bottleneck": "target_met_stop_for_pi",
+    "target_met": true
+  },
+  "milestone": "m3263-phase4-f1b-throughput-optimization",
+  "protocol_gates": {
+    "action3_contract_held": true,
+    "all_passed": true,
+    "batched_transport_protocol_exercised": true,
+    "closed_loop_protocol_exercised": true,
+    "determinism_replay_passed": true,
+    "f2_training_admitted_false": true,
+    "mixed_regime_coverage": true,
+    "obs72_contract_held": true,
+    "preregistration_present": true,
+    "projected_wall_clock_present": true,
+    "quick_before_full": true,
+    "stop_for_pi_wall_clock_review": true,
+    "target_1000_steps_per_s_met": true,
+    "target_miss_reportable": true,
+    "throughput_positive": true,
+    "worker_count_scaled": true
+  },
+  "reviewed_at_utc": "20260613T181456Z",
+  "risk": "batched action-sequence throughput is not identical to one-step closed-loop policy collection"
+}

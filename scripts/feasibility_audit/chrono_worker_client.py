@@ -98,6 +98,23 @@ class ChronoWorkerClient:
             dict(reply["info"]),
         )
 
+    def step_many(self, actions: list[np.ndarray] | np.ndarray) -> tuple[list[tuple[np.ndarray, bool, bool, str, dict]], bool]:
+        action_array = np.asarray(actions, dtype=float)
+        if action_array.ndim == 1:
+            action_array = action_array.reshape(1, -1)
+        reply = self._send({"cmd": "step_many", "actions": action_array.tolist()})
+        steps = [
+            (
+                np.asarray(row["obs"], dtype=np.float32),
+                bool(row["terminated"]),
+                bool(row["truncated"]),
+                str(row["status"]),
+                dict(row["info"]),
+            )
+            for row in reply["steps"]
+        ]
+        return steps, bool(reply.get("stopped_early", False))
+
     def close(self) -> None:
         try:
             if self._proc.poll() is None:

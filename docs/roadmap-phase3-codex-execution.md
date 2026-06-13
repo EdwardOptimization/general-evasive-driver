@@ -57,11 +57,12 @@
   (toy-sim reflex 0/84, thesis-queued) which Chrono's TMeasy tires can now
   represent. E4 is now completed by M3260; PI reviewed it on 2026-06-14 and
   approved Track F at full-scenario scope. M3261 completed F1 infrastructure
-  and measured 2.1 steps/s -> 550-day projection. PI 2026-06-14: this is a
+  and measured 2.1 steps/s -> 550-day projection. PI 2026-06-14: this was a
   ~170x infra bottleneck (2 workers + per-step IPC to the separate-env
-  Chrono worker), not a Chrono limit; next OPEN unit is F1b throughput
-  optimization (~28 workers + in-process/batched stepping, target >=1000
-  steps/s), then STOP for PI before F2.
+  Chrono worker), not a Chrono limit. M3263 completed F1b throughput
+  optimization with 30 workers and batched stepping: closed-loop throughput
+  1600.8440 steps/s, batched action-sequence throughput 1967.0045 steps/s,
+  best 100M projection 14.12 h. STOP for PI before F2.
 
 ## Track A — pricing/science completion (CPU only, zero training)
 
@@ -658,19 +659,16 @@ historical in-process Chrono backend smoke ran ~3400 internal steps/s
 (~170 control steps/s single-worker) vs F1's ~1 control step/s/worker.
 F2 stays on CPU (CUDA confirmed 0.004x CPU for this small net).
 
-F1b. Training-throughput optimization [OPEN — NEXT; then STOP for PI]: raise
-env-stepping throughput by (a) scaling to ~max-1 cores of workers (~28-30),
-and (b) eliminating or amortizing the per-step IPC round-trip — run Chrono
-in-process where possible, or batch many env steps per IPC call /
-shared-memory transport. Keep the obs72/action3 contract, determinism, and
-mixed avoidance+drift coverage from F1. Acceptance: re-measured aggregate
-throughput + re-projected 100M wall-clock; target >= 1000 steps/s aggregate
-(100M <= ~28 h); if the target is missed, report the achieved number and
-the remaining bottleneck. **Then STOP and report to PI** — write the result,
-keep F2 blocked-on-PI; do NOT launch F2. (This is still the F1 wall-clock
-stop, just after the optimization that makes the number feasible.)
+F1b. Training-throughput optimization [DONE: M3263; STOP for PI]:
+prereg + quick + full run passed. M3263 scaled to 30 Chrono workers and added
+batched `step_many` IPC amortization while keeping obs72/action3, determinism,
+and mixed avoidance+drift coverage. Full result: 1920 mixed-regime steps,
+closed-loop one-step throughput 1600.8440 steps/s, batched action-sequence
+throughput 1967.0045 steps/s, speedup 935.27x vs F1, projected 100M best
+wall-clock 14.12 h / 0.59 days, target >=1000 steps/s met. **STOP and report
+to PI**; keep F2 blocked-on-PI; do NOT launch F2.
 
-F2. Asymmetric actor-critic + teacher-student [BLOCKED: M3262, on F1b throughput + PI go]:
+F2. Asymmetric actor-critic + teacher-student [BLOCKED: M3262, on F1b throughput report + PI go]:
 robotics-field-standard recipe — privileged critic/teacher (true mu +
 vehicle params), obs72+short-history student distillation (RMA-style),
 curriculum, **100M env steps**, >= 8 seeds. **Training distribution = the
@@ -702,9 +700,10 @@ completed. The follow-on GPU-days checkpoint is then resolved by PI **FULL
 APPROVAL: 100M env steps, no time limit, no intermediate budget gate** (see
 the Track F header), but PI then inserted the E4 drift-pricing checkpoint.
 M3260 completed E4; PI reviewed it on 2026-06-14 and approved Track F at
-full-scenario scope. M3261 completed F1 and re-imposes the next hard stop:
-F2/F3 remain blocked until PI reviews the measured wall-clock report and gives
-go; M3262 records that blocker in the queue/escalation ledger.
+full-scenario scope. M3261 completed F1, PI requested F1b, and M3263
+completed the throughput optimization with the >=1000 steps/s target met.
+F2/F3 remain blocked until PI reviews the F1b wall-clock report and gives go;
+M3262 records that blocker in the queue/escalation ledger.
 The escalation `docs/escalations/2026-06-13-phase4-cp3-track-f-pi-checkpoint.md`
 records the earlier CP-3 disposition.
 
@@ -752,8 +751,9 @@ smokes passed, full E3 completed under M3255, M3256 recorded CP-3, and PI
 resolved CP-3 as disposition A. M3257 completed E3-fix, M3258 completed
 E2' hardening, M3259 completed E1' spread-revival repricing negative, M3260
 completed E4 drift-regime pricing, PI approved Track F full-scenario scope on
-2026-06-14, and M3261 completed F1 infrastructure. No F2/F3 work is admitted
-before PI reviews the F1 wall-clock report.
+2026-06-14, M3261 completed F1 infrastructure, and M3263 completed F1b
+throughput optimization. No F2/F3 work is admitted before PI reviews the F1b
+wall-clock report.
 - E0: DONE (M3248; frozen Chrono spread-axis table and E1 envelope)
 - E1: DONE (M3249 quick protocol smoke passed; M3250 full pricing negative with 0/3 qualifying variants)
 - E2: DONE (M3251 quick protocol smoke passed; M3252 full Sedan/TMeasy verdict positive with 2 clean reveals qualifying)
@@ -765,8 +765,8 @@ before PI reviews the F1 wall-clock report.
 - E4: DONE (M3260; full Chrono drift / beyond-saturation pricing completed, with one positive low-mu power-oversteer cell and one near-neutral lift-off recovery cell; PI review completed 2026-06-14)
 - E4 review: DONE (PI 2026-06-14) — Track F APPROVED at FULL-SCENARIO scope: ONE driver over avoidance + drift, per-regime teacher (drift teacher = specialized oracle, not CEM)
 - F1: DONE (M3261; infra + smoke + throughput + projected 100M wall-clock completed: 48 steps, 2.1031 steps/s, 13207.81 h / 550.33 days projected for 100M; STOP for PI wall-clock review)
-- F1b: OPEN — NEXT (throughput optimization: ~28 workers + kill per-step IPC; target >=1000 steps/s; then STOP for PI)
-- F2-F3: BLOCKED on F1b throughput + PI go (100M managed run; full-scenario, three prizes: avoidance +0.18, belief +0.77, drift +0.40)
+- F1b: DONE (M3263; 30 workers, closed-loop 1600.8440 steps/s, batched action-sequence 1967.0045 steps/s, projected 100M best wall-clock 14.12 h / 0.59 days; target >=1000 steps/s met; STOP for PI)
+- F2-F3: BLOCKED on F1b throughput report + PI go (100M managed run; full-scenario, three prizes: avoidance +0.18, belief +0.77, drift +0.40)
 - WP6.2 guardrails: **MERGED** (commit 05607bcd — validator V7 live in the
   pre-commit hook, escalation protocol in docs/escalations/, managed-run
   helper scripts/run_managed.sh). Codex execution may begin.

@@ -13,6 +13,8 @@ Protocol (one JSON object per line; every response line is prefixed with
   {"cmd": "step", "action": [s, t, b]}              -> {"ok": true, "obs": [72],
                                                         "terminated": bool, "truncated": bool,
                                                         "status": str, "info": {...}}
+  {"cmd": "step_many", "actions": [[s, t, b], ...]} -> {"ok": true, "steps": [{...}, ...],
+                                                        "stopped_early": bool}
   {"cmd": "close"}                                  -> {"ok": true, "closed": true} and exit
 
 Deterministic: the backend is rebuilt from the scenario dict on every reset;
@@ -101,6 +103,24 @@ def main() -> None:
                         "info": result.diagnostics,
                     }
                 )
+            elif cmd == "step_many":
+                rows = []
+                stopped_early = False
+                for action in message["actions"]:
+                    result = backend.step(np.asarray(action, dtype=np.float32))
+                    obs = backend.observation(result.actor_view)
+                    row = {
+                        "obs": obs.tolist(),
+                        "terminated": bool(result.terminated_by_backend),
+                        "truncated": bool(result.truncated_by_backend),
+                        "status": result.backend_status,
+                        "info": result.diagnostics,
+                    }
+                    rows.append(row)
+                    if row["terminated"] or row["truncated"]:
+                        stopped_early = True
+                        break
+                _emit({"ok": True, "steps": rows, "stopped_early": stopped_early})
             elif cmd == "close":
                 backend.close()
                 _emit({"ok": True, "closed": True})

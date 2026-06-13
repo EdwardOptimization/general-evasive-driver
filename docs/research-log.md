@@ -56680,3 +56680,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m3261-phase4-f1-training-infrastructure_20260613T174005Z/command.log`
 - success artifact: `experiments/feasibility_audit/phase4_f1_training_infra.json`
 - notes: Completed: F1 infrastructure gates passed with 48 mixed-regime Chrono worker steps, 2.1031 steps/s, projected 100M wall-clock 13207.81 h / 550.33 days, CUDA update speed ratio 0.00415x CPU, and F2/F3 blocked on PI wall-clock review.
+
+## 20260613T181456Z m3263-phase4-f1b-throughput-optimization
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: A preregistered Phase-4 F1b throughput-optimization milestone can scale Chrono workers amortize per-step IPC through a batched step_many transport preserve obs72/action3 contract and determinism and re-project 100M-step wall-clock before validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof paper F2-training admission or self-ID claim.
+- command: `env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/phase4_f1b_throughput_optimization.py --full --resume`
+- returncode: `0`
+- run dir: `runs/research/m3263-phase4-f1b-throughput-optimization_20260613T181410Z`
+- command log: `runs/research/m3263-phase4-f1b-throughput-optimization_20260613T181410Z/command.log`
+- success artifact: `experiments/feasibility_audit/phase4_f1b_throughput.json`
+- notes: Completed: F1b throughput optimization gates passed with 30 workers, 1920 mixed-regime Chrono steps, closed-loop 1600.8440 steps/s, batched action-sequence 1967.0045 steps/s, projected 100M best wall-clock 14.12 h / 0.59 days, speedup 935.27x vs F1, target >=1000 steps/s met, and F2/F3 remain blocked on PI review and explicit go.

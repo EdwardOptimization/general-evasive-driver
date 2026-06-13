@@ -1,0 +1,258 @@
+{
+  "id": "m3263-phase4-f1b-throughput-optimization",
+  "priority": 32630,
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "milestone_intent": "training",
+  "feasibility_pricing": {
+    "pricing_artifact": "experiments/feasibility_audit/phase4_e4_drift_regime_pricing.json",
+    "priced_gap": 0.4,
+    "threshold": 0.15,
+    "gap_meets_threshold": true
+  },
+  "hypothesis": "A preregistered Phase-4 F1b throughput-optimization milestone can scale Chrono workers, amortize per-step IPC through a batched step_many transport, preserve the obs72/action3 contract and determinism, and re-project 100M-step wall-clock before validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof paper F2-training admission or self-ID claim.",
+  "lineage": {
+    "parent_checkpoint": [
+      "docs/current-status.md",
+      "docs/roadmap-phase3-codex-execution.md",
+      "docs/m3261-phase4-f1-training-infrastructure.md",
+      "docs/escalations/2026-06-14-phase4-f2-wall-clock-pi-review.md"
+    ],
+    "parent_dataset": [
+      "experiments/feasibility_audit/phase4_f1_training_infra.json",
+      "experiments/feasibility_audit/phase4_f1_training_infra_quick.json",
+      "experiments/feasibility_audit/phase4_f1_training_infra_prereg.json",
+      "experiments/feasibility_audit/phase4_e4_drift_regime_pricing.json"
+    ],
+    "parent_config": [
+      "scripts/feasibility_audit/phase4_f1_training_infra_smoke.py",
+      "scripts/feasibility_audit/phase4_f1b_throughput_optimization.py",
+      "scripts/feasibility_audit/chrono_worker_client.py",
+      "scripts/feasibility_audit/chrono_backend_worker.py",
+      "src/autodrift/train_ppo.py",
+      "src/autodrift/chrono_vehicle_backend.py"
+    ],
+    "parent_objective": [
+      "F1 completed the first training-infrastructure wall-clock report",
+      "PI disposition on 2026-06-14 rejected the 550-day as-built projection and requested F1b throughput optimization before F2"
+    ],
+    "derived_from": [
+      "M3261 measured only 2.1031 aggregate steps/s with two workers and one IPC round-trip per control step",
+      "The roadmap marks F1b as the next OPEN unit after the PI F1 disposition",
+      "M3262 keeps F2/F3 blocked until F1b throughput and PI go are available"
+    ],
+    "blocked_by": [
+      "F2 and F3 remain blocked after M3263 until PI reviews the measured F1b wall-clock and gives the next go"
+    ],
+    "supersedes": [
+      "treating the M3261 550-day projection as the final F2 compute-cost answer",
+      "launching F2 before measuring worker-scale and batched-transport throughput"
+    ],
+    "invalidates": [
+      "mutating ActiveSafetyReflexDriver inside F1b",
+      "writing a promotion policy checkpoint from the F1b throughput benchmark",
+      "claiming validation ranking, driver performance, current-sim sufficiency, full high-fidelity sufficiency, paper readiness, repair success, feasibility proof, F2 admission, or self-ID from M3263"
+    ]
+  },
+  "review_artifact": "docs/reviews/m3263-phase4-f1b-throughput-optimization.md",
+  "public_gates": [
+    "M3263 must write preregistration before any F1b quick or full run",
+    "M3263 must run quick smoke before the full F1b run",
+    "M3263 must exercise both closed-loop one-step transport and batched step_many transport",
+    "M3263 must include mixed avoidance and drift Chrono rows",
+    "M3263 must preserve the obs72/action3 actor contract",
+    "M3263 must record a determinism replay",
+    "M3263 must report aggregate throughput and projected 100M-step wall-clock",
+    "M3263 must record whether the 1000 steps/s PI target was met or missed",
+    "M3263 must keep F2 training admission false and stop for PI wall-clock review"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run full M3263 without preregistration and quick smoke",
+    "do not launch PPO, F2, F3, or a managed 100M-step training run",
+    "do not write a promotion checkpoint",
+    "do not mutate ActiveSafetyReflexDriver",
+    "do not change obs72/action3 semantics",
+    "do not hide a 1000 steps/s target miss",
+    "do not claim driver performance, full high-fidelity sufficiency, paper readiness, repair success, robustness result, feasibility proof, F2 admission, or self-ID from M3263"
+  ],
+  "workflow_synthesis": {
+    "branch": "phase4_track_f_f1b_throughput_optimization",
+    "evidence_axis": "phase4_f1b_training_throughput_optimization",
+    "evidence_increment": "scaled Chrono worker throughput plus batched step_many IPC amortization and 100M-step wall-clock reprojection",
+    "claim_scope": "F1b throughput only; no policy promotion, no F2 launch, no driver-performance or self-ID claim",
+    "stop_condition": [
+      "stop after full F1b artifact, doc, review, scoreboard, and ledger updates are written",
+      "stop if preregistration, quick-before-full, mixed-regime coverage, obs/action contract, determinism, throughput reporting, or F2-blocked gates fail",
+      "stop if the result is interpreted as validation performance or as approval to start F2"
+    ],
+    "fallback_plan": [
+      "if batched transport fails, report the worker protocol failure and keep F2 blocked",
+      "if throughput stays below the PI target, report the achieved number and bottleneck instead of launching F2",
+      "if throughput clears the target, stop for PI wall-clock review before registering any F2 training run"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "PI F1 disposition requested throughput optimization before any F2 launch",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "Optimize and measure the F1 Chrono rollout transport path for a future full-scenario learned driver without launching F2.",
+    "admission_evidence": [
+      "M3258 E2' confirmed clean belief value up to +0.7667 across Sedan/TMeasy and UAZBUS/TMeasy",
+      "M3259 E1' preserved a +0.1806 structural gap while rejecting vehicle-spread reflex retuning",
+      "M3260 E4 priced low_mu_power_oversteer drift-specialized oracle headroom at +0.4000",
+      "M3261 F1 infrastructure completed but measured only 2.1031 steps/s and a 550.33 day 100M-step projection",
+      "PI F1 disposition on 2026-06-14 requested worker scaling and IPC amortization before F2"
+    ],
+    "blocked_shortcuts": [
+      "no PPO training",
+      "no policy promotion",
+      "no incumbent mutation",
+      "no F2 or F3 launch",
+      "no validation-row tuning",
+      "no self-ID or history-attribution claim"
+    ],
+    "allowed_updates": [
+      "scripts/feasibility_audit/chrono_worker_client.py",
+      "scripts/feasibility_audit/chrono_backend_worker.py",
+      "scripts/feasibility_audit/phase4_f1b_throughput_optimization.py",
+      "tests/test_phase4_f1b_throughput_optimization.py",
+      "experiments/feasibility_audit/phase4_f1b_throughput_prereg.json",
+      "experiments/feasibility_audit/phase4_f1b_throughput_quick.json",
+      "experiments/feasibility_audit/phase4_f1b_throughput.json",
+      "runs/feasibility_audit/phase4_f1b_throughput/worker_step_rows_quick.csv",
+      "runs/feasibility_audit/phase4_f1b_throughput/worker_step_rows_full.csv",
+      "runs/feasibility_audit/phase4_f1b_throughput/metrics_quick.csv",
+      "runs/feasibility_audit/phase4_f1b_throughput/metrics_full.csv",
+      "runs/feasibility_audit/phase4_f1b_throughput/progress_quick.jsonl",
+      "runs/feasibility_audit/phase4_f1b_throughput/progress_full.jsonl",
+      "docs/m3263-phase4-f1b-throughput-optimization.md",
+      "docs/reviews/m3263-phase4-f1b-throughput-optimization.md",
+      "experiments/reviews/m3263-phase4-f1b-throughput-optimization.json",
+      "docs/current-status.md",
+      "docs/roadmap-phase3-codex-execution.md",
+      "docs/research-log.md",
+      "docs/data-coverage-map-2026-06.md",
+      "scripts/feasibility_audit/README.md",
+      "experiments/research_queue.csv",
+      "experiments/research_status.json",
+      "experiments/scoreboard.csv"
+    ],
+    "next_stage_criteria": [
+      "After M3263, PI must review measured throughput and projected 100M-step wall-clock before F2 can move from blocked to pending",
+      "If M3263 misses the 1000 steps/s target, report the bottleneck and revise the infrastructure route instead of launching F2",
+      "If M3263 meets the 1000 steps/s target, still register any F2 work separately after PI explicit go"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M3263 makes no history or self-ID claim; it only exercises current obs72 rollout transport and throughput measurement.",
+    "history_necessity_tests": [
+      "none in M3263"
+    ],
+    "temporal_evidence_window": "not applicable; no learned history policy is evaluated",
+    "negative_result_policy": "A failed F1b gate or target miss is reported at full fidelity and cannot be converted into F2 admission.",
+    "allowed_claims": [
+      "F1b throughput protocol completed or failed",
+      "closed-loop and batched Chrono worker throughput were measured",
+      "projected 100M-step wall-clock was re-measured from F1b",
+      "F2 remains blocked pending PI wall-clock review"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_tool_or_infra",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "adds the first Track-F throughput optimization artifact after the M3261 wall-clock negative",
+    "paper_verdict_delta": "M3263 does not change the paper verdict; it supplies the optimized calendar-cost evidence needed before any F2 training admission decision.",
+    "must_synthesize_if": [
+      "another F1b infrastructure run is proposed after all F1b gates pass",
+      "F2 is proposed before PI reviews the M3263 wall-clock projection",
+      "M3263 is interpreted as driver-performance or self-ID evidence"
+    ]
+  },
+  "success_criteria": [
+    "experiments/feasibility_audit/phase4_f1b_throughput_prereg.json exists before quick and full runs",
+    "experiments/feasibility_audit/phase4_f1b_throughput_quick.json exists and passed before the full run",
+    "experiments/feasibility_audit/phase4_f1b_throughput.json exists after the full run",
+    "runs/feasibility_audit/phase4_f1b_throughput/worker_step_rows_full.csv includes both closed_loop_step and batched_action_sequence rows",
+    "runs/feasibility_audit/phase4_f1b_throughput/worker_step_rows_full.csv includes both avoidance_clean_reveal_9p5 and drift_low_mu_power_oversteer rows",
+    "runs/feasibility_audit/phase4_f1b_throughput/metrics_full.csv reports protocol_gates_passed=1 and f2_training_admitted=0",
+    "docs/m3263-phase4-f1b-throughput-optimization.md reports measured throughput, target met or missed, projected 100M-step wall-clock, and the PI stop"
+  ],
+  "failure_criteria": [
+    "M3263 runs full mode without preregistration or quick smoke",
+    "M3263 omits either closed-loop one-step or batched step_many transport",
+    "M3263 omits either avoidance or drift worker rows",
+    "M3263 violates the obs72/action3 actor contract",
+    "M3263 fails to report throughput or projected 100M-step wall-clock",
+    "M3263 hides a target miss or admits F2 despite a target miss",
+    "M3263 mutates ActiveSafetyReflexDriver or writes a promotion checkpoint",
+    "M3263 admits F2, driver performance, full high-fidelity sufficiency, paper readiness, feasibility proof, repair success, or self-ID claims"
+  ],
+  "decision_rule": "Accept M3263 as completed if preregistration and quick smoke precede the full run, closed-loop and batched Chrono worker transport both run, mixed-regime obs72/action3 rows and determinism replay pass, throughput and 100M-step wall-clock are reported, and F2 remains blocked for PI review. The 1000 steps/s target is reported as met or missed but does not by itself authorize F2.",
+  "decision_labels": {
+    "pass": "f1b_throughput_target_met_or_missed_reported",
+    "fail": "f1b_throughput_protocol_failed"
+  },
+  "commands": [
+    {
+      "name": "phase4_f1b_prereg",
+      "command": "env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/phase4_f1b_throughput_optimization.py --write-prereg"
+    },
+    {
+      "name": "phase4_f1b_quick",
+      "command": "env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/phase4_f1b_throughput_optimization.py --quick --resume"
+    },
+    {
+      "name": "phase4_f1b_full",
+      "command": "env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/phase4_f1b_throughput_optimization.py --full --resume"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "experiments/feasibility_audit/phase4_f1b_throughput_prereg.json",
+      "type": "json"
+    },
+    {
+      "path": "experiments/feasibility_audit/phase4_f1b_throughput_quick.json",
+      "type": "json"
+    },
+    {
+      "path": "experiments/feasibility_audit/phase4_f1b_throughput.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/feasibility_audit/phase4_f1b_throughput/worker_step_rows_full.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/feasibility_audit/phase4_f1b_throughput/metrics_full.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m3263-phase4-f1b-throughput-optimization.md",
+      "type": "markdown"
+    },
+    {
+      "path": "docs/reviews/m3263-phase4-f1b-throughput-optimization.md",
+      "type": "markdown"
+    }
+  ],
+  "baseline_checkpoints": [
+    "docs/current-status.md",
+    "docs/roadmap-phase3-codex-execution.md",
+    "docs/m3261-phase4-f1-training-infrastructure.md",
+    "experiments/feasibility_audit/phase4_f1_training_infra.json",
+    "experiments/feasibility_audit/phase4_e4_drift_regime_pricing.json"
+  ],
+  "metric_extractors": [],
+  "gates": []
+}

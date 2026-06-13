@@ -4,7 +4,7 @@ This file is the compact official state for the project. Milestone documents
 and `docs/research-log.md` remain the detailed log of the autonomous-harness
 era; the Phase-2 plan and thesis (pointer table below) define the active
 program. Last full refresh: 2026-06-14 (the 2026-06-11 WP6.3 refresh
-replaced the stale paper-route state; this update folds in M3215-M3261,
+replaced the stale paper-route state; this update folds in M3215-M3263,
 the C5 pricing disposition, the S4-HF-lite backend connector/pricing work,
 WP6.2 guardrails, the A1 lateral-channel rider, the A2 obs-normalization
 audit, the A3 C5-prime target consolidation, B1/B2/B3/B4 env-engineering
@@ -30,8 +30,8 @@ M3255 full E3 Chrono measurement A/C verdict, the M3256 blocked CP-3
 Track-F PI checkpoint, the M3257 E3-fix detector-onset reconciliation, the
 M3258 E2' hardened two-variant clean-flip confirmation, the M3259 E1'
 oracle-adequate spread-revival repricing negative, the M3260 E4
-drift-regime pricing panel, and the M3261 F1 training-infrastructure
-wall-clock smoke).
+drift-regime pricing panel, the M3261 F1 training-infrastructure
+wall-clock smoke, and the M3263 F1b throughput optimization).
 
 ## Project Identity
 
@@ -47,8 +47,8 @@ wall-clock smoke).
 
 History in one paragraph: the autonomous harness loop ran through M3214
 before manual takeover; the manual takeover has since registered
-M3215-M3262. `experiments/research_status.json` now records
-3261 completed / 7 failed / 5 blocked task entries, with `next_task:
+M3215-M3263. `experiments/research_status.json` now records
+3262 completed / 7 failed / 5 blocked task entries, with `next_task:
 null`. On
 2026-06-11 an independent feasibility audit showed the M3108–M3212
 residual-repair branch was repairing physically unsolvable rows, and the
@@ -206,6 +206,18 @@ measured batch, and F2/F3 remain blocked on PI wall-clock review
 (`docs/m3261-phase4-f1-training-infrastructure.md`). M3262 records that
 hard stop as a blocked process gate, with resume owned by PI wall-clock review
 and explicit go (`docs/escalations/2026-06-14-phase4-f2-wall-clock-pi-review.md`).
+PI then requested F1b because the M3261 550-day projection was an
+infrastructure bottleneck rather than a Chrono limit. M3263 F1b
+throughput optimization **completed / passed**: preregistration and quick
+smoke preceded the full run, 30 Chrono workers wrote 1920 mixed-regime
+steps (avoidance 960, drift 960), closed-loop one-step throughput was
+1600.8440 steps/s, batched action-sequence throughput was 1967.0045
+steps/s, projected 100M-step best wall-clock was 14.12 h / 0.59 days,
+speedup was 935.27x vs F1, and the >=1000 steps/s PI target was met.
+M3263 still makes no F2 admission, training, driver-performance,
+high-fidelity sufficiency, paper, feasibility-proof, repair-success,
+robustness-result, or self-ID claim
+(`docs/m3263-phase4-f1b-throughput-optimization.md`).
 
 Work packages: WP0 **complete** (wrapper modes M3215-validated, family #2
 frozen with clean acceptance after one pre-registered repair, statistical
@@ -288,7 +300,9 @@ repricing across Sedan/BMW_E90/UAZBUS with 24 validation units per variant
 and 0/3 qualifying variants, M3260 adds a Sedan/TMeasy E4 drift-regime
 pricing panel with 20 validation units per drift cell, M3261 adds an F1
 training-infrastructure wall-clock smoke with mixed avoidance/drift worker
-rollouts but no F2 launch, and M3255 gives a full E3 detector-latency/
+rollouts but no F2 launch, M3263 adds a scaled F1b throughput optimization
+report with 30 workers and 14.12 h projected 100M wall-clock but still no
+F2 launch, and M3255 gives a full E3 detector-latency/
 recovery-budget verdict on Sedan/TMeasy only. It still does not cover UAZBUS
 D1b native search, non-Sedan E3, independent payload-position/h_cg,
 tire-family, split-mu, continuous lateral/tire channel mapping, or learned-
@@ -300,7 +314,7 @@ ceiling route as a priced-but-not-converted negative); WP6 **current guardrails 
 validator V7, escalation protocol, and managed-run helper are merged).
 
 Harness ledger: M3215, M3216, M3217, M3218, M3219, M3220, M3221, M3222,
-M3223, M3224, M3225, M3226, M3227, M3228, M3229, M3230, M3231, M3232, M3233, M3234, M3235, M3236, M3237, M3238, M3239, M3240, M3241, M3242, M3244, M3245, M3246, M3247, M3248, M3249, M3250, M3251, M3252, M3253, M3254, M3255, M3257, M3258, M3259, M3260, M3261, and M3262 registered and
+M3223, M3224, M3225, M3226, M3227, M3228, M3229, M3230, M3231, M3232, M3233, M3234, M3235, M3236, M3237, M3238, M3239, M3240, M3241, M3242, M3244, M3245, M3246, M3247, M3248, M3249, M3250, M3251, M3252, M3253, M3254, M3255, M3257, M3258, M3259, M3260, M3261, M3262, and M3263 registered and
 executed through the harness (research-validate passed in pending and
 completed states;
 M3228 failed its full gate, M3229 completed, M3230 completed after a
@@ -328,8 +342,9 @@ the full E3 measurement A/C panel, M3257 completed detector-onset
 reconciliation, M3258 completed the E2' hardened clean-flip confirmation,
 M3259 completed the E1' spread-revival repricing negative, M3260
 completed the E4 drift-regime pricing panel, M3261 completed the F1
-training-infrastructure wall-clock smoke, and M3262 recorded the F2/F3 PI
-wall-clock review blocker as a blocked gate);
+training-infrastructure wall-clock smoke, M3263 completed the F1b
+throughput optimization, and M3262 recorded the F2/F3 PI wall-clock review
+blocker as a blocked gate);
 M3243 remains a
 blocked-dependency escalation row with a resolution note because it records the
 temporary roadmap stop rather than a measurement;
@@ -516,8 +531,11 @@ update throughput was 0.00415x CPU on the measured batch, and F2/F3 remain
 blocked on PI wall-clock review. M3261 makes no training, driver-performance,
 high-fidelity sufficiency, paper, feasibility-proof, repair-success,
 robustness-result, or self-ID claim. M3262 now records the F2/F3 wall-clock
-review stop as a blocked process gate; no pending queue task exists before PI
-disposition.
+review stop as a blocked process gate. M3263 completed the requested F1b
+optimization: 30 workers, 1920 mixed-regime steps, closed-loop 1600.8440
+steps/s, batched action-sequence 1967.0045 steps/s, 14.12 h / 0.59 days
+projected for 100M, and the >=1000 steps/s target met. No pending queue task
+exists before PI disposition.
 
 ## Pointer Table
 
@@ -527,7 +545,7 @@ disposition.
 | Phase-2 plan v2 (active program definition) | `docs/research-plan-phase2-capability-boundary-tracking.md` |
 | Takeover decision (why M3213 was blocked) | `docs/feasibility-takeover-2026-06-route-decision.md` |
 | Gate protocol v2 (anchors before informative actions; R²≤0.1 self-check) | `docs/selfid-gate-protocol-v2-2026-06.md` |
-| Latest harness milestone (M3261: Phase-4 F1 training infrastructure) | `docs/m3261-phase4-f1-training-infrastructure.md` |
+| Latest harness milestone (M3263: Phase-4 F1b throughput optimization) | `docs/m3263-phase4-f1b-throughput-optimization.md` |
 | Current blocked gate (M3262: F2/F3 PI wall-clock review) | `docs/escalations/2026-06-14-phase4-f2-wall-clock-pi-review.md` |
 | Resolved blocked-dependency escalation (M3243: PI reopened C1-v3) | `docs/escalations/2026-06-12-phase3-roadmap-exhausted-pi-route.md` |
 | Thesis capstone + RL re-entry (Sections 10-11) | `docs/capability-boundary-tracking-thesis-2026-06.md` |
