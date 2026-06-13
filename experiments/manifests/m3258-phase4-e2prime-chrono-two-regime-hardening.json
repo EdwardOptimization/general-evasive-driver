@@ -1,0 +1,383 @@
+{
+  "id": "m3258-phase4-e2prime-chrono-two-regime-hardening",
+  "priority": 32580,
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "milestone_intent": "evaluation_only",
+  "hypothesis": "A preregistered Phase-4 E2' hardened Chrono two-regime-law panel can confirm or refute the M3252 clean VoI(belief) flip with at least 30 validation seeds per cell on Sedan/TMeasy and UAZBUS/TMeasy before validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof paper or self-ID claim.",
+  "feasibility_pricing": {
+    "pricing_artifact": "experiments/feasibility_audit/phase4_e2_chrono_two_regime_full.json",
+    "dependency_artifact": "experiments/feasibility_audit/phase4_e3_detector_onset_reconciliation.json",
+    "priced_gap": 1.0,
+    "threshold": 1.0,
+    "gap_meets_threshold": true
+  },
+  "lineage": {
+    "parent_checkpoint": [
+      "docs/current-status.md",
+      "docs/roadmap-phase3-codex-execution.md",
+      "docs/escalations/2026-06-13-phase4-cp3-track-f-pi-checkpoint.md",
+      "docs/m3252-phase4-e2-chrono-two-regime-full.md",
+      "docs/m3257-phase4-e3-detector-onset-reconciliation.md"
+    ],
+    "parent_dataset": [
+      "experiments/feasibility_audit/chrono_spread_expressibility_audit.json",
+      "experiments/feasibility_audit/phase4_e2_chrono_two_regime_full.json",
+      "experiments/feasibility_audit/phase4_e3_detector_onset_reconciliation.json",
+      "experiments/feasibility_audit/phase4_e2prime_chrono_two_regime_hardened_quick.json"
+    ],
+    "parent_config": [
+      "experiments/feasibility_audit/phase4_e2prime_chrono_two_regime_hardened_prereg.json",
+      "scripts/feasibility_audit/phase4_e2prime_chrono_two_regime_hardened.py",
+      "scripts/feasibility_audit/phase4_e2_chrono_two_regime_smoke.py",
+      "scripts/feasibility_audit/chrono_worker_client.py",
+      "scripts/feasibility_audit/chrono_backend_worker.py",
+      "src/autodrift/chrono_vehicle_backend.py"
+    ],
+    "parent_objective": [
+      "Track E' E2': harden the M3252 clean Chrono two-regime-law flip after M3257 froze the detector-onset rule",
+      "CP-3 disposition A requires Track-E hardening before any Track-F GPU budget"
+    ],
+    "derived_from": [
+      "M3252 found the clean VoI(belief) flip positive on the default Sedan/TMeasy fixture at small validation power",
+      "M3257 reconciled the detector-onset anomaly and marked the E2' dependency ready",
+      "The updated roadmap freezes >=30 validation seeds per cell, >=2 vehicle variants, all five clean reveal tiers, the delay25_tight spot, and the >=2 tight reveal cells on >=2 variants flip-confirmation criterion"
+    ],
+    "blocked_by": [
+      "Track F remains blocked on the E2' verdict plus a later GPU-days checkpoint",
+      "E1' spread-revival repricing remains separate and can run after E2' if needed"
+    ],
+    "supersedes": [
+      "treating M3252's Sedan/TMeasy two-seed validation as sufficient Track-F admission evidence",
+      "starting Track F before the M3257 detector-onset reconciliation and E2' hardening"
+    ],
+    "invalidates": [
+      "claiming Track F admission from M3258 alone",
+      "claiming learned-policy performance or self-ID evidence from scripted E2' controller rows",
+      "tuning reveal tiers, seed streams, variants, candidates, or confirmation thresholds after observing E2' rows"
+    ]
+  },
+  "review_artifact": "docs/reviews/m3258-phase4-e2prime-chrono-two-regime-hardening.md",
+  "public_gates": [
+    "M3258 must write preregistration before any E2' rollout",
+    "M3258 must run quick smoke before the managed full harness run",
+    "M3258 must include Sedan/TMeasy and at least one non-Sedan vehicle variant",
+    "M3258 must use at least 30 validation seeds per cell in the full panel",
+    "M3258 must write clean selection rows and clean plus delay25_tight validation rows for oracle, best_seeker, best_fixed, and best_floor logical arms",
+    "M3258 must report paired CIs per variant and clean reveal tier",
+    "M3258 must apply the frozen flip-confirmation criterion without making it a protocol-pass gate",
+    "M3258 must keep Track F blocked pending a later GPU-days checkpoint"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run full M3258 without preregistration and quick smoke",
+    "do not use validation rows to choose seeker, fixed, floor, or oracle candidates",
+    "do not tune reveal tiers, mu points, vehicle variants, controller candidates, seed streams, degraded spots, CIs, or thresholds after observing rows",
+    "do not edit ActiveSafetyReflexDriver",
+    "do not mutate obs72/action3 actor observation or action semantics",
+    "do not invoke PPO, supervised training, guarded RL, or policy checkpoint writing",
+    "do not claim driver performance, full high-fidelity sufficiency, paper readiness, repair success, robustness result, feasibility proof, Track F admission, or self-ID from M3258",
+    "do not self-approve the later Track-F GPU-days checkpoint"
+  ],
+  "workflow_synthesis": {
+    "branch": "phase4_track_e_prime_hardening",
+    "evidence_axis": "e2prime_chrono_two_regime_hardened_confirmation",
+    "evidence_increment": "full two-vehicle Chrono E2' confirmation panel with >=30 validation seeds per cell and per-variant paired CIs",
+    "claim_scope": "Track E' E2' hardening on Sedan/TMeasy and UAZBUS/TMeasy scripted controllers only; incumbent unchanged; obs72/action3 unchanged; no validation ranking, promotion, driver-performance, current-sim sufficiency, full high-fidelity sufficiency, paper, repair-success, robustness-result, feasibility-proof, Track F admission, or self-ID claim",
+    "stop_condition": [
+      "stop after the full E2' verdict, doc, review, and ledger updates are written",
+      "stop if preregistration, quick smoke, row-count, seed-count, obs-finite, variant-match, paired-readout, or Track-F-blocked gates fail",
+      "stop if the result is interpreted as Track F admission or training evidence"
+    ],
+    "fallback_plan": [
+      "if E2' confirms the flip, route only to a later PI GPU-days checkpoint before Track F",
+      "if E2' does not confirm the flip, record the negative at full fidelity and keep Track F blocked",
+      "if protocol gates fail, repair or reprice under a new preregistration instead of interpreting the partial rows"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M3257 completed and the roadmap marks E2' hardening as the lowest-numbered dependency-satisfied OPEN unit",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "Run the full E2' Chrono hardening panel; no model update.",
+    "admission_evidence": [
+      "M3252 full E2 completed with a positive small-N clean flip on Sedan/TMeasy",
+      "M3257 full detector-onset reconciliation completed and marked E2' dependency ready",
+      "phase4_e2prime_chrono_two_regime_hardened_prereg.json freezes the full E2' panel",
+      "phase4_e2prime_chrono_two_regime_hardened_quick.json passed before registering the full run"
+    ],
+    "blocked_shortcuts": [
+      "no RL or PPO",
+      "no incumbent mutation",
+      "no validation-row tuning",
+      "no Track F admission",
+      "no self-ID or history-attribution claim"
+    ],
+    "allowed_updates": [
+      "scripts/feasibility_audit/phase4_e2prime_chrono_two_regime_hardened.py",
+      "tests/test_phase4_e2prime_chrono_two_regime_hardened.py",
+      "experiments/feasibility_audit/phase4_e2prime_chrono_two_regime_hardened_prereg.json",
+      "experiments/feasibility_audit/phase4_e2prime_chrono_two_regime_hardened_quick.json",
+      "experiments/feasibility_audit/phase4_e2prime_chrono_two_regime_hardened.json",
+      "runs/feasibility_audit/phase4_e2prime_chrono_two_regime_hardened/episode_rows_quick.csv",
+      "runs/feasibility_audit/phase4_e2prime_chrono_two_regime_hardened/metrics_quick.csv",
+      "runs/feasibility_audit/phase4_e2prime_chrono_two_regime_hardened/episode_rows_full.csv",
+      "runs/feasibility_audit/phase4_e2prime_chrono_two_regime_hardened/metrics_full.csv",
+      "docs/m3258-phase4-e2prime-chrono-two-regime-hardening.md",
+      "docs/reviews/m3258-phase4-e2prime-chrono-two-regime-hardening.md",
+      "docs/current-status.md",
+      "docs/roadmap-phase3-codex-execution.md",
+      "docs/research-log.md",
+      "docs/data-coverage-map-2026-06.md",
+      "scripts/feasibility_audit/README.md",
+      "experiments/research_queue.csv",
+      "experiments/research_status.json",
+      "experiments/scoreboard.csv"
+    ],
+    "next_stage_criteria": [
+      "After M3258 pass, Track F remains blocked unless a later PI GPU-days checkpoint approves it",
+      "If E2' does not confirm the flip, Track F remains blocked and the program routes to papers or E1' repricing per PI"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M3258 makes no history or self-ID claim; it compares scripted controller outcomes under closed-loop Chrono rows only.",
+    "history_necessity_tests": [
+      "none in M3258"
+    ],
+    "temporal_evidence_window": "not applicable; no learned history policy is evaluated",
+    "negative_result_policy": "A not-confirmed E2' flip is reported at full fidelity and cannot be converted into training admission.",
+    "allowed_claims": [
+      "E2' full hardening protocol completed or failed",
+      "the frozen flip-confirmation criterion was confirmed or not confirmed",
+      "delay25_tight degraded spot readouts are secondary",
+      "Track F remains blocked after M3258"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_dataset_or_panel",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "adds the first adequately powered two-vehicle E2 Chrono confirmation panel after M3252 and M3257",
+    "paper_verdict_delta": "M3258 decides whether the M3252 clean Chrono flip survives higher power and non-Sedan coverage.",
+    "must_synthesize_if": [
+      "another E2' hardening run is proposed after M3258 without a failed protocol gate",
+      "Track F is proposed before the later GPU-days checkpoint",
+      "M3258 is interpreted as learned-policy performance or self-ID evidence"
+    ]
+  },
+  "success_criteria": [
+    "experiments/feasibility_audit/phase4_e2prime_chrono_two_regime_hardened_prereg.json exists before the full run",
+    "experiments/feasibility_audit/phase4_e2prime_chrono_two_regime_hardened_quick.json exists and passed before the full run",
+    "experiments/feasibility_audit/phase4_e2prime_chrono_two_regime_hardened.json exists after the full run",
+    "runs/feasibility_audit/phase4_e2prime_chrono_two_regime_hardened/episode_rows_full.csv includes all expected selection and validation rows",
+    "runs/feasibility_audit/phase4_e2prime_chrono_two_regime_hardened/metrics_full.csv reports protocol_gates_passed=1 and track_f_admitted=0",
+    "docs/m3258-phase4-e2prime-chrono-two-regime-hardening.md reports measured and inferred sections plus the frozen claim boundary"
+  ],
+  "failure_criteria": [
+    "M3258 runs without preregistration or quick smoke",
+    "M3258 omits a frozen vehicle variant, reveal tier, degraded spot, validation seed stream, or logical arm",
+    "M3258 uses validation rows for arm selection",
+    "M3258 tunes criteria after rows are observed",
+    "M3258 mutates ActiveSafetyReflexDriver or the actor observation contract",
+    "M3258 admits Track F, training, driver-performance, full high-fidelity sufficiency, paper, feasibility-proof, repair-success, or self-ID claims"
+  ],
+  "decision_rule": "Accept M3258 as completed if the full E2' panel runs under the frozen preregistration, writes full JSON/CSV/doc artifacts, passes protocol gates, reports the frozen flip-confirmation result, and keeps Track F blocked.",
+  "decision_labels": {
+    "pass": "e2prime_hardening_completed",
+    "fail": "e2prime_hardening_protocol_failed"
+  },
+  "commands": [
+    {
+      "name": "phase4_e2prime_prereg",
+      "command": "env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/phase4_e2prime_chrono_two_regime_hardened.py --write-prereg"
+    },
+    {
+      "name": "phase4_e2prime_quick",
+      "command": "env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/phase4_e2prime_chrono_two_regime_hardened.py --quick --resume"
+    },
+    {
+      "name": "phase4_e2prime_full",
+      "command": "env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/phase4_e2prime_chrono_two_regime_hardened.py --full --resume --workers 12"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "experiments/feasibility_audit/phase4_e2prime_chrono_two_regime_hardened_prereg.json",
+      "type": "json"
+    },
+    {
+      "path": "experiments/feasibility_audit/phase4_e2prime_chrono_two_regime_hardened_quick.json",
+      "type": "json"
+    },
+    {
+      "path": "experiments/feasibility_audit/phase4_e2prime_chrono_two_regime_hardened.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/feasibility_audit/phase4_e2prime_chrono_two_regime_hardened/episode_rows_full.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/feasibility_audit/phase4_e2prime_chrono_two_regime_hardened/metrics_full.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m3258-phase4-e2prime-chrono-two-regime-hardening.md",
+      "type": "markdown"
+    },
+    {
+      "path": "docs/reviews/m3258-phase4-e2prime-chrono-two-regime-hardening.md",
+      "type": "markdown"
+    }
+  ],
+  "baseline_checkpoints": [
+    "docs/current-status.md",
+    "docs/roadmap-phase3-codex-execution.md",
+    "docs/m3252-phase4-e2-chrono-two-regime-full.md",
+    "docs/m3257-phase4-e3-detector-onset-reconciliation.md",
+    "experiments/feasibility_audit/phase4_e2prime_chrono_two_regime_hardened_prereg.json",
+    "experiments/feasibility_audit/phase4_e2prime_chrono_two_regime_hardened_quick.json"
+  ],
+  "metric_extractors": [
+    {
+      "metric": "success_rate",
+      "type": "csv",
+      "path": "runs/feasibility_audit/phase4_e2prime_chrono_two_regime_hardened/metrics_full.csv",
+      "match": {
+        "metric": "protocol_gates_passed"
+      },
+      "column": "value"
+    },
+    {
+      "metric": "flip_confirmed",
+      "type": "csv",
+      "path": "runs/feasibility_audit/phase4_e2prime_chrono_two_regime_hardened/metrics_full.csv",
+      "match": {
+        "metric": "flip_confirmed"
+      },
+      "column": "value"
+    },
+    {
+      "metric": "flip_confirming_variant_count",
+      "type": "csv",
+      "path": "runs/feasibility_audit/phase4_e2prime_chrono_two_regime_hardened/metrics_full.csv",
+      "match": {
+        "metric": "flip_confirming_variant_count"
+      },
+      "column": "value"
+    },
+    {
+      "metric": "validation_seed_count_per_cell",
+      "type": "csv",
+      "path": "runs/feasibility_audit/phase4_e2prime_chrono_two_regime_hardened/metrics_full.csv",
+      "match": {
+        "metric": "validation_seed_count_per_cell"
+      },
+      "column": "value"
+    },
+    {
+      "metric": "vehicle_variant_count",
+      "type": "csv",
+      "path": "runs/feasibility_audit/phase4_e2prime_chrono_two_regime_hardened/metrics_full.csv",
+      "match": {
+        "metric": "vehicle_variant_count"
+      },
+      "column": "value"
+    },
+    {
+      "metric": "track_f_admitted",
+      "type": "csv",
+      "path": "runs/feasibility_audit/phase4_e2prime_chrono_two_regime_hardened/metrics_full.csv",
+      "match": {
+        "metric": "track_f_admitted"
+      },
+      "column": "value"
+    },
+    {
+      "metric": "selection_row_count",
+      "type": "csv",
+      "path": "runs/feasibility_audit/phase4_e2prime_chrono_two_regime_hardened/metrics_full.csv",
+      "match": {
+        "metric": "selection_row_count"
+      },
+      "column": "value"
+    },
+    {
+      "metric": "selection_row_count_expected",
+      "type": "csv",
+      "path": "runs/feasibility_audit/phase4_e2prime_chrono_two_regime_hardened/metrics_full.csv",
+      "match": {
+        "metric": "selection_row_count_expected"
+      },
+      "column": "value"
+    },
+    {
+      "metric": "validation_row_count",
+      "type": "csv",
+      "path": "runs/feasibility_audit/phase4_e2prime_chrono_two_regime_hardened/metrics_full.csv",
+      "match": {
+        "metric": "validation_row_count"
+      },
+      "column": "value"
+    },
+    {
+      "metric": "validation_row_count_expected",
+      "type": "csv",
+      "path": "runs/feasibility_audit/phase4_e2prime_chrono_two_regime_hardened/metrics_full.csv",
+      "match": {
+        "metric": "validation_row_count_expected"
+      },
+      "column": "value"
+    }
+  ],
+  "gates": [
+    {
+      "name": "protocol_gates_passed",
+      "metric": "success_rate",
+      "op": "==",
+      "threshold": 1.0
+    },
+    {
+      "name": "track_f_not_admitted",
+      "metric": "track_f_admitted",
+      "op": "==",
+      "threshold": 0.0
+    },
+    {
+      "name": "validation_seed_count_per_cell",
+      "metric": "validation_seed_count_per_cell",
+      "op": ">=",
+      "threshold": 30.0
+    },
+    {
+      "name": "vehicle_variant_count",
+      "metric": "vehicle_variant_count",
+      "op": ">=",
+      "threshold": 2.0
+    },
+    {
+      "name": "all_selection_rows_written",
+      "aggregation": "difference",
+      "left_metric": "selection_row_count",
+      "right_metric": "selection_row_count_expected",
+      "op": "==",
+      "threshold": 0.0
+    },
+    {
+      "name": "all_validation_rows_written",
+      "aggregation": "difference",
+      "left_metric": "validation_row_count",
+      "right_metric": "validation_row_count_expected",
+      "op": "==",
+      "threshold": 0.0
+    }
+  ]
+}

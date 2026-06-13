@@ -369,6 +369,53 @@ def test_validate_research_state_accepts_current_enforced_planned_shape(tmp_path
     assert issues == []
 
 
+def test_validate_research_state_accepts_running_next_task_shape(tmp_path):
+    queue = tmp_path / "queue.csv"
+    status = tmp_path / "status.json"
+    manifest_dir = tmp_path / "manifests"
+    scoreboard = tmp_path / "scoreboard.csv"
+    manifest_dir.mkdir()
+    _write_queue(
+        queue,
+        [
+            {
+                "id": "m90",
+                "priority": 870,
+                "status": "running",
+                "kind": "infrastructure",
+                "hypothesis": "run m90",
+                "command": "python run.py",
+                "success_artifact": "",
+                "notes": "",
+            },
+        ],
+    )
+    status.write_text(
+        json.dumps(
+            {
+                "counts": {"planned": 0, "completed": 0, "failed": 0, "blocked": 0, "pending": 0, "running": 1},
+                "next_task": {
+                    "id": "m90",
+                    "priority": 870,
+                    "status": "running",
+                    "kind": "infrastructure",
+                    "hypothesis": "run m90",
+                    "command": "python run.py",
+                    "success_artifact": "",
+                    "notes": "",
+                },
+            }
+        ),
+        encoding="utf-8",
+    )
+    (manifest_dir / "m90.json").write_text(json.dumps(_manifest("m90")), encoding="utf-8")
+    _write_scoreboard(scoreboard, [])
+
+    issues = validate_research_state(tmp_path, queue, status, manifest_dir, scoreboard)
+
+    assert issues == []
+
+
 def test_validate_research_state_recomputes_completed_structured_gate_decision(tmp_path):
     queue = tmp_path / "queue.csv"
     status = tmp_path / "status.json"

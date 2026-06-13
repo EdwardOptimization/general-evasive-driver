@@ -1020,7 +1020,7 @@ def _status_counts_match(tasks: list[ResearchTask], status: dict[str, Any]) -> l
 
 
 def _expected_next_task(tasks: list[ResearchTask]) -> str | None:
-    for status in ("pending", "planned"):
+    for status in ("running", "pending", "planned"):
         candidates = [task for task in tasks if task.status == status]
         if candidates:
             return sorted(candidates, key=lambda task: (task.priority, task.id))[0].id

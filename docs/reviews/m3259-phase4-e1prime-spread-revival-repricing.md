@@ -1,0 +1,89 @@
+# m3259-phase4-e1prime-spread-revival-repricing Research Review
+
+## Summary
+
+- Generated at UTC: 20260613T141744Z
+- Type: infrastructure
+- Gate tier: infrastructure
+- Promotion decision: e1prime_repricing_completed
+- Decision reason: all structured gates passed and 0/3 variants qualified
+
+## Hypothesis
+
+A preregistered Phase-4 E1' oracle-adequate Chrono spread-revival repricing panel can rerun the frozen E1 comparison with a selection-row native-oracle adequacy gate and at least 20 validation units per variant across Sedan/TMeasy, BMW_E90/TMeasy, and UAZBUS/TMeasy before validation ranking, promotion, driver-performance, current-sim, high-fidelity, full-driver, repair-success, robustness-result, feasibility-proof, paper, Track-F admission, or self-ID claim.
+
+## Lineage
+
+- parent_checkpoint: docs/current-status.md, docs/roadmap-phase3-codex-execution.md, docs/m3250-phase4-e1-spread-revival-pricing-full.md, docs/m3258-phase4-e2prime-chrono-two-regime-hardening.md
+- parent_dataset: experiments/feasibility_audit/chrono_spread_expressibility_audit.json, experiments/feasibility_audit/phase4_e1_spread_revival_quick.json, experiments/feasibility_audit/phase4_e1_spread_revival_full.json, experiments/feasibility_audit/phase4_e1prime_spread_revival_repricing_quick.json
+- parent_config: experiments/feasibility_audit/phase4_e1prime_spread_revival_repricing_prereg.json, scripts/feasibility_audit/phase4_e1prime_spread_revival_repricing.py, scripts/feasibility_audit/chrono_native_oracle_pricing.py, scripts/feasibility_audit/chrono_worker_client.py, scripts/feasibility_audit/chrono_backend_worker.py, src/autodrift/chrono_vehicle_backend.py
+- parent_objective: Track E' E1': resolve the roadmap critique that M3250's native oracle anchor underperformed the tuned arm before reading any spread-revival verdict, Keep Track F blocked on the later PI GPU-days checkpoint regardless of the E1' outcome
+- derived_from: M3250 completed the original full E1 panel but the native-oracle anchor lost to the tuned arm, invalidating the spread comparison as a clean oracle-boundary result., M3259 quick smoke passed all structured gates and verified the selection-row oracle adequacy path before registering the full run., The updated roadmap requires at least 20 validation units per variant and an oracle-adequacy gate before the full spread verdict can be read.
+- blocked_by: Track F remains blocked until a later PI GPU-days checkpoint, E1' full cannot be interpreted until the preregistered full panel, not quick mode, completes
+- supersedes: treating M3250's original native-anchor-negative spread comparison as the final E1 result, using quick mode as the E1' verdict
+- invalidates: claiming Track F admission from M3259, claiming learned-policy performance or self-ID evidence from scripted E1' rows, tuning grids, seed streams, vehicle fixtures, oracle budget, or positive thresholds after observing full validation rows
+
+## Success Criteria
+
+- experiments/feasibility_audit/phase4_e1prime_spread_revival_repricing_prereg.json exists before the full run
+- experiments/feasibility_audit/phase4_e1prime_spread_revival_repricing_quick.json exists and passed before the full run
+- experiments/feasibility_audit/phase4_e1prime_spread_revival_repricing.json exists after the full run
+- runs/feasibility_audit/phase4_e1prime_spread_revival_repricing/episode_rows_full.csv includes all expected selection, oracle-adequacy, and validation rows
+- runs/feasibility_audit/phase4_e1prime_spread_revival_repricing/metrics_full.csv reports protocol_gates_passed=1, oracle_adequacy_gate_passed=1, validation_units_per_variant>=20, and track_f_admitted=0
+- docs/m3259-phase4-e1prime-spread-revival-repricing.md reports measured and inferred sections plus the frozen claim boundary
+
+## Failure Criteria
+
+- M3259 runs without preregistration or quick smoke
+- M3259 omits a frozen vehicle fixture, row-pair stream, oracle-adequacy arm, validation arm, or validation threshold
+- M3259 uses validation rows for selection
+- M3259 tunes criteria after rows are observed
+- M3259 mutates ActiveSafetyReflexDriver or the actor observation contract
+- M3259 admits Track F, training, driver-performance, full high-fidelity sufficiency, paper, feasibility-proof, repair-success, or self-ID claims
+
+## Evidence Gates
+
+- M3259 must write preregistration before any full run
+- M3259 must run quick smoke before registering the full run
+- M3259 must include Sedan/TMeasy, BMW_E90/TMeasy, and UAZBUS/TMeasy
+- M3259 must use at least 20 validation units per variant in the full panel
+- M3259 must verify native oracle adequacy on selection rows before reading validation spread verdicts
+- M3259 must report fixed*, RLS, tuned, and native-oracle validation readouts with paired CIs
+- M3259 must treat quick mode as non-verdict
+- M3259 must keep Track F blocked pending a later PI GPU-days checkpoint
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not run full M3259 without preregistration and quick smoke
+- do not use validation rows to choose fixed*, tuned grids, oracle candidates, thresholds, variants, or seed streams
+- do not edit ActiveSafetyReflexDriver
+- do not mutate obs72/action3 actor observation or action semantics
+- do not invoke PPO, supervised training, guarded RL, or policy checkpoint writing
+- do not claim driver performance, full high-fidelity sufficiency, paper readiness, repair success, robustness result, feasibility proof, Track F admission, or self-ID from M3259
+
+## Failure Taxonomy
+
+- none
+
+## Scoreboard
+
+- milestone: m3259-phase4-e1prime-spread-revival-repricing
+- type: infrastructure
+- checkpoint: None
+- success_rate: 1
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: e1prime_repricing_completed
+- reason: all structured gates passed and 0/3 variants qualified
+
+## Next Blocker
+
+None recorded.

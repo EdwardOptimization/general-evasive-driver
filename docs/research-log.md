@@ -56620,3 +56620,39 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m3257-phase4-e3-detector-onset-reconciliation_20260613T045406Z/command.log`
 - success artifact: `experiments/feasibility_audit/phase4_e3_detector_onset_reconciliation.json`
 - notes: Completed: E3-fix detector-onset reconciliation passed all structured gates. It wrote 24/24 Measurement-A case rows and 3426 trace rows; original early-fire rate 0.5, reconciled early-fire rate 0.0, detector miss rate 0.1667, corroborated early-fire rate 0.5, uncorroborated detector-fire rate 0.0, E2 prime dependency ready=1, Track F admitted=0. Track F remains blocked before E2 prime flip confirmation plus a later GPU-days checkpoint.
+
+## 20260613T095611Z m3258-phase4-e2prime-chrono-two-regime-hardening
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: A preregistered Phase-4 E2' hardened Chrono two-regime-law panel can confirm or refute the M3252 clean VoI(belief) flip with at least 30 validation seeds per cell on Sedan/TMeasy and UAZBUS/TMeasy before validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof paper or self-ID claim.
+- command: `env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/phase4_e2prime_chrono_two_regime_hardened.py --full --resume --workers 12`
+- returncode: `0`
+- run dir: `runs/research/m3258-phase4-e2prime-chrono-two-regime-hardening_20260613T085441Z`
+- command log: `runs/research/m3258-phase4-e2prime-chrono-two-regime-hardening_20260613T085441Z/command.log`
+- success artifact: `experiments/feasibility_audit/phase4_e2prime_chrono_two_regime_hardened.json`
+- notes: Completed: E2' hardened Chrono two-regime-law panel passed all structured gates and confirmed the clean flip on Sedan/TMeasy and UAZBUS/TMeasy. It wrote 560/560 selection rows and 5760/5760 validation rows with 30 validation seeds per cell; all five clean reveal tiers qualified on both variants, tight_positive_cell_count=4, max clean oracle-minus-floor=0.7667, Track F admitted=0. Track F remains blocked until a later PI GPU-days checkpoint.
+
+## 20260613T114459Z m3259-phase4-e1prime-spread-revival-repricing
+
+- status: `failed`
+- kind: `infrastructure`
+- hypothesis: A preregistered Phase-4 E1' oracle-adequate Chrono spread-revival repricing panel can rerun the frozen E1 comparison with a selection-row native-oracle adequacy gate and at least 20 validation units per variant across Sedan/TMeasy, BMW_E90/TMeasy, and UAZBUS/TMeasy before validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof paper Track-F admission or self-ID claim.
+- command: `env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/phase4_e1prime_spread_revival_repricing.py --full --resume`
+- returncode: `1`
+- run dir: `runs/research/m3259-phase4-e1prime-spread-revival-repricing_20260613T110159Z`
+- command log: `runs/research/m3259-phase4-e1prime-spread-revival-repricing_20260613T110159Z/command.log`
+- success artifact: `experiments/feasibility_audit/phase4_e1prime_spread_revival_repricing.json`
+- notes: Failed: the first managed full run resumed the full panel but hit a Chrono worker stdout timeout before writing the full JSON or metrics. The queue was returned to pending only after adding pair-level resume/retry coverage; no E1' verdict was read from this failed run.
+
+## 20260613T140822Z m3259-phase4-e1prime-spread-revival-repricing
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: A preregistered Phase-4 E1' oracle-adequate Chrono spread-revival repricing panel can rerun the frozen E1 comparison with a selection-row native-oracle adequacy gate and at least 20 validation units per variant across Sedan/TMeasy, BMW_E90/TMeasy, and UAZBUS/TMeasy before validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof paper Track-F admission or self-ID claim.
+- command: `env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/phase4_e1prime_spread_revival_repricing.py --full --resume`
+- returncode: `0`
+- run dir: `runs/research/m3259-phase4-e1prime-spread-revival-repricing_20260613T115126Z`
+- command log: `runs/research/m3259-phase4-e1prime-spread-revival-repricing_20260613T115126Z/command.log`
+- success artifact: `experiments/feasibility_audit/phase4_e1prime_spread_revival_repricing.json`
+- notes: Completed: E1' oracle-adequate spread-revival repricing passed all protocol gates and the selection-row oracle-adequacy gate. Full validation used 24 units per variant across Sedan/TMeasy, BMW_E90/TMeasy, and UAZBUS/TMeasy; 0/3 variants qualified, pooled v4_pertuned minus fixed_star was -0.1389 with CI95 [-0.2222, -0.0556], pooled v4_pertuned minus v4_rls was -0.0833 with CI95 [-0.1806, 0.0139], pooled native_oracle minus v4_pertuned was +0.1806 with CI95 [0.0972, 0.2778], and Track F admitted=0. Track F remains blocked until a later PI GPU-days checkpoint; no training driver-performance high-fidelity sufficiency paper repair-success robustness-result feasibility-proof or self-ID claim is admitted.

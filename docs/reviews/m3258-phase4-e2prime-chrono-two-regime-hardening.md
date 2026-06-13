@@ -1,0 +1,91 @@
+# m3258-phase4-e2prime-chrono-two-regime-hardening Research Review
+
+## Summary
+
+- Generated at UTC: 20260613T095717Z
+- Type: infrastructure
+- Gate tier: infrastructure
+- Promotion decision: e2prime_hardening_completed
+- Decision reason: all structured gates passed
+
+## Hypothesis
+
+A preregistered Phase-4 E2' hardened Chrono two-regime-law panel can confirm or refute the M3252 clean VoI(belief) flip with at least 30 validation seeds per cell on Sedan/TMeasy and UAZBUS/TMeasy before validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof paper or self-ID claim.
+
+## Lineage
+
+- parent_checkpoint: docs/current-status.md, docs/roadmap-phase3-codex-execution.md, docs/escalations/2026-06-13-phase4-cp3-track-f-pi-checkpoint.md, docs/m3252-phase4-e2-chrono-two-regime-full.md, docs/m3257-phase4-e3-detector-onset-reconciliation.md
+- parent_dataset: experiments/feasibility_audit/chrono_spread_expressibility_audit.json, experiments/feasibility_audit/phase4_e2_chrono_two_regime_full.json, experiments/feasibility_audit/phase4_e3_detector_onset_reconciliation.json, experiments/feasibility_audit/phase4_e2prime_chrono_two_regime_hardened_quick.json
+- parent_config: experiments/feasibility_audit/phase4_e2prime_chrono_two_regime_hardened_prereg.json, scripts/feasibility_audit/phase4_e2prime_chrono_two_regime_hardened.py, scripts/feasibility_audit/phase4_e2_chrono_two_regime_smoke.py, scripts/feasibility_audit/chrono_worker_client.py, scripts/feasibility_audit/chrono_backend_worker.py, src/autodrift/chrono_vehicle_backend.py
+- parent_objective: Track E' E2': harden the M3252 clean Chrono two-regime-law flip after M3257 froze the detector-onset rule, CP-3 disposition A requires Track-E hardening before any Track-F GPU budget
+- derived_from: M3252 found the clean VoI(belief) flip positive on the default Sedan/TMeasy fixture at small validation power, M3257 reconciled the detector-onset anomaly and marked the E2' dependency ready, The updated roadmap freezes >=30 validation seeds per cell, >=2 vehicle variants, all five clean reveal tiers, the delay25_tight spot, and the >=2 tight reveal cells on >=2 variants flip-confirmation criterion
+- blocked_by: Track F remains blocked on the E2' verdict plus a later GPU-days checkpoint, E1' spread-revival repricing remains separate and can run after E2' if needed
+- supersedes: treating M3252's Sedan/TMeasy two-seed validation as sufficient Track-F admission evidence, starting Track F before the M3257 detector-onset reconciliation and E2' hardening
+- invalidates: claiming Track F admission from M3258 alone, claiming learned-policy performance or self-ID evidence from scripted E2' controller rows, tuning reveal tiers, seed streams, variants, candidates, or confirmation thresholds after observing E2' rows
+
+## Success Criteria
+
+- experiments/feasibility_audit/phase4_e2prime_chrono_two_regime_hardened_prereg.json exists before the full run
+- experiments/feasibility_audit/phase4_e2prime_chrono_two_regime_hardened_quick.json exists and passed before the full run
+- experiments/feasibility_audit/phase4_e2prime_chrono_two_regime_hardened.json exists after the full run
+- runs/feasibility_audit/phase4_e2prime_chrono_two_regime_hardened/episode_rows_full.csv includes all expected selection and validation rows
+- runs/feasibility_audit/phase4_e2prime_chrono_two_regime_hardened/metrics_full.csv reports protocol_gates_passed=1 and track_f_admitted=0
+- docs/m3258-phase4-e2prime-chrono-two-regime-hardening.md reports measured and inferred sections plus the frozen claim boundary
+
+## Failure Criteria
+
+- M3258 runs without preregistration or quick smoke
+- M3258 omits a frozen vehicle variant, reveal tier, degraded spot, validation seed stream, or logical arm
+- M3258 uses validation rows for arm selection
+- M3258 tunes criteria after rows are observed
+- M3258 mutates ActiveSafetyReflexDriver or the actor observation contract
+- M3258 admits Track F, training, driver-performance, full high-fidelity sufficiency, paper, feasibility-proof, repair-success, or self-ID claims
+
+## Evidence Gates
+
+- M3258 must write preregistration before any E2' rollout
+- M3258 must run quick smoke before the managed full harness run
+- M3258 must include Sedan/TMeasy and at least one non-Sedan vehicle variant
+- M3258 must use at least 30 validation seeds per cell in the full panel
+- M3258 must write clean selection rows and clean plus delay25_tight validation rows for oracle, best_seeker, best_fixed, and best_floor logical arms
+- M3258 must report paired CIs per variant and clean reveal tier
+- M3258 must apply the frozen flip-confirmation criterion without making it a protocol-pass gate
+- M3258 must keep Track F blocked pending a later GPU-days checkpoint
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not run full M3258 without preregistration and quick smoke
+- do not use validation rows to choose seeker, fixed, floor, or oracle candidates
+- do not tune reveal tiers, mu points, vehicle variants, controller candidates, seed streams, degraded spots, CIs, or thresholds after observing rows
+- do not edit ActiveSafetyReflexDriver
+- do not mutate obs72/action3 actor observation or action semantics
+- do not invoke PPO, supervised training, guarded RL, or policy checkpoint writing
+- do not claim driver performance, full high-fidelity sufficiency, paper readiness, repair success, robustness result, feasibility proof, Track F admission, or self-ID from M3258
+- do not self-approve the later Track-F GPU-days checkpoint
+
+## Failure Taxonomy
+
+- none
+
+## Scoreboard
+
+- milestone: m3258-phase4-e2prime-chrono-two-regime-hardening
+- type: infrastructure
+- checkpoint: None
+- success_rate: 1
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: e2prime_hardening_completed
+- reason: all structured gates passed
+
+## Next Blocker
+
+None recorded.

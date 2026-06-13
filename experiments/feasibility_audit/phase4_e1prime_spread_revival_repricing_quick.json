@@ -1,0 +1,528 @@
+{
+  "budget": {
+    "elapsed_s": 0.0,
+    "grid_count": 5,
+    "oracle_budget": {
+      "cem_elites": 1,
+      "cem_iterations": 1,
+      "cem_population": 2,
+      "cem_segment_len": 8,
+      "cem_segments": 3,
+      "structured_limit": 3
+    },
+    "oracle_floor_candidate": "floor:v4_pertuned_full_episode",
+    "resume": true,
+    "selection_pairs": 3,
+    "validation_variant_pairs": 9
+  },
+  "claim_boundary": "Phase-4 E1' oracle-adequate Chrono spread-revival repricing only: fixed*, RLS-retuned, same-instance selection-tuned reflex, and native Chrono oracle arms are compared on the E0-frozen Sedan/BMW_E90/UAZBUS fixture envelope after an oracle-adequacy gate verifies that the native oracle anchor no longer underperforms v4_pertuned on selection rows. This is zero-training pricing evidence; it makes no incumbent mutation, validation ranking, promotion, driver-performance, full high-fidelity sufficiency, paper, repair-success, robustness-result, feasibility-proof, or self-ID claim.",
+  "created_at_utc": "20260613T105310Z",
+  "decision": {
+    "e1prime_full_verdict": "not_run_quick_mode",
+    "e1prime_quick_verdict": "protocol_smoke_passed",
+    "next_admitted_step": "Run the registered E1' full repricing before marking E1' complete; Track F remains blocked on the later PI GPU-days checkpoint",
+    "positive_rule": "E1 spread revival positive iff at least two of three Chrono variants have primary >= 0.15 with paired CI95 lower > 0 and classical residual >= 0.08. Otherwise the spread-revival thesis is not supported by this frozen full rule.",
+    "qualifying_variants": [],
+    "track_f_admitted": false
+  },
+  "e0_axis_table_sha256": "e5e7d2724585e4a997e079dd628d1efdf8829dfb00e4e0618a553fb30c2afe18",
+  "fixed_star_grid": [
+    0.6,
+    1.45,
+    1.4
+  ],
+  "metrics_csv": "runs/feasibility_audit/phase4_e1prime_spread_revival_repricing/metrics_quick.csv",
+  "milestone": "m3259-phase4-e1prime-spread-revival-repricing",
+  "mode": "quick",
+  "oracle_adequacy": {
+    "gate_passed": true,
+    "per_variant": {
+      "bmw_e90_tmeasy": {
+        "all_pairs_complete": true,
+        "cem_candidate_attempts": 6,
+        "floor_candidate_rows": 3,
+        "gate_passed": true,
+        "native_minus_pertuned": {
+          "n_pairs": 3,
+          "paired_bootstrap_ci95": [
+            0.0,
+            0.0
+          ],
+          "success_counts": {
+            "native_oracle": 3,
+            "v4_pertuned": 3
+          },
+          "value": 0.0
+        },
+        "pair_complete": {
+          "S1-inst02-pair1": true,
+          "S2-inst09-pair1": true,
+          "S3-inst07-pair1": true
+        },
+        "per_pair_success_nonnegative": true,
+        "structured_candidate_attempts": 9
+      },
+      "sedan_tmeasy": {
+        "all_pairs_complete": true,
+        "cem_candidate_attempts": 6,
+        "floor_candidate_rows": 3,
+        "gate_passed": true,
+        "native_minus_pertuned": {
+          "n_pairs": 3,
+          "paired_bootstrap_ci95": [
+            0.0,
+            0.0
+          ],
+          "success_counts": {
+            "native_oracle": 3,
+            "v4_pertuned": 3
+          },
+          "value": 0.0
+        },
+        "pair_complete": {
+          "S1-inst02-pair1": true,
+          "S2-inst09-pair1": true,
+          "S3-inst07-pair1": true
+        },
+        "per_pair_success_nonnegative": true,
+        "structured_candidate_attempts": 9
+      },
+      "uazbus_tmeasy": {
+        "all_pairs_complete": true,
+        "cem_candidate_attempts": 6,
+        "floor_candidate_rows": 3,
+        "gate_passed": true,
+        "native_minus_pertuned": {
+          "n_pairs": 3,
+          "paired_bootstrap_ci95": [
+            0.0,
+            0.0
+          ],
+          "success_counts": {
+            "native_oracle": 3,
+            "v4_pertuned": 3
+          },
+          "value": 0.0
+        },
+        "pair_complete": {
+          "S1-inst02-pair1": true,
+          "S2-inst09-pair1": true,
+          "S3-inst07-pair1": true
+        },
+        "per_pair_success_nonnegative": true,
+        "structured_candidate_attempts": 9
+      }
+    }
+  },
+  "per_variant": {
+    "bmw_e90_tmeasy": {
+      "all_pairs_complete": true,
+      "arm_success_counts": {
+        "fixed_star": 3,
+        "native_oracle": 3,
+        "v4_pertuned": 3,
+        "v4_rls": 3
+      },
+      "cem_candidate_attempts": 6,
+      "pair_complete": {
+        "S1-inst02-pair1": true,
+        "S2-inst09-pair1": true,
+        "S3-inst07-pair1": true
+      },
+      "qualifies_spread_revival": false,
+      "readouts": {
+        "classical_residual_pertuned_minus_rls": {
+          "n_pairs": 3,
+          "paired_bootstrap_ci95": [
+            0.0,
+            0.0
+          ],
+          "success_counts": {
+            "v4_pertuned": 3,
+            "v4_rls": 3
+          },
+          "value": 0.0
+        },
+        "oracle_anchor_native_minus_pertuned": {
+          "n_pairs": 3,
+          "paired_bootstrap_ci95": [
+            0.0,
+            0.0
+          ],
+          "success_counts": {
+            "native_oracle": 3,
+            "v4_pertuned": 3
+          },
+          "value": 0.0
+        },
+        "primary_prize_pertuned_minus_fixed_star": {
+          "n_pairs": 3,
+          "paired_bootstrap_ci95": [
+            0.0,
+            0.0
+          ],
+          "success_counts": {
+            "fixed_star": 3,
+            "v4_pertuned": 3
+          },
+          "value": 0.0
+        }
+      },
+      "reset_obs_finite_all": true,
+      "structured_candidate_attempts": 9,
+      "variant_match_all": true
+    },
+    "sedan_tmeasy": {
+      "all_pairs_complete": true,
+      "arm_success_counts": {
+        "fixed_star": 3,
+        "native_oracle": 3,
+        "v4_pertuned": 3,
+        "v4_rls": 3
+      },
+      "cem_candidate_attempts": 6,
+      "pair_complete": {
+        "S1-inst02-pair1": true,
+        "S2-inst09-pair1": true,
+        "S3-inst07-pair1": true
+      },
+      "qualifies_spread_revival": false,
+      "readouts": {
+        "classical_residual_pertuned_minus_rls": {
+          "n_pairs": 3,
+          "paired_bootstrap_ci95": [
+            0.0,
+            0.0
+          ],
+          "success_counts": {
+            "v4_pertuned": 3,
+            "v4_rls": 3
+          },
+          "value": 0.0
+        },
+        "oracle_anchor_native_minus_pertuned": {
+          "n_pairs": 3,
+          "paired_bootstrap_ci95": [
+            0.0,
+            0.0
+          ],
+          "success_counts": {
+            "native_oracle": 3,
+            "v4_pertuned": 3
+          },
+          "value": 0.0
+        },
+        "primary_prize_pertuned_minus_fixed_star": {
+          "n_pairs": 3,
+          "paired_bootstrap_ci95": [
+            0.0,
+            0.0
+          ],
+          "success_counts": {
+            "fixed_star": 3,
+            "v4_pertuned": 3
+          },
+          "value": 0.0
+        }
+      },
+      "reset_obs_finite_all": true,
+      "structured_candidate_attempts": 9,
+      "variant_match_all": true
+    },
+    "uazbus_tmeasy": {
+      "all_pairs_complete": true,
+      "arm_success_counts": {
+        "fixed_star": 1,
+        "native_oracle": 1,
+        "v4_pertuned": 1,
+        "v4_rls": 1
+      },
+      "cem_candidate_attempts": 6,
+      "pair_complete": {
+        "S1-inst02-pair1": true,
+        "S2-inst09-pair1": true,
+        "S3-inst07-pair1": true
+      },
+      "qualifies_spread_revival": false,
+      "readouts": {
+        "classical_residual_pertuned_minus_rls": {
+          "n_pairs": 3,
+          "paired_bootstrap_ci95": [
+            0.0,
+            0.0
+          ],
+          "success_counts": {
+            "v4_pertuned": 1,
+            "v4_rls": 1
+          },
+          "value": 0.0
+        },
+        "oracle_anchor_native_minus_pertuned": {
+          "n_pairs": 3,
+          "paired_bootstrap_ci95": [
+            0.0,
+            0.0
+          ],
+          "success_counts": {
+            "native_oracle": 1,
+            "v4_pertuned": 1
+          },
+          "value": 0.0
+        },
+        "primary_prize_pertuned_minus_fixed_star": {
+          "n_pairs": 3,
+          "paired_bootstrap_ci95": [
+            0.0,
+            0.0
+          ],
+          "success_counts": {
+            "fixed_star": 1,
+            "v4_pertuned": 1
+          },
+          "value": 0.0
+        }
+      },
+      "reset_obs_finite_all": true,
+      "structured_candidate_attempts": 9,
+      "variant_match_all": true
+    }
+  },
+  "pooled": {
+    "classical_residual_pertuned_minus_rls": {
+      "n_pairs": 9,
+      "paired_bootstrap_ci95": [
+        0.0,
+        0.0
+      ],
+      "success_counts": {
+        "v4_pertuned": 7,
+        "v4_rls": 7
+      },
+      "value": 0.0
+    },
+    "oracle_anchor_native_minus_pertuned": {
+      "n_pairs": 9,
+      "paired_bootstrap_ci95": [
+        0.0,
+        0.0
+      ],
+      "success_counts": {
+        "native_oracle": 7,
+        "v4_pertuned": 7
+      },
+      "value": 0.0
+    },
+    "primary_prize_pertuned_minus_fixed_star": {
+      "n_pairs": 9,
+      "paired_bootstrap_ci95": [
+        0.0,
+        0.0
+      ],
+      "success_counts": {
+        "fixed_star": 7,
+        "v4_pertuned": 7
+      },
+      "value": 0.0
+    }
+  },
+  "preregistration": "experiments/feasibility_audit/phase4_e1prime_spread_revival_repricing_prereg.json",
+  "preregistration_sha256": "03f24cbbd6387a6867d5dbecda1c555ccdd76fadcc8a087d3ae0a9b82353f450",
+  "protocol_gates": {
+    "all_passed": true,
+    "e0_admitted_e1": true,
+    "full_json_not_quick": true,
+    "min_validation_units_per_variant": true,
+    "oracle_adequacy_gate_passed": true,
+    "reset_obs_finite_all": true,
+    "selection_grid_complete": true,
+    "selection_validation_disjoint": true,
+    "validation_pairs_complete": true,
+    "variant_match_all": true
+  },
+  "quick_mode_is_verdict": false,
+  "row_pairs": [
+    {
+      "instance": 2,
+      "level": "S1",
+      "pair_id": "S1-inst02-pair1",
+      "selection_row": {
+        "eval_seed": 7310143,
+        "instance": 2,
+        "level": "S1",
+        "oracle_by": "structured:brake_steer_-0.4",
+        "pertuned_grid": [
+          1.0,
+          1.45,
+          1.0
+        ],
+        "row_id": "S1-inst02-seed7310143",
+        "row_role": "selection",
+        "selection_rank_within_level": 1,
+        "selection_score_sha256": "356d85533e16c335fb829db0b84e6c5e28b20f3ebe89c7c7e51f8d32a58fae56",
+        "source_oracle_solved": true,
+        "source_pertuned_outcome": "collision"
+      },
+      "validation_row": {
+        "eval_seed": 7310091,
+        "instance": 2,
+        "level": "S1",
+        "oracle_by": "structured:brake_steer_-0.4",
+        "pertuned_grid": [
+          1.0,
+          1.45,
+          1.0
+        ],
+        "row_id": "S1-inst02-seed7310091",
+        "row_role": "validation",
+        "selection_rank_within_level": 1,
+        "selection_score_sha256": "7176dd7e0847ff6e26e2db17a34cfd3d6c3a77c0a5b4bdc1d6359849a9280f4b",
+        "source_oracle_solved": true,
+        "source_pertuned_outcome": "collision"
+      }
+    },
+    {
+      "instance": 9,
+      "level": "S2",
+      "pair_id": "S2-inst09-pair1",
+      "selection_row": {
+        "eval_seed": 7545078,
+        "instance": 9,
+        "level": "S2",
+        "oracle_by": "structured:full_brake",
+        "pertuned_grid": [
+          1.8,
+          1.45,
+          1.0
+        ],
+        "row_id": "S2-inst09-seed7545078",
+        "row_role": "selection",
+        "selection_rank_within_level": 1,
+        "selection_score_sha256": "7a0376612d6d79919d52489b3e04af5006a433dde659e620a60bbbdab9a9de6d",
+        "source_oracle_solved": true,
+        "source_pertuned_outcome": "collision"
+      },
+      "validation_row": {
+        "eval_seed": 7545000,
+        "instance": 9,
+        "level": "S2",
+        "oracle_by": "structured:full_brake",
+        "pertuned_grid": [
+          1.8,
+          1.45,
+          1.0
+        ],
+        "row_id": "S2-inst09-seed7545000",
+        "row_role": "validation",
+        "selection_rank_within_level": 1,
+        "selection_score_sha256": "b4bf71a70272daced1962b260cdf22e609c44d8fd8bafc5734679fb2fba84587",
+        "source_oracle_solved": true,
+        "source_pertuned_outcome": "collision"
+      }
+    },
+    {
+      "instance": 7,
+      "level": "S3",
+      "pair_id": "S3-inst07-pair1",
+      "selection_row": {
+        "eval_seed": 7735026,
+        "instance": 7,
+        "level": "S3",
+        "oracle_by": "structured:brake_steer_-0.4",
+        "pertuned_grid": [
+          1.0,
+          1.45,
+          1.0
+        ],
+        "row_id": "S3-inst07-seed7735026",
+        "row_role": "selection",
+        "selection_rank_within_level": 1,
+        "selection_score_sha256": "05b6666bcf2ad57067259105296ef278a0cc23505c5fc465989598b9d579d993",
+        "source_oracle_solved": true,
+        "source_pertuned_outcome": "collision"
+      },
+      "validation_row": {
+        "eval_seed": 7735195,
+        "instance": 7,
+        "level": "S3",
+        "oracle_by": "structured:brake_steer_-0.4",
+        "pertuned_grid": [
+          1.0,
+          1.45,
+          1.0
+        ],
+        "row_id": "S3-inst07-seed7735195",
+        "row_role": "validation",
+        "selection_rank_within_level": 1,
+        "selection_score_sha256": "313f9225f08b166cb7aa3d55be1fc2590d8fd3f354fee2dafb1c4d65823c135c",
+        "source_oracle_solved": true,
+        "source_pertuned_outcome": "collision"
+      }
+    }
+  ],
+  "rows_csv": "runs/feasibility_audit/phase4_e1prime_spread_revival_repricing/episode_rows_quick.csv",
+  "schema_version": 1,
+  "selection_row_count": 45,
+  "selection_summary": {
+    "global_scores": {
+      "(0.6, 1.0, 1.0)": 11096.598402,
+      "(0.6, 1.45, 1.4)": 27085.179233,
+      "(1.0, 1.0, 1.0)": -849.959599,
+      "(1.8, 1.0, 1.0)": -528.214796,
+      "(1.8, 1.45, 1.4)": 3474.357765
+    },
+    "pertuned_by_variant_pair": {
+      "bmw_e90_tmeasy/S1-inst02-pair1": [
+        0.6,
+        1.45,
+        1.4
+      ],
+      "bmw_e90_tmeasy/S2-inst09-pair1": [
+        0.6,
+        1.45,
+        1.4
+      ],
+      "bmw_e90_tmeasy/S3-inst07-pair1": [
+        0.6,
+        1.45,
+        1.4
+      ],
+      "sedan_tmeasy/S1-inst02-pair1": [
+        0.6,
+        1.45,
+        1.4
+      ],
+      "sedan_tmeasy/S2-inst09-pair1": [
+        0.6,
+        1.45,
+        1.4
+      ],
+      "sedan_tmeasy/S3-inst07-pair1": [
+        1.8,
+        1.45,
+        1.4
+      ],
+      "uazbus_tmeasy/S1-inst02-pair1": [
+        0.6,
+        1.45,
+        1.4
+      ],
+      "uazbus_tmeasy/S2-inst09-pair1": [
+        0.6,
+        1.45,
+        1.4
+      ],
+      "uazbus_tmeasy/S3-inst07-pair1": [
+        0.6,
+        1.45,
+        1.4
+      ]
+    }
+  },
+  "validation_row_count": 90,
+  "validation_units_per_variant": 3,
+  "variants": [
+    "sedan_tmeasy",
+    "bmw_e90_tmeasy",
+    "uazbus_tmeasy"
+  ]
+}

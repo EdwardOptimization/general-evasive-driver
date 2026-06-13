@@ -46,8 +46,9 @@
   PI recorded CP-3 disposition A: harden Track E before any GPU. M3257
   completed E3-fix detector-onset reconciliation: 24/24 case rows and 3426
   trace rows, original early-fire rate 0.5, reconciled early-fire rate 0.0,
-  detector miss rate 0.1667, and E2' dependency ready. Track F remains
-  blocked on E2' flip-confirmation plus a later GPU-days checkpoint.
+  detector miss rate 0.1667, and E2' dependency ready. M3258 then confirmed
+  the E2' clean flip on Sedan/TMeasy plus UAZBUS/TMeasy with 30 validation
+  seeds per cell. Track F remains blocked on the later PI GPU-days checkpoint.
 
 ## Track A — pricing/science completion (CPU only, zero training)
 
@@ -510,7 +511,7 @@ detector miss rate 0.1667, p90 latency 1.346 s, early-fire rate 0.5, v4
 recovery 1.0, baseline recovery 1.0, v4-baseline delta 0.0. Track F remains
 blocked until PI CP-3 confirms targets and budget.
 
-### Track E' — Track-E hardening (CP-3 disposition A; CPU, zero training; OPEN)
+### Track E' — Track-E hardening (CP-3 disposition A; CPU, zero training; E2' DONE; E1' DONE)
 
 **CP-3 disposition (PI, 2026-06-13): option A — harden Track E before any
 GPU.** The E2 headline flip (clean VoI(belief) > 0 in Chrono, the opposite
@@ -531,28 +532,35 @@ step as actor-visible onset when it occurs before the M3255 tire-slip truth
 onset and that tire truth later occurs within the preregistered 150-step
 window; otherwise keep the M3255 tire-slip truth onset.
 
-E2'. Two-regime law hardened [OPEN, NEXT; depends M3257]: re-run E2 with
-**>= 30 validation seeds per cell**, on **>= 2 vehicle variants** (Sedan +
-one non-Sedan, e.g. UAZBUS for the largest mass/geometry contrast), all
-five clean reveal tiers + the degraded spot, paired CIs, new SEED_BASE,
-prereg first. **Flip-confirmation criterion (frozen, gates Track F):** clean
-VoI(belief) CI95 lower bound > 0 in >= 2 tight reveal cells on >= 2 vehicle
-variants. If confirmed, the toy-sim two-regime headline is formally scoped
-toy-sim-only and Track F is justified; if not, the flip was a small-N/port
-artifact and the toy-sim conclusion survives — either verdict is paper-grade.
+E2'. Two-regime law hardened [DONE: M3258; depends M3257]: M3258 re-ran E2
+under the frozen hardened protocol with >= 30 validation seeds per cell,
+Sedan/TMeasy plus UAZBUS/TMeasy, all five clean reveal tiers plus the
+delay25_tight degraded spot, paired CIs, new seed streams, preregistration,
+and managed full execution. Result: 560/560 selection rows and 5760/5760
+validation rows were written, all protocol gates passed, all five clean reveal
+tiers qualified on both variants, and the frozen flip-confirmation criterion
+passed with 4 positive tight clean cells across 2 variants. Max clean
+oracle-minus-floor was +0.7667. This confirms the Chrono clean flip for the
+scoped scripted-controller panel; it does not admit Track F by itself. Track F
+now requires the later PI GPU-days checkpoint.
 
-E1'. Spread-revival repricing [OPEN; depends E0; parallel to E2']: re-run
-E1 with a **native Chrono oracle budget large enough that the oracle does
-not underperform per-tuned** (the M3250 native arm lost to per-tuned, an
-oracle-budget artifact that invalidates the spread comparison) and
-**>= 20 validation units per variant**; prereg the oracle-adequacy gate
-(native >= per-tuned on selection rows) BEFORE reading the spread verdict.
-Only then is "spread revival not supported" a real result rather than an
-underpowered oracle.
+E1'. Spread-revival repricing [DONE: M3259; depends E0; parallel to E2']:
+M3259 re-ran E1 with the preregistered selection-row oracle-adequacy gate and
+24 validation units per variant on Sedan/TMeasy, BMW_E90/TMeasy, and
+UAZBUS/TMeasy. Result: all protocol gates passed, the oracle-adequacy gate
+passed on all three variants, and spread revival was not supported by the
+frozen rule: 0/3 variants qualified. Pooled `v4_pertuned - fixed_star` was
+-0.1389 with CI95 [-0.2222, -0.0556], pooled `v4_pertuned - v4_rls` was
+-0.0833 with CI95 [-0.1806, 0.0139], and pooled `native_oracle -
+v4_pertuned` was +0.1806 with CI95 [0.0972, 0.2778]. This resolves the M3250
+underpowered-native-anchor critique as a real negative spread-revival result;
+it does not admit Track F, training, driver-performance, high-fidelity
+sufficiency, paper, feasibility-proof, repair-success, robustness-result, or
+self-ID claims.
 
-### Track F — robotics-parity RL protocol (stage 2; opens after Track E' confirms the flip + CP-3 budget)
+### Track F — robotics-parity RL protocol (stage 2; opens only after the later PI GPU-days checkpoint)
 
-F1. Training infrastructure [BLOCKED on E2' flip-confirmation + CP-3 budget]: vectorized parallel
+F1. Training infrastructure [BLOCKED on later PI GPU-days budget checkpoint]: vectorized parallel
 Chrono workers for training; throughput benchmark; GPU feasibility
 re-check (the earlier CUDA-slower finding was tiny-GRU-on-toy-env; bigger
 nets + batched Chrono rollouts is a different regime — measure, do not
@@ -572,14 +580,12 @@ frozen cells (fixed* / RLS-retuned / per-instance-tuned / native oracle);
 PASS thresholds frozen before any full run.
 
 **CP-3 (PI checkpoint) [DISPOSITION A RECORDED 2026-06-13]**: PI chose
-option A — harden Track E first (Track E' above). Track F GPU budget is NOT
-yet approved; it is reconsidered after E2' returns. If E2' confirms the
-flip, the next PI decision is the Track F GPU-days budget (a second
-checkpoint); if E2' refutes it, Track F is dropped and the program goes to
-papers with the toy-sim conclusion intact. The escalation
+option A — harden Track E first (Track E' above). E2' has now confirmed the
+flip under M3258, but Track F GPU budget is NOT yet approved. The next PI
+decision is the Track F GPU-days budget (a second checkpoint). The escalation
 `docs/escalations/2026-06-13-phase4-cp3-track-f-pi-checkpoint.md` resolution
-records this disposition; the new dependency-satisfied OPEN units are
-E2' and E1'. E3-fix was completed under M3257.
+records this disposition. E3-fix was completed under M3257, E2' hardening
+was completed under M3258, and E1' repricing was completed under M3259.
 
 ## Out of scope for Codex sessions
 
@@ -622,18 +628,19 @@ or negative RL results. Phase-4 reopens the question only through new Chrono
 pricing evidence; E0 is complete, E1 is completed negative, and E2 is
 completed positive on the Sedan/TMeasy fixture. E3 protocol and telemetry
 smokes passed, full E3 completed under M3255, M3256 recorded CP-3, and PI
-resolved CP-3 as disposition A. M3257 completed E3-fix, so the next OPEN unit
-is E2' hardening; Track F remains blocked before E2' flip confirmation and a
-later GPU-days checkpoint.
+resolved CP-3 as disposition A. M3257 completed E3-fix, M3258 completed
+E2' hardening, and M3259 completed E1' spread-revival repricing negative.
+No dependency-satisfied Track-F work is admitted before the later PI
+GPU-days checkpoint.
 - E0: DONE (M3248; frozen Chrono spread-axis table and E1 envelope)
 - E1: DONE (M3249 quick protocol smoke passed; M3250 full pricing negative with 0/3 qualifying variants)
 - E2: DONE (M3251 quick protocol smoke passed; M3252 full Sedan/TMeasy verdict positive with 2 clean reveals qualifying)
 - E3: DONE (M3253 passed protocol smoke; M3254 confirmed tire-truth telemetry; M3255 full measurement A/C completed with 24/24 latency rows, 72/72 recovery rows, all protocol gates passed, CP-3 evidence ready, Track F not admitted)
 - CP-3: DISPOSITION A (PI 2026-06-13) — harden Track E before any GPU
 - E3-fix: DONE (M3257; detector-onset reconciliation completed, corrected early-fire rate 0.0, E2' dependency ready)
-- E2': OPEN / NEXT (depends M3257; >=30 seeds/cell, >=2 vehicles; frozen flip-confirmation gate for Track F)
-- E1': OPEN (depends E0; oracle-adequate spread repricing)
-- F1-F3: BLOCKED on E2' flip-confirmation + CP-3 GPU-days budget (a second checkpoint)
+- E2': DONE (M3258; flip confirmed with >=30 seeds/cell on Sedan/TMeasy + UAZBUS/TMeasy; Track F not admitted)
+- E1': DONE (M3259; oracle adequacy gate passed, 24 validation units per variant, 0/3 variants qualified; spread revival not supported; Track F not admitted)
+- F1-F3: BLOCKED on the later PI GPU-days budget checkpoint
 - WP6.2 guardrails: **MERGED** (commit 05607bcd — validator V7 live in the
   pre-commit hook, escalation protocol in docs/escalations/, managed-run
   helper scripts/run_managed.sh). Codex execution may begin.

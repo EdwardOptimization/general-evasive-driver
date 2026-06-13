@@ -1,0 +1,1786 @@
+{
+  "budget": {
+    "elapsed_s": 8214.9,
+    "grid_count": 5,
+    "oracle_budget": {
+      "cem_elites": 2,
+      "cem_iterations": 3,
+      "cem_population": 8,
+      "cem_segment_len": 8,
+      "cem_segments": 6,
+      "structured_limit": 15
+    },
+    "oracle_floor_candidate": "floor:v4_pertuned_full_episode",
+    "resume": true,
+    "selection_pairs": 24,
+    "validation_variant_pairs": 72
+  },
+  "claim_boundary": "Phase-4 E1' oracle-adequate Chrono spread-revival repricing only: fixed*, RLS-retuned, same-instance selection-tuned reflex, and native Chrono oracle arms are compared on the E0-frozen Sedan/BMW_E90/UAZBUS fixture envelope after an oracle-adequacy gate verifies that the native oracle anchor no longer underperforms v4_pertuned on selection rows. This is zero-training pricing evidence; it makes no incumbent mutation, validation ranking, promotion, driver-performance, full high-fidelity sufficiency, paper, repair-success, robustness-result, feasibility-proof, or self-ID claim.",
+  "created_at_utc": "20260613T140822Z",
+  "decision": {
+    "e1prime_full_verdict": "e1prime_spread_revival_not_supported",
+    "next_admitted_step": "E1' is complete; Track F remains blocked on the later PI GPU-days checkpoint",
+    "positive_rule": "E1 spread revival positive iff at least two of three Chrono variants have primary >= 0.15 with paired CI95 lower > 0 and classical residual >= 0.08. Otherwise the spread-revival thesis is not supported by this frozen full rule.",
+    "qualifying_variants": [],
+    "track_f_admitted": false
+  },
+  "e0_axis_table_sha256": "e5e7d2724585e4a997e079dd628d1efdf8829dfb00e4e0618a553fb30c2afe18",
+  "fixed_star_grid": [
+    0.6,
+    1.45,
+    1.4
+  ],
+  "metrics_csv": "runs/feasibility_audit/phase4_e1prime_spread_revival_repricing/metrics_full.csv",
+  "milestone": "m3259-phase4-e1prime-spread-revival-repricing",
+  "mode": "full",
+  "oracle_adequacy": {
+    "gate_passed": true,
+    "per_variant": {
+      "bmw_e90_tmeasy": {
+        "all_pairs_complete": true,
+        "cem_candidate_attempts": 0,
+        "floor_candidate_rows": 24,
+        "gate_passed": true,
+        "native_minus_pertuned": {
+          "n_pairs": 24,
+          "paired_bootstrap_ci95": [
+            0.0,
+            0.0
+          ],
+          "success_counts": {
+            "native_oracle": 24,
+            "v4_pertuned": 24
+          },
+          "value": 0.0
+        },
+        "pair_complete": {
+          "S1-inst01-pair4": true,
+          "S1-inst02-pair1": true,
+          "S1-inst03-pair3": true,
+          "S1-inst04-pair6": true,
+          "S1-inst06-pair8": true,
+          "S1-inst07-pair5": true,
+          "S1-inst09-pair7": true,
+          "S1-inst10-pair2": true,
+          "S2-inst00-pair8": true,
+          "S2-inst01-pair2": true,
+          "S2-inst03-pair4": true,
+          "S2-inst04-pair9": true,
+          "S2-inst05-pair5": true,
+          "S2-inst06-pair6": true,
+          "S2-inst07-pair3": true,
+          "S2-inst08-pair7": true,
+          "S2-inst09-pair1": true,
+          "S2-inst10-pair10": true,
+          "S3-inst01-pair5": true,
+          "S3-inst02-pair6": true,
+          "S3-inst05-pair4": true,
+          "S3-inst07-pair1": true,
+          "S3-inst08-pair3": true,
+          "S3-inst10-pair2": true
+        },
+        "per_pair_success_nonnegative": true,
+        "structured_candidate_attempts": 0
+      },
+      "sedan_tmeasy": {
+        "all_pairs_complete": true,
+        "cem_candidate_attempts": 0,
+        "floor_candidate_rows": 24,
+        "gate_passed": true,
+        "native_minus_pertuned": {
+          "n_pairs": 24,
+          "paired_bootstrap_ci95": [
+            0.0,
+            0.125
+          ],
+          "success_counts": {
+            "native_oracle": 24,
+            "v4_pertuned": 23
+          },
+          "value": 0.0417
+        },
+        "pair_complete": {
+          "S1-inst01-pair4": true,
+          "S1-inst02-pair1": true,
+          "S1-inst03-pair3": true,
+          "S1-inst04-pair6": true,
+          "S1-inst06-pair8": true,
+          "S1-inst07-pair5": true,
+          "S1-inst09-pair7": true,
+          "S1-inst10-pair2": true,
+          "S2-inst00-pair8": true,
+          "S2-inst01-pair2": true,
+          "S2-inst03-pair4": true,
+          "S2-inst04-pair9": true,
+          "S2-inst05-pair5": true,
+          "S2-inst06-pair6": true,
+          "S2-inst07-pair3": true,
+          "S2-inst08-pair7": true,
+          "S2-inst09-pair1": true,
+          "S2-inst10-pair10": true,
+          "S3-inst01-pair5": true,
+          "S3-inst02-pair6": true,
+          "S3-inst05-pair4": true,
+          "S3-inst07-pair1": true,
+          "S3-inst08-pair3": true,
+          "S3-inst10-pair2": true
+        },
+        "per_pair_success_nonnegative": true,
+        "structured_candidate_attempts": 8
+      },
+      "uazbus_tmeasy": {
+        "all_pairs_complete": true,
+        "cem_candidate_attempts": 0,
+        "floor_candidate_rows": 24,
+        "gate_passed": true,
+        "native_minus_pertuned": {
+          "n_pairs": 24,
+          "paired_bootstrap_ci95": [
+            0.0,
+            0.25
+          ],
+          "success_counts": {
+            "native_oracle": 24,
+            "v4_pertuned": 21
+          },
+          "value": 0.125
+        },
+        "pair_complete": {
+          "S1-inst01-pair4": true,
+          "S1-inst02-pair1": true,
+          "S1-inst03-pair3": true,
+          "S1-inst04-pair6": true,
+          "S1-inst06-pair8": true,
+          "S1-inst07-pair5": true,
+          "S1-inst09-pair7": true,
+          "S1-inst10-pair2": true,
+          "S2-inst00-pair8": true,
+          "S2-inst01-pair2": true,
+          "S2-inst03-pair4": true,
+          "S2-inst04-pair9": true,
+          "S2-inst05-pair5": true,
+          "S2-inst06-pair6": true,
+          "S2-inst07-pair3": true,
+          "S2-inst08-pair7": true,
+          "S2-inst09-pair1": true,
+          "S2-inst10-pair10": true,
+          "S3-inst01-pair5": true,
+          "S3-inst02-pair6": true,
+          "S3-inst05-pair4": true,
+          "S3-inst07-pair1": true,
+          "S3-inst08-pair3": true,
+          "S3-inst10-pair2": true
+        },
+        "per_pair_success_nonnegative": true,
+        "structured_candidate_attempts": 24
+      }
+    }
+  },
+  "per_variant": {
+    "bmw_e90_tmeasy": {
+      "all_pairs_complete": true,
+      "arm_success_counts": {
+        "fixed_star": 24,
+        "native_oracle": 21,
+        "v4_pertuned": 21,
+        "v4_rls": 21
+      },
+      "cem_candidate_attempts": 72,
+      "pair_complete": {
+        "S1-inst01-pair4": true,
+        "S1-inst02-pair1": true,
+        "S1-inst03-pair3": true,
+        "S1-inst04-pair6": true,
+        "S1-inst06-pair8": true,
+        "S1-inst07-pair5": true,
+        "S1-inst09-pair7": true,
+        "S1-inst10-pair2": true,
+        "S2-inst00-pair8": true,
+        "S2-inst01-pair2": true,
+        "S2-inst03-pair4": true,
+        "S2-inst04-pair9": true,
+        "S2-inst05-pair5": true,
+        "S2-inst06-pair6": true,
+        "S2-inst07-pair3": true,
+        "S2-inst08-pair7": true,
+        "S2-inst09-pair1": true,
+        "S2-inst10-pair10": true,
+        "S3-inst01-pair5": true,
+        "S3-inst02-pair6": true,
+        "S3-inst05-pair4": true,
+        "S3-inst07-pair1": true,
+        "S3-inst08-pair3": true,
+        "S3-inst10-pair2": true
+      },
+      "qualifies_spread_revival": false,
+      "readouts": {
+        "classical_residual_pertuned_minus_rls": {
+          "n_pairs": 24,
+          "paired_bootstrap_ci95": [
+            -0.1667,
+            0.1667
+          ],
+          "success_counts": {
+            "v4_pertuned": 21,
+            "v4_rls": 21
+          },
+          "value": 0.0
+        },
+        "oracle_anchor_native_minus_pertuned": {
+          "n_pairs": 24,
+          "paired_bootstrap_ci95": [
+            0.0,
+            0.0
+          ],
+          "success_counts": {
+            "native_oracle": 21,
+            "v4_pertuned": 21
+          },
+          "value": 0.0
+        },
+        "primary_prize_pertuned_minus_fixed_star": {
+          "n_pairs": 24,
+          "paired_bootstrap_ci95": [
+            -0.2917,
+            0.0
+          ],
+          "success_counts": {
+            "fixed_star": 24,
+            "v4_pertuned": 21
+          },
+          "value": -0.125
+        }
+      },
+      "reset_obs_finite_all": true,
+      "structured_candidate_attempts": 45,
+      "variant_match_all": true
+    },
+    "sedan_tmeasy": {
+      "all_pairs_complete": true,
+      "arm_success_counts": {
+        "fixed_star": 22,
+        "native_oracle": 24,
+        "v4_pertuned": 21,
+        "v4_rls": 20
+      },
+      "cem_candidate_attempts": 0,
+      "pair_complete": {
+        "S1-inst01-pair4": true,
+        "S1-inst02-pair1": true,
+        "S1-inst03-pair3": true,
+        "S1-inst04-pair6": true,
+        "S1-inst06-pair8": true,
+        "S1-inst07-pair5": true,
+        "S1-inst09-pair7": true,
+        "S1-inst10-pair2": true,
+        "S2-inst00-pair8": true,
+        "S2-inst01-pair2": true,
+        "S2-inst03-pair4": true,
+        "S2-inst04-pair9": true,
+        "S2-inst05-pair5": true,
+        "S2-inst06-pair6": true,
+        "S2-inst07-pair3": true,
+        "S2-inst08-pair7": true,
+        "S2-inst09-pair1": true,
+        "S2-inst10-pair10": true,
+        "S3-inst01-pair5": true,
+        "S3-inst02-pair6": true,
+        "S3-inst05-pair4": true,
+        "S3-inst07-pair1": true,
+        "S3-inst08-pair3": true,
+        "S3-inst10-pair2": true
+      },
+      "qualifies_spread_revival": false,
+      "readouts": {
+        "classical_residual_pertuned_minus_rls": {
+          "n_pairs": 24,
+          "paired_bootstrap_ci95": [
+            -0.0833,
+            0.1667
+          ],
+          "success_counts": {
+            "v4_pertuned": 21,
+            "v4_rls": 20
+          },
+          "value": 0.0417
+        },
+        "oracle_anchor_native_minus_pertuned": {
+          "n_pairs": 24,
+          "paired_bootstrap_ci95": [
+            0.0,
+            0.25
+          ],
+          "success_counts": {
+            "native_oracle": 24,
+            "v4_pertuned": 21
+          },
+          "value": 0.125
+        },
+        "primary_prize_pertuned_minus_fixed_star": {
+          "n_pairs": 24,
+          "paired_bootstrap_ci95": [
+            -0.125,
+            0.0
+          ],
+          "success_counts": {
+            "fixed_star": 22,
+            "v4_pertuned": 21
+          },
+          "value": -0.0417
+        }
+      },
+      "reset_obs_finite_all": true,
+      "structured_candidate_attempts": 21,
+      "variant_match_all": true
+    },
+    "uazbus_tmeasy": {
+      "all_pairs_complete": true,
+      "arm_success_counts": {
+        "fixed_star": 19,
+        "native_oracle": 23,
+        "v4_pertuned": 13,
+        "v4_rls": 20
+      },
+      "cem_candidate_attempts": 24,
+      "pair_complete": {
+        "S1-inst01-pair4": true,
+        "S1-inst02-pair1": true,
+        "S1-inst03-pair3": true,
+        "S1-inst04-pair6": true,
+        "S1-inst06-pair8": true,
+        "S1-inst07-pair5": true,
+        "S1-inst09-pair7": true,
+        "S1-inst10-pair2": true,
+        "S2-inst00-pair8": true,
+        "S2-inst01-pair2": true,
+        "S2-inst03-pair4": true,
+        "S2-inst04-pair9": true,
+        "S2-inst05-pair5": true,
+        "S2-inst06-pair6": true,
+        "S2-inst07-pair3": true,
+        "S2-inst08-pair7": true,
+        "S2-inst09-pair1": true,
+        "S2-inst10-pair10": true,
+        "S3-inst01-pair5": true,
+        "S3-inst02-pair6": true,
+        "S3-inst05-pair4": true,
+        "S3-inst07-pair1": true,
+        "S3-inst08-pair3": true,
+        "S3-inst10-pair2": true
+      },
+      "qualifies_spread_revival": false,
+      "readouts": {
+        "classical_residual_pertuned_minus_rls": {
+          "n_pairs": 24,
+          "paired_bootstrap_ci95": [
+            -0.5,
+            -0.125
+          ],
+          "success_counts": {
+            "v4_pertuned": 13,
+            "v4_rls": 20
+          },
+          "value": -0.2917
+        },
+        "oracle_anchor_native_minus_pertuned": {
+          "n_pairs": 24,
+          "paired_bootstrap_ci95": [
+            0.2083,
+            0.625
+          ],
+          "success_counts": {
+            "native_oracle": 23,
+            "v4_pertuned": 13
+          },
+          "value": 0.4167
+        },
+        "primary_prize_pertuned_minus_fixed_star": {
+          "n_pairs": 24,
+          "paired_bootstrap_ci95": [
+            -0.4583,
+            -0.0417
+          ],
+          "success_counts": {
+            "fixed_star": 19,
+            "v4_pertuned": 13
+          },
+          "value": -0.25
+        }
+      },
+      "reset_obs_finite_all": true,
+      "structured_candidate_attempts": 82,
+      "variant_match_all": true
+    }
+  },
+  "pooled": {
+    "classical_residual_pertuned_minus_rls": {
+      "n_pairs": 72,
+      "paired_bootstrap_ci95": [
+        -0.1806,
+        0.0139
+      ],
+      "success_counts": {
+        "v4_pertuned": 55,
+        "v4_rls": 61
+      },
+      "value": -0.0833
+    },
+    "oracle_anchor_native_minus_pertuned": {
+      "n_pairs": 72,
+      "paired_bootstrap_ci95": [
+        0.0972,
+        0.2778
+      ],
+      "success_counts": {
+        "native_oracle": 68,
+        "v4_pertuned": 55
+      },
+      "value": 0.1806
+    },
+    "primary_prize_pertuned_minus_fixed_star": {
+      "n_pairs": 72,
+      "paired_bootstrap_ci95": [
+        -0.2222,
+        -0.0556
+      ],
+      "success_counts": {
+        "fixed_star": 65,
+        "v4_pertuned": 55
+      },
+      "value": -0.1389
+    }
+  },
+  "preregistration": "experiments/feasibility_audit/phase4_e1prime_spread_revival_repricing_prereg.json",
+  "preregistration_sha256": "804782fa0bbb47b10b30bea976de021d88faf2246afde2791ac1f997f3825b82",
+  "protocol_gates": {
+    "all_passed": true,
+    "e0_admitted_e1": true,
+    "full_json_not_quick": true,
+    "min_validation_units_per_variant": true,
+    "oracle_adequacy_gate_passed": true,
+    "reset_obs_finite_all": true,
+    "selection_grid_complete": true,
+    "selection_validation_disjoint": true,
+    "validation_pairs_complete": true,
+    "variant_match_all": true
+  },
+  "row_pairs": [
+    {
+      "instance": 2,
+      "level": "S1",
+      "pair_id": "S1-inst02-pair1",
+      "selection_row": {
+        "eval_seed": 7310143,
+        "instance": 2,
+        "level": "S1",
+        "oracle_by": "structured:brake_steer_-0.4",
+        "pertuned_grid": [
+          1.0,
+          1.45,
+          1.0
+        ],
+        "row_id": "S1-inst02-seed7310143",
+        "row_role": "selection",
+        "selection_rank_within_level": 1,
+        "selection_score_sha256": "356d85533e16c335fb829db0b84e6c5e28b20f3ebe89c7c7e51f8d32a58fae56",
+        "source_oracle_solved": true,
+        "source_pertuned_outcome": "collision"
+      },
+      "validation_row": {
+        "eval_seed": 7310091,
+        "instance": 2,
+        "level": "S1",
+        "oracle_by": "structured:brake_steer_-0.4",
+        "pertuned_grid": [
+          1.0,
+          1.45,
+          1.0
+        ],
+        "row_id": "S1-inst02-seed7310091",
+        "row_role": "validation",
+        "selection_rank_within_level": 1,
+        "selection_score_sha256": "7176dd7e0847ff6e26e2db17a34cfd3d6c3a77c0a5b4bdc1d6359849a9280f4b",
+        "source_oracle_solved": true,
+        "source_pertuned_outcome": "collision"
+      }
+    },
+    {
+      "instance": 10,
+      "level": "S1",
+      "pair_id": "S1-inst10-pair2",
+      "selection_row": {
+        "eval_seed": 7350195,
+        "instance": 10,
+        "level": "S1",
+        "oracle_by": "structured:coast_steer_-1.0",
+        "pertuned_grid": [
+          1.0,
+          1.45,
+          1.0
+        ],
+        "row_id": "S1-inst10-seed7350195",
+        "row_role": "selection",
+        "selection_rank_within_level": 2,
+        "selection_score_sha256": "d79486147dbf1721518b65c8c3664876a6a45a6e8c1fd88032f6f325a63f688b",
+        "source_oracle_solved": true,
+        "source_pertuned_outcome": "collision"
+      },
+      "validation_row": {
+        "eval_seed": 7350234,
+        "instance": 10,
+        "level": "S1",
+        "oracle_by": "structured:brake_steer_-0.4",
+        "pertuned_grid": [
+          1.0,
+          1.45,
+          1.0
+        ],
+        "row_id": "S1-inst10-seed7350234",
+        "row_role": "validation",
+        "selection_rank_within_level": 2,
+        "selection_score_sha256": "b18432fabcf9b41041a8f526b6fd7687e7852de40e54f121432610847c0cb3a7",
+        "source_oracle_solved": true,
+        "source_pertuned_outcome": "collision"
+      }
+    },
+    {
+      "instance": 3,
+      "level": "S1",
+      "pair_id": "S1-inst03-pair3",
+      "selection_row": {
+        "eval_seed": 7315000,
+        "instance": 3,
+        "level": "S1",
+        "oracle_by": "structured:brake_steer_-0.4",
+        "pertuned_grid": [
+          1.0,
+          1.45,
+          1.0
+        ],
+        "row_id": "S1-inst03-seed7315000",
+        "row_role": "selection",
+        "selection_rank_within_level": 3,
+        "selection_score_sha256": "7bee0e81f1e02195b2736e3025045cc9aae17ecc0a88159bfd78224f9c070dfd",
+        "source_oracle_solved": true,
+        "source_pertuned_outcome": "collision"
+      },
+      "validation_row": {
+        "eval_seed": 7315208,
+        "instance": 3,
+        "level": "S1",
+        "oracle_by": "structured:brake_steer_-0.7",
+        "pertuned_grid": [
+          1.0,
+          1.45,
+          1.0
+        ],
+        "row_id": "S1-inst03-seed7315208",
+        "row_role": "validation",
+        "selection_rank_within_level": 3,
+        "selection_score_sha256": "a835224587c0c2c32535a307449bef056b38c5cb6063b0647e726d746faabf46",
+        "source_oracle_solved": true,
+        "source_pertuned_outcome": "collision"
+      }
+    },
+    {
+      "instance": 1,
+      "level": "S1",
+      "pair_id": "S1-inst01-pair4",
+      "selection_row": {
+        "eval_seed": 7305143,
+        "instance": 1,
+        "level": "S1",
+        "oracle_by": "structured:full_brake",
+        "pertuned_grid": [
+          1.0,
+          1.45,
+          1.0
+        ],
+        "row_id": "S1-inst01-seed7305143",
+        "row_role": "selection",
+        "selection_rank_within_level": 4,
+        "selection_score_sha256": "eb84327ff3538850007bd88abe5c102a4631fabb03dc74197f206f8739f76dd7",
+        "source_oracle_solved": true,
+        "source_pertuned_outcome": "collision"
+      },
+      "validation_row": {
+        "eval_seed": 7305156,
+        "instance": 1,
+        "level": "S1",
+        "oracle_by": "structured:brake_steer_+0.7",
+        "pertuned_grid": [
+          1.0,
+          1.45,
+          1.0
+        ],
+        "row_id": "S1-inst01-seed7305156",
+        "row_role": "validation",
+        "selection_rank_within_level": 4,
+        "selection_score_sha256": "90de5be90dca67a0977ac2ce074474dc3910ece950f1d6d85152d6bab054ac40",
+        "source_oracle_solved": true,
+        "source_pertuned_outcome": "collision"
+      }
+    },
+    {
+      "instance": 7,
+      "level": "S1",
+      "pair_id": "S1-inst07-pair5",
+      "selection_row": {
+        "eval_seed": 7335000,
+        "instance": 7,
+        "level": "S1",
+        "oracle_by": "structured:brake_steer_-0.4",
+        "pertuned_grid": [
+          1.8,
+          1.45,
+          1.0
+        ],
+        "row_id": "S1-inst07-seed7335000",
+        "row_role": "selection",
+        "selection_rank_within_level": 5,
+        "selection_score_sha256": "051d6916c7925ca30343bbe72eff30350fa02a7f134ced01ef6c8d7b71f6af6f",
+        "source_oracle_solved": true,
+        "source_pertuned_outcome": "offtrack"
+      },
+      "validation_row": {
+        "eval_seed": 7335026,
+        "instance": 7,
+        "level": "S1",
+        "oracle_by": "structured:brake_steer_-0.4",
+        "pertuned_grid": [
+          1.8,
+          1.45,
+          1.0
+        ],
+        "row_id": "S1-inst07-seed7335026",
+        "row_role": "validation",
+        "selection_rank_within_level": 5,
+        "selection_score_sha256": "536ec76aa3423af371f059e018507fcfd5ef96cd5a6e2b474191716205c5ce3e",
+        "source_oracle_solved": true,
+        "source_pertuned_outcome": "collision"
+      }
+    },
+    {
+      "instance": 4,
+      "level": "S1",
+      "pair_id": "S1-inst04-pair6",
+      "selection_row": {
+        "eval_seed": 7320208,
+        "instance": 4,
+        "level": "S1",
+        "oracle_by": "structured:brake_steer_-0.4",
+        "pertuned_grid": [
+          1.8,
+          1.45,
+          1.0
+        ],
+        "row_id": "S1-inst04-seed7320208",
+        "row_role": "selection",
+        "selection_rank_within_level": 6,
+        "selection_score_sha256": "706d838958f801f41d36c1a4082faa22401745cb20396dc665a3e19a444cfa49",
+        "source_oracle_solved": true,
+        "source_pertuned_outcome": "collision"
+      },
+      "validation_row": {
+        "eval_seed": 7320013,
+        "instance": 4,
+        "level": "S1",
+        "oracle_by": "structured:brake_steer_-0.7",
+        "pertuned_grid": [
+          1.8,
+          1.45,
+          1.0
+        ],
+        "row_id": "S1-inst04-seed7320013",
+        "row_role": "validation",
+        "selection_rank_within_level": 6,
+        "selection_score_sha256": "d06aa484241315f2715a7c013ddaf78e804920b6eb88a02588c96324f848859e",
+        "source_oracle_solved": true,
+        "source_pertuned_outcome": "collision"
+      }
+    },
+    {
+      "instance": 9,
+      "level": "S1",
+      "pair_id": "S1-inst09-pair7",
+      "selection_row": {
+        "eval_seed": 7345052,
+        "instance": 9,
+        "level": "S1",
+        "oracle_by": "structured:brake_steer_-0.4",
+        "pertuned_grid": [
+          1.0,
+          1.45,
+          1.0
+        ],
+        "row_id": "S1-inst09-seed7345052",
+        "row_role": "selection",
+        "selection_rank_within_level": 7,
+        "selection_score_sha256": "e31ea8209b4456358df27047d2f018247dc0d2d18214bbd4c603da755ec8ebad",
+        "source_oracle_solved": true,
+        "source_pertuned_outcome": "collision"
+      },
+      "validation_row": {
+        "eval_seed": 7345091,
+        "instance": 9,
+        "level": "S1",
+        "oracle_by": "structured:full_brake",
+        "pertuned_grid": [
+          1.0,
+          1.45,
+          1.0
+        ],
+        "row_id": "S1-inst09-seed7345091",
+        "row_role": "validation",
+        "selection_rank_within_level": 7,
+        "selection_score_sha256": "ebbfeaeb489f06ccf737d9f893a45dd1c69cff17bf28fd19c12e4f0f9c6ce648",
+        "source_oracle_solved": true,
+        "source_pertuned_outcome": "collision"
+      }
+    },
+    {
+      "instance": 6,
+      "level": "S1",
+      "pair_id": "S1-inst06-pair8",
+      "selection_row": {
+        "eval_seed": 7330221,
+        "instance": 6,
+        "level": "S1",
+        "oracle_by": "structured:brake_steer_+1.0",
+        "pertuned_grid": [
+          1.8,
+          1.45,
+          1.0
+        ],
+        "row_id": "S1-inst06-seed7330221",
+        "row_role": "selection",
+        "selection_rank_within_level": 8,
+        "selection_score_sha256": "b9af8384310c496656492901b4ceb0f23704c5d4e17f20ce9d44c02afe9a3824",
+        "source_oracle_solved": true,
+        "source_pertuned_outcome": "collision"
+      },
+      "validation_row": {
+        "eval_seed": 7330286,
+        "instance": 6,
+        "level": "S1",
+        "oracle_by": "structured:brake_steer_-0.4",
+        "pertuned_grid": [
+          1.8,
+          1.45,
+          1.0
+        ],
+        "row_id": "S1-inst06-seed7330286",
+        "row_role": "validation",
+        "selection_rank_within_level": 8,
+        "selection_score_sha256": "166c58b7394d245217e60b102daa361db439c703e3f3b901924c4f60e8ac7a19",
+        "source_oracle_solved": true,
+        "source_pertuned_outcome": "collision"
+      }
+    },
+    {
+      "instance": 9,
+      "level": "S2",
+      "pair_id": "S2-inst09-pair1",
+      "selection_row": {
+        "eval_seed": 7545078,
+        "instance": 9,
+        "level": "S2",
+        "oracle_by": "structured:full_brake",
+        "pertuned_grid": [
+          1.8,
+          1.45,
+          1.0
+        ],
+        "row_id": "S2-inst09-seed7545078",
+        "row_role": "selection",
+        "selection_rank_within_level": 1,
+        "selection_score_sha256": "7a0376612d6d79919d52489b3e04af5006a433dde659e620a60bbbdab9a9de6d",
+        "source_oracle_solved": true,
+        "source_pertuned_outcome": "collision"
+      },
+      "validation_row": {
+        "eval_seed": 7545000,
+        "instance": 9,
+        "level": "S2",
+        "oracle_by": "structured:full_brake",
+        "pertuned_grid": [
+          1.8,
+          1.45,
+          1.0
+        ],
+        "row_id": "S2-inst09-seed7545000",
+        "row_role": "validation",
+        "selection_rank_within_level": 1,
+        "selection_score_sha256": "b4bf71a70272daced1962b260cdf22e609c44d8fd8bafc5734679fb2fba84587",
+        "source_oracle_solved": true,
+        "source_pertuned_outcome": "collision"
+      }
+    },
+    {
+      "instance": 1,
+      "level": "S2",
+      "pair_id": "S2-inst01-pair2",
+      "selection_row": {
+        "eval_seed": 7505104,
+        "instance": 1,
+        "level": "S2",
+        "oracle_by": "structured:brake_steer_-0.4",
+        "pertuned_grid": [
+          1.0,
+          1.45,
+          1.0
+        ],
+        "row_id": "S2-inst01-seed7505104",
+        "row_role": "selection",
+        "selection_rank_within_level": 2,
+        "selection_score_sha256": "cf2ed1b8188196e525262c1d975b1f7c01b0e6b62f247a59396f8df38392a5b7",
+        "source_oracle_solved": true,
+        "source_pertuned_outcome": "collision"
+      },
+      "validation_row": {
+        "eval_seed": 7505130,
+        "instance": 1,
+        "level": "S2",
+        "oracle_by": "structured:brake_steer_-0.4",
+        "pertuned_grid": [
+          1.0,
+          1.45,
+          1.0
+        ],
+        "row_id": "S2-inst01-seed7505130",
+        "row_role": "validation",
+        "selection_rank_within_level": 2,
+        "selection_score_sha256": "d06aee605beac45c94e4e56c78b3bc9f7d83de39ad8be125c4a8f9eb877b170a",
+        "source_oracle_solved": true,
+        "source_pertuned_outcome": "collision"
+      }
+    },
+    {
+      "instance": 7,
+      "level": "S2",
+      "pair_id": "S2-inst07-pair3",
+      "selection_row": {
+        "eval_seed": 7535065,
+        "instance": 7,
+        "level": "S2",
+        "oracle_by": "structured:brake_steer_+0.4",
+        "pertuned_grid": [
+          1.0,
+          1.45,
+          1.0
+        ],
+        "row_id": "S2-inst07-seed7535065",
+        "row_role": "selection",
+        "selection_rank_within_level": 3,
+        "selection_score_sha256": "1a77635493829d16cfebaf8b190357ae979728e28cc5ebf88ee65c23dcc30df5",
+        "source_oracle_solved": true,
+        "source_pertuned_outcome": "collision"
+      },
+      "validation_row": {
+        "eval_seed": 7535195,
+        "instance": 7,
+        "level": "S2",
+        "oracle_by": "structured:full_brake",
+        "pertuned_grid": [
+          1.0,
+          1.45,
+          1.0
+        ],
+        "row_id": "S2-inst07-seed7535195",
+        "row_role": "validation",
+        "selection_rank_within_level": 3,
+        "selection_score_sha256": "7f085277aaa8d93fa8032b917e2799fddc02cd512f0168cad2cd0254f89930ba",
+        "source_oracle_solved": true,
+        "source_pertuned_outcome": "collision"
+      }
+    },
+    {
+      "instance": 3,
+      "level": "S2",
+      "pair_id": "S2-inst03-pair4",
+      "selection_row": {
+        "eval_seed": 7515091,
+        "instance": 3,
+        "level": "S2",
+        "oracle_by": "structured:full_brake",
+        "pertuned_grid": [
+          1.0,
+          1.45,
+          1.4
+        ],
+        "row_id": "S2-inst03-seed7515091",
+        "row_role": "selection",
+        "selection_rank_within_level": 4,
+        "selection_score_sha256": "b8808069c7aecc09897ad7a276b23b5f3f7b9fc10957095dd19c2e4dba33a784",
+        "source_oracle_solved": true,
+        "source_pertuned_outcome": "collision"
+      },
+      "validation_row": {
+        "eval_seed": 7515026,
+        "instance": 3,
+        "level": "S2",
+        "oracle_by": "structured:brake_steer_+0.4",
+        "pertuned_grid": [
+          1.0,
+          1.45,
+          1.4
+        ],
+        "row_id": "S2-inst03-seed7515026",
+        "row_role": "validation",
+        "selection_rank_within_level": 4,
+        "selection_score_sha256": "0ebb56c3c4eeb87989f8486470ebefa09b3e2a48241f614f2774fc04d48f51bd",
+        "source_oracle_solved": true,
+        "source_pertuned_outcome": "collision"
+      }
+    },
+    {
+      "instance": 5,
+      "level": "S2",
+      "pair_id": "S2-inst05-pair5",
+      "selection_row": {
+        "eval_seed": 7525273,
+        "instance": 5,
+        "level": "S2",
+        "oracle_by": "structured:brake_steer_-0.4",
+        "pertuned_grid": [
+          1.0,
+          1.45,
+          1.0
+        ],
+        "row_id": "S2-inst05-seed7525273",
+        "row_role": "selection",
+        "selection_rank_within_level": 5,
+        "selection_score_sha256": "efb430f25121f0f2071079b55aec908564a69a170b870d2864c1c32049f12536",
+        "source_oracle_solved": true,
+        "source_pertuned_outcome": "collision"
+      },
+      "validation_row": {
+        "eval_seed": 7525091,
+        "instance": 5,
+        "level": "S2",
+        "oracle_by": "structured:brake_steer_-0.4",
+        "pertuned_grid": [
+          1.0,
+          1.45,
+          1.0
+        ],
+        "row_id": "S2-inst05-seed7525091",
+        "row_role": "validation",
+        "selection_rank_within_level": 5,
+        "selection_score_sha256": "4808853664ed8a99b732b35f65784017edf020a02a95ba3b231f88f0aa0e3d1e",
+        "source_oracle_solved": true,
+        "source_pertuned_outcome": "collision"
+      }
+    },
+    {
+      "instance": 6,
+      "level": "S2",
+      "pair_id": "S2-inst06-pair6",
+      "selection_row": {
+        "eval_seed": 7530208,
+        "instance": 6,
+        "level": "S2",
+        "oracle_by": "structured:brake_steer_-0.4",
+        "pertuned_grid": [
+          1.0,
+          1.45,
+          1.0
+        ],
+        "row_id": "S2-inst06-seed7530208",
+        "row_role": "selection",
+        "selection_rank_within_level": 6,
+        "selection_score_sha256": "73db8944cd5b41ea7eece66c835f9066727330dd551426ef229b235e97802f9f",
+        "source_oracle_solved": true,
+        "source_pertuned_outcome": "collision"
+      },
+      "validation_row": {
+        "eval_seed": 7530143,
+        "instance": 6,
+        "level": "S2",
+        "oracle_by": "structured:full_brake",
+        "pertuned_grid": [
+          1.0,
+          1.45,
+          1.0
+        ],
+        "row_id": "S2-inst06-seed7530143",
+        "row_role": "validation",
+        "selection_rank_within_level": 6,
+        "selection_score_sha256": "b7c5874fe5ad603e7fc92badccbb8e28a42655352bce41306a6dd6d72f99a001",
+        "source_oracle_solved": true,
+        "source_pertuned_outcome": "collision"
+      }
+    },
+    {
+      "instance": 8,
+      "level": "S2",
+      "pair_id": "S2-inst08-pair7",
+      "selection_row": {
+        "eval_seed": 7540182,
+        "instance": 8,
+        "level": "S2",
+        "oracle_by": "structured:full_brake",
+        "pertuned_grid": [
+          1.8,
+          1.45,
+          1.0
+        ],
+        "row_id": "S2-inst08-seed7540182",
+        "row_role": "selection",
+        "selection_rank_within_level": 7,
+        "selection_score_sha256": "655ba154a9a7697953eda3ab0665ccdf62aaf66bf63107fccf78a773b4e37176",
+        "source_oracle_solved": true,
+        "source_pertuned_outcome": "collision"
+      },
+      "validation_row": {
+        "eval_seed": 7540221,
+        "instance": 8,
+        "level": "S2",
+        "oracle_by": "structured:full_brake",
+        "pertuned_grid": [
+          1.8,
+          1.45,
+          1.0
+        ],
+        "row_id": "S2-inst08-seed7540221",
+        "row_role": "validation",
+        "selection_rank_within_level": 7,
+        "selection_score_sha256": "02f0e74c24c4b3cf0d3b6f56dc6171edd8fb6ebcf05beac81df9b30483bff957",
+        "source_oracle_solved": true,
+        "source_pertuned_outcome": "collision"
+      }
+    },
+    {
+      "instance": 0,
+      "level": "S2",
+      "pair_id": "S2-inst00-pair8",
+      "selection_row": {
+        "eval_seed": 7500156,
+        "instance": 0,
+        "level": "S2",
+        "oracle_by": "structured:full_brake",
+        "pertuned_grid": [
+          0.6,
+          1.45,
+          1.0
+        ],
+        "row_id": "S2-inst00-seed7500156",
+        "row_role": "selection",
+        "selection_rank_within_level": 8,
+        "selection_score_sha256": "99bfd00825eefba3c1a4e2718d4eeccd80b862ee46831213f7eb54117f245fe0",
+        "source_oracle_solved": true,
+        "source_pertuned_outcome": "collision"
+      },
+      "validation_row": {
+        "eval_seed": 7500026,
+        "instance": 0,
+        "level": "S2",
+        "oracle_by": "structured:brake_steer_-0.4",
+        "pertuned_grid": [
+          0.6,
+          1.45,
+          1.0
+        ],
+        "row_id": "S2-inst00-seed7500026",
+        "row_role": "validation",
+        "selection_rank_within_level": 8,
+        "selection_score_sha256": "a88121bccc6ababa11afd385184dc30822bfe76a073dc026cc6357d334a39b94",
+        "source_oracle_solved": true,
+        "source_pertuned_outcome": "collision"
+      }
+    },
+    {
+      "instance": 4,
+      "level": "S2",
+      "pair_id": "S2-inst04-pair9",
+      "selection_row": {
+        "eval_seed": 7520169,
+        "instance": 4,
+        "level": "S2",
+        "oracle_by": "structured:coast_steer_-0.7",
+        "pertuned_grid": [
+          1.8,
+          1.45,
+          1.0
+        ],
+        "row_id": "S2-inst04-seed7520169",
+        "row_role": "selection",
+        "selection_rank_within_level": 9,
+        "selection_score_sha256": "9507b158e266bdc86f9f330570ed0f7a45bc44e687e69684722fe6e1adb80229",
+        "source_oracle_solved": true,
+        "source_pertuned_outcome": "collision"
+      },
+      "validation_row": {
+        "eval_seed": 7520078,
+        "instance": 4,
+        "level": "S2",
+        "oracle_by": "structured:brake_steer_+0.4",
+        "pertuned_grid": [
+          1.8,
+          1.45,
+          1.0
+        ],
+        "row_id": "S2-inst04-seed7520078",
+        "row_role": "validation",
+        "selection_rank_within_level": 9,
+        "selection_score_sha256": "970a2364450c241927c8696541f72fb5a5060e9060c1520f5b202807aedf675d",
+        "source_oracle_solved": true,
+        "source_pertuned_outcome": "collision"
+      }
+    },
+    {
+      "instance": 10,
+      "level": "S2",
+      "pair_id": "S2-inst10-pair10",
+      "selection_row": {
+        "eval_seed": 7550156,
+        "instance": 10,
+        "level": "S2",
+        "oracle_by": "structured:brake_steer_-0.4",
+        "pertuned_grid": [
+          1.0,
+          1.45,
+          1.0
+        ],
+        "row_id": "S2-inst10-seed7550156",
+        "row_role": "selection",
+        "selection_rank_within_level": 10,
+        "selection_score_sha256": "e597807cbe4192ac5eb3435574fcd882ea6c2871a7d3fe2c7973c36f3dd9e5e5",
+        "source_oracle_solved": true,
+        "source_pertuned_outcome": "collision"
+      },
+      "validation_row": {
+        "eval_seed": 7550091,
+        "instance": 10,
+        "level": "S2",
+        "oracle_by": "structured:brake_steer_-0.7",
+        "pertuned_grid": [
+          1.0,
+          1.45,
+          1.0
+        ],
+        "row_id": "S2-inst10-seed7550091",
+        "row_role": "validation",
+        "selection_rank_within_level": 10,
+        "selection_score_sha256": "fca0ecbfd6eabdb80d554cabcfb5d023cae28be04517fde2f58e2efb63258747",
+        "source_oracle_solved": true,
+        "source_pertuned_outcome": "collision"
+      }
+    },
+    {
+      "instance": 7,
+      "level": "S3",
+      "pair_id": "S3-inst07-pair1",
+      "selection_row": {
+        "eval_seed": 7735026,
+        "instance": 7,
+        "level": "S3",
+        "oracle_by": "structured:brake_steer_-0.4",
+        "pertuned_grid": [
+          1.0,
+          1.45,
+          1.0
+        ],
+        "row_id": "S3-inst07-seed7735026",
+        "row_role": "selection",
+        "selection_rank_within_level": 1,
+        "selection_score_sha256": "05b6666bcf2ad57067259105296ef278a0cc23505c5fc465989598b9d579d993",
+        "source_oracle_solved": true,
+        "source_pertuned_outcome": "collision"
+      },
+      "validation_row": {
+        "eval_seed": 7735195,
+        "instance": 7,
+        "level": "S3",
+        "oracle_by": "structured:brake_steer_-0.4",
+        "pertuned_grid": [
+          1.0,
+          1.45,
+          1.0
+        ],
+        "row_id": "S3-inst07-seed7735195",
+        "row_role": "validation",
+        "selection_rank_within_level": 1,
+        "selection_score_sha256": "313f9225f08b166cb7aa3d55be1fc2590d8fd3f354fee2dafb1c4d65823c135c",
+        "source_oracle_solved": true,
+        "source_pertuned_outcome": "collision"
+      }
+    },
+    {
+      "instance": 10,
+      "level": "S3",
+      "pair_id": "S3-inst10-pair2",
+      "selection_row": {
+        "eval_seed": 7750065,
+        "instance": 10,
+        "level": "S3",
+        "oracle_by": "structured:brake_steer_+0.7",
+        "pertuned_grid": [
+          1.0,
+          1.45,
+          1.0
+        ],
+        "row_id": "S3-inst10-seed7750065",
+        "row_role": "selection",
+        "selection_rank_within_level": 2,
+        "selection_score_sha256": "cc47b99b85a9ec11f82f97b62889528fe5a2b0c09d079016c0343c1f0a4665e7",
+        "source_oracle_solved": true,
+        "source_pertuned_outcome": "collision"
+      },
+      "validation_row": {
+        "eval_seed": 7750052,
+        "instance": 10,
+        "level": "S3",
+        "oracle_by": "structured:brake_steer_-0.4",
+        "pertuned_grid": [
+          1.0,
+          1.45,
+          1.0
+        ],
+        "row_id": "S3-inst10-seed7750052",
+        "row_role": "validation",
+        "selection_rank_within_level": 2,
+        "selection_score_sha256": "025e38222da5988811973bc39750cf3a36cc85759135f3de3e6c81396c01f9d9",
+        "source_oracle_solved": true,
+        "source_pertuned_outcome": "collision"
+      }
+    },
+    {
+      "instance": 8,
+      "level": "S3",
+      "pair_id": "S3-inst08-pair3",
+      "selection_row": {
+        "eval_seed": 7740104,
+        "instance": 8,
+        "level": "S3",
+        "oracle_by": "structured:brake_steer_-0.4",
+        "pertuned_grid": [
+          1.0,
+          1.45,
+          1.0
+        ],
+        "row_id": "S3-inst08-seed7740104",
+        "row_role": "selection",
+        "selection_rank_within_level": 3,
+        "selection_score_sha256": "a3273ef937fa47fef1a4f7cc939fe160267f1879bc10f55a14e509fa8dc30925",
+        "source_oracle_solved": true,
+        "source_pertuned_outcome": "collision"
+      },
+      "validation_row": {
+        "eval_seed": 7740117,
+        "instance": 8,
+        "level": "S3",
+        "oracle_by": "structured:brake_steer_-0.4",
+        "pertuned_grid": [
+          1.0,
+          1.45,
+          1.0
+        ],
+        "row_id": "S3-inst08-seed7740117",
+        "row_role": "validation",
+        "selection_rank_within_level": 3,
+        "selection_score_sha256": "230f46adec74569c0fecca27f87e59ff5c8bd7a189ca3ddff5bf9336ca59c947",
+        "source_oracle_solved": true,
+        "source_pertuned_outcome": "collision"
+      }
+    },
+    {
+      "instance": 5,
+      "level": "S3",
+      "pair_id": "S3-inst05-pair4",
+      "selection_row": {
+        "eval_seed": 7725234,
+        "instance": 5,
+        "level": "S3",
+        "oracle_by": "structured:brake_steer_-0.4",
+        "pertuned_grid": [
+          1.0,
+          1.45,
+          1.0
+        ],
+        "row_id": "S3-inst05-seed7725234",
+        "row_role": "selection",
+        "selection_rank_within_level": 4,
+        "selection_score_sha256": "44c6e71db35b9554b44d1c6a4f7a8a64939d4450d74a3b5336f028333912ff94",
+        "source_oracle_solved": true,
+        "source_pertuned_outcome": "collision"
+      },
+      "validation_row": {
+        "eval_seed": 7725156,
+        "instance": 5,
+        "level": "S3",
+        "oracle_by": "structured:brake_steer_-0.4",
+        "pertuned_grid": [
+          1.0,
+          1.45,
+          1.0
+        ],
+        "row_id": "S3-inst05-seed7725156",
+        "row_role": "validation",
+        "selection_rank_within_level": 4,
+        "selection_score_sha256": "857dce0178b74438d96a670603594ef920c2d00fd9bd68db5c3dace0e1b55d8e",
+        "source_oracle_solved": true,
+        "source_pertuned_outcome": "collision"
+      }
+    },
+    {
+      "instance": 1,
+      "level": "S3",
+      "pair_id": "S3-inst01-pair5",
+      "selection_row": {
+        "eval_seed": 7705221,
+        "instance": 1,
+        "level": "S3",
+        "oracle_by": "structured:brake_steer_-0.4",
+        "pertuned_grid": [
+          1.0,
+          1.45,
+          1.8
+        ],
+        "row_id": "S3-inst01-seed7705221",
+        "row_role": "selection",
+        "selection_rank_within_level": 5,
+        "selection_score_sha256": "1971095dd23cc5cf6af8976e7ec0d8eff36e64beacbf8d0beabd05328daeb35e",
+        "source_oracle_solved": true,
+        "source_pertuned_outcome": "collision"
+      },
+      "validation_row": {
+        "eval_seed": 7705182,
+        "instance": 1,
+        "level": "S3",
+        "oracle_by": "structured:brake_steer_-0.7",
+        "pertuned_grid": [
+          1.0,
+          1.45,
+          1.8
+        ],
+        "row_id": "S3-inst01-seed7705182",
+        "row_role": "validation",
+        "selection_rank_within_level": 5,
+        "selection_score_sha256": "33c885504c71708d5d67d05fa4d338efecbff32162f084a94e4ab785c7143e18",
+        "source_oracle_solved": true,
+        "source_pertuned_outcome": "collision"
+      }
+    },
+    {
+      "instance": 2,
+      "level": "S3",
+      "pair_id": "S3-inst02-pair6",
+      "selection_row": {
+        "eval_seed": 7710156,
+        "instance": 2,
+        "level": "S3",
+        "oracle_by": "structured:brake_steer_-0.4",
+        "pertuned_grid": [
+          1.8,
+          1.45,
+          1.0
+        ],
+        "row_id": "S3-inst02-seed7710156",
+        "row_role": "selection",
+        "selection_rank_within_level": 6,
+        "selection_score_sha256": "7052eb8f9d33560323f84fcb8b5955c15e4986ffba37433279960f16d2e58000",
+        "source_oracle_solved": true,
+        "source_pertuned_outcome": "collision"
+      },
+      "validation_row": {
+        "eval_seed": 7710143,
+        "instance": 2,
+        "level": "S3",
+        "oracle_by": "structured:brake_steer_-0.4",
+        "pertuned_grid": [
+          1.8,
+          1.45,
+          1.0
+        ],
+        "row_id": "S3-inst02-seed7710143",
+        "row_role": "validation",
+        "selection_rank_within_level": 6,
+        "selection_score_sha256": "cdb0ce46951469581a8b002cd5cd09d4772af648f1617515b0ee8b6c662998a0",
+        "source_oracle_solved": true,
+        "source_pertuned_outcome": "collision"
+      }
+    }
+  ],
+  "rows_csv": "runs/feasibility_audit/phase4_e1prime_spread_revival_repricing/episode_rows_full.csv",
+  "schema_version": 1,
+  "selection_row_count": 360,
+  "selection_summary": {
+    "global_scores": {
+      "(0.6, 1.0, 1.0)": -2695.137976,
+      "(0.6, 1.45, 1.4)": 180952.149378,
+      "(1.0, 1.0, 1.0)": -2339.215482,
+      "(1.8, 1.0, 1.0)": -11807.800575,
+      "(1.8, 1.45, 1.4)": 12341.165414
+    },
+    "pertuned_by_variant_pair": {
+      "bmw_e90_tmeasy/S1-inst01-pair4": [
+        0.6,
+        1.45,
+        1.4
+      ],
+      "bmw_e90_tmeasy/S1-inst02-pair1": [
+        0.6,
+        1.45,
+        1.4
+      ],
+      "bmw_e90_tmeasy/S1-inst03-pair3": [
+        0.6,
+        1.45,
+        1.4
+      ],
+      "bmw_e90_tmeasy/S1-inst04-pair6": [
+        0.6,
+        1.45,
+        1.4
+      ],
+      "bmw_e90_tmeasy/S1-inst06-pair8": [
+        0.6,
+        1.45,
+        1.4
+      ],
+      "bmw_e90_tmeasy/S1-inst07-pair5": [
+        0.6,
+        1.45,
+        1.4
+      ],
+      "bmw_e90_tmeasy/S1-inst09-pair7": [
+        1.8,
+        1.45,
+        1.4
+      ],
+      "bmw_e90_tmeasy/S1-inst10-pair2": [
+        0.6,
+        1.45,
+        1.4
+      ],
+      "bmw_e90_tmeasy/S2-inst00-pair8": [
+        1.8,
+        1.45,
+        1.4
+      ],
+      "bmw_e90_tmeasy/S2-inst01-pair2": [
+        0.6,
+        1.45,
+        1.4
+      ],
+      "bmw_e90_tmeasy/S2-inst03-pair4": [
+        0.6,
+        1.45,
+        1.4
+      ],
+      "bmw_e90_tmeasy/S2-inst04-pair9": [
+        0.6,
+        1.45,
+        1.4
+      ],
+      "bmw_e90_tmeasy/S2-inst05-pair5": [
+        0.6,
+        1.45,
+        1.4
+      ],
+      "bmw_e90_tmeasy/S2-inst06-pair6": [
+        0.6,
+        1.45,
+        1.4
+      ],
+      "bmw_e90_tmeasy/S2-inst07-pair3": [
+        0.6,
+        1.45,
+        1.4
+      ],
+      "bmw_e90_tmeasy/S2-inst08-pair7": [
+        1.8,
+        1.45,
+        1.4
+      ],
+      "bmw_e90_tmeasy/S2-inst09-pair1": [
+        0.6,
+        1.45,
+        1.4
+      ],
+      "bmw_e90_tmeasy/S2-inst10-pair10": [
+        0.6,
+        1.45,
+        1.4
+      ],
+      "bmw_e90_tmeasy/S3-inst01-pair5": [
+        1.8,
+        1.45,
+        1.4
+      ],
+      "bmw_e90_tmeasy/S3-inst02-pair6": [
+        0.6,
+        1.45,
+        1.4
+      ],
+      "bmw_e90_tmeasy/S3-inst05-pair4": [
+        0.6,
+        1.45,
+        1.4
+      ],
+      "bmw_e90_tmeasy/S3-inst07-pair1": [
+        0.6,
+        1.45,
+        1.4
+      ],
+      "bmw_e90_tmeasy/S3-inst08-pair3": [
+        1.8,
+        1.45,
+        1.4
+      ],
+      "bmw_e90_tmeasy/S3-inst10-pair2": [
+        0.6,
+        1.45,
+        1.4
+      ],
+      "sedan_tmeasy/S1-inst01-pair4": [
+        0.6,
+        1.45,
+        1.4
+      ],
+      "sedan_tmeasy/S1-inst02-pair1": [
+        0.6,
+        1.45,
+        1.4
+      ],
+      "sedan_tmeasy/S1-inst03-pair3": [
+        0.6,
+        1.45,
+        1.4
+      ],
+      "sedan_tmeasy/S1-inst04-pair6": [
+        0.6,
+        1.45,
+        1.4
+      ],
+      "sedan_tmeasy/S1-inst06-pair8": [
+        0.6,
+        1.45,
+        1.4
+      ],
+      "sedan_tmeasy/S1-inst07-pair5": [
+        0.6,
+        1.45,
+        1.4
+      ],
+      "sedan_tmeasy/S1-inst09-pair7": [
+        0.6,
+        1.45,
+        1.4
+      ],
+      "sedan_tmeasy/S1-inst10-pair2": [
+        0.6,
+        1.45,
+        1.4
+      ],
+      "sedan_tmeasy/S2-inst00-pair8": [
+        0.6,
+        1.45,
+        1.4
+      ],
+      "sedan_tmeasy/S2-inst01-pair2": [
+        0.6,
+        1.45,
+        1.4
+      ],
+      "sedan_tmeasy/S2-inst03-pair4": [
+        0.6,
+        1.45,
+        1.4
+      ],
+      "sedan_tmeasy/S2-inst04-pair9": [
+        0.6,
+        1.45,
+        1.4
+      ],
+      "sedan_tmeasy/S2-inst05-pair5": [
+        0.6,
+        1.45,
+        1.4
+      ],
+      "sedan_tmeasy/S2-inst06-pair6": [
+        0.6,
+        1.45,
+        1.4
+      ],
+      "sedan_tmeasy/S2-inst07-pair3": [
+        0.6,
+        1.45,
+        1.4
+      ],
+      "sedan_tmeasy/S2-inst08-pair7": [
+        0.6,
+        1.45,
+        1.4
+      ],
+      "sedan_tmeasy/S2-inst09-pair1": [
+        0.6,
+        1.45,
+        1.4
+      ],
+      "sedan_tmeasy/S2-inst10-pair10": [
+        1.8,
+        1.45,
+        1.4
+      ],
+      "sedan_tmeasy/S3-inst01-pair5": [
+        1.8,
+        1.45,
+        1.4
+      ],
+      "sedan_tmeasy/S3-inst02-pair6": [
+        0.6,
+        1.45,
+        1.4
+      ],
+      "sedan_tmeasy/S3-inst05-pair4": [
+        1.8,
+        1.45,
+        1.4
+      ],
+      "sedan_tmeasy/S3-inst07-pair1": [
+        1.8,
+        1.45,
+        1.4
+      ],
+      "sedan_tmeasy/S3-inst08-pair3": [
+        0.6,
+        1.45,
+        1.4
+      ],
+      "sedan_tmeasy/S3-inst10-pair2": [
+        0.6,
+        1.45,
+        1.4
+      ],
+      "uazbus_tmeasy/S1-inst01-pair4": [
+        0.6,
+        1.45,
+        1.4
+      ],
+      "uazbus_tmeasy/S1-inst02-pair1": [
+        0.6,
+        1.45,
+        1.4
+      ],
+      "uazbus_tmeasy/S1-inst03-pair3": [
+        0.6,
+        1.45,
+        1.4
+      ],
+      "uazbus_tmeasy/S1-inst04-pair6": [
+        0.6,
+        1.45,
+        1.4
+      ],
+      "uazbus_tmeasy/S1-inst06-pair8": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "uazbus_tmeasy/S1-inst07-pair5": [
+        0.6,
+        1.45,
+        1.4
+      ],
+      "uazbus_tmeasy/S1-inst09-pair7": [
+        0.6,
+        1.45,
+        1.4
+      ],
+      "uazbus_tmeasy/S1-inst10-pair2": [
+        1.8,
+        1.0,
+        1.0
+      ],
+      "uazbus_tmeasy/S2-inst00-pair8": [
+        1.8,
+        1.45,
+        1.4
+      ],
+      "uazbus_tmeasy/S2-inst01-pair2": [
+        1.8,
+        1.45,
+        1.4
+      ],
+      "uazbus_tmeasy/S2-inst03-pair4": [
+        0.6,
+        1.45,
+        1.4
+      ],
+      "uazbus_tmeasy/S2-inst04-pair9": [
+        1.8,
+        1.0,
+        1.0
+      ],
+      "uazbus_tmeasy/S2-inst05-pair5": [
+        1.8,
+        1.45,
+        1.4
+      ],
+      "uazbus_tmeasy/S2-inst06-pair6": [
+        1.8,
+        1.0,
+        1.0
+      ],
+      "uazbus_tmeasy/S2-inst07-pair3": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "uazbus_tmeasy/S2-inst08-pair7": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "uazbus_tmeasy/S2-inst09-pair1": [
+        0.6,
+        1.45,
+        1.4
+      ],
+      "uazbus_tmeasy/S2-inst10-pair10": [
+        0.6,
+        1.45,
+        1.4
+      ],
+      "uazbus_tmeasy/S3-inst01-pair5": [
+        0.6,
+        1.45,
+        1.4
+      ],
+      "uazbus_tmeasy/S3-inst02-pair6": [
+        1.8,
+        1.45,
+        1.4
+      ],
+      "uazbus_tmeasy/S3-inst05-pair4": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "uazbus_tmeasy/S3-inst07-pair1": [
+        0.6,
+        1.45,
+        1.4
+      ],
+      "uazbus_tmeasy/S3-inst08-pair3": [
+        1.8,
+        1.0,
+        1.0
+      ],
+      "uazbus_tmeasy/S3-inst10-pair2": [
+        0.6,
+        1.45,
+        1.4
+      ]
+    }
+  },
+  "validation_row_count": 604,
+  "validation_units_per_variant": 24,
+  "variants": [
+    "sedan_tmeasy",
+    "bmw_e90_tmeasy",
+    "uazbus_tmeasy"
+  ]
+}

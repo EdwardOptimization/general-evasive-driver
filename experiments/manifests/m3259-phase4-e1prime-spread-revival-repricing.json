@@ -1,0 +1,302 @@
+{
+  "id": "m3259-phase4-e1prime-spread-revival-repricing",
+  "priority": 32590,
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "milestone_intent": "evaluation_only",
+  "hypothesis": "A preregistered Phase-4 E1' oracle-adequate Chrono spread-revival repricing panel can rerun the frozen E1 comparison with a selection-row native-oracle adequacy gate and at least 20 validation units per variant across Sedan/TMeasy, BMW_E90/TMeasy, and UAZBUS/TMeasy before validation ranking, promotion, driver-performance, current-sim, high-fidelity, full-driver, repair-success, robustness-result, feasibility-proof, paper, Track-F admission, or self-ID claim.",
+  "lineage": {
+    "parent_checkpoint": [
+      "docs/current-status.md",
+      "docs/roadmap-phase3-codex-execution.md",
+      "docs/m3250-phase4-e1-spread-revival-pricing-full.md",
+      "docs/m3258-phase4-e2prime-chrono-two-regime-hardening.md"
+    ],
+    "parent_dataset": [
+      "experiments/feasibility_audit/chrono_spread_expressibility_audit.json",
+      "experiments/feasibility_audit/phase4_e1_spread_revival_quick.json",
+      "experiments/feasibility_audit/phase4_e1_spread_revival_full.json",
+      "experiments/feasibility_audit/phase4_e1prime_spread_revival_repricing_quick.json"
+    ],
+    "parent_config": [
+      "experiments/feasibility_audit/phase4_e1prime_spread_revival_repricing_prereg.json",
+      "scripts/feasibility_audit/phase4_e1prime_spread_revival_repricing.py",
+      "scripts/feasibility_audit/chrono_native_oracle_pricing.py",
+      "scripts/feasibility_audit/chrono_worker_client.py",
+      "scripts/feasibility_audit/chrono_backend_worker.py",
+      "src/autodrift/chrono_vehicle_backend.py"
+    ],
+    "parent_objective": [
+      "Track E' E1': resolve the roadmap critique that M3250's native oracle anchor underperformed the tuned arm before reading any spread-revival verdict",
+      "Keep Track F blocked on the later PI GPU-days checkpoint regardless of the E1' outcome"
+    ],
+    "derived_from": [
+      "M3250 completed the original full E1 panel but the native-oracle anchor lost to the tuned arm, invalidating the spread comparison as a clean oracle-boundary result.",
+      "M3259 quick smoke passed all structured gates and verified the selection-row oracle adequacy path before registering the full run.",
+      "The updated roadmap requires at least 20 validation units per variant and an oracle-adequacy gate before the full spread verdict can be read."
+    ],
+    "blocked_by": [
+      "Track F remains blocked until a later PI GPU-days checkpoint",
+      "E1' full cannot be interpreted until the preregistered full panel, not quick mode, completes"
+    ],
+    "supersedes": [
+      "treating M3250's original native-anchor-negative spread comparison as the final E1 result",
+      "using quick mode as the E1' verdict"
+    ],
+    "invalidates": [
+      "claiming Track F admission from M3259",
+      "claiming learned-policy performance or self-ID evidence from scripted E1' rows",
+      "tuning grids, seed streams, vehicle fixtures, oracle budget, or positive thresholds after observing full validation rows"
+    ]
+  },
+  "review_artifact": "docs/reviews/m3259-phase4-e1prime-spread-revival-repricing.md",
+  "public_gates": [
+    "M3259 must write preregistration before any full run",
+    "M3259 must run quick smoke before registering the full run",
+    "M3259 must include Sedan/TMeasy, BMW_E90/TMeasy, and UAZBUS/TMeasy",
+    "M3259 must use at least 20 validation units per variant in the full panel",
+    "M3259 must verify native oracle adequacy on selection rows before reading validation spread verdicts",
+    "M3259 must report fixed*, RLS, tuned, and native-oracle validation readouts with paired CIs",
+    "M3259 must treat quick mode as non-verdict",
+    "M3259 must keep Track F blocked pending a later PI GPU-days checkpoint"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run full M3259 without preregistration and quick smoke",
+    "do not use validation rows to choose fixed*, tuned grids, oracle candidates, thresholds, variants, or seed streams",
+    "do not edit ActiveSafetyReflexDriver",
+    "do not mutate obs72/action3 actor observation or action semantics",
+    "do not invoke PPO, supervised training, guarded RL, or policy checkpoint writing",
+    "do not claim driver performance, full high-fidelity sufficiency, paper readiness, repair success, robustness result, feasibility proof, Track F admission, or self-ID from M3259"
+  ],
+  "workflow_synthesis": {
+    "branch": "phase4_track_e_prime_hardening",
+    "evidence_axis": "e1prime_oracle_adequate_spread_revival_repricing",
+    "evidence_increment": "full oracle-adequate E1' Chrono repricing panel with >=20 validation units per variant after quick smoke",
+    "claim_scope": "Track E' E1' repricing on the E0-admitted Chrono fixture envelope only; incumbent unchanged; obs72/action3 unchanged; no validation ranking, promotion, driver-performance, current-sim sufficiency, full high-fidelity sufficiency, paper, repair-success, robustness-result, feasibility-proof, Track F admission, or self-ID claim",
+    "stop_condition": [
+      "stop after the full E1' verdict, doc, review, and ledger updates are written",
+      "stop if preregistration, quick smoke, oracle-adequacy, row-count, seed-count, obs-finite, variant-match, paired-readout, or Track-F-blocked gates fail",
+      "stop if the result is interpreted as Track F admission or training evidence"
+    ],
+    "fallback_plan": [
+      "if E1' is positive, route only to a later PI GPU-days checkpoint before Track F",
+      "if E1' is not supported, record the negative at full fidelity and keep Track F blocked",
+      "if protocol gates fail, repair or reprice under a new preregistration instead of interpreting partial rows"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M3258 completed and the roadmap marks E1' repricing as the lowest-numbered dependency-satisfied OPEN unit before Track F",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "Run the full E1' Chrono repricing panel; no model update.",
+    "admission_evidence": [
+      "M3248 E0 admitted the limited Chrono vehicle fixture envelope for E1",
+      "M3249 E1 quick and M3250 E1 full artifacts exist",
+      "phase4_e1prime_spread_revival_repricing_prereg.json freezes the full E1' panel",
+      "phase4_e1prime_spread_revival_repricing_quick.json passed before registering the full run"
+    ],
+    "blocked_shortcuts": [
+      "no RL or PPO",
+      "no incumbent mutation",
+      "no validation-row tuning",
+      "no Track F admission",
+      "no self-ID or history-attribution claim"
+    ],
+    "allowed_updates": [
+      "scripts/feasibility_audit/phase4_e1prime_spread_revival_repricing.py",
+      "tests/test_phase4_e1prime_spread_revival_repricing.py",
+      "experiments/feasibility_audit/phase4_e1prime_spread_revival_repricing_prereg.json",
+      "experiments/feasibility_audit/phase4_e1prime_spread_revival_repricing_quick.json",
+      "experiments/feasibility_audit/phase4_e1prime_spread_revival_repricing.json",
+      "runs/feasibility_audit/phase4_e1prime_spread_revival_repricing/episode_rows_quick.csv",
+      "runs/feasibility_audit/phase4_e1prime_spread_revival_repricing/metrics_quick.csv",
+      "runs/feasibility_audit/phase4_e1prime_spread_revival_repricing/episode_rows_full.csv",
+      "runs/feasibility_audit/phase4_e1prime_spread_revival_repricing/metrics_full.csv",
+      "docs/m3259-phase4-e1prime-spread-revival-repricing.md",
+      "docs/reviews/m3259-phase4-e1prime-spread-revival-repricing.md",
+      "docs/current-status.md",
+      "docs/roadmap-phase3-codex-execution.md",
+      "docs/research-log.md",
+      "docs/data-coverage-map-2026-06.md",
+      "scripts/feasibility_audit/README.md",
+      "experiments/research_queue.csv",
+      "experiments/research_status.json",
+      "experiments/scoreboard.csv"
+    ],
+    "next_stage_criteria": [
+      "After M3259 pass, Track F remains blocked unless a later PI GPU-days checkpoint approves it",
+      "If E1' does not support spread revival, Track F remains blocked and the program routes to papers or PI review"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M3259 makes no history or self-ID claim; it compares scripted controller outcomes under closed-loop Chrono rows only.",
+    "history_necessity_tests": [
+      "none in M3259"
+    ],
+    "temporal_evidence_window": "not applicable; no learned history policy is evaluated",
+    "negative_result_policy": "A not-supported E1' result is reported at full fidelity and cannot be converted into training admission.",
+    "allowed_claims": [
+      "E1' full repricing protocol completed or failed",
+      "the frozen spread-revival criterion was supported or not supported",
+      "native oracle adequacy passed or failed on selection rows",
+      "Track F remains blocked after M3259"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_dataset_or_panel",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "adds the oracle-adequate full E1' Chrono repricing panel after M3250 exposed an invalid native-anchor comparison",
+    "paper_verdict_delta": "M3259 decides whether E1's spread-revival result changes after enforcing native-oracle adequacy and higher validation power.",
+    "must_synthesize_if": [
+      "another E1' repricing run is proposed after M3259 without a failed protocol gate",
+      "Track F is proposed before the later GPU-days checkpoint",
+      "M3259 is interpreted as learned-policy performance or self-ID evidence"
+    ]
+  },
+  "success_criteria": [
+    "experiments/feasibility_audit/phase4_e1prime_spread_revival_repricing_prereg.json exists before the full run",
+    "experiments/feasibility_audit/phase4_e1prime_spread_revival_repricing_quick.json exists and passed before the full run",
+    "experiments/feasibility_audit/phase4_e1prime_spread_revival_repricing.json exists after the full run",
+    "runs/feasibility_audit/phase4_e1prime_spread_revival_repricing/episode_rows_full.csv includes all expected selection, oracle-adequacy, and validation rows",
+    "runs/feasibility_audit/phase4_e1prime_spread_revival_repricing/metrics_full.csv reports protocol_gates_passed=1, oracle_adequacy_gate_passed=1, validation_units_per_variant>=20, and track_f_admitted=0",
+    "docs/m3259-phase4-e1prime-spread-revival-repricing.md reports measured and inferred sections plus the frozen claim boundary"
+  ],
+  "failure_criteria": [
+    "M3259 runs without preregistration or quick smoke",
+    "M3259 omits a frozen vehicle fixture, row-pair stream, oracle-adequacy arm, validation arm, or validation threshold",
+    "M3259 uses validation rows for selection",
+    "M3259 tunes criteria after rows are observed",
+    "M3259 mutates ActiveSafetyReflexDriver or the actor observation contract",
+    "M3259 admits Track F, training, driver-performance, full high-fidelity sufficiency, paper, feasibility-proof, repair-success, or self-ID claims"
+  ],
+  "decision_rule": "Accept M3259 as completed if the full E1' panel runs under the frozen preregistration, writes full JSON/CSV/doc artifacts, passes protocol gates, reports the frozen spread-revival result, verifies oracle adequacy, and keeps Track F blocked.",
+  "decision_labels": {
+    "pass": "e1prime_repricing_completed",
+    "fail": "e1prime_repricing_protocol_failed"
+  },
+  "commands": [
+    {
+      "name": "phase4_e1prime_prereg",
+      "command": "env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/phase4_e1prime_spread_revival_repricing.py --write-prereg"
+    },
+    {
+      "name": "phase4_e1prime_quick",
+      "command": "env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/phase4_e1prime_spread_revival_repricing.py --quick --resume"
+    },
+    {
+      "name": "phase4_e1prime_full",
+      "command": "env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/phase4_e1prime_spread_revival_repricing.py --full --resume"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "experiments/feasibility_audit/phase4_e1prime_spread_revival_repricing_prereg.json",
+      "type": "json"
+    },
+    {
+      "path": "experiments/feasibility_audit/phase4_e1prime_spread_revival_repricing_quick.json",
+      "type": "json"
+    },
+    {
+      "path": "experiments/feasibility_audit/phase4_e1prime_spread_revival_repricing.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/feasibility_audit/phase4_e1prime_spread_revival_repricing/episode_rows_full.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/feasibility_audit/phase4_e1prime_spread_revival_repricing/metrics_full.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m3259-phase4-e1prime-spread-revival-repricing.md",
+      "type": "markdown"
+    },
+    {
+      "path": "docs/reviews/m3259-phase4-e1prime-spread-revival-repricing.md",
+      "type": "markdown"
+    }
+  ],
+  "baseline_checkpoints": [
+    "docs/current-status.md",
+    "docs/roadmap-phase3-codex-execution.md",
+    "docs/m3250-phase4-e1-spread-revival-pricing-full.md",
+    "experiments/feasibility_audit/phase4_e1prime_spread_revival_repricing_prereg.json",
+    "experiments/feasibility_audit/phase4_e1prime_spread_revival_repricing_quick.json"
+  ],
+  "metric_extractors": [
+    {
+      "metric": "success_rate",
+      "type": "csv",
+      "path": "runs/feasibility_audit/phase4_e1prime_spread_revival_repricing/metrics_full.csv",
+      "match": {
+        "metric": "protocol_gates_passed"
+      },
+      "column": "value"
+    },
+    {
+      "metric": "oracle_adequacy_gate_passed",
+      "type": "csv",
+      "path": "runs/feasibility_audit/phase4_e1prime_spread_revival_repricing/metrics_full.csv",
+      "match": {
+        "metric": "oracle_adequacy_gate_passed"
+      },
+      "column": "value"
+    },
+    {
+      "metric": "validation_units_per_variant",
+      "type": "csv",
+      "path": "runs/feasibility_audit/phase4_e1prime_spread_revival_repricing/metrics_full.csv",
+      "match": {
+        "metric": "validation_units_per_variant"
+      },
+      "column": "value"
+    },
+    {
+      "metric": "track_f_admitted",
+      "type": "csv",
+      "path": "runs/feasibility_audit/phase4_e1prime_spread_revival_repricing/metrics_full.csv",
+      "match": {
+        "metric": "track_f_admitted"
+      },
+      "column": "value"
+    }
+  ],
+  "gates": [
+    {
+      "name": "protocol_gates_passed",
+      "metric": "success_rate",
+      "op": "==",
+      "threshold": 1.0
+    },
+    {
+      "name": "oracle_adequacy_gate_passed",
+      "metric": "oracle_adequacy_gate_passed",
+      "op": "==",
+      "threshold": 1.0
+    },
+    {
+      "name": "validation_units_per_variant",
+      "metric": "validation_units_per_variant",
+      "op": ">=",
+      "threshold": 20.0
+    },
+    {
+      "name": "track_f_not_admitted",
+      "metric": "track_f_admitted",
+      "op": "==",
+      "threshold": 0.0
+    }
+  ]
+}

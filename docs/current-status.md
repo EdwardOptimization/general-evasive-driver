@@ -4,7 +4,7 @@ This file is the compact official state for the project. Milestone documents
 and `docs/research-log.md` remain the detailed log of the autonomous-harness
 era; the Phase-2 plan and thesis (pointer table below) define the active
 program. Last full refresh: 2026-06-13 (the 2026-06-11 WP6.3 refresh
-replaced the stale paper-route state; this update folds in M3215-M3257,
+replaced the stale paper-route state; this update folds in M3215-M3259,
 the C5 pricing disposition, the S4-HF-lite backend connector/pricing work,
 WP6.2 guardrails, the A1 lateral-channel rider, the A2 obs-normalization
 audit, the A3 C5-prime target consolidation, B1/B2/B3/B4 env-engineering
@@ -27,7 +27,9 @@ negative, the M3251 E2 Chrono two-regime protocol smoke, the M3252
 full E2 Chrono two-regime verdict, the M3253 E3 measurement-A/C
 protocol smoke, the M3254 E3 tire-truth telemetry connector smoke, the
 M3255 full E3 Chrono measurement A/C verdict, the M3256 blocked CP-3
-Track-F PI checkpoint, and the M3257 E3-fix detector-onset reconciliation).
+Track-F PI checkpoint, the M3257 E3-fix detector-onset reconciliation, the
+M3258 E2' hardened two-variant clean-flip confirmation, and the M3259 E1'
+oracle-adequate spread-revival repricing negative).
 
 ## Project Identity
 
@@ -43,8 +45,8 @@ Track-F PI checkpoint, and the M3257 E3-fix detector-onset reconciliation).
 
 History in one paragraph: the autonomous harness loop ran through M3214
 before manual takeover; the manual takeover has since registered
-M3215-M3257. `experiments/research_status.json` now records
-3257 completed / 7 failed / 4 blocked task entries, with `next_task:
+M3215-M3259. `experiments/research_status.json` now records
+3259 completed / 7 failed / 4 blocked task entries, with `next_task:
 null`. On
 2026-06-11 an independent feasibility audit showed the M3108–M3212
 residual-repair branch was repairing physically unsolvable rows, and the
@@ -156,9 +158,28 @@ early-fire rate was 0.5, uncorroborated detector-fire rate was 0.0, and the
 reconciled p90 latency remained 1.346 s. The reconciled rule treats an obs72
 detector fire as actor-visible onset when later corroborated by the frozen
 M3255 tire-slip event inside the preregistered 150-step window; otherwise the
-M3255 tire-slip onset is retained. E2' is now the next Track-E' dependency, and
-Track F remains blocked until E2' flip confirmation plus a later GPU-days
-checkpoint (`docs/m3257-phase4-e3-detector-onset-reconciliation.md`).
+M3255 tire-slip onset is retained
+(`docs/m3257-phase4-e3-detector-onset-reconciliation.md`). M3258 E2'
+hardening then **completed / confirmed the clean flip** under the frozen
+CP-3 disposition-A protocol: 560/560 selection rows and 5760/5760 validation
+rows were written, with 30 validation seeds per cell on Sedan/TMeasy and
+UAZBUS/TMeasy. All five clean reveal tiers qualified on both variants;
+the frozen tight-cell criterion passed with 4 positive tight cells across the
+two variants, max clean oracle-minus-floor was +0.7667, and Track F remained
+not admitted. Track F is now blocked only on the later PI GPU-days checkpoint;
+E1' spread-revival repricing remained a separate Track-E' unit
+(`docs/m3258-phase4-e2prime-chrono-two-regime-hardening.md`). M3259 E1'
+oracle-adequate repricing then **completed / rejected spread revival** under
+the frozen rule: protocol gates passed, the selection-row oracle-adequacy
+gate passed on Sedan/BMW_E90/UAZBUS, validation used 24 units per variant,
+and 0/3 variants qualified. Pooled `v4_pertuned - fixed_star` was -0.1389
+with CI95 [-0.2222, -0.0556], pooled `v4_pertuned - v4_rls` was -0.0833
+with CI95 [-0.1806, 0.0139], and pooled `native_oracle - v4_pertuned` was
++0.1806 with CI95 [0.0972, 0.2778]. Track F remains blocked until the later
+PI GPU-days checkpoint; M3259 makes no training, driver-performance,
+high-fidelity sufficiency, paper, feasibility-proof, repair-success,
+robustness-result, or self-ID claim
+(`docs/m3259-phase4-e1prime-spread-revival-repricing.md`).
 
 Work packages: WP0 **complete** (wrapper modes M3215-validated, family #2
 frozen with clean acceptance after one pre-registered repair, statistical
@@ -234,11 +255,15 @@ checks **partially updated**
 (Chrono outcome coverage now includes D1 Sedan/BMW_E90/UAZBUS direction
 pricing plus D1b Sedan/BMW_E90 native oracle direction-pricing, M3248
 freezes the Phase-4 E0 expressibility envelope for Sedan/BMW_E90/UAZBUS,
-M3252 gives a full E2 two-regime-law verdict on Sedan/TMeasy only, and
-M3255 gives a full E3 detector-latency/recovery-budget verdict on
-Sedan/TMeasy only. It still does not cover UAZBUS D1b native search,
-non-Sedan E2/E3, independent payload-position/h_cg, tire-family, split-mu,
-or continuous lateral/tire channel mapping); WP5 papers
+M3252 gives the initial full E2 two-regime-law verdict on Sedan/TMeasy,
+M3258 hardens E2' across Sedan/TMeasy and UAZBUS/TMeasy with 30 validation
+seeds per cell and confirms the clean flip, M3259 completes E1' spread
+repricing across Sedan/BMW_E90/UAZBUS with 24 validation units per variant
+and 0/3 qualifying variants, and M3255 gives a full E3
+detector-latency/recovery-budget verdict on Sedan/TMeasy only. It still does
+not cover UAZBUS D1b native search, non-Sedan E3, independent
+payload-position/h_cg, tire-family, split-mu, or continuous lateral/tire
+channel mapping); WP5 papers
 **pending**
 (scope fixed: family-scoped mode-dependent two-regime law + estimator
 positive + the capstone bound; plus C5' only if PI accepts the structural
@@ -246,8 +271,9 @@ ceiling route as a priced-but-not-converted negative); WP6 **current guardrails 
 validator V7, escalation protocol, and managed-run helper are merged).
 
 Harness ledger: M3215, M3216, M3217, M3218, M3219, M3220, M3221, M3222,
-M3223, M3224, M3225, M3226, M3227, M3228, M3229, M3230, M3231, M3232, M3233, M3234, M3235, M3236, M3237, M3238, M3239, M3240, M3241, M3242, M3244, M3245, M3246, M3247, M3248, M3249, M3250, M3251, M3252, M3253, and M3254 registered and
-executed through the harness (research-validate passed in pending state;
+M3223, M3224, M3225, M3226, M3227, M3228, M3229, M3230, M3231, M3232, M3233, M3234, M3235, M3236, M3237, M3238, M3239, M3240, M3241, M3242, M3244, M3245, M3246, M3247, M3248, M3249, M3250, M3251, M3252, M3253, M3254, M3255, M3257, M3258, and M3259 registered and
+executed through the harness (research-validate passed in pending and
+completed states;
 M3228 failed its full gate, M3229 completed, M3230 completed after a
 same-turn rerun tightened the quick gate to require both structured and CEM
 candidate coverage, M3231 completed after one infrastructure retry with
@@ -267,8 +293,11 @@ negative, M3248 completed the Phase-4 E0 Chrono spread expressibility
 audit, M3249 completed the E1 quick protocol smoke, M3250 completed the
 full E1 spread-revival pricing negative, M3251 completed the E2 Chrono
 two-regime protocol smoke, M3252 completed the full E2 Chrono two-regime
-pricing verdict, M3253 completed the E3 measurement-A/C protocol smoke, and
-M3254 completed the E3 tire-truth telemetry connector smoke);
+pricing verdict, M3253 completed the E3 measurement-A/C protocol smoke,
+M3254 completed the E3 tire-truth telemetry connector smoke, M3255 completed
+the full E3 measurement A/C panel, M3257 completed detector-onset
+reconciliation, M3258 completed the E2' hardened clean-flip confirmation,
+and M3259 completed the E1' spread-revival repricing negative);
 M3243 remains a
 blocked-dependency escalation row with a resolution note because it records the
 temporary roadmap stop rather than a measurement;
@@ -430,8 +459,15 @@ admitted. M3256 recorded the CP-3 blocked checkpoint, PI resolved it as
 disposition A (harden Track E before any GPU), and M3257 completed E3-fix:
 24/24 detector-onset reconciliation rows, 3426 trace rows, original early-fire
 rate 0.5, reconciled early-fire rate 0.0, detector miss rate 0.1667, and E2'
-dependency ready. Track F remains blocked on E2' flip confirmation plus a later
-GPU-days checkpoint.
+dependency ready. M3258 then completed E2' hardening: 560/560 selection rows,
+5760/5760 validation rows, 30 validation seeds per cell, Sedan/TMeasy plus
+UAZBUS/TMeasy, all five clean reveal tiers qualified on both variants, and
+the frozen clean flip criterion confirmed. Track F remains blocked on the
+later PI GPU-days checkpoint. M3259 then completed E1' repricing with
+selection-row oracle adequacy passed, 24 validation units per variant, 0/3
+qualifying variants, pooled `v4_pertuned - fixed_star` -0.1389 CI95
+[-0.2222, -0.0556], and Track F still blocked before the later PI GPU-days
+checkpoint.
 
 ## Pointer Table
 
@@ -441,7 +477,7 @@ GPU-days checkpoint.
 | Phase-2 plan v2 (active program definition) | `docs/research-plan-phase2-capability-boundary-tracking.md` |
 | Takeover decision (why M3213 was blocked) | `docs/feasibility-takeover-2026-06-route-decision.md` |
 | Gate protocol v2 (anchors before informative actions; R²≤0.1 self-check) | `docs/selfid-gate-protocol-v2-2026-06.md` |
-| Latest harness milestone (M3254: Phase-4 E3 Chrono tire telemetry smoke) | `docs/m3254-phase4-e3-chrono-tire-telemetry-smoke.md` |
+| Latest harness milestone (M3259: Phase-4 E1' oracle-adequate spread-revival repricing) | `docs/m3259-phase4-e1prime-spread-revival-repricing.md` |
 | Resolved blocked-dependency escalation (M3243: PI reopened C1-v3) | `docs/escalations/2026-06-12-phase3-roadmap-exhausted-pi-route.md` |
 | Thesis capstone + RL re-entry (Sections 10-11) | `docs/capability-boundary-tracking-thesis-2026-06.md` |
 | Data coverage map (C5 sampling design authority) | `docs/data-coverage-map-2026-06.md` |
