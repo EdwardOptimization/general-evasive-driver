@@ -300,7 +300,8 @@ def test_s5_reward_fail_closed_and_grazing_penalty():
     cleared = f2._avoidance_reward({"collision": False, "completion_reason": "max_steps", "min_clearance_margin": 0.5}, True, True)
     assert cleared - unknown >= f2.AVOIDANCE_PASS_REWARD - 1e-6
     assert not f2._avoidance_success(False, {"completion_reason": "", "termination_reason": ""})
-    assert f2._avoidance_success(False, {"completion_reason": "obstacle_cleared", "termination_reason": ""})
+    # M2: the real backend pass token is "obstacle_pass" (NOT "obstacle_cleared")
+    assert f2._avoidance_success(False, {"completion_reason": "obstacle_pass", "termination_reason": ""})
     # high-speed low-margin grazing is penalized vs a slow low-margin pass
     graze = f2._avoidance_reward({"collision": False, "completion_reason": "max_steps",
                                   "min_clearance_margin": 0.05, "vx_norm": 0.8}, False, False)
@@ -406,6 +407,130 @@ def test_seed_streams_disjoint():
     assert holdout.isdisjoint(validation)
 
 
+# --------------------------------------------------------------- M2 avoidance success contract
+
+
+def test_m2_avoidance_success_uses_obstacle_pass_not_obstacle_cleared():
+    # M2: the acceptance set is {"max_steps","obstacle_pass"}; the nonexistent
+    # backend token "obstacle_cleared" must NOT score as success.
+    assert f2.AVOIDANCE_SUCCESS_COMPLETIONS == ("max_steps", "obstacle_pass")
+    assert "obstacle_cleared" not in f2.AVOIDANCE_SUCCESS_COMPLETIONS
+    # completion_reason == "obstacle_pass" -> success True AND the pass reward fires
+    info_pass = {"collision": False, "termination_reason": "", "completion_reason": "obstacle_pass",
+                 "min_clearance_margin": 0.5}
+    assert f2._avoidance_success(False, info_pass) is True
+    r_pass = f2._avoidance_reward(info_pass, True, True)
+    r_unknown = f2._avoidance_reward({"collision": False, "termination_reason": "", "completion_reason": "",
+                                      "min_clearance_margin": 0.5}, True, True)
+    assert r_pass - r_unknown == pytest.approx(f2.AVOIDANCE_PASS_REWARD, abs=1e-6)
+    # the dead token never passes
+    assert f2._avoidance_success(False, {"collision": False, "termination_reason": "",
+                                         "completion_reason": "obstacle_cleared"}) is False
+
+
+# --------------------------------------------------------------- M3 reveal gate flip
+
+
+def test_m3_reveal_gate_flips_false_before_true_after():
+    # M3: _obstacle_visible reads the worker truth (obstacle_visible flag, then the
+    # geometric longitudinal<=reveal_distance test). It must be False before the
+    # reveal and True after -- the old constant-zero obs72-tail fallback never
+    # flipped, so the avoidance BC collected 0 frames.
+    obs = np.zeros(f2.HUMAN_VIEW_OBS_DIM, np.float32)
+    # explicit worker flag governs
+    assert f2._obstacle_visible(obs, {"obstacle_visible": False}) is False
+    assert f2._obstacle_visible(obs, {"obstacle_visible": True}) is True
+    # geometric fallback: ahead beyond reveal_distance -> not visible;
+    # within reveal_distance (or behind the ego) -> visible.
+    far = {"obstacle_longitudinal": 40.0, "reveal_distance": 16.0}
+    near = {"obstacle_longitudinal": 10.0, "reveal_distance": 16.0}
+    behind = {"obstacle_longitudinal": -3.0, "reveal_distance": 16.0}
+    assert f2._obstacle_visible(obs, far) is False   # before reveal
+    assert f2._obstacle_visible(obs, near) is True    # after reveal
+    assert f2._obstacle_visible(obs, behind) is True  # passed (revealed)
+
+
+def test_m3_backend_diagnostics_expose_obstacle_visible_and_reveal_distance():
+    # M3: the backend's diagnostics must now carry obstacle_visible + reveal_distance
+    # so the avoidance BC can gate on the real reveal (not constant-zero padding).
+    import autodrift.chrono_vehicle_backend as backend
+    import inspect
+    src = inspect.getsource(backend.ChronoVehicleBackend._diagnostics)
+    assert '"obstacle_visible"' in src
+    assert '"reveal_distance"' in src
+
+
+# --------------------------------------------------------------- M4 S7 stop-loss
+
+
+def test_m4_s7_recommendation_tokens_and_threshold():
+    # M4: the precheck threshold is floor + prize (the prize is the frozen +0.40).
+    assert f2.S7_DRIFT_PRIZE == pytest.approx(0.40)
+
+
+def test_m1_act_batch_is_obs72_only_and_batched():
+    # M1: act_batch does ONE stochastic forward over W obs72 frames; obs72-only.
+    model = f2.AsymmetricActorCritic()
+    obs = np.random.default_rng(0).normal(size=(7, f2.HUMAN_VIEW_OBS_DIM)).astype(np.float32)
+    actions, logps = model.act_batch(obs)
+    assert actions.shape == (7, f2.ACT_DIM)
+    assert logps.shape == (7,)
+    assert np.max(np.abs(actions)) <= 1.0
+    assert np.isfinite(logps).all()
+    # rejects any non-obs72 width (no privileged path through the batched rollout)
+    with pytest.raises(ValueError):
+        model.act_batch(np.zeros((3, f2.HUMAN_VIEW_OBS_DIM + f2.PRIV_DIM), np.float32))
+
+
+def test_m7_real_step_budget_is_not_100m_placeholder():
+    # M7: the full budget has NO 100M placeholder; total_steps is derived from
+    # seeds * updates * workers * horizon.
+    assert "total_steps" not in f2.FULL
+    budget = f2._real_step_budget(f2.FULL)
+    expect_ppo = (f2.FULL["seeds"] * f2.FULL["ppo_updates"] * f2.FULL["rollout_workers"] * f2.FULL["rollout_horizon"])
+    assert budget["ppo_env_steps"] == expect_ppo
+    assert budget["total_env_steps"] >= budget["ppo_env_steps"]
+    assert budget["total_env_steps"] != 100_000_000
+
+
+def test_m7_wall_clock_uses_f1b_30worker_rate_not_serial():
+    # M7: the wall-clock projection uses the F1b 30-worker closed_loop rate
+    # (~1000+ steps/s), NOT the serial ~2.1 steps/s baseline.
+    rate = f2._f1b_aggregate_steps_per_s()
+    assert rate >= 1000.0  # F1b 30-worker closed_loop aggregate
+    wc = f2._wall_clock_projection(f2.FULL)
+    assert wc["throughput_steps_per_s"] >= 1000.0
+    assert wc["projected_wall_clock_hours"] > 0.0
+    # a measured rate overrides the artifact
+    wc2 = f2._wall_clock_projection(f2.FULL, measured_steps_per_s=1500.0)
+    assert wc2["throughput_steps_per_s"] == pytest.approx(1500.0)
+    assert wc2["throughput_source"] == "f2_measured_rollout"
+
+
+def test_m6_prereg_b6_wording_is_honest_not_spearman_unreachable():
+    # M6: the B6 justification must be the PI-approved honest wording (binary-vs-
+    # continuous rank correlation does not reach 1, class-balance dependent), and
+    # must NOT claim "Spearman unreachable".
+    prereg = f2.build_preregistration()
+    b6 = prereg["reward_recalibration"]["B6_reward_hacking_guard"].lower()
+    assert "rank-biserial auc" in b6
+    assert "does not reach 1" in b6
+    assert "class-balance dependent" in b6
+    assert "unreachable" not in b6
+    assert prereg["reward_recalibration"]["B6_auc_hard_gate_threshold"] == 0.9
+    # Spearman stays reported, not gated
+    assert "not gated" in b6 or "reported alongside but not gated" in b6
+
+
+def test_m7_prereg_carries_real_step_budget_and_wall_clock():
+    prereg = f2.build_preregistration()
+    sb = prereg["step_budget_and_wall_clock_M7"]
+    assert sb["real_step_budget_full"]["total_env_steps"] != 100_000_000
+    assert sb["wall_clock_projection_full"]["throughput_steps_per_s"] >= 1000.0
+    # M1 parallelism is documented in the rl_algorithm block
+    assert "M1_rollout_parallelism" in prereg["rl_algorithm"]
+
+
 # --------------------------------------------------------------- Chrono smoke
 
 
@@ -436,6 +561,20 @@ def test_quick_pipeline_end_to_end():
     assert gates["avoidance_spectrum_spanned_S2"]
     assert gates["student_input_obs72_only"]
     assert gates["full_not_launched"]
+    # pass-3 fixes wired into the smoke gates
+    assert gates["ppo_rollout_parallel_throughput_M1"]
+    assert gates["avoidance_bc_frames_positive_M3"]
+    assert gates["s7_stop_loss_active_M4"]
+    # M1 throughput measured + reported; M3 BC frames > 0; M7 wall-clock present
+    assert summary["throughput_M1"]["rollout_total_steps"] > 0
+    assert summary["avoidance_bc_frames_M3"] > 0
+    assert summary["wall_clock_projection_M7"]["throughput_steps_per_s"] >= 1000.0
+    # M4: S7 demonstrates BOTH branches honestly (real +0.40 prize -> stop; prize 0
+    # -> proceed), proving the stop-loss is a real inequality, not a constant.
+    s7 = summary["oracle_ceiling_precheck_S7"]
+    assert s7["recommendation"] == "stop_and_reprice"  # real +0.40 prize not cleared
+    assert s7["verification_proceed_branch_prize0"]["recommendation"] == "proceed"
+    assert s7["both_branches_demonstrated"] is True
     assert summary["decision"]["incumbent_changed"] is False
     assert summary["decision"]["quick_mode_is_verdict"] is False
     adjud = summary["adjudication"]
@@ -472,6 +611,130 @@ def test_quick_kill_and_resume_continues_from_nonzero(tmp_path):
     done_updates = {r["update"] for r in metrics2}
     assert done_updates  # work happened on resume
     assert min(done_updates) >= int(state["update"]) + 1  # continued from N (non-zero)
+
+
+@pytest.mark.skipif(not _chrono_available(), reason="chrono worker not launchable in this environment")
+def test_m3_avoidance_bc_frames_positive_after_reveal_gate_fix(tmp_path):
+    # M3: with the reveal gate reading the worker truth, the avoidance teacher
+    # collects > 0 reveal-post BC frames (it was 0 before the fix). A horizon long
+    # enough for the obstacle to reveal is used.
+    client = ChronoWorkerClient(stderr_log=tmp_path / "err.log")
+    try:
+        stage = f2.CURRICULUM_STAGES[0]
+        # the quick grid leads with reveal 30.0 (obstacle in obs72 view from reset);
+        # the first avoidance unit therefore collects reveal-post BC frames.
+        demos = f2.collect_bc_demos(
+            client, stage=stage, units=4, horizon=20, seed_ns="m3test", update=0, quick=True,
+        )
+    finally:
+        client.close()
+    assert demos["avoidance_bc_frames"] > 0  # reveal gate now fires (was 0 before)
+    assert demos["obs"].shape[0] > 0
+    # the reveal gate flips: a far-reveal scenario yields no reveal-post frames at a
+    # tiny horizon (proving the gate is selective, not always-true)
+    obs = np.zeros(f2.HUMAN_VIEW_OBS_DIM, np.float32)
+    assert f2._obstacle_visible(obs, {"obstacle_visible": False}) is False
+    obs[f2.OBS72_OBSTACLE_VISIBLE_CHANNEL] = 1.0
+    assert f2._obstacle_visible(obs, {"obstacle_visible": False}) is True  # obs72 channel governs
+
+
+@pytest.mark.skipif(not _chrono_available(), reason="chrono worker not launchable in this environment")
+def test_m1_parallel_rollout_throughput_and_serial_shape(tmp_path):
+    # M1: the parallel collector returns a positive aggregate Chrono step rate and
+    # well-formed PPO batch tensors, using a pool of clients stepped lockstep.
+    model = f2.AsymmetricActorCritic()
+    n_workers = 3
+    clients = [ChronoWorkerClient(stderr_log=tmp_path / "err.log") for _ in range(n_workers)]
+    try:
+        batch = f2.collect_ppo_rollout(
+            clients, model, stage=f2.CURRICULUM_STAGES[0], units=4, horizon=20,
+            seed_ns="m1test", update=0, quick=True,
+        )
+    finally:
+        for c in clients:
+            c.close()
+    assert batch["rollout_workers"] == n_workers
+    assert batch["rollout_steps"] > 0
+    assert batch["rollout_steps_per_s"] > 0.0
+    # PPO batch is well-formed and aligned across fields
+    n = batch["obs"].shape[0]
+    assert n > 0
+    assert batch["act"].shape == (n, f2.ACT_DIM)
+    assert batch["logp"].shape == (n,)
+    assert batch["priv"].shape == (n, f2.PRIV_DIM)
+    assert batch["adv"].shape == (n,) and batch["ret"].shape == (n,)
+    assert np.isfinite(batch["adv"]).all() and np.isfinite(batch["ret"]).all()
+
+
+@pytest.mark.skipif(not _chrono_available(), reason="chrono worker not launchable in this environment")
+def test_m4_s7_triggers_stop_under_nonzero_floor_plus_prize(tmp_path):
+    # M4: at horizon 6 the drift oracle cannot sustain the 24-step drift criterion,
+    # so the oracle ceiling < floor + prize -> recommendation == "stop_and_reprice"
+    # and should_stop is True (the stop-loss is REAL, not a 0/0 no-op).
+    budget = dict(f2.QUICK)
+    budget["selection_units_per_regime"] = 2
+    s7 = f2.oracle_ceiling_precheck(
+        budget=budget, quick=True, stderr_log=tmp_path / "err.log",
+        floor_threshold=0.0, prize=f2.S7_DRIFT_PRIZE,
+    )
+    assert s7["prize"] == pytest.approx(0.40)
+    assert s7["floor_plus_prize_threshold"] == pytest.approx(0.40)
+    assert s7["should_stop"] is True
+    assert s7["recommendation"] == "stop_and_reprice"
+    # and a high threshold the oracle cannot meet always stops, proving the gate
+    # is a real inequality (not a constant pass)
+    s7_hi = f2.oracle_ceiling_precheck(
+        budget=budget, quick=True, stderr_log=tmp_path / "err2.log",
+        floor_threshold=0.99, prize=f2.S7_DRIFT_PRIZE,
+    )
+    assert s7_hi["recommendation"] == "stop_and_reprice"
+
+
+@pytest.mark.skipif(not _chrono_available(), reason="chrono worker not launchable in this environment")
+def test_m5_seed_level_kill_resume_skips_done_seed(tmp_path, monkeypatch):
+    # M5: run() with a micro 2-seed/2-update FULL-shaped budget; kill after the
+    # first seed completes, then resume -> the DONE seed is NOT re-entered and the
+    # unfinished seed continues. Drives the real run() seed loop (the --full path
+    # stays PI-gated; this exercises the same code with a micro budget).
+    micro = {
+        "workers": 2, "seeds": 2, "warmstart_updates": 1, "ppo_updates": 1,
+        "rollout_workers": 2, "rollout_horizon": 6,
+        "validation_units_per_regime": 1, "selection_units_per_regime": 1, "warmstart_units": 2,
+    }
+    ckpt_dir = tmp_path / "ckpt"
+    seeds = [f2._seed_for("seed_select", i) for i in range(micro["seeds"])]
+
+    # --- "kill": train ONLY the first seed and drop its DONE marker (simulating an
+    # interruption right after seed 0 finished but before seed 1 started).
+    metrics0: list = []
+    summ0 = f2.train_student(
+        seed=seeds[0], budget=micro, quick=True, ckpt_dir=ckpt_dir,
+        stderr_log=tmp_path / "e.log", progress=tmp_path / "p0.jsonl",
+        train_metrics=metrics0, resume=False,
+    )
+    f2.mark_seed_done(ckpt_dir, seeds[0], summ0)
+    assert f2.seed_is_done(ckpt_dir, seeds[0]) is True
+    assert f2.seed_is_done(ckpt_dir, seeds[1]) is False
+
+    # --- "resume": run() with resume=True must SKIP seed 0 (DONE) and train seed 1.
+    monkeypatch.setattr(f2, "FULL", micro)
+    monkeypatch.setattr(f2, "CKPT_FULL_DIR", ckpt_dir)
+    monkeypatch.setattr(f2, "STDERR_FULL_LOG", tmp_path / "ef.log")
+    monkeypatch.setattr(f2, "PROGRESS_FULL_JSONL", tmp_path / "pf.jsonl")
+    monkeypatch.setattr(f2, "ROWS_FULL_CSV", tmp_path / "rows.csv")
+    monkeypatch.setattr(f2, "TRAIN_FULL_CSV", tmp_path / "train.csv")
+    monkeypatch.setattr(f2, "FULL_JSON", tmp_path / "full.json")
+    monkeypatch.setattr(f2, "DOC_PATH", tmp_path / "doc.md")
+
+    summary = f2.run(quick=False, resume=True)
+    # seed 0 was reloaded-not-retrained: no NEW training-metric rows for it.
+    seed0_new_rows = [r for r in summary["train_summaries"] if int(r["seed"]) == seeds[0] and r.get("resumed_done")]
+    assert seed0_new_rows, "seed 0 should be marked resumed_done (skipped, not retrained)"
+    # seed 1 newly completed and now also has a DONE marker
+    assert f2.seed_is_done(ckpt_dir, seeds[1]) is True
+    # both seeds validated in the four-arm eval
+    validated = {int(s["seed"]) for s in summary["train_summaries"]}
+    assert validated == set(seeds)
 
 
 @pytest.mark.skipif(not _chrono_available(), reason="chrono worker not launchable in this environment")

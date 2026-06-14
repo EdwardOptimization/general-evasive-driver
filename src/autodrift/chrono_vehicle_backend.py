@@ -1018,6 +1018,14 @@ class ChronoVehicleBackend:
             "min_obstacle_clearance": float(self.min_obstacle_clearance),
             "min_clearance_margin": min_clearance_margin,
             "obstacle_longitudinal": float(self._obstacle_longitudinal(frame, x, y)),
+            "obstacle_visible": bool(
+                self._obstacle_visible(self._obstacle_longitudinal(frame, x, y))
+            ),
+            "reveal_distance": (
+                float(ob["perception_reveal_distance"])
+                if ob.get("enabled") and ob.get("perception_reveal_distance") is not None
+                else float("nan")
+            ),
             "termination_reason": str(self.termination_reason),
             "completion_reason": str(self.completion_reason),
             "friction_step_applied": bool(self.friction_step_applied),

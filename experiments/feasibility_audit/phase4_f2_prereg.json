@@ -34,7 +34,7 @@
       30.0
     ],
     "reveals_m_quick": [
-      9.5,
+      30.0,
       16.0
     ]
   },
@@ -45,7 +45,6 @@
       "rollout_workers": 30,
       "seeds": 8,
       "selection_units_per_regime": 8,
-      "total_steps": 100000000,
       "validation_units_per_regime": 30,
       "warmstart_units": 60,
       "warmstart_updates": 20,
@@ -117,9 +116,9 @@
     "f1b_gates_passed": true
   },
   "draft": true,
-  "drafted_at_utc": "20260614T032709Z",
+  "drafted_at_utc": "20260614T052328Z",
   "floor_definition_B5": "max over learning-free non-trivial classical arms {fixed*, entry_speed_commitment_floor, online_mu_seeker_floor}; NOT the bare incumbent; not a strawman",
-  "freeze_blocked_on": "PI sign-off only; criteria/CI/floor/spectrum/power/curriculum are all defined and freezable",
+  "freeze_blocked_on": "PI sign-off only; criteria/CI/floor/spectrum/power/curriculum/total_steps/wall-clock/B6-AUC-gate/S7-threshold are all defined and frozen-ready (pass-3: M1 parallel rollout, M2 obstacle_pass contract, M3 reveal gate, M4 S7 stop-loss, M5 seed-level resume, M6 PI-approved AUC wording, M7 real step budget)",
   "freeze_ready": true,
   "frozen": false,
   "leak_discipline": {
@@ -151,12 +150,16 @@
     "note": "If observed cross-seed SD exceeds the assumed 0.18 such that the drift effect +0.40 no longer exceeds the MDE, raise seeds or per-seed validation units before freeze."
   },
   "pre_full_checks_S7": {
-    "oracle_ceiling_precheck": "measure matched oracle success on the student/hard grid; if < floor+prize, STOP + re-price before spending full wall-clock"
+    "block_rule_M4": "recommendation=='stop_and_reprice' (matched drift oracle < floor+prize) -> all_passed=False, the --full launch is blocked + re-price; recommendation=='proceed' otherwise",
+    "drift_prize_frozen": 0.4,
+    "oracle_ceiling_precheck": "measure the matched oracle success on the student/hard grid; threshold = drift floor (_floor_rate) + the pre-registered drift prize (+0.40)"
   },
   "protocol": "phase4_f2_asymmetric_actor_critic_rl_preregistration_FREEZE_READY",
   "quick_mode_is_verdict": false,
   "reward_recalibration": {
-    "B6_reward_hacking_guard": "per-EPISODE alignment: report Spearman(reward,success) AND rank-biserial AUC = P(reward[success]>reward[failure]); the >=0.9 HARD gate is on the AUC (binary-appropriate; raw Spearman is structurally capped for binary labels); N/A on ties; failure -> re-price",
+    "B6_auc_hard_gate_threshold": 0.9,
+    "B6_pi_signoff": "2026-06-14 APPROVED (docs/phase4-f2-build-review-2026-06-14.md): AUC hard gate accepted; honest justification required (binary-vs-continuous rank correlation does not reach 1 and is class-balance dependent), NOT 'Spearman unreachable'.",
+    "B6_reward_hacking_guard": "per-EPISODE alignment (PI-approved 2026-06-14): the binary-vs-continuous rank correlation does not reach 1 and is class-balance dependent, so the >=0.9 HARD gate is on the rank-biserial AUC = P(reward[success] > reward[failure]) (the Mann-Whitney statistic, the textbook measure for binary-vs-continuous alignment); Spearman is reported alongside but NOT gated; N/A on ties; a failing AUC gate -> re-price.",
     "S5_fail_closed": "avoidance success/pass requires explicit cleared completion; completion=='' is a FAILURE",
     "S5_grazing_penalty": {
       "margin_m": 0.2,
@@ -170,6 +173,7 @@
     "source": "m1087 staged discipline + C5 measured collision cost; penalties >= success rewards"
   },
   "rl_algorithm": {
+    "M1_rollout_parallelism": "PPO rollout collected W-way PARALLEL: a pool of rollout_workers chrono clients stepped lockstep via one batched act_batch(obs72) forward + a ThreadPoolExecutor of per-worker closed_loop_step calls (the F1b 30-worker parallelism inside the PPO loop). On-policy preserved (each worker steps under the current random policy, one step at a time; NO open-loop batched_action_sequence).",
     "advantage_normalization": "batch-wise (mean/std) before minibatch SGD",
     "clip": 0.2,
     "entropy_coef": 0.01,
@@ -207,6 +211,31 @@
     "ci_method_robustness": "seed-clustered bootstrap of the same paired diff",
     "seed_cluster_unit": "TRAINING seed (each seed's student validation success rate is one observation, n=seeds)",
     "validate_all_training_seeds": true
+  },
+  "step_budget_and_wall_clock_M7": {
+    "note": "the REAL PPO env-step budget (NOT a 100M decorative placeholder): ppo_env_steps = seeds * ppo_updates * rollout_workers * horizon (an upper bound; episodes may terminate early). Wall-clock = total_env_steps / measured aggregate rollout throughput (F1b 30-worker rate; replaced by the F2-measured rate at run time).",
+    "real_step_budget_full": {
+      "bc_aux_env_steps": 18432000,
+      "bc_warmstart_env_steps": 1228800,
+      "ppo_env_steps": 18432000,
+      "selection_env_steps": 10158080,
+      "total_env_steps": 48250880,
+      "total_env_steps_upper_bound": true
+    },
+    "wall_clock_projection_full": {
+      "projected_wall_clock_days": 0.349,
+      "projected_wall_clock_hours": 8.372,
+      "real_step_budget": {
+        "bc_aux_env_steps": 18432000,
+        "bc_warmstart_env_steps": 1228800,
+        "ppo_env_steps": 18432000,
+        "selection_env_steps": 10158080,
+        "total_env_steps": 48250880,
+        "total_env_steps_upper_bound": true
+      },
+      "throughput_source": "f1b_aggregate_artifact_or_fallback",
+      "throughput_steps_per_s": 1600.844018418415
+    }
   },
   "teacher_role": {
     "avoidance": {

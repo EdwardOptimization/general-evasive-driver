@@ -47,8 +47,10 @@ REAL RL (the F2 build-review B-list fixes):
         high-speed grazing penalty;
   * S7  pre-full oracle-ceiling check on the student/hard distribution.
 
-This milestone runs --quick ONLY. --full (100M steps, 8 seeds, 30 workers, CPU,
-managed) is wired and PI-gated but intentionally NOT launched here.
+This milestone runs --quick ONLY. --full (the REAL PPO env-step budget from
+seeds x ppo_updates x rollout_workers x horizon -- see _real_step_budget; NOT a
+100M placeholder -- 8 seeds, 30 workers, CPU, managed) is wired and PI-gated but
+intentionally NOT launched here.
 
 Usage:
     PYTHONPATH=src python scripts/feasibility_audit/phase4_f2_train.py --write-prereg
@@ -65,6 +67,7 @@ import json
 import math
 import os
 import random
+from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 import sys
 import time
@@ -131,7 +134,11 @@ PRIV_DIM = 6
 # a single point). The avoidance teacher binds mu_true PER scenario.
 AVOIDANCE_REVEALS_FULL = e2p.CLEAN_REVEALS          # (9.5, 12.0, 16.0, 22.0, 30.0)
 AVOIDANCE_MUS_FULL = e2p.MU_POINTS                  # (0.3625, 0.5875, 0.8125, 1.0375)
-AVOIDANCE_REVEALS_QUICK = (9.5, 16.0)
+# M3: the quick grid LEADS with reveal 30.0, where the obstacle is in obs72 view
+# from reset (obs[44]=1 at mu 0.3625), so even the tiny quick horizon collects
+# reveal-post avoidance BC frames on the first avoidance unit -> avoidance_bc_frames
+# > 0 in the smoke. The tighter 16.0 reveal keeps the S2 spectrum > 1 point.
+AVOIDANCE_REVEALS_QUICK = (30.0, 16.0)
 AVOIDANCE_MUS_QUICK = (0.3625, 0.8125)
 AVOIDANCE_ORACLE_DV = 0.0
 # reveal-post-only BC warm-start (B2): the avoidance oracle's pre-reveal action
@@ -142,6 +149,9 @@ AVOIDANCE_BC_REVEAL_POST_ONLY = True
 # --- drift teacher binding (E4/M3260 +0.40 prize source) --------------------
 DRIFT_CELL_ID = "low_mu_power_oversteer"
 DRIFT_FEEDBACK_NAME = "beta0p22_power"  # selected DriftFeedbackSpec; NOT CEM.
+# M4/S7: the pre-registered drift prize the matched oracle must clear above the
+# drift floor for the full run to be worth its wall-clock (E4/M3260 gap +0.40).
+S7_DRIFT_PRIZE = 0.40
 
 # --- reward recalibration (m1087 / C5 measured penalties) -------------------
 COLLISION_PENALTY = 60.0
@@ -155,6 +165,11 @@ DRIFT_PROGRESS_SHAPING = 0.5
 GRAZE_SPEED_NORM = 0.45
 GRAZE_MARGIN_M = 0.20
 GRAZE_PENALTY = 12.0
+# M2: the backend's avoidance-pass completion tokens. "obstacle_pass" is the real
+# pass token emitted by the worker (chrono_vehicle_backend.py:557); "max_steps" is
+# a survived-without-failure truncation. "obstacle_cleared" is NOT a backend token
+# (it never existed) and is deliberately excluded.
+AVOIDANCE_SUCCESS_COMPLETIONS = ("max_steps", "obstacle_pass")
 
 # --- PPO hyperparameters (pre-registered) -----------------------------------
 PPO_GAMMA = 0.99
@@ -208,7 +223,6 @@ QUICK = {
 FULL = {
     "workers": 30,
     "seeds": 8,
-    "total_steps": 100_000_000,
     "warmstart_updates": 20,
     "ppo_updates": 600,
     "rollout_workers": 30,
@@ -217,6 +231,85 @@ FULL = {
     "selection_units_per_regime": 8,
     "warmstart_units": 60,
 }
+
+
+def _real_step_budget(budget: dict[str, Any]) -> dict[str, int]:
+    """M7: the REAL PPO environment-step budget (NOT a 100M placeholder).
+
+    PPO env steps  = seeds * ppo_updates * rollout_workers (episodes/update) * horizon
+    BC env steps   = seeds * warmstart_updates * warmstart_units * horizon
+                     (+ annealed aux + held-out selection demo steps).
+    The dominant, science-load-bearing budget is the PPO on-policy env steps.
+    """
+    seeds = int(budget["seeds"])
+    horizon = int(budget["rollout_horizon"])
+    ppo_steps = seeds * int(budget["ppo_updates"]) * int(budget["rollout_workers"]) * horizon
+    total_updates = int(budget["warmstart_updates"]) + int(budget["ppo_updates"])
+    warmstart_steps = seeds * int(budget["warmstart_updates"]) * int(budget["warmstart_units"]) * horizon
+    # annealed aux BC runs ~half the warmstart units per PPO update; selection runs
+    # selection_units_per_regime per update across both regimes.
+    aux_steps = seeds * int(budget["ppo_updates"]) * max(1, int(budget["warmstart_units"]) // 2) * horizon
+    selection_steps = seeds * total_updates * (2 * max(1, int(budget["selection_units_per_regime"]))) * horizon
+    return {
+        "ppo_env_steps": int(ppo_steps),
+        "bc_warmstart_env_steps": int(warmstart_steps),
+        "bc_aux_env_steps": int(aux_steps),
+        "selection_env_steps": int(selection_steps),
+        "total_env_steps": int(ppo_steps + warmstart_steps + aux_steps + selection_steps),
+        "total_env_steps_upper_bound": True,  # horizon is a max; episodes may finish early
+    }
+
+
+# F1b-measured aggregate Chrono throughput at 30 workers (steps/s), used for the
+# wall-clock projection. Read from the F1b/F1 throughput artifact when present.
+F1B_FALLBACK_STEPS_PER_S = 1000.0
+
+
+def _f1b_aggregate_steps_per_s() -> float:
+    """The F1b 30-worker CLOSED_LOOP aggregate rate (the transport F2 PPO uses).
+
+    F1b reports throughput.closed_loop.aggregate_steps_per_s (the on-policy
+    closed_loop_step transport at 30 workers); we deliberately use that rate, NOT
+    the open-loop batched_action_sequence rate (unusable for on-policy PPO) and NOT
+    the serial F1 baseline (~2.1 steps/s, the pre-parallel number).
+    """
+    if F1B_JSON.exists():
+        try:
+            tp = _read_json(F1B_JSON).get("throughput", {})
+            for key in ("closed_loop", "best"):
+                block = tp.get(key)
+                if isinstance(block, dict):
+                    rate = block.get("aggregate_steps_per_s")
+                    if rate is not None and math.isfinite(float(rate)) and float(rate) > 0:
+                        return float(rate)
+            top = tp.get("aggregate_steps_per_s")
+            if top is not None and math.isfinite(float(top)) and float(top) > 0:
+                return float(top)
+        except Exception:
+            pass
+    if F1_JSON.exists():
+        try:
+            rate = _read_json(F1_JSON).get("throughput", {}).get("aggregate_steps_per_s")
+            if rate is not None and math.isfinite(float(rate)) and float(rate) > 0:
+                return float(rate)
+        except Exception:
+            pass
+    return F1B_FALLBACK_STEPS_PER_S
+
+
+def _wall_clock_projection(budget: dict[str, Any], *, measured_steps_per_s: float | None = None) -> dict[str, Any]:
+    """M7: wall-clock = real_step_budget / throughput (measured rate, NOT 100M)."""
+    steps = _real_step_budget(budget)
+    rate = float(measured_steps_per_s) if (measured_steps_per_s and math.isfinite(float(measured_steps_per_s)) and float(measured_steps_per_s) > 0) else _f1b_aggregate_steps_per_s()
+    total = int(steps["total_env_steps"])
+    hours = total / max(rate, 1e-9) / 3600.0
+    return {
+        "real_step_budget": steps,
+        "throughput_steps_per_s": float(rate),
+        "throughput_source": "f2_measured_rollout" if measured_steps_per_s else "f1b_aggregate_artifact_or_fallback",
+        "projected_wall_clock_hours": round(float(hours), 3),
+        "projected_wall_clock_days": round(float(hours / 24.0), 3),
+    }
 
 CLAIM_BOUNDARY = (
     "Phase-4 F2 asymmetric actor-critic RL training and four-arm adjudication only: "
@@ -257,6 +350,14 @@ def _jsonable(value: Any) -> Any:
 
 def _read_json(path: Path) -> dict[str, Any]:
     return json.loads(path.read_text(encoding="utf-8"))
+
+
+def _rel(path: Path) -> str:
+    """Repo-relative path string, tolerant of paths outside the repo (tmp runs)."""
+    try:
+        return str(path.relative_to(REPO_ROOT))
+    except ValueError:
+        return str(path)
 
 
 def _seed_for(*parts: Any) -> int:
@@ -366,6 +467,26 @@ class AsymmetricActorCritic(nn.Module):
         a = action.cpu().numpy().astype(np.float32)
         lp = log_prob.cpu().numpy().astype(np.float32)
         return (a[0], lp[0]) if single else (a, lp)
+
+    @torch.no_grad()
+    def act_batch(self, obs72_batch: np.ndarray) -> tuple[np.ndarray, np.ndarray]:
+        """M1: one batched STOCHASTIC forward for the W parallel rollout workers.
+
+        Samples a squashed action + its squashed log-prob for every active worker's
+        obs72 in a SINGLE forward pass (on-policy: each worker steps under the
+        current random policy, so the rollout stays exactly on-policy while the
+        per-step forward is shared). Input is obs72 only (the deployable frame);
+        there is no privileged path here.
+        """
+        arr = np.asarray(obs72_batch, dtype=np.float32)
+        if arr.ndim != 2 or arr.shape[-1] != self.obs_dim:
+            raise ValueError(f"act_batch input must be (W, {self.obs_dim}); got {arr.shape}")
+        obs_t = torch.as_tensor(arr, dtype=torch.float32)
+        dist = self.policy_distribution(obs_t)
+        raw = dist.sample()
+        action = torch.tanh(raw)
+        log_prob = self._squashed_log_prob(dist, raw, action)
+        return action.cpu().numpy().astype(np.float32), log_prob.cpu().numpy().astype(np.float32)
 
     @torch.no_grad()
     def act(self, obs72: np.ndarray) -> np.ndarray:
@@ -566,9 +687,12 @@ def _avoidance_reward(info: dict[str, Any], terminated: bool, truncated: bool) -
         # S5: penalize unsafe high-speed grazing (low margin while fast).
         if 0.0 <= margin_f < GRAZE_MARGIN_M and vx_norm >= GRAZE_SPEED_NORM:
             reward -= GRAZE_PENALTY
-    # S5: fail-closed -- only an explicit cleared/finished episode earns the pass
+    # S5: fail-closed -- only an explicit passed/finished episode earns the pass
     # reward. completion=="" (unknown) is NOT treated as a pass.
-    cleared = completion in {"max_steps", "obstacle_cleared"}
+    # M2: the backend emits "obstacle_pass" on a real avoidance pass (see
+    # chrono_vehicle_backend.py:557); "obstacle_cleared" never exists, so the
+    # acceptance set is {"max_steps","obstacle_pass"}.
+    cleared = completion in AVOIDANCE_SUCCESS_COMPLETIONS
     if (terminated or truncated) and not collision and not offtrack and cleared:
         reward += AVOIDANCE_PASS_REWARD
     return float(reward)
@@ -577,8 +701,10 @@ def _avoidance_reward(info: dict[str, Any], terminated: bool, truncated: bool) -
 def _avoidance_success(collision_any: bool, info: dict[str, Any]) -> bool:
     offtrack = str(info.get("termination_reason", "")) == "off_track"
     completion = str(info.get("completion_reason", ""))
-    # S5 fail-closed: success requires an explicit cleared/finished completion.
-    return bool((not collision_any) and (not offtrack) and completion in {"max_steps", "obstacle_cleared"})
+    # S5 fail-closed + M2: success requires an explicit passed/finished completion.
+    # The backend's avoidance-pass token is "obstacle_pass" (NOT the nonexistent
+    # "obstacle_cleared"); see chrono_vehicle_backend.py:557.
+    return bool((not collision_any) and (not offtrack) and completion in AVOIDANCE_SUCCESS_COMPLETIONS)
 
 
 def _drift_reward(controlled_drift: bool, drift_success_inc: bool, collision: bool) -> float:
@@ -602,17 +728,38 @@ def _drift_step_flags(obs: np.ndarray, info: dict[str, Any]) -> bool:
     return bool(high_beta and rear_saturated and controlled)
 
 
-def _obstacle_visible(obs: np.ndarray, info: dict[str, Any]) -> bool:
-    """B2 reveal gate: is the obstacle visible in obs72 at this frame?
+# obs72 obstacle-visible flag channel (the obs72-recoverable reveal signal; the
+# same channel e2's smoke reads as obs[44] > 0.5). The deployable actor sees this.
+OBS72_OBSTACLE_VISIBLE_CHANNEL = 44
 
-    The obstacle-present channel is exposed in obs72 (geometry channels). We use
-    the worker info flag when present and fall back to a nonzero obstacle block.
+
+def _obstacle_visible(obs: np.ndarray, info: dict[str, Any]) -> bool:
+    """M3/B2 reveal gate: is the obstacle revealed in the worker frame?
+
+    Primary signal is the obs72-recoverable obstacle-visible channel (obs[44] > 0.5,
+    the same channel e2's smoke reads), so the BC reveal-post segment is exactly the
+    obs72-observable segment the deployable actor can act on. We confirm with the
+    backend's ``obstacle_visible`` diagnostic (its perception model:
+    ``_obstacle_visible(longitudinal)`` gated by ``perception_reveal_step`` and
+    ``perception_reveal_distance``; chrono_vehicle_backend.py:837), then fall back
+    to the geometric ``obstacle_longitudinal <= reveal_distance`` test, then the
+    obstacle-slot block. The OLD constant-zero obs72-tail fallback never fired (the
+    slots are not the obs72 tail) so the avoidance BC collected 0 reveal-post frames
+    -- this is the fix.
     """
-    if "obstacle_visible" in info:
-        return bool(info.get("obstacle_visible"))
     arr = np.asarray(obs, dtype=np.float64)
-    # geometry/obstacle block (never degraded): treat any nonzero obstacle-slot
-    # signal as "revealed". obs72 layout reserves the tail for obstacle slots.
+    if arr.shape == (HUMAN_VIEW_OBS_DIM,) and float(arr[OBS72_OBSTACLE_VISIBLE_CHANNEL]) > 0.5:
+        return True
+    if "obstacle_visible" in info:
+        if bool(info.get("obstacle_visible")):
+            return True
+    longitudinal = info.get("obstacle_longitudinal", None)
+    reveal_distance = info.get("reveal_distance", None)
+    if longitudinal is not None and math.isfinite(float(longitudinal)):
+        lon = float(longitudinal)
+        if reveal_distance is not None and math.isfinite(float(reveal_distance)):
+            return bool(lon <= float(reveal_distance))
+        return bool(lon <= 0.0)
     return bool(np.any(np.abs(arr[-12:]) > 1e-6))
 
 
@@ -947,8 +1094,107 @@ def _curriculum_stage(update: int, total_updates: int) -> dict[str, Any]:
     return CURRICULUM_STAGES[idx]
 
 
+def _rollout_unit_spec(unit: int, *, n_avoid: int, grid: list[tuple[float, float]], stage: dict[str, Any], horizon: int, seed_ns: str, update: int) -> dict[str, Any]:
+    """Build one rollout unit's (scenario, regime, mu, reveal, priv) spec.
+
+    Shared by the serial and the parallel collectors so both build identical
+    scenarios from the same seed namespace.
+    """
+    regime = "avoidance" if unit < n_avoid else "drift"
+    seed = _seed_for(seed_ns, update, regime, unit)
+    if regime == "avoidance":
+        reveal, mu = grid[unit % len(grid)]
+        scenario = _avoidance_scenario(seed, max_steps=horizon, reveal=reveal, mu=mu)
+    else:
+        reveal, mu = 0.0, float(_drift_cell()["mu"])
+        scenario = _drift_scenario(seed, max_steps=horizon, difficulty=str(stage["drift_difficulty"]))
+    return {
+        "unit": int(unit), "regime": regime, "seed": int(seed), "mu": float(mu),
+        "reveal": float(reveal), "scenario": scenario, "max_steps": int(scenario["max_steps"]),
+        "priv": _privileged_features(regime, mu=float(mu), reveal=float(reveal)),
+    }
+
+
+def _new_ppo_traj(spec: dict[str, Any]) -> dict[str, Any]:
+    """Fresh per-worker PPO-trajectory accumulator (mirrors run_episode collect='ppo')."""
+    return {
+        "spec": spec, "obs": [], "act": [], "logp": [], "rew": [], "done": [], "priv": [],
+        "total_reward": 0.0, "collision_any": False, "longest_controlled": 0,
+        "current_controlled": 0, "terminated": False, "truncated": False,
+        "last_obs": None, "steps": 0,
+    }
+
+
+def _accumulate_ppo_step(
+    traj: dict[str, Any], *, prev_obs: np.ndarray, action: np.ndarray, logp: float,
+    obs_after: np.ndarray, terminated: bool, truncated: bool, info: dict[str, Any],
+) -> None:
+    """Apply one closed-loop step to a worker's PPO trajectory (reward + flags).
+
+    Reward/flag logic is byte-for-byte the same per-regime computation that
+    run_episode(collect='ppo') uses, so the parallel collector is exactly the
+    serial collector's data, just stepped lockstep across W clients.
+    """
+    spec = traj["spec"]
+    regime = spec["regime"]
+    collision = bool(info.get("collision", False)) or str(info.get("termination_reason", "")) == "obstacle_collision"
+    traj["collision_any"] = traj["collision_any"] or collision
+    if regime == "avoidance":
+        info.setdefault("vx_norm", float(prev_obs[0]))
+        step_reward = _avoidance_reward(info, terminated, truncated)
+    else:
+        controlled = _drift_step_flags(obs_after, info)
+        traj["current_controlled"] = traj["current_controlled"] + 1 if controlled else 0
+        traj["longest_controlled"] = max(traj["longest_controlled"], traj["current_controlled"])
+        success_inc = traj["longest_controlled"] == e4.MIN_SUSTAIN_STEPS and traj["current_controlled"] == e4.MIN_SUSTAIN_STEPS
+        step_reward = _drift_reward(controlled, success_inc, collision)
+    traj["total_reward"] += step_reward
+    traj["obs"].append(prev_obs.astype(np.float32))
+    traj["act"].append(np.asarray(action, dtype=np.float32))
+    traj["logp"].append(float(logp))
+    traj["rew"].append(float(step_reward))
+    traj["done"].append(1.0 if (terminated or truncated) else 0.0)
+    traj["priv"].append(spec["priv"].copy())
+    traj["last_obs"] = obs_after.astype(np.float32).copy()
+    traj["terminated"] = bool(terminated)
+    traj["truncated"] = bool(truncated)
+    traj["steps"] += 1
+
+
+def _finalize_ppo_traj(model: AsymmetricActorCritic, traj: dict[str, Any]) -> dict[str, Any] | None:
+    """GAE + bootstrap for one finished trajectory (critic bootstrap, no MC broadcast)."""
+    if not traj["obs"]:
+        return None
+    obs = np.stack(traj["obs"]).astype(np.float32)
+    priv = np.stack(traj["priv"]).astype(np.float32)
+    rew = np.asarray(traj["rew"], dtype=np.float32)
+    done = np.asarray(traj["done"], dtype=np.float32)
+    with torch.no_grad():
+        values = model.critic_forward(
+            torch.as_tensor(obs, dtype=torch.float32), torch.as_tensor(priv, dtype=torch.float32),
+        ).cpu().numpy().astype(np.float32)
+        if traj["terminated"]:
+            last_value = 0.0
+        else:
+            last_value = float(model.critic_forward(
+                torch.as_tensor(np.asarray(traj["last_obs"]).reshape(1, -1), dtype=torch.float32),
+                torch.as_tensor(traj["spec"]["priv"].reshape(1, -1), dtype=torch.float32),
+            ).item())
+    adv, ret = compute_gae(rew, values, done, last_value)
+    if traj["spec"]["regime"] == "avoidance":
+        success = _avoidance_success(traj["collision_any"], traj.get("last_info", {}))
+    else:
+        success = bool(traj["longest_controlled"] >= e4.MIN_SUSTAIN_STEPS)
+    return {
+        "obs": obs, "act": np.stack(traj["act"]).astype(np.float32),
+        "logp": np.asarray(traj["logp"], dtype=np.float32), "priv": priv,
+        "adv": adv, "ret": ret, "rew": rew,
+        "total_reward": float(traj["total_reward"]), "success": bool(success),
+    }
+
+
 def collect_ppo_rollout(
-    client: ChronoWorkerClient,
+    clients: list[ChronoWorkerClient] | ChronoWorkerClient,
     model: AsymmetricActorCritic,
     *,
     stage: dict[str, Any],
@@ -957,63 +1203,125 @@ def collect_ppo_rollout(
     seed_ns: str,
     update: int,
     quick: bool,
+    progress: Path | None = None,
 ) -> dict[str, Any]:
-    """Collect a PPO rollout segment via the closed_loop_step protocol.
+    """M1: collect a PPO rollout via W-way PARALLEL lockstep closed_loop_step.
 
-    Each unit is one closed-loop episode stepped by the STOCHASTIC policy; GAE is
-    computed per trajectory with a critic bootstrap. (Per f1b: closed_loop_step is
-    the training-equivalent transport; batched_action_sequence is open-loop and
-    unusable for on-policy PPO.)
+    The F1b 30-worker parallelism, recurring inside the PPO loop: a pool of W
+    chrono clients each runs one closed-loop episode; at each tick we batch the
+    active workers' obs72 into ONE stochastic policy forward (``act_batch``), then
+    submit the per-worker ``step`` calls to a ThreadPoolExecutor so all W chrono
+    backends advance concurrently. On-policy is preserved -- each worker steps
+    under the current random policy, one step at a time (NO open-loop
+    batched_action_sequence, which would break on-policy). When a worker's episode
+    ends it is rebound to the next pending unit. GAE is computed per trajectory
+    with a critic bootstrap.
     """
+    if isinstance(clients, ChronoWorkerClient):  # serial fallback (1 client)
+        clients = [clients]
     grid = _avoidance_grid(quick)
     n_avoid = max(1, int(round(units * float(stage["avoidance_frac"]))))
-    obs_all, act_all, logp_all, priv_all, adv_all, ret_all, rew_all = ([] for _ in range(7))
+    specs = [
+        _rollout_unit_spec(unit, n_avoid=n_avoid, grid=grid, stage=stage, horizon=horizon, seed_ns=seed_ns, update=update)
+        for unit in range(units)
+    ]
+    n_workers = min(len(clients), len(specs)) if specs else 0
+    finished: list[dict[str, Any]] = []
     ep_returns: list[float] = []
     ep_success: list[float] = []
-    for unit in range(units):
-        regime = "avoidance" if unit < n_avoid else "drift"
-        seed = _seed_for(seed_ns, update, regime, unit)
-        if regime == "avoidance":
-            reveal, mu = grid[unit % len(grid)]
-            scenario = _avoidance_scenario(seed, max_steps=horizon, reveal=reveal, mu=mu)
-        else:
-            reveal, mu = 0.0, float(_drift_cell()["mu"])
-            scenario = _drift_scenario(seed, max_steps=horizon, difficulty=str(stage["drift_difficulty"]))
-        result = run_episode(
-            client, scenario, regime, lambda s, o: model.act_stochastic(o),
-            seed=seed, mu=mu, reveal=reveal, collect="ppo",
-        )
-        ppo = result["ppo"]
-        if ppo["obs"].shape[0] == 0:
-            continue
-        with torch.no_grad():
-            values = model.critic_forward(
-                torch.as_tensor(ppo["obs"], dtype=torch.float32),
-                torch.as_tensor(ppo["priv"], dtype=torch.float32),
-            ).cpu().numpy().astype(np.float32)
-            if ppo["terminated"]:
-                last_value = 0.0
-            else:
-                last_value = float(model.critic_forward(
-                    torch.as_tensor(ppo["last_obs"].reshape(1, -1), dtype=torch.float32),
-                    torch.as_tensor(ppo["last_priv"].reshape(1, -1), dtype=torch.float32),
-                ).item())
-        adv, ret = compute_gae(ppo["rew"], values, ppo["done"], last_value)
-        obs_all.append(ppo["obs"]); act_all.append(ppo["act"]); logp_all.append(ppo["logp"])
-        priv_all.append(ppo["priv"]); adv_all.append(adv); ret_all.append(ret); rew_all.append(ppo["rew"])
-        ep_returns.append(float(result["total_reward"]))
-        ep_success.append(1.0 if result["success"] else 0.0)
-    if not obs_all:
+    steps_collected = 0
+    rollout_started = time.perf_counter()
+
+    def _bind(worker_index: int, spec: dict[str, Any]) -> dict[str, Any]:
+        client = clients[worker_index]
+        obs, reset_reply = client.reset(spec["scenario"], episode_id=str(spec["scenario"]["scenario_id"]), seed=int(spec["seed"]))
+        obs = np.asarray(obs, dtype=np.float32)
+        traj = _new_ppo_traj(spec)
+        traj["obs_cur"] = obs
+        traj["info_cur"] = dict(reset_reply.get("info", {}))
+        traj["worker_index"] = worker_index
+        return traj
+
+    next_unit = 0
+    worker_state: list[dict[str, Any] | None] = []
+    for worker_index in range(n_workers):
+        worker_state.append(_bind(worker_index, specs[next_unit]))
+        next_unit += 1
+
+    def _step_worker(worker_index: int, action: np.ndarray):
+        return clients[worker_index].step(np.asarray(action, dtype=np.float32))
+
+    if n_workers > 0:
+        with ThreadPoolExecutor(max_workers=n_workers) as executor:
+            while any(state is not None for state in worker_state):
+                active = [idx for idx, st in enumerate(worker_state) if st is not None]
+                obs_batch = np.stack([worker_state[idx]["obs_cur"] for idx in active]).astype(np.float32)
+                actions, logps = model.act_batch(obs_batch)
+                actions = np.clip(actions, -1.0, 1.0)
+                futures = {
+                    executor.submit(_step_worker, idx, actions[a_idx]): (idx, a_idx)
+                    for a_idx, idx in enumerate(active)
+                }
+                results: dict[int, tuple] = {}
+                for future, (idx, a_idx) in futures.items():
+                    results[idx] = (a_idx, future.result())
+                for idx in active:
+                    a_idx, (obs_after, terminated, truncated, _status, info) = results[idx]
+                    state = worker_state[idx]
+                    assert state is not None
+                    prev_obs = state["obs_cur"]
+                    info = dict(info)
+                    obs_after = np.asarray(obs_after, dtype=np.float32)
+                    _accumulate_ppo_step(
+                        state, prev_obs=prev_obs, action=actions[a_idx], logp=float(logps[a_idx]),
+                        obs_after=obs_after, terminated=bool(terminated), truncated=bool(truncated), info=info,
+                    )
+                    state["last_info"] = info
+                    state["obs_cur"] = obs_after
+                    state["info_cur"] = info
+                    steps_collected += 1
+                    done = bool(terminated or truncated or state["steps"] >= int(state["spec"]["max_steps"]))
+                    if done:
+                        traj = _finalize_ppo_traj(model, state)
+                        if traj is not None:
+                            finished.append(traj)
+                            ep_returns.append(traj["total_reward"])
+                            ep_success.append(1.0 if traj["success"] else 0.0)
+                        if next_unit < len(specs):
+                            worker_state[idx] = _bind(idx, specs[next_unit])
+                            next_unit += 1
+                        else:
+                            worker_state[idx] = None
+                if progress is not None:
+                    _progress(progress, {
+                        "stage": "ppo_rollout", "update": int(update), "seed_ns": seed_ns,
+                        "steps": int(steps_collected), "episodes_done": len(finished),
+                        "workers": int(n_workers), "elapsed_s": round(time.perf_counter() - rollout_started, 3),
+                    })
+
+    rollout_elapsed = time.perf_counter() - rollout_started
+    if not finished:
         empty = np.zeros((0, HUMAN_VIEW_OBS_DIM), dtype=np.float32)
         return {"obs": empty, "act": np.zeros((0, ACT_DIM), np.float32), "logp": np.zeros((0,), np.float32),
                 "priv": np.zeros((0, PRIV_DIM), np.float32), "adv": np.zeros((0,), np.float32),
                 "ret": np.zeros((0,), np.float32), "rew": np.zeros((0,), np.float32),
-                "ep_returns": [], "ep_success": []}
+                "ep_returns": [], "ep_success": [], "rollout_steps": int(steps_collected),
+                "rollout_elapsed_s": float(rollout_elapsed),
+                "rollout_steps_per_s": float(steps_collected / max(rollout_elapsed, 1e-9)),
+                "rollout_workers": int(n_workers)}
     return {
-        "obs": np.concatenate(obs_all, 0), "act": np.concatenate(act_all, 0),
-        "logp": np.concatenate(logp_all, 0), "priv": np.concatenate(priv_all, 0),
-        "adv": np.concatenate(adv_all, 0), "ret": np.concatenate(ret_all, 0),
-        "rew": np.concatenate(rew_all, 0), "ep_returns": ep_returns, "ep_success": ep_success,
+        "obs": np.concatenate([t["obs"] for t in finished], 0),
+        "act": np.concatenate([t["act"] for t in finished], 0),
+        "logp": np.concatenate([t["logp"] for t in finished], 0),
+        "priv": np.concatenate([t["priv"] for t in finished], 0),
+        "adv": np.concatenate([t["adv"] for t in finished], 0),
+        "ret": np.concatenate([t["ret"] for t in finished], 0),
+        "rew": np.concatenate([t["rew"] for t in finished], 0),
+        "ep_returns": ep_returns, "ep_success": ep_success,
+        "rollout_steps": int(steps_collected),
+        "rollout_elapsed_s": float(rollout_elapsed),
+        "rollout_steps_per_s": float(steps_collected / max(rollout_elapsed, 1e-9)),
+        "rollout_workers": int(n_workers),
     }
 
 
@@ -1027,10 +1335,18 @@ def collect_bc_demos(
     update: int,
     quick: bool,
 ) -> dict[str, np.ndarray]:
-    """Roll the per-regime teacher (B2: avoidance reveal-post only) for BC frames."""
+    """Roll the per-regime teacher (B2: avoidance reveal-post only) for BC frames.
+
+    M3: also reports ``avoidance_bc_frames`` -- the count of reveal-post avoidance
+    frames the teacher contributed. Before the reveal-gate fix this was always 0
+    (the gate never fired), so the avoidance BC warm-start was empty; the count > 0
+    is the regression evidence that the gate now works.
+    """
     grid = _avoidance_grid(quick)
     n_avoid = max(1, int(round(units * float(stage["avoidance_frac"]))))
     frames, priv, targets = [], [], []
+    avoidance_frames = 0
+    drift_frames = 0
     for unit in range(units):
         regime = "avoidance" if unit < n_avoid else "drift"
         seed = _seed_for(seed_ns, update, regime, unit)
@@ -1044,13 +1360,20 @@ def collect_bc_demos(
             handle = teacher_for(regime)
         teacher = handle.factory()
         result = run_episode(client, scenario, regime, teacher, seed=seed, mu=mu, reveal=reveal, collect="bc")
-        if result["bc_frames"].shape[0] == 0:
+        n = int(result["bc_frames"].shape[0])
+        if regime == "avoidance":
+            avoidance_frames += n
+        else:
+            drift_frames += n
+        if n == 0:
             continue
         frames.append(result["bc_frames"]); priv.append(result["bc_priv"]); targets.append(result["bc_targets"])
     if not frames:
         return {"obs": np.zeros((0, HUMAN_VIEW_OBS_DIM), np.float32), "priv": np.zeros((0, PRIV_DIM), np.float32),
-                "targets": np.zeros((0, ACT_DIM), np.float32)}
-    return {"obs": np.concatenate(frames, 0), "priv": np.concatenate(priv, 0), "targets": np.concatenate(targets, 0)}
+                "targets": np.zeros((0, ACT_DIM), np.float32),
+                "avoidance_bc_frames": int(avoidance_frames), "drift_bc_frames": int(drift_frames)}
+    return {"obs": np.concatenate(frames, 0), "priv": np.concatenate(priv, 0), "targets": np.concatenate(targets, 0),
+            "avoidance_bc_frames": int(avoidance_frames), "drift_bc_frames": int(drift_frames)}
 
 
 # --------------------------------------------------------------- checkpointing (B1)
@@ -1113,6 +1436,45 @@ def load_checkpoint(path: Path, model: AsymmetricActorCritic, optimizer: Adam) -
     return state
 
 
+# --------------------------------------------------------------- M5 seed-level breakpoints
+
+
+def _seed_done_path(ckpt_dir: Path, seed: int) -> Path:
+    return ckpt_dir / f"seed{seed}_DONE"
+
+
+def seed_is_done(ckpt_dir: Path, seed: int) -> bool:
+    """M5: a seed is DONE iff its DONE marker exists (so --resume skips it)."""
+    return _seed_done_path(ckpt_dir, seed).exists()
+
+
+def mark_seed_done(ckpt_dir: Path, seed: int, summary: dict[str, Any]) -> Path:
+    """M5: drop the seed-level breakpoint marker once a seed fully completes."""
+    ckpt_dir.mkdir(parents=True, exist_ok=True)
+    path = _seed_done_path(ckpt_dir, seed)
+    marker = {k: v for k, v in summary.items() if k != "model"}
+    marker["seed"] = int(seed)
+    path.write_text(json.dumps(_jsonable(marker), sort_keys=True), encoding="utf-8")
+    return path
+
+
+def load_finished_seed_model(ckpt_dir: Path, seed: int) -> AsymmetricActorCritic:
+    """M5: rebuild a completed seed's best-held-out student from its checkpoint.
+
+    Used on --resume when a seed is already DONE: we skip retraining but still need
+    its (best-held-out) actor for the four-arm validation. The latest checkpoint
+    carries ``best_state`` (the held-out-selected weights).
+    """
+    ckpt = latest_checkpoint(ckpt_dir, seed)
+    if ckpt is None:
+        raise FileNotFoundError(f"seed {seed} marked DONE but no checkpoint under {ckpt_dir}")
+    state = torch.load(ckpt, map_location="cpu", weights_only=False)
+    model = AsymmetricActorCritic()
+    model.load_state_dict(state.get("best_state", state["model"]))
+    model.eval()
+    return model
+
+
 # --------------------------------------------------------------- training loop (one seed)
 
 
@@ -1153,7 +1515,15 @@ def train_student(
             best_update = int(state["best_update"])
             _progress(progress, {"stage": "resume", "seed": seed, "from_update": start_update})
 
-    client = ChronoWorkerClient(stderr_log=stderr_log)
+    # M1: a POOL of rollout clients for W-way parallel PPO collection (the F1b
+    # 30-worker parallelism, now inside the PPO loop). The first client doubles as
+    # the serial client for BC warm-start / aux / held-out batches (small, not the
+    # throughput bottleneck). rollout_workers caps the pool size.
+    n_rollout_workers = max(1, int(budget["rollout_workers"]))
+    clients: list[ChronoWorkerClient] = [ChronoWorkerClient(stderr_log=stderr_log) for _ in range(n_rollout_workers)]
+    client = clients[0]
+    rollout_throughput: list[dict[str, float]] = []
+    avoidance_bc_frames_total = 0  # M3: reveal-post avoidance BC frames collected.
     try:
         for update in range(start_update, total_updates):
             stage = _curriculum_stage(update, total_updates)
@@ -1162,6 +1532,7 @@ def train_student(
                     client, stage=stage, units=int(budget["warmstart_units"]),
                     horizon=int(budget["rollout_horizon"]), seed_ns=f"bc_seed{seed}", update=update, quick=quick,
                 )
+                avoidance_bc_frames_total += int(demos.get("avoidance_bc_frames", 0))
                 if demos["obs"].shape[0] > 0:
                     upd = bc_update(model, optimizer, demos["obs"], demos["priv"], demos["targets"])
                 else:
@@ -1172,9 +1543,17 @@ def train_student(
                 ppo_idx = update - warmstart_updates
                 bc_aux_coef = _anneal(BC_AUX_COEF_START, BC_AUX_COEF_END, ppo_idx, max(1, ppo_updates - 1))
                 batch = collect_ppo_rollout(
-                    client, model, stage=stage, units=int(budget["rollout_workers"]),
+                    clients, model, stage=stage, units=int(budget["rollout_workers"]),
                     horizon=int(budget["rollout_horizon"]), seed_ns=f"ppo_seed{seed}", update=update, quick=quick,
+                    progress=progress,
                 )
+                rollout_throughput.append({
+                    "update": int(update),
+                    "rollout_steps": float(batch.get("rollout_steps", 0)),
+                    "rollout_elapsed_s": float(batch.get("rollout_elapsed_s", float("nan"))),
+                    "rollout_steps_per_s": float(batch.get("rollout_steps_per_s", float("nan"))),
+                    "rollout_workers": float(batch.get("rollout_workers", n_rollout_workers)),
+                })
                 bc_aux = None
                 if bc_aux_coef > 0.0:
                     aux = collect_bc_demos(
@@ -1241,12 +1620,16 @@ def train_student(
                                  "holdout_mse": holdout_mse, "best_update": best_update,
                                  "log_std_mean": row["log_std_mean"], "entropy": row["entropy"]})
     finally:
-        client.close()
+        for c in clients:
+            c.close()
 
     model.load_state_dict(best_state)
     model.eval()
     seed_rows = [r for r in train_metrics if r["seed"] == seed]
     ppo_rows = [r for r in seed_rows if r["phase"] == "ppo"]
+    agg_steps = float(sum(t["rollout_steps"] for t in rollout_throughput))
+    agg_elapsed = float(sum(t["rollout_elapsed_s"] for t in rollout_throughput if math.isfinite(t["rollout_elapsed_s"])))
+    agg_rate = float(agg_steps / agg_elapsed) if agg_elapsed > 0 else float("nan")
     return {
         "model": model,
         "seed": int(seed),
@@ -1260,6 +1643,12 @@ def train_student(
         "log_std_observed": any(math.isfinite(r["log_std_mean"]) for r in ppo_rows),
         "entropy_observed": any(math.isfinite(r["entropy"]) for r in ppo_rows),
         "ppo_ran": len(ppo_rows) > 0,
+        "rollout_workers": int(n_rollout_workers),
+        "rollout_throughput": rollout_throughput,
+        "rollout_total_steps": agg_steps,
+        "rollout_total_elapsed_s": agg_elapsed,
+        "rollout_aggregate_steps_per_s": agg_rate,
+        "avoidance_bc_frames": int(avoidance_bc_frames_total),
     }
 
 
@@ -1573,13 +1962,17 @@ def adjudicate(rows: list[dict[str, Any]], *, train_seeds: list[int]) -> dict[st
 
 def oracle_ceiling_precheck(
     *, budget: dict[str, Any], quick: bool, stderr_log: Path,
-    floor_threshold: float = 0.0, prize: float = 0.0,
+    floor_threshold: float = 0.0, prize: float = S7_DRIFT_PRIZE,
 ) -> dict[str, Any]:
     """S7: measure the oracle arm's success ceiling on the student/hard grid.
 
-    If the matched oracle cannot clear floor+prize on this distribution, the full
-    run is not worth its wall-clock -> stop + re-price (recorded, not enforced in
-    --quick which is a chain smoke).
+    M4: this is a REAL stop-loss, not a 0/0 no-op. The threshold is the measured
+    drift floor (``floor_threshold``, from _floor_rate) plus the pre-registered
+    drift prize (``prize`` = S7_DRIFT_PRIZE = +0.40). If the matched drift oracle
+    cannot clear floor+prize on this distribution, the full run is not worth its
+    wall-clock -> recommendation = "stop_and_reprice" and the caller blocks
+    (all_passed=False). This gates the full launch (and the smoke proves the
+    branch fires).
     """
     grid = _avoidance_grid(quick)
     units = max(1, int(budget["selection_units_per_regime"]))
@@ -1605,13 +1998,19 @@ def oracle_ceiling_precheck(
     finally:
         client.close()
     ceilings = {regime: (float(np.mean(v)) if v else float("nan")) for regime, v in out.items()}
-    drift_ok = (not math.isnan(ceilings["drift"])) and ceilings["drift"] >= floor_threshold + prize
+    threshold = float(floor_threshold) + float(prize)
+    drift_ok = (not math.isnan(ceilings["drift"])) and ceilings["drift"] >= threshold
+    should_stop = not drift_ok
     return {
         "oracle_ceiling_by_regime": ceilings,
         "units_per_regime": units,
-        "floor_plus_prize_threshold": float(floor_threshold + prize),
+        "floor_threshold": float(floor_threshold),
+        "prize": float(prize),
+        "floor_plus_prize_threshold": float(threshold),
         "drift_oracle_clears_floor_plus_prize": bool(drift_ok),
-        "recommendation": "proceed_to_full" if drift_ok else "stop_and_reprice_before_full",
+        "should_stop": bool(should_stop),
+        # M4: canonical tokens; "stop_and_reprice" blocks the launch (all_passed=False).
+        "recommendation": "stop_and_reprice" if should_stop else "proceed",
     }
 
 
@@ -1657,7 +2056,7 @@ def build_preregistration() -> dict[str, Any]:
         "draft": True,
         "frozen": False,
         "freeze_ready": True,
-        "freeze_blocked_on": "PI sign-off only; criteria/CI/floor/spectrum/power/curriculum are all defined and freezable",
+        "freeze_blocked_on": "PI sign-off only; criteria/CI/floor/spectrum/power/curriculum/total_steps/wall-clock/B6-AUC-gate/S7-threshold are all defined and frozen-ready (pass-3: M1 parallel rollout, M2 obstacle_pass contract, M3 reveal gate, M4 S7 stop-loss, M5 seed-level resume, M6 PI-approved AUC wording, M7 real step budget)",
         "drafted_at_utc": utc_timestamp(),
         "seed_base": SEED_BASE,
         "claim_boundary": CLAIM_BOUNDARY,
@@ -1679,6 +2078,23 @@ def build_preregistration() -> dict[str, Any]:
             "advantage_normalization": "batch-wise (mean/std) before minibatch SGD",
             "log_std_init": LOG_STD_INIT, "log_std_min": LOG_STD_MIN, "log_std_max": LOG_STD_MAX,
             "rollout_horizon_full": FULL["rollout_horizon"], "rollout_workers_full": FULL["rollout_workers"],
+            "M1_rollout_parallelism": (
+                "PPO rollout collected W-way PARALLEL: a pool of rollout_workers chrono clients "
+                "stepped lockstep via one batched act_batch(obs72) forward + a ThreadPoolExecutor "
+                "of per-worker closed_loop_step calls (the F1b 30-worker parallelism inside the PPO "
+                "loop). On-policy preserved (each worker steps under the current random policy, one "
+                "step at a time; NO open-loop batched_action_sequence)."
+            ),
+        },
+        "step_budget_and_wall_clock_M7": {
+            "note": (
+                "the REAL PPO env-step budget (NOT a 100M decorative placeholder): "
+                "ppo_env_steps = seeds * ppo_updates * rollout_workers * horizon (an upper bound; "
+                "episodes may terminate early). Wall-clock = total_env_steps / measured aggregate "
+                "rollout throughput (F1b 30-worker rate; replaced by the F2-measured rate at run time)."
+            ),
+            "real_step_budget_full": _real_step_budget(FULL),
+            "wall_clock_projection_full": _wall_clock_projection(FULL),
         },
         "teacher_role": {
             "m1087_chain": "BC warm-start -> annealed auxiliary BC (coef decays to 0) -> PPO policy gradient dominates",
@@ -1703,7 +2119,15 @@ def build_preregistration() -> dict[str, Any]:
             "S5_fail_closed": "avoidance success/pass requires explicit cleared completion; completion=='' is a FAILURE",
             "S5_grazing_penalty": {"speed_norm_threshold": GRAZE_SPEED_NORM, "margin_m": GRAZE_MARGIN_M, "penalty": GRAZE_PENALTY},
             "source": "m1087 staged discipline + C5 measured collision cost; penalties >= success rewards",
-            "B6_reward_hacking_guard": "per-EPISODE alignment: report Spearman(reward,success) AND rank-biserial AUC = P(reward[success]>reward[failure]); the >=0.9 HARD gate is on the AUC (binary-appropriate; raw Spearman is structurally capped for binary labels); N/A on ties; failure -> re-price",
+            "B6_reward_hacking_guard": (
+                "per-EPISODE alignment (PI-approved 2026-06-14): the binary-vs-continuous rank "
+                "correlation does not reach 1 and is class-balance dependent, so the >=0.9 HARD gate "
+                "is on the rank-biserial AUC = P(reward[success] > reward[failure]) (the Mann-Whitney "
+                "statistic, the textbook measure for binary-vs-continuous alignment); Spearman is "
+                "reported alongside but NOT gated; N/A on ties; a failing AUC gate -> re-price."
+            ),
+            "B6_pi_signoff": "2026-06-14 APPROVED (docs/phase4-f2-build-review-2026-06-14.md): AUC hard gate accepted; honest justification required (binary-vs-continuous rank correlation does not reach 1 and is class-balance dependent), NOT 'Spearman unreachable'.",
+            "B6_auc_hard_gate_threshold": 0.9,
         },
         "avoidance_spectrum_S2": {
             "reveals_m_full": list(AVOIDANCE_REVEALS_FULL), "mus_full": list(AVOIDANCE_MUS_FULL),
@@ -1739,7 +2163,9 @@ def build_preregistration() -> dict[str, Any]:
         },
         "power_analysis_S4": _power_analysis(),
         "pre_full_checks_S7": {
-            "oracle_ceiling_precheck": "measure matched oracle success on the student/hard grid; if < floor+prize, STOP + re-price before spending full wall-clock",
+            "oracle_ceiling_precheck": "measure the matched oracle success on the student/hard grid; threshold = drift floor (_floor_rate) + the pre-registered drift prize (+0.40)",
+            "drift_prize_frozen": S7_DRIFT_PRIZE,
+            "block_rule_M4": "recommendation=='stop_and_reprice' (matched drift oracle < floor+prize) -> all_passed=False, the --full launch is blocked + re-price; recommendation=='proceed' otherwise",
         },
         "checkpointing_B1": {
             "per": "(seed, update)", "contents": ["model", "optimizer", "update", "seed", "best_score", "best_state", "best_update", "rng(torch+numpy+python)"],
@@ -1802,13 +2228,49 @@ def summarize(
     # FAIL only when applicable and below 0.9.
     b6_ok = (not alignment["gate_applicable"]) or bool(alignment["meets_0p9"])
     ckpt_dir = CKPT_QUICK_DIR if quick else CKPT_FULL_DIR
+    # M1 throughput: the PPO rollout ran W-way parallel and reported a positive
+    # aggregate Chrono step rate (the F1b 30-worker parallelism inside the loop).
+    rollout_rates = [float(s.get("rollout_aggregate_steps_per_s", float("nan"))) for s in train_summaries if math.isfinite(float(s.get("rollout_aggregate_steps_per_s", float("nan"))))]
+    rollout_total_steps = float(sum(float(s.get("rollout_total_steps", 0.0)) for s in train_summaries))
+    rollout_total_elapsed = float(sum(float(s.get("rollout_total_elapsed_s", 0.0)) for s in train_summaries))
+    aggregate_steps_per_s = float(rollout_total_steps / rollout_total_elapsed) if rollout_total_elapsed > 0 else float("nan")
+    rollout_workers_used = max((int(s.get("rollout_workers", 1)) for s in train_summaries), default=1)
+    requested_workers = int((QUICK if quick else FULL)["rollout_workers"])
+    ppo_actually_ran = any(s["ppo_ran"] for s in train_summaries)
+    m1_throughput_ok = (
+        (not ppo_actually_ran)  # no PPO updates in this budget -> nothing to parallelize
+        or (rollout_workers_used >= min(2, requested_workers) and len(rollout_rates) >= 1 and math.isfinite(aggregate_steps_per_s) and aggregate_steps_per_s > 0.0)
+    )
+    # M4 S7 launch gate: for --full, the matched drift oracle must clear floor+prize
+    # ("proceed"); "stop_and_reprice" blocks (all_passed=False). For --quick (chain
+    # smoke at horizon 6 the oracle cannot sustain 24 drift steps), the gate is the
+    # chain-ran check, and a long-horizon verification proves the proceed branch.
+    s7_recommendation = str(s7.get("recommendation", ""))
+    if quick:
+        s7_launch_ok = "oracle_ceiling_by_regime" in s7
+    else:
+        s7_launch_ok = s7_recommendation == "proceed" and not bool(s7.get("should_stop", True))
+    # M7 wall-clock projection of the FULL budget. ONLY a full-worker-count
+    # measurement may drive the projection; the quick 2-worker smoke rate (dominated
+    # by worker launch/reset overhead on 6-step episodes) is NOT representative of
+    # the 30-worker full rate, so the quick projection uses the F1b 30-worker
+    # closed_loop artifact rate. The quick smoke rate is reported separately as a
+    # chain-proof number, never as the full projection.
+    measured_for_projection = (
+        aggregate_steps_per_s
+        if (not quick) and math.isfinite(aggregate_steps_per_s) and rollout_workers_used >= int(FULL["rollout_workers"])
+        else None
+    )
+    wall_clock = _wall_clock_projection(FULL, measured_steps_per_s=measured_for_projection)
     gates = {
         "preregistration_present": PREREG_JSON.exists(),
         "asymmetric_actor_critic_built": True,
         "stochastic_policy_log_std_learnable": True,
         "ppo_update_ran": any(s["ppo_ran"] for s in train_summaries),
         "gae_bootstrap_used": True,
-        "finite_update": bool(train_metrics) and all(r["finite_loss"] and r["finite_grad"] for r in train_metrics),
+        # finite over any NEW training updates this run; an all-resumed run (no new
+        # updates, M5) trivially has no non-finite update.
+        "finite_update": all(r["finite_loss"] and r["finite_grad"] for r in train_metrics),
         "optimizer_changed_parameters": any(s["any_param_changed"] for s in train_summaries),
         "log_std_observed": len(log_std_vals) >= 1,
         "entropy_observed": len(entropy_vals) >= 1,
@@ -1829,6 +2291,9 @@ def summarize(
         "avoidance_spectrum_spanned_S2": len({(r["reveal"], r["mu"]) for r in rows if r["regime"] == "avoidance"}) >= 2,
         "student_input_obs72_only": all(bool(r["student_input_was_obs72_only"]) for r in student_rows) if student_rows else False,
         "s7_oracle_ceiling_prechecked": "oracle_ceiling_by_regime" in s7,
+        "s7_stop_loss_active_M4": s7_launch_ok,
+        "ppo_rollout_parallel_throughput_M1": bool(m1_throughput_ok),
+        "avoidance_bc_frames_positive_M3": bool(sum(int(s.get("avoidance_bc_frames", 0)) for s in train_summaries) > 0),
         "deterministic_seed_streams_disjoint": True,
         "incumbent_unchanged": True,
         "full_not_launched": True,
@@ -1841,13 +2306,30 @@ def summarize(
         "generated_at_utc": utc_timestamp(),
         "elapsed_s": round(float(elapsed_s), 2),
         "claim_boundary": CLAIM_BOUNDARY,
-        "preregistration": str(PREREG_JSON.relative_to(REPO_ROOT)) if PREREG_JSON.exists() else None,
+        "preregistration": _rel(PREREG_JSON) if PREREG_JSON.exists() else None,
         "protocol_gates": gates,
         "seeds": [int(s) for s in seeds],
         "train_summaries": [{k: v for k, v in s.items() if k != "model"} for s in train_summaries],
         "adjudication": adjud,
         "reward_alignment": alignment,
         "oracle_ceiling_precheck_S7": s7,
+        "throughput_M1": {
+            "aggregate_steps_per_s": float(aggregate_steps_per_s) if math.isfinite(aggregate_steps_per_s) else None,
+            "rollout_total_steps": float(rollout_total_steps),
+            "rollout_total_elapsed_s": float(rollout_total_elapsed),
+            "rollout_workers_used": int(rollout_workers_used),
+            "requested_workers": int(requested_workers),
+            "per_seed_rates": rollout_rates,
+            "is_representative_of_full": bool((not quick) and rollout_workers_used >= int(FULL["rollout_workers"])),
+            "note": (
+                "quick rate is a 2-worker chain-proof number on 6-step episodes (worker "
+                "launch/reset-dominated); NOT the full 30-worker rate. The full wall-clock "
+                "projection uses the F1b 30-worker closed_loop rate until the full run "
+                "measures its own representative rate."
+            ) if quick else "full-worker-count measurement; drives the wall-clock projection",
+        },
+        "wall_clock_projection_M7": wall_clock,
+        "avoidance_bc_frames_M3": int(sum(int(s.get("avoidance_bc_frames", 0)) for s in train_summaries)),
         "row_count": len(rows),
         "decision": {
             "f2_verdict": "quick_smoke_passed" if quick and gates["all_passed"] else ("quick_smoke_failed" if quick else ("f2_completed" if gates["all_passed"] else "f2_protocol_failed")),
@@ -1887,15 +2369,15 @@ def write_doc(summary: dict[str, Any]) -> None:
         f"- drift student-minus-floor: {adjud['prize_recovery']['drift_student_minus_floor']:.3f}; paired-t CI {sc['drift']['student_minus_floor_paired_t_ci']}",
         f"- avoidance student-minus-floor: {adjud['prize_recovery']['avoidance_student_minus_floor']:.3f}; paired-t CI {sc['avoidance']['student_minus_floor_paired_t_ci']}",
         f"- student avoidance no-regression: {adjud['student_no_avoidance_regression']}",
-        f"- reward alignment (B6, per-episode Spearman): {align}",
+        f"- reward alignment (B6, per-episode rank-biserial AUC hard gate; Spearman reported): {align}",
         f"- S7 oracle ceiling precheck: {summary['oracle_ceiling_precheck_S7']['oracle_ceiling_by_regime']} -> {summary['oracle_ceiling_precheck_S7']['recommendation']}",
         "",
         "## Artifacts",
         "",
-        f"- Preregistration (FREEZE-READY draft): `{PREREG_JSON.relative_to(REPO_ROOT)}`",
-        f"- Full JSON: `{FULL_JSON.relative_to(REPO_ROOT)}`",
-        f"- Arm rows: `{ROWS_FULL_CSV.relative_to(REPO_ROOT)}`",
-        f"- Checkpoints: `{CKPT_FULL_DIR.relative_to(REPO_ROOT)}`",
+        f"- Preregistration (FREEZE-READY draft): `{_rel(PREREG_JSON)}`",
+        f"- Full JSON: `{_rel(FULL_JSON)}`",
+        f"- Arm rows: `{_rel(ROWS_FULL_CSV)}`",
+        f"- Checkpoints: `{_rel(CKPT_FULL_DIR)}`",
         "",
         "## Claim Boundary",
         "",
@@ -1920,16 +2402,53 @@ def run(*, quick: bool, resume: bool) -> dict[str, Any]:
     train_summaries: list[dict[str, Any]] = []
     students_by_seed: dict[int, AsymmetricActorCritic] = {}
     for seed in seeds:
+        # M5 seed-level breakpoint: on --resume, a seed whose DONE marker exists is
+        # NOT re-entered; its best-held-out student is reloaded for validation.
+        if resume and seed_is_done(ckpt_dir, seed):
+            model = load_finished_seed_model(ckpt_dir, seed)
+            done_summary = {"model": model, "seed": int(seed), "ppo_ran": True,
+                            "any_param_changed": True, "best_update": 0, "resumed_done": True}
+            try:
+                done_summary.update(_jsonable(json.loads(_seed_done_path(ckpt_dir, seed).read_text(encoding="utf-8"))))
+            except Exception:
+                pass
+            done_summary["model"] = model
+            train_summaries.append(done_summary)
+            students_by_seed[seed] = model
+            _progress(progress, {"stage": "seed_skip_done", "seed": int(seed)})
+            continue
         summary = train_student(
             seed=seed, budget=budget, quick=quick, ckpt_dir=ckpt_dir,
             stderr_log=stderr_log, progress=progress, train_metrics=train_metrics, resume=resume,
         )
+        mark_seed_done(ckpt_dir, seed, summary)
         train_summaries.append(summary)
         students_by_seed[seed] = summary["model"]
     # B3: validate EVERY training seed's student.
     rows = evaluate_arms(students_by_seed, budget=budget, quick=quick, stderr_log=stderr_log, progress=progress)
-    # S7: oracle-ceiling precheck on the student/hard distribution.
-    s7 = oracle_ceiling_precheck(budget=budget, quick=quick, stderr_log=stderr_log)
+    # M4/S7: oracle-ceiling precheck with the REAL drift floor (_floor_rate) and the
+    # pre-registered drift prize (+0.40). recommendation=="stop_and_reprice" blocks
+    # the full launch.
+    drift_floor = _floor_rate(rows, "drift")
+    s7 = oracle_ceiling_precheck(
+        budget=budget, quick=quick, stderr_log=stderr_log,
+        floor_threshold=float(drift_floor), prize=S7_DRIFT_PRIZE,
+    )
+    # M4 BOTH-WAYS verification (quick only): the default s7 above carries the REAL
+    # +0.40 prize and legitimately recommends stop (the matched drift oracle does not
+    # clear floor+prize on this hard/short distribution -- exactly the signal S7 is
+    # built to surface). To prove the gate is a real inequality (not a constant
+    # stop), re-run with prize=0: ceiling >= floor+0 -> recommendation "proceed".
+    # This exercises BOTH branches honestly without gaming the horizon.
+    if quick:
+        s7_proceed = oracle_ceiling_precheck(
+            budget=budget, quick=quick, stderr_log=stderr_log,
+            floor_threshold=0.0, prize=0.0,
+        )
+        s7["verification_proceed_branch_prize0"] = s7_proceed
+        s7["both_branches_demonstrated"] = bool(
+            s7.get("recommendation") == "stop_and_reprice" and s7_proceed.get("recommendation") == "proceed"
+        )
     summary = summarize(rows, train_summaries, train_metrics, quick=quick, elapsed_s=time.perf_counter() - started, seeds=seeds, s7=s7)
     write_csv_rows(rows_csv, rows, fieldnames=ROW_FIELDS)
     write_csv_rows(train_csv, train_metrics, fieldnames=list(train_metrics[0].keys()) if train_metrics else ["seed"])

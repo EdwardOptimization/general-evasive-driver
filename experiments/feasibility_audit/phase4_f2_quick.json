@@ -176,6 +176,7 @@
     },
     "student_no_avoidance_regression": true
   },
+  "avoidance_bc_frames_M3": 12,
   "claim_boundary": "Phase-4 F2 asymmetric actor-critic RL training and four-arm adjudication only: asymmetric actor(obs72)/critic(obs72+privileged) Gaussian policy trained by PPO (clipped surrogate + bootstrapped privileged GAE critic + entropy) from the recalibrated reward, with the avoidance entry-speed oracle and drift DriftFeedbackPolicy as BC warm-start/annealed-auxiliary teachers only, held-out selection, a mu/reveal avoidance spectrum, and a frozen {fixed*/entry-speed-floor/online-mu-seeker/per-regime-oracle/student} four-arm validation comparison with training-seed-clustered CIs. F2 is engineering-only: it does not mutate ActiveSafetyReflexDriver, makes no self-ID or history-attribution claim, and the --quick smoke proves only the end-to-end pipeline -- it is NOT a validation ranking, promotion, driver-performance, current-sim sufficiency, full high-fidelity sufficiency, paper, repair-success, robustness-result, or feasibility-proof claim.",
   "decision": {
     "f2_verdict": "quick_smoke_passed",
@@ -184,19 +185,36 @@
     "quick_mode_is_verdict": false,
     "self_id_claim": "none; engineering-only"
   },
-  "elapsed_s": 215.24,
-  "generated_at_utc": "20260614T032308Z",
+  "elapsed_s": 229.56,
+  "generated_at_utc": "20260614T052328Z",
   "milestone": "m3264-phase4-f2-asymmetric-actor-critic-rl",
   "mode": "quick",
   "oracle_ceiling_precheck_S7": {
-    "drift_oracle_clears_floor_plus_prize": true,
-    "floor_plus_prize_threshold": 0.0,
+    "both_branches_demonstrated": true,
+    "drift_oracle_clears_floor_plus_prize": false,
+    "floor_plus_prize_threshold": 0.4,
+    "floor_threshold": 0.0,
     "oracle_ceiling_by_regime": {
       "avoidance": 1.0,
       "drift": 0.0
     },
-    "recommendation": "proceed_to_full",
-    "units_per_regime": 1
+    "prize": 0.4,
+    "recommendation": "stop_and_reprice",
+    "should_stop": true,
+    "units_per_regime": 1,
+    "verification_proceed_branch_prize0": {
+      "drift_oracle_clears_floor_plus_prize": true,
+      "floor_plus_prize_threshold": 0.0,
+      "floor_threshold": 0.0,
+      "oracle_ceiling_by_regime": {
+        "avoidance": 1.0,
+        "drift": 0.0
+      },
+      "prize": 0.0,
+      "recommendation": "proceed",
+      "should_stop": false,
+      "units_per_regime": 1
+    }
   },
   "preregistration": "experiments/feasibility_audit/phase4_f2_prereg.json",
   "protocol_gates": {
@@ -204,6 +222,7 @@
     "all_passed": true,
     "all_training_seeds_validated_B3": true,
     "asymmetric_actor_critic_built": true,
+    "avoidance_bc_frames_positive_M3": true,
     "avoidance_spectrum_spanned_S2": true,
     "both_regimes_evaluated": true,
     "checkpoints_written_B1": true,
@@ -219,10 +238,12 @@
     "incumbent_unchanged": true,
     "log_std_observed": true,
     "optimizer_changed_parameters": true,
+    "ppo_rollout_parallel_throughput_M1": true,
     "ppo_update_ran": true,
     "preregistration_present": true,
     "reward_alignment_hard_gate_B6": true,
     "s7_oracle_ceiling_prechecked": true,
+    "s7_stop_loss_active_M4": true,
     "seed_cluster_by_training_seed_B3": true,
     "stochastic_policy_log_std_learnable": true,
     "student_input_obs72_only": true
@@ -242,16 +263,43 @@
     699570196,
     1713449107
   ],
+  "throughput_M1": {
+    "aggregate_steps_per_s": 0.9845256182944028,
+    "is_representative_of_full": false,
+    "note": "quick rate is a 2-worker chain-proof number on 6-step episodes (worker launch/reset-dominated); NOT the full 30-worker rate. The full wall-clock projection uses the F1b 30-worker closed_loop rate until the full run measures its own representative rate.",
+    "per_seed_rates": [
+      0.9751408970149483,
+      0.9940927313528712
+    ],
+    "requested_workers": 2,
+    "rollout_total_elapsed_s": 24.37722244503675,
+    "rollout_total_steps": 24.0,
+    "rollout_workers_used": 2
+  },
   "train_summaries": [
     {
       "all_finite": true,
       "any_param_changed": true,
-      "best_holdout_neg_mse": null,
-      "best_update": 0,
+      "avoidance_bc_frames": 6,
+      "best_holdout_neg_mse": -0.5826378464698792,
+      "best_update": 1,
       "entropy_observed": true,
       "log_std_observed": true,
       "ppo_ran": true,
       "ppo_updates_done": 1,
+      "rollout_aggregate_steps_per_s": 0.9751408970149483,
+      "rollout_throughput": [
+        {
+          "rollout_elapsed_s": 12.305913983029313,
+          "rollout_steps": 12.0,
+          "rollout_steps_per_s": 0.9751408970149483,
+          "rollout_workers": 2.0,
+          "update": 1
+        }
+      ],
+      "rollout_total_elapsed_s": 12.305913983029313,
+      "rollout_total_steps": 12.0,
+      "rollout_workers": 2,
       "seed": 699570196,
       "total_updates": 2,
       "warmstart_updates": 1
@@ -259,15 +307,43 @@
     {
       "all_finite": true,
       "any_param_changed": true,
-      "best_holdout_neg_mse": null,
-      "best_update": 0,
+      "avoidance_bc_frames": 6,
+      "best_holdout_neg_mse": -0.47168731689453125,
+      "best_update": 1,
       "entropy_observed": true,
       "log_std_observed": true,
       "ppo_ran": true,
       "ppo_updates_done": 1,
+      "rollout_aggregate_steps_per_s": 0.9940927313528712,
+      "rollout_throughput": [
+        {
+          "rollout_elapsed_s": 12.071308462007437,
+          "rollout_steps": 12.0,
+          "rollout_steps_per_s": 0.9940927313528712,
+          "rollout_workers": 2.0,
+          "update": 1
+        }
+      ],
+      "rollout_total_elapsed_s": 12.071308462007437,
+      "rollout_total_steps": 12.0,
+      "rollout_workers": 2,
       "seed": 1713449107,
       "total_updates": 2,
       "warmstart_updates": 1
     }
-  ]
+  ],
+  "wall_clock_projection_M7": {
+    "projected_wall_clock_days": 0.349,
+    "projected_wall_clock_hours": 8.372,
+    "real_step_budget": {
+      "bc_aux_env_steps": 18432000,
+      "bc_warmstart_env_steps": 1228800,
+      "ppo_env_steps": 18432000,
+      "selection_env_steps": 10158080,
+      "total_env_steps": 48250880,
+      "total_env_steps_upper_bound": true
+    },
+    "throughput_source": "f1b_aggregate_artifact_or_fallback",
+    "throughput_steps_per_s": 1600.844018418415
+  }
 }

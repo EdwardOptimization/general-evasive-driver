@@ -115,3 +115,30 @@ accepted. Condition: the prereg/doc justification must be the honest one
 class-balance dependent, so rank-biserial AUC is used as the alignment hard
 gate"), NOT the self-contradicted "Spearman unreachable" wording (the smoke
 measured Spearman 0.981). Spearman stays as a reported-but-not-gated number.
+
+## Pass 3 (M1-M7 fixes) — independently verified ignition-ready, ONE PI condition
+
+Pass-3 landed all M1-M7 with regression tests; the verifier re-ran the
+load-bearing tests itself (34 fast + M1/M3/M4/M5 Chrono, all green) and
+confirmed: M1 parallel rollout (ThreadPoolExecutor over W clients,
+closed-loop, act_batch == per-element); M2 success set now
+{max_steps,obstacle_pass}; M3 reveal gate fires (avoidance BC frames 0->12);
+M4 S7 stop-rule live (real floor+0.40 prize, blocks on stop); M5 seed-level
+kill/resume; M6 rank-biserial AUC hard gate + honest wording (AUC 1.0,
+Spearman 0.9814 ungated); M7 real budget (total_env_steps 48.25M, NOT 100M;
+wall-clock 8.37 h @ F1b 30-worker 1600.8 steps/s). Real PPO core intact
+(clipped surrogate, bootstrapped GAE, learnable log_std, entropy; actor
+obs72-only; B1-B6 present; incumbent untouched).
+
+**The one condition the PI must resolve before freeze (residual risk #1):**
+F2's drift validation scenarios do NOT match E4/M3260's. On F2's drift
+validation distribution the drift oracle (DriftFeedbackPolicy) scores 0/N
+(longest sustained controlled drift <= 7 steps, needs 24), so its ceiling
+0.0 < floor + 0.40 prize, and **S7 correctly fires stop and would block the
+launch**. This is price-before-train doing its job: if the teacher/oracle
+cannot reach the prize on the training/validation distribution, do not burn
+the run. The fix (a small 4th pass, not a scope change): align F2's drift
+validation cells to E4's frozen `low_mu_power_oversteer` cell (mu 0.48,
+speed 9, radius 70, initial_beta 0.22, with a horizon allowing >= 24
+sustained drift steps) and use E4's `beta0p22_power` oracle, so the drift
+oracle reproduces ~0.40 and S7 passes. Then re-smoke -> freeze -> launch.
