@@ -37,3 +37,18 @@ B6 rank-biserial AUC>=0.9 hard gate; S7 stop-rule live.
 Poll `runs/managed/f2-full-stage1_20260614T100836Z/exit_code`; on exit 0 the
 script writes the four-arm verdict. Then finalize M3264 + run F3 judging +
 report the RL-vs-reflex result. Stage 2 (E4-prime + F2-wide) follows.
+
+## Checkpoint / extension disposition (PI, 2026-06-14)
+
+Crash-resume within the 48.25M budget is fully supported and active
+(`--resume`; checkpoints save model + optimizer + RNG + update counter per
+(seed,update); finished seeds marked DONE). Budget EXTENSION (48.25M ->
+100M) is NOT wired as-is: it needs a small `--extend-to-updates` mode
+(raise ppo_updates + continue past DONE seeds from their last checkpoint,
+which already carry optimizer+RNG so continuation is seamless). PI decision
+(option 2): do NOT pre-add the extension capability now. Wait for the 48.25M
+verdict first; if RL clearly wins or loses, no extension is needed; if it is
+"close but short", extension is reconsidered then AND, because that would be
+deciding to train longer after seeing the result, it must be labelled a
+post-hoc extension (or pre-declared) per the pre-registration discipline -
+not a silent train-until-it-wins. Judging criteria stay frozen regardless.
