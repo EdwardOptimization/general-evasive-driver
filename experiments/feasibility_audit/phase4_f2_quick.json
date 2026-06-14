@@ -46,7 +46,7 @@
       "drift": {
         "entry_speed_commitment_floor": {
           "collision_rate": 0.0,
-          "mean_reward": 3.0,
+          "mean_reward": 3.5,
           "n": 2,
           "n_training_seeds": 0,
           "seed_cluster_se": 0.0,
@@ -54,7 +54,7 @@
         },
         "fixed_star": {
           "collision_rate": 0.0,
-          "mean_reward": 2.75,
+          "mean_reward": 3.0,
           "n": 2,
           "n_training_seeds": 0,
           "seed_cluster_se": 0.0,
@@ -62,7 +62,7 @@
         },
         "online_mu_seeker_floor": {
           "collision_rate": 0.0,
-          "mean_reward": 3.0,
+          "mean_reward": 3.5,
           "n": 2,
           "n_training_seeds": 0,
           "seed_cluster_se": 0.0,
@@ -70,15 +70,15 @@
         },
         "per_regime_oracle": {
           "collision_rate": 0.0,
-          "mean_reward": 3.0,
+          "mean_reward": 32.0,
           "n": 2,
           "n_training_seeds": 0,
           "seed_cluster_se": 0.0,
-          "success_rate": 0.0
+          "success_rate": 0.5
         },
         "student_policy": {
           "collision_rate": 0.0,
-          "mean_reward": 3.0,
+          "mean_reward": 3.5,
           "n": 4,
           "n_training_seeds": 2,
           "seed_cluster_se": 0.0,
@@ -88,7 +88,7 @@
       "pooled": {
         "entry_speed_commitment_floor": {
           "collision_rate": 0.0,
-          "mean_reward": 45.5,
+          "mean_reward": 45.75,
           "n": 4,
           "n_training_seeds": 0,
           "seed_cluster_se": 0.0,
@@ -96,7 +96,7 @@
         },
         "fixed_star": {
           "collision_rate": 0.0,
-          "mean_reward": 45.375,
+          "mean_reward": 45.5,
           "n": 4,
           "n_training_seeds": 0,
           "seed_cluster_se": 0.0,
@@ -104,7 +104,7 @@
         },
         "online_mu_seeker_floor": {
           "collision_rate": 0.0,
-          "mean_reward": 45.5,
+          "mean_reward": 45.75,
           "n": 4,
           "n_training_seeds": 0,
           "seed_cluster_se": 0.0,
@@ -112,15 +112,15 @@
         },
         "per_regime_oracle": {
           "collision_rate": 0.0,
-          "mean_reward": 45.5,
+          "mean_reward": 60.0,
           "n": 4,
           "n_training_seeds": 0,
           "seed_cluster_se": 0.0,
-          "success_rate": 0.5
+          "success_rate": 0.75
         },
         "student_policy": {
           "collision_rate": 0.0,
-          "mean_reward": 45.5,
+          "mean_reward": 45.75,
           "n": 8,
           "n_training_seeds": 2,
           "seed_cluster_se": 0.0,
@@ -131,7 +131,7 @@
     "prize_recovery": {
       "avoidance_oracle_minus_floor": 0.0,
       "avoidance_student_minus_floor": 0.0,
-      "drift_oracle_minus_floor": 0.0,
+      "drift_oracle_minus_floor": 0.5,
       "drift_student_minus_floor": 0.0
     },
     "seed_clustered_ci": {
@@ -185,35 +185,41 @@
     "quick_mode_is_verdict": false,
     "self_id_claim": "none; engineering-only"
   },
-  "elapsed_s": 229.56,
-  "generated_at_utc": "20260614T052328Z",
+  "elapsed_s": 459.64,
+  "generated_at_utc": "20260614T071310Z",
   "milestone": "m3264-phase4-f2-asymmetric-actor-critic-rl",
   "mode": "quick",
   "oracle_ceiling_precheck_S7": {
     "both_branches_demonstrated": true,
-    "drift_oracle_clears_floor_plus_prize": false,
+    "drift_oracle_clears_floor_plus_prize": true,
     "floor_plus_prize_threshold": 0.4,
     "floor_threshold": 0.0,
     "oracle_ceiling_by_regime": {
       "avoidance": 1.0,
-      "drift": 0.0
+      "drift": 0.4
     },
     "prize": 0.4,
-    "recommendation": "stop_and_reprice",
-    "should_stop": true,
-    "units_per_regime": 1,
-    "verification_proceed_branch_prize0": {
-      "drift_oracle_clears_floor_plus_prize": true,
-      "floor_plus_prize_threshold": 0.0,
+    "recommendation": "proceed",
+    "should_stop": false,
+    "units_per_regime": {
+      "avoidance": 1,
+      "drift": 20
+    },
+    "verification_stop_branch_unreachable_prize": {
+      "drift_oracle_clears_floor_plus_prize": false,
+      "floor_plus_prize_threshold": 1.0,
       "floor_threshold": 0.0,
       "oracle_ceiling_by_regime": {
         "avoidance": 1.0,
-        "drift": 0.0
+        "drift": 0.4
       },
-      "prize": 0.0,
-      "recommendation": "proceed",
-      "should_stop": false,
-      "units_per_regime": 1
+      "prize": 1.0,
+      "recommendation": "stop_and_reprice",
+      "should_stop": true,
+      "units_per_regime": {
+        "avoidance": 1,
+        "drift": 20
+      }
     }
   },
   "preregistration": "experiments/feasibility_audit/phase4_f2_prereg.json",
@@ -254,7 +260,7 @@
     "gate_statistic": "rank_biserial_auc",
     "meets_0p9": true,
     "n_episodes": 24,
-    "spearman": 0.9814329841314368,
+    "spearman": 0.9431755368501651,
     "tie_degenerate": false
   },
   "row_count": 24,
@@ -264,15 +270,15 @@
     1713449107
   ],
   "throughput_M1": {
-    "aggregate_steps_per_s": 0.9845256182944028,
+    "aggregate_steps_per_s": 0.9671474255525642,
     "is_representative_of_full": false,
     "note": "quick rate is a 2-worker chain-proof number on 6-step episodes (worker launch/reset-dominated); NOT the full 30-worker rate. The full wall-clock projection uses the F1b 30-worker closed_loop rate until the full run measures its own representative rate.",
     "per_seed_rates": [
-      0.9751408970149483,
-      0.9940927313528712
+      0.9678634838361931,
+      0.9664324260141249
     ],
     "requested_workers": 2,
-    "rollout_total_elapsed_s": 24.37722244503675,
+    "rollout_total_elapsed_s": 24.815244673052803,
     "rollout_total_steps": 24.0,
     "rollout_workers_used": 2
   },
@@ -281,23 +287,23 @@
       "all_finite": true,
       "any_param_changed": true,
       "avoidance_bc_frames": 6,
-      "best_holdout_neg_mse": -0.5826378464698792,
+      "best_holdout_neg_mse": -0.5814597606658936,
       "best_update": 1,
       "entropy_observed": true,
       "log_std_observed": true,
       "ppo_ran": true,
       "ppo_updates_done": 1,
-      "rollout_aggregate_steps_per_s": 0.9751408970149483,
+      "rollout_aggregate_steps_per_s": 0.9678634838361931,
       "rollout_throughput": [
         {
-          "rollout_elapsed_s": 12.305913983029313,
+          "rollout_elapsed_s": 12.398442756035365,
           "rollout_steps": 12.0,
-          "rollout_steps_per_s": 0.9751408970149483,
+          "rollout_steps_per_s": 0.9678634838361931,
           "rollout_workers": 2.0,
           "update": 1
         }
       ],
-      "rollout_total_elapsed_s": 12.305913983029313,
+      "rollout_total_elapsed_s": 12.398442756035365,
       "rollout_total_steps": 12.0,
       "rollout_workers": 2,
       "seed": 699570196,
@@ -308,23 +314,23 @@
       "all_finite": true,
       "any_param_changed": true,
       "avoidance_bc_frames": 6,
-      "best_holdout_neg_mse": -0.47168731689453125,
+      "best_holdout_neg_mse": -0.4706832468509674,
       "best_update": 1,
       "entropy_observed": true,
       "log_std_observed": true,
       "ppo_ran": true,
       "ppo_updates_done": 1,
-      "rollout_aggregate_steps_per_s": 0.9940927313528712,
+      "rollout_aggregate_steps_per_s": 0.9664324260141249,
       "rollout_throughput": [
         {
-          "rollout_elapsed_s": 12.071308462007437,
+          "rollout_elapsed_s": 12.416801917017438,
           "rollout_steps": 12.0,
-          "rollout_steps_per_s": 0.9940927313528712,
+          "rollout_steps_per_s": 0.9664324260141249,
           "rollout_workers": 2.0,
           "update": 1
         }
       ],
-      "rollout_total_elapsed_s": 12.071308462007437,
+      "rollout_total_elapsed_s": 12.416801917017438,
       "rollout_total_steps": 12.0,
       "rollout_workers": 2,
       "seed": 1713449107,

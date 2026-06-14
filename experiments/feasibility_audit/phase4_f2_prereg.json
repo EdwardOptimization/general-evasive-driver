@@ -77,6 +77,7 @@
     "resume": "--resume loads the latest per-seed checkpoint and restores RNG; kill-and-resume tested to continue from N (non-zero)"
   },
   "claim_boundary": "Phase-4 F2 asymmetric actor-critic RL training and four-arm adjudication only: asymmetric actor(obs72)/critic(obs72+privileged) Gaussian policy trained by PPO (clipped surrogate + bootstrapped privileged GAE critic + entropy) from the recalibrated reward, with the avoidance entry-speed oracle and drift DriftFeedbackPolicy as BC warm-start/annealed-auxiliary teachers only, held-out selection, a mu/reveal avoidance spectrum, and a frozen {fixed*/entry-speed-floor/online-mu-seeker/per-regime-oracle/student} four-arm validation comparison with training-seed-clustered CIs. F2 is engineering-only: it does not mutate ActiveSafetyReflexDriver, makes no self-ID or history-attribution claim, and the --quick smoke proves only the end-to-end pipeline -- it is NOT a validation ranking, promotion, driver-performance, current-sim sufficiency, full high-fidelity sufficiency, paper, repair-success, robustness-result, or feasibility-proof claim.",
+  "claim_scope": "stage-1 narrow drift probe (E4 low_mu_power_oversteer) + avoidance spectrum: the drift VALIDATION cell, matched drift oracle, success criteria, and S7 validation seeds are bound to EXACTLY E4's frozen low_mu_power_oversteer cell (the only drift cell E4 priced +0.40); avoidance spans the E2' mu/reveal spectrum. This is a deliberately narrow drift probe, NOT a wide drift/handling-limit claim -- the wide drift surface is stage-2 (E4-prime + F2-wide). Engineering-only; incumbent unchanged; no self-ID/attribution claim.",
   "curriculum": {
     "drift_difficulty_beta_scale": {
       "easy": 0.6,
@@ -116,9 +117,9 @@
     "f1b_gates_passed": true
   },
   "draft": true,
-  "drafted_at_utc": "20260614T052328Z",
+  "drafted_at_utc": "20260614T071310Z",
   "floor_definition_B5": "max over learning-free non-trivial classical arms {fixed*, entry_speed_commitment_floor, online_mu_seeker_floor}; NOT the bare incumbent; not a strawman",
-  "freeze_blocked_on": "PI sign-off only; criteria/CI/floor/spectrum/power/curriculum/total_steps/wall-clock/B6-AUC-gate/S7-threshold are all defined and frozen-ready (pass-3: M1 parallel rollout, M2 obstacle_pass contract, M3 reveal gate, M4 S7 stop-loss, M5 seed-level resume, M6 PI-approved AUC wording, M7 real step budget)",
+  "freeze_blocked_on": "PI sign-off only; criteria/CI/floor/spectrum/power/curriculum/total_steps/wall-clock/B6-AUC-gate/S7-threshold + F4-align drift-cell/oracle/criteria/seed binding are all defined and frozen-ready (pass-3: M1 parallel rollout, M2 obstacle_pass contract, M3 reveal gate, M4 S7 stop-loss, M5 seed-level resume, M6 PI-approved AUC wording, M7 real step budget; pass-4 F4-align: drift validation aligned to E4 low_mu_power_oversteer + E4-selected oracle so S7 proceeds on the priced +0.40)",
   "freeze_ready": true,
   "frozen": false,
   "leak_discipline": {
@@ -150,9 +151,12 @@
     "note": "If observed cross-seed SD exceeds the assumed 0.18 such that the drift effect +0.40 no longer exceeds the MDE, raise seeds or per-seed validation units before freeze."
   },
   "pre_full_checks_S7": {
+    "F4_align_drift_ceiling": "the drift oracle-ceiling is estimated over E4's frozen low_mu_power_oversteer validation seeds at E4's episode length (DRIFT_VALIDATION_MAX_STEPS=90) with the E4-selected oracle (beta0p28_recover), reproducing E4's priced +0.40 (8/20). Boundary tolerance 1e-09 lets a small-sample read at the exact +0.40 boundary clear floor+0.40; an unreachable-prize (1.0) re-decision still stops, so the gate is a real inequality.",
     "block_rule_M4": "recommendation=='stop_and_reprice' (matched drift oracle < floor+prize) -> all_passed=False, the --full launch is blocked + re-price; recommendation=='proceed' otherwise",
     "drift_prize_frozen": 0.4,
-    "oracle_ceiling_precheck": "measure the matched oracle success on the student/hard grid; threshold = drift floor (_floor_rate) + the pre-registered drift prize (+0.40)"
+    "drift_s7_min_units": 20,
+    "oracle_ceiling_precheck": "measure the matched oracle success on the student/hard grid; threshold = drift floor (_floor_rate) + the pre-registered drift prize (+0.40)",
+    "same_inequality_quick_and_full": "after F4-align, --quick and --full apply the SAME proceed/stop inequality (no horizon workaround)"
   },
   "protocol": "phase4_f2_asymmetric_actor_critic_rl_preregistration_FREEZE_READY",
   "quick_mode_is_verdict": false,
@@ -263,9 +267,35 @@
     "bc_aux_coef_start": 0.5,
     "bc_warmstart_coef": 1.0,
     "drift": {
+      "F4_align_stage1": {
+        "drift_oracle_spec": "beta0p28_recover",
+        "drift_oracle_spec_selected_by": "E4 frozen full artifact per-cell selected_candidates.drift_specialized_oracle (the controller E4 priced at +0.40 on this cell); NOT beta0p22_power (a non-winning candidate scoring ~0)",
+        "drift_s7_min_units": 20,
+        "drift_s7_validation_seeds": "E4 frozen low_mu_power_oversteer validation_seeds (the exact seeds E4 priced 0.40 = 8/20 on)",
+        "drift_success_criteria": {
+          "beta_threshold_rad": 0.1,
+          "controlled_window": "MIN_SPEED 2.0 <= vx <= MAX_SPEED 28.0 and |yaw_rate| <= 2.70 rad/s",
+          "criteria_source": "reuses E4's success semantics verbatim (e4 thresholds + e4._rear_saturation + longest_controlled >= MIN_SUSTAIN_STEPS); no self-authored judge",
+          "min_sustain_steps": 24,
+          "rear_saturation": "e4._rear_saturation (rear slip-angle >= 0.10 rad OR longitudinal slip >= 0.08)"
+        },
+        "drift_validation_cell": "low_mu_power_oversteer",
+        "drift_validation_cell_params": {
+          "cell_id": "low_mu_power_oversteer",
+          "heading_error_rad": -0.1,
+          "initial_beta_rad": 0.22,
+          "mu": 0.48,
+          "speed_mps": 9.0,
+          "track_radius": 70.0,
+          "track_width": 34.0,
+          "yaw_rate_scale": 1.2
+        },
+        "drift_validation_max_steps": 90,
+        "rationale": "F2's drift VALIDATION grid + the S7 oracle-ceiling check are bound to EXACTLY the frozen E4 low_mu_power_oversteer cell, E4-selected oracle, E4 success criteria, and E4 frozen validation seeds, so the matched drift oracle reproduces the priced +0.40 and S7 proceeds honestly. Training curriculum (rollout horizon/beta-scaled difficulty) is unchanged."
+      },
       "binding": {
         "cell_id": "low_mu_power_oversteer",
-        "spec": "beta0p22_power"
+        "spec": "beta0p28_recover"
       },
       "forbidden": "the native Chrono CEM oracle scored 0/N in the drift cell and is NEVER the drift teacher",
       "prize_source": "E4/M3260 drift gap +0.40",

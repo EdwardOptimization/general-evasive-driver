@@ -795,7 +795,19 @@ wall-clock report.
 - F1: DONE (M3261; infra + smoke + throughput + projected 100M wall-clock completed: 48 steps, 2.1031 steps/s, 13207.81 h / 550.33 days projected for 100M; STOP for PI wall-clock review)
 - F1b: DONE (M3263; 30 workers, closed-loop 1600.8440 steps/s, batched action-sequence 1967.0045 steps/s, projected 100M best wall-clock 14.12 h / 0.59 days; target >=1000 steps/s met; STOP for PI)
 - F2 build: 3 passes + 3 adversarial reviews done (real PPO, B1-B6+M1-M7 fixed, verified); freeze blocked only on the drift-scenario alignment (S7)
-- F4-align: OPEN — NEXT (stage 1: align F2 drift validation to E4 low_mu_power_oversteer + beta0p22_power oracle; re-smoke; then freeze + launch clean baseline)
+- F4-align: DONE (stage 1, build pass) — aligned F2's drift VALIDATION cell + matched
+  oracle + success criteria + S7 seeds to E4's frozen low_mu_power_oversteer. KEY
+  CORRECTION: E4's +0.40 came from the per-cell SELECTED drift oracle, which the frozen
+  E4 full artifact records as `beta0p28_recover` (8/20 = 0.40), NOT `beta0p22_power`
+  (the old F2 binding, measured 0/20 ~0 on this cell — the true root cause of S7's
+  恒-stop, on top of the short rollout horizon). Re-smoke (--quick) measured: drift
+  oracle ceiling 0.40 on E4's 20 frozen seeds (drift floor 0.0 -> clears 0.0+0.40),
+  S7 recommendation="proceed"/should_stop=False, gate s7_stop_loss_active_M4=True,
+  both-branches honest (unreachable prize 1.0 -> stop). No regression: avoidance
+  student/oracle 1.0, M3 BC frames 12, M1 parallel throughput, B1-B6/M1-M7 + all 45
+  F2 tests green; incumbent untouched. prereg freeze_ready=true, frozen=false (PI
+  freeze pending); claim_scope="stage-1 narrow drift probe (E4 low_mu_power_oversteer)
+  + avoidance spectrum". Ignition-ready (S7 no longer blocks); PI freeze -> managed launch.
 - E4-prime + F2-wide: QUEUED (stage 2 after stage-1 result: widen + re-price the drift surface, retrain F2 on the representative surface)
 - WP6.2 guardrails: **MERGED** (commit 05607bcd — validator V7 live in the
   pre-commit hook, escalation protocol in docs/escalations/, managed-run

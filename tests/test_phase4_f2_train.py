@@ -468,6 +468,82 @@ def test_m4_s7_recommendation_tokens_and_threshold():
     assert f2.S7_DRIFT_PRIZE == pytest.approx(0.40)
 
 
+# --------------------------------------------------------------- F4-align (stage 1)
+
+
+def test_f4align_drift_oracle_bound_to_e4_selected_winner():
+    # F4-align: the drift teacher/oracle must be the spec E4 SELECTED for the priced
+    # low_mu_power_oversteer cell (the controller E4 measured at +0.40), NOT the old
+    # beta0p22_power binding (a non-winning ~0 candidate on this cell).
+    assert f2.DRIFT_CELL_ID == "low_mu_power_oversteer"
+    selected = f2._e4_selected_drift_spec_name(f2.DRIFT_CELL_ID, default="__none__")
+    assert selected != "__none__", "E4 artifact must expose the selected drift candidate"
+    assert f2.DRIFT_FEEDBACK_NAME == selected
+    assert f2.DRIFT_FEEDBACK_NAME != "beta0p22_power"  # the old non-winning binding
+    # it must be a real DriftFeedbackSpec (never a CEM/open-loop native candidate)
+    spec = f2._drift_spec(f2.DRIFT_FEEDBACK_NAME)
+    assert spec in e4.DRIFT_FEEDBACK_SPECS
+    # cross-check against the frozen E4 full artifact's recorded selection + 0.40
+    e4_full = f2._read_json(f2.E4_JSON)
+    readout = [c for c in e4_full["cell_readouts"] if c["cell_id"] == f2.DRIFT_CELL_ID][0]
+    assert readout["selected_candidates"]["drift_specialized_oracle"] == f"drift:{f2.DRIFT_FEEDBACK_NAME}"
+    assert readout["arm_success_rate"]["drift_specialized_oracle"] == pytest.approx(0.40)
+
+
+def test_f4align_drift_validation_horizon_is_e4_episode_length():
+    # F4-align: the drift VALIDATION/S7 grid runs on E4's frozen episode length so the
+    # matched oracle can reach the 24-step sustain criterion (the short PPO rollout
+    # horizon caps it below 24 by construction).
+    assert f2.DRIFT_VALIDATION_MAX_STEPS == e4.MAX_STEPS == 90
+    assert f2.DRIFT_VALIDATION_MAX_STEPS >= e4.MIN_SUSTAIN_STEPS
+    # the drift validation scenario carries the E4 cell params and E4 horizon
+    scen = f2._drift_scenario(f2._seed_for("t", 0), max_steps=f2.DRIFT_VALIDATION_MAX_STEPS, difficulty="hard")
+    assert scen["max_steps"] == 90
+    cell = f2._drift_cell()
+    assert scen["params"]["mu"] == pytest.approx(cell["mu"])  # E4 cell mu (0.48)
+    assert scen["track_radius"] == pytest.approx(cell["track_radius"])  # 70
+
+
+def test_f4align_s7_uses_e4_frozen_validation_seeds():
+    # F4-align: the S7 drift ceiling replays E4's exact frozen validation seeds (the
+    # seeds E4 priced 8/20 = 0.40 on), not a single coin-flip.
+    seeds = f2._e4_drift_validation_seeds(f2.DRIFT_CELL_ID)
+    e4_prereg = f2._read_json(f2.E4_PREREG_JSON)
+    assert seeds == [int(s) for s in e4_prereg["validation_seeds"][f2.DRIFT_CELL_ID]]
+    assert len(seeds) >= f2.DRIFT_S7_MIN_UNITS == 20
+
+
+def test_f4align_drift_success_criteria_reuse_e4_semantics():
+    # F4-align: F2's drift success judging reuses E4's thresholds + rear-saturation
+    # function verbatim (no self-authored judge), and the prereg records this.
+    prereg = f2.build_preregistration()
+    blk = prereg["teacher_role"]["drift"]["F4_align_stage1"]
+    assert blk["drift_validation_cell"] == "low_mu_power_oversteer"
+    assert blk["drift_oracle_spec"] == f2.DRIFT_FEEDBACK_NAME
+    assert blk["drift_validation_max_steps"] == 90
+    crit = blk["drift_success_criteria"]
+    assert crit["beta_threshold_rad"] == pytest.approx(e4.BETA_THRESHOLD_RAD)
+    assert crit["min_sustain_steps"] == e4.MIN_SUSTAIN_STEPS == 24
+    assert prereg["claim_scope"].lower().startswith("stage-1 narrow drift probe")
+
+
+def test_s7_decision_is_a_real_inequality_pure():
+    # F4-align: the S7 decision is a pure inequality on the measured ceiling. At a
+    # ceiling reproducing E4's +0.40 with floor 0.0 it PROCEEDS at prize 0.40 (boundary
+    # cleared by tolerance) and STOPS at an unreachable prize 1.0.
+    ceil_proceed = {"avoidance": 1.0, "drift": 0.40}
+    proceed = f2.s7_decision(ceil_proceed, floor_threshold=0.0, prize=0.40)
+    assert proceed["recommendation"] == "proceed"
+    assert proceed["should_stop"] is False
+    assert proceed["drift_oracle_clears_floor_plus_prize"] is True
+    stop = f2.s7_decision(ceil_proceed, floor_threshold=0.0, prize=1.0)
+    assert stop["recommendation"] == "stop_and_reprice"
+    assert stop["should_stop"] is True
+    # a drift ceiling of 0.0 (the OLD beta0p22_power behaviour) still blocks at +0.40
+    blocked = f2.s7_decision({"avoidance": 1.0, "drift": 0.0}, floor_threshold=0.0, prize=0.40)
+    assert blocked["recommendation"] == "stop_and_reprice"
+
+
 def test_m1_act_batch_is_obs72_only_and_batched():
     # M1: act_batch does ONE stochastic forward over W obs72 frames; obs72-only.
     model = f2.AsymmetricActorCritic()
@@ -569,12 +645,23 @@ def test_quick_pipeline_end_to_end():
     assert summary["throughput_M1"]["rollout_total_steps"] > 0
     assert summary["avoidance_bc_frames_M3"] > 0
     assert summary["wall_clock_projection_M7"]["throughput_steps_per_s"] >= 1000.0
-    # M4: S7 demonstrates BOTH branches honestly (real +0.40 prize -> stop; prize 0
-    # -> proceed), proving the stop-loss is a real inequality, not a constant.
+    # F4-align: after aligning the drift validation cell/oracle/criteria/seeds to E4's
+    # frozen low_mu_power_oversteer, the matched drift oracle reproduces the priced
+    # +0.40 and S7 PROCEEDS on the REAL +0.40 prize (the launch is no longer blocked).
     s7 = summary["oracle_ceiling_precheck_S7"]
-    assert s7["recommendation"] == "stop_and_reprice"  # real +0.40 prize not cleared
-    assert s7["verification_proceed_branch_prize0"]["recommendation"] == "proceed"
+    assert s7["recommendation"] == "proceed"  # REAL +0.40 prize is cleared
+    assert s7["should_stop"] is False
+    assert s7["drift_oracle_clears_floor_plus_prize"] is True
+    # the drift oracle ceiling reproduces E4's ~0.40 (> 0; the prize is reachable)
+    assert s7["oracle_ceiling_by_regime"]["drift"] >= s7["floor_plus_prize_threshold"] - f2.S7_BOUNDARY_TOL
+    assert s7["oracle_ceiling_by_regime"]["drift"] > 0.0
+    # the gate is a real inequality: an unreachable prize still stops (BOTH branches)
+    assert s7["verification_stop_branch_unreachable_prize"]["recommendation"] == "stop_and_reprice"
     assert s7["both_branches_demonstrated"] is True
+    # the S7 launch gate now RELEASES the launch (the F4-align objective)
+    assert gates["s7_stop_loss_active_M4"] is True
+    # drift oracle arm success > 0 in the four-arm adjudication (prize reachable)
+    assert summary["adjudication"]["per_regime"]["drift"]["per_regime_oracle"]["success_rate"] > 0.0
     assert summary["decision"]["incumbent_changed"] is False
     assert summary["decision"]["quick_mode_is_verdict"] is False
     adjud = summary["adjudication"]
@@ -667,24 +754,29 @@ def test_m1_parallel_rollout_throughput_and_serial_shape(tmp_path):
 
 
 @pytest.mark.skipif(not _chrono_available(), reason="chrono worker not launchable in this environment")
-def test_m4_s7_triggers_stop_under_nonzero_floor_plus_prize(tmp_path):
-    # M4: at horizon 6 the drift oracle cannot sustain the 24-step drift criterion,
-    # so the oracle ceiling < floor + prize -> recommendation == "stop_and_reprice"
-    # and should_stop is True (the stop-loss is REAL, not a 0/0 no-op).
-    budget = dict(f2.QUICK)
-    budget["selection_units_per_regime"] = 2
+def test_m4_s7_real_inequality_proceeds_on_priced_prize_stops_on_unreachable(tmp_path):
+    # M4 + F4-align: the S7 oracle-ceiling precheck is a REAL inequality on the
+    # MEASURED drift ceiling. After aligning the drift validation cell/oracle/criteria/
+    # seeds to E4's frozen low_mu_power_oversteer, the matched drift oracle reproduces
+    # the priced +0.40, so:
+    #   * at the REAL +0.40 prize (floor 0.0) -> "proceed" (ceiling >= floor+0.40);
+    #   * at an UNREACHABLE prize (1.0)       -> "stop_and_reprice" (a real inequality).
     s7 = f2.oracle_ceiling_precheck(
-        budget=budget, quick=True, stderr_log=tmp_path / "err.log",
+        budget=dict(f2.QUICK), quick=True, stderr_log=tmp_path / "err.log",
         floor_threshold=0.0, prize=f2.S7_DRIFT_PRIZE,
     )
     assert s7["prize"] == pytest.approx(0.40)
     assert s7["floor_plus_prize_threshold"] == pytest.approx(0.40)
-    assert s7["should_stop"] is True
-    assert s7["recommendation"] == "stop_and_reprice"
-    # and a high threshold the oracle cannot meet always stops, proving the gate
-    # is a real inequality (not a constant pass)
+    # the S7 drift ceiling reproduces E4's ~0.40 (> 0 and clears floor+prize)
+    assert s7["oracle_ceiling_by_regime"]["drift"] > 0.0
+    assert s7["oracle_ceiling_by_regime"]["drift"] >= 0.40 - f2.S7_BOUNDARY_TOL
+    assert s7["units_per_regime"]["drift"] >= f2.DRIFT_S7_MIN_UNITS
+    assert s7["should_stop"] is False
+    assert s7["recommendation"] == "proceed"
+    # a high threshold the oracle cannot meet always stops, proving the gate is a real
+    # inequality (not a constant pass)
     s7_hi = f2.oracle_ceiling_precheck(
-        budget=budget, quick=True, stderr_log=tmp_path / "err2.log",
+        budget=dict(f2.QUICK), quick=True, stderr_log=tmp_path / "err2.log",
         floor_threshold=0.99, prize=f2.S7_DRIFT_PRIZE,
     )
     assert s7_hi["recommendation"] == "stop_and_reprice"
