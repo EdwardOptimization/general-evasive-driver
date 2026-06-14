@@ -693,6 +693,34 @@ structural-ceiling gap (E1' +0.18), clean-sensing belief value (E2' up to
 all-regimes-competence readout (the one driver must not regress ordinary
 avoidance while gaining drift). PASS thresholds frozen before any full run.
 
+**F2 build status (2026-06-14): three build passes + three adversarial
+reviews done** (`docs/phase4-f2-build-review-2026-06-14.md`). Pass-3 is real
+PPO (clipped surrogate + bootstrapped GAE + policy gradient, teacher = m1087
+warm-start), all of B1-B6 + M1-M7 fixed and independently verified, real
+budget 48.25M env steps / ~8.4 h at the F1b 30-worker rate. One condition
+remained: S7 (stop-rule) correctly blocks because F2's drift validation
+scenarios do not match E4's, so the drift oracle scores 0/N (vs the 0.40 E4
+measured).
+
+**PI two-stage decision (2026-06-14): do both, stage 1 then stage 2.** The
+E4 drift cells are a deliberately narrow probe (2 hand-constructed cells,
+car pre-initialized into a ~13-16 deg sideslip, ~30 km/h, 1.8 s episodes,
+0.48 s sustain) — real drift/handling-limit is far wider (full speed,
+varied geometry, full/split mu, entry-to-exit maneuvers, drift-as-avoidance).
+
+- **F4-align (stage 1, OPEN — NEXT)**: a 4th small F2 build pass aligning
+  F2's drift validation cells to E4's frozen `low_mu_power_oversteer` cell
+  (mu 0.48, speed 9, radius 70, initial_beta 0.22) + the `beta0p22_power`
+  oracle, so the drift oracle reproduces ~0.40 and S7 passes. Re-smoke
+  (confirm drift oracle ~0.40, S7 proceed), then freeze the prereg and
+  launch F2 as the clean first RL-vs-reflex baseline on exactly the priced
+  cells. Claim scoped to "narrow drift probe + avoidance spectrum".
+- **E4-prime + F2-wide (stage 2, queued after stage-1 result)**: widen the
+  drift task surface (speed/geometry/mu spectrum, entry-to-exit maneuvers,
+  drift-as-avoidance), re-price it four-arm (E4-prime, CPU zero-training),
+  then retrain F2 on the representative surface. This is the faithful
+  RL-vs-reflex-in-drift experiment; stage 1's clean baseline de-risks it.
+
 **CP-3 (PI checkpoint) [FULLY RESOLVED 2026-06-13]**: disposition A
 (harden first) was satisfied — E3-fix (M3257), E2' flip-confirmation at
 power (M3258), and E1' oracle-adequate spread repricing (M3259) all
@@ -766,7 +794,9 @@ wall-clock report.
 - E4 review: DONE (PI 2026-06-14) — Track F APPROVED at FULL-SCENARIO scope: ONE driver over avoidance + drift, per-regime teacher (drift teacher = specialized oracle, not CEM)
 - F1: DONE (M3261; infra + smoke + throughput + projected 100M wall-clock completed: 48 steps, 2.1031 steps/s, 13207.81 h / 550.33 days projected for 100M; STOP for PI wall-clock review)
 - F1b: DONE (M3263; 30 workers, closed-loop 1600.8440 steps/s, batched action-sequence 1967.0045 steps/s, projected 100M best wall-clock 14.12 h / 0.59 days; target >=1000 steps/s met; STOP for PI)
-- F2-F3: BLOCKED on F1b throughput report + PI go (100M managed run; full-scenario, three prizes: avoidance +0.18, belief +0.77, drift +0.40)
+- F2 build: 3 passes + 3 adversarial reviews done (real PPO, B1-B6+M1-M7 fixed, verified); freeze blocked only on the drift-scenario alignment (S7)
+- F4-align: OPEN — NEXT (stage 1: align F2 drift validation to E4 low_mu_power_oversteer + beta0p22_power oracle; re-smoke; then freeze + launch clean baseline)
+- E4-prime + F2-wide: QUEUED (stage 2 after stage-1 result: widen + re-price the drift surface, retrain F2 on the representative surface)
 - WP6.2 guardrails: **MERGED** (commit 05607bcd — validator V7 live in the
   pre-commit hook, escalation protocol in docs/escalations/, managed-run
   helper scripts/run_managed.sh). Codex execution may begin.
