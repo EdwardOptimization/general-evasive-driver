@@ -2,145 +2,130 @@
   "adjudication": {
     "per_regime": {
       "avoidance": {
-        "fixed_star": {
+        "entry_speed_commitment_floor": {
           "collision_rate": 0.0,
-          "mean": 1.0,
-          "mean_reward": 72.0,
+          "mean_reward": 88.0,
           "n": 2,
-          "n_seeds": 1,
+          "n_training_seeds": 0,
           "seed_cluster_se": 0.0,
           "success_rate": 1.0
         },
-        "per_instance_tuned_reflex": {
+        "fixed_star": {
           "collision_rate": 0.0,
-          "mean": 1.0,
-          "mean_reward": 72.0,
+          "mean_reward": 88.0,
           "n": 2,
-          "n_seeds": 1,
+          "n_training_seeds": 0,
+          "seed_cluster_se": 0.0,
+          "success_rate": 1.0
+        },
+        "online_mu_seeker_floor": {
+          "collision_rate": 0.0,
+          "mean_reward": 88.0,
+          "n": 2,
+          "n_training_seeds": 0,
           "seed_cluster_se": 0.0,
           "success_rate": 1.0
         },
         "per_regime_oracle": {
           "collision_rate": 0.0,
-          "mean": 1.0,
-          "mean_reward": 72.0,
+          "mean_reward": 88.0,
           "n": 2,
-          "n_seeds": 1,
-          "seed_cluster_se": 0.0,
-          "success_rate": 1.0
-        },
-        "rls_retuned_reflex": {
-          "collision_rate": 0.0,
-          "mean": 1.0,
-          "mean_reward": 72.0,
-          "n": 2,
-          "n_seeds": 1,
+          "n_training_seeds": 0,
           "seed_cluster_se": 0.0,
           "success_rate": 1.0
         },
         "student_policy": {
           "collision_rate": 0.0,
-          "mean": 1.0,
-          "mean_reward": 72.0,
-          "n": 2,
-          "n_seeds": 1,
+          "mean_reward": 88.0,
+          "n": 4,
+          "n_training_seeds": 2,
           "seed_cluster_se": 0.0,
           "success_rate": 1.0
         }
       },
       "drift": {
-        "fixed_star": {
+        "entry_speed_commitment_floor": {
           "collision_rate": 0.0,
-          "mean": 0.0,
-          "mean_reward": 2.0,
+          "mean_reward": 3.0,
           "n": 2,
-          "n_seeds": 1,
+          "n_training_seeds": 0,
           "seed_cluster_se": 0.0,
           "success_rate": 0.0
         },
-        "per_instance_tuned_reflex": {
+        "fixed_star": {
           "collision_rate": 0.0,
-          "mean": 0.0,
-          "mean_reward": 2.0,
+          "mean_reward": 2.75,
           "n": 2,
-          "n_seeds": 1,
+          "n_training_seeds": 0,
+          "seed_cluster_se": 0.0,
+          "success_rate": 0.0
+        },
+        "online_mu_seeker_floor": {
+          "collision_rate": 0.0,
+          "mean_reward": 3.0,
+          "n": 2,
+          "n_training_seeds": 0,
           "seed_cluster_se": 0.0,
           "success_rate": 0.0
         },
         "per_regime_oracle": {
           "collision_rate": 0.0,
-          "mean": 0.0,
-          "mean_reward": 2.0,
+          "mean_reward": 3.0,
           "n": 2,
-          "n_seeds": 1,
-          "seed_cluster_se": 0.0,
-          "success_rate": 0.0
-        },
-        "rls_retuned_reflex": {
-          "collision_rate": 0.0,
-          "mean": 0.0,
-          "mean_reward": 2.0,
-          "n": 2,
-          "n_seeds": 1,
+          "n_training_seeds": 0,
           "seed_cluster_se": 0.0,
           "success_rate": 0.0
         },
         "student_policy": {
           "collision_rate": 0.0,
-          "mean": 0.0,
-          "mean_reward": 2.0,
-          "n": 2,
-          "n_seeds": 1,
+          "mean_reward": 3.0,
+          "n": 4,
+          "n_training_seeds": 2,
           "seed_cluster_se": 0.0,
           "success_rate": 0.0
         }
-      }
-    },
-    "pooled": {
-      "fixed_star": {
-        "collision_rate": 0.0,
-        "mean": 0.5,
-        "mean_reward": 37.0,
-        "n": 4,
-        "n_seeds": 1,
-        "seed_cluster_se": 0.0,
-        "success_rate": 0.5
       },
-      "per_instance_tuned_reflex": {
-        "collision_rate": 0.0,
-        "mean": 0.5,
-        "mean_reward": 37.0,
-        "n": 4,
-        "n_seeds": 1,
-        "seed_cluster_se": 0.0,
-        "success_rate": 0.5
-      },
-      "per_regime_oracle": {
-        "collision_rate": 0.0,
-        "mean": 0.5,
-        "mean_reward": 37.0,
-        "n": 4,
-        "n_seeds": 1,
-        "seed_cluster_se": 0.0,
-        "success_rate": 0.5
-      },
-      "rls_retuned_reflex": {
-        "collision_rate": 0.0,
-        "mean": 0.5,
-        "mean_reward": 37.0,
-        "n": 4,
-        "n_seeds": 1,
-        "seed_cluster_se": 0.0,
-        "success_rate": 0.5
-      },
-      "student_policy": {
-        "collision_rate": 0.0,
-        "mean": 0.5,
-        "mean_reward": 37.0,
-        "n": 4,
-        "n_seeds": 1,
-        "seed_cluster_se": 0.0,
-        "success_rate": 0.5
+      "pooled": {
+        "entry_speed_commitment_floor": {
+          "collision_rate": 0.0,
+          "mean_reward": 45.5,
+          "n": 4,
+          "n_training_seeds": 0,
+          "seed_cluster_se": 0.0,
+          "success_rate": 0.5
+        },
+        "fixed_star": {
+          "collision_rate": 0.0,
+          "mean_reward": 45.375,
+          "n": 4,
+          "n_training_seeds": 0,
+          "seed_cluster_se": 0.0,
+          "success_rate": 0.5
+        },
+        "online_mu_seeker_floor": {
+          "collision_rate": 0.0,
+          "mean_reward": 45.5,
+          "n": 4,
+          "n_training_seeds": 0,
+          "seed_cluster_se": 0.0,
+          "success_rate": 0.5
+        },
+        "per_regime_oracle": {
+          "collision_rate": 0.0,
+          "mean_reward": 45.5,
+          "n": 4,
+          "n_training_seeds": 0,
+          "seed_cluster_se": 0.0,
+          "success_rate": 0.5
+        },
+        "student_policy": {
+          "collision_rate": 0.0,
+          "mean_reward": 45.5,
+          "n": 8,
+          "n_training_seeds": 2,
+          "seed_cluster_se": 0.0,
+          "success_rate": 0.5
+        }
       }
     },
     "prize_recovery": {
@@ -149,9 +134,49 @@
       "drift_oracle_minus_floor": 0.0,
       "drift_student_minus_floor": 0.0
     },
+    "seed_clustered_ci": {
+      "avoidance": {
+        "floor_rate": 1.0,
+        "n_training_seeds": 2,
+        "student_minus_floor_cluster_bootstrap_ci": {
+          "ci95_high": 0.0,
+          "ci95_low": 0.0,
+          "method": "seed_cluster_bootstrap",
+          "n": 2
+        },
+        "student_minus_floor_paired_t_ci": {
+          "ci95_high": 0.0,
+          "ci95_low": 0.0,
+          "mean": 0.0,
+          "method": "paired_t",
+          "n": 2,
+          "sd": 0.0,
+          "t_crit": 12.706
+        }
+      },
+      "drift": {
+        "floor_rate": 0.0,
+        "n_training_seeds": 2,
+        "student_minus_floor_cluster_bootstrap_ci": {
+          "ci95_high": 0.0,
+          "ci95_low": 0.0,
+          "method": "seed_cluster_bootstrap",
+          "n": 2
+        },
+        "student_minus_floor_paired_t_ci": {
+          "ci95_high": 0.0,
+          "ci95_low": 0.0,
+          "mean": 0.0,
+          "method": "paired_t",
+          "n": 2,
+          "sd": 0.0,
+          "t_crit": 12.706
+        }
+      }
+    },
     "student_no_avoidance_regression": true
   },
-  "claim_boundary": "Phase-4 F2 per-regime teacher-student training and four-arm adjudication only: asymmetric actor(obs72)/critic(obs72+privileged) rig, avoidance entry-speed-commitment oracle and drift DriftFeedbackSpec oracle as the per-regime distillation teachers, DAgger-lite + RL mixed loss, held-out epoch selection, curriculum, and a frozen {fixed*/RLS-retuned/per-instance-tuned/per-regime-oracle/student} four-arm validation comparison with seed-cluster and engineering double-readout. F2 is engineering-only: it does not mutate ActiveSafetyReflexDriver, makes no self-ID or history-attribution claim, and the --quick smoke proves only the end-to-end pipeline -- it is NOT a validation ranking, promotion, driver-performance, current-sim sufficiency, full high-fidelity sufficiency, paper, repair-success, robustness-result, or feasibility-proof claim.",
+  "claim_boundary": "Phase-4 F2 asymmetric actor-critic RL training and four-arm adjudication only: asymmetric actor(obs72)/critic(obs72+privileged) Gaussian policy trained by PPO (clipped surrogate + bootstrapped privileged GAE critic + entropy) from the recalibrated reward, with the avoidance entry-speed oracle and drift DriftFeedbackPolicy as BC warm-start/annealed-auxiliary teachers only, held-out selection, a mu/reveal avoidance spectrum, and a frozen {fixed*/entry-speed-floor/online-mu-seeker/per-regime-oracle/student} four-arm validation comparison with training-seed-clustered CIs. F2 is engineering-only: it does not mutate ActiveSafetyReflexDriver, makes no self-ID or history-attribution claim, and the --quick smoke proves only the end-to-end pipeline -- it is NOT a validation ranking, promotion, driver-performance, current-sim sufficiency, full high-fidelity sufficiency, paper, repair-success, robustness-result, or feasibility-proof claim.",
   "decision": {
     "f2_verdict": "quick_smoke_passed",
     "incumbent_changed": false,
@@ -159,49 +184,90 @@
     "quick_mode_is_verdict": false,
     "self_id_claim": "none; engineering-only"
   },
-  "elapsed_s": 160.64,
-  "generated_at_utc": "20260613T184307Z",
-  "milestone": "m3264-phase4-f2-per-regime-teacher-student",
+  "elapsed_s": 215.24,
+  "generated_at_utc": "20260614T032308Z",
+  "milestone": "m3264-phase4-f2-asymmetric-actor-critic-rl",
   "mode": "quick",
-  "obs72_mu_reconstruction_probe": {
-    "n": 8,
-    "note": "information only; engineering work makes no attribution claim",
-    "r2_linear": 1.0
+  "oracle_ceiling_precheck_S7": {
+    "drift_oracle_clears_floor_plus_prize": true,
+    "floor_plus_prize_threshold": 0.0,
+    "oracle_ceiling_by_regime": {
+      "avoidance": 1.0,
+      "drift": 0.0
+    },
+    "recommendation": "proceed_to_full",
+    "units_per_regime": 1
   },
   "preregistration": "experiments/feasibility_audit/phase4_f2_prereg.json",
   "protocol_gates": {
     "all_five_arms_present": true,
     "all_passed": true,
+    "all_training_seeds_validated_B3": true,
     "asymmetric_actor_critic_built": true,
+    "avoidance_spectrum_spanned_S2": true,
     "both_regimes_evaluated": true,
+    "checkpoints_written_B1": true,
+    "ci_method_present_B4": true,
     "deterministic_seed_streams_disjoint": true,
+    "entropy_observed": true,
     "finite_update": true,
+    "floor_nontrivial_B5": true,
     "four_arm_eval_finite": true,
     "full_not_launched": true,
+    "gae_bootstrap_used": true,
     "held_out_epoch_selected": true,
     "incumbent_unchanged": true,
+    "log_std_observed": true,
     "optimizer_changed_parameters": true,
+    "ppo_update_ran": true,
     "preregistration_present": true,
-    "reward_alignment_reported": true,
-    "student_input_obs72_only": true,
-    "teacher_demos_generated": true
+    "reward_alignment_hard_gate_B6": true,
+    "s7_oracle_ceiling_prechecked": true,
+    "seed_cluster_by_training_seed_B3": true,
+    "stochastic_policy_log_std_learnable": true,
+    "student_input_obs72_only": true
   },
   "reward_alignment": {
+    "auc": 1.0,
+    "gate_applicable": true,
+    "gate_statistic": "rank_biserial_auc",
     "meets_0p9": true,
-    "n_groups": 10,
-    "spearman": 1.0
+    "n_episodes": 24,
+    "spearman": 0.9814329841314368,
+    "tie_degenerate": false
   },
-  "row_count": 20,
+  "row_count": 24,
+  "scope_decision_s3": "real_asymmetric_actor_critic_rl",
   "seeds": [
-    699570196
+    699570196,
+    1713449107
   ],
   "train_summaries": [
     {
       "all_finite": true,
       "any_param_changed": true,
-      "best_epoch": 1,
-      "best_holdout_neg_mse": -0.36224934458732605,
-      "total_epochs": 2
+      "best_holdout_neg_mse": null,
+      "best_update": 0,
+      "entropy_observed": true,
+      "log_std_observed": true,
+      "ppo_ran": true,
+      "ppo_updates_done": 1,
+      "seed": 699570196,
+      "total_updates": 2,
+      "warmstart_updates": 1
+    },
+    {
+      "all_finite": true,
+      "any_param_changed": true,
+      "best_holdout_neg_mse": null,
+      "best_update": 0,
+      "entropy_observed": true,
+      "log_std_observed": true,
+      "ppo_ran": true,
+      "ppo_updates_done": 1,
+      "seed": 1713449107,
+      "total_updates": 2,
+      "warmstart_updates": 1
     }
   ]
 }

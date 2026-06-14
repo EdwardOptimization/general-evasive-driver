@@ -1,40 +1,83 @@
 {
   "arms": {
+    "entry_speed_commitment_floor": "B5 classical: belief-free entry-speed commitment fixed-plan (avoidance) / conservative belief-free reflex (drift); obs72-only, learning-free",
     "fixed_star": "unmodified v4 ActiveSafetyReflexDriver (incumbent, unchanged)",
-    "per_instance_tuned_reflex": "per-cell selected frozen reflex tune",
+    "online_mu_seeker_floor": "B5 classical: online mu-estimating threshold-seeker reflex (avoidance) / alternate belief-free reflex (drift); estimates mu from its OWN action channel, NO oracle mu_true",
     "per_regime_oracle": "the per-regime teacher itself (matched oracle anchor)",
-    "rls_retuned_reflex": "best classical learning-free retuned reflex (HONEST FLOOR, not strawman)",
-    "student_policy": "trained asymmetric obs72 actor"
+    "student_policy": "trained asymmetric obs72 PPO actor"
   },
   "asymmetry_contract": {
     "actor_input": "obs72 (deployable human-view frame) only",
-    "assertion": "actor forward rejects any input not of dim 72; tested",
-    "critic_input": "obs72 + privileged features (true mu, mass, grip surrogate, regime onehot x2, teacher value proxy)",
+    "actor_policy": "Gaussian: state-dependent mean + learnable per-action log_std; deployment = tanh(mean)",
+    "assertion": "actor forward rejects any input not of dim 72; act() has no privileged path; tested",
+    "critic_input": "obs72 + privileged features (true mu, mass, grip surrogate, reveal surrogate, regime onehot x2)",
     "deployment": "critic dropped; only actor(obs72) ships",
     "privileged_dim": 6
   },
+  "avoidance_spectrum_S2": {
+    "applies_to": "training curriculum AND validation grid",
+    "mus_full": [
+      0.3625,
+      0.5875,
+      0.8125,
+      1.0375
+    ],
+    "mus_quick": [
+      0.3625,
+      0.8125
+    ],
+    "reveals_m_full": [
+      9.5,
+      12.0,
+      16.0,
+      22.0,
+      30.0
+    ],
+    "reveals_m_quick": [
+      9.5,
+      16.0
+    ]
+  },
   "budgets": {
     "full": {
-      "rollout_units_per_epoch": 60,
+      "ppo_updates": 600,
+      "rollout_horizon": 128,
+      "rollout_workers": 30,
       "seeds": 8,
       "selection_units_per_regime": 8,
-      "steps_per_unit": 90,
       "total_steps": 100000000,
-      "train_epochs": 200,
       "validation_units_per_regime": 30,
+      "warmstart_units": 60,
+      "warmstart_updates": 20,
       "workers": 30
     },
     "quick": {
-      "rollout_units_per_epoch": 2,
-      "seeds": 1,
+      "ppo_updates": 1,
+      "rollout_horizon": 6,
+      "rollout_workers": 2,
+      "seeds": 2,
       "selection_units_per_regime": 1,
-      "steps_per_unit": 4,
-      "train_epochs": 2,
       "validation_units_per_regime": 2,
+      "warmstart_units": 2,
+      "warmstart_updates": 1,
       "workers": 2
     }
   },
-  "claim_boundary": "Phase-4 F2 per-regime teacher-student training and four-arm adjudication only: asymmetric actor(obs72)/critic(obs72+privileged) rig, avoidance entry-speed-commitment oracle and drift DriftFeedbackSpec oracle as the per-regime distillation teachers, DAgger-lite + RL mixed loss, held-out epoch selection, curriculum, and a frozen {fixed*/RLS-retuned/per-instance-tuned/per-regime-oracle/student} four-arm validation comparison with seed-cluster and engineering double-readout. F2 is engineering-only: it does not mutate ActiveSafetyReflexDriver, makes no self-ID or history-attribution claim, and the --quick smoke proves only the end-to-end pipeline -- it is NOT a validation ranking, promotion, driver-performance, current-sim sufficiency, full high-fidelity sufficiency, paper, repair-success, robustness-result, or feasibility-proof claim.",
+  "checkpointing_B1": {
+    "contents": [
+      "model",
+      "optimizer",
+      "update",
+      "seed",
+      "best_score",
+      "best_state",
+      "best_update",
+      "rng(torch+numpy+python)"
+    ],
+    "per": "(seed, update)",
+    "resume": "--resume loads the latest per-seed checkpoint and restores RNG; kill-and-resume tested to continue from N (non-zero)"
+  },
+  "claim_boundary": "Phase-4 F2 asymmetric actor-critic RL training and four-arm adjudication only: asymmetric actor(obs72)/critic(obs72+privileged) Gaussian policy trained by PPO (clipped surrogate + bootstrapped privileged GAE critic + entropy) from the recalibrated reward, with the avoidance entry-speed oracle and drift DriftFeedbackPolicy as BC warm-start/annealed-auxiliary teachers only, held-out selection, a mu/reveal avoidance spectrum, and a frozen {fixed*/entry-speed-floor/online-mu-seeker/per-regime-oracle/student} four-arm validation comparison with training-seed-clustered CIs. F2 is engineering-only: it does not mutate ActiveSafetyReflexDriver, makes no self-ID or history-attribution claim, and the --quick smoke proves only the end-to-end pipeline -- it is NOT a validation ranking, promotion, driver-performance, current-sim sufficiency, full high-fidelity sufficiency, paper, repair-success, robustness-result, or feasibility-proof claim.",
   "curriculum": {
     "drift_difficulty_beta_scale": {
       "easy": 0.6,
@@ -73,70 +116,123 @@
     "f1b_artifact": "experiments/feasibility_audit/phase4_f1b_throughput.json",
     "f1b_gates_passed": true
   },
-  "distillation": {
-    "loss_mix": "distill MSE (actor) + value MSE (critic) + advantage-weighted distill (rl term)",
-    "method": "DAgger-lite: student rollout states relabelled by a fresh per-regime teacher",
-    "target": "teacher action, never an external/CEM heterogeneous solution"
-  },
-  "double_readout": {
-    "engineering_primary": "pooled validation success per arm on disjoint validation seeds",
-    "report_uses_disjoint_validation_seeds": true,
-    "seed_robust": "paired + seed-cluster SE across the 8 full-run seeds",
-    "selection_uses_only_selection_seeds": true
-  },
   "draft": true,
-  "drafted_at_utc": "20260613T184027Z",
-  "floor_definition": "max over learning-free arms {fixed*, RLS-retuned, per-instance-tuned}; never a strawman",
+  "drafted_at_utc": "20260614T032709Z",
+  "floor_definition_B5": "max over learning-free non-trivial classical arms {fixed*, entry_speed_commitment_floor, online_mu_seeker_floor}; NOT the bare incumbent; not a strawman",
+  "freeze_blocked_on": "PI sign-off only; criteria/CI/floor/spectrum/power/curriculum are all defined and freezable",
+  "freeze_ready": true,
   "frozen": false,
   "leak_discipline": {
+    "B2_bc_reveal_post_only": true,
     "actor_privileged_isolation": "asserted: actor never receives mu/privileged channels",
-    "obs72_mu_reconstruction": "reported as INFORMATION ONLY; engineering work makes no attribution claim"
+    "obs72_mu_reconstruction": "engineering work makes no attribution claim; actor isolation is the guard, not a probe"
   },
   "managed_full": {
     "device": "CPU (CUDA measured 2.6x slower); OMP_NUM_THREADS=1, multi-process",
     "launch": "PI-gated; managed (run_managed.sh / setsid + progress.jsonl + --resume); NOT launched in agent session"
   },
-  "milestone": "m3264-phase4-f2-per-regime-teacher-student",
+  "milestone": "m3264-phase4-f2-asymmetric-actor-critic-rl",
   "pass_thresholds_DRAFT": {
     "behavior_neutral_x2_stop": "two consecutive behavior-neutral full results on a regime -> stop + re-price",
-    "note": "thresholds are DRAFT; frozen only at the dedicated full-run prereg-freeze milestone",
+    "note": "thresholds defined and freezable; frozen=false pending PI sign-off only",
+    "reward_alignment_hard_gate": "per-episode rank-biserial AUC(reward,success) >= 0.9 (N/A on ties; failure -> re-price); Spearman reported alongside",
     "student_no_regression": "student avoidance success >= avoidance floor on full run",
-    "student_recovers_drift_prize": "student drift success - floor CI95 lower > 0 on full run"
+    "student_recovers_drift_prize": "student drift success - floor: cross-seed paired t-CI lower bound > 0 on the full run"
   },
-  "prize_recovery_readouts": [
-    "avoidance student vs floor (target prize +0.18/+0.77)",
-    "drift student vs floor (target prize +0.40)",
-    "all-scenario no-regression: student avoidance success >= avoidance floor"
-  ],
-  "protocol": "phase4_f2_per_regime_teacher_student_preregistration_DRAFT",
+  "power_analysis_S4": {
+    "assumed_cross_seed_sd": 0.18,
+    "avoidance_powered": true,
+    "ci_method": "cross-training-seed paired t-CI of (student - floor); cluster bootstrap as robustness",
+    "drift_powered": true,
+    "expected_effect_avoidance": 0.18,
+    "expected_effect_drift": 0.4,
+    "minimum_detectable_effect_at_8_seeds": 0.1505,
+    "n_training_seeds": 8,
+    "note": "If observed cross-seed SD exceeds the assumed 0.18 such that the drift effect +0.40 no longer exceeds the MDE, raise seeds or per-seed validation units before freeze."
+  },
+  "pre_full_checks_S7": {
+    "oracle_ceiling_precheck": "measure matched oracle success on the student/hard grid; if < floor+prize, STOP + re-price before spending full wall-clock"
+  },
+  "protocol": "phase4_f2_asymmetric_actor_critic_rl_preregistration_FREEZE_READY",
   "quick_mode_is_verdict": false,
   "reward_recalibration": {
-    "alignment_selfcheck": "Spearman(plan return, success rate) >= 0.9 across arms (reward-hacking guard)",
+    "B6_reward_hacking_guard": "per-EPISODE alignment: report Spearman(reward,success) AND rank-biserial AUC = P(reward[success]>reward[failure]); the >=0.9 HARD gate is on the AUC (binary-appropriate; raw Spearman is structurally capped for binary labels); N/A on ties; failure -> re-price",
+    "S5_fail_closed": "avoidance success/pass requires explicit cleared completion; completion=='' is a FAILURE",
+    "S5_grazing_penalty": {
+      "margin_m": 0.2,
+      "penalty": 12.0,
+      "speed_norm_threshold": 0.45
+    },
     "avoidance_pass_reward": 40.0,
     "collision_penalty": 60.0,
     "drift_success_reward": 40.0,
     "offtrack_penalty": 45.0,
     "source": "m1087 staged discipline + C5 measured collision cost; penalties >= success rewards"
   },
-  "roadmap_unit": "Phase-4 F2 per-regime teacher-student training and four-arm adjudication",
+  "rl_algorithm": {
+    "advantage_normalization": "batch-wise (mean/std) before minibatch SGD",
+    "clip": 0.2,
+    "entropy_coef": 0.01,
+    "epochs": 4,
+    "gae_lambda": 0.95,
+    "gamma": 0.99,
+    "log_std_init": -0.5,
+    "log_std_max": 0.5,
+    "log_std_min": -2.0,
+    "lr": 0.0003,
+    "max_grad_norm": 0.5,
+    "method": "PPO (clipped surrogate) with bootstrapped privileged GAE(lambda) critic",
+    "minibatches": 4,
+    "rollout_horizon_full": 128,
+    "rollout_workers_full": 30,
+    "transport": "closed_loop_step protocol (training-equivalent; batched_action_sequence is open-loop and unusable for PPO)",
+    "value_coef": 0.5
+  },
+  "roadmap_unit": "Phase-4 F2 asymmetric actor-critic RL training and four-arm adjudication",
+  "scope_decision_s3": "real_asymmetric_actor_critic_rl (PI option 1): PPO + bootstrapped privileged GAE critic + policy gradient; teacher = warm-start/annealed-auxiliary only, NOT distillation",
   "seed_base": 2026061407,
   "seed_streams": {
-    "disjointness_rule": "sha256(SEED_BASE, namespace, ...); training/holdout/validation namespaces never overlap",
+    "bc_aux_namespace": "aux_seed{seed}",
+    "bc_warmstart_namespace": "bc_seed{seed}",
+    "disjointness_rule": "sha256(SEED_BASE, namespace, ...); training/holdout/validation/precheck namespaces never overlap",
     "holdout_selection_namespace": "holdout_seed{seed}",
     "new_seed_base": 2026061407,
-    "training_namespace": "train_seed{seed}",
+    "ppo_namespace": "ppo_seed{seed}",
+    "s7_precheck_namespace": "s7_precheck",
     "validation_namespace": "validation"
   },
-  "teachers": {
+  "statistics_B3_B4": {
+    "adjudication_uses": "real CI lower bound (not a point difference)",
+    "ci_method_primary": "cross-training-seed paired t-CI of (student - floor)",
+    "ci_method_robustness": "seed-clustered bootstrap of the same paired diff",
+    "seed_cluster_unit": "TRAINING seed (each seed's student validation success rate is one observation, n=seeds)",
+    "validate_all_training_seeds": true
+  },
+  "teacher_role": {
     "avoidance": {
+      "B2_leak_guard": "BC warm-start imitates ONLY the reveal-post obs72-recoverable segment; pre-reveal mu-dependent action is never imitated; PPO learns from reward",
       "binding": {
-        "mu": 0.3625,
+        "mus": [
+          0.3625,
+          0.5875,
+          0.8125,
+          1.0375
+        ],
         "oracle_dv": 0.0,
-        "reveal_m": 9.5
+        "reveals_m": [
+          9.5,
+          12.0,
+          16.0,
+          22.0,
+          30.0
+        ]
       },
       "prize_source": "E2'/M3258 clean belief value up to +0.77 (and +0.18 detection value)",
       "source": "phase4_e2prime RampPolicyController(mode=oracle, mu_true, dv)"
     },
+    "bc_aux_coef_end": 0.0,
+    "bc_aux_coef_start": 0.5,
+    "bc_warmstart_coef": 1.0,
     "drift": {
       "binding": {
         "cell_id": "low_mu_power_oversteer",
@@ -145,6 +241,7 @@
       "forbidden": "the native Chrono CEM oracle scored 0/N in the drift cell and is NEVER the drift teacher",
       "prize_source": "E4/M3260 drift gap +0.40",
       "source": "phase4_e4 DriftFeedbackPolicy / DriftFeedbackSpec"
-    }
+    },
+    "m1087_chain": "BC warm-start -> annealed auxiliary BC (coef decays to 0) -> PPO policy gradient dominates"
   }
 }
