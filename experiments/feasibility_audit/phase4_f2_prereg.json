@@ -121,7 +121,14 @@
   "floor_definition_B5": "max over learning-free non-trivial classical arms {fixed*, entry_speed_commitment_floor, online_mu_seeker_floor}; NOT the bare incumbent; not a strawman",
   "freeze_blocked_on": "PI sign-off only; criteria/CI/floor/spectrum/power/curriculum/total_steps/wall-clock/B6-AUC-gate/S7-threshold + F4-align drift-cell/oracle/criteria/seed binding are all defined and frozen-ready (pass-3: M1 parallel rollout, M2 obstacle_pass contract, M3 reveal gate, M4 S7 stop-loss, M5 seed-level resume, M6 PI-approved AUC wording, M7 real step budget; pass-4 F4-align: drift validation aligned to E4 low_mu_power_oversteer + E4-selected oracle so S7 proceeds on the priced +0.40)",
   "freeze_ready": true,
-  "frozen": false,
+  "frozen": true,
+  "frozen_at_utc": "20260614T000000Z",
+  "frozen_by": "PI launch authorization 2026-06-14 (no time limit; bounded by total_env_steps)",
+  "launch": {
+    "authorization": "env AUTODRIFT_F2_FULL_PI_AUTHORIZED=1",
+    "bound": "total step budget only, no wall-clock cap",
+    "mode": "managed --full via run_managed.sh"
+  },
   "leak_discipline": {
     "B2_bc_reveal_post_only": true,
     "actor_privileged_isolation": "asserted: actor never receives mu/privileged channels",

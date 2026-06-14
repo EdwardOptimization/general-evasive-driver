@@ -2635,7 +2635,17 @@ def main() -> None:
         print(json.dumps({"wrote": str(PREREG_JSON), "protocol": payload["protocol"], "freeze_ready": True}, sort_keys=True))
         return
     if args.full:
-        raise SystemExit("F2 --full is PI-gated and managed; do not launch it in an agent session (use run_managed.sh).")
+        # PI-gated: the full managed run only launches when the PI explicitly
+        # authorizes it via the env var (set by run_managed.sh at launch).
+        # Absent the env var, --full still refuses (keeps the
+        # no-accidental-agent-session-launch guard; test_full_flag_refuses_to_launch).
+        if os.environ.get("AUTODRIFT_F2_FULL_PI_AUTHORIZED") != "1":
+            raise SystemExit("F2 --full is PI-gated and managed; set AUTODRIFT_F2_FULL_PI_AUTHORIZED=1 and launch via run_managed.sh.")
+        summary = run(quick=False, resume=bool(args.resume))
+        print(json.dumps({"mode": summary["mode"], "decision": summary["decision"], "gates": summary["protocol_gates"]}, sort_keys=True))
+        if not summary["protocol_gates"]["all_passed"]:
+            raise SystemExit(1)
+        return
     summary = run(quick=bool(args.quick), resume=bool(args.resume))
     print(json.dumps({"mode": summary["mode"], "decision": summary["decision"], "gates": summary["protocol_gates"]}, sort_keys=True))
     if not summary["protocol_gates"]["all_passed"]:
