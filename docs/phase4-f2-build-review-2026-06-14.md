@@ -101,3 +101,17 @@ Route: a third build pass fixes M1-M5 + M7 with regression tests (avoidance
 BC frames > 0, S7 triggers under nonzero floor+prize, throughput restored),
 PI signs off M6, then re-smoke -> freeze -> managed launch. Pass-2 is real
 RL with mechanical plumbing blockers, not a scope problem.
+
+## M6 PI disposition (2026-06-14): APPROVED
+
+PI signs off the B6 reward-hacking hard gate change: the pre-registered
+statistic moves from Spearman>=0.9 (structurally capped for a binary-vs-
+continuous relationship — it cannot reach 0.9 under class imbalance, so it
+was a perpetually-tripping smoke detector) to **rank-biserial AUC**
+( = P(reward[success] > reward[fail]), the Mann-Whitney statistic, the
+textbook measure for binary-vs-continuous alignment). The AUC hard gate is
+accepted. Condition: the prereg/doc justification must be the honest one
+("binary-vs-continuous rank correlation does not reach 1 and is
+class-balance dependent, so rank-biserial AUC is used as the alignment hard
+gate"), NOT the self-contradicted "Spearman unreachable" wording (the smoke
+measured Spearman 0.981). Spearman stays as a reported-but-not-gated number.
