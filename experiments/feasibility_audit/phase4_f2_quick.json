@@ -4,7 +4,7 @@
       "avoidance": {
         "entry_speed_commitment_floor": {
           "collision_rate": 0.0,
-          "mean_reward": 88.0,
+          "mean_reward": 40.6,
           "n": 2,
           "n_training_seeds": 0,
           "seed_cluster_se": 0.0,
@@ -12,7 +12,7 @@
         },
         "fixed_star": {
           "collision_rate": 0.0,
-          "mean_reward": 88.0,
+          "mean_reward": 40.6,
           "n": 2,
           "n_training_seeds": 0,
           "seed_cluster_se": 0.0,
@@ -20,7 +20,7 @@
         },
         "online_mu_seeker_floor": {
           "collision_rate": 0.0,
-          "mean_reward": 88.0,
+          "mean_reward": 40.6,
           "n": 2,
           "n_training_seeds": 0,
           "seed_cluster_se": 0.0,
@@ -28,7 +28,7 @@
         },
         "per_regime_oracle": {
           "collision_rate": 0.0,
-          "mean_reward": 88.0,
+          "mean_reward": 40.6,
           "n": 2,
           "n_training_seeds": 0,
           "seed_cluster_se": 0.0,
@@ -36,7 +36,7 @@
         },
         "student_policy": {
           "collision_rate": 0.0,
-          "mean_reward": 88.0,
+          "mean_reward": 40.6,
           "n": 4,
           "n_training_seeds": 2,
           "seed_cluster_se": 0.0,
@@ -46,7 +46,7 @@
       "drift": {
         "entry_speed_commitment_floor": {
           "collision_rate": 0.0,
-          "mean_reward": 3.5,
+          "mean_reward": 14.0,
           "n": 2,
           "n_training_seeds": 0,
           "seed_cluster_se": 0.0,
@@ -54,7 +54,7 @@
         },
         "fixed_star": {
           "collision_rate": 0.0,
-          "mean_reward": 3.0,
+          "mean_reward": 10.5,
           "n": 2,
           "n_training_seeds": 0,
           "seed_cluster_se": 0.0,
@@ -62,7 +62,7 @@
         },
         "online_mu_seeker_floor": {
           "collision_rate": 0.0,
-          "mean_reward": 3.5,
+          "mean_reward": 14.0,
           "n": 2,
           "n_training_seeds": 0,
           "seed_cluster_se": 0.0,
@@ -70,7 +70,7 @@
         },
         "per_regime_oracle": {
           "collision_rate": 0.0,
-          "mean_reward": 32.25,
+          "mean_reward": 198.75,
           "n": 2,
           "n_training_seeds": 0,
           "seed_cluster_se": 0.0,
@@ -78,17 +78,17 @@
         },
         "student_policy": {
           "collision_rate": 0.0,
-          "mean_reward": 3.5,
+          "mean_reward": 946.5,
           "n": 4,
           "n_training_seeds": 2,
           "seed_cluster_se": 0.0,
-          "success_rate": 0.0
+          "success_rate": 1.0
         }
       },
       "pooled": {
         "entry_speed_commitment_floor": {
           "collision_rate": 0.0,
-          "mean_reward": 45.75,
+          "mean_reward": 27.3,
           "n": 4,
           "n_training_seeds": 0,
           "seed_cluster_se": 0.0,
@@ -96,7 +96,7 @@
         },
         "fixed_star": {
           "collision_rate": 0.0,
-          "mean_reward": 45.5,
+          "mean_reward": 25.55,
           "n": 4,
           "n_training_seeds": 0,
           "seed_cluster_se": 0.0,
@@ -104,7 +104,7 @@
         },
         "online_mu_seeker_floor": {
           "collision_rate": 0.0,
-          "mean_reward": 45.75,
+          "mean_reward": 27.3,
           "n": 4,
           "n_training_seeds": 0,
           "seed_cluster_se": 0.0,
@@ -112,7 +112,7 @@
         },
         "per_regime_oracle": {
           "collision_rate": 0.0,
-          "mean_reward": 60.125,
+          "mean_reward": 119.675,
           "n": 4,
           "n_training_seeds": 0,
           "seed_cluster_se": 0.0,
@@ -120,11 +120,11 @@
         },
         "student_policy": {
           "collision_rate": 0.0,
-          "mean_reward": 45.75,
+          "mean_reward": 493.55,
           "n": 8,
           "n_training_seeds": 2,
           "seed_cluster_se": 0.0,
-          "success_rate": 0.5
+          "success_rate": 1.0
         }
       }
     },
@@ -132,7 +132,7 @@
       "avoidance_oracle_minus_floor": 0.0,
       "avoidance_student_minus_floor": 0.0,
       "drift_oracle_minus_floor": 0.5,
-      "drift_student_minus_floor": 0.0
+      "drift_student_minus_floor": 1.0
     },
     "seed_clustered_ci": {
       "avoidance": {
@@ -158,15 +158,15 @@
         "floor_rate": 0.0,
         "n_training_seeds": 2,
         "student_minus_floor_cluster_bootstrap_ci": {
-          "ci95_high": 0.0,
-          "ci95_low": 0.0,
+          "ci95_high": 1.0,
+          "ci95_low": 1.0,
           "method": "seed_cluster_bootstrap",
           "n": 2
         },
         "student_minus_floor_paired_t_ci": {
-          "ci95_high": 0.0,
-          "ci95_low": 0.0,
-          "mean": 0.0,
+          "ci95_high": 1.0,
+          "ci95_low": 1.0,
+          "mean": 1.0,
           "method": "paired_t",
           "n": 2,
           "sd": 0.0,
@@ -185,8 +185,8 @@
     "quick_mode_is_verdict": false,
     "self_id_claim": "none; engineering-only"
   },
-  "elapsed_s": 138.71,
-  "generated_at_utc": "20260614T164232Z",
+  "elapsed_s": 136.24,
+  "generated_at_utc": "20260614T211908Z",
   "milestone": "m3264-phase4-f2-asymmetric-actor-critic-rl",
   "mode": "quick",
   "oracle_ceiling_precheck_S7": {
@@ -260,7 +260,21 @@
     "gate_statistic": "rank_biserial_auc",
     "meets_0p9": true,
     "n_episodes": 24,
-    "spearman": 0.9431755368501651,
+    "per_regime": {
+      "avoidance": {
+        "applicable": false,
+        "auc": null,
+        "n": 12
+      },
+      "drift": {
+        "applicable": true,
+        "auc": 1.0,
+        "meets_0p9": true,
+        "n": 12,
+        "spearman": 0.873862897505303
+      }
+    },
+    "spearman": 0.873862897505303,
     "tie_degenerate": false
   },
   "row_count": 24,
@@ -270,15 +284,15 @@
     1713449107
   ],
   "throughput_M1": {
-    "aggregate_steps_per_s": 5.268863723468241,
+    "aggregate_steps_per_s": 5.616050790159968,
     "is_representative_of_full": false,
     "note": "quick rate is a 2-worker chain-proof number on 6-step episodes (worker launch/reset-dominated); NOT the full 30-worker rate. The full wall-clock projection uses the F1b 30-worker closed_loop rate until the full run measures its own representative rate.",
     "per_seed_rates": [
-      5.420261952766944,
-      5.125693355555833
+      5.6316966165681315,
+      5.600491656523305
     ],
     "requested_workers": 2,
-    "rollout_total_elapsed_s": 9.110123647002183,
+    "rollout_total_elapsed_s": 8.546931249999034,
     "rollout_total_steps": 48.0,
     "rollout_workers_used": 2
   },
@@ -287,34 +301,34 @@
       "all_finite": true,
       "any_param_changed": true,
       "avoidance_bc_frames": 6,
-      "best_holdout_neg_mse": -0.5383023619651794,
+      "best_holdout_neg_mse": -0.00037255013012327254,
       "best_task_ppo_idx": 0,
-      "best_task_score": 0.5,
-      "best_update": 2,
+      "best_task_score": 1.0,
+      "best_update": 0,
       "early_stopped": false,
       "entropy_observed": true,
       "log_std_observed": true,
       "ppo_ran": true,
       "ppo_selection": "task_score",
       "ppo_updates_done": 2,
-      "rollout_aggregate_steps_per_s": 5.420261952766944,
+      "rollout_aggregate_steps_per_s": 5.6316966165681315,
       "rollout_throughput": [
         {
-          "rollout_elapsed_s": 2.476627954001742,
+          "rollout_elapsed_s": 2.418235402001301,
           "rollout_steps": 12.0,
-          "rollout_steps_per_s": 4.845297809309779,
+          "rollout_steps_per_s": 4.962296056897088,
           "rollout_workers": 2.0,
           "update": 1
         },
         {
-          "rollout_elapsed_s": 1.9512023259994749,
+          "rollout_elapsed_s": 1.8433577969990438,
           "rollout_steps": 12.0,
-          "rollout_steps_per_s": 6.1500541692175235,
+          "rollout_steps_per_s": 6.509859355322012,
           "rollout_workers": 2.0,
           "update": 2
         }
       ],
-      "rollout_total_elapsed_s": 4.427830280001217,
+      "rollout_total_elapsed_s": 4.261593199000345,
       "rollout_total_steps": 24.0,
       "rollout_workers": 2,
       "seed": 699570196,
@@ -325,34 +339,34 @@
       "all_finite": true,
       "any_param_changed": true,
       "avoidance_bc_frames": 6,
-      "best_holdout_neg_mse": -0.4627872109413147,
+      "best_holdout_neg_mse": -0.002805566182360053,
       "best_task_ppo_idx": 0,
-      "best_task_score": 0.5,
-      "best_update": 2,
+      "best_task_score": 1.0,
+      "best_update": 0,
       "early_stopped": false,
       "entropy_observed": true,
       "log_std_observed": true,
       "ppo_ran": true,
       "ppo_selection": "task_score",
       "ppo_updates_done": 2,
-      "rollout_aggregate_steps_per_s": 5.125693355555833,
+      "rollout_aggregate_steps_per_s": 5.600491656523305,
       "rollout_throughput": [
         {
-          "rollout_elapsed_s": 2.5961091249992023,
+          "rollout_elapsed_s": 2.4254300149987102,
           "rollout_steps": 12.0,
-          "rollout_steps_per_s": 4.622301845652843,
+          "rollout_steps_per_s": 4.947576275461563,
           "rollout_workers": 2.0,
           "update": 1
         },
         {
-          "rollout_elapsed_s": 2.0861842420017638,
+          "rollout_elapsed_s": 1.859908035999979,
           "rollout_steps": 12.0,
-          "rollout_steps_per_s": 5.752128579250314,
+          "rollout_steps_per_s": 6.451931906164492,
           "rollout_workers": 2.0,
           "update": 2
         }
       ],
-      "rollout_total_elapsed_s": 4.682293367000966,
+      "rollout_total_elapsed_s": 4.285338050998689,
       "rollout_total_steps": 24.0,
       "rollout_workers": 2,
       "seed": 1713449107,

@@ -123,7 +123,10 @@ E4_PREREG_JSON = REPO_ROOT / "experiments" / "feasibility_audit" / "phase4_e4_dr
 # New, mutually-disjoint seed base for F2 (different from F1=...05, F1b=...06).
 SEED_BASE = 2026061407
 ACT_DIM = f1.ACT_DIM
-HIDDEN_SIZE = f1.HIDDEN_SIZE
+HIDDEN_SIZE = 256  # pass-7: bumped from f1's 64. Capacity sweep (fit teacher action
+# map) shows holdout MSE saturates by [64,64] (~2e-4) and 3+ layers HURT, so depth
+# stays 2; 256 is free (NN forward is microseconds vs Chrono physics) and removes the
+# 64<72 input-bottleneck confound + leaves margin to surpass the teacher.
 VARIANT = f1.VARIANT
 
 # --- privileged critic channel layout (training-only) -----------------------
@@ -242,8 +245,28 @@ COLLISION_PENALTY = 60.0
 OFFTRACK_PENALTY = 45.0
 AVOIDANCE_PASS_REWARD = 40.0
 DRIFT_SUCCESS_REWARD = 40.0
-CLEARANCE_SHAPING = 8.0
+# pass-7: the dense per-step clearance shaping was 8.0 -> accumulated ~1024 over a
+# ~128-step avoidance episode, 25x the 40 pass reward AND ~80x a drift episode's
+# total (~12), so in the mixed-regime PPO batch avoidance returns (~1064) swamped
+# drift (~12): after batch advantage-normalization the drift gradient was
+# negligible, and the resulting value_loss ~5000 starved the actor via the shared
+# grad-norm clip. Rescaled so a dense nudge stays << the terminal objective and
+# the two regimes' returns are commensurate (~50 each). [diagnosed via ppo_diag]
+CLEARANCE_SHAPING = 0.1
 DRIFT_PROGRESS_SHAPING = 0.5
+# pass-7 sustain curriculum: the +DRIFT_SUCCESS_REWARD bonus fires when the drift
+# streak reaches this TRAINING target. It ramps from a low value up to E4's 24 over
+# PPO training (set per-update by train_student) so the policy earns the bonus for
+# short holds first, then extends -- gradient ascent from ~8 steps could not reach
+# the sparse 24-step bonus on its own. The EVAL/verdict success metric ALWAYS uses
+# e4.MIN_SUSTAIN_STEPS (24); only the training reward bonus uses this ramp.
+_DRIFT_SUSTAIN_TARGET: int | None = None  # None -> 24 (default/eval)
+DRIFT_SUSTAIN_START = 6        # ramp the training bonus target from here ...
+DRIFT_SUSTAIN_RAMP_FRAC = 0.7  # ... up to e4.MIN_SUSTAIN_STEPS by this fraction of PPO updates
+
+
+def _drift_sustain_target() -> int:
+    return int(_DRIFT_SUSTAIN_TARGET) if _DRIFT_SUSTAIN_TARGET is not None else int(e4.MIN_SUSTAIN_STEPS)
 # S5: low-margin high-speed grazing penalty (unsafe near-misses must not score
 # high). vx normalized by 20 m/s in obs72; "high speed" = vx_norm above this.
 GRAZE_SPEED_NORM = 0.45
@@ -260,16 +283,32 @@ PPO_GAMMA = 0.99
 PPO_LAMBDA = 0.95
 PPO_CLIP = 0.2
 PPO_VALUE_COEF = 0.5
-PPO_ENTROPY_COEF = 0.01
+# pass-7: drift maintenance is a PRECISION stabilization task -- the default
+# log_std=-0.5 (action std ~0.61 on [-1,1]) + entropy bonus 0.01 (which pushed
+# log_std UP) made the stochastic rollout actions perturb the car out of drift
+# every ~9 steps, so the policy plateaued at hold ~9 regardless of reward shaping
+# (progressive reward + sustain curriculum both failed to push past it). Lower the
+# exploration noise so the policy can hold a precise drift and sharpen toward 24.
+PPO_ENTROPY_COEF = 0.0
 PPO_EPOCHS = 4
 PPO_MINIBATCHES = 4
 PPO_MAX_GRAD_NORM = 0.5
 PPO_LR = 3e-4
-LOG_STD_INIT = -0.5
-LOG_STD_MIN = -2.0
+LOG_STD_INIT = -1.5  # pass-7: lower action noise (std ~0.22) for precise drift maintenance
+LOG_STD_MIN = -2.5
 LOG_STD_MAX = 0.5
 # annealed auxiliary BC: warm-start dominates early, decays to ~0 so PPO leads.
 BC_WARMSTART_COEF = 1.0
+# pass-7 (CORRECTED): the 1-epoch warm-start was THE root bug -- it barely moved
+# the net, so the policy never reached the PRECISION drift maintenance needs
+# (unstable equilibrium: small action errors compound -> car falls out of drift
+# in ~9 steps). A converged-BC experiment settled it: at MSE ~3e-4 a single obs72
+# actor holds drift >=24 on 8/8 cells (up to 66 steps, BETTER than the teacher's
+# 30) AND passes avoidance 7/8 -- NO interference, drift fully learned. The earlier
+# "100 epochs hurts" reading was UNDER-fit (6e-4, mid-training), not over-fit. So
+# CONVERGE the warm-start (~200 steps/batch x ~20 batches ~ 4000 -> ~3e-4) before
+# PPO refines. m1087 plan with an ADEQUATE warm-start.
+BC_WARMSTART_EPOCHS = 200
 BC_AUX_COEF_START = 0.5
 BC_AUX_COEF_END = 0.0
 
@@ -279,6 +318,10 @@ CURRICULUM_STAGES = (
     {"stage": 1, "name": "balanced_mixed", "avoidance_frac": 0.5, "drift_difficulty": "medium"},
     {"stage": 2, "name": "hard_drift_weighted", "avoidance_frac": 0.4, "drift_difficulty": "hard"},
 )
+# pass-7: the converged BC warm-start fits this BALANCED mix (matches the standalone
+# joint-BC that reached drift 8/8 + avoidance 7/8), so it reproduces both teachers
+# equally instead of inheriting the curriculum's late drift bias.
+WARMSTART_STAGE = {"stage": 0, "name": "warmstart_balanced", "avoidance_frac": 0.5, "drift_difficulty": "easy"}
 DRIFT_DIFFICULTY_BETA_SCALE = {"easy": 0.6, "medium": 0.85, "hard": 1.0}
 
 ARMS = (
@@ -821,12 +864,19 @@ def _avoidance_success(collision_any: bool, info: dict[str, Any]) -> bool:
     return bool((not collision_any) and (not offtrack) and completion in AVOIDANCE_SUCCESS_COMPLETIONS)
 
 
-def _drift_reward(controlled_drift: bool, drift_success_inc: bool, collision: bool) -> float:
+def _drift_reward(controlled_drift: bool, drift_success_inc: bool, collision: bool,
+                  current_controlled: int = 0) -> float:
     reward = 0.0
     if collision:
         reward -= COLLISION_PENALTY
     if controlled_drift:
-        reward += DRIFT_PROGRESS_SHAPING
+        # pass-7: PROGRESSIVE maintain reward -- scales with the consecutive-drift
+        # streak so each extra held step pays more (0.5*k at streak k). A constant
+        # +0.5/step gave no gradient to PROLONG drift toward the sparse 24-step
+        # sustain bonus, so the policy never learned to hold the unstable drift.
+        # Per-regime advantage normalization (in ppo_update) keeps this commensurate
+        # with avoidance despite the larger per-episode magnitude.
+        reward += DRIFT_PROGRESS_SHAPING * float(max(1, int(current_controlled)))
     if drift_success_inc:
         reward += DRIFT_SUCCESS_REWARD
     return float(reward)
@@ -950,8 +1000,9 @@ def run_episode(
             controlled = _drift_step_flags(obs, info)
             current_controlled = current_controlled + 1 if controlled else 0
             longest_controlled = max(longest_controlled, current_controlled)
-            success_inc = longest_controlled == e4.MIN_SUSTAIN_STEPS and current_controlled == e4.MIN_SUSTAIN_STEPS
-            step_reward = _drift_reward(controlled, success_inc, collision)
+            _tgt = _drift_sustain_target()  # ramping TRAINING bonus target (eval metric stays 24)
+            success_inc = longest_controlled == _tgt and current_controlled == _tgt
+            step_reward = _drift_reward(controlled, success_inc, collision, current_controlled)
         total_reward += step_reward
         if collect == "ppo":
             ppo_obs.append(prev_obs.astype(np.float32))
@@ -1035,32 +1086,40 @@ def bc_update(
     targets: np.ndarray,
     *,
     coef: float = BC_WARMSTART_COEF,
+    epochs: int = BC_WARMSTART_EPOCHS,
 ) -> dict[str, Any]:
     """BC warm-start: actor MSE to teacher action + critic value pretrain.
 
+    Pass-7: runs ``epochs`` full-batch gradient steps on the collected demo batch
+    (was 1) -- the capacity sweep showed the net can fit the teacher to ~2e-4 but
+    needs ~thousands of steps; 1 step/batch left the student far from the teacher
+    (holdout ~0.04 -> drift 0). Extra steps are ~free vs the Chrono collection.
     Critic target is a zero-baseline value pretrain (returns unavailable in the
     teacher demos); the PPO phase then trains the critic on bootstrapped returns.
     """
     obs_t = torch.as_tensor(frames, dtype=torch.float32)
     priv_t = torch.as_tensor(priv, dtype=torch.float32)
     target_t = torch.clamp(torch.as_tensor(targets, dtype=torch.float32), -1.0, 1.0)
-    mean = model.actor_forward(obs_t)
-    bc_loss = torch.mean((mean - target_t).pow(2))
-    value = model.critic_forward(obs_t, priv_t)
-    value_loss = torch.mean(value.pow(2))
-    loss = coef * bc_loss + 0.5 * value_loss
     before = [p.detach().clone() for p in model.parameters()]
-    optimizer.zero_grad(set_to_none=True)
-    loss.backward()
+    bc_loss = value_loss = loss = None
     grad_sq, finite_grad = 0.0, True
-    for p in model.parameters():
-        if p.grad is None:
-            continue
-        g = p.grad.detach()
-        finite_grad = finite_grad and bool(torch.isfinite(g).all().item())
-        grad_sq += float(torch.sum(g.pow(2)))
-    nn.utils.clip_grad_norm_(model.parameters(), PPO_MAX_GRAD_NORM)
-    optimizer.step()
+    for _ in range(max(1, int(epochs))):
+        mean = model.actor_forward(obs_t)
+        bc_loss = torch.mean((mean - target_t).pow(2))
+        value = model.critic_forward(obs_t, priv_t)
+        value_loss = torch.mean(value.pow(2))
+        loss = coef * bc_loss + 0.5 * value_loss
+        optimizer.zero_grad(set_to_none=True)
+        loss.backward()
+        grad_sq, finite_grad = 0.0, True
+        for p in model.parameters():
+            if p.grad is None:
+                continue
+            g = p.grad.detach()
+            finite_grad = finite_grad and bool(torch.isfinite(g).all().item())
+            grad_sq += float(torch.sum(g.pow(2)))
+        nn.utils.clip_grad_norm_(model.parameters(), PPO_MAX_GRAD_NORM)
+        optimizer.step()
     delta_sq = sum(float(torch.sum((n.detach() - o).pow(2))) for o, n in zip(before, model.parameters()))
     return {
         "phase": "bc_warmstart",
@@ -1107,8 +1166,23 @@ def ppo_update(
     adv = torch.as_tensor(batch["adv"], dtype=torch.float32)
     ret = torch.as_tensor(batch["ret"], dtype=torch.float32)
     n = obs.shape[0]
-    # advantage normalization across the whole batch (correct PPO normalization).
-    adv = (adv - adv.mean()) / (adv.std() + 1e-8) if n > 1 else adv
+    # pass-7: PER-REGIME advantage normalization. The mixed batch holds avoidance
+    # and drift transitions with very different reward scales; a single global
+    # normalization lets the larger-variance regime dominate the policy gradient
+    # (drift's signal vanished). Normalizing each regime to zero-mean/unit-std
+    # separately gives both equal-magnitude gradient regardless of reward scale.
+    regime = batch.get("regime")
+    if regime is not None and len(regime) == n and n > 1:
+        regime_t = torch.as_tensor(regime, dtype=torch.long)
+        adv_norm = adv.clone()
+        for r in torch.unique(regime_t):
+            mask = regime_t == r
+            if int(mask.sum()) > 1:
+                a = adv[mask]
+                adv_norm[mask] = (a - a.mean()) / (a.std() + 1e-8)
+        adv = adv_norm
+    else:
+        adv = (adv - adv.mean()) / (adv.std() + 1e-8) if n > 1 else adv
     log_std_before = float(model.log_std.detach().mean())
     with torch.no_grad():
         entropy_before = float(model.policy_distribution(obs).entropy().sum(dim=-1).mean())
@@ -1154,7 +1228,12 @@ def ppo_update(
                 finite_grad = finite_grad and bool(torch.isfinite(g).all().item())
                 grad_sq += float(torch.sum(g.pow(2)))
             grad_sq_last = grad_sq
-            nn.utils.clip_grad_norm_(model.parameters(), PPO_MAX_GRAD_NORM)
+            # pass-7: clip actor and critic gradients SEPARATELY. A single global
+            # clip let the critic's large value-loss gradient eat the norm budget
+            # and starve the actor (log_std frozen); independent clipping
+            # guarantees the actor always gets a full-budget step. [ppo_diag]
+            nn.utils.clip_grad_norm_(model.actor_parameters(), PPO_MAX_GRAD_NORM)
+            nn.utils.clip_grad_norm_(model.critic_parameters(), PPO_MAX_GRAD_NORM)
             optimizer.step()
             with torch.no_grad():
                 clip_frac = float(torch.mean((torch.abs(ratio - 1.0) > clip).float()))
@@ -1260,8 +1339,9 @@ def _accumulate_ppo_step(
         controlled = _drift_step_flags(obs_after, info)
         traj["current_controlled"] = traj["current_controlled"] + 1 if controlled else 0
         traj["longest_controlled"] = max(traj["longest_controlled"], traj["current_controlled"])
-        success_inc = traj["longest_controlled"] == e4.MIN_SUSTAIN_STEPS and traj["current_controlled"] == e4.MIN_SUSTAIN_STEPS
-        step_reward = _drift_reward(controlled, success_inc, collision)
+        _tgt = _drift_sustain_target()  # ramping TRAINING bonus target (eval metric stays 24)
+        success_inc = traj["longest_controlled"] == _tgt and traj["current_controlled"] == _tgt
+        step_reward = _drift_reward(controlled, success_inc, collision, traj["current_controlled"])
     traj["total_reward"] += step_reward
     traj["obs"].append(prev_obs.astype(np.float32))
     traj["act"].append(np.asarray(action, dtype=np.float32))
@@ -1299,10 +1379,12 @@ def _finalize_ppo_traj(model: AsymmetricActorCritic, traj: dict[str, Any]) -> di
         success = _avoidance_success(traj["collision_any"], traj.get("last_info", {}))
     else:
         success = bool(traj["longest_controlled"] >= e4.MIN_SUSTAIN_STEPS)
+    regime_id = 0 if traj["spec"]["regime"] == "avoidance" else 1  # per-regime adv norm (pass-7)
     return {
         "obs": obs, "act": np.stack(traj["act"]).astype(np.float32),
         "logp": np.asarray(traj["logp"], dtype=np.float32), "priv": priv,
         "adv": adv, "ret": ret, "rew": rew,
+        "regime": np.full(obs.shape[0], regime_id, dtype=np.int64),
         "total_reward": float(traj["total_reward"]), "success": bool(success),
     }
 
@@ -1417,6 +1499,7 @@ def collect_ppo_rollout(
         return {"obs": empty, "act": np.zeros((0, ACT_DIM), np.float32), "logp": np.zeros((0,), np.float32),
                 "priv": np.zeros((0, PRIV_DIM), np.float32), "adv": np.zeros((0,), np.float32),
                 "ret": np.zeros((0,), np.float32), "rew": np.zeros((0,), np.float32),
+                "regime": np.zeros((0,), np.int64),
                 "ep_returns": [], "ep_success": [], "rollout_steps": int(steps_collected),
                 "rollout_elapsed_s": float(rollout_elapsed),
                 "rollout_steps_per_s": float(steps_collected / max(rollout_elapsed, 1e-9)),
@@ -1429,6 +1512,7 @@ def collect_ppo_rollout(
         "adv": np.concatenate([t["adv"] for t in finished], 0),
         "ret": np.concatenate([t["ret"] for t in finished], 0),
         "rew": np.concatenate([t["rew"] for t in finished], 0),
+        "regime": np.concatenate([t["regime"] for t in finished], 0),
         "ep_returns": ep_returns, "ep_success": ep_success,
         "rollout_steps": int(steps_collected),
         "rollout_elapsed_s": float(rollout_elapsed),
@@ -1808,6 +1892,11 @@ def train_student(
         for update in range(start_update, total_updates):
             stage = _curriculum_stage(update, total_updates)
             if update < warmstart_updates:
+                # pass-7: the converged warm-start fits a BALANCED mix (NOT the
+                # drift-weighted curriculum), so it reproduces BOTH teachers equally
+                # -> drift 8/8 AND avoidance. The curriculum (drift-weighted late)
+                # had biased the warm-start toward drift (avoid fell below the floor).
+                stage = WARMSTART_STAGE
                 demos = collect_bc_demos(
                     clients, stage=stage, units=int(budget["warmstart_units"]),
                     horizon=int(budget["rollout_horizon"]), seed_ns=f"bc_seed{seed}", update=update, quick=quick,
@@ -1822,6 +1911,12 @@ def train_student(
             else:
                 ppo_idx = update - warmstart_updates
                 bc_aux_coef = _anneal(BC_AUX_COEF_START, BC_AUX_COEF_END, ppo_idx, max(1, ppo_updates - 1))
+                # sustain curriculum: ramp the drift bonus target START -> 24 over the
+                # first RAMP_FRAC of PPO updates (the rollout reward reads this global).
+                global _DRIFT_SUSTAIN_TARGET
+                _DRIFT_SUSTAIN_TARGET = int(round(_anneal(
+                    DRIFT_SUSTAIN_START, float(e4.MIN_SUSTAIN_STEPS), ppo_idx,
+                    max(1, int(DRIFT_SUSTAIN_RAMP_FRAC * ppo_updates)))))
                 batch = collect_ppo_rollout(
                     clients, model, stage=stage, units=int(budget["rollout_workers"]),
                     horizon=int(budget["rollout_horizon"]), seed_ns=f"ppo_seed{seed}", update=update, quick=quick,
@@ -2154,22 +2249,45 @@ def reward_alignment_spearman(rows: list[dict[str, Any]]) -> dict[str, Any]:
     time. N/A (gate not applicable) when ties make it undefined (all-success,
     all-failure, or all-equal rewards). A failing gate forces re-pricing.
     """
-    rewards = np.asarray([float(r["total_reward"]) for r in rows], dtype=float)
-    successes = np.asarray([1.0 if bool(r["success"]) else 0.0 for r in rows], dtype=float)
-    n = int(len(rewards))
-    na = {"spearman": None, "auc": None, "n_episodes": n, "meets_0p9": None,
-          "tie_degenerate": True, "gate_applicable": False}
-    if n < 2 or len(np.unique(successes)) < 2 or len(np.unique(rewards)) < 2:
-        return na
-    auc = _rank_biserial_auc(rewards, successes)
-    if not math.isfinite(auc):
-        return na
-    rho = _spearman(rewards, successes)
+    # pass-7: compute the AUC PER REGIME. Reward scales differ across regimes (the
+    # progressive drift reward reaches ~150 vs avoidance ~50), so a cross-regime AUC
+    # is meaningless -- a drift FAIL can out-reward an avoidance SUCCESS. Within a
+    # regime, higher reward must still mean success; the hard gate is the MIN AUC
+    # over applicable regimes.
+    n = int(len(rows))
+    by_regime: dict[str, list[dict[str, Any]]] = {}
+    for r in rows:
+        by_regime.setdefault(str(r.get("regime", "_")), []).append(r)
+    per: dict[str, Any] = {}
+    applicable: list[float] = []
+    rho_any: float | None = None
+    for regime, rs in sorted(by_regime.items()):
+        rew = np.asarray([float(x["total_reward"]) for x in rs], dtype=float)
+        suc = np.asarray([1.0 if bool(x["success"]) else 0.0 for x in rs], dtype=float)
+        if len(rew) < 2 or len(np.unique(suc)) < 2 or len(np.unique(rew)) < 2:
+            per[regime] = {"auc": None, "n": len(rs), "applicable": False}
+            continue
+        a = _rank_biserial_auc(rew, suc)
+        if not math.isfinite(a):
+            per[regime] = {"auc": None, "n": len(rs), "applicable": False}
+            continue
+        rr = _spearman(rew, suc)
+        per[regime] = {"auc": float(a), "spearman": float(rr) if math.isfinite(rr) else None,
+                       "n": len(rs), "applicable": True, "meets_0p9": bool(a >= 0.9)}
+        applicable.append(float(a))
+        if rho_any is None and math.isfinite(rr):
+            rho_any = float(rr)
+    if not applicable:
+        return {"spearman": None, "auc": None, "n_episodes": n, "meets_0p9": None,
+                "tie_degenerate": True, "gate_applicable": False,
+                "gate_statistic": "rank_biserial_auc", "per_regime": per}
+    min_auc = min(applicable)
     return {
-        "spearman": float(rho) if math.isfinite(rho) else None,
-        "auc": float(auc),
+        "spearman": rho_any,
+        "auc": float(min_auc),  # the binding (worst) regime
+        "per_regime": per,
         "n_episodes": n,
-        "meets_0p9": bool(auc >= 0.9),
+        "meets_0p9": bool(min_auc >= 0.9),
         "gate_statistic": "rank_biserial_auc",
         "tie_degenerate": False,
         "gate_applicable": True,

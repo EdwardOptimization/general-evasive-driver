@@ -191,3 +191,107 @@ Regression tests added (all green): `test_pass5_bc_demos_parallel_equals_serial_
 periodic-eval learning-curve + task-selection assertions in the quick pipeline.
 Backend env switches for A/B: `AUTODRIFT_SPINUP_PLATEAU_DISABLE`,
 `AUTODRIFT_SPINUP_MAX_STEPS/PLATEAU_WINDOW/PLATEAU_TOL`.
+
+## Pass 7 (capacity + drift-learnability) — 2026-06-15
+
+PI asked whether the [64,64] policy net caps the ceiling, and whether the right
+capacity is calculable. It is, empirically.
+
+**Capacity sweep (fit the teacher action map to convergence, same data, vary size):**
+
+| config | params | holdout MSE |
+|---|---|---|
+| [64,64] | 9k | 0.00019 |
+| [128,128] | 26k | 0.00018 |
+| [256,256] | 85k | 0.00018 |
+| [512,512] | 301k | 0.00013 |
+| [256,256,256] | 151k | 0.00026 (worse) |
+| [256]×4 | 217k | 0.00027 (worse) |
+
+Verdict: **depth 2 is optimal (3-4 layers measurably worse — deep MLPs harder to
+train, no residuals); width saturates by [64,64] (~2e-4).** Capacity was never the
+blocker. Bounds: overfitting non-binding (params ≪ 18M samples); the only clear
+violation was width<input (64<72). Set **HIDDEN_SIZE=256, 2 layers** — free (NN
+forward is microseconds vs Chrono physics) confound-removal + margin to surpass.
+
+**BC strengthening tested and REVERTED.** Bumping `BC_WARMSTART_EPOCHS` 1→100 fit
+the teacher better (bc_loss 0.04→6e-4) but task success got WORSE (avoidance 1.0→0,
+drift still 0). Over-imitating the aggressive avoidance maneuver lands in a worse
+basin, and drift is an unstable-equilibrium STABILIZATION task that even 6e-4-MSE
+imitation can't reproduce (covariate shift). BC is a light init only; the skill
+must come from PPO. Kept at 1.
+
+**Drift is a MAINTAIN problem, not an ENTER problem.** The drift cell starts at
+β=0.212 rad, already above the 0.1 threshold; the episode begins in drift and the
+challenge is holding controlled drift ≥24 steps. The reward pays a dense +0.5/step
+WHILE drifting (DRIFT_PROGRESS_SHAPING) + 40 on sustain, −60 on collision — so PPO
+has a dense gradient for exactly the target (prolong drift). This is PPO-friendly,
+so PPO has a real chance. A focused 1-seed diagnostic (8 workers, eval every 20, no
+early-stop) is running to read the drift learning curve before committing the full
+8-seed run: drift climbs → launch full; drift flat → add reward shaping toward the
+drift state and/or a maintain-first curriculum, then re-diagnose.
+
+## Pass 7b (drift-learning debugging chain) — 2026-06-15
+
+After the throughput/capacity work, the running F2 student showed drift success
+0 with a FROZEN policy (log_std stuck −0.49 for 60+ updates). A chain of
+diagnosed-and-fixed design/optimization bugs (each verified via a focused PPO
+diagnostic `/tmp/ppo_diag.py` and a hold-time probe `/tmp/hold_probe.py`):
+
+1. **Actor starvation (reward-scale × shared grad-clip).** Dense avoidance
+   clearance shaping `8.0/step` → ~1024/episode (25× the 40 pass reward),
+   swamping drift (~12); the resulting `value_loss ~5000` made the critic
+   gradient dominate the single global `clip_grad_norm_` → the actor got ~zero
+   step. Fix: `CLEARANCE_SHAPING 8.0→0.1` (returns commensurate ~50; value_loss
+   ~30) + clip actor/critic gradients SEPARATELY. → actor unfroze (param_delta
+   ~1.0, approx_kl up to 0.02).
+2. **Flat maintain reward.** Constant `+0.5/step` gave no gradient to PROLONG
+   drift toward the sparse 24-step bonus. Fix: PROGRESSIVE reward `0.5*streak`.
+   → hold-time climbed near-init ~3 → ~8 steps.
+3. **Multi-task interference.** As the shared policy learned drift, avoidance
+   degraded (1.0→0) — it hadn't learned to CONDITION behavior on the scenario.
+   Fix: PER-REGIME advantage normalization (regime label threaded
+   trajectory→batch→ppo_update). Isolated drift to test it alone.
+4. **Hold-time plateau ~8 < 24.** Even isolated/easy, hold plateaus ~8; the only
+   "win" signal is sparse at exactly 24. Fix under test: SUSTAIN CURRICULUM —
+   ramp the training bonus target 6→24 over PPO (`_DRIFT_SUSTAIN_TARGET`); the
+   EVAL/verdict metric always stays at E4's 24.
+
+Key positive facts established: the drift cell IS holdable (the E4 oracle holds
+24 on 37.5% of cells), and the net CAN represent the teacher (capacity sweep
+~2e-4) — so this is a learnability/optimization problem, not "RL can't drift."
+Open: whether the curriculum (and/or exploration annealing) carries hold-time to
+24, then resolving the joint interference via regime-conditioning before the full
+8-seed run. All changes are in the working tree (not yet re-frozen/committed);
+the diagnostics use `/tmp/{ppo_diag,hold_probe,drift_only}.py`.
+
+## Pass 7c (BREAKTHROUGH — drift is learnable; root cause was the warm-start) — 2026-06-15
+
+The drift-learning chain (pass-7b) plateaued at hold ~9 across every reward/
+exploration variant. Two converged-BC experiments resolved it decisively:
+
+- **Drift-only, converged BC (MSE 7.3e-5):** a single obs72 actor holds drift on
+  **8/8 cells, 24–47 steps — BETTER than the teacher (3/8, max 30).**
+- **Joint, converged BC (MSE 2.89e-4):** one policy does **drift 8/8 (holds 34–66)
+  AND avoidance 7/8 — NO interference.**
+
+So drift IS fully learnable by an obs72 policy; obs72 is sufficient (the teacher's
+law is a memoryless static feedback on the current beta + yaw_rate, both in obs72);
+capacity is sufficient. **The ENTIRE chain of negatives was a single root bug: the
+1-epoch BC warm-start.** It barely moved the net, so the policy never reached the
+PRECISION an unstable-equilibrium drift demands (small action errors compound -> the
+car falls out of drift in ~9 steps), and RL-from-near-scratch could not recover it.
+Earlier "more BC hurts / multi-task interference / can't sustain" were all artifacts
+of under-training (6e-4 mid-fit) and a drift-weighted curriculum biasing the warm-start.
+
+Confirmed in the real trainer: with a CONVERGED warm-start the first eval (ppo_idx 0,
+pre-PPO) shows **drift = 1.000**. This is clean, direct support for the program's
+standing hypothesis that the negative results trace to experimental/optimization
+DESIGN, not the phenomenon: the learned network beats the reflex (drift 0 -> 24+).
+
+Fixes: `BC_WARMSTART_EPOCHS` 1 -> 200 (converge the warm-start); the warm-start fits a
+BALANCED mix (`WARMSTART_STAGE`, avoidance_frac 0.5) so it reproduces both teachers
+(the curriculum's late drift-weighting had pushed avoidance below the floor); plus the
+pass-7b RL fixes (reward-scale, separate grad-clip, per-regime adv norm, progressive
+reward, sustain curriculum, low action noise) for the PPO refine phase. Task-score
+selection keeps the best checkpoint, so PPO cannot degrade the warm-start policy.
