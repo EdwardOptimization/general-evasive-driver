@@ -1916,6 +1916,28 @@ def train_student(
                 mean_train_success = float("nan")
             else:
                 ppo_idx = update - warmstart_updates
+                # pass-7 FIX: capture the converged WARM-START policy into best_task
+                # BEFORE the first PPO update -- the periodic eval below runs AFTER the
+                # ppo_update, and with 30 rollout workers the first update can wreck the
+                # warm-start (drift ~0.9 + avoid 1.0 -> ~0), so without this pre-PPO
+                # capture the good warm-start policy was never selected (the 8-worker
+                # verify masked it). PPO refine only improves on it if it genuinely beats
+                # the warm-start (it does not, on this task -> selection keeps warm-start).
+                if ppo_idx == 0 and best_task_state is None:
+                    _ref0 = _periodic_eval_reference(clients, periodic_items, quick)
+                    _ss0 = _student_task_eval(clients, periodic_items, model)
+                    _regs0 = sorted(_ref0.keys())
+                    best_task_score = float(np.mean([_ss0.get(r, 0.0) for r in _regs0])) if _regs0 else 0.0
+                    best_task_state = {k: v.detach().clone() for k, v in model.state_dict().items()}
+                    best_task_ppo_idx = -1  # warm-start (pre-PPO) policy
+                    _progress(curve_path, {
+                        "seed": int(seed), "update": int(update), "ppo_idx": -1, "env_steps": 0,
+                        "task_score": best_task_score, "best_task_score": best_task_score,
+                        "best_task_ppo_idx": -1, "evals_since_improve": 0,
+                        "student_success": {r: _ss0.get(r, float("nan")) for r in _regs0},
+                        "floor_success": {r: _ref0[r]["floor"] for r in _regs0},
+                        "oracle_success": {r: _ref0[r]["oracle"] for r in _regs0},
+                    })
                 bc_aux_coef = _anneal(BC_AUX_COEF_START, BC_AUX_COEF_END, ppo_idx, max(1, ppo_updates - 1))
                 # sustain curriculum: ramp the drift bonus target START -> 24 over the
                 # first RAMP_FRAC of PPO updates (the rollout reward reads this global).
