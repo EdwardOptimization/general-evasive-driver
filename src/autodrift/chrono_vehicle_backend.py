@@ -38,6 +38,7 @@ itself was verified bitwise-deterministic for repeated identical episodes.
 from __future__ import annotations
 
 import math
+import os
 from dataclasses import dataclass
 from typing import Any, Mapping
 
@@ -65,6 +66,17 @@ INTERNAL_STEP_S = 1e-3
 SPINUP_TERRAIN_MU = 1.0
 SPINUP_SETTLE_STEPS = 300  # 0.3 s suspension settle before throttle
 SPINUP_MAX_STEPS = 40000  # 40 s simulated hard cap
+# Spin-up plateau break (throughput): the car reaches its steady spin-up speed
+# in a few thousand steps and then idles at it for the rest of the 40 s cap (the
+# scenario target is often not physically reachable on the high-mu spin-up
+# terrain, so the v>=target break never fires). Once the speed stops rising over
+# a window it is at steady state -- the suspension/tire/driveline are settled and
+# further substeps do not change the handoff -- so we break. Measured: the
+# achieved handoff speed at the plateau equals the 40k-step value to <0.03 m/s,
+# while reset drops ~5x. Set AUTODRIFT_SPINUP_PLATEAU_DISABLE=1 to restore the
+# old behaviour (run to SPINUP_MAX_STEPS) -- used for A/B equivalence checks.
+SPINUP_PLATEAU_WINDOW = 2000  # steps; compare speed across this window
+SPINUP_PLATEAU_TOL = 0.02     # m/s; speed gain over the window below this => plateau
 INIT_CHASSIS_Z = 0.23  # near static ride height (measured equilibrium 0.2145)
 
 # AutoDrift base actuator constants (autodrift.dynamics.VehicleParams defaults)
@@ -646,11 +658,30 @@ class ChronoVehicleBackend:
         inputs.m_braking = 0.0
         n = 0
         body = self._chassis_body
-        while n < SPINUP_MAX_STEPS:
+        plateau_break = os.environ.get("AUTODRIFT_SPINUP_PLATEAU_DISABLE") != "1"
+        # env-overridable for tuning/probing (default = module constants)
+        max_steps = int(os.environ.get("AUTODRIFT_SPINUP_MAX_STEPS", SPINUP_MAX_STEPS))
+        plateau_window = int(os.environ.get("AUTODRIFT_SPINUP_PLATEAU_WINDOW", SPINUP_PLATEAU_WINDOW))
+        plateau_tol = float(os.environ.get("AUTODRIFT_SPINUP_PLATEAU_TOL", SPINUP_PLATEAU_TOL))
+        plateau_ref_v: float | None = None
+        plateau_ref_n = SPINUP_SETTLE_STEPS
+        spinup_break_reason = "max_steps"
+        while n < max_steps:
             if n >= SPINUP_SETTLE_STEPS:
                 v_now = body.GetRot().RotateBack(body.GetPosDt()).x
                 if v_now >= target_speed:
+                    spinup_break_reason = "target_reached"
                     break
+                if plateau_break:
+                    # steady-state detection: if the speed gained < TOL over the
+                    # last WINDOW steps, the spin-up has converged -> stop idling.
+                    if plateau_ref_v is None:
+                        plateau_ref_v, plateau_ref_n = v_now, n
+                    elif n - plateau_ref_n >= plateau_window:
+                        if v_now - plateau_ref_v < plateau_tol:
+                            spinup_break_reason = "plateau"
+                            break
+                        plateau_ref_v, plateau_ref_n = v_now, n
                 inputs.m_throttle = float(_clamp(0.5 * (target_speed - v_now), 0.05, 0.85))
             self._car.Synchronize(self._time, inputs, spin_terrain)
             spin_terrain.Synchronize(self._time)
@@ -675,6 +706,7 @@ class ChronoVehicleBackend:
             "spinup_target_speed": target_speed,
             "spinup_achieved_speed": spinup_speed,
             "spinup_speed_gap": float(target_speed - spinup_speed),
+            "spinup_break_reason": spinup_break_reason,
         }
 
     def _teleport_and_boost(self, *, x: float, y: float, psi: float, vx: float, vy: float, yaw_rate: float) -> None:

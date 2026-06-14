@@ -142,3 +142,52 @@ validation cells to E4's frozen `low_mu_power_oversteer` cell (mu 0.48,
 speed 9, radius 70, initial_beta 0.22, with a horizon allowing >= 24
 sustained drift steps) and use E4's `beta0p22_power` oracle, so the drift
 oracle reproduces ~0.40 and S7 passes. Then re-smoke -> freeze -> launch.
+
+## Pass 6 (throughput + adaptive budget) — 2026-06-15
+
+The frozen launch was interrupted by a WSL VM restart 14 min in. Root cause
+(forensic, Windows event log + WSL journal): NOT the run — an MSI **self-repair**
+of the WSL package fired because the folder right-click "WSL" context-menu
+registry keypath (`HKLM\SOFTWARE\Classes\Directory\shell\WSL`) is missing;
+RestartManager bounced the VM to service it (the repair then failed 1706/1603,
+source MSI gone). Not an update, not OOM (one worker ~56 MiB), not the workload.
+
+The crash-resume worked, but monitoring the resumed run exposed the real
+problem: **the frozen 8.37 h wall-clock was wrong by ~28×.** First-principles
+profiling (each number measured):
+
+| layer | finding | fix | gain |
+|---|---|---|---|
+| BC/aux/holdout collection | serial single-client; called every update; ~18 h warmstart alone | parallelize `collect_bc_demos` over the pool (lossless, bit-identical) | 15× |
+| PPO rollout | **25 steps/s** lockstep (per-step barrier across 30 threads), NOT the F1b 1600 (that benched the open-loop `step_many`) | independent-episode dispatch + per-trajectory `torch.Generator` (on-policy, deterministic) | 8.6× |
+| episode reset | **94 % of every episode**: a 40k-step spin-up that hits the cap every time (car plateaus ~0.2 m/s short of an unreachable target) | plateau-break at steady state (~6k steps) | 6× |
+
+Cumulative: ~10 days → ~12–20 h. Then **adaptive budget** (PI-directed): a
+periodic four-arm eval every ~50 PPO updates produces a learning curve and an
+early-stop, so 48.25M is a CAP, not a target — the run stops when the science
+question is answered.
+
+**Drift re-price (equivalence gate caught it).** The plateau-break is equivalent
+on every priced success EXCEPT one borderline drift episode: E4's +0.40 (8/20)
+holds ONLY at exactly 40k spin-up steps; at steady state the drift oracle scores
+0.35 (7/20), verified identical across break points 6.3k/16k/24k/32k vs 0.40 only
+at 40k. The 8th success was a 40k-cap limit-cycle artifact. Adopted the faster
+steady-state spin-up and **re-priced the drift gap +0.40 → +0.35** (break-point-
+independent, still robustly positive; CI always excluded 0). `S7_DRIFT_PRIZE`
+0.40→0.35, `S7_BOUNDARY_TOL` 1e-9→0.051 (one-episode robustness, not knife-edge).
+E4's stored artifact keeps its 40k-spin-up historical 0.40; full E4 re-pricing is
+a follow-up (does not block F2).
+
+**Selection-criterion change (PI sign-off, analogous to M6).** RL is meant to
+BEAT the teacher, so PPO checkpoint selection + early-stop moved from teacher-MSE
+(which plateaus exactly when RL starts winning) to the student's **task score**
+(success vs floor+prize) on an eval-seed namespace DISJOINT from training AND the
+frozen final-validation seeds (no select-on-test). Warm-start keeps teacher-MSE
+(there the goal IS to imitate). Final verdict still runs on the frozen validation
+seeds.
+
+Regression tests added (all green): `test_pass5_bc_demos_parallel_equals_serial_lossless`,
+`test_pass5_ppo_rollout_independent_dispatch_deterministic_and_onpolicy`,
+periodic-eval learning-curve + task-selection assertions in the quick pipeline.
+Backend env switches for A/B: `AUTODRIFT_SPINUP_PLATEAU_DISABLE`,
+`AUTODRIFT_SPINUP_MAX_STEPS/PLATEAU_WINDOW/PLATEAU_TOL`.

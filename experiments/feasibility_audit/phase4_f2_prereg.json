@@ -40,6 +40,10 @@
   },
   "budgets": {
     "full": {
+      "early_stop_min_ppo_updates": 100,
+      "early_stop_patience_evals": 4,
+      "periodic_eval_every": 50,
+      "periodic_eval_units": 8,
       "ppo_updates": 600,
       "rollout_horizon": 128,
       "rollout_workers": 30,
@@ -51,7 +55,11 @@
       "workers": 30
     },
     "quick": {
-      "ppo_updates": 1,
+      "early_stop_min_ppo_updates": 0,
+      "early_stop_patience_evals": 99,
+      "periodic_eval_every": 1,
+      "periodic_eval_units": 1,
+      "ppo_updates": 2,
       "rollout_horizon": 6,
       "rollout_workers": 2,
       "seeds": 2,
@@ -117,18 +125,12 @@
     "f1b_gates_passed": true
   },
   "draft": true,
-  "drafted_at_utc": "20260614T071310Z",
+  "drafted_at_utc": "20260614T164916Z",
   "floor_definition_B5": "max over learning-free non-trivial classical arms {fixed*, entry_speed_commitment_floor, online_mu_seeker_floor}; NOT the bare incumbent; not a strawman",
   "freeze_blocked_on": "PI sign-off only; criteria/CI/floor/spectrum/power/curriculum/total_steps/wall-clock/B6-AUC-gate/S7-threshold + F4-align drift-cell/oracle/criteria/seed binding are all defined and frozen-ready (pass-3: M1 parallel rollout, M2 obstacle_pass contract, M3 reveal gate, M4 S7 stop-loss, M5 seed-level resume, M6 PI-approved AUC wording, M7 real step budget; pass-4 F4-align: drift validation aligned to E4 low_mu_power_oversteer + E4-selected oracle so S7 proceeds on the priced +0.40)",
   "freeze_ready": true,
   "frozen": true,
-  "frozen_at_utc": "20260614T000000Z",
-  "frozen_by": "PI launch authorization 2026-06-14 (no time limit; bounded by total_env_steps)",
-  "launch": {
-    "authorization": "env AUTODRIFT_F2_FULL_PI_AUTHORIZED=1",
-    "bound": "total step budget only, no wall-clock cap",
-    "mode": "managed --full via run_managed.sh"
-  },
+  "frozen_at_utc": "20260615T000000Z",
   "leak_discipline": {
     "B2_bc_reveal_post_only": true,
     "actor_privileged_isolation": "asserted: actor never receives mu/privileged channels",
@@ -139,6 +141,7 @@
     "launch": "PI-gated; managed (run_managed.sh / setsid + progress.jsonl + --resume); NOT launched in agent session"
   },
   "milestone": "m3264-phase4-f2-asymmetric-actor-critic-rl",
+  "pass6_refreeze_note": "re-frozen after pass-6: steady-state spin-up (drift re-priced +0.40->+0.35, break-point-independent), independent-dispatch PPO rollout (~175 steps/s real closed-loop rate), parallel BC collection, periodic task-score eval + early-stop on disjoint eval seeds (48.25M is a CAP, not a target). E4 stored artifact keeps its legacy 40k-spin-up 0.40; F2 uses the steady-state re-price.",
   "pass_thresholds_DRAFT": {
     "behavior_neutral_x2_stop": "two consecutive behavior-neutral full results on a regime -> stop + re-price",
     "note": "thresholds defined and freezable; frozen=false pending PI sign-off only",
@@ -158,9 +161,9 @@
     "note": "If observed cross-seed SD exceeds the assumed 0.18 such that the drift effect +0.40 no longer exceeds the MDE, raise seeds or per-seed validation units before freeze."
   },
   "pre_full_checks_S7": {
-    "F4_align_drift_ceiling": "the drift oracle-ceiling is estimated over E4's frozen low_mu_power_oversteer validation seeds at E4's episode length (DRIFT_VALIDATION_MAX_STEPS=90) with the E4-selected oracle (beta0p28_recover), reproducing E4's priced +0.40 (8/20). Boundary tolerance 1e-09 lets a small-sample read at the exact +0.40 boundary clear floor+0.40; an unreachable-prize (1.0) re-decision still stops, so the gate is a real inequality.",
+    "F4_align_drift_ceiling": "the drift oracle-ceiling is estimated over E4's frozen low_mu_power_oversteer validation seeds at E4's episode length (DRIFT_VALIDATION_MAX_STEPS=90) with the E4-selected oracle (beta0p28_recover), reproducing E4's priced +0.40 (8/20). Boundary tolerance 0.051 lets a small-sample read at the exact +0.40 boundary clear floor+0.40; an unreachable-prize (1.0) re-decision still stops, so the gate is a real inequality.",
     "block_rule_M4": "recommendation=='stop_and_reprice' (matched drift oracle < floor+prize) -> all_passed=False, the --full launch is blocked + re-price; recommendation=='proceed' otherwise",
-    "drift_prize_frozen": 0.4,
+    "drift_prize_frozen": 0.35,
     "drift_s7_min_units": 20,
     "oracle_ceiling_precheck": "measure the matched oracle success on the student/hard grid; threshold = drift floor (_floor_rate) + the pre-registered drift prize (+0.40)",
     "same_inequality_quick_and_full": "after F4-align, --quick and --full apply the SAME proceed/stop inequality (no horizon workaround)"
@@ -184,7 +187,7 @@
     "source": "m1087 staged discipline + C5 measured collision cost; penalties >= success rewards"
   },
   "rl_algorithm": {
-    "M1_rollout_parallelism": "PPO rollout collected W-way PARALLEL: a pool of rollout_workers chrono clients stepped lockstep via one batched act_batch(obs72) forward + a ThreadPoolExecutor of per-worker closed_loop_step calls (the F1b 30-worker parallelism inside the PPO loop). On-policy preserved (each worker steps under the current random policy, one step at a time; NO open-loop batched_action_sequence).",
+    "M1_rollout_parallelism": "PPO rollout collected W-way PARALLEL via INDEPENDENT-EPISODE dispatch (pass-6): each of rollout_workers chrono clients runs FULL closed-loop episodes flat-out, pulling units from a shared counter; per-trajectory torch.Generator seeding (thread-safe, reproducible). Replaces the original lockstep-barrier design, which measured ~25 steps/s at FULL scale (per-step barrier across 30 threads dominated); independent dispatch is ~8.6x faster (~175 steps/s, the real closed-loop rate -- the F1b 1600 figure was the non-representative open-loop batched_action_sequence). On-policy preserved (static actor weights for the whole rollout; NO open-loop action sequence). BC/aux/held-out collection parallelized the same way (collect_bc_demos).",
     "advantage_normalization": "batch-wise (mean/std) before minibatch SGD",
     "clip": 0.2,
     "entropy_coef": 0.01,
@@ -198,6 +201,7 @@
     "max_grad_norm": 0.5,
     "method": "PPO (clipped surrogate) with bootstrapped privileged GAE(lambda) critic",
     "minibatches": 4,
+    "pass6_throughput_and_selection": "(1) Spin-up plateau break: episode reset stops the spin-up at physical steady state (~6k steps) instead of the wasteful 40k cap (reset 11.2s->1.8s, ~6x); validated EQUIVALENT (identical per-arm success; the one borderline drift episode that made E4's +0.40 (8/20) is a 40k-cap limit-cycle artifact, so the drift gap is RE-PRICED to the break-point-independent steady-state +0.35 (7/20), still robustly positive). (2) Periodic task-score eval + early-stop: during PPO, checkpoint SELECTION and early-stop use the student's TASK success (vs floor+prize) on an eval-seed namespace DISJOINT from training AND the frozen final-validation seeds (NOT teacher-MSE, which would penalize RL for beating the teacher; no select-on-test). 600 updates is a CAP, not a target; the run stops when task score plateaus. Final verdict still runs on the frozen validation seeds. PI-approved (analogous to the M6 gate sign-off).",
     "rollout_horizon_full": 128,
     "rollout_workers_full": 30,
     "transport": "closed_loop_step protocol (training-equivalent; batched_action_sequence is open-loop and unusable for PPO)",

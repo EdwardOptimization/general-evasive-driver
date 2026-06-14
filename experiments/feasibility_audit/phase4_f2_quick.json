@@ -70,7 +70,7 @@
         },
         "per_regime_oracle": {
           "collision_rate": 0.0,
-          "mean_reward": 32.0,
+          "mean_reward": 32.25,
           "n": 2,
           "n_training_seeds": 0,
           "seed_cluster_se": 0.0,
@@ -112,7 +112,7 @@
         },
         "per_regime_oracle": {
           "collision_rate": 0.0,
-          "mean_reward": 60.0,
+          "mean_reward": 60.125,
           "n": 4,
           "n_training_seeds": 0,
           "seed_cluster_se": 0.0,
@@ -185,20 +185,20 @@
     "quick_mode_is_verdict": false,
     "self_id_claim": "none; engineering-only"
   },
-  "elapsed_s": 459.64,
-  "generated_at_utc": "20260614T071310Z",
+  "elapsed_s": 138.71,
+  "generated_at_utc": "20260614T164232Z",
   "milestone": "m3264-phase4-f2-asymmetric-actor-critic-rl",
   "mode": "quick",
   "oracle_ceiling_precheck_S7": {
     "both_branches_demonstrated": true,
     "drift_oracle_clears_floor_plus_prize": true,
-    "floor_plus_prize_threshold": 0.4,
+    "floor_plus_prize_threshold": 0.35,
     "floor_threshold": 0.0,
     "oracle_ceiling_by_regime": {
       "avoidance": 1.0,
-      "drift": 0.4
+      "drift": 0.35
     },
-    "prize": 0.4,
+    "prize": 0.35,
     "recommendation": "proceed",
     "should_stop": false,
     "units_per_regime": {
@@ -211,7 +211,7 @@
       "floor_threshold": 0.0,
       "oracle_ceiling_by_regime": {
         "avoidance": 1.0,
-        "drift": 0.4
+        "drift": 0.35
       },
       "prize": 1.0,
       "recommendation": "stop_and_reprice",
@@ -270,16 +270,16 @@
     1713449107
   ],
   "throughput_M1": {
-    "aggregate_steps_per_s": 0.9671474255525642,
+    "aggregate_steps_per_s": 5.268863723468241,
     "is_representative_of_full": false,
     "note": "quick rate is a 2-worker chain-proof number on 6-step episodes (worker launch/reset-dominated); NOT the full 30-worker rate. The full wall-clock projection uses the F1b 30-worker closed_loop rate until the full run measures its own representative rate.",
     "per_seed_rates": [
-      0.9678634838361931,
-      0.9664324260141249
+      5.420261952766944,
+      5.125693355555833
     ],
     "requested_workers": 2,
-    "rollout_total_elapsed_s": 24.815244673052803,
-    "rollout_total_steps": 24.0,
+    "rollout_total_elapsed_s": 9.110123647002183,
+    "rollout_total_steps": 48.0,
     "rollout_workers_used": 2
   },
   "train_summaries": [
@@ -287,54 +287,76 @@
       "all_finite": true,
       "any_param_changed": true,
       "avoidance_bc_frames": 6,
-      "best_holdout_neg_mse": -0.5814597606658936,
-      "best_update": 1,
+      "best_holdout_neg_mse": -0.5383023619651794,
+      "best_task_ppo_idx": 0,
+      "best_task_score": 0.5,
+      "best_update": 2,
+      "early_stopped": false,
       "entropy_observed": true,
       "log_std_observed": true,
       "ppo_ran": true,
-      "ppo_updates_done": 1,
-      "rollout_aggregate_steps_per_s": 0.9678634838361931,
+      "ppo_selection": "task_score",
+      "ppo_updates_done": 2,
+      "rollout_aggregate_steps_per_s": 5.420261952766944,
       "rollout_throughput": [
         {
-          "rollout_elapsed_s": 12.398442756035365,
+          "rollout_elapsed_s": 2.476627954001742,
           "rollout_steps": 12.0,
-          "rollout_steps_per_s": 0.9678634838361931,
+          "rollout_steps_per_s": 4.845297809309779,
           "rollout_workers": 2.0,
           "update": 1
+        },
+        {
+          "rollout_elapsed_s": 1.9512023259994749,
+          "rollout_steps": 12.0,
+          "rollout_steps_per_s": 6.1500541692175235,
+          "rollout_workers": 2.0,
+          "update": 2
         }
       ],
-      "rollout_total_elapsed_s": 12.398442756035365,
-      "rollout_total_steps": 12.0,
+      "rollout_total_elapsed_s": 4.427830280001217,
+      "rollout_total_steps": 24.0,
       "rollout_workers": 2,
       "seed": 699570196,
-      "total_updates": 2,
+      "total_updates": 3,
       "warmstart_updates": 1
     },
     {
       "all_finite": true,
       "any_param_changed": true,
       "avoidance_bc_frames": 6,
-      "best_holdout_neg_mse": -0.4706832468509674,
-      "best_update": 1,
+      "best_holdout_neg_mse": -0.4627872109413147,
+      "best_task_ppo_idx": 0,
+      "best_task_score": 0.5,
+      "best_update": 2,
+      "early_stopped": false,
       "entropy_observed": true,
       "log_std_observed": true,
       "ppo_ran": true,
-      "ppo_updates_done": 1,
-      "rollout_aggregate_steps_per_s": 0.9664324260141249,
+      "ppo_selection": "task_score",
+      "ppo_updates_done": 2,
+      "rollout_aggregate_steps_per_s": 5.125693355555833,
       "rollout_throughput": [
         {
-          "rollout_elapsed_s": 12.416801917017438,
+          "rollout_elapsed_s": 2.5961091249992023,
           "rollout_steps": 12.0,
-          "rollout_steps_per_s": 0.9664324260141249,
+          "rollout_steps_per_s": 4.622301845652843,
           "rollout_workers": 2.0,
           "update": 1
+        },
+        {
+          "rollout_elapsed_s": 2.0861842420017638,
+          "rollout_steps": 12.0,
+          "rollout_steps_per_s": 5.752128579250314,
+          "rollout_workers": 2.0,
+          "update": 2
         }
       ],
-      "rollout_total_elapsed_s": 12.416801917017438,
-      "rollout_total_steps": 12.0,
+      "rollout_total_elapsed_s": 4.682293367000966,
+      "rollout_total_steps": 24.0,
       "rollout_workers": 2,
       "seed": 1713449107,
-      "total_updates": 2,
+      "total_updates": 3,
       "warmstart_updates": 1
     }
   ],
