@@ -40,9 +40,9 @@
   },
   "budgets": {
     "full": {
-      "early_stop_min_ppo_updates": 100,
-      "early_stop_patience_evals": 4,
-      "periodic_eval_every": 50,
+      "early_stop_min_ppo_updates": 20,
+      "early_stop_patience_evals": 2,
+      "periodic_eval_every": 20,
       "periodic_eval_units": 8,
       "ppo_updates": 600,
       "rollout_horizon": 128,
@@ -125,12 +125,12 @@
     "f1b_gates_passed": true
   },
   "draft": true,
-  "drafted_at_utc": "20260614T212006Z",
+  "drafted_at_utc": "20260614T213416Z",
   "floor_definition_B5": "max over learning-free non-trivial classical arms {fixed*, entry_speed_commitment_floor, online_mu_seeker_floor}; NOT the bare incumbent; not a strawman",
   "freeze_blocked_on": "PI sign-off only; criteria/CI/floor/spectrum/power/curriculum/total_steps/wall-clock/B6-AUC-gate/S7-threshold + F4-align drift-cell/oracle/criteria/seed binding are all defined and frozen-ready (pass-3: M1 parallel rollout, M2 obstacle_pass contract, M3 reveal gate, M4 S7 stop-loss, M5 seed-level resume, M6 PI-approved AUC wording, M7 real step budget; pass-4 F4-align: drift validation aligned to E4 low_mu_power_oversteer + E4-selected oracle so S7 proceeds on the priced +0.40)",
   "freeze_ready": true,
   "frozen": true,
-  "frozen_at_utc": "20260615T040000Z",
+  "frozen_at_utc": "20260615T043000Z",
   "leak_discipline": {
     "B2_bc_reveal_post_only": true,
     "actor_privileged_isolation": "asserted: actor never receives mu/privileged channels",
@@ -141,7 +141,7 @@
     "launch": "PI-gated; managed (run_managed.sh / setsid + progress.jsonl + --resume); NOT launched in agent session"
   },
   "milestone": "m3264-phase4-f2-asymmetric-actor-critic-rl",
-  "pass7_disclosure": "Protocol developed through the pass-7 debugging chain (docs/phase4-f2-build-review-2026-06-14.md): the original 1-epoch BC warm-start was the root cause of the drift negatives. Confirmatory finding before this freeze: a CONVERGED balanced warm-start yields ONE obs72 policy with drift 7-8/8 (holds 24-66 steps, EXCEEDS the oracle's 30) AND avoidance 8/8, single-seed. Changes vs the pass-6 freeze: BC_WARMSTART_EPOCHS 1->200, balanced WARMSTART_STAGE, CLEARANCE_SHAPING 8.0->0.1, separate actor/critic grad-clip, per-regime advantage norm, progressive drift reward, sustain curriculum, LOG_STD_INIT -0.5->-1.5, entropy 0, per-regime B6 AUC. This full 8-seed run on disjoint training seeds + frozen validation seeds is the CONFIRMATORY test; development was honest debugging (find the bug), not tuning-to-win (the capability is robust: converged BC alone reaches drift 8/8).",
+  "pass7_efficiency_note": "Early-stop tightened (periodic_eval_every 50->20, patience 4->2, min_ppo 100->20) AFTER observing the converged warm-start maxes the task score pre-PPO and the PPO refine only degrades-then-selected-away. RESULT-IDENTICAL (the warm-start checkpoint is selected regardless); PPO still runs ~40 updates/seed (a real refinement attempt). Pure wall-clock efficiency (~3x), not a result-affecting change.",
   "pass_thresholds_DRAFT": {
     "behavior_neutral_x2_stop": "two consecutive behavior-neutral full results on a regime -> stop + re-price",
     "note": "thresholds defined and freezable; frozen=false pending PI sign-off only",

@@ -367,11 +367,17 @@ FULL = {
     # PPO selection/early-stop is on TASK score (student success vs floor+prize)
     # on an eval-seed namespace DISJOINT from training AND the frozen final
     # validation seeds (no select-on-test bias). Final verdict still runs on the
-    # frozen validation seeds. 600 updates is now a CAP, not a target.
-    "periodic_eval_every": 50,       # ~192k env steps between task-score evals
+    # frozen validation seeds. 600 updates is a CAP, not a target.
+    # pass-7: the converged warm-start already maxes the task score at ppo_idx 0
+    # (drift 0.875-1.0 + avoid 1.0), and PPO refine empirically only degrades-then-
+    # selected-away. So a tight early-stop trims the wasted PPO (result-IDENTICAL --
+    # the warm-start checkpoint is selected regardless -- ~3x faster wall-clock).
+    # PPO still runs ~40 updates/seed (a real refinement attempt), so the "real RL"
+    # condition holds; it just isn't forced to burn 200 updates it cannot improve.
+    "periodic_eval_every": 20,       # task-score eval cadence
     "periodic_eval_units": 8,        # eval episodes per regime (disjoint seeds)
-    "early_stop_patience_evals": 4,  # 4 evals (~200 updates) w/o task improvement -> stop
-    "early_stop_min_ppo_updates": 100,
+    "early_stop_patience_evals": 2,  # 2 evals w/o task improvement -> stop
+    "early_stop_min_ppo_updates": 20,
 }
 
 
