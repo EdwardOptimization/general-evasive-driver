@@ -312,6 +312,14 @@ PPO_JACOBIAN_COEF = float(os.environ.get("AUTODRIFT_PPO_JACOBIAN_COEF", "0.0"))
 # regimes' gradients oppose (cos<0). Uses the TRAIN-TIME regime labels only; the
 # deployable actor is unchanged (obs72-only). Env-overridable for the A/B.
 PPO_PCGRAD = os.environ.get("AUTODRIFT_PCGRAD", "0") == "1"
+# pass-8 (regime-interference fix, OFF by default): gated dual output heads.
+# PCGrad localized the drift/avoidance conflict to the SHARED actor output weights,
+# so give each regime its own output head and route with a learned soft gate
+# (sigmoid) computed from the shared trunk -- the gate infers the regime from obs72
+# (obstacle features present => avoidance; high sideslip/no obstacle => drift), since
+# the regime label is NOT in obs72. Shared trunk, separate output weights -> the
+# heads cannot corrupt each other's outputs. Still one deployable obs72-only actor.
+GATED_HEADS = os.environ.get("AUTODRIFT_GATED_HEADS", "0") == "1"
 # annealed auxiliary BC: warm-start dominates early, decays to ~0 so PPO leads.
 BC_WARMSTART_COEF = 1.0
 # pass-7 (CORRECTED): the 1-epoch warm-start was THE root bug -- it barely moved
@@ -573,18 +581,25 @@ class AsymmetricActorCritic(nn.Module):
     deployable actor cannot read mu/teacher state by construction.
     """
 
-    def __init__(self, obs_dim: int = HUMAN_VIEW_OBS_DIM, act_dim: int = ACT_DIM, *, priv_dim: int = PRIV_DIM, hidden_size: int = HIDDEN_SIZE):
+    def __init__(self, obs_dim: int = HUMAN_VIEW_OBS_DIM, act_dim: int = ACT_DIM, *, priv_dim: int = PRIV_DIM, hidden_size: int = HIDDEN_SIZE, gated: bool = GATED_HEADS):
         super().__init__()
         self.obs_dim = int(obs_dim)
         self.act_dim = int(act_dim)
         self.priv_dim = int(priv_dim)
+        self.gated = bool(gated)
         self.actor = nn.Sequential(
             nn.Linear(obs_dim, hidden_size),
             nn.Tanh(),
             nn.Linear(hidden_size, hidden_size),
             nn.Tanh(),
         )
-        self.actor_mean = nn.Linear(hidden_size, act_dim)
+        if self.gated:
+            # two specialized output heads + a learned soft gate from the shared trunk
+            self.actor_mean_a = nn.Linear(hidden_size, act_dim)
+            self.actor_mean_b = nn.Linear(hidden_size, act_dim)
+            self.actor_gate = nn.Linear(hidden_size, 1)
+        else:
+            self.actor_mean = nn.Linear(hidden_size, act_dim)
         # learnable per-action log_std (the policy stochasticity B-list demands).
         self.log_std = nn.Parameter(torch.full((act_dim,), float(LOG_STD_INIT)))
         # privileged critic: obs72 + privileged channels (training only).
@@ -597,6 +612,9 @@ class AsymmetricActorCritic(nn.Module):
         )
 
     def actor_parameters(self):
+        if self.gated:
+            return (list(self.actor.parameters()) + list(self.actor_mean_a.parameters())
+                    + list(self.actor_mean_b.parameters()) + list(self.actor_gate.parameters()) + [self.log_std])
         return list(self.actor.parameters()) + list(self.actor_mean.parameters()) + [self.log_std]
 
     def critic_parameters(self):
@@ -605,7 +623,11 @@ class AsymmetricActorCritic(nn.Module):
     def _raw_mean(self, obs72: torch.Tensor) -> torch.Tensor:
         if obs72.shape[-1] != self.obs_dim:
             raise ValueError(f"actor input must be obs72 (dim {self.obs_dim}); got {obs72.shape[-1]}")
-        return self.actor_mean(self.actor(obs72))
+        h = self.actor(obs72)
+        if self.gated:
+            g = torch.sigmoid(self.actor_gate(h))  # learned soft gate in [0,1] from obs72
+            return g * self.actor_mean_a(h) + (1.0 - g) * self.actor_mean_b(h)
+        return self.actor_mean(h)
 
     def policy_distribution(self, obs72: torch.Tensor) -> Normal:
         mean = self._raw_mean(obs72)

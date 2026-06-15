@@ -180,6 +180,36 @@ def test_pass8_jacobian_penalty_applies_and_off_by_default():
     assert out_off["jac_pen"] == 0.0  # penalty skipped when off
 
 
+def test_pass8_gated_heads_off_by_default_and_deployable():
+    # pass-8 regime-interference fix: gated dual output heads.
+    assert f2.GATED_HEADS is False  # OFF by default -> frozen pipeline preserved
+    m0 = f2.AsymmetricActorCritic()
+    assert m0.gated is False
+    m = f2.AsymmetricActorCritic(gated=True)
+    assert m.gated is True
+    # gated has the extra head + gate -> more actor params, but stays a small net
+    assert sum(p.numel() for p in m.actor_parameters()) > sum(p.numel() for p in m0.actor_parameters())
+    # deployable act(obs72) routes through the learned gate internally (obs72-only)
+    obs = np.random.default_rng(0).normal(size=(6, f2.HUMAN_VIEW_OBS_DIM)).astype(np.float32)
+    a = m.act(obs)
+    assert a.shape == (6, f2.ACT_DIM) and np.isfinite(a).all()
+    # all policy paths route through the gated heads and stay finite
+    o = torch.as_tensor(obs)
+    lp, ent = m.evaluate_actions(o, torch.as_tensor(np.tanh(np.random.default_rng(1).normal(size=(6, f2.ACT_DIM))).astype(np.float32)))
+    assert bool(torch.isfinite(lp).all()) and bool(torch.isfinite(m.actor_forward(o)).all())
+    # ppo_update trains the gated model (separate actor grad-clip picks up gate + heads)
+    rng = np.random.default_rng(5)
+    batch = {
+        "obs": obs, "priv": rng.normal(size=(6, f2.PRIV_DIM)).astype(np.float32),
+        "act": np.tanh(rng.normal(size=(6, f2.ACT_DIM))).astype(np.float32),
+        "logp": rng.normal(size=(6,)).astype(np.float32), "adv": rng.normal(size=(6,)).astype(np.float32),
+        "ret": rng.normal(size=(6,)).astype(np.float32), "rew": rng.normal(size=(6,)).astype(np.float32),
+        "regime": (np.arange(6) % 2).astype(np.int64),
+    }
+    out = f2.ppo_update(m, torch.optim.Adam(m.parameters(), lr=1e-3), batch, bc_aux_coef=0.0, bc_aux=None, rng=np.random.default_rng(0))
+    assert out["finite_loss"] and out["optimizer_changed_parameters"]
+
+
 def test_pass8_pcgrad_off_by_default_and_projects():
     # pass-8 regime-interference fix: PCGrad on the actor policy gradient.
     assert f2.PPO_PCGRAD is False  # OFF by default -> frozen pipeline preserved
