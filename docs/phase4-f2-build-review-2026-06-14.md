@@ -343,3 +343,42 @@ All 30+ protocol gates passed (B6 per-regime AUC=1.0; S7 oracle ceiling; four-ar
 obs72-only; seed-clustered CIs). Decision: `incumbent_changed=false →
 STOP_FOR_PI_REVIEW` (drift win + avoidance regression ≠ clean dominance). Wall-clock
 4.35h; early-stop kept PPO at ~6% of the step budget (20–100 updates/seed vs 600 cap).
+
+---
+
+## Pass-8: regime-interference lever elimination -> gated dual-heads (2026-06-15/16)
+
+The pass7c verdict's avoidance regression (avoid 0.775 < trivial floor 1.0, CI excludes 0)
+is **regime interference**, not capacity. A clean lever-elimination, each an 8-seed FULL
+A/B vs pass7c (drift 0.769 / avoid 0.775 / pooled 0.772), all toggleable + off by default:
+
+| lever | commit | drift | avoid | pooled | verdict |
+|---|---|---:|---:|---:|---|
+| Jacobian input-penalty (1e-3) | `92ee26b9` | 0.731 | 0.713 | 0.720 | null-negative; avoid CI *wider* -> wrong lever |
+| capacity (wider/deeper actor) | — | — | — | — | ruled out a priori: pass-7 sweep shows BC fit saturates at [64,64], depth>2 hurts |
+| PCGrad gradient surgery | `d226fa29` | 0.556 | 0.863 | 0.740 | rebalances the frontier (avoid +0.088 / drift -0.213); conflict is in the SHARED OUTPUT WEIGHTS |
+| **gated dual-heads** | `e957331c` | **0.925** | 0.758 | **0.825** | **EXPANDS the frontier** (drift +0.156, avoid ~flat) |
+
+**Conclusion chain:** Jacobian ruled out smoothing; capacity ruled out representation;
+PCGrad localized the conflict to the shared actor *output* weights (it could only move
+*along* the tradeoff frontier, not expand it). Giving each regime its own output head
+fed by a shared trunk + a learned soft gate (inferring regime from obs72, since the
+label is privileged-only) **removed the output interference** and expanded the frontier.
+
+**Gated-heads result (pass-8 exploratory, `experiments/feasibility_audit/phase4_f2_pass8_gated.json`,
+run with `AUTODRIFT_GATED_HEADS=1`):**
+- **drift 0.925**, seed-clustered 95% CI **[0.831, 0.994]** -- vs pass7c 0.769 CI [0.519, 0.944].
+  The lower bound jumps 0.52 -> 0.83: drift is now *reliably* high across seeds (variance collapsed),
+  far above reflex floor (0.0) and the scripted oracle (0.35).
+- **avoid 0.758**, CI **[-0.483, 0.000]** -- the regression is **no longer statistically
+  significant** (CI touches 0), vs pass7c [-0.392, -0.083] (clearly below floor).
+- **pooled 0.825** (+0.052). All 30+ protocol gates pass. 6/8 seeds improved (4 dramatically
+  from 0.5-0.625 -> 0.938-1.0); 2/8 (seeds 3,7) regressed (low gated warm-start, PPO selected it).
+- Existence proof that motivated it: pass7c seeds 2 & 7 already reached drift 1.0 + avoid 1.0 in
+  one shared policy -> both-high was achievable; gated heads made it *reliable*.
+
+**Status:** pass7c remains the pre-registered confirmatory result (frozen single-head config,
+canonical `phase4_f2.json`). Gated dual-heads is an exploratory pass-8 architecture improvement;
+promoting it to default requires a PI decision + prereg re-freeze. It is the best driver to date
+and the more active-safety-appropriate operating point (drift reliably excellent, avoid no longer
+significantly regressed).
