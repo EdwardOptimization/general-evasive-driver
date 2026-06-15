@@ -297,6 +297,13 @@ PPO_LR = 3e-4
 LOG_STD_INIT = -1.5  # pass-7: lower action noise (std ~0.22) for precise drift maintenance
 LOG_STD_MIN = -2.5
 LOG_STD_MAX = 0.5
+# pass-8 (robotics-recipe stabilization, OFF by default to preserve the frozen
+# pipeline): input-Jacobian penalty on the deployable actor mean,
+# lambda * mean_i ||d a_mean_i / d obs_i||_F^2 (exact over the 3 action dims).
+# Djeumou/TRI 2024 use ~1e-5 to damp policy input-sensitivity -> smoother control,
+# less per-seed PPO oscillation/collapse on the drift saddle. Env-overridable for
+# the A/B that decides whether CPU-scale stabilization is enough (vs a GPU port).
+PPO_JACOBIAN_COEF = float(os.environ.get("AUTODRIFT_PPO_JACOBIAN_COEF", "0.0"))
 # annealed auxiliary BC: warm-start dominates early, decays to ~0 so PPO leads.
 BC_WARMSTART_COEF = 1.0
 # pass-7 (CORRECTED): the 1-epoch warm-start was THE root bug -- it barely moved
@@ -1178,6 +1185,7 @@ def ppo_update(
     clip: float = PPO_CLIP,
     value_coef: float = PPO_VALUE_COEF,
     entropy_coef: float = PPO_ENTROPY_COEF,
+    jacobian_coef: float = PPO_JACOBIAN_COEF,
     rng: np.random.Generator | None = None,
 ) -> dict[str, Any]:
     """One PPO update over a collected rollout batch.
@@ -1222,7 +1230,7 @@ def ppo_update(
 
     mb_size = max(1, n // max(1, minibatches))
     before = [p.detach().clone() for p in model.parameters()]
-    last = {"pg_loss": 0.0, "value_loss": 0.0, "entropy": 0.0, "clip_frac": 0.0, "approx_kl": 0.0, "bc_aux_loss": 0.0}
+    last = {"pg_loss": 0.0, "value_loss": 0.0, "entropy": 0.0, "clip_frac": 0.0, "approx_kl": 0.0, "bc_aux_loss": 0.0, "jac_pen": 0.0}
     finite_grad = True
     grad_sq_last = 0.0
     for _ep in range(int(epochs)):
@@ -1245,6 +1253,18 @@ def ppo_update(
                 bc_aux_loss = torch.mean((bc_mean - bc_tgt).pow(2))
                 loss = loss + bc_aux_coef * bc_aux_loss
                 last["bc_aux_loss"] = float(bc_aux_loss.detach())
+            if jacobian_coef > 0.0:
+                # input-Jacobian penalty on the deployable actor mean (obs72-only),
+                # exact over the action dims: sum_j ||d a_mean[:,j]/d obs||^2, mean
+                # over the minibatch. create_graph=True so it trains the params.
+                obs_jac = obs[mb_t].detach().requires_grad_(True)
+                a_mean = model.actor_forward(obs_jac)
+                jac_sq = obs_jac.new_zeros(())
+                for j in range(a_mean.shape[-1]):
+                    gj = torch.autograd.grad(a_mean[:, j].sum(), obs_jac, create_graph=True)[0]
+                    jac_sq = jac_sq + gj.pow(2).sum(dim=-1).mean()
+                loss = loss + jacobian_coef * jac_sq
+                last["jac_pen"] = float(jac_sq.detach())
             optimizer.zero_grad(set_to_none=True)
             loss.backward()
             grad_sq = 0.0
@@ -1284,6 +1304,8 @@ def ppo_update(
         "entropy": last["entropy"],
         "bc_aux_loss": last["bc_aux_loss"],
         "bc_aux_coef": float(bc_aux_coef),
+        "jac_pen": last["jac_pen"],
+        "jacobian_coef": float(jacobian_coef),
         "clip_fraction": last["clip_frac"],
         "approx_kl": last["approx_kl"],
         "grad_norm": float(math.sqrt(grad_sq_last)),

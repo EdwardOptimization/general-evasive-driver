@@ -144,6 +144,42 @@ def test_ppo_update_changes_params_clips_and_is_finite():
     assert np.isfinite(out["log_std_before"]) and np.isfinite(out["log_std_after"])
 
 
+def test_pass8_jacobian_penalty_applies_and_off_by_default():
+    # pass-8 robotics-recipe stabilization: input-Jacobian penalty on the actor mean.
+    # Default coef is 0.0 (frozen pipeline unchanged); when >0 it reports a positive
+    # penalty, keeps loss/grads finite, and still moves params.
+    assert f2.PPO_JACOBIAN_COEF == 0.0  # OFF by default -> frozen pipeline preserved
+    n = 48
+    rng = np.random.default_rng(7)
+    batch = {
+        "obs": rng.normal(size=(n, f2.HUMAN_VIEW_OBS_DIM)).astype(np.float32),
+        "act": np.tanh(rng.normal(size=(n, f2.ACT_DIM))).astype(np.float32),
+        "logp": rng.normal(size=(n,)).astype(np.float32),
+        "adv": rng.normal(size=(n,)).astype(np.float32),
+        "ret": rng.normal(size=(n,)).astype(np.float32),
+        "priv": rng.normal(size=(n, f2.PRIV_DIM)).astype(np.float32),
+        "rew": rng.normal(size=(n,)).astype(np.float32),
+        "regime": rng.integers(0, 2, size=(n,)),
+    }
+    torch.manual_seed(0)
+    m_on = f2.AsymmetricActorCritic()
+    opt_on = torch.optim.Adam(m_on.parameters(), lr=1e-3)
+    before = [p.detach().clone() for p in m_on.parameters()]
+    out_on = f2.ppo_update(m_on, opt_on, batch, bc_aux_coef=0.0, bc_aux=None,
+                           jacobian_coef=1e-3, rng=np.random.default_rng(0))
+    moved = any((p.detach() - b).abs().sum() > 0 for p, b in zip(m_on.parameters(), before))
+    assert out_on["jacobian_coef"] == 1e-3
+    assert out_on["jac_pen"] > 0.0
+    assert out_on["finite_loss"] and out_on["finite_grad"] and moved
+
+    torch.manual_seed(0)
+    m_off = f2.AsymmetricActorCritic()
+    opt_off = torch.optim.Adam(m_off.parameters(), lr=1e-3)
+    out_off = f2.ppo_update(m_off, opt_off, batch, bc_aux_coef=0.0, bc_aux=None,
+                            jacobian_coef=0.0, rng=np.random.default_rng(0))
+    assert out_off["jac_pen"] == 0.0  # penalty skipped when off
+
+
 def test_ppo_annealed_bc_auxiliary_term_applies():
     torch.manual_seed(0)
     model = f2.AsymmetricActorCritic()
