@@ -475,6 +475,27 @@ CLAIM_BOUNDARY = (
     "feasibility-proof claim."
 )
 
+# Full-run boundary: a --full run DOES measure driver performance (8 training
+# seeds, 30 validation episodes/regime, training-seed-clustered CIs), so the
+# quick-smoke "not a driver-performance claim" clause is replaced by an honest,
+# still-conservative full-run boundary (engineering-only; no promotion / no
+# incumbent change / conditional on the F2 validation distribution).
+CLAIM_BOUNDARY_FULL = (
+    "Phase-4 F2 asymmetric actor-critic RL training and four-arm adjudication: "
+    "asymmetric actor(obs72)/critic(obs72+privileged) Gaussian policy trained by PPO "
+    "(clipped surrogate + bootstrapped privileged GAE critic + entropy) from the "
+    "recalibrated reward, with the avoidance entry-speed oracle and drift "
+    "DriftFeedbackPolicy as BC warm-start/annealed-auxiliary teachers only, held-out "
+    "task-score selection on a disjoint eval set, a mu/reveal avoidance spectrum, and a "
+    "frozen {fixed*/entry-speed-floor/online-mu-seeker/per-regime-oracle/student} "
+    "four-arm validation comparison with training-seed-clustered CIs. The FULL run IS a "
+    "conditional driver-performance result on the F2 validation distribution -- it is "
+    "engineering-only: it does not mutate ActiveSafetyReflexDriver, makes no self-ID or "
+    "history-attribution claim, and is NOT a promotion, incumbent change, current-sim "
+    "sufficiency, full high-fidelity sufficiency, paper, repair-success, or "
+    "feasibility-proof claim."
+)
+
 
 # ----------------------------------------------------------------- utilities
 
@@ -2877,7 +2898,7 @@ def summarize(
         "scope_decision_s3": "real_asymmetric_actor_critic_rl",
         "generated_at_utc": utc_timestamp(),
         "elapsed_s": round(float(elapsed_s), 2),
-        "claim_boundary": CLAIM_BOUNDARY,
+        "claim_boundary": CLAIM_BOUNDARY if quick else CLAIM_BOUNDARY_FULL,
         "preregistration": _rel(PREREG_JSON) if PREREG_JSON.exists() else None,
         "protocol_gates": gates,
         "seeds": [int(s) for s in seeds],
@@ -2916,12 +2937,20 @@ def summarize(
 def write_doc(summary: dict[str, Any]) -> None:
     adjud = summary["adjudication"]
     align = summary["reward_alignment"]
+    is_full = summary.get("mode") == "full"
+    verdict_note = (
+        "full run: 8 training seeds, 30 validation episodes/regime, training-seed-clustered "
+        "CIs; engineering-only, incumbent unchanged, defers to PI review"
+        if is_full else
+        "quick smoke; not a verdict on driver performance"
+    )
+    b4_note = "full validation, training-seed-clustered CIs" if is_full else "quick illustrative only"
     lines = [
         "# M3264 Phase-4 F2 Asymmetric Actor-Critic RL",
         "",
         "## Status",
         "",
-        f"- Verdict: {summary['decision']['f2_verdict']} (quick smoke; not a verdict on driver performance).",
+        f"- Verdict: {summary['decision']['f2_verdict']} ({verdict_note}).",
         "- Scope (S3): real asymmetric actor-critic RL (PPO + bootstrapped privileged GAE critic + policy gradient); teacher = BC warm-start / annealed auxiliary only.",
         "- Engineering-only; incumbent unchanged; no self-ID claim.",
         "",
@@ -2936,7 +2965,7 @@ def write_doc(summary: dict[str, Any]) -> None:
     sc = adjud["seed_clustered_ci"]
     lines += [
         "",
-        "## Prize recovery + cross-training-seed CI (B4; quick illustrative only)",
+        f"## Prize recovery + cross-training-seed CI (B4; {b4_note})",
         "",
         f"- drift student-minus-floor: {adjud['prize_recovery']['drift_student_minus_floor']:.3f}; paired-t CI {sc['drift']['student_minus_floor_paired_t_ci']}",
         f"- avoidance student-minus-floor: {adjud['prize_recovery']['avoidance_student_minus_floor']:.3f}; paired-t CI {sc['avoidance']['student_minus_floor_paired_t_ci']}",

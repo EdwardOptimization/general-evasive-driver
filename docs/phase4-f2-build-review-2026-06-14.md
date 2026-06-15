@@ -295,3 +295,51 @@ BALANCED mix (`WARMSTART_STAGE`, avoidance_frac 0.5) so it reproduces both teach
 pass-7b RL fixes (reward-scale, separate grad-clip, per-regime adv norm, progressive
 reward, sustain curriculum, low action noise) for the PPO refine phase. Task-score
 selection keeps the best checkpoint, so PPO cannot degrade the warm-start policy.
+
+---
+
+## Pass-7d + FULL 8-seed verdict (2026-06-15)
+
+### Second bug found & fixed: selection timing (commit 975826d2)
+The PPO task-score selection evaluated the policy only *after* each PPO update.
+At the FULL 30-rollout-worker config, the first PPO update can substantially move
+the warm-start policy, so the converged warm-start checkpoint was never scored as
+a candidate. The prior 8-seed run died at its first seed having settled for a
+degraded PPO checkpoint (`best_task_ppo_idx=40`, `best_task_score=0.4375`) while
+the warm-start it started from was never measured.
+
+**Fix:** a one-time pre-PPO eval at `ppo_idx==0` (`best_task_state is None`) scores
+the warm-start and seeds `best_task_score/best_task_state` *before* `collect_ppo_rollout`.
+The warm-start becomes an explicit candidate; post-update evals overwrite it only
+if a PPO checkpoint genuinely beats it (argmax rule unchanged). Verified at the
+30-worker config: `ppo_idx=-1` warm-start 0.375 → `ppo_idx=0` PPO 1.000 (selected)
+→ `ppo_idx=3` 0.562 (rejected). Handles both directions (PPO-improves and
+PPO-degrades). Tests 47/47.
+
+### FULL 8-seed adjudication (30 validation episodes/regime, frozen disjoint seeds)
+| regime | reflex floor | scripted oracle | **student** | student − floor | seed-clustered 95% CI | n |
+|---|---:|---:|---:|---:|---|---:|
+| **drift** | 0.000 | 0.350 | **0.769** | **+0.769** | **[0.519, 0.944]** (paired-t [0.488, 1.050]) | 160 |
+| **avoidance** | 1.000 | 1.000 | 0.775 | −0.225 | **[−0.392, −0.083]** | 240 |
+| pooled | 0.600 | 0.740 | 0.772 | +0.173 | — | 400 |
+
+- **Drift: strong RL win** — the learned policy beats *both* the reflex floor (0.0)
+  and the hand-tuned drift oracle (0.35), by +0.42 over the oracle; CI excludes 0.
+- **Avoidance: significant regression** — trivial classical control already solves
+  it (1.0); the learned policy pays a regime-tradeoff tax (0.775); CI excludes 0.
+- One obs72 policy does drift 0.77 + avoid 0.77: excellent on the hard regime,
+  taxed on the easy one.
+
+### BC vs PPO contribution (per-seed selected checkpoint)
+PPO-selected on **5/8** seeds (2,3,4,5,7) — the drift wins are PPO-driven; seeds 2
+and 7 reached perfect drift 1.0 + avoid 1.0 via PPO (seed 7 climbed out of a total
+ppo_idx-0 collapse). Warm-start protected on **3/8** (1,6,8) — the pre-PPO capture
+was decisive there (seed 8: PPO collapsed to 0 and never recovered). This *revises*
+the pass-7 "PPO does not contribute" note: at the 20-update warm-start, PPO genuinely
+drives the drift gains; the per-seed picture is two-directional and the fix covers both.
+
+### Gates & decision
+All 30+ protocol gates passed (B6 per-regime AUC=1.0; S7 oracle ceiling; four-arm;
+obs72-only; seed-clustered CIs). Decision: `incumbent_changed=false →
+STOP_FOR_PI_REVIEW` (drift win + avoidance regression ≠ clean dominance). Wall-clock
+4.35h; early-stop kept PPO at ~6% of the step budget (20–100 updates/seed vs 600 cap).
