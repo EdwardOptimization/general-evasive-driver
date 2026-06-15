@@ -304,6 +304,14 @@ LOG_STD_MAX = 0.5
 # less per-seed PPO oscillation/collapse on the drift saddle. Env-overridable for
 # the A/B that decides whether CPU-scale stabilization is enough (vs a GPU port).
 PPO_JACOBIAN_COEF = float(os.environ.get("AUTODRIFT_PPO_JACOBIAN_COEF", "0.0"))
+# pass-8 (regime-interference fix, OFF by default): PCGrad gradient surgery
+# (Yu et al. 2020) on the ACTOR policy gradient. The avoidance regression in the
+# 8-seed verdict is regime interference -- drift and avoidance policy gradients
+# conflict on the shared actor weights (drift-episode updates corrupt avoidance-
+# state outputs). PCGrad projects away the conflicting component when the two
+# regimes' gradients oppose (cos<0). Uses the TRAIN-TIME regime labels only; the
+# deployable actor is unchanged (obs72-only). Env-overridable for the A/B.
+PPO_PCGRAD = os.environ.get("AUTODRIFT_PCGRAD", "0") == "1"
 # annealed auxiliary BC: warm-start dominates early, decays to ~0 so PPO leads.
 BC_WARMSTART_COEF = 1.0
 # pass-7 (CORRECTED): the 1-epoch warm-start was THE root bug -- it barely moved
@@ -1173,6 +1181,44 @@ def bc_update(
 # --------------------------------------------------------------- PPO update
 
 
+def _pcgrad_actor_grads(model: AsymmetricActorCritic, pg_loss_a, pg_loss_b):
+    """PCGrad (Yu et al. 2020) on two per-regime actor policy-gradient losses.
+
+    Returns per-parameter combined gradients (order == actor_parameters()),
+    projecting away the conflicting component when the two regime gradients oppose
+    (their dot product < 0). If only one regime is present in the minibatch returns
+    its gradient unprojected; if neither, returns None (caller falls back). Requires
+    the forward graph to be retained by the caller (other_loss.backward(retain_graph=True))."""
+    params = model.actor_parameters()
+
+    def grads_of(loss):
+        gs = torch.autograd.grad(loss, params, retain_graph=True, allow_unused=True)
+        return [g if g is not None else torch.zeros_like(p) for g, p in zip(gs, params)]
+
+    if pg_loss_a is None and pg_loss_b is None:
+        return None
+    if pg_loss_a is None:
+        return grads_of(pg_loss_b)
+    if pg_loss_b is None:
+        return grads_of(pg_loss_a)
+    ga, gb = grads_of(pg_loss_a), grads_of(pg_loss_b)
+    fa = torch.cat([g.reshape(-1) for g in ga])
+    fb = torch.cat([g.reshape(-1) for g in gb])
+    dot = torch.dot(fa, fb)
+    if float(dot) < 0.0:  # conflicting -> project each onto the other's normal plane
+        fa_p = fa - (dot / (torch.dot(fb, fb) + 1e-12)) * fb
+        fb_p = fb - (dot / (torch.dot(fa, fa) + 1e-12)) * fa
+        comb = fa_p + fb_p
+    else:
+        comb = fa + fb
+    out, i = [], 0
+    for p in params:
+        k = p.numel()
+        out.append(comb[i:i + k].reshape(p.shape).detach())
+        i += k
+    return out
+
+
 def ppo_update(
     model: AsymmetricActorCritic,
     optimizer: Adam,
@@ -1186,6 +1232,7 @@ def ppo_update(
     value_coef: float = PPO_VALUE_COEF,
     entropy_coef: float = PPO_ENTROPY_COEF,
     jacobian_coef: float = PPO_JACOBIAN_COEF,
+    pcgrad: bool = PPO_PCGRAD,
     rng: np.random.Generator | None = None,
 ) -> dict[str, Any]:
     """One PPO update over a collected rollout batch.
@@ -1207,8 +1254,8 @@ def ppo_update(
     # (drift's signal vanished). Normalizing each regime to zero-mean/unit-std
     # separately gives both equal-magnitude gradient regardless of reward scale.
     regime = batch.get("regime")
-    if regime is not None and len(regime) == n and n > 1:
-        regime_t = torch.as_tensor(regime, dtype=torch.long)
+    regime_t = torch.as_tensor(regime, dtype=torch.long) if (regime is not None and len(regime) == n) else None
+    if regime_t is not None and n > 1:
         adv_norm = adv.clone()
         for r in torch.unique(regime_t):
             mask = regime_t == r
@@ -1230,7 +1277,7 @@ def ppo_update(
 
     mb_size = max(1, n // max(1, minibatches))
     before = [p.detach().clone() for p in model.parameters()]
-    last = {"pg_loss": 0.0, "value_loss": 0.0, "entropy": 0.0, "clip_frac": 0.0, "approx_kl": 0.0, "bc_aux_loss": 0.0, "jac_pen": 0.0}
+    last = {"pg_loss": 0.0, "value_loss": 0.0, "entropy": 0.0, "clip_frac": 0.0, "approx_kl": 0.0, "bc_aux_loss": 0.0, "jac_pen": 0.0, "pcgrad_active": 0.0}
     finite_grad = True
     grad_sq_last = 0.0
     for _ep in range(int(epochs)):
@@ -1247,11 +1294,13 @@ def ppo_update(
             pg_loss = -torch.min(surr1, surr2).mean()
             value_loss = torch.mean((value - ret[mb_t]).pow(2))
             ent = entropy.mean()
-            loss = pg_loss + value_coef * value_loss - entropy_coef * ent
+            # everything EXCEPT the policy gradient (so PCGrad can operate on the
+            # actor pg separately); pg_loss above is still used for reporting.
+            other_loss = value_coef * value_loss - entropy_coef * ent
             if bc_obs is not None and bc_aux_coef > 0.0:
                 bc_mean = model.actor_forward(bc_obs)
                 bc_aux_loss = torch.mean((bc_mean - bc_tgt).pow(2))
-                loss = loss + bc_aux_coef * bc_aux_loss
+                other_loss = other_loss + bc_aux_coef * bc_aux_loss
                 last["bc_aux_loss"] = float(bc_aux_loss.detach())
             if jacobian_coef > 0.0:
                 # input-Jacobian penalty on the deployable actor mean (obs72-only),
@@ -1263,10 +1312,27 @@ def ppo_update(
                 for j in range(a_mean.shape[-1]):
                     gj = torch.autograd.grad(a_mean[:, j].sum(), obs_jac, create_graph=True)[0]
                     jac_sq = jac_sq + gj.pow(2).sum(dim=-1).mean()
-                loss = loss + jacobian_coef * jac_sq
+                other_loss = other_loss + jacobian_coef * jac_sq
                 last["jac_pen"] = float(jac_sq.detach())
             optimizer.zero_grad(set_to_none=True)
-            loss.backward()
+            if pcgrad and regime_t is not None:
+                # PCGrad: split the actor policy gradient by regime and project away
+                # the conflicting component. other_loss is backpropped first (retains
+                # the graph), then the projected per-regime pg gradient is ADDED onto
+                # the actor params' grad (which already holds entropy/bc/jac terms).
+                mb_reg = regime_t[mb_t]
+                pg_per = -torch.min(surr1, surr2)
+                d_has, a_has = bool((mb_reg == 1).any()), bool((mb_reg == 0).any())
+                pg_d = pg_per[mb_reg == 1].mean() if d_has else None
+                pg_a = pg_per[mb_reg == 0].mean() if a_has else None
+                other_loss.backward(retain_graph=True)
+                pg_grads = _pcgrad_actor_grads(model, pg_d, pg_a)
+                if pg_grads is not None:
+                    for p, g in zip(model.actor_parameters(), pg_grads):
+                        p.grad = (p.grad + g) if p.grad is not None else g
+                last["pcgrad_active"] = 1.0
+            else:
+                (pg_loss + other_loss).backward()
             grad_sq = 0.0
             for p in model.parameters():
                 if p.grad is None:
@@ -1306,6 +1372,8 @@ def ppo_update(
         "bc_aux_coef": float(bc_aux_coef),
         "jac_pen": last["jac_pen"],
         "jacobian_coef": float(jacobian_coef),
+        "pcgrad_active": last["pcgrad_active"],
+        "pcgrad": bool(pcgrad),
         "clip_fraction": last["clip_frac"],
         "approx_kl": last["approx_kl"],
         "grad_norm": float(math.sqrt(grad_sq_last)),

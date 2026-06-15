@@ -180,6 +180,42 @@ def test_pass8_jacobian_penalty_applies_and_off_by_default():
     assert out_off["jac_pen"] == 0.0  # penalty skipped when off
 
 
+def test_pass8_pcgrad_off_by_default_and_projects():
+    # pass-8 regime-interference fix: PCGrad on the actor policy gradient.
+    assert f2.PPO_PCGRAD is False  # OFF by default -> frozen pipeline preserved
+    torch.manual_seed(0)
+    m = f2.AsymmetricActorCritic()
+    x = torch.randn(8, f2.HUMAN_VIEW_OBS_DIM)
+    out = m.actor_forward(x).sum()
+    # exactly opposite per-regime gradients -> projection cancels them to ~0
+    comb = f2._pcgrad_actor_grads(m, out, -out)
+    assert sum(float(g.abs().sum()) for g in comb) < 1e-4
+    # single-regime fallback returns the available gradient; both-None -> None
+    one = f2._pcgrad_actor_grads(m, out, None)
+    assert one is not None and sum(float(g.abs().sum()) for g in one) > 0
+    assert f2._pcgrad_actor_grads(m, None, None) is None
+    # end-to-end: ppo_update with pcgrad runs, reports active, keeps grads finite, moves params
+    rng = np.random.default_rng(3)
+    n = 48
+    batch = {
+        "obs": rng.normal(size=(n, f2.HUMAN_VIEW_OBS_DIM)).astype(np.float32),
+        "act": np.tanh(rng.normal(size=(n, f2.ACT_DIM))).astype(np.float32),
+        "logp": rng.normal(size=(n,)).astype(np.float32),
+        "adv": rng.normal(size=(n,)).astype(np.float32),
+        "ret": rng.normal(size=(n,)).astype(np.float32),
+        "priv": rng.normal(size=(n, f2.PRIV_DIM)).astype(np.float32),
+        "rew": rng.normal(size=(n,)).astype(np.float32),
+        "regime": (np.arange(n) % 2).astype(np.int64),
+    }
+    torch.manual_seed(0)
+    m2 = f2.AsymmetricActorCritic()
+    opt = torch.optim.Adam(m2.parameters(), lr=1e-3)
+    before = [p.detach().clone() for p in m2.parameters()]
+    out2 = f2.ppo_update(m2, opt, batch, bc_aux_coef=0.0, bc_aux=None, pcgrad=True, rng=np.random.default_rng(0))
+    moved = any((p.detach() - b).abs().sum() > 0 for p, b in zip(m2.parameters(), before))
+    assert out2["pcgrad_active"] == 1.0 and out2["finite_loss"] and out2["finite_grad"] and moved
+
+
 def test_ppo_annealed_bc_auxiliary_term_applies():
     torch.manual_seed(0)
     model = f2.AsymmetricActorCritic()
