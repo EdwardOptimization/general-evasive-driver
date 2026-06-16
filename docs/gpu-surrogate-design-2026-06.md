@@ -359,3 +359,29 @@ so the residual is NOT the tyre force law; it is the suspension/relaxation trans
 layer). (NN stays in-grid during the gate; where it would extrapolate it rolls force down vs the
 table's edge-clamp, but those states are unreached. An NN tyre WITH a relaxation/history state could
 later absorb the transient — a candidate for the principled rewrite, distinct from a black-box residual.)
+
+---
+
+## Avoid-fix diagnostic (2026-06-16): the grey-box is BLIND to the collision boundary — tracks converge
+
+Collected crash-boundary avoidance data (`surrogate_collect_avoid_boundary.py`: oracle + entry-
+aggression sweep, 320 rollouts, 50 Chrono crashes) and measured surrogate collision-outcome accuracy
+(`surrogate_avoid_boundary_gate.py`):
+
+| surrogate | crash bal-acc | crashes caught (TP/50) | FP | FN (says SAFE, Chrono CRASHED) |
+|---|---:|---:|---:|---:|
+| analytic | 0.713 | 35 | 74 | 15 |
+| grey-box (+drift residual) | **0.503 (chance)** | **2** | 9 | **48** |
+
+The grey-box is **useless at the collision boundary** — predicts "safe" almost always (catches 2/50
+crashes). THIS is why the GPU-trained policy hit avoid=1.0: the surrogate never reports a crash, so PPO
+believes avoidance is solved. Worse, the drift-fit residual made collision prediction WORSE than plain
+analytic (it smooths toward the safe oracle trajectories, blinding it to crashes) — concrete proof that
+the learned residual does not generalise off its training distribution.
+
+**Implication — the two tracks converge.** The avoid-fix needs a surrogate that predicts collisions by
+construction; the grey-box can't, and can't be patched into it (it's fit to drift). The FAITHFUL PHYSICS
+REWRITE (exact tyre done; L1 relaxation + L2 suspension in progress) is precisely that surrogate — a
+near-exact physics model gets the avoidance pose/collision right everywhere, no per-regime fit. So:
+finish the physics rewrite → use it as the (collision-faithful) surrogate for BOTH regimes → re-test the
+avoid-fix. The physics-rewrite direction and the avoid-fix are one effort.
