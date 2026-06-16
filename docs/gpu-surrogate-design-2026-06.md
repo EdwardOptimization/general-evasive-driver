@@ -214,3 +214,33 @@ holds without the head** (no optimistic exploitation); the head is polish (47/49
 **M1 verdict: PASS on both routes.** grey-box (single-track + Phase-B residual + head) and physics
 (double-track + thin residual) both reproduce Chrono's drift dynamics AND its drift-success verdict.
 The B-path fidelity foundation is proven; next is A3 (GPU PPO env) -> A4 large-batch training.
+
+---
+
+## CORRECTION (2026-06-16) to the A2 4-way comparison — independent reproduction
+
+Independently reproducing the physics gate (rather than trusting the build agent's report) revealed
+the agent **over-claimed the hybrid**. Corrected, apples-to-apples (same seed-0 130/30 split, same
+beta@24 metric, all reproduced):
+
+| GPU dynamics model | beta@24 p90 | vx_rmse | robustness |
+|---|---:|---:|---|
+| analytic single-track | 0.138 | 1.097 | deterministic (fail) |
+| **grey-box: single-track + UNROLLED residual** | **0.0156** | 0.049 | **robust — best fidelity** |
+| physics-alone (zero learning) | 0.0435 | 0.227 | deterministic (robust) |
+| physics + single-step residual (seed 0) | 0.0280 | 0.075 | **knife-edge** (0.026–0.051 over seeds) |
+
+What was wrong and what is true:
+- The agent's "physics+thin-residual PASSES at 0.028 → hybrid wins" is **not robust**. Its
+  `--residual` is a single-step teacher-forced fit (unseeded); it compounds open-loop and **straddles
+  the 0.03 gate** (0.026–0.051 across seeds). Seed 0 happens to give 0.0280, now seeded for repro.
+- A Phase-B unroll fine-tune — which robustified the grey-box (0.038→0.0156) — is **UNSTABLE on the
+  physics model** (backprop through the gear-FSM / stiff combined-slip diverges the residual, p90~0.12).
+- **The robust fidelity winner on the trained cell is the cheap grey-box (single-track + unrolled
+  residual), 0.0156** — better than the physics hybrid's best case. Physics-alone (0.0435, zero
+  learning) is robustly good and **generalises by construction**; its advantage is out-of-distribution
+  (cross-μ / cross-vehicle), which is a paper-C2 experiment, NOT raw accuracy on the trained cell.
+
+**Decision for A3+:** carry the **grey-box** (single-track + Phase-B residual + rear-sat head) as the
+primary GPU PPO surrogate (robust + fully working incl. drift-success), and keep the physics model as
+the generalisation arm for the cross-μ study. This corrects commit e3a379b1's narrative.

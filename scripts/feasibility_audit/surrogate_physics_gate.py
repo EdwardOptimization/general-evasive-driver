@@ -180,8 +180,16 @@ def _phys_feats(st, action):
     return torch.cat([st[:, 3:9], action[:, :2]], dim=1)
 
 
-def fit_thin_residual(A, V, init, mu, phys, tr, va):
-    """Teacher-forced fit of a thin residual on the physics model, then held-out gate."""
+def fit_thin_residual(A, V, init, mu, phys, tr, va, seed=0):
+    """Teacher-forced (single-step) fit of a thin residual on the physics model, then held-out gate.
+
+    NOTE (2026-06-16 correction): this single-step residual is SEED-NOISY and straddles the 0.03
+    gate (observed 0.026-0.051 over seeds) because a teacher-forced residual compounds when run
+    open-loop. It is NOT a robust pass. A Phase-B unroll fine-tune (which fixed the grey-box) is
+    UNSTABLE on the physics model (gear-FSM/stiff combined-slip backprop -> p90~0.12). The robust
+    results are physics-ALONE (0.0435, zero learning) and the grey-box single-track+unroll-residual
+    (0.0156). Seeded here for reproducibility."""
+    torch.manual_seed(seed)
     R, T, _ = A.shape
     # ---- build teacher-forced residual targets on the train split ----
     Atr = A[tr]; Vtr = V[tr]; itr = init[tr]
