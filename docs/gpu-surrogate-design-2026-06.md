@@ -274,3 +274,35 @@ Findings (partly overturning the prior that the drift residual would break avoid
    worth collecting crash-boundary rollouts (a weaker/noisier policy that sometimes crashes in Chrono)
    to gate the surrogate where it matters. Physics remains the cross-mu/vehicle generalisation arm
    (its avoidance test needs the avoid-vehicle re-parameterisation, mass 1450 not 1684 — a B-stream item).
+
+---
+
+## A5 DECISIVE VERDICT (2026-06-16): drift transfers (Chrono 1.000); avoid NOT fixed (0.700) — diagnosed
+
+Ran the GPU-surrogate-trained policy (smoke, seed 0, surrogate drift=1.0/avoid=1.0) back on REAL
+Chrono over the frozen four-arm validation grid (`a5_chrono_validate.py`, 40 avoidance + 20 drift):
+
+| regime | surrogate | CPU canonical | **Chrono (A5)** |
+|---|---:|---:|---:|
+| drift | 1.000 | 0.856 | **1.000** |
+| avoid | 1.000 | 0.700 | **0.700** |
+
+**Finding 1 — drift: the GPU surrogate pipeline WORKS.** The drift policy trained entirely on the
+grey-box surrogate transfers to Chrono at 1.000 — BETTER than the 8.6 h CPU run's 0.856 — in ~16 min
+(even CPU-bottlenecked). The drift surrogate fidelity (β@24 0.0156 + rear-sat head) is high enough
+that sim-to-sim transfer is essentially perfect. "又快又好" is achieved for drift. (One seed; A6
+multi-seed to confirm robustness.)
+
+**Finding 2 — avoid: NOT fixed, and diagnosed.** The surrogate's avoid=1.000 was an ARTIFACT (the
+boundary-fidelity hole flagged in the avoidance-fidelity test: no crash-boundary cases). On Chrono
+avoid = 0.700 = the CPU canonical, UNCHANGED. Large-batch GPU did not fix avoid — NOT because batch
+size is wrong, but because **the surrogate's avoidance is too easy** (saturated at 1.0 → PPO gets
+zero gradient pressure to improve avoidance past the BC level ~0.7). The simple "large batch crushes
+variance → avoid improves" hypothesis is REFUTED for this surrogate; the real blocker is **surrogate
+avoidance-boundary fidelity**, not batch size.
+
+**Implication / next:** to actually fix avoid via GPU, the surrogate must pose the avoidance DIFFICULTY
+faithfully — collect crash-boundary Chrono rollouts (a policy that sometimes crashes), train the
+residual/physics to reproduce the collision boundary, so PPO has a real avoidance challenge. THEN
+re-test whether large-batch fixes avoid. Separately: model-on-GPU throughput fix for the A6 multi-seed
+run. Drift is a clean standalone win (faster + better than CPU).
