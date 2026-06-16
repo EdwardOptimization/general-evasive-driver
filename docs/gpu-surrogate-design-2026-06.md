@@ -425,3 +425,30 @@ fudge — every parameter measured/derived from Chrono.** Vindicates the rewrite
 load transfer). Honest caveat: σ was derived (the fixed-spindle harness reports quasi-static per call,
 so it couldn't dynamically measure the build-up) — but the measured contact length pins it and the
 basin is broad, so the magnitude is physically grounded, not gate-tuned.
+
+---
+
+## A6.2 avoid-boundary convergence test (2026-06-17): rewrite beats grey-box but powertrain limits it
+
+Re-parameterised L1 physics (gpu_physics_relax) for the avoidance vehicle (Chrono overrides mass=1450,
+izz=2300, CG share 0.518; Sedan wheelbase/steer/tyre/relaxation kept) and replayed the 320 crash-
+boundary rollouts (`surrogate_avoid_boundary_physics_gate.py`):
+
+| surrogate | collision bal-acc | crashes caught | vx_rmse (avoid) |
+|---|---:|---:|---:|
+| grey-box (drift residual) | 0.503 (chance) | 2/50 | 1.05 |
+| analytic | 0.713 | 35/50 | 1.57 |
+| **L1 physics rewrite** | **0.665** | 30/50 | **1.31** |
+
+Verdict — DIRECTION right, NOT yet faithful. The rewrite beats the grey-box (0.665 > 0.503): it carries
+collision information the fitted residual destroys. But it is not collision-faithful (73 FP + 20 FN), and
+the sanity check localises why: **vx_rmse 1.31 on avoidance vs 0.235 on drift** — the LONGITUDINAL physics
+fails in the avoidance regime, drifting the pose and flipping outcomes both ways. Cause: the boundary data
+is braking-heavy (entry-aggression sweep = throttle/brake), and the physics **brake torque is the one
+GUESSED parameter** (max_brake_torque=2000 N·m, never measured); the powertrain envelope was only validated
+on drift (steering-heavy). The LATERAL rewrite transfers; the POWERTRAIN/braking does not yet.
+
+Next layers ("一点一点补"): (L1b) MEASURE the brake torque + throttle/engine response from Chrono (same
+isolated-extraction approach as the tyre) and validate the powertrain over the avoidance speed/brake
+envelope → tighten vx_rmse; then (L2) suspension roll/pitch. Re-run A6.2; target collision bal-acc ≥ 0.75
+→ then A6.3 re-train avoid on the collision-faithful rewrite.
