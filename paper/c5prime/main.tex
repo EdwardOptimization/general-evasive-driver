@@ -202,7 +202,7 @@ final policy keep it when PPO degrades a given seed. Both are single-line change
 reproducible effects, and neither involves more capacity, more data, or a different observation.
 
 \paragraph{Lever elimination for the regime tradeoff.}
-Table~\ref{tab:levers} contrasts the candidate fixes against the single-head baseline (drift
+Figure~\ref{fig:levers} contrasts the candidate fixes against the single-head baseline (drift
 $0.769$, avoidance $0.775$). An input-Jacobian penalty is null-to-negative and widens the avoidance
 CI. Gradient surgery moves \emph{along} the frontier (avoidance up to $0.863$, drift down to
 $0.556$) without expanding it. Gated dual heads are the only lever that expands the frontier: drift
@@ -210,29 +210,34 @@ rises to $0.925$ (at eight seeds) with avoidance held, and to $0.856$ under the 
 sample. The eight-seed avoidance CI touched zero; sixteen seeds reveal the regression is real, which
 is the statistical-hardening result behaving as intended.
 
-\begin{table}[t]
+\begin{figure}[t]
 \centering
-\caption{Lever elimination vs.\ the single-head baseline (8-seed unless noted). Each row is a
-full confirmatory run that differs only in the named intervention.}
-\label{tab:levers}
-\begin{tabular}{lccc}
-\toprule
-intervention & drift & avoidance & verdict \\
-\midrule
-single-head baseline       & $0.769$ & $0.775$ & --- \\
-input-Jacobian penalty     & $0.731$ & $0.713$ & null/negative \\
-gradient surgery (PCGrad)  & $0.556$ & $0.863$ & rebalances, cannot expand \\
-\textbf{gated dual heads}  & $\mathbf{0.925}$ & $0.758$ & \textbf{expands frontier} \\
-\quad gated, 16 seeds      & $0.856$ & $0.700$ & robust (canonical) \\
-\bottomrule
-\end{tabular}
-\end{table}
+\includegraphics[width=0.86\linewidth]{figs/fig2_levers}
+\caption{Lever elimination. Each pair of bars is a full confirmatory run that differs only in
+the named intervention (8 seeds unless noted; ``gated (16 seed)'' is the canonical run). The
+input-Jacobian penalty is null-to-negative; gradient surgery (PCGrad) moves \emph{along} the
+tradeoff frontier (avoidance up, drift down); only gated dual heads \emph{expand} it (drift up,
+avoidance held). Dashed line: the drift oracle ($0.35$); dotted line: the avoidance floor ($1.0$).}
+\label{fig:levers}
+\end{figure}
 
 \paragraph{Per-seed frontier.}
 We ask, per seed, whether any single checkpoint achieves both regimes well (drift and avoidance
-each $\geq 0.75$). The single-head policy reaches this for roughly a third of seeds; the gated
-policy reaches it for half ($8/16$). The remaining seeds either cannot drift or collapse avoidance
-when drift is high---a genuine tradeoff that gated heads reduce but do not eliminate.
+each $\geq 0.75$; the ``both-good'' region in Figure~\ref{fig:frontier}). The single-head policy
+reaches this for $3/8$ seeds; the gated policy reaches it for $8/16$. The remaining seeds either
+cannot drift or collapse avoidance when drift is high---a genuine tradeoff that gated heads reduce
+but do not eliminate, and the reason the aggregate avoidance still regresses.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.62\linewidth]{figs/fig3_frontier}
+\caption{Per-seed regime frontier: the selected checkpoint's drift vs.\ avoidance success, one
+marker per training seed (points jittered to separate coincident discrete values). Gated heads
+move more seeds into the both-good region (top-right, drift and avoidance $\geq 0.75$): $8/16$ vs.\
+$3/8$ for the single-head policy. Seeds outside it either cannot drift (left) or trade avoidance
+for drift (bottom-right).}
+\label{fig:frontier}
+\end{figure}
 
 \section{Discussion and Limitations}
 The result is bounded by design, and the boundaries are the point. \emph{Where} learning wins is
