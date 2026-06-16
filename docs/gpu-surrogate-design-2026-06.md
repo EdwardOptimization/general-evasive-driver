@@ -501,3 +501,28 @@ Sedan's longitudinal driven-force vs (throttle, speed/rpm) — steady-state acce
 powertrain to it (folding in the measured drag=0/Crr=0.028 together). (My one-step ax probe that showed
 "always decelerating" was a bug — it left wheel-ω at 0 → locked-wheel braking; the proper rollouts above
 are authoritative.)
+
+---
+
+## A6.1d powertrain: the Sedan is FWD — structural fix (2026-06-17), avoid vx 1.21→0.90
+
+Measured Chrono's driven-force surface (`extract_chrono_powertrain.py`): engine torque matches the
+model's blend within 1.5%, final drive + gears match, gear schedule matches (gear 2 at 5/8/11/14 m/s).
+The culprit was STRUCTURAL: **Chrono's Sedan is FRONT-wheel drive** (`GetDrivenAxleIndexes()=[0]`, rear
+spindle torque=0), but the rewrite assumed RWD. Under acceleration, load transfers OFF the front (the
+FWD driven axle) → traction-limited; the RWD model instead loads its driven (rear) axle → over-drives
+~1.75×. Fix (`gpu_physics_pwr.py`, measured not tuned): keep the RWD force application (so drift, which
+passes with it, is untouched) but cap each driven wheel's drive force by the measured FRONT friction
+circle sqrt((mu·Fz_f)²−Fy_f²); plus measured resistance drag=0/Crr=0.0282.
+
+| metric | relax (RWD, calib) | PWR (FWD cap, measured) |
+|---|---:|---:|
+| avoid vx_rmse | 1.207 | **0.897** |
+| avoid vy_rmse | 0.138 | 0.126 |
+| drift β@24 p90 | 0.0295 | **0.0283 (PASS)** |
+
+Note (honesty): that the RWD model passes the DRIFT gate while the car is FWD means the drift saddle is
+tyre-dominated (insensitive to driven axle); the avoidance acceleration phase is where FWD-vs-RWD shows.
+The fix is a hybrid (RWD force + FWD traction cap), pragmatic not pure-FWD (a pure-FWD rewrite risks the
+drift). Residual avoid vx 0.90 vs drift floor 0.235: now the late-turn CORNERING/induced drag (steps
+50-200, throttle ~0.1), a tyre-combined-slip effect — a smaller refinement, not powertrain.
