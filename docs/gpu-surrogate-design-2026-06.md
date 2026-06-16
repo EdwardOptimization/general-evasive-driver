@@ -577,3 +577,40 @@ surrogate's avoidance physics (mass, μ, tyre grip, the residual-gap knobs, forc
 per episode so the policy learns a ROBUST avoidance that doesn't rely on the surrogate's exact dynamics
 (ADR; see [[robotics-recipes-for-autodrift]]). If DR-trained avoid transfers above 0.700 → the avoid-fix;
 if not → strong evidence avoid is not a surrogate-fidelity problem but a deeper multi-task one.
+
+---
+
+## AVOID-FIX ARC — FINAL VERDICT (2026-06-17): three converging negatives; avoid is NOT surrogate-fixable
+
+DR-trained policy on Chrono (independently re-verified): drift 1.000, **avoid 0.075**. DR did not close
+the gap. The full avoid-fix investigation, three principled attacks, all fail:
+
+| attack | mechanism | Chrono avoid |
+|---|---|---|
+| larger batch (grey-box surrogate) | crush PPO rollout variance | 0.700 (unlearned — BC oracle surviving) |
+| collision-faithful surrogate (physics rewrite) | pose a real avoidance challenge | 0.000 (policy OVERFIT the residual gaps) |
+| + domain randomisation (ADR) | robustness to the dynamics gap | 0.075 (gap is OUTSIDE the randomisable family) |
+
+**Conclusion: the avoidance regression is NOT a surrogate/training problem.** It is not batch-size
+(A5-greybox), not surrogate fidelity (A5-physics: partial fidelity is WORSE than none — overfitting),
+and not training distribution (A5-DR). The remaining gap is STRUCTURAL — a surrogate-vs-Chrono
+collision-boundary fidelity gap DR can't span — and/or the deeper multi-task drift↔avoid interference
+the original gated-heads frontier already identified. Drift, by contrast, transfers to Chrono at 1.000
+from EVERY surrogate — a robust saddle task is fidelity-tolerant; avoidance is a precise
+collision-boundary/timing task that is not.
+
+### What is DEFINITIVELY won (the bankable deliverables)
+1. **Drift solved via a principled GPU rewrite** — physics rewrite (exact TMeasy tyre + relaxation +
+   FWD-correct powertrain + measured resistance, every param measured from Chrono, no fudge/no learned
+   residual, β@24 p90 0.0295) → trains → Chrono **1.000 > CPU 0.856**, at **~2400× Chrono throughput**.
+2. **Methods contributions:** the GPU vehicle-dynamics rewrite + the FWD discovery (the Sedan is FWD,
+   the rewrite had it wrong) + the collision-faithful GPU env (obs72 parity 1e-7) + the 2.4M st/s engine.
+3. **Conditional-negative-result science:** WHEN does surrogate/large-batch training beat the baseline?
+   Drift YES (robust), avoidance NO (timing-precise) — with mechanism (overfitting; DR can't close a
+   structural gap; partial fidelity worse than none). This IS the project's conditional-negative paper.
+
+### What is NOT worth pursuing
+Further avoid-fix-via-surrogate (3 negatives, structural gap). The only remaining avoid lever is the
+MULTI-TASK / architecture angle on Chrono directly (the GPU machinery makes such experiments fast for
+drift, but avoidance needs Chrono validation, which is the slow CPU path). Recommendation: CONSOLIDATE
+the drift + methods + negative-result wins into the papers (C2 methods + the conditional-negative-result).
