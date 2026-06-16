@@ -4,12 +4,15 @@ A complete, goal-drivable plan for the remaining work. Each milestone has a **de
 a **gate** (verifiable success condition), rough **effort**, **deps**, and **risk**. The
 **Suggested Goals** at the bottom are copy-pasteable terminal conditions for goal-mode.
 
-> **Progress (2026-06-16): Goal α COMPLETE.** A0✓ A1✓ A2✓ — M1 fidelity foundation proven on BOTH
-> GPU routes. A1: open-loop β@24 p90 0.0156 (≤0.02), drift-SUCCESS behavioural transfer 0.944/0.908
-> (proxy, FP=0) / 0.981/0.975 (head). A2: 4-way comparison, physics+thin-residual passes at 0.028.
-> Commits 8cd1dc96…f3c8803d. **Now driving Goal β: A3 GPU PPO env** (obs72 contract extraction
-> running). C1 paper: arXiv-ready pending author + compile (both review-deferred items confirmed
-> future-work — no existing data for the validation-set frontier).
+> **Progress (2026-06-16): Goal α COMPLETE; Goal β underway (A3✓, A4 building).** A0✓ A1✓ A2✓ A3✓.
+> A1: open-loop β@24 p90 0.0156; drift-SUCCESS transfer 0.944/0.908 (FP=0) / 0.981/0.975 (head).
+> A2 (CORRECTED a1a408ee): the cheap grey-box (0.0156) is the robust fidelity winner — the physics
+> hybrid was an over-claimed seed; physics-alone (0.0435, zero-learning) is the generalisation arm.
+> A3✓ (25325ec4): GPUAutoDriftEnv obs72 parity 1.1e-7 vs env.py (independently verified), 0 reward/
+> termination mismatches, ~2.3M st/s @16k; fixed a success()-metric bug (missed obstacle_pass).
+> A4 building: large-batch PPO harness on the GPU env (smoke-train curve required as evidence).
+> Lesson banked: independently reproduce subagent numerical claims (the A2 over-claim). C1 paper:
+> arXiv-ready pending author + compile. Commits 8cd1dc96…25325ec4.
 
 ## Where we are
 - **F2 driver (canonical)**: gated dual-head obs72 policy, 16-seed. **drift 0.856** (seed-clustered
