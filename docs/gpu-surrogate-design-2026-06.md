@@ -385,3 +385,43 @@ REWRITE (exact tyre done; L1 relaxation + L2 suspension in progress) is precisel
 near-exact physics model gets the avoidance pose/collision right everywhere, no per-regime fit. So:
 finish the physics rewrite → use it as the (collision-faithful) surrogate for BOTH regimes → re-test the
 avoid-fix. The physics-rewrite direction and the avoid-fix are one effort.
+
+---
+
+## L1 tyre relaxation (2026-06-16): the rewrite PASSES the gate — no learned residual, principled σ
+
+L1 adds the TMeasy slip-relaxation transient (`gpu_physics_relax.py`): the slip entering the exact
+curve lags the instantaneous slip over a relaxation length σ, d(slip_lag)/dt = (|vx|/σ)(slip−slip_lag),
+semi-implicit (unconditionally stable, zero-σ → quasi-static). σ extracted from the EXACT Chrono tyre
+(`extract_chrono_tmeasy_relax.py`): the literal bristle-stiffness σ=dF0/σ0=0.65 m is the upper bound
+(over-relaxes); the physical relaxation length is the contact-patch scale, and the contact length was
+INDEPENDENTLY MEASURED from the tyre at 0.093–0.131 m (0.107 m @ 4 kN).
+
+σ sensitivity (held-out β@24 p90), pinning whether it's physical or fit:
+
+| σ (m) | β@24 p90 | note |
+|---:|---:|---|
+| 0.065 | 0.0322 | |
+| **0.107** | **0.0295 (PASS)** | **= measured contact length (independent, not tuned)** |
+| 0.143 | 0.0263 | |
+| 0.163 | 0.0256 | basin minimum |
+| 0.195 | 0.0281 | |
+| 0.326 | 0.0449 | |
+| 0.651 | 0.0713 | literal bristle stiffness (over-relaxes) |
+
+**Principled, not fit:** the independently measured contact length (0.107 m) passes the gate, and a
+BROAD physical basin σ∈[0.10,0.20] m all gives ~0.026–0.031 — not a razor-thin tuned value. Signed
+transient collapses: L0 @24 −0.0208 → L1 −0.0014; @89 +0.069 → +0.022; |sum| 0.099 → 0.036.
+
+| model | β@24 p90 | learning | fudge |
+|---|---:|---|---|
+| L0 exact-tyre | 0.0403 | none | none |
+| **L1 + relaxation (σ=contact length)** | **0.0295** | **none** | **none** |
+| grey-box residual | 0.0156 | learned | — |
+
+**Milestone: the faithful rewrite now PASSES the 0.03 fidelity gate with ZERO learned residual and ZERO
+fudge — every parameter measured/derived from Chrono.** Vindicates the rewrite-over-grey-box direction.
+~0.013 remains to the grey-box 0.0156, plausibly L2 suspension roll/pitch (dynamic, not quasi-static,
+load transfer). Honest caveat: σ was derived (the fixed-spindle harness reports quasi-static per call,
+so it couldn't dynamically measure the build-up) — but the measured contact length pins it and the
+basin is broad, so the magnitude is physically grounded, not gate-tuned.
