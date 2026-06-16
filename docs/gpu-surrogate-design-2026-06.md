@@ -76,3 +76,22 @@ Pass → build the GPU PPO stack; fail → cheap kill before the big build.
 4. Fit residual + saturation head; **run M1 fidelity gate**.
 5. If pass: GPU PPO rollout path; large-batch training of the gated policy; back-to-Chrono
    verdict (sim-to-sim transfer gap). Then the coverage spectrum (step 3 of the broader plan).
+
+---
+
+## M1 first signal (2026-06-16): analytic single-track vs Chrono divergence — decides grey-box
+
+Open-loop divergence test (`scripts/feasibility_audit/surrogate_m1_divergence.py`): drove the E4
+`beta0p28_recover` drift oracle in Chrono, replayed the identical action sequence through the
+analytic single-track GPU model from the same initial state. Result (drift saddle, mu=0.48):
+
+- β divergence: ~0.004 rad @1 step, **~0.06 rad @24 steps**; crosses the 0.03-rad gate at step **~6–7**
+  (gate wants ≥24). **vx RMSE ~1.1 m/s** (dominant), vy/yaw RMSE ~0.25/0.17.
+
+Conclusion (data-driven): the pure analytic single-track is **not faithful enough** (this is why
+Chrono was needed), the **dominant gap is longitudinal** (the RWD driveline + TMeasy longitudinal
+slip, which the simple drive-force model misses), and the one-step error is small but **compounds**
+over the unstable saddle. → **Adopt the grey-box (single-track + learned residual)**, trained with a
+multi-step free-running unroll, rather than a double-track+MF rewrite (which would help lateral
+fidelity but not the dominant longitudinal gap). Next: collect Chrono transitions (with actuator
+states + tyre telemetry), fit the residual + rear-saturation head, re-run the full M1 gate.
