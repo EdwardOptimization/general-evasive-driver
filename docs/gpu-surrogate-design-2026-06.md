@@ -484,3 +484,20 @@ envelope at ~8 m/s on the near-straight 900 m radius — different from the drif
 the quick fixes. This is the hard open piece for avoidance fidelity. Drift remains a clean win (passes,
 transfers to Chrono 1.0). Strategic fork raised with the user (test avoid-fix directly vs keep
 diagnosing the longitudinal envelope vs bank drift).
+
+---
+
+## A6.1c coastdown + driven-side localization (2026-06-17): vx gap is the PARTIAL-THROTTLE powertrain
+
+Coastdown measured (`extract_chrono_coastdown.py`): the Sedan has NO aero body — coast decel is ~flat
+0.28 m/s² (rolling+driveline), so the faithful resistance is **drag_coeff=0, Crr=0.0282** (the calibrated
+0.80/0.03 over-resisted slightly). Installing the measured (lower) resistance made avoid vx WORSE
+(1.21→1.36) — so resistance was NOT the cause; coast fix rejected (drift stays 0.0283, harmless). A
+drive_scale sweep on the avoid replay LOCALIZES it to the DRIVEN side: scale 0→ too slow (−1.7), 1.0 →
+too fast (+0.8), null at **≈0.57** → the powertrain delivers **~1.75× too much force at partial throttle**
+(avoid cruises at throttle cmd ~0.16). The full-throttle engine map was extracted correctly; the
+**partial-throttle blend / gear state / driveline is wrong**. Next (measure, not fit): extract the Chrono
+Sedan's longitudinal driven-force vs (throttle, speed/rpm) — steady-state accel sweep — and match the
+powertrain to it (folding in the measured drag=0/Crr=0.028 together). (My one-step ax probe that showed
+"always decelerating" was a bug — it left wheel-ω at 0 → locked-wheel braking; the proper rollouts above
+are authoritative.)
