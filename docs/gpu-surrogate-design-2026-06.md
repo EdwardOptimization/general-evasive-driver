@@ -526,3 +526,24 @@ tyre-dominated (insensitive to driven axle); the avoidance acceleration phase is
 The fix is a hybrid (RWD force + FWD traction cap), pragmatic not pure-FWD (a pure-FWD rewrite risks the
 drift). Residual avoid vx 0.90 vs drift floor 0.235: now the late-turn CORNERING/induced drag (steps
 50-200, throttle ~0.1), a tyre-combined-slip effect — a smaller refinement, not powertrain.
+
+---
+
+## A6.3 physics env wired + collision-faithful (2026-06-17): avoidance is now a REAL challenge
+
+`gpu_env_physics.py` (GPUPhysicsAutoDriftEnv): the GPU PPO env on the faithful physics rewrite
+(gpu_physics_pwr) instead of the grey-box. obs72/reward/termination/success copied byte-for-byte from
+gpu_env (only throttle/brake read from physics state idx 7/8). obs72 parity vs env.py: drift 1.1e-7,
+avoid 5.9e-8 (independently re-checked). Smoke-train (N=2048, 40 PPO updates):
+
+- Drift trains to 1.000 at the genuine 24-step criterion — faithful + learnable (sanity ✓).
+- **Avoidance is collision-faithful (the whole point):** BC baseline avoid = **0.094** (on the grey-box
+  it was trivially ~0.98 — avoidance was FREE). A deliberately-bad straight-line policy: the physics env
+  REGISTERS collisions (clearance 1.71 < 2.15 m); the grey-box registers ZERO (clearance 4.35 m — the ego
+  never even reaches the obstacle). That is the A5 collision-blindness artifact reproduced and FIXED.
+  Under stress (higher entry speed / shorter reveal) avoid degrades 1.000→0.489→0.261 with GENUINE
+  collisions — graceful, real challenge. The training grid is still solvable to avoid 1.0 (honest), but
+  avoidance must now be LEARNED, not handed out.
+
+Next: A5 — validate the physics-env-trained policy on real Chrono (frozen grid, same as the grey-box A5
+that gave avoid 0.700). The avoid-fix verdict on a collision-faithful surrogate.
