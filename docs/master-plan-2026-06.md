@@ -33,9 +33,14 @@ incremental Chrono rewrite, then re-test the avoid-fix on it.** Layered, every p
   collision info the residual destroys) but NOT yet faithful: **vx_rmse 1.31 on avoidance** vs 0.235 on
   drift localises the failure to the LONGITUDINAL/powertrain physics in the braking-heavy avoidance regime
   (the brake torque is the one GUESSED param; the powertrain was only validated on drift).
-- **A6.1b [NEXT]** MEASURE the brake torque + throttle/engine response from Chrono (isolated extraction,
-  same as the tyre) and validate the powertrain over the avoidance speed/brake envelope. *Gate*: avoid
-  vx_rmse → toward drift's 0.235, A6.2 collision bal-acc ≥ 0.75, drift gate still passes.
+- **A6.1b [DONE — REJECTED]** `a6e2ac3e`. Measured brake = 2000 N·m/wheel (correct; 0.81 g grip-limited);
+  the all-4-wheel brake change made avoid AND drift WORSE → braking was NOT the lever. Re-diagnosed: the
+  avoidance **vx gap (~1.2) is real + persistent** (clean ≈ boundary) but the **LATERAL is faithful**
+  (vy_rmse 0.14). Step-0 error ~0 and GROWS under throttle → a longitudinal **resistance/force-balance**
+  gap (drag/rolling calibrated on drift, too low for low-sideslip cruise). Strategic confirmation: the
+  rewrite IS the right path — every gap localizes + measures away (vs the grey-box's blind fit).
+- **A6.1c [NEXT]** MEASURE the Sedan coastdown (drag + rolling) from Chrono → apply (measured, not
+  calibrated) → re-gate avoid vx_rmse (→ toward 0.235) + drift (stay ~0.0295). The localized vx-gap fix.
 - **A6.2′** Re-run the avoid-boundary gate with the measured powertrain (+ L2 suspension if needed).
 - **A6.3** When A6.2′ passes: re-train the GPU policy on the (collision-faithful) physics surrogate →
   re-run A5 on Chrono → the real avoid-fix verdict.
