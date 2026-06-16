@@ -4,15 +4,38 @@ A complete, goal-drivable plan for the remaining work. Each milestone has a **de
 a **gate** (verifiable success condition), rough **effort**, **deps**, and **risk**. The
 **Suggested Goals** at the bottom are copy-pasteable terminal conditions for goal-mode.
 
-> **Progress (2026-06-16): Goal α COMPLETE; Goal β underway (A3✓, A4 building).** A0✓ A1✓ A2✓ A3✓.
-> A1: open-loop β@24 p90 0.0156; drift-SUCCESS transfer 0.944/0.908 (FP=0) / 0.981/0.975 (head).
-> A2 (CORRECTED a1a408ee): the cheap grey-box (0.0156) is the robust fidelity winner — the physics
-> hybrid was an over-claimed seed; physics-alone (0.0435, zero-learning) is the generalisation arm.
-> A3✓ (25325ec4): GPUAutoDriftEnv obs72 parity 1.1e-7 vs env.py (independently verified), 0 reward/
-> termination mismatches, ~2.3M st/s @16k; fixed a success()-metric bug (missed obstacle_pass).
-> A4 building: large-batch PPO harness on the GPU env (smoke-train curve required as evidence).
-> Lesson banked: independently reproduce subagent numerical claims (the A2 over-claim). C1 paper:
-> arXiv-ready pending author + compile. Commits 8cd1dc96…25325ec4.
+> **Progress (2026-06-17): Workstream A done through A5; central hypothesis REFUTED + DIAGNOSED;
+> pivoted to the faithful-rewrite path (see "Revised path" below).** A0✓ A1✓ A2✓ A3✓ A4✓ A5✓.
+> - A1: β@24 p90 0.0156; drift-SUCCESS transfer 0.944/0.908 (FP=0) / 0.981/0.975 (head). A2 CORRECTED
+>   (a1a408ee): grey-box (0.0156) is the robust fidelity winner; A2's "hybrid" was an over-claimed seed.
+> - A3✓ (25325ec4): GPU env obs72 parity 1.1e-7, 0 reward/termination mismatches, ~2.3M st/s; fixed a
+>   success() bug. A4✓ (33d02b2b): GPU PPO trains drift 0.293→1.0 (model-on-CPU throughput caveat).
+> - **A5✓ (d004ee2f) — the verdict:** GPU-trained policy on REAL Chrono → drift **1.000** (>CPU 0.856,
+>   the "又快又好" win for drift) but avoid **0.700 = CPU canonical, NOT fixed.** The plan's central
+>   "large-batch crushes variance → avoid improves" hypothesis is **REFUTED**: the surrogate's avoidance
+>   was too easy (saturated → no PPO signal). Diagnosed (95279234): the grey-box is **blind to the
+>   collision boundary** (crash bal-acc 0.503, catches 2/50). So the avoid-fix needs a *collision-faithful*
+>   surrogate — which the grey-box can't be (it's fit), but the **faithful physics rewrite is, by
+>   construction.** The rewrite-vs-grey-box question is settled in favour of the rewrite ([[prefer-physics
+>   -rewrite-over-greybox]]): L0 exact TMeasy tyre (0.0403, table≈NN, no fudge) + L1 relaxation (**0.0295,
+>   PASSES the gate, zero learning, σ=measured contact length**) — see Revised path. C1 paper: arXiv-ready
+>   pending author. Lesson banked: independently reproduce subagent numbers (caught 2 over-claims).
+>   Commits 8cd1dc96…692f2ce2.
+
+## Revised path within Workstream A (post-A5 pivot, 2026-06-17)
+A5 replaced "A6 = batch fixes avoid" (refuted) with: **build a collision-faithful surrogate via the
+incremental Chrono rewrite, then re-test the avoid-fix on it.** Layered, every param measured from Chrono:
+- **A6.0 [DONE]** L0 planar + EXACT TMeasy tyre (sampled off Chrono, table 0.0403 ≈ NN 0.0377, grips=1.0).
+- **A6.1 [DONE]** L1 tyre slip-relaxation (σ=measured contact length 0.107 m → β@24 p90 **0.0295 PASS**,
+  broad physical basin → principled not fit; collapses the drift-entry transient). `692f2ce2`.
+- **A6.2 [NEXT]** Validate the L1 rewrite on the avoidance crash-boundary (re-parameterise for the
+  avoidance vehicle; re-run the collision gate). *Gate*: collision bal-acc ≫ grey-box's 0.503. This is
+  the avoid-fix convergence test — does the rewrite predict collisions well enough to pose the avoidance
+  challenge PPO needs?
+- **A6.3** If A6.2 passes: re-train the GPU policy on the (collision-faithful) physics surrogate → re-run
+  A5 on Chrono → the real avoid-fix verdict. Else / in parallel: **L2 suspension roll/pitch** to close the
+  last 0.013 drift gap (0.0295→~0.0156) toward near-exact.
+- **A6.4** Throughput: model-on-GPU (A4 rollout is CPU-bound, 0.11M st/s) before the full multi-seed run.
 
 ## Where we are
 - **F2 driver (canonical)**: gated dual-head obs72 policy, 16-seed. **drift 0.856** (seed-clustered
