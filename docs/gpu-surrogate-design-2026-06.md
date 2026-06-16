@@ -452,3 +452,35 @@ Next layers ("一点一点补"): (L1b) MEASURE the brake torque + throttle/engin
 isolated-extraction approach as the tyre) and validate the powertrain over the avoidance speed/brake
 envelope → tighten vx_rmse; then (L2) suspension roll/pitch. Re-run A6.2; target collision bal-acc ≥ 0.75
 → then A6.3 re-train avoid on the collision-faithful rewrite.
+
+---
+
+## A6.1b braking REJECTED + avoidance vx-gap diagnosis (2026-06-17)
+
+Measured the Chrono Sedan brake (`extract_chrono_brake.py`): max_brake_torque = **2000 N·m/wheel**
+(read off ChBrakeSimple at modulation 1; cross-checked by a full-brake decel test → 0.81 g, GRIP-limited
+not torque-limited, so 2000 is more than enough). The guessed value was correct. The agent's hypothesis
+was that gpu_physics_relax brakes only the 2 rear wheels (front sx=0 → zero front brake) vs the Sedan's
+all-4 — but applying the all-4-wheel brake (`gpu_physics_brake.py`) made everything WORSE:
+
+| | avoid vx_rmse | avoid collision bal-acc | drift β@24 p90 |
+|---|---:|---:|---:|
+| relax (rear-only brake) | 1.31 | 0.665 | 0.0295 |
+| brake (all-4-wheel) | **1.75 ✗** | **0.569 ✗** | **0.0852 ✗ (broke drift)** |
+
+**Braking is NOT the lever — REJECTED** (do not keep gpu_physics_brake). Re-diagnosed on CLEAN oracle
+avoidance vs the adversarial entry-bias data:
+
+| data | physics vx_rmse | vy_rmse |
+|---|---:|---:|
+| clean oracle avoidance | 1.207 | 0.138 |
+| boundary (entry-bias) | 1.099 | 0.268 |
+| drift (reference) | 0.235 | — |
+
+**The avoidance vx gap (~1.2) is REAL and persistent** (clean ≈ boundary → not an adversarial-data
+artifact), but the **LATERAL physics is faithful (vy_rmse 0.14)**. So the rewrite gets the evasive
+dynamics right; only the LONGITUDINAL/powertrain is off in the avoidance regime (throttle/engine/drag
+envelope at ~8 m/s on the near-straight 900 m radius — different from the drift saddle), and it resists
+the quick fixes. This is the hard open piece for avoidance fidelity. Drift remains a clean win (passes,
+transfers to Chrono 1.0). Strategic fork raised with the user (test avoid-fix directly vs keep
+diagnosing the longitudinal envelope vs bank drift).
