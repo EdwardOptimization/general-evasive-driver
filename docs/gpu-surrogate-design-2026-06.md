@@ -124,3 +124,31 @@ torque map (flat 370 Nm 1600-4500 rpm), the real 6-speed auto ratios [0.265..1.4
 0.2 conical final drive, open diff, RackPinion steering. Branchy parts (gear state machine, TMeasy
 regime, bristle friction) all have branchless masked-torch plans. Kept as the debuggable
 physics alternative if the residual proves brittle under PPO exploration.
+
+---
+
+## A1.iii decisive behavioural sub-test (2026-06-16): drift-SUCCESS transfer
+
+Collected 160 Chrono drift-cell rollouts WITH the full E4 label (rear-tyre saturation per step +
+`controlled_drift` + `drift_success`; `surrogate_collect_drift_labels.py`, 49/160 success). Replayed
+each action sequence through the surrogate and recomputed the IDENTICAL E4 criterion
+(`controlled_drift = finite & |beta|>=0.10 & rear_saturated & 2<=vx<=28 & |yaw|<=2.7`,
+`drift_success = longest run >= 24`); `surrogate_oracle_consistency.py`:
+
+| vs Chrono drift_success (49/160) | analytic single-track | grey-box (+residual) |
+|---|---:|---:|
+| balanced acc | 0.500 (TP=0) | **0.827** |
+| agreement | 0.694 | **0.894** |
+| false positives | 0 | **0** |
+| per-step controlled_drift agree | 0.856 | **0.976** |
+| \|alpha_rear\| vs Chrono rear-slip MAE | 0.030 | **0.0072** |
+
+Findings: (1) **the behavioural test discriminates where open-loop divergence does not** — the
+analytic model passes velocity RMSE-ish but reproduces drift-success at *chance* (never sustains
+24 steps); the residual rescues it. (2) **Zero false positives** — the surrogate never reports a
+success Chrono would fail, so PPO cannot game it for fake drift reward (the critical safe property);
+the 17 false-negatives are *conservative* (the safe direction). Strict A1.iii gate (0.90/0.90) not
+yet met — the conservative FN are consecutive-run breaks from the alpha_rear>=0.10 proxy + slight
+velocity drift; A1.ii (learned rear-sat head, pushing rear_sat agree 0.973->~0.99) + A1.i (Phase-B
+unroll) close them. Note: for the M1 INTENT (safe-to-train-on), zero-FP already satisfies the
+no-optimistic-exploitation requirement; the FN only mean PPO is held to a slightly stricter bar.
