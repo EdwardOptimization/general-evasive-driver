@@ -10,16 +10,16 @@
 
 | regime | fixed_star | entry_speed_commitment_floor | online_mu_seeker_floor | per_regime_oracle | student_policy |
 |---|---:|---:|---:|---:|---:|
-| avoidance | 1.000 | 1.000 | 1.000 | 1.000 | 0.775 |
-| drift | 0.000 | 0.000 | 0.000 | 0.350 | 0.769 |
-| pooled | 0.600 | 0.600 | 0.600 | 0.740 | 0.772 |
+| avoidance | 1.000 | 1.000 | 1.000 | 1.000 | 0.700 |
+| drift | 0.000 | 0.000 | 0.000 | 0.350 | 0.856 |
+| pooled | 0.600 | 0.600 | 0.600 | 0.740 | 0.762 |
 
 ## Prize recovery + cross-training-seed CI (B4; full validation, training-seed-clustered CIs)
 
-- drift student-minus-floor: 0.769; paired-t CI {'ci95_high': 1.049594, 'ci95_low': 0.487906, 'mean': 0.76875, 'method': 'paired_t', 'n': 8, 'sd': 0.335876, 't_crit': 2.365}
-- avoidance student-minus-floor: -0.225; paired-t CI {'ci95_high': -0.018163, 'ci95_low': -0.431837, 'mean': -0.225, 'method': 'paired_t', 'n': 8, 'sd': 0.247367, 't_crit': 2.365}
+- drift student-minus-floor: 0.856; paired-t CI {'n': 16, 'mean': 0.85625, 'ci95_low': 0.721167, 'ci95_high': 0.991333, 'sd': 0.253558, 't_crit': 2.131, 'method': 'paired_t'}
+- avoidance student-minus-floor: -0.300; paired-t CI {'n': 16, 'mean': -0.3, 'ci95_low': -0.511018, 'ci95_high': -0.088982, 'sd': 0.396092, 't_crit': 2.131, 'method': 'paired_t'}
 - student avoidance no-regression: False
-- reward alignment (B6, per-episode rank-biserial AUC hard gate; Spearman reported): {'auc': 1.0, 'gate_applicable': True, 'gate_statistic': 'rank_biserial_auc', 'meets_0p9': True, 'n_episodes': 600, 'per_regime': {'avoidance': {'applicable': True, 'auc': 1.0, 'meets_0p9': True, 'n': 360, 'spearman': 0.9805419720117956}, 'drift': {'applicable': True, 'auc': 1.0, 'meets_0p9': True, 'n': 240, 'spearman': 0.8648545980162347}}, 'spearman': 0.9805419720117956, 'tie_degenerate': False}
+- reward alignment (B6, per-episode rank-biserial AUC hard gate; Spearman reported): {'spearman': 0.977683818093033, 'auc': 0.9997607583958851, 'per_regime': {'avoidance': {'auc': 1.0, 'spearman': 0.977683818093033, 'n': 600, 'applicable': True, 'meets_0p9': True}, 'drift': {'auc': 0.9997607583958851, 'spearman': 0.7917315633386083, 'n': 400, 'applicable': True, 'meets_0p9': True}}, 'n_episodes': 1000, 'meets_0p9': True, 'gate_statistic': 'rank_biserial_auc', 'tie_degenerate': False, 'gate_applicable': True}
 - S7 oracle ceiling precheck: {'avoidance': 1.0, 'drift': 0.35} -> proceed
 
 ## Artifacts

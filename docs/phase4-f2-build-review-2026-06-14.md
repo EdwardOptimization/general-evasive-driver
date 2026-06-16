@@ -382,3 +382,33 @@ canonical `phase4_f2.json`). Gated dual-heads is an exploratory pass-8 architect
 promoting it to default requires a PI decision + prereg re-freeze. It is the best driver to date
 and the more active-safety-appropriate operating point (drift reliably excellent, avoid no longer
 significantly regressed).
+
+---
+
+## Pass-8 step-2: 16-seed gated confirmatory (canonical), 2026-06-16
+
+Promoted gated dual-heads to default + seeds 8->16 (statistical hardening), re-froze the
+prereg (frozen_at_utc 20260616T013718Z), ran the confirmatory FULL. This is the new
+canonical `phase4_f2.json`.
+
+| metric | pass7c (8, single-head) | gated (8) | **gated (16, canonical)** |
+|---|---:|---:|---:|
+| drift  | 0.769 | 0.925 | **0.856**  CI [0.728, 0.953] |
+| avoid  | 0.775 | 0.758 | **0.700**  CI [-0.500, -0.125] |
+| pooled | 0.772 | 0.825 | 0.762 |
+
+**Honest reading (16 seeds = the truer sample):**
+- **Drift improvement is robust.** 0.856, seed-clustered CI [0.728, 0.953] -- lower bound 0.73,
+  still far above the reflex floor (0.0) and the scripted oracle (0.35), CI excludes 0 with margin.
+  Gated heads make drift *reliably* excellent. (The 8-seed 0.925 with CI [0.83,0.99] was a
+  low-variance lucky sample; 16 seeds widened the drift CI to [0.73,0.95] -- the truer picture.)
+- **The avoidance regression is real and significant.** 0.700, CI [-0.500, -0.125] -- back to
+  EXCLUDING 0. The 8-seed "no longer significant" (CI touching 0) was small-sample optimism;
+  16 seeds revealed the regression persists. Gated heads fixed drift interference, NOT avoidance.
+- pooled ~flat vs pass7c. All 30+ gates pass.
+
+**Conclusion:** the statistical hardening did its job -- it confirmed the gated drift win is
+robust and revealed the avoidance regression is a genuine, significant residual (not a sampling
+artifact). The avoidance regression is now the sharpened next target (safety-constrained
+selection / stronger avoidance head), and it is NOT a more-seeds problem. pass7c (single-head,
+frozen 20260615T043000Z) remains the prior confirmatory baseline; gated-16 is the new canonical.
