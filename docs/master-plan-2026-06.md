@@ -28,14 +28,19 @@ incremental Chrono rewrite, then re-test the avoid-fix on it.** Layered, every p
 - **A6.0 [DONE]** L0 planar + EXACT TMeasy tyre (sampled off Chrono, table 0.0403 ≈ NN 0.0377, grips=1.0).
 - **A6.1 [DONE]** L1 tyre slip-relaxation (σ=measured contact length 0.107 m → β@24 p90 **0.0295 PASS**,
   broad physical basin → principled not fit; collapses the drift-entry transient). `692f2ce2`.
-- **A6.2 [NEXT]** Validate the L1 rewrite on the avoidance crash-boundary (re-parameterise for the
-  avoidance vehicle; re-run the collision gate). *Gate*: collision bal-acc ≫ grey-box's 0.503. This is
-  the avoid-fix convergence test — does the rewrite predict collisions well enough to pose the avoidance
-  challenge PPO needs?
-- **A6.3** If A6.2 passes: re-train the GPU policy on the (collision-faithful) physics surrogate → re-run
-  A5 on Chrono → the real avoid-fix verdict. Else / in parallel: **L2 suspension roll/pitch** to close the
-  last 0.013 drift gap (0.0295→~0.0156) toward near-exact.
-- **A6.4** Throughput: model-on-GPU (A4 rollout is CPU-bound, 0.11M st/s) before the full multi-seed run.
+- **A6.2 [PARTIAL]** `0a59db66`. Validated the L1 rewrite on the avoidance crash-boundary (re-param for
+  the avoid vehicle). Collision bal-acc **0.665** (beats grey-box 0.503 — direction right, carries the
+  collision info the residual destroys) but NOT yet faithful: **vx_rmse 1.31 on avoidance** vs 0.235 on
+  drift localises the failure to the LONGITUDINAL/powertrain physics in the braking-heavy avoidance regime
+  (the brake torque is the one GUESSED param; the powertrain was only validated on drift).
+- **A6.1b [NEXT]** MEASURE the brake torque + throttle/engine response from Chrono (isolated extraction,
+  same as the tyre) and validate the powertrain over the avoidance speed/brake envelope. *Gate*: avoid
+  vx_rmse → toward drift's 0.235, A6.2 collision bal-acc ≥ 0.75, drift gate still passes.
+- **A6.2′** Re-run the avoid-boundary gate with the measured powertrain (+ L2 suspension if needed).
+- **A6.3** When A6.2′ passes: re-train the GPU policy on the (collision-faithful) physics surrogate →
+  re-run A5 on Chrono → the real avoid-fix verdict.
+- **L2 / A6.4** suspension roll/pitch (close the last 0.013 drift gap, 0.0295→~0.0156); model-on-GPU
+  throughput (A4 rollout CPU-bound 0.11M st/s) before the full multi-seed run.
 
 ## Where we are
 - **F2 driver (canonical)**: gated dual-head obs72 policy, 16-seed. **drift 0.856** (seed-clustered
