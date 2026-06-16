@@ -547,3 +547,33 @@ avoid 5.9e-8 (independently re-checked). Smoke-train (N=2048, 40 PPO updates):
 
 Next: A5 — validate the physics-env-trained policy on real Chrono (frozen grid, same as the grey-box A5
 that gave avoid 0.700). The avoid-fix verdict on a collision-faithful surrogate.
+
+---
+
+## A5 on the physics-trained policy (2026-06-17): avoid 0.000 — partial fidelity is WORSE than none
+
+Validated the physics-env-trained policy on real Chrono (frozen grid, same as the grey-box A5):
+
+| regime | surrogate | CPU canonical | grey-box→Chrono | **physics→Chrono** |
+|---|---:|---:|---:|---:|
+| drift | 1.000 | 0.856 | 1.000 | **1.000** |
+| avoid | 1.000 | 0.700 | 0.700 | **0.000** |
+
+The physics-trained policy avoids perfectly on the collision-faithful surrogate but gets **0.000 on
+Chrono** — WORSE than the grey-box policy's 0.700. All avoidance episodes terminate early (50–115 of 285
+steps), success=False. **Decisive finding: a collision-faithful-but-imperfect surrogate is WORSE than a
+collision-blind one for avoidance.** The grey-box's 0.700 was the BC-warmstart oracle behaviour surviving
+(avoid was "free" there → never really learned). On the physics env avoidance had to be LEARNED (BC 0.094)
+— so the policy actively OVERFIT the surrogate's residual gaps (vx 0.90 timing, FWD-cap hybrid, cornering
+drag, collision bal-acc 0.695) and that learned maneuver systematically fails on Chrono.
+
+**The deep lesson:** drift transfers from any surrogate (robust saddle-stabilisation); AVOIDANCE is a
+precise collision-boundary/timing task that requires NEAR-EXACT fidelity to transfer — and partial
+fidelity invites overfitting, which is worse than none. Two avoid-fix verdicts now: grey-box 0.700
+(unlearned), physics 0.000 (overfit). Neither fixes avoid via straight surrogate training.
+
+**Next (the robotics-validated fix for sim-to-sim overfitting): DOMAIN RANDOMISATION.** Randomise the
+surrogate's avoidance physics (mass, μ, tyre grip, the residual-gap knobs, force perturbations) per env
+per episode so the policy learns a ROBUST avoidance that doesn't rely on the surrogate's exact dynamics
+(ADR; see [[robotics-recipes-for-autodrift]]). If DR-trained avoid transfers above 0.700 → the avoid-fix;
+if not → strong evidence avoid is not a surrogate-fidelity problem but a deeper multi-task one.
