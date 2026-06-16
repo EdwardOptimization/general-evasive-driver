@@ -306,3 +306,38 @@ faithfully — collect crash-boundary Chrono rollouts (a policy that sometimes c
 residual/physics to reproduce the collision boundary, so PPO has a real avoidance challenge. THEN
 re-test whether large-batch fixes avoid. Separately: model-on-GPU throughput fix for the A6 multi-seed
 run. Drift is a clean standalone win (faster + better than CPU).
+
+---
+
+## Faithful tyre (2026-06-16): your "小缺陷" instinct was RIGHT — but the tyre isn't the whole story
+
+The user noted a true rewrite should match Chrono near-exactly, suspecting a tyre defect. Confirmed.
+The calibrated-Pacejka physics model needed asymmetric grip FUDGE factors (front 1.10 / rear 0.85) +
+pac_By/Dy tuned down — the tell that its un-fudged axle grip was wrong (Pacejka curve ≠ Chrono's Rill
+TMeasy curve). Fix: sample Chrono's EXACT tyre.
+
+- `extract_chrono_tmeasy_curves.py`: instantiates the real Chrono Sedan TMeasy tyre, imposes
+  controlled (penetration→Fz, lateral-v→α, spin→κ), reads `ReportTireForce` → the exact Rill curve.
+  Saved `chrono_tmeasy_curves.npz`. Sample: Fx/Fz@κ=0.10 **0.990** (peak 1.10), Fy/Fz@α=0.10 **0.851**
+  (peak 0.941), strong degressive load dependence (peak Fy/Fz 1.02→0.74 as Fz 2000→8500 N).
+- `gpu_physics_tmeasy.py`: Pacejka swapped for branchless torch interpolation of the EXACT curves,
+  **front/rear_grip_scale = 1.0 (NO fudge)**. Gate (independently re-verified):
+
+| model | β@24 p90 | vx_rmse |
+|---|---:|---:|
+| analytic single-track | 0.138 | 1.097 |
+| calibrated-Pacejka (WITH fudge) | 0.0435 | 0.227 |
+| **EXACT-TMeasy, NO fudge (grips=1.0)** | **0.0403** | 0.235 |
+| grey-box residual | 0.0156 | 0.083 |
+
+**Verdict — tyre necessary, NOT sufficient.** The exact tyre BEATS the calibrated-Pacejka (0.0403 <
+0.0435) with the fudge factors set to 1.0 → the fudge WAS masking a wrong tyre; the user's instinct
+holds. BUT a ~0.04 residual remains, so the gap is NOT only the tyre. Diagnosis: the residual is a
+SIGNED, sign-reversing TRANSIENT (builds +0.009 by step 8, −0.0188 at step 24, +0.069 by step 89);
+the worst cases are deep drift-entries — **the planar single-body recovers the drift entry FASTER
+than Chrono.** A sign-reversing timescale error cannot be a grip error. The missing physics is the
+**compliant suspension roll/pitch + the full TMeasy bristle/relaxation transient** that Chrono's
+multibody solves and the quasi-static planar model omits. The grey-box residual learns exactly this
+unmodeled-suspension/relaxation correction — which is why it reaches 0.0156 where pure physics
+(calibrated OR exact-tyre) plateaus at ~0.04. (NN-fitted-tyre route building for the table-vs-NN
+comparison; expected ≈ table since both fit the same exact curves.)
