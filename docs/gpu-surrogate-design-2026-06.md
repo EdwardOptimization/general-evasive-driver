@@ -152,3 +152,36 @@ yet met — the conservative FN are consecutive-run breaks from the alpha_rear>=
 velocity drift; A1.ii (learned rear-sat head, pushing rear_sat agree 0.973->~0.99) + A1.i (Phase-B
 unroll) close them. Note: for the M1 INTENT (safe-to-train-on), zero-FP already satisfies the
 no-optimistic-exploitation requirement; the FN only mean PPO is held to a slightly stricter bar.
+
+---
+
+## A2 PHYSICS REWRITE complete (2026-06-16): 4-way comparison — the methods-paper table
+
+`src/autodrift/gpu_physics.py` — branchless GPU double-track + Pacejka tyre (combined-slip via
+slip-vector projection → power-oversteer) + rear-wheel spin states + EngineSimpleMap → 6-speed
+branchless gearbox (int tensor, masked `searchsorted`/`gather` shifts) → conical-0.2 → open diff +
+quasi-static load transfer. Validated vs Chrono on the same held-out split / gate metric:
+
+| GPU dynamics model | beta@24 p90 | vx_rmse | learning | throughput |
+|---|---:|---:|---|---:|
+| analytic single-track | 0.138 | 1.097 | none | 91M st/s @262k |
+| single-track + residual (grey-box) | 0.029 | 0.085 | residual carries the powertrain | (same) |
+| **physics — no learning** | **0.0435** | **0.227** | **none** | 1.3M st/s @16k |
+| **physics + thin residual** | **0.0280** | **0.069** | residual RMS **0.031** (tiny) | (same) |
+
+**The paper-C2 findings:**
+1. The longitudinal gap the single-track lacked was a **missing state** (rear-wheel spin / powertrain),
+   not a missing branch — adding the omega states + engine→gearbox→diff took vx_rmse 1.097→~0.4 before
+   any tyre tuning. This is the central methods result.
+2. **Physics-alone (zero learning) gets ~95% of the way** (3.2x beta / 4.8x vx over analytic), landing
+   on the grey-box's Phase-A number — and it generalises by construction (params, not a fit).
+3. **The hybrid wins** (0.0280, best of all four) and its residual is *thin* (RMS 0.031): the physics
+   did the heavy lifting; the residual mops up a small unmodeled remainder rather than hiding the
+   dynamics in a black box. This is the interpretability/generalisation argument vs the grey-box,
+   whose residual carries the entire powertrain.
+4. Both GPU routes are branchless + batch-independent (env i in a batch == env i alone).
+
+Honest caveat: calibrated on the single mu=0.48 drift cell; the grip params (front/rear_grip_scale,
+pac_By/Dy) are fit to that saddle — the avoidance / other-mu envelope needs re-validation (that
+cross-mu generalisation test IS a paper-C2 experiment, and physics should generalise better than the
+fit residual). Repro: `python scripts/feasibility_audit/surrogate_physics_gate.py [--residual] [--bench]`.
