@@ -244,3 +244,33 @@ What was wrong and what is true:
 **Decision for A3+:** carry the **grey-box** (single-track + Phase-B residual + rear-sat head) as the
 primary GPU PPO surrogate (robust + fully working incl. drift-success), and keep the physics model as
 the generalisation arm for the cross-μ study. This corrects commit e3a379b1's narrative.
+
+---
+
+## Avoidance-regime fidelity (2026-06-16): the grey-box holds up; avoid=1.000 needs A5 to arbitrate
+
+The M1 validation was drift-cell-only; the grey-box residual was fit ONLY on mu=0.48 drift data, and
+the A4 GPU PPO smoke train hit avoid=1.000 vs the CPU canonical 0.700 — suspect. Collected 120 Chrono
+avoidance rollouts across the reveal×mu grid (oracle + noise; `surrogate_collect_avoid_labels.py`,
+120/120 avoid_success) and replayed the SAME actions through the surrogates
+(`surrogate_avoid_fidelity.py`):
+
+| surrogate (avoidance) | vx_rmse | sideslip p90 | pos@step30 | avoid-outcome agree | FN |
+|---|---:|---:|---:|---:|---:|
+| analytic single-track (no residual) | 1.569 | 0.0151 | 0.226 m | 0.692 | 37/120 |
+| grey-box (+ drift residual) | 1.052 | 0.0345 | 0.198 m | **0.967** | 4/120 |
+
+Findings (partly overturning the prior that the drift residual would break avoidance):
+1. **The drift-trained residual HELPS avoidance, not hurts** — outcome agreement 0.692→0.967, vx_rmse
+   1.57→1.05, position 0.226→0.198 m. The longitudinal/powertrain correction generalises across
+   regimes; it only mildly degrades sideslip (0.015→0.034, still tiny vs the drift saddle's needs).
+   So the grey-box is a reasonable avoidance surrogate; avoid=1.000 is NOT a gross-fidelity artifact.
+2. **Validation hole (honest):** the oracle succeeds 120/120 → NO crash-boundary cases. Avoidance
+   success is decided AT the collision boundary (clearance vs 2.15 m), which this data never probes; a
+   ~0.2 m position drift already flips 4/120 safe→crash. So the surrogate's fidelity *at the boundary*
+   — exactly where avoid success/failure lives — is untested. avoid=1.000 cannot be trusted from the
+   surrogate alone.
+3. **Decisive arbiter = A5** (validate the GPU-trained policy back on Chrono via the four-arm). Also
+   worth collecting crash-boundary rollouts (a weaker/noisier policy that sometimes crashes in Chrono)
+   to gate the surrogate where it matters. Physics remains the cross-mu/vehicle generalisation arm
+   (its avoidance test needs the avoid-vehicle re-parameterisation, mass 1450 not 1684 — a B-stream item).
