@@ -180,10 +180,11 @@ def test_pass8_jacobian_penalty_applies_and_off_by_default():
     assert out_off["jac_pen"] == 0.0  # penalty skipped when off
 
 
-def test_pass8_gated_heads_off_by_default_and_deployable():
-    # pass-8 regime-interference fix: gated dual output heads.
-    assert f2.GATED_HEADS is False  # OFF by default -> frozen pipeline preserved
-    m0 = f2.AsymmetricActorCritic()
+def test_pass8_gated_heads_default_on_and_deployable():
+    # pass-8 regime-interference fix: gated dual output heads, PROMOTED TO DEFAULT.
+    assert f2.GATED_HEADS is True  # ON by default (pass-8 promotion); AUTODRIFT_GATED_HEADS=0 reverts
+    assert f2.AsymmetricActorCritic().gated is True  # default construction is gated
+    m0 = f2.AsymmetricActorCritic(gated=False)  # single-head still available (pass7c arch)
     assert m0.gated is False
     m = f2.AsymmetricActorCritic(gated=True)
     assert m.gated is True
@@ -495,7 +496,7 @@ def test_prereg_is_freeze_ready_real_rl_not_distillation():
     assert "online_mu_seeker_floor" in prereg["arms"]
     assert prereg["teacher_role"]["drift"]["forbidden"].lower().find("cem") >= 0
     assert "ci_method_primary" in prereg["statistics_B3_B4"]
-    assert prereg["power_analysis_S4"]["n_training_seeds"] == 8
+    assert prereg["power_analysis_S4"]["n_training_seeds"] == f2.FULL["seeds"]
     assert prereg["leak_discipline"]["B2_bc_reveal_post_only"] is True
 
 

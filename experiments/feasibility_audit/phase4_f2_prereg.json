@@ -7,6 +7,7 @@
     "student_policy": "trained asymmetric obs72 PPO actor"
   },
   "asymmetry_contract": {
+    "actor_architecture": "shared 2x256 tanh trunk -> pass-8 GATED dual output heads (drift/avoidance) blended by a learned soft gate (sigmoid) that infers the regime from obs72; separate output weights remove cross-regime gradient interference. Single deployable obs72-only actor (gate internal). pass7c single-head recoverable via AUTODRIFT_GATED_HEADS=0.",
     "actor_input": "obs72 (deployable human-view frame) only",
     "actor_policy": "Gaussian: state-dependent mean + learnable per-action log_std; deployment = tanh(mean)",
     "assertion": "actor forward rejects any input not of dim 72; act() has no privileged path; tested",
@@ -47,7 +48,7 @@
       "ppo_updates": 600,
       "rollout_horizon": 128,
       "rollout_workers": 30,
-      "seeds": 8,
+      "seeds": 16,
       "selection_units_per_regime": 8,
       "validation_units_per_regime": 30,
       "warmstart_units": 60,
@@ -124,13 +125,13 @@
     "f1b_artifact": "experiments/feasibility_audit/phase4_f1b_throughput.json",
     "f1b_gates_passed": true
   },
-  "draft": true,
-  "drafted_at_utc": "20260614T213416Z",
+  "draft": false,
+  "drafted_at_utc": "20260616T013718Z",
   "floor_definition_B5": "max over learning-free non-trivial classical arms {fixed*, entry_speed_commitment_floor, online_mu_seeker_floor}; NOT the bare incumbent; not a strawman",
   "freeze_blocked_on": "PI sign-off only; criteria/CI/floor/spectrum/power/curriculum/total_steps/wall-clock/B6-AUC-gate/S7-threshold + F4-align drift-cell/oracle/criteria/seed binding are all defined and frozen-ready (pass-3: M1 parallel rollout, M2 obstacle_pass contract, M3 reveal gate, M4 S7 stop-loss, M5 seed-level resume, M6 PI-approved AUC wording, M7 real step budget; pass-4 F4-align: drift validation aligned to E4 low_mu_power_oversteer + E4-selected oracle so S7 proceeds on the priced +0.40)",
   "freeze_ready": true,
   "frozen": true,
-  "frozen_at_utc": "20260615T043000Z",
+  "frozen_at_utc": "20260616T013718Z",
   "leak_discipline": {
     "B2_bc_reveal_post_only": true,
     "actor_privileged_isolation": "asserted: actor never receives mu/privileged channels",
@@ -141,7 +142,7 @@
     "launch": "PI-gated; managed (run_managed.sh / setsid + progress.jsonl + --resume); NOT launched in agent session"
   },
   "milestone": "m3264-phase4-f2-asymmetric-actor-critic-rl",
-  "pass7_efficiency_note": "Early-stop tightened (periodic_eval_every 50->20, patience 4->2, min_ppo 100->20) AFTER observing the converged warm-start maxes the task score pre-PPO and the PPO refine only degrades-then-selected-away. RESULT-IDENTICAL (the warm-start checkpoint is selected regardless); PPO still runs ~40 updates/seed (a real refinement attempt). Pure wall-clock efficiency (~3x), not a result-affecting change.",
+  "pass8_promotion": "Re-frozen 2026-06-16 (PI-approved): gated dual-heads PROMOTED to the default actor architecture. 8-seed A/B raised drift 0.769->0.925 (seed-clustered CI [0.519,0.944]->[0.831,0.994], reliable) with avoidance held (0.775->0.758) and its regression no longer statistically significant (CI [-0.392,-0.083]->[-0.483,0.000]); pooled 0.772->0.825. The lever-elimination first ruled out Jacobian input-penalty (null-negative), actor capacity (pass-7 sweep already saturated at [64,64]), and PCGrad (rebalances the tradeoff frontier but cannot expand it -> conflict localized to the shared output weights). seeds 8->16 for statistical hardening (tighten the seed-clustered CIs). pass7c (single-head, frozen 20260615T043000Z) remains the prior pre-registered confirmatory baseline; this re-freeze sets the gated 16-seed config as the confirmatory protocol for the upcoming coverage spectrum.",
   "pass_thresholds_DRAFT": {
     "behavior_neutral_x2_stop": "two consecutive behavior-neutral full results on a regime -> stop + re-price",
     "note": "thresholds defined and freezable; frozen=false pending PI sign-off only",
@@ -156,8 +157,8 @@
     "drift_powered": true,
     "expected_effect_avoidance": 0.18,
     "expected_effect_drift": 0.4,
-    "minimum_detectable_effect_at_8_seeds": 0.1505,
-    "n_training_seeds": 8,
+    "minimum_detectable_effect_at_n_seeds": 0.0959,
+    "n_training_seeds": 16,
     "note": "If observed cross-seed SD exceeds the assumed 0.18 such that the drift effect +0.40 no longer exceeds the MDE, raise seeds or per-seed validation units before freeze."
   },
   "pre_full_checks_S7": {
@@ -230,22 +231,22 @@
   "step_budget_and_wall_clock_M7": {
     "note": "the REAL PPO env-step budget (NOT a 100M decorative placeholder): ppo_env_steps = seeds * ppo_updates * rollout_workers * horizon (an upper bound; episodes may terminate early). Wall-clock = total_env_steps / measured aggregate rollout throughput (F1b 30-worker rate; replaced by the F2-measured rate at run time).",
     "real_step_budget_full": {
-      "bc_aux_env_steps": 18432000,
-      "bc_warmstart_env_steps": 1228800,
-      "ppo_env_steps": 18432000,
-      "selection_env_steps": 10158080,
-      "total_env_steps": 48250880,
+      "bc_aux_env_steps": 36864000,
+      "bc_warmstart_env_steps": 2457600,
+      "ppo_env_steps": 36864000,
+      "selection_env_steps": 20316160,
+      "total_env_steps": 96501760,
       "total_env_steps_upper_bound": true
     },
     "wall_clock_projection_full": {
-      "projected_wall_clock_days": 0.349,
-      "projected_wall_clock_hours": 8.372,
+      "projected_wall_clock_days": 0.698,
+      "projected_wall_clock_hours": 16.745,
       "real_step_budget": {
-        "bc_aux_env_steps": 18432000,
-        "bc_warmstart_env_steps": 1228800,
-        "ppo_env_steps": 18432000,
-        "selection_env_steps": 10158080,
-        "total_env_steps": 48250880,
+        "bc_aux_env_steps": 36864000,
+        "bc_warmstart_env_steps": 2457600,
+        "ppo_env_steps": 36864000,
+        "selection_env_steps": 20316160,
+        "total_env_steps": 96501760,
         "total_env_steps_upper_bound": true
       },
       "throughput_source": "f1b_aggregate_artifact_or_fallback",

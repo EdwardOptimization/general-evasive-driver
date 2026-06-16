@@ -319,7 +319,11 @@ PPO_PCGRAD = os.environ.get("AUTODRIFT_PCGRAD", "0") == "1"
 # (obstacle features present => avoidance; high sideslip/no obstacle => drift), since
 # the regime label is NOT in obs72. Shared trunk, separate output weights -> the
 # heads cannot corrupt each other's outputs. Still one deployable obs72-only actor.
-GATED_HEADS = os.environ.get("AUTODRIFT_GATED_HEADS", "0") == "1"
+# pass-8 PROMOTED TO DEFAULT (PI-approved 2026-06-16): the 8-seed A/B raised drift
+# 0.769->0.925 (CI [0.52,0.94]->[0.83,0.99], reliable) with avoid held and its
+# regression no longer significant. Set AUTODRIFT_GATED_HEADS=0 to recover the
+# pass7c single-head architecture.
+GATED_HEADS = os.environ.get("AUTODRIFT_GATED_HEADS", "1") == "1"
 # annealed auxiliary BC: warm-start dominates early, decays to ~0 so PPO leads.
 BC_WARMSTART_COEF = 1.0
 # pass-7 (CORRECTED): the 1-epoch warm-start was THE root bug -- it barely moved
@@ -378,7 +382,7 @@ QUICK = {
 # Full budget: PI-gated, managed, not launched here.
 FULL = {
     "workers": 30,
-    "seeds": 8,
+    "seeds": 16,  # pass-8: 8->16 for statistical hardening (tighten the seed-clustered CIs)
     "warmstart_updates": 20,
     "ppo_updates": 600,
     "rollout_workers": 30,
@@ -2670,7 +2674,7 @@ def s7_decision(
 
 
 def _power_analysis() -> dict[str, Any]:
-    """S4: 8-seed power vs expected effect against expected cross-seed SD."""
+    """S4: n-seed power vs expected effect against expected cross-seed SD (n = FULL seeds)."""
     n = FULL["seeds"]
     expected_sd = 0.18  # priced per-seed student-validation dispersion (F1/E4 spread)
     t_crit = _t_critical_95(n - 1)
@@ -2681,7 +2685,7 @@ def _power_analysis() -> dict[str, Any]:
         "expected_effect_avoidance": 0.18,
         "assumed_cross_seed_sd": expected_sd,
         "ci_method": "cross-training-seed paired t-CI of (student - floor); cluster bootstrap as robustness",
-        "minimum_detectable_effect_at_8_seeds": round(float(mde), 4),
+        "minimum_detectable_effect_at_n_seeds": round(float(mde), 4),
         "drift_powered": bool(0.40 > mde),
         "avoidance_powered": bool(0.18 > mde),
         "note": (
@@ -2725,6 +2729,13 @@ def build_preregistration() -> dict[str, Any]:
         "asymmetry_contract": {
             "actor_input": "obs72 (deployable human-view frame) only",
             "actor_policy": "Gaussian: state-dependent mean + learnable per-action log_std; deployment = tanh(mean)",
+            "actor_architecture": (
+                "shared 2x256 tanh trunk -> pass-8 GATED dual output heads (drift/avoidance) blended by a "
+                "learned soft gate (sigmoid) that infers the regime from obs72; separate output weights remove "
+                "cross-regime gradient interference. Single deployable obs72-only actor (gate internal). "
+                "pass7c single-head recoverable via AUTODRIFT_GATED_HEADS=0."
+                if GATED_HEADS else "shared 2x256 tanh trunk; single output head (pass7c single-head)"
+            ),
             "critic_input": "obs72 + privileged features (true mu, mass, grip surrogate, reveal surrogate, regime onehot x2)",
             "privileged_dim": PRIV_DIM,
             "deployment": "critic dropped; only actor(obs72) ships",
