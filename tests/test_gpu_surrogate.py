@@ -33,6 +33,19 @@ def test_analytic_matches_numpy():
     assert np.abs(forces["fx_rear"].numpy() - np.array(np_fx_rear)).max() < 1e-8
 
 
+def test_grey_box_step_runs():
+    from autodrift.dynamics import VehicleParams
+    from autodrift.gpu_surrogate import ResidualDynamicsMLP, grey_box_step
+    torch.set_default_dtype(torch.float32)
+    N = 64
+    P = make_param_batch(VehicleParams(), N, dtype=torch.float32)
+    mlp = ResidualDynamicsMLP()
+    s = torch.zeros(N, STATE_DIM); s[:, 3] = 8.0
+    a = torch.zeros(N, 3)
+    nxt, forces = grey_box_step(s, a, P, 0.02, mlp)
+    assert nxt.shape == (N, STATE_DIM) and torch.isfinite(nxt).all()
+
+
 def test_batched_step_runs_and_is_finite():
     torch.set_default_dtype(torch.float32)
     from autodrift.dynamics import VehicleParams

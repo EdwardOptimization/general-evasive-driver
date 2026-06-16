@@ -95,3 +95,32 @@ over the unstable saddle. → **Adopt the grey-box (single-track + learned resid
 multi-step free-running unroll, rather than a double-track+MF rewrite (which would help lateral
 fidelity but not the dominant longitudinal gap). Next: collect Chrono transitions (with actuator
 states + tyre telemetry), fit the residual + rear-saturation head, re-run the full M1 gate.
+
+---
+
+## M1 PASSES (2026-06-16): grey-box residual closes the gap; physics spec extracted
+
+Collected 160 Chrono drift-cell rollouts (oracle + action noise, 14.4k transitions;
+`surrogate_collect_data.py`). Trained the grey-box residual (single-track + ResidualDynamicsMLP,
+Phase A single-step only, seconds on the RTX 5080; `surrogate_train_residual.py`):
+
+| open-loop divergence (held-out) | analytic single-track | grey-box (+residual) | gate |
+|---|---:|---:|---|
+| β div @24 p90 | 0.138 | **0.0292** | ≤0.03 ✅ |
+| vx RMSE | 1.097 | **0.085** | (13×) |
+
+The residual closed the dominant longitudinal gap. Phase B (multi-step unroll) not even needed for
+the open-loop gate (it would tighten the marginal p90 and is the next hardening step). **The B path
+is feasible: 5-orders-of-magnitude throughput + a fidelity gate that passes with a cheap residual.**
+
+Caveats (honest, remaining for the FULL gate): p90 0.0292 is marginal (Phase-B unroll + more data
+tighten it); the **rear-saturation head** (for the drift `controlled_drift` criterion) is not yet
+built; the decisive sub-test (oracle drift-success on both sims) is pending; this is the single
+mu=0.48 cell (spectrum needs mu/variant as residual inputs + data across them).
+
+The physics-rewrite alternative is fully spec'd (`docs/chrono-sedan-physics-extracted.json`): exact
+Sedan mass/geometry, TMeasy (GuessPassCar70Par, mu_0=0.8, peak Fx/Fz~1.2-1.4), Sedan_EngineSimpleMap
+torque map (flat 370 Nm 1600-4500 rpm), the real 6-speed auto ratios [0.265..1.499] + shift points,
+0.2 conical final drive, open diff, RackPinion steering. Branchy parts (gear state machine, TMeasy
+regime, bristle friction) all have branchless masked-torch plans. Kept as the debuggable
+physics alternative if the residual proves brittle under PPO exploration.

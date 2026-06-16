@@ -161,3 +161,45 @@ def analytic_step(state: torch.Tensor, action: torch.Tensor, P: ParamBatch, dt: 
     values[:, 6] = new_steer
     values[:, 7] = new_drive
     return _rk4(values, P, dt)
+
+
+# --------------------------------------------------------- grey-box learned residual
+class ResidualDynamicsMLP(torch.nn.Module):
+    """Learns the (Chrono - analytic) correction to the per-step delta of {vx,vy,yaw_rate}.
+
+    Features: [vx, vy, yaw_rate, steer_state, drive_force_state, steer_cmd, throttle_cmd,
+    brake_cmd] (8). Normalisation buffers are set from the training corpus (set_norm)."""
+
+    def __init__(self, in_dim: int = 8, hidden: int = 128):
+        super().__init__()
+        self.net = torch.nn.Sequential(
+            torch.nn.Linear(in_dim, hidden), torch.nn.SiLU(),
+            torch.nn.Linear(hidden, hidden), torch.nn.SiLU(),
+            torch.nn.Linear(hidden, 3),
+        )
+        self.register_buffer("in_mean", torch.zeros(in_dim))
+        self.register_buffer("in_std", torch.ones(in_dim))
+        self.register_buffer("out_mean", torch.zeros(3))
+        self.register_buffer("out_std", torch.ones(3))
+
+    def set_norm(self, feats: torch.Tensor, targets: torch.Tensor) -> None:
+        self.in_mean.copy_(feats.mean(0)); self.in_std.copy_(feats.std(0).clamp_min(1e-6))
+        self.out_mean.copy_(targets.mean(0)); self.out_std.copy_(targets.std(0).clamp_min(1e-9))
+
+    def forward(self, feat: torch.Tensor) -> torch.Tensor:
+        z = (feat - self.in_mean) / self.in_std
+        return self.net(z) * self.out_std + self.out_mean
+
+
+def residual_features(state: torch.Tensor, action: torch.Tensor) -> torch.Tensor:
+    """[vx,vy,yaw_rate, steer_state, drive_force_state] (state[:,3:8]) + action (3) = 8."""
+    return torch.cat([state[:, 3:8], action], dim=1)
+
+
+def grey_box_step(state, action, P: ParamBatch, dt: float, residual_mlp: ResidualDynamicsMLP):
+    """Analytic single-track step + learned residual on the velocity channels."""
+    nxt, forces = analytic_step(state, action, P, dt)
+    resid = residual_mlp(residual_features(state, action))
+    nxt = nxt.clone()
+    nxt[:, 3:6] = nxt[:, 3:6] + resid
+    return nxt, forces
