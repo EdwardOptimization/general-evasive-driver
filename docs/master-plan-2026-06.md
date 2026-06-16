@@ -4,6 +4,13 @@ A complete, goal-drivable plan for the remaining work. Each milestone has a **de
 a **gate** (verifiable success condition), rough **effort**, **deps**, and **risk**. The
 **Suggested Goals** at the bottom are copy-pasteable terminal conditions for goal-mode.
 
+> **Progress (2026-06-16): Goal α COMPLETE.** A0✓ A1✓ A2✓ — M1 fidelity foundation proven on BOTH
+> GPU routes. A1: open-loop β@24 p90 0.0156 (≤0.02), drift-SUCCESS behavioural transfer 0.944/0.908
+> (proxy, FP=0) / 0.981/0.975 (head). A2: 4-way comparison, physics+thin-residual passes at 0.028.
+> Commits 8cd1dc96…f3c8803d. **Now driving Goal β: A3 GPU PPO env** (obs72 contract extraction
+> running). C1 paper: arXiv-ready pending author + compile (both review-deferred items confirmed
+> future-work — no existing data for the validation-set frontier).
+
 ## Where we are
 - **F2 driver (canonical)**: gated dual-head obs72 policy, 16-seed. **drift 0.856** (seed-clustered
   CI [0.728,0.953]; beats reflex floor 0.0 + oracle 0.35); **avoid 0.700** (CI [-0.511,-0.089],
