@@ -27,7 +27,8 @@ DT = 0.02
 DEV = "cpu"  # tiny sequential replay -> CPU avoids per-step GPU sync; frees GPU for the physics agent
 torch.set_default_dtype(torch.float32)
 DATA = ROOT / "runs/feasibility_audit/phase4_f2/surrogate_drift_labels.npz"
-MLP = ROOT / "runs/feasibility_audit/phase4_f2/residual_mlp_phaseA.pt"
+# default Phase-A residual; pass a path (e.g. residual_mlp_phaseB.pt) as argv[1] to use the unrolled one
+MLP = Path(sys.argv[1]) if len(sys.argv) > 1 else ROOT / "runs/feasibility_audit/phase4_f2/residual_mlp_phaseA.pt"
 HEAD_OUT = ROOT / "runs/feasibility_audit/phase4_f2/rear_sat_head.pt"
 B_THR, RS_THR, SUSTAIN = e4.BETA_THRESHOLD_RAD, e4.REAR_SLIP_ANGLE_THRESHOLD_RAD, e4.MIN_SUSTAIN_STEPS
 VMIN, VMAX, WLIM = e4.MIN_SPEED_MPS, e4.MAX_SPEED_MPS, e4.YAW_RATE_LIMIT_RAD_S

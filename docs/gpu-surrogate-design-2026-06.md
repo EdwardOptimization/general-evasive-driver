@@ -185,3 +185,32 @@ Honest caveat: calibrated on the single mu=0.48 drift cell; the grip params (fro
 pac_By/Dy) are fit to that saddle — the avoidance / other-mu envelope needs re-validation (that
 cross-mu generalisation test IS a paper-C2 experiment, and physics should generalise better than the
 fit residual). Repro: `python scripts/feasibility_audit/surrogate_physics_gate.py [--residual] [--bench]`.
+
+---
+
+## A1 COMPLETE (2026-06-16): all three M1 sub-gates green (both surrogate routes)
+
+Phase B (A1.i, `surrogate_train_residual_phaseB.py`) fine-tuned the residual through a 48-step
+differentiable free-running unroll (penalises compounding directly):
+
+| held-out open-loop | Phase A | Phase B |
+|---|---:|---:|
+| beta@24 p90 | 0.038 | **0.0156** (<=0.02 ✓) |
+| vx_rmse | 0.083 | **0.049** |
+
+Re-running the A1.iii behavioural drift-success consistency with the Phase-B residual
+(`surrogate_saturation_head.py <phaseB.pt>`):
+
+| vs Chrono drift_success (49/160) | agree | bal_acc | TP | FP | FN |
+|---|---:|---:|---:|---:|---:|
+| proxy \|alpha_rear\|>=0.10 | 0.944 | 0.908 | 40 | **0** | 9 |
+| learned rear-sat head | **0.981** | **0.975** | 47 | 1 | 2 |
+
+**A1 sub-gates, final:** (i) open-loop beta@24 p90 0.0156 <= 0.02 ✓; (ii) rear-sat head per-step
+0.984 ✓; (iii) behavioural drift-success transfer 0.944/0.908 (proxy, FP=0) or 0.981/0.975 (head) ✓.
+The Phase-B velocity tightening lifted even the zero-FP proxy past the gate, so **safe-to-train
+holds without the head** (no optimistic exploitation); the head is polish (47/49 vs 40/49 recovered).
+
+**M1 verdict: PASS on both routes.** grey-box (single-track + Phase-B residual + head) and physics
+(double-track + thin residual) both reproduce Chrono's drift dynamics AND its drift-success verdict.
+The B-path fidelity foundation is proven; next is A3 (GPU PPO env) -> A4 large-batch training.
