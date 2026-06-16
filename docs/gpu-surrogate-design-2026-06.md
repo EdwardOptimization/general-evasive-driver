@@ -341,3 +341,21 @@ multibody solves and the quasi-static planar model omits. The grey-box residual 
 unmodeled-suspension/relaxation correction — which is why it reaches 0.0156 where pure physics
 (calibrated OR exact-tyre) plateaus at ~0.04. (NN-fitted-tyre route building for the table-vs-NN
 comparison; expected ≈ table since both fit the same exact curves.)
+
+### NN-fitted tyre vs table-lookup (2026-06-16): representation-invariant — confirms the gap is NOT the tyre
+
+Per "都试试", built the NN-tyre variant (`fit_tmeasy_tyre_nn.py` fits mlp_x(κ,Fz)→Fx/Fz, mlp_y(α,Fz)→
+Fy/Fz on the SAME sampled Chrono curves, train MSE ~e-7; `gpu_physics_nn.py` swaps the LUT interp for
+a branchless MLP forward, grips=1.0):
+
+| tyre representation (exact Chrono curves, no fudge) | β@24 p90 | vx_rmse |
+|---|---:|---:|
+| table-lookup (bilinear) | 0.0403 | 0.235 |
+| NN-fit (MLP) | 0.0377 | 0.242 |
+
+NN matches table within noise (|Δ|=0.0026, opposite sides by a hair). **The ~0.04 floor is
+representation-invariant** — swapping a LUT for a smooth NN of the identical curves moves nothing —
+so the residual is NOT the tyre force law; it is the suspension/relaxation transient (→ L1 relaxation
+layer). (NN stays in-grid during the gate; where it would extrapolate it rolls force down vs the
+table's edge-clamp, but those states are unreached. An NN tyre WITH a relaxation/history state could
+later absorb the transient — a candidate for the principled rewrite, distinct from a black-box residual.)
