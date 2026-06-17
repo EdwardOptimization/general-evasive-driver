@@ -74,3 +74,37 @@ spring_force curve + TMeasy vertical tire stiffness in series, not a lumped rate
 This is the artifact that (a) closes the planar model's roll/pitch + per-corner load-transfer gap and (b) is
 per-template (same extraction = any vehicle's suspension). Next Tier-a steps: chassis 6-DOF + 4 corners using
 these lookups + TMeasy + driveline + masked gear-FSM -> batched branchless GPU; validate vs Chrono ramp/step-steer.
+
+---
+
+## Tier-a model BUILT + gated (2026-06-17): falsifies roll/pitch hypothesis; not faithful enough on drift
+
+gpu_vehicle_tier_a.py — chassis 6-DOF + 4 kinematic corners (measured Chrono damper: front shock 10000,
+rear 15000 N·s/m → ζ_f≈0.69/ζ_r≈0.30; the lookups + TMeasy + FWD powertrain). Built, batched, 5 tests pass,
+2 real bugs fixed (Ackermann sign, front diff-cap asymmetry). Gate (independently re-verified):
+
+| metric | planar pwr | Tier-a |
+|---|---:|---:|
+| avoid vx_rmse | 0.897 | 0.903 (NO change) |
+| avoid vy_rmse | 0.126 | 0.105 (slight ↑) |
+| drift β@24 p90 | 0.0283 (PASS) | **0.0756 (FAIL)** |
+
+Two clean findings:
+1. **The avoid vx-0.90 gap is NOT roll/pitch — it's LONGITUDINAL DECELERATION** (the model coasts/brakes
+   too slowly vs Chrono; the vx error profile is identical to planar at every step). Load transfer can't
+   touch it; the fix is the brake/engine-brake/coast deceleration model (longitudinal), unaffected by chassis DOF.
+2. **The kinematic-reduced suspension is NOT faithful enough for the drift transient.** The faithful dynamic
+   load transfer through the concave TMeasy Fy(Fz) over-reduces rear grip → rear over-rotates → β diverges
+   (0.076). The kinematic corners MISS the real anti-roll-bar / roll-center geometry, so they over-predict
+   the transient roll transfer. The planar model matches Chrono drift BETTER (0.028) — partly by a
+   compensating quasi-static error, but empirically closer. Full faithfulness here needs Tier-b (full
+   linkage incl. anti-roll), the 6-12wk build — NOT the kinematic reduction.
+
+**STRATEGIC REFRAME (important):** the DO-BOTH driver does NOT depend on surrogate fidelity at all — it is
+solved ON CHRONO via distillation + DAgger (drift 1.0 + avoid 0.900→1.0), where the surrogate's only role is
+producing the DRIFT EXPERT (whose drift transfers to Chrono 1.0 from the cheap PLANAR model). So Tier-a is
+NOT on the do-both critical path, and the kinematic Tier-a isn't faithful enough anyway. For CROSS-VEHICLE:
+use the cheap planar model per-vehicle (template params) to train per-vehicle drift experts + the avoid
+oracle + distill/DAgger on Chrono; test per-vehicle TRANSFER. Reserve Tier-b (full linkage) only if a
+vehicle's planar drift-expert fails to transfer. The "GPU rewrite" value is the 2400× SPEED (planar delivers
+it), not chasing kinematic-Tier-a fidelity.
