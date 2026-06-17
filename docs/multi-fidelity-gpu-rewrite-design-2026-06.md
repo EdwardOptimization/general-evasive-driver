@@ -897,3 +897,33 @@ complete scope is delivered:
   residuals are STRUCTURAL (the drift-RWD vs avoid-FWD single-track tension) + coupled, not isolated measurable
   terms. The multi-fidelity *machinery* is complete and correct; the fidelity *ladder* has one good rung
   (rung-0), and the evidence says building taller rungs is not justified. This is itself the publishable result.
+
+---
+
+## ★★ T2 NO-GO OVERTURNED (2026-06-18): a MEASURED engine-scale correction closes avoid + IMPROVES drift
+
+The T2 NO-GO (above) was an ANALYSIS verdict, not built+measured — and it was WRONG. The PI pushed to actually
+build+test it (4 parallel candidate variants, each certified on the avoid+drift gates). Result, independently
+re-verified (gpu_pwr3_gate avoid_gate/drift_gate, reproduced to the digit):
+
+| approach | avoid vx_rmse | closed% | drift beta@24 (true-vx) | verdict |
+|---|---|---|---|---|
+| A — proper FWD (front drive) | 0.625 | -36% | 0.0844 (0.0818) BROKE | structural-distribution hypothesis DIRECTIONALLY WRONG: FWD front under-drives the accel-heavy envs (steered front's combined-slip robs drive); regresses both. |
+| **B — MEASURED engine-scale 0.915** | **0.443** | **+27%** | **0.0314 (0.0345) IMPROVES** | **WINNER — closes avoid AND makes drift more honest, NO drift cost. The T2 rung.** |
+| C — cornering induced-drag | 0.477 | +15% | 0.0324 (0.0369) | helps, smaller, drift neutral |
+| D — clean front-axle brake | 0.448 | +25% | 0.0359 (0.0355) | crushes the BRAKE phase (0.784->0.124), slight drift cost — combine with B for the braking phase |
+
+**WHY my NO-GO was wrong:** the T2 probe's "drive MATCHES Chrono +-14 N" was a POINT-check at ONE down-ramp
+operating point. Approach B instrumented the real Chrono Sedan across 24 avoid episodes x all 4 mu (extract_
+chrono_peraxle_fx_avoid.py, clean per-axle front drive = sum GetSpindleTorque/r_eff) and found pwr3's analytical
+engine torque is a consistent ~1.093x ABOVE the measured front drive (thr 0.2-0.7, regime-agnostic) — a real ~9%
+engine OVER-drive my point-check missed. Scaling engine torque by the MEASURED 1/1.093 = 0.915 closes 27% of the
+avoid gap AND improves drift true-vx beta (0.0368->0.0345) — confirming the earlier dig's "drift pass leaned on
+the over-drive" (B removes the compensating error -> drift gets MORE honest, not less). MEASURED, not gate-tuned.
+
+**REFINED conclusion (corrects the "structural / 6 nulls" framing):** DOF/structure additions (tier_a, pwr5,
+pwr6, tier_a_geom, T3a, FWD-A) do NOT help the gate — that part holds. But MEASURED MAGNITUDE corrections
+(gear-SEED, and now engine-SCALE 0.915) DO close the residuals. T2 = the measured-longitudinal rung is VIABLE
+(B). B improves BOTH gates so it is a candidate to REPLACE rung-0 (pwr3+engine-scale), and B+D (engine-scale +
+clean brake) is the next combination to close the braking phase too. Methods lesson re-banked: never ship a
+NO-GO from analysis — build it and measure (the PI's standing correction, vindicated again).
