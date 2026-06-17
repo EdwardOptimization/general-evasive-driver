@@ -99,3 +99,21 @@ After step-2 (16-seed gated) completes and becomes canonical:
 
 This is a multi-stage effort beyond a single session; S1 is the load-bearing generalization
 claim (single-cell -> drift surface), S2/S3 extend to vehicles and degraded sensing.
+
+---
+
+## S1 RESULT (2026-06-18): one gated obs72 driver does the full 48-cell spectrum — drift 12/12 + avoid 30/36
+
+Generalized the do-both distillation to the 48-cell full-scenario spectrum (distill_both_fullscenario.py).
+ONE gated AsymmetricActorCritic (gate self-routes drift/avoid), per-cell Chrono-validated:
+- **DRIFT 12/12** (every beta* x mu cell 8/8, mean sustain 80.2) — reproduces all 12 tuned drift teachers.
+  Independently re-verified (subset).
+- **AVOID 30/36** — base grid 15/20; geometry families largely hold (knife-edge 3/3, offset 6/7, width 6/6).
+  The 6 misses are HIGH-MU avoid (r16-30 / mu 0.81-1.04 + one inward offset). = 42/48, one network, Chrono-verified.
+
+**BC-CEILING FINDING (DAgger on the high-mu tail):** DAgger clears the missed high-mu-0.8125 cells in rollout
+(10-14/14) BUT REBALANCES — the mid-mu (0.5875) cells then become the weak tail. A single BC avoid head has a
+CAPACITY ceiling fitting 36 diverse avoid cells; distillation tops ~30-32/36 and DAgger shifts WHICH cells are
+the tail rather than net-adding. To clear all 36 needs a bigger avoid head OR a targeted avoid-head PPO
+(drift-frozen / gate-protected). Strategic: the strongest GENERAL driver is better served by the generality
+axes (S2 vehicles + S3 sensing) than by squeezing the BC-ceiling tail. S1 base (42/48) carried into S2.
