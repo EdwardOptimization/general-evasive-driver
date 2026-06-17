@@ -80,3 +80,19 @@ the avoid oracle works un-modified; the drift feedback teacher (sustain 90) may 
 WITHOUT re-extracting the surrogate per vehicle (the 4-6d surrogate part). So the UAZBUS do-both build is
 mostly PLUMBING (thread the variant + UAZBUS params + the re-tuned drift cell through F2/distill/DAgger) +
 the proven distill→DAgger recipe → a UAZBUS gated do-both driver. The recipe is cross-vehicle by config.
+
+---
+
+## ★★ CROSS-VEHICLE PROVEN (2026-06-17): UAZBUS drift 1.000 + avoid 1.000 — north star DEMONSTRATED
+
+The UAZBUS do-both driver (distill_both_uazbus.py) reached, on UAZBUS's OWN Chrono grid (independently
+re-verified): drift **1.000** + avoid **1.000**. The proven Sedan recipe transferred to a 2858 kg RWD/4WD
+high-CG vehicle BY CONFIG ALONE — drift cell μ0.25 + re-tuned DriftFeedbackPolicy gains (drift feedback
+teacher distilled to 1.0 every seed, NO UAZBUS GPU drift expert needed) + the UN-modified avoid oracle
+(already 1.0 on UAZBUS) + the same distill→DAgger recipe. The only surprise was infrastructure (a worker
+restart wrapper), not per-vehicle physics — "remaining work is plumbing" confirmed.
+
+**The north star is DEMONSTRATED end-to-end: one gated obs72 recipe → drift+avoid 1.0/1.0 on TWO
+contrasting vehicles (FWD 1450-1684 kg Sedan + RWD/4WD 2858 kg UAZBUS), via config not rewrite.** Pieces
+③ (training), ④ (both 1.0), ② (cross-vehicle) all done; ① the fast GPU rewrite (drift expert) delivered
+by the cheap planar model. The recipe is "one driver per vehicle by config."
