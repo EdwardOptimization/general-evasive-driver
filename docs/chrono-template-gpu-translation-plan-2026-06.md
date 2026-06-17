@@ -55,3 +55,22 @@ chrono conda env, validated against a Chrono ramp/step-steer.
 
 Source anchors: ChWheeledVehicle.h:48,268-270; ChAxle.h:84-88; ChSuspension.h:167-170; ChDoubleWishbone.h:
 256-271; ChDoubleWishboneReduced.h:161-167; Sedan_*.h; ChSystemDescriptor.h:34-49; ChTimestepper.h:34-47.
+
+---
+
+## Tier-a STEP 1 DONE (2026-06-17): per-corner kinematic suspension lookups extracted from Chrono
+
+`extract_chrono_suspension_kinematics.py` -> `chrono_suspension_kin.npz` (92 arrays, per-corner FL/FR/RL/RR:
+z_grid ±0.070m × 23pts, camber, toe, track_shift, wheel_xyz, spring_force, spring_length, tire_normal_force,
+static_*; + steering Ackermann). Read from the REAL Chrono DoubleWishbone(front)/MultiLink(rear)/RackPinion
+linkage solved every step (ChSuspensionTestRig ships but its fixed-chassis post rig can't read wheel rate +
+segfaults on lone non-front axle -> used a free-vehicle ramped chassis-load sweep; verified the JSON vehicle
+matches C++ veh.Sedan() to 1e-4m). Measured sanity (re-spot-checked): front camber gain 2.25°/0.1m, rear
+1.20°; front wheel rate 42.8 kN/m, rear 18.8 kN/m; track shift front ±34mm (wishbone) / rear ±3mm (multilink);
+Ackermann (inner steers ~2.3° more). Honest gaps: wheel rate is SPRING-only (combine with the saved
+spring_force curve + TMeasy vertical tire stiffness in series, not a lumped rate); DAMPER/shock NOT extracted
+(spring path only — add if the corner needs vertical damping); extrapolation beyond ±70mm unsupported.
+
+This is the artifact that (a) closes the planar model's roll/pitch + per-corner load-transfer gap and (b) is
+per-template (same extraction = any vehicle's suspension). Next Tier-a steps: chassis 6-DOF + 4 corners using
+these lookups + TMeasy + driveline + masked gear-FSM -> batched branchless GPU; validate vs Chrono ramp/step-steer.
