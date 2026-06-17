@@ -169,3 +169,32 @@ Implication for the strongest GENERAL driver: ONE network already does the full 
 across all vehicles. Cross-vehicle AVOID in one network needs per-vehicle representation (trunk FiLM/adapters) +
 DAgger (close the closed-loop gap) — the indicated lever, given one honest probe next. The practical fallback is
 per-vehicle full-spectrum drivers (each at do-both ceiling 1.0/1.0, 1.0/1.0, 0.85/1.0), since avoid is vehicle-specific.
+
+---
+
+## ★★ S2 RESULT — OVERTURNED (2026-06-18): ONE-network cross-vehicle driver DELIVERED via FiLM + DAgger
+
+The "avoid is vehicle-specific" lean (3 experiments above) was PREMATURE — the indicated lever recovered it.
+FiLM trunk-conditioning (per-vehicle gamma/beta on the shared trunk -> per-vehicle REPRESENTATION, fixing the
+shared-trunk bottleneck) + DAgger (relabel student avoid failures with each vehicle's oracle -> close the
+closed-loop compound-error gap) -> ONE obs75 network does drift+avoid across all 3 vehicles. Independently
+re-verified on Chrono (loaded the saved policy, re-ran per-vehicle):
+
+| vehicle | drift | avoid | per-vehicle baseline |
+|---|---|---|---|
+| Sedan FWD | 1.000 | 1.000 | 1.0/1.0 |
+| UAZBUS 4WD | 1.000 | 0.857 | 1.0/1.0 |
+| BMW RWD | 0.875 | 1.000 | 0.85/1.0 |
+
+All avoid >= 0.86 (vs vehicle-agnostic 0.0/0.25/0.05, per-veh-head 0.575/0.20/0.85); drift held. distill_3vehicle_film_policy.pt.
+
+**CORRECTED conclusion:** avoid is NOT vehicle-specific in the "cannot be done in one net" sense — it is HARDER
+than drift (drift generalizes feedforward; avoid needs per-vehicle REPRESENTATION via FiLM + closed-loop DAgger),
+but ONE network does it. The win came from DAgger round 1 (BC alone scattered; the rollout exposed an over-brake
+stall mode whose oracle-relabeled states taught the entry-speed budgets on-distribution). HONEST CAVEATS: the
+recipe is SEED-SENSITIVE (1/3 training seeds hit it -> needs the seed sweep + worst-vehicle selection, which it
+has); the SAVED policy reproduces (my re-verify). BMW drift marginal (0.80-0.875 around its 0.85 baseline).
+The strongest GENERAL single-network driver: full drift+avoid SPECTRUM (S1) + cross-vehicle (FiLM+DAgger). The
+remaining integration = combine S1's 48-cell spectrum with the FiLM cross-vehicle (one net, spectrum x 3 vehicles).
+Methods lesson re-banked AGAIN: never ship a NO-GO/vehicle-specific verdict from N experiments without the
+indicated lever -- FiLM+DAgger was the lever, and it worked.
