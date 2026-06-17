@@ -37,3 +37,25 @@ FAITHFUL Chrono-GPU rewrite.** Crystallised by the user; every piece de-risked t
 - M4 Cross-vehicle: repeat M3 across vehicle configs (the template generality).
 Papers fall out: the GPU template-rewrite (methods) + the do-both distillation recipe (the "RL CAN do both"
 result) + the conditional-negative-result science (when surrogate training over/under-fits).
+
+---
+
+## Piece ② cross-vehicle — scoped (2026-06-17)
+
+Chrono backend is ALREADY a registry-driven multi-vehicle engine (CHRONO_VEHICLE_VARIANTS: sedan/bmw_e90/
+uazbus; obs/collision/diagnostics vehicle-agnostic — adding a vehicle = 1 registry entry). The DO-BOTH
+recipe transfers in STRUCTURE but needs per-vehicle re-physicalization:
+- **CRUX RISK: the avoidance oracle is Sedan-FITTED** (hardcoded V_KNOTS safe-entry-speed, FZR rear load,
+  mass in ramp_policy_voi_regime.py). It runs on UAZBUS but its plan is systematically wrong -> each
+  vehicle needs its avoid oracle re-physicalized (re-measure safe-entry-speed vs mu, recompute FZR/mass).
+- Drift surrogate: 6 extraction scripts + gpu_physics_pwr are Sedan-hardcoded (literals + the suspension-
+  extraction casts to DoubleWishbone/MultiLink + the FWD traction-cap — RWD/4WD needs the cap on the
+  other axle). Drift CELL params (mu/speed/beta) need per-vehicle re-tuning to land the controllable-drift
+  regime; the drift TEACHER (DriftFeedbackPolicy) carries no mass/grip literals (gains re-tunable) = lower risk.
+- F2 scripts hardcode VARIANT="sedan_tmeasy" + mass 1684 -> must thread the variant + per-vehicle params.
+Recommended 2nd vehicle: UAZBUS (registered; heavy RWD/4WD high-CG = genuine contrast). Effort ~12-18 days.
+
+DE-RISK FIRST (before the full build): prove both oracles generalize to UAZBUS — (a) re-tune its drift
+cell + run the drift feedback teacher → controlled_drift sustain≥24? (b) re-physicalize the avoid oracle
+(measure UAZBUS safe-entry-speed + FZR) → avoid success on UAZBUS? If both clear, the rest is plumbing +
+the proven distill+DAgger recipe; if not, the blocker is found cheaply.
