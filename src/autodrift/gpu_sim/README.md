@@ -71,5 +71,6 @@ Smoke: `python scripts/feasibility_audit/gpu_sim_smoke.py` (drives rung-0 & rung
 | gear dead-band → `deterministic_switches=True` | ⬜ T0 (blocks certificate emission) |
 | `certify.py` (FidelityCertificate harness) | ✅ done — drift+avoid by-name, eager, validated vs gates |
 | torch.compile throughput bench (gpu_throughput.json) | ✅ done — 126x @16k, peak ~380M st/s (adapter); raw-leaf 582M |
-| `env.py` (build_env for PPO) | ⬜ T0 (needs obs72-by-name) |
+| `env.py` build_env (rung-0 pretrain bridge) | ✅ done — model-injected env resets+steps+obs72, smoke-passing |
+| build_env rung-1+ (scenario->params generalization) | ⬜ (rung-1 RED cert; low pri) |
 | `rung2_dae.py` (full-linkage DAE) | ⛔ gated on T3a GO |

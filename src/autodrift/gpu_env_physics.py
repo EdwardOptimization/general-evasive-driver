@@ -135,6 +135,9 @@ class GPUPhysicsAutoDriftEnv:
         residual_mlp_path: str | Path | None = None,
         rear_sat_head_path: str | Path | None = None,
         use_rear_sat_head: bool = True,
+        # gpu_sim: inject a fidelity-rung Model (must share PhysParams construction — rung-0 pwr3).
+        # None = the default module physics (gpu_physics_pwr), preserving existing behaviour exactly.
+        model: "object | None" = None,
     ) -> None:
         self.device = torch.device(device)
         self.dtype = dtype
@@ -142,6 +145,11 @@ class GPUPhysicsAutoDriftEnv:
         self.curves = curves
         self.N = 0
         self._allocated = False
+        # dynamics + state layout: from the injected rung Model, else the module defaults (unchanged).
+        self._model = model
+        self._step = model.physics_step if model is not None else physics_step
+        self._init = model.init_state if model is not None else init_state
+        self._idx = dict(model.IDX) if model is not None else IDX
 
     # ------------------------------------------------------------------ allocation
     def _z(self, *shape: int) -> torch.Tensor:
@@ -274,7 +282,7 @@ class GPUPhysicsAutoDriftEnv:
         self.max_steer_rate = self.P["max_steer_rate"]
 
         # --- seed the 17-dim physics state from initial velocity, inject pose ---
-        st, gear = init_state(init_vx, init_vy, init_yaw, self.P)
+        st, gear = self._init(init_vx, init_vy, init_yaw, self.P)
         st[:, IDX["x"]] = init_x
         st[:, IDX["y"]] = init_y
         st[:, IDX["psi"]] = init_psi
@@ -303,7 +311,8 @@ class GPUPhysicsAutoDriftEnv:
         return self.obs72_from_state(
             self.state, self._static_view(), self.prev_steer, self.prev_action,
             self.step_count, ax=ax, ay=ay,
-            throttle=self.state[:, IDX["throttle"]], brake=self.state[:, IDX["brake"]],
+            throttle=self.state[:, self._idx["throttle"]], brake=self.state[:, self._idx["brake"]],
+            idx=self._idx,
         )
 
     def _static_view(self) -> dict[str, torch.Tensor]:
@@ -487,7 +496,7 @@ class GPUPhysicsAutoDriftEnv:
 
         # --- dynamics (FAITHFUL PHYSICS: gpu_physics_pwr.physics_step) ---
         with torch.no_grad():
-            nxt, new_gear, _diag = physics_step(prev_state, action, self.gear, self.P, dt_scalar)
+            nxt, new_gear, _diag = self._step(prev_state, action, self.gear, self.P, dt_scalar)
         self.state = nxt
         self.gear = new_gear
         vx = nxt[:, 3]; vy = nxt[:, 4]; yaw = nxt[:, 5]
@@ -582,7 +591,8 @@ class GPUPhysicsAutoDriftEnv:
         obs = self.obs72_from_state(
             self.state, self._static_view(), prev_steer, self.prev_action,
             self.step_count, ax=ax, ay=ay,
-            throttle=self.state[:, IDX["throttle"]], brake=self.state[:, IDX["brake"]],
+            throttle=self.state[:, self._idx["throttle"]], brake=self.state[:, self._idx["brake"]],
+            idx=self._idx,
         )
 
         info = {
