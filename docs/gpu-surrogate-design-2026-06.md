@@ -711,3 +711,34 @@ multi-seed + Chrono-task-score selection. Drift-safe by the gated-double-head + 
 of the user's challenges vindicated: RL DOES do both (兼顾), and avoid DOES reach 1.0 (the regression was
 joint-PPO interference + an imitation gap, neither fundamental). Remaining north-star piece: ② cross-vehicle
 (same recipe per vehicle via template config; planar surrogate; Tier-b only if a vehicle fails to transfer).
+
+---
+
+## ★ FAITHFUL-REWRITE GAPS DECOMPOSED TO ROOT (2026-06-17): both fixable, NO multibody needed
+
+The user (correctly) rejected dropping the Tier-a gaps as "not critical path" — research demands the root.
+Decomposed both via Chrono per-wheel telemetry (parallel workflow). Verdict: **both gaps are measurable
+PLANAR bugs, not fundamental — Tier-b full-linkage is NOT required.**
+
+**Gap 1 — avoid-vx (0.90): TWO measured terms, both planar.**
+1. GEARBOX stuck one gear too low: gpu_physics_pwr SHIFT_UP=4500 rpm for every gear → at 8 m/s it sits in
+   gear-idx1 (ratio 0.489) while Chrono is in gear3 (0.784). Tds=Teng/ratio → driveshaft torque **1.60× too
+   high** (engine map itself dead-on; at the right gear the model reproduces Chrono's 203 Nm exactly). This is
+   the high-μ over-acceleration. FIX: the measured Chrono shift-up rpm (~2300-2600, not 4500). Proof: SHIFT_UP
+   4500→2300 HALVES the high-μ error (ep21 +0.92→+0.43).
+2. BRAKE rear-only: model brakes only omega_rl/rr → rear friction saturates at low μ → −2.33 m/s² vs Chrono's
+   −3.6 (all 4 wheels). FIX: add the measured front brake share. Disproves the dynamic-load hypothesis: front
+   Fz moves <5% under accel, so roll/pitch perturbs the wrong small term — exactly why Tier-a left avoid-vx unchanged.
+
+**Gap 2 — drift-roll (Tier-a 0.028→0.076): the GEOMETRIC load-transfer path is structurally absent.**
+The Sedan has NO anti-roll bar (verified 3 ways). Chrono's lateral load transfer is ~99% GEOMETRIC/quasi-static
+(instantaneous m·ay·h/track), <1% roll-elastic. Tier-a routes ALL transfer through the chassis ROLL DOF (a slow
+mode, period 0.49s ≈ 24.5 steps = the drift-entry window) → under-transfers at entry (302 vs 1735 N), overshoots
+later (1768 vs 1123 N). Measured rear-split MAE: planar QS **377 N** (passes drift) vs Tier-a **704 N** (1.9×,
+the regression). FIX: inject the geometric quasi-static transfer into the per-corner Fz (the planar model's
+_normal_loads, which already passes), keep the roll DOF only for the small elastic residual. NOT multibody, NOT
+ARB, NOT tyre concavity.
+
+**CONCLUSION: a TRULY faithful PLANAR rewrite is achievable with 3 measured fixes** — gear shift map + front
+brake share (avoid) + geometric load transfer (drift, the planar model already has it). The full-multibody
+Tier-b is NOT needed. This is the research answer: the gaps were design/measurement bugs, not fundamental.
