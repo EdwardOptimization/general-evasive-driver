@@ -335,6 +335,7 @@ class GPUPhysicsAutoDriftEnv:
         ay: torch.Tensor,
         throttle: torch.Tensor,
         brake: torch.Tensor,
+        idx: "Mapping[str, int] | None" = None,
     ) -> torch.Tensor:
         """Pure, batched obs72 builder for the PHYSICS state. No dynamics; state-injected.
 
@@ -352,9 +353,14 @@ class GPUPhysicsAutoDriftEnv:
         dev = state.device
         dt_ = state.dtype
         n = state.shape[0]
-        x = state[:, 0]; y = state[:, 1]; psi = state[:, 2]
-        vx = state[:, 3]; vy = state[:, 4]; yaw = state[:, 5]
-        steer = state[:, 6]
+        # Read the canonical planar sub-state BY NAME (gpu_sim StateContract) so this builder works on
+        # ANY fidelity rung (pwr3 17-dim, tier_a 30-dim, ...). Default idx = the planar layout, so the
+        # existing rung-0 call is byte-identical (cols 0..6) — verified by the obs72 parity test.
+        if idx is None:
+            idx = {"x": 0, "y": 1, "psi": 2, "vx": 3, "vy": 4, "yaw_rate": 5, "steer": 6}
+        x = state[:, idx["x"]]; y = state[:, idx["y"]]; psi = state[:, idx["psi"]]
+        vx = state[:, idx["vx"]]; vy = state[:, idx["vy"]]; yaw = state[:, idx["yaw_rate"]]
+        steer = state[:, idx["steer"]]
 
         track_radius = scenario["track_radius"]
         track_width = scenario["track_width"]

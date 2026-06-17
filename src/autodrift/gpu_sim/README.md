@@ -67,7 +67,7 @@ Smoke: `python scripts/feasibility_audit/gpu_sim_smoke.py` (drives rung-0 & rung
 | `contracts.py` (interfaces) | ✅ done |
 | `resolver.py` + `rungs/` (rung-0, rung-1 adapters) | ✅ done, smoke-passing |
 | rung-1 `geometric_fz` (T3a experiment) | ✅ wired (verdict: did NOT close drift — see T3a gate) |
-| obs72-by-name refactor of the live env | ⬜ T0 (env still reads hard-coded indices) |
+| obs72-by-name builder (obs72_from_state accepts idx) | ✅ done — default=planar (byte-identical, 19 tests pass); rung-agnostic |
 | gear dead-band → `deterministic_switches=True` | ⬜ T0 (blocks certificate emission) |
 | `certify.py` (FidelityCertificate harness) | ✅ done — drift+avoid by-name, eager, validated vs gates |
 | torch.compile throughput bench (gpu_throughput.json) | ✅ done — 126x @16k, peak ~380M st/s (adapter); raw-leaf 582M |
