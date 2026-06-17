@@ -614,3 +614,19 @@ Further avoid-fix-via-surrogate (3 negatives, structural gap). The only remainin
 MULTI-TASK / architecture angle on Chrono directly (the GPU machinery makes such experiments fast for
 drift, but avoidance needs Chrono validation, which is the slow CPU path). Recommendation: CONSOLIDATE
 the drift + methods + negative-result wins into the papers (C2 methods + the conditional-negative-result).
+
+---
+
+## SCOPE CORRECTION (2026-06-17): the negatives are about SURROGATE TRANSFER, not feasibility
+
+The user correctly pushed back on the "avoid is structural / not fixable" lean above. That over-reached.
+The three negatives prove only that **the GPU-surrogate PATH does not improve avoid** (surrogate→Chrono
+transfer gap). They do NOT show RL can't do both — and our own data refutes that: the 16-seed canonical
+runs ONE policy at drift 0.856 + avoid 0.700 simultaneously, and pass7c seeds 2/7 hit drift=1.0 AND
+avoid=1.0. So a generalist IS achievable; the obstacle is JOINT-PPO NEGATIVE TRANSFER (BC-baseline avoid
+~0.98 → the joint PPO that drives drift to 1.0 regresses avoid). Human analogy (the user's point): master
+each skill separately, then combine — no "unlearning avoidance while practising drifting".
+
+Reopened the avoid-fix via TEACHER-STUDENT DISTILLATION (distill_both.py): distill a STRONG drift expert
+(the GPU-trained policy, Chrono drift 1.0) + the avoid oracle into one gated student via pure BC, NO
+interfering joint PPO; validate on Chrono. Target: avoid >= 0.700 AND drift >= 0.85 from one policy.
