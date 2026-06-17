@@ -927,3 +927,17 @@ pwr6, tier_a_geom, T3a, FWD-A) do NOT help the gate — that part holds. But MEA
 (B). B improves BOTH gates so it is a candidate to REPLACE rung-0 (pwr3+engine-scale), and B+D (engine-scale +
 clean brake) is the next combination to close the braking phase too. Methods lesson re-banked: never ship a
 NO-GO from analysis — build it and measure (the PI's standing correction, vindicated again).
+
+### T2 DELIVERED: pwrBD (engine-scale B + clean brake D) — avoid 0.520->0.369 (53% gap closed), drift held
+
+The two winning measured corrections STACK orthogonally (B=drive/accel, D=brake). pwrBD = pwrB + D's clean
+front-axle brake (verified: front_brake_scale=0 -> pwrBD==pwrB exactly). Independently re-verified gate:
+- avoid vx_rmse 0.520 -> **0.369** (53.2% of the pwr3->0.235 floor gap; accel held at B's 0.388, BRAKE phase
+  collapsed 0.784 -> **0.117** via D), vy 0.092->0.080.
+- drift: beta@24 p90 0.0332 (ties pwr3 0.0323; pwrB 0.0314), HONEST true-vx 0.0363 (BETTER than pwr3's 0.0368),
+  drift vx_rmse 0.276 -> **0.228** (better). Drift HELD (no regression vs the carried pwr3). STABLE.
+**pwrBD is the carried longitudinal config / the T2 rung — strictly better than pwr3 (avoid much better, drift
+held). src/autodrift/gpu_physics_pwrBD.py.** CAVEAT (honest): D's front brake includes a measured total-friction
+head_scale + net-gate (mild rear<->front coupling) — slightly more than a bare 'pure longitudinal' brake, but it
+is what produces the 0.117 brake split AND it holds drift (unlike pwr2's rejected coupling). A strictly-uncoupled
+variant is a one-block change if wanted. Net: the measured-longitudinal rung closes OVER HALF the avoid gap.
