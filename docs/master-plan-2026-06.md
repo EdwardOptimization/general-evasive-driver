@@ -22,6 +22,19 @@ a **gate** (verifiable success condition), rough **effort**, **deps**, and **ris
 >   pending author. Lesson banked: independently reproduce subagent numbers (caught 2 over-claims).
 >   Commits 8cd1dc96…692f2ce2.
 
+## ✅ AVOID-FIX SOLVED via DISTILLATION (2026-06-17) + new cross-vehicle direction
+The GPU-surrogate *training* path to avoid failed (3 negatives), BUT the **do-both is solved by
+TEACHER-STUDENT DISTILLATION**: one gated policy = distill the GPU drift expert (drift 1.0) + the avoid
+oracle, NO joint-PPO → Chrono **drift 1.000 + avoid 0.825**, beating the canonical (0.856/0.700) on BOTH
+axes (`cb25700f`, re-verified). The user was right: RL does both; the regression was joint-PPO interference.
+Headroom: avoid 0.825 is imitation-precision-limited (off-lane, not collisions); seed-sensitive (needs
+sweep+Chrono-selection). **New primary direction — CROSS-VEHICLE generality (the real "full-scenario"
+goal): the Tier-a Chrono TEMPLATE port** (`docs/chrono-template-gpu-translation-plan-2026-06.md`): translate
+Chrono's template framework (config-of-templates) to branchless batched GPU — chassis 6-DOF + 4 kinematic
+corners (lookups from the Chrono linkage) + TMeasy + driveline + masked gear-FSM. ~1.5–3 wk; strictly more
+faithful than the planar rewrite (adds roll/pitch) AND cross-vehicle by construction. Step 1 (extract the
+per-corner kinematic suspension lookups from Chrono) running.
+
 ## Revised path within Workstream A (post-A5 pivot, 2026-06-17)
 A5 replaced "A6 = batch fixes avoid" (refuted) with: **build a collision-faithful surrogate via the
 incremental Chrono rewrite, then re-test the avoid-fix on it.** Layered, every param measured from Chrono:
