@@ -862,3 +862,38 @@ Remaining open terms (both now cleanly exposed): (a) avoid braking-phase (needs 
 (b) avoid remaining accel 0.479 -> floor 0.235 (tyre Fx at cruise slip / FWD cap); (c) drift LATERAL
 residual beta ~0.037 honest (tyre Fy / load transfer / rear-saturation at the saddle) -- the term keeping
 drift from an HONEST pass. Next dig: the drift lateral term.
+
+---
+
+## DRIFT LATERAL residual ROOT-CAUSED + VERIFIED (2026-06-17): the FRONT wheels' omitted longitudinal slip
+
+With the gear correct (pwr3), the drift honest beta@24 (true-vx) 0.0368 is driven by pwr3 OVER-building front
+lateral force at the saddle: it hard-codes the FRONT longitudinal slip to ZERO (free-rolling front,
+gpu_physics_pwr3.py ~L616-617), so its combined-slip friction circle never robs the front Fy the way Chrono's
+does during the BRAKING-laden drift entry. Independently verified from the saved per-wheel telemetry
+(drift_heldout_lateral_{chrono,pwr3}.npz, 30 held-out, σ_scale 0.165, μ0.48):
+- corr(|Chrono front sx|, pwr3 front-Fy OVER-production) = **-0.84** (the mechanism)
+- corr(front-Fy over-production, beta@24 gap) = **-0.53**;  corr(|front sx|, beta@24 gap) = **0.51**
+- Worst-beta scenarios carry the largest front slip: sc7 |sx|=0.256 -> over-produce 1575 N/axle -> beta gap
+  0.0542; sc153 |sx|=0.244 -> 1314 N -> 0.0314. It is a TAIL effect (front-sx median only -0.022 but 5th-pct
+  -0.274) concentrated in the braking-heavy worst cells that DRIVE the p90 -- not a typical-step bias.
+- RULED OUT (measured): rear Fy law faithful (-2786 vs Chrono -2782 at the measured rear state; rear is +5%
+  of the Mz gap), QS lateral load transfer (per-wheel Fz within ~4-120 N), sigma relaxation (lag≈instant at
+  σ0.165), yaw inertia. The lever is the omitted front longitudinal slip, full stop.
+- FIXABLE, NOT planar-fundamental: give the FRONT wheels their own spin/slip state (front sx from the FWD
+  driveline drag + the front brake the car carries) and feed it into the front combined-slip. CAVEAT: piping
+  the FULL measured front sx through pwr3's current friction circle OVER-corrects (front Fy -487 vs truth
+  -1283 at the worst) -> the combined-slip ellipse is too aggressive at high sx; the fix must use measured
+  front sx with a re-extracted/softened coupling (~0.3x), measured from Chrono. Secondary (flagged, small
+  leverage here): pwr3 max_steer=0.436 rad (25deg) but the drift commands up to 0.62 rad (35.5deg) -- a real
+  parametric cap to re-check for the AVOID lane-change too.
+
+## ★ UNIFYING CONCLUSION (2026-06-17): the faithful-rewrite gaps are all OMITTED DEGREES OF FREEDOM — addable, NO multibody
+Every residual the dig has root-caused reduces to a 1-DOF state the planar simplification dropped, each
+MEASURABLE and ADDABLE without full-linkage multibody (Tier-b):
+  - GEAR (avoid): gearbox SEED state (history) -- FIXED (pwr3, 57% avoid closure).
+  - DRIVELINE INERTIA (avoid accel): omitted engine/driveline shaft-inertia state (rigid omega_eng) -- in test (pwr5).
+  - FRONT WHEEL SLIP (drift lateral): omitted front longitudinal-slip state (hard-coded sx=0) -- root-caused, fix specified.
+This is the ANSWER to "can the planar rewrite be made faithful?": YES -- restore the specific DOFs Chrono has
+that the single-track/RWD-omega planar model dropped; none needs the full multibody linkage. The do-both
+1.0/1.0 + cross-vehicle result is UNAFFECTED (it never depended on surrogate fidelity).
