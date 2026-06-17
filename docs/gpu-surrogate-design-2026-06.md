@@ -809,3 +809,28 @@ Chrono's measured (throttle,rpm) upshift/downshift surface, so at cruise throttl
 1.74×→~1.0×, removing the ~530 N over-drive — the dominant avoid-vx term. Then re-gate avoid AND drift (with
 TRUE vx, since the same over-drive propped the drift "pass"). [LESSON, re-banked twice now: verify a subagent
 root-cause AND verify my own correction — check the SAME operating point the symptom lives at, not a proxy.]
+
+---
+
+## ★ FIX #1 APPLIED + VERIFIED (2026-06-17): the gear-SEED fix — avoid vx 0.897→0.520 (57% gap closure), faithful
+
+gpu_physics_pwr3.py = pwr with ONE change: init_state seeds the HIGHEST gear in the [down,up] hysteresis
+band (the cruise-entry gear Chrono holds) instead of the LOWEST gear under its up-threshold
+(accelerate-from-rest). The shift POINTS + FSM were already correct (match the JSON); the seed was the bug.
+(The docstring even CLAIMED "highest gear" while the code did "lowest" — a latent bug.)
+
+GATE (gpu_pwr3_gate.py, sigma_scale=0.165), pwr vs pwr3:
+- AVOID: pwr seeds+cruises gear 2 (wrong); pwr3 seeds+cruises gear 3 = Chrono (verified vs replay).
+  avoid vx_rmse 0.897 -> **0.520** (closed 57% of the gap to the 0.235 drift floor); accel-phase
+  (the gear-seed target) 0.909 -> **0.479** (nearly halved); vy 0.126 -> 0.092.
+- DRIFT: enters at 8.77 m/s (SAME speed as avoid) -> Chrono gear 3 -> pwr3 seeds gear 3: FAITHFUL on the
+  gear for BOTH scenarios. beta@24 p90 0.0283 -> 0.0323; the HONEST (true-vx) check: pwr was ALREADY
+  failing at 0.0325, pwr3 0.0368. So the drift's ~0.032 honest beta is a SEPARATE pre-existing LATERAL
+  residual the gear bug was masking (the old gear-2 over-drive propped the drift "pass" via a too-high vx).
+  pwr3 does NOT break drift — it EXPOSES the true drift fidelity.
+
+Two residuals remain, both now CLEANLY exposed (no compensating errors):
+  (a) AVOID 0.520 -- the braking phase (brake-heavy 0.784, the rear-only-brake bug, measured fixable to
+      ~0.317 by the 4-wheel brake) + remaining accel-phase tyre Fx.
+  (b) DRIFT beta ~0.037 honest -- a LATERAL term (tyre Fy / load transfer / rear-saturation at the saddle).
+Next: pwr4 = pwr3 + measured 4-wheel brake (close the avoid braking phase), then dig the drift lateral term.
