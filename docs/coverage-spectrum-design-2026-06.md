@@ -117,3 +117,34 @@ CAPACITY ceiling fitting 36 diverse avoid cells; distillation tops ~30-32/36 and
 the tail rather than net-adding. To clear all 36 needs a bigger avoid head OR a targeted avoid-head PPO
 (drift-frozen / gate-protected). Strategic: the strongest GENERAL driver is better served by the generality
 axes (S2 vehicles + S3 sensing) than by squeezing the BC-ceiling tail. S1 base (42/48) carried into S2.
+
+---
+
+## ★ S2 RESULT (2026-06-18): cross-vehicle generality is SPLIT BY REGIME — drift generalizes, AVOID needs self-ID
+
+Trained ONE vehicle-AGNOSTIC obs72 gated driver across all 3 vehicles (pool 3 vehicles' teachers ->
+one gated AsymmetricActorCritic; no vehicle id in obs72). Per-(vehicle,regime) Chrono validation (the
+single driver vs the per-vehicle-driver baselines):
+
+| vehicle | DRIFT (1-driver / baseline) | AVOID (1-driver / baseline) |
+|---|---|---|
+| Sedan FWD | 1.00 / 1.00 | 0.00-0.10 / 1.00 |
+| UAZBUS 4WD | 1.00 / 1.00 | 0.25 / 1.00 |
+| BMW RWD | 0.85 / 0.85 | 0.05 / 1.00 |
+
+- **DRIFT GENERALIZES (confirmed):** one vehicle-agnostic feedforward obs72 policy holds drift on all 3
+  contrasting vehicles at the per-vehicle ceiling — it adapts from the observed dynamics alone, no vehicle
+  conditioning. (Consistent with the drift saddle being mu-low-sensitive + obs72-controllable; Velenis/Goh.)
+- **AVOID DOES NOT GENERALIZE (verified, mechanistic):** pooling 3 vehicles' avoid demos collapses avoid on
+  EVERY vehicle. Independently re-verified (Sedan avoid 0.000 with the 3-vehicle policy vs 1.0 per-vehicle).
+  NOT a surrogate gap (the per-vehicle drivers validate 1.0 on Chrono) and NOT a fluke (3 distill seeds, all
+  teachers 40/40). MECHANISM: the 3 vehicles' safe-entry-speed budgets differ sharply (V_KNOTS Sedan
+  (4.5,7.5,9.5,10.5) / UAZBUS (9.5,11,11,11) / BMW (12,12,12,12)) -> for the SAME obs72 approach the oracles
+  command DIFFERENT entry speeds -> a feedforward obs72 policy gets CONFLICTING BC targets it cannot resolve
+  (no vehicle id, no obs72 history) -> it averages to a wrong speed -> collisions.
+
+**THIS IS THE self-ID / VoI RESULT (validates selfid-voi-design-flaw-hypothesis + the RMA bridge):** avoid is
+exactly the regime where IDENTIFYING THE VEHICLE has value (VoI high), while drift does not need it (VoI~0).
+The path to a cross-vehicle-GENERAL avoid = RMA: infer a vehicle latent z from obs72 HISTORY (the vehicle's
+response reveals its capability) and condition the avoid head on z. The strongest general driver = drift
+(already vehicle-general feedforward) + avoid-with-self-ID (RMA). NEXT: the RMA cross-vehicle avoid experiment.
