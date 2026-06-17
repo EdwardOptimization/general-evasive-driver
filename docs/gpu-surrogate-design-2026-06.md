@@ -897,3 +897,27 @@ MEASURABLE and ADDABLE without full-linkage multibody (Tier-b):
 This is the ANSWER to "can the planar rewrite be made faithful?": YES -- restore the specific DOFs Chrono has
 that the single-track/RWD-omega planar model dropped; none needs the full multibody linkage. The do-both
 1.0/1.0 + cross-vehicle result is UNAFFECTED (it never depended on surrogate fidelity).
+
+---
+
+## DRIVELINE INERTIA (pwr5) — faithfully implemented, drift-safe, but ~NIL gate impact; powertrain VERIFIED faithful
+
+pwr5 = pwr3 + the measured driveline rotational-inertia lead (I_eff=0.83 kg·m² from the torque-windup slope,
+cross-checks the ChShaft chain ~0.74; τ=189±16 ms from the rpm-excess decay; engine map read at the led rpm,
+carried as a state dδ/dt=T_eng/I_eff−δ/τ). Gate: pwr5 == pwr3 to noise (avoid 0.520→0.520, accel 0.479→0.477,
+drift 0.0323→0.0321). Drift-safe (tiny-throttle regime sees a negligible lead) — the prediction held.
+
+WHY ~nil, MEASURED (independently re-verified from avoid_term_decomp): pwr3's T_driveshaft already matches
+Chrono to **−5±7 N (|p90| 14 N)** on the down-ramp — the powertrain is ALREADY faithful (the gear-seed fix
+made the drive torque right). The partial-throttle engine map is flat (50.4 N·m @1650 vs 49.5 @1965), so the
+real +315 rpm engine-inertia lead changes drive force by only ~−16 N. **The previous dig's "engine inertia is
+the avoid accel residual" is REFUTED** (the driveshaft torque was never deficient).
+
+CORRECTION to pwr5's own report: the +0.455 m/s² down-ramp ax-gap is NOT "suspension/pitch oscillation" — the
+Chrono ax is SMOOTH (step-to-step |Δax| median 0.020) and the gap is SYSTEMATIC. So a REAL non-drive
+longitudinal force (~660 N) accelerates Chrono more than pwr3 on release, and it is NOT the driveshaft
+(matches ±14 N), NOT resistance (wrong sign: Chrono Crr higher), NOT cornering (low-yaw tail). Leading
+hypothesis: the FRONT tyre combined-slip — the SAME omitted front-sx=0 DOF as the drift lateral residual. So
+the front-wheel-slip fix (needed for drift) is the UNIFIED test: it may close the avoid accel residual too.
+pwr5 stays an archived faithful correction; pwr3 remains carried. NEXT: implement the front-wheel slip state,
+re-gate BOTH avoid and drift (the decisive unified test).
