@@ -834,3 +834,30 @@ the gear dead-band) + T2 as scoped; treat T3 as RESERVE, gated on the afternoon-
 constraint-bias falsification and throughput prototype. The "one continuous kernel" thesis and the
 "1000× intra-GPU speed gap" are demoted to a registry-behind-a-contract and a vs-CPU justification —
 honest, and still a genuinely useful multi-fidelity training framework.
+
+---
+
+## ★ T3a VERDICT (2026-06-17): full-DAE (T3) is NO-GO on converging evidence — scope = framework + rung0/1 + T2
+
+The T3a falsification + the broader dig converge: **FOUR independent attempts to add fidelity/DOFs all
+certified NULL or NEGATIVE at the behavioral gate**, so building the 6-12wk full-linkage DAE is NOT justified.
+
+| DOF / fidelity added | result at the gate |
+|---|---|
+| rung-1 kinematic suspension (tier_a, 6-DOF chassis + 4 corners) | drift REGRESSED 0.028 -> 0.0756 |
+| driveline rotational inertia (pwr5) | NULL (flat partial-throttle map; +315 rpm = -16 N) |
+| front longitudinal slip / combined-slip (pwr6) | per-wheel more faithful, NULL/NEGATIVE at gate (drift 0.032->0.046) |
+| geometric instantaneous load transfer (tier_a_geom, T3a) | drift 0.0756 -> 0.0748 (2% closed) + unstable in avoid |
+
+The geometric-transfer first-cut was numerically unstable in the avoid regime (a single-pass ay~vx*wz proxy),
+so it is not a clean proof on its own — but it is the FOURTH null in a row, and the drift-regime portion (where
+it WAS stable) showed no improvement. On the weight of four independent nulls, the "higher model order closes
+the residuals" premise behind T3 is REFUTED-to-the-extent-cheaply-testable. **DECISION: do NOT build the
+full-linkage DAE (rung-2 / T3).** A clean two-pass geometric injection could still be run to harden the verdict,
+but it would have to overturn four converging nulls to flip the decision.
+
+**Revised "complete multi-fidelity GPU rewrite" scope** (what "done" means, minus the unjustified T3):
+  framework (contracts/resolver/certify/bench ✅) + rung-0 planar (pretrain) + rung-1 kinematic (RED-cert
+  documented) + **T2 longitudinal-fidelity rung** (the collision-faithful posttrain config — the recommended
+  remaining build) + build_env wiring + gear dead-band (optional; certify runs eager). The fidelity spectrum is
+  delivered by rung-0 (fast) and the T2 longitudinal rung (collision-faithful), NOT by a full multibody.
