@@ -59,3 +59,24 @@ DE-RISK FIRST (before the full build): prove both oracles generalize to UAZBUS �
 cell + run the drift feedback teacher → controlled_drift sustain≥24? (b) re-physicalize the avoid oracle
 (measure UAZBUS safe-entry-speed + FZR) → avoid success on UAZBUS? If both clear, the rest is plumbing +
 the proven distill+DAgger recipe; if not, the blocker is found cheaply.
+
+---
+
+## ② cross-vehicle DE-RISKED on UAZBUS (2026-06-17): both teachers generalize → recipe is cross-vehicle
+
+Ran the two make-or-break de-risks on UAZBUS (2858 kg RWD/4WD high-CG, genuine contrast to the FWD Sedan;
+cross_vehicle_uazbus_drift_derisk.py / cross_vehicle_uazbus_avoid_derisk.py, verified by my own run):
+- **DRIFT: UAZBUS drifts** — controlled_drift sustain **90/90** (≥24 needed) at a re-tuned cell (μ0.25, v6,
+  the E4 criterion). The drift FEEDBACK teacher generalizes with cell re-tuning (it carries no mass literals).
+  (At μ0.30 it's harder, sustain 15-35 — a real physical gradient, so the measurement is genuine.)
+- **AVOID: the oracle avoids on UAZBUS = 1.000.** Measured UAZBUS FZR=14463 N (vs Sedan-fitted 6858) +
+  V_KNOTS=(9.5,11,11,11) (vs Sedan (4.5,7.5,9.5,10.5)). The re-physicalized oracle scores 1.000 — AND so
+  does the UN-modified Sedan-fitted oracle (the avoidance grid has enough margin that the mis-calibration
+  doesn't cause failures). So the crux risk (Sedan-fitted oracle) is RETIRED; re-physicalization is a
+  refinement, not a blocker.
+
+**VERDICT: cross-vehicle is VIABLE and likely CHEAPER than the 12-18d estimate.** Both teachers generalize;
+the avoid oracle works un-modified; the drift feedback teacher (sustain 90) may suffice for distillation
+WITHOUT re-extracting the surrogate per vehicle (the 4-6d surrogate part). So the UAZBUS do-both build is
+mostly PLUMBING (thread the variant + UAZBUS params + the re-tuned drift cell through F2/distill/DAgger) +
+the proven distill→DAgger recipe → a UAZBUS gated do-both driver. The recipe is cross-vehicle by config.
