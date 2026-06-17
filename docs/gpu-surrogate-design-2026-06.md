@@ -684,3 +684,30 @@ is 1.0, so the target genuinely is 1.0.)
 | distillation | 1.000 | 0.825 |
 | + DAgger | 1.000 | 0.900 |
 | avoid ORACLE (ceiling) | — | 1.000 |
+
+---
+
+## ★ BOTH-1.0 ACHIEVED (2026-06-17): one gated policy — drift 1.000 + avoid 1.000 on Chrono
+
+DAgger-v2 (warm-start from the 0.900 policy, rollout budget concentrated on the 4 failing hard cells
+reveal 9.5/12 × low-μ; drift demos/head frozen). Per-round hard-cell rollout success 0.729→0.958→1.000.
+Final A5 Chrono (independently re-verified, frozen 40-avoid + 20-drift grid):
+
+| policy | drift | avoid |
+|---|---:|---:|
+| CPU canonical (BC + joint PPO) | 0.856 | 0.700 |
+| distillation | 1.000 | 0.825 |
+| + DAgger | 1.000 | 0.900 |
+| **+ DAgger-v2 (hard-cell)** | **1.000** | **1.000** |
+
+Per-cell: 40/40, ZERO failures, ZERO collisions — all 4 formerly-hard cells now pass 2/2. Drift = 1.000
+on every distilled seed (frozen drift demos → gated re-distill can't regress drift). Selection was on a
+DISJOINT distill_select namespace (not the A5 grid) — no select-on-test. distill_dagger_v2_policy.pt.
+
+**The full-scenario do-both Sedan driver is achieved at 1.0/1.0.** The recipe (north-star pieces ③+④):
+cheap-GPU drift expert (planar surrogate, transfers to Chrono 1.0) + Chrono avoid oracle → gated student
+via pure distillation (NO interfering joint-PPO) → DAgger to close the imitation gap on the hard cells →
+multi-seed + Chrono-task-score selection. Drift-safe by the gated-double-head + frozen drift demos. Both
+of the user's challenges vindicated: RL DOES do both (兼顾), and avoid DOES reach 1.0 (the regression was
+joint-PPO interference + an imitation gap, neither fundamental). Remaining north-star piece: ② cross-vehicle
+(same recipe per vehicle via template config; planar surrogate; Tier-b only if a vehicle fails to transfer).
