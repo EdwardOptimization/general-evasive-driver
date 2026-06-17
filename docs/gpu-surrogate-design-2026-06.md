@@ -660,3 +660,27 @@ headroom via more/better avoid demos or a stronger avoid teacher, not a collisio
 This SUPERSEDES the earlier "avoid not fixable" lean: avoid IS fixable; the surrogate-TRAINING path failed
 (overfitting) but the DISTILLATION path works. Next: cross-vehicle generality via the Tier-a Chrono
 template port (docs/chrono-template-gpu-translation-plan-2026-06.md) carries this recipe across vehicles.
+
+---
+
+## DAgger → avoid 0.900 (drift 1.0); oracle ceiling = 1.0 → the residual is IMITATION, not physics (2026-06-17)
+
+DAgger (dagger_avoid.py, 3 rounds, student-driven rollouts relabeled by the avoid oracle, re-distill +
+Chrono-select; drift demos/head untouched) pushed Chrono avoid 0.825 → **0.900**, drift held **1.000**
+(re-verified). Per-round select-avoid 0.562→0.812→0.938. Honest correction to the premise: the 0.825
+failures were NOT off-lane — they were speed_too_low (over-conservative braking, 26/28); DAgger labeled
+those with the oracle's carry-more-speed action and fixed it. Residual 4/40 = collisions at the two
+tightest-reveal × lowest-μ cells (reveal 9.5/12 × low μ); every reveal ≥ 16 is perfect.
+
+KEY: the avoid ORACLE scores **40/40 = 1.000** on the SAME A5 grid, including those hard cells. So
+**0.900 is an IMITATION gap, NOT the physical ceiling** — avoid 1.0 IS reachable (the oracle does it);
+the student just hasn't matched it on the hardest few cells. Path to 1.0: targeted DAgger coverage on
+reveal-9.5/12 × low-μ. (This refines the north-star caveat: on THIS avoidance grid the physical ceiling
+is 1.0, so the target genuinely is 1.0.)
+
+| policy | drift | avoid |
+|---|---:|---:|
+| canonical (joint PPO) | 0.856 | 0.700 |
+| distillation | 1.000 | 0.825 |
+| + DAgger | 1.000 | 0.900 |
+| avoid ORACLE (ceiling) | — | 1.000 |
