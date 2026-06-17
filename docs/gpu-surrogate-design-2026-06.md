@@ -921,3 +921,86 @@ hypothesis: the FRONT tyre combined-slip — the SAME omitted front-sx=0 DOF as 
 the front-wheel-slip fix (needed for drift) is the UNIFIED test: it may close the avoid accel residual too.
 pwr5 stays an archived faithful correction; pwr3 remains carried. NEXT: implement the front-wheel slip state,
 re-gate BOTH avoid and drift (the decisive unified test).
+
+## FRONT-WHEEL SLIP DOF (pwr6) — DECISIVE UNIFIED test: per-wheel front Fy law fixed, but it does NOT close the gate (honest, 2026-06-17)
+
+Implemented the omitted FRONT longitudinal-slip DOF (gpu_physics_pwr6.py + scripts/feasibility_audit/gpu_pwr6_gate.py).
+BOTH options were built and gated:
+- **Option A (principled FWD restructure)**: drive real front spin states omega_fl/fr, passivate the rear, front sx
+  emerges, remove the cap kludge. BUILT + GATED → **BREAKS THE DRIFT**: honest beta@24 0.0368→**0.089**, drift vx_rmse
+  0.276→0.90, avoid 0.520→0.604. Decisive: even with the front-Fy COUPLING DISABLED (coupling=0), the structural change
+  ALONE gives honest beta 0.0705 / drift vx 0.45. The planar drift saddle (σ0.165 + the pwr3 calibration) is ENTANGLED
+  with the RWD-omega drive structure; moving the drive to the front + passivating the rear breaks the fit independent of
+  the Fy fix. → option A rejected.
+- **Option B (carried, minimal/non-structural)**: keep pwr3 verbatim (RWD-omega drive + front-traction cap + rear spin),
+  ADD front slip-lag states whose EMERGENT target is the slip the carried front force (capped FWD drive + front brake)
+  implies through the EXACT Fx curve, relax over σ, feed (FRONT_SX_COUPLING·sx_f) into the front _wheel_forces to rob
+  front Fy. Front-axle longitudinal contribution kept ZERO (Fx_f=0, the drive stays on the rear-omega path), so the
+  LONGITUDINAL balance is BYTE-IDENTICAL to pwr3 (coast/accel/brake vx match to 4 dp).
+
+MEASURED front-Fy LAW (the combined-slip faithfulness, re-extracted from drift_heldout_lateral_chrono.npz, FL+FR, all
+held-out — the SAME validation the rear law passed): the FULL emergent front sx through pwr3's ellipse OVER-corrects
+(too aggressive at high sx); the tail Fy RMSE bottoms at FRONT_SX_COUPLING≈0.40 (tail meanErr −79 N vs +223 N at 1.0,
+−352 N at 0.0). **In-model, pwr6 robs the worst-front-sx (|sx|>0.2) front Fy from pwr3's −1531 N toward Chrono's −610
+(pwr6 −714)**; tail Fy RMSE 564→**332 N** — the law is genuinely more faithful, as the doc predicted.
+
+DECISIVE UNIFIED GATE (pwr3 → pwr6, option B, σ0.165, 8-decimal reproducible):
+| metric | pwr3 | pwr6 | note |
+| drift beta@24 p90 | 0.0323 | **0.0458** | WORSE |
+| drift beta@24 honest (true vx) | 0.0368 | **0.0410** | WORSE (target was ≤0.03) |
+| drift vx_rmse | 0.276 | 0.298 | ~preserved |
+| avoid vx_rmse | 0.520 | **0.516** | preserved (gear-seed gain intact) |
+| avoid vx accel | 0.479 | 0.479 | UNCHANGED |
+| avoid vx brake | 0.784 | 0.757 | slight help |
+| down-ramp ax-gap | −0.375 | −0.362 | UNCHANGED (Fx_f=0) |
+
+**UNIFIED VERDICT: the front-slip DOF closes NEITHER residual.** Honest, root-caused why the per-wheel-faithful law
+does not move the gate: the worst-front-sx cells (which the law fixes, |sx| up to 0.47) are NOT the worst-beta@24-GATE
+cells — at the gate's step 24 the held-out front sx is ~−0.017 (near zero), so the more-faithful combined-slip barely
+fires there. Where robbing DOES fire it REDUCES model vy (sweep: coupling 0→1 drives mean vy@24 0.708→0.412 vs Chrono
+0.688), pushing the p90 the WRONG way (the c=0 limit reproduces pwr3 exactly; any robbing only worsens it). The doc's
+−0.84 corr(|front sx|, front-Fy over-production) was on the 90-step per-wheel telemetry, but that over-production does
+NOT coincide with the beta@24-gate worst cells. The avoid accel residual is untouched because the front Fy is tiny in
+the low-yaw avoid cruise (robbing it does nothing; the −0.36 ax-gap is a front-Fx/non-drive-force effect, NOT front-Fy).
+
+CONCLUSION: pwr6 is a faithful, measured implementation of the last omitted DOF and improves the per-wheel front-Fy law,
+but it does NOT close the drift lateral residual (it slightly regresses the honest beta) and does NOT touch the avoid
+accel residual. **pwr3 remains the carried model.** The drift honest-beta residual is NOT the front-Fy over-production
+at the gate's measurement point; the front-sx=0 hypothesis is REFUTED as the beta@24 lever (faithful at the per-wheel
+state, null at the gate). pwr6 is archived alongside pwr5 as a measured faithful correction with ~nil gate impact.
+
+---
+
+## ★★ FAITHFUL-REWRITE DIG — HONEST CONCLUSION (2026-06-17): one DOF closed the gate, the others are faithful-but-null / structural
+
+CORRECTS the over-optimistic "every residual is an addable DOF, no multibody" (commit 872111aa). After
+implementing + gating all three identified omitted DOFs, the honest picture:
+
+| omitted DOF | per-wheel/term faithfulness | GATE impact |
+|---|---|---|
+| GEAR seed (history) — pwr3 | gear now = Chrono (verified) | **avoid 0.897->0.520, 57% closure — REAL** |
+| DRIVELINE inertia — pwr5 | real +315 rpm lead, I_eff 0.83 measured | **NULL** (partial-throttle map flat -> +315 rpm = -16 N; driveshaft already matched +-14 N) |
+| FRONT longitudinal slip — pwr6 | front Fy tail RMSE 564->332 N toward Chrono (MORE faithful) | **NULL/NEGATIVE** (drift 0.0323->0.0458) |
+
+WHY the last two are null at the gate (measured, not hand-waved):
+- Driveline inertia: the engine map is flat at partial throttle, so the (real) inertia lead doesn't change
+  drive force; AND the gear-seed fix already made the driveshaft torque faithful (+-14 N). Nothing left to move.
+- Front slip: the cells the more-faithful combined-slip FIXES (braking entry, front |sx|~0.13) are NOT the
+  beta@24-METRIC cells (front |sx|~0.01 at step 24). The fix fires on the entry transient; the metric reads
+  the settled saddle where front sx ~ 0. (This reconciles the real corr(|front sx|, beta gap)=0.51 with the
+  null fix: association at the entry, not causation at the metric step.) Where robbing fires it pushes vy the
+  wrong way (pwr3 vy@24 0.708 is already only +0.02 over Chrono's 0.688).
+- STRUCTURAL: the PRINCIPLED FWD restructure (drive the front spin states, passive rear) BREAKS the drift
+  (honest beta 0.0705) — the pwr3 drift saddle (sigma0.165 + calibration) is entangled with the RWD-omega
+  drive structure. A single planar structure faithful to BOTH the drift saddle (wants RWD-omega) AND the FWD
+  avoid is the real tension; bolting the DOF on minimally is null, doing it properly needs a re-calibrated
+  FWD redesign (untested whether even that reaches the double-gate).
+
+**HONEST ANSWER to "can the planar rewrite be made faithful?":** SUBSTANTIALLY yes — the dominant residual
+(gear) WAS a single addable DOF and is fixed (57% avoid closure, drive torque now faithful +-14 N). But the
+LAST ~0.28 avoid (0.52->0.235 floor) + 0.007 drift (0.037->0.03 honest) are NOT single addable DOFs: they are
+faithful-but-null (inertia), metric-vs-entry-mismatched (front slip), or blocked by the drift-RWD / avoid-FWD
+STRUCTURAL tension. Closing them would need a FWD-consistent model redesign with the drift re-calibrated — a
+real undertaking with UNCERTAIN payoff, and NOT needed for the do-both 1.0/1.0 result (which never depended on
+surrogate fidelity; the drift expert transfers to Chrono 1.0 regardless). pwr3 is the carried faithful model:
+the biggest faithful gain banked, the remaining gap honestly diagnosed and bounded.
