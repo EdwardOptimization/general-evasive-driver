@@ -834,3 +834,31 @@ Two residuals remain, both now CLEANLY exposed (no compensating errors):
       ~0.317 by the 4-wheel brake) + remaining accel-phase tyre Fx.
   (b) DRIFT beta ~0.037 honest -- a LATERAL term (tyre Fy / load transfer / rear-saturation at the saddle).
 Next: pwr4 = pwr3 + measured 4-wheel brake (close the avoid braking phase), then dig the drift lateral term.
+
+---
+
+## FIX #2 (4-wheel brake) REJECTED as implemented (2026-06-17): net-negative — pwr3 stays the carried model
+
+pwr4 = pwr3 (gear-seed) + the pwr2 measured 4-wheel-brake force. Gate (gpu_pwr4_gate.py):
+- avoid vx_rmse: pwr 0.897 -> pwr3 0.520 -> **pwr4 0.641 (WORSE than pwr3)**. The brake fix DOES close the
+  braking phase (brake-heavy 0.784 -> 0.315) but HURTS the accel phase (0.479 -> 0.669) and the net is worse
+  (braking is only 10% of rollouts; the accel damage dominates).
+- drift: pwr4 beta@24 0.0403 (vs pwr3 0.0323) and drift vx_rmse 0.276 -> **0.648** — the front-brake force
+  WRECKS the drift (the drift carries ~0.09 brake; the pwr2 implementation friction-circle-limits the front
+  brake by STEALING front lateral grip, perturbing vy in both the drift and the partial-brake accel rollouts).
+
+So the measured PHYSICS (Chrono brakes all 4 wheels) is right, but the pwr2 IMPLEMENTATION injects spurious
+lateral coupling -> net-negative. **The carried faithful model is pwr3 (gear-seed only): avoid 0.520, drift
+gear faithful.** A clean front-brake (pure longitudinal decel, no lateral-grip theft, gated to genuine
+braking) is deferred; the braking-phase residual (0.784, 10% of rollouts) stays a known open term.
+
+### Faithful-rewrite scoreboard (honest, all MEASURED, no tuning)
+| term | status | avoid vx | drift beta@24 (honest true-vx) |
+|---|---|---|---|
+| pwr (start) | baseline | 0.897 | 0.0325 (already failing honestly) |
+| + gear-SEED (pwr3) | **APPLIED ✓** faithful | **0.520** (57% gap closure) | 0.0368 (gear now correct) |
+| + 4-wheel brake (pwr4) | REJECTED (net-neg impl) | 0.641 | 0.0395 |
+Remaining open terms (both now cleanly exposed): (a) avoid braking-phase (needs clean front brake);
+(b) avoid remaining accel 0.479 -> floor 0.235 (tyre Fx at cruise slip / FWD cap); (c) drift LATERAL
+residual beta ~0.037 honest (tyre Fy / load transfer / rear-saturation at the saddle) -- the term keeping
+drift from an HONEST pass. Next dig: the drift lateral term.
