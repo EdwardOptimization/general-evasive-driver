@@ -69,6 +69,6 @@ Smoke: `python scripts/feasibility_audit/gpu_sim_smoke.py` (drives rung-0 & rung
 | rung-1 `geometric_fz` (T3a experiment) | ✅ wired (verdict: did NOT close drift — see T3a gate) |
 | obs72-by-name refactor of the live env | ⬜ T0 (env still reads hard-coded indices) |
 | gear dead-band → `deterministic_switches=True` | ⬜ T0 (blocks certificate emission) |
-| `certify.py` (FidelityCertificate harness) | ⬜ T0 (generalize the 3 existing gates) |
+| `certify.py` (FidelityCertificate harness) | ✅ done — drift+avoid by-name, eager, validated vs gates |
 | `env.py` (build_env for PPO) + torch.compile bench | ⬜ T0 |
 | `rung2_dae.py` (full-linkage DAE) | ⛔ gated on T3a GO |
