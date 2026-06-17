@@ -148,3 +148,24 @@ exactly the regime where IDENTIFYING THE VEHICLE has value (VoI high), while dri
 The path to a cross-vehicle-GENERAL avoid = RMA: infer a vehicle latent z from obs72 HISTORY (the vehicle's
 response reveals its capability) and condition the avoid head on z. The strongest general driver = drift
 (already vehicle-general feedforward) + avoid-with-self-ID (RMA). NEXT: the RMA cross-vehicle avoid experiment.
+
+---
+
+## ★ S2 cross-vehicle AVOID — three experiments converge: avoid is VEHICLE-SPECIFIC (shared-trunk), drift is vehicle-general
+
+Three measured experiments to make ONE network do avoid across 3 vehicles (all drift held 1.0/1.0/0.85):
+1. **vehicle-AGNOSTIC** (obs72, no id): avoid collapses 0.0/0.25/0.05 (vs 1.0 baselines). Conflicting entry-speed budgets, no id.
+2. **CONDITIONED** (obs75, vehicle one-hot, shared avoid head): recovers Sedan only (0.10->0.975), UAZBUS 0.15 / BMW 0.175 stay low. Id is necessary-but-not-sufficient. (Selection was Sedan-biased.)
+3. **PER-VEHICLE AVOID HEADS** (1 drift + 3 avoid heads, hard-routed by id, gradient-isolation unit-tested): Sedan REGRESSES 0.975->0.575 *with its own private interference-free head*, BMW recovers 0.85, UAZBUS 0.20. Per-head holdout MSE LOW + separated (each head fits its budget) yet Chrono avoid fails -> the bottleneck is NOT head interference.
+
+**DIAGNOSIS: the bottleneck is the SHARED TRUNK + avoid's closed-loop sensitivity.** The standalone per-vehicle
+avoid drivers each hit 1.0 with a trunk trained on ONE vehicle; forcing one trunk to co-encode 3 vehicles' avoid
+degrades each vehicle's avoid representation. DRIFT tolerates the shared trunk (it is a robust saddle-stabilization,
+self-correcting); AVOID does not (small BC action errors compound to collisions — the F2/G1' BC-closed-loop finding,
+now cross-vehicle). So: **DRIFT is vehicle-general (one representation works across 3 vehicles); AVOID is
+vehicle-specific (each vehicle needs its own representation).** This is a clean structural result.
+
+Implication for the strongest GENERAL driver: ONE network already does the full drift+avoid SPECTRUM (S1) + drift
+across all vehicles. Cross-vehicle AVOID in one network needs per-vehicle representation (trunk FiLM/adapters) +
+DAgger (close the closed-loop gap) — the indicated lever, given one honest probe next. The practical fallback is
+per-vehicle full-spectrum drivers (each at do-both ceiling 1.0/1.0, 1.0/1.0, 0.85/1.0), since avoid is vehicle-specific.
