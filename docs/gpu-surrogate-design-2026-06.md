@@ -780,3 +780,32 @@ stuck one gear too low (1.6× over-torque) + rear-only brake, both fixable. **I 
 **Honest status: the faithful PLANAR rewrite is NOT yet confirmed.** Two of the decomposition's three claims
 were wrong/narrow; the real residual (high-μ partial-throttle cruise driven-force) is still open. The do-both
 1.0/1.0 result is UNAFFECTED (it never depended on surrogate fidelity).
+
+---
+
+## ★★ RESOLVED (2026-06-17): the gear IS the bug — a (throttle,rpm) SHIFT-SURFACE bug. Verified from replay telemetry.
+
+This reconciles all three passes. I verified directly from the ground-truth avoid-replay telemetry
+(avoid_term_decomp_{chrono,model}.npz, 321 matched cruise steps, both gears in Chrono 1-index convention):
+
+- **Model gear 2 vs Chrono gear 3 — 100% of cruise steps.** Index-independent signature: model rpm 1.49×
+  Chrono's (2613 vs 1760), model T_driveshaft 1.74× (141 vs 81 N·m) — the exact fingerprint of one gear low.
+- **(throttle,rpm)-surface PROVEN:** at low throttle [0.06,0.15] Chrono runs gear 3 at **1653 rpm**. No
+  rpm-only threshold (the model's SHIFT_UP=4500) can produce gear 3 at 1653 rpm → Chrono upshifts EARLY at
+  low throttle and holds the tall gear; the model's rpm-only map captures only the full-throttle column.
+
+**Reconciliation of the three passes (the truth was the subtle middle):**
+- Pass 1 (decomposition 373537ed): "model one gear too low, 1.6× over-torque" — RIGHT conclusion for the
+  cruise operating point; its proposed fix (SHIFT_UP 4500→2300) was crude/wrong-mechanism.
+- Pass 2 (my CORRECTION 7c78be52): "gear is NOT a bug, matches" — WRONG. I verified only the FULL-THROTTLE
+  shift column (powertrain.npz gear schedule + the full-throttle shift-map measurement), where the model DOES
+  match; I missed that the avoid maneuver cruises at PARTIAL throttle (0.06–0.35), where it doesn't.
+- Pass 3 (this, verified): the gear IS the bug, but a (throttle,rpm) SHIFT-SURFACE bug — Chrono's
+  AutomaticTransmissionSimpleMap upshifts early at low throttle; the model's rpm-only SHIFT_UP misses it.
+
+**THE faithful fix (measured, planar, no multibody):** replace the model's rpm-only SHIFT_UP/SHIFT_DOWN with
+Chrono's measured (throttle,rpm) upshift/downshift surface, so at cruise throttle the model reaches gear 3 by
+~6 m/s (matching Chrono's replay schedule: gear 3 throughout 7–11 m/s). Expected: driveshaft over-drive
+1.74×→~1.0×, removing the ~530 N over-drive — the dominant avoid-vx term. Then re-gate avoid AND drift (with
+TRUE vx, since the same over-drive propped the drift "pass"). [LESSON, re-banked twice now: verify a subagent
+root-cause AND verify my own correction — check the SAME operating point the symptom lives at, not a proxy.]
