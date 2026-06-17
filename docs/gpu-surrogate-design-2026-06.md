@@ -742,3 +742,41 @@ ARB, NOT tyre concavity.
 **CONCLUSION: a TRULY faithful PLANAR rewrite is achievable with 3 measured fixes** — gear shift map + front
 brake share (avoid) + geometric load transfer (drift, the planar model already has it). The full-multibody
 Tier-b is NOT needed. This is the research answer: the gaps were design/measurement bugs, not fundamental.
+
+---
+
+## ★ CORRECTION (2026-06-17): the faithful-rewrite decomposition was PARTLY WRONG — verified by measurement
+
+The gap-decomposition workflow (wajvaizk7, committed 373537ed) claimed the avoid-vx 0.90 gap = gearbox
+stuck one gear too low (1.6× over-torque) + rear-only brake, both fixable. **I built the two fixes
+(gpu_physics_pwr2.py) from MEASURED Chrono values, re-gated, and the decomposition's MAIN claim is refuted
+(independently re-verified, numbers reproduce exactly):**
+
+1. **GEAR was NOT a bug.** Measured Chrono Sedan shift map (instrumented GetCurrentGear + the shipped JSON):
+   SHIFT_UP=(3994,4492,4498,4500,4500,4500) ≈ the model's existing (4000,4500,…). Chrono gear schedule
+   (chrono_powertrain.npz) = gear 2 at 5/8/11/14 m/s; the model at 8 m/s = idx1 = gear 2. **They MATCH.**
+   The decomposition's "Chrono gear3 / model idx1 / 1.6× over-torque" was an ERROR. Gear fix = near-no-op
+   (avoid vx 0.897→0.907, slightly worse). [LESSON re-banked: always re-measure a subagent's root-cause.]
+
+2. **BRAKE rear-only IS a real bug but NARROW.** Measured: all 4 wheels brake 2000 N·m, no bias; pwr braked
+   only the 2 rear. Front-brake fix (friction-circle-limited front contact force) crushes the 12 braking-heavy
+   rollouts (vx 0.780→0.317) but they're 10% of the set → overall avoid vx 0.897→0.834 (closed only 9% of the
+   gap to the 0.235 drift floor). AND it BREAKS the drift gate: 0.0283→0.0405.
+
+3. **The drift "pass" was PARTLY a COMPENSATING ERROR.** pwr's drift β@24 p90 0.0283 (pass) relied on its vx
+   running +0.39 m/s² too high (higher vx suppresses β=atan(vy/vx)). Feed pwr Chrono's true vx → drift FAILS
+   (0.0325 > 0.03 gate); pwr2-with-Chrono-vx = 0.0396. So the planar drift fidelity is BORDERLINE, not clean —
+   it was propped by the same longitudinal over-force. (NOTE: this does NOT touch the do-both result — the
+   drift expert is validated ON CHRONO at 1.0, independent of surrogate vx fidelity. It caveats the "faithful
+   rewrite" claim only.)
+
+4. **THE ACTUAL DOMINANT RESIDUAL = high-μ partial-throttle CRUISE over-acceleration.** accel-phase & μ≥0.5:
+   vx_rmse 0.925; worst at μ=1.038, throttle≈0.12 → model coasts to terminal vx ~11.8 m/s while Chrono plateaus
+   ~9.5 (rmse ~2.0). Gear correct, engine peak-torque map verified ±1.5% → the residual is the PARTIAL-throttle
+   driven force OR the cruise resistance: at terminal velocity drive=resistance, and the model's crossing is at
+   too high a speed. The pwr FWD traction-cap is slack at high μ so it doesn't bite. THIS is the unresolved
+   faithful-rewrite gap — root-caused next (partial-throttle engine map vs tyre Fx vs resistance).
+
+**Honest status: the faithful PLANAR rewrite is NOT yet confirmed.** Two of the decomposition's three claims
+were wrong/narrow; the real residual (high-μ partial-throttle cruise driven-force) is still open. The do-both
+1.0/1.0 result is UNAFFECTED (it never depended on surrogate fidelity).
