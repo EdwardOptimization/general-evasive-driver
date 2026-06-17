@@ -861,3 +861,39 @@ but it would have to overturn four converging nulls to flip the decision.
   documented) + **T2 longitudinal-fidelity rung** (the collision-faithful posttrain config — the recommended
   remaining build) + build_env wiring + gear dead-band (optional; certify runs eager). The fidelity spectrum is
   delivered by rung-0 (fast) and the T2 longitudinal rung (collision-faithful), NOT by a full multibody.
+
+---
+
+## T2 PROBE VERDICT (2026-06-17): avoid residual is STRUCTURAL, not a measurable longitudinal term — T2 NO-GO
+
+Before committing 1.5-3wk to T2 (extract the Chrono driven-force surface -> a collision-faithful posttrain
+rung), ran the cheap GO/NO-GO probe: root-cause the avoid residual that remains after the gear-SEED fix
+(rung-0 avoid vx_rmse 0.520; the down-ramp +0.455 m/s2 / ~660 N ax-gap). Force breakdown from the avoid
+telemetry (model pwr3 vs Chrono, 136 down-ramp steps):
+- model DRIVE (F_drive_post) = 1712 N == Chrono driveshaft (verified ±14 N earlier) — drive MATCHES.
+- model resistance 401 N, front body Fx -49 N — small, and Crr is wrong-sign (Chrono higher).
+- the model applies the 1712 N drive at the REAR tyre (Fx_r_sum 1712, the FWD-kludge: FWD-capped magnitude
+  but applied to the rear spin states) while real Chrono FWD drives the FRONT.
+The +660 N is NOT a measurable longitudinal MAGNITUDE term (drive/resist all match or are small) — it is the
+**drive DISTRIBUTION (front vs rear) × the cornering combined-slip coupling**: the same drive-on-rear vs
+FWD-reality STRUCTURAL tension that (a) made the principled FWD restructure break the drift saddle and (b)
+drove the T3a NO-GO. T2's "extract the driven-force surface" attacks the magnitude, which already matches, so
+**T2 does NOT close the residual. T2 = NO-GO.**
+
+## ★★ GPU MULTI-FIDELITY REWRITE — HONEST COMPLETION (2026-06-17)
+
+With T3 (full-DAE) and T2 (longitudinal rung) both NO-GO on converging evidence, the rewrite's honest
+complete scope is delivered:
+- **FRAMEWORK: complete + training-ready** — contracts / resolver / rung registry / certify (the
+  measured-certificate arbiter) / throughput bench / obs72-by-name / build_env(rung-0). `config -> build_model
+  -> build_env -> step -> obs72 -> certify -> .dominates()` runs end-to-end, validated against the standalone
+  gates byte-for-byte.
+- **rung-0 (planar pwr3, gear-seed) IS the best config**: avoid vx_rmse 0.520, drift beta@24 0.032; fused
+  ~380M st/s (126x @16k). It is the pretrain AND the carried config.
+- **rung-1 (kinematic) is a documented RED certificate** (regresses drift) — the framework correctly ranks it
+  BELOW rung-0 by measurement.
+- **FINDING (the science): higher fidelity does NOT beat rung-0.** SIX independent fidelity/DOF additions
+  (tier_a, pwr5 inertia, pwr6 front-slip, tier_a_geom, T3a, T2-longitudinal) all certified null/negative — the
+  residuals are STRUCTURAL (the drift-RWD vs avoid-FWD single-track tension) + coupled, not isolated measurable
+  terms. The multi-fidelity *machinery* is complete and correct; the fidelity *ladder* has one good rung
+  (rung-0), and the evidence says building taller rungs is not justified. This is itself the publishable result.
