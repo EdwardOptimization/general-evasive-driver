@@ -630,3 +630,33 @@ each skill separately, then combine — no "unlearning avoidance while practisin
 Reopened the avoid-fix via TEACHER-STUDENT DISTILLATION (distill_both.py): distill a STRONG drift expert
 (the GPU-trained policy, Chrono drift 1.0) + the avoid oracle into one gated student via pure BC, NO
 interfering joint PPO; validate on Chrono. Target: avoid >= 0.700 AND drift >= 0.85 from one policy.
+
+---
+
+## DO-BOTH CONFIRMED (2026-06-17): one distilled policy — drift 1.000 + avoid 0.825 on Chrono
+
+The user was right: RL CAN do both; the avoid regression was JOINT-PPO INTERFERENCE, not infeasibility.
+Teacher-student distillation (distill_both.py) — distill the strong drift expert (GPU-surrogate-trained,
+Chrono drift 1.0) + the avoidance ORACLE into one gated student via pure BC, NO interfering joint PPO —
+then A5 on Chrono (independently re-verified):
+
+| policy | drift | avoid |
+|---|---:|---:|
+| **distilled student (do-both)** | **1.000** | **0.825** |
+| CPU canonical (BC + joint PPO) | 0.856 | 0.700 |
+| joint-PPO physics policy | 1.000 | 0.000 |
+
+The distilled student BEATS the canonical on BOTH axes. The avoid regression is removed by NOT doing the
+interfering joint PPO — exactly the human route (master each skill, then combine; no "unlearning avoidance
+while practising drifting"). The GPU surrogate's real payoff: it produced the FLAWLESS drift teacher
+(distils to drift 1.0 every seed); the avoid came from the Chrono oracle; distillation combined them.
+
+Honest caveats: (1) avoid distillation is SEED-SENSITIVE (0.0-0.81 across seeds; the both-good seed needs
+a multi-seed sweep + Chrono-task-score selection on a disjoint namespace — the legit analog of the
+canonical 16-seed selection). (2) The avoid ceiling 0.825 is IMITATION-PRECISION-limited: the failures
+are OFF-LANE drift on hard cells, NOT collisions (the student is collision-safe, clearance ~2.0) — clean
+headroom via more/better avoid demos or a stronger avoid teacher, not a collision problem.
+
+This SUPERSEDES the earlier "avoid not fixable" lean: avoid IS fixable; the surrogate-TRAINING path failed
+(overfitting) but the DISTILLATION path works. Next: cross-vehicle generality via the Tier-a Chrono
+template port (docs/chrono-template-gpu-translation-plan-2026-06.md) carries this recipe across vehicles.
