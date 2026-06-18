@@ -213,3 +213,17 @@ regimes (drift 0.935->1.0, avoid 0.842->0.871) -- regime interference handled. s
 gated label-free driver mastering drift+avoid across 3 vehicles by feeling the car out. Avoid (0.871) trails the
 avoid-only RMA (0.970) -- the single avoid head + joint drift+avoid training costs a little; per-vehicle-style avoid
 head conditioning would close it.
+
+### Rigorous verify (full feasible drift + all 36 avoid x5 seeds, phi-z NO label)
+| vehicle | DRIFT | AVOID |
+|---|---|---|
+| Sedan  | 1.000 (60/60) | 0.750 (135/180) |
+| UAZBUS | 1.000 (20/20) | 0.872 (157/180) |
+| BMW    | 1.000 (60/60) | 0.950 (171/180) |
+| mean   | **1.000** | **0.857** |
+
+DRIFT is perfect and label-free (vehicle-general, VoI~0 confirmed). AVOID 0.857 pays the regime-interference tax
+(avoid-only self-ID = 0.970; joint drift+avoid on a shared trunk costs avoid -- the SAME tax the one-hot capstone's
+avoid paid). This completes self-ID directions 1-4. The strongest general driver now exists in two forms: the
+certified one-hot capstone (132/136 seed-clustered CI, needs the label) and the LABEL-FREE self-ID driver
+(drift 1.0 + avoid 0.857, generalises to UNSEEN vehicles at 0.965) -- the human-like one that feels the car out.
