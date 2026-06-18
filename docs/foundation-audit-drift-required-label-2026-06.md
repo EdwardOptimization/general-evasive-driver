@@ -47,3 +47,22 @@ already-initiated slide ("save the car"), (c) combined-slip cases where you must
 drift-to-avoid claim MUST: (1) derive labels from MEASURED env capacity (not 0.42/0.85), and (2) verify by
 reachability that a sideslip-bounded non-drift trajectory truly cannot avoid while a drift one can -- not trust an
 analytic label. Until then, "RL beats rule-based by drifting to avoid" is unsupported in this simulator.
+
+## Reachability test: does drift EVER beat non-drift on lateral displacement? (scripts/audits/drift_reachability.py)
+Simulate the dynamics model directly from straight-line motion; sweep control profiles; compare the MAX lateral CG
+displacement reachable by the horizon, NON-DRIFT (max sideslip<0.10) vs DRIFT (>=0.10), across (mu, v) and horizons.
+
+| horizon | drift beats non-drift (of 12 mu,v cells) | best drift gain | note |
+|---|---|---|---|
+| 0.4s (emergency reaction window) | 0/12 | -9% | drift LOSES everywhere |
+| 0.7s | 0/12 | +0.3% | drift loses/ties |
+| 1.0s | 1/12 | +5% | marginal |
+| 1.5s (no emergency) | 5/12 | +6% | small wins only when there's ample time |
+
+**VERDICT (measured, not assumed): for the CG-displacement / circle-circle avoidance task in this env's physics,
+drift provides NO advantage in the emergency regime (short windows) and at most a marginal +6% when there's ample
+time. There is NO must-drift-to-avoid regime.** Physically: drift = high slip angle = PAST the tire lateral-force
+peak = LESS lateral force = less displacement. Drift's real value (if any) lives in effects this task does NOT model:
+extended/angled-obstacle geometry where rotating the body helps, recovering an already-initiated slide, or forced
+combined hard-brake-and-turn. None of those is "displace the CG past a point obstacle". So in this simulator the
+entire "RL drifts to avoid where rule-based can't" thesis is unsupported -- twice over (bogus label + reachability).
