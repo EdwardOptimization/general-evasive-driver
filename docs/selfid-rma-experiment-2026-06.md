@@ -150,7 +150,7 @@ trajectories -> phi history ONLY.
 |---|---|---|---|
 | **BMW** (RWD, mass between) | interpolation | Sedan 1.0 / UAZBUS 1.0 | **1.000** |
 | UAZBUS (RWD, mass extreme) | mass extrapolation | Sedan 0.018 / BMW 0.667 (unstable) | 0.649 |
-| Sedan (the only FWD) | drivetrain extrapolation | (see run) | (see run) |
+| **Sedan** (the only FWD) | drivetrain extrapolation | UAZBUS 0.965 / BMW 0.947 | **0.982** |
 
 **HEADLINE: a self-ID driver trained ONLY on Sedan+UAZBUS drives the completely unseen BMW at 1.000** -- by inferring
 BMW's identity from interaction (RWD like UAZBUS, mass interpolated in the continuous z-space). The privileged
