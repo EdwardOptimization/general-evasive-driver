@@ -289,3 +289,34 @@ small-reveal avoid against obstacle-perception noise AND closed the 2 residual c
 stayed ~0.32 (the noisy->clean map is inherently noisy) yet closed-loop success is 1.0 -- another instance of
 "closed-loop success != low BC MSE". distill_final_perceptionDR_policy.pt is the ROBUSTIFIED capstone:
 **136/136 clean across 3 vehicles + Sedan perception-robust to gn=0.08.** NEXT: seed-clustered CI certification.
+
+---
+
+## ★★★ FINAL CERTIFICATION (2026-06-18): the strongest most general driver, seed-clustered 95% CI
+
+distill_final_robustified_capstone.pt — ONE obs72-gated FiLM network (+3-way vehicle one-hot), drift+avoid spectrum
+x {Sedan, UAZBUS, BMW}, perception-robustified. Pre-registered full feasible grid, n=5 seeds/cell, CLEAN sensing,
+seed-CLUSTERED 95% CI (cells = resampling unit, 4000x bootstrap). _s3_certification.py.
+
+| vehicle | DRIFT cleared (5/5) | drift mean [95% CI] | sustain | AVOID cleared (5/5) | avoid mean [95% CI] |
+|---|---|---|---|---|---|
+| Sedan  | 11/12 | 0.967 [0.900, 1.000] | 62 | 36/36 | 1.000 [1.000, 1.000] |
+| UAZBUS |  4/4  | 1.000 [1.000, 1.000] | 60 | 33/36 | 0.972 [0.933, 1.000] |
+| BMW    | 12/12 | 1.000 [1.000, 1.000] | 48 | 36/36 | 1.000 [1.000, 1.000] |
+
+**GRAND TOTAL: 132/136 cells pass ALL 5 seeds** (drift 27/28, avoid 105/108). Every vehicle x regime has mean
+success >= 0.967 with 95% CI lower bound >= 0.90. The stricter n=5 (vs the n=3 build's 136/136) surfaces honest
+per-seed variance on 4 cells: 1 Sedan drift marginal cell + 3 UAZBUS avoid cells (UAZBUS avoid is FROZEN/unchanged
+from the capstone -- this is intrinsic per-seed variance n=3 didn't surface, not a regression). Sedan avoid is a
+clean 36/36 at n=5 (the perception-DR head holds). This is the FINAL deliverable of the goal "the strongest most
+general RL active-safety driver": ONE network, ALL scenarios (drift+avoid) x ALL 3 vehicle types, trained fast on
+the faithful Chrono-GPU surrogate, perception-robust, certified with seed-clustered CIs.
+
+### Goal closure (S1->S2->S3->cert)
+- S1: single-vehicle full 48-cell spectrum (gated drift+avoid).
+- S2: 3-vehicle full spectrum via FiLM trunk + per-vehicle avoid heads + DAgger (avoid recovered on all 3).
+- S3: two degradation axes measured (proprioceptive: drift invariant; exteroceptive: avoid degrades only at the
+  small-reveal edge, vehicle-dependent) + perception-DR lever (Sedan head -> robust to gn=0.08, closed 2 clean misses).
+- CERT: n=5 seed-clustered 95% CI, 132/136 strict, all means >= 0.967.
+The two-regime VoI law held throughout (drift vehicle-general + sensing-robust; avoid vehicle-specific + the only
+regime that moves under degradation) — the self-ID/VoI thesis is supported by the full scenario x vehicle x sensing grid.
