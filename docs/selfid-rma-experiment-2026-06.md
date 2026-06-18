@@ -132,3 +132,34 @@ windows polluted phi) compounded by DAgger over-augmentation. Round 1 is the sel
 (a) separate the teacher FRAME pool from the phi SEQUENCE pool (recovery frames -> frames only), (b) best-round
 selection (like the capstone's worst-vehicle select). NEXT: leave-one-vehicle-out generalization (the test the
 one-hot structurally cannot pass) + extend to drift (full-scenario self-ID driver).
+
+---
+
+## Leave-one-vehicle-out generalization (2026-06-18): the test the one-hot STRUCTURALLY CANNOT pass
+
+Train the RMA self-ID driver on 2 vehicles; deploy on the held-out 3rd via phi-inferred z_hat (the held-out vehicle
+is NEVER in demos, NEVER DAgger'd). The one-hot has no slot/head for an unseen vehicle -> it scores ~0 by
+construction. _selfid_rma_v2.py (separated teacher-FRAME vs phi-SEQUENCE pools + best-round selection + --holdout).
+
+Pipeline bug fixed en route (explains the round-2 collapses): DAgger STUDENT trajectories (whose action is the
+student's own, not the oracle's) were being added to the TEACHER frame pool -> the teacher learned to imitate the
+student's errors -> compounding collapse. Fix: recovery frames (obs, ORACLE action) -> teacher; student
+trajectories -> phi history ONLY.
+
+| held-out (unseen) vehicle | case | train-veh avoid (best round) | HELD-OUT avoid |
+|---|---|---|---|
+| **BMW** (RWD, mass between) | interpolation | Sedan 1.0 / UAZBUS 1.0 | **1.000** |
+| UAZBUS (RWD, mass extreme) | mass extrapolation | Sedan 0.018 / BMW 0.667 (unstable) | 0.649 |
+| Sedan (the only FWD) | drivetrain extrapolation | (see run) | (see run) |
+
+**HEADLINE: a self-ID driver trained ONLY on Sedan+UAZBUS drives the completely unseen BMW at 1.000** -- by inferring
+BMW's identity from interaction (RWD like UAZBUS, mass interpolated in the continuous z-space). The privileged
+one-hot CANNOT represent BMW at all (no slot). This is the decisive thing continuous self-ID buys that the label
+cannot: zero-shot generalisation to an unseen vehicle.
+
+HONEST LIMITS: generalisation is clean for INTERPOLATION (BMW). The EXTRAPOLATION holdouts are shakier -- partly the
+DAgger pipeline's instability (UAZBUS-holdout left a TRAIN vehicle collapsed, so its held-out number sits on a broken
+model), partly a genuine z-coverage limit (Sedan held out = the only FWD; phi trained on 2 RWD vehicles has never
+seen drive_share=1.0 and cannot infer a z-region outside the training hull). DAgger over-augmentation also collapses
+round 2 (best-round selection mitigates). Stability lever (retrain-from-scratch / augmentation cap) is the remaining
+work to make every holdout clean.
