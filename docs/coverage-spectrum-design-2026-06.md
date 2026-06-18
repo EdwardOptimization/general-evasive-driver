@@ -229,3 +229,37 @@ VERIFICATION NOTE (re-banked discipline): a naive re-check using cond._validate_
 Re-validated on the correct spectrum cells -> 4/4 @ sustain 90. Always validate on the cells the policy was trained
 for. distill_final_integrated_policy.pt. CAVEATS: FiLM recipe seed-sensitive (selection sweep + worst-vehicle pick);
 BMW drift marginal ~0.85-0.875; 2 Sedan avoid envelope-edge cells. NEXT: S3 degraded-sensing axis + final certification.
+
+---
+
+## S3 (2026-06-18): SENSING-DEGRADATION robustness of the capstone — TWO axes, zero-shot (no retrain)
+
+Built+measured (not assumed) on the verified capstone driver via the tested ObservationDegradationWrapper
+semantics applied client-side to the policy's VIEW only (success judged on TRUE physics; per-episode fresh
+degrader => thread-safe + seed-deterministic). _s3_degraded_zeroshot.py (ego axis) + _s3_perception.py (perception axis).
+
+AXIS 1 — PROPRIOCEPTIVE (delay + iid Gaussian noise on ego-response channels obs[0:8]; the channels a policy
+could use for current-frame substitution of hidden-dynamics belief). Ladder clean / moderate(delay2,sigma.03) /
+harsh(delay4,sigma.06), drift+avoid, 3 vehicles:
+  drift: 1.000 invariant across all rungs/vehicles (BMW harsh 0.917 = 1 ep of n=12 noise).
+  avoid: unmoved within n=10 noise (Sedan .80/.70/.90 non-monotonic = noise floor). EXPLANATION: this axis hits
+  ego channels only; the obstacle-perception channels (44-71) that avoid actually depends on stay CLEAN, so the
+  axis cannot bite avoid by construction. Drift is a feedback-stabilization task robust to proprioceptive noise.
+
+AXIS 2 — EXTEROCEPTIVE (iid Gaussian noise on obstacle continuous channels x,y,rel_vx,rel_vy = obs idx
+45-48/52-55/59-62/66-69, only on PRESENT obstacles; present-bit + size untouched). The avoid-critical axis.
+Ladder clean / mild(.02) / moderate(.04) / harsh(.08), 6 avoid cells (one per reveal) x4 seeds:
+| vehicle | clean | mild .02 | moderate .04 | harsh .08 |
+|---|---|---|---|---|
+| Sedan  | 1.000 | 1.000 | 0.958 (r8->0.75) | 0.875 (r8->0.50, r9.5->0.75) |
+| UAZBUS | 1.000 | 1.000 | 1.000 | 1.000 |
+| BMW    | 1.000 | 1.000 | 1.000 | 1.000 |
+
+**S3 HEADLINE: the capstone is broadly robust to sensing degradation.** Drift is invariant to proprioceptive
+degradation. Avoid is invariant to proprioceptive degradation (obstacle channels clean) and degrades only under
+EXTEROCEPTIVE noise, GRACEFULLY (0.875 worst, not collapse) and ONLY at the small-reveal envelope edge (r8/r9.5 =
+least reaction distance, where obstacle position error bites most). The degradation is VEHICLE-DEPENDENT: Sedan
+susceptible at the edge, UAZBUS/BMW fully immune to both axes at every level tested. Consistent with the two-regime
+VoI law on BOTH axes: drift (where identifying the vehicle/state has no value) is robust to sensing degradation;
+avoid (where it has value) is the only regime that moves, and only at its hardest cells. NEXT: probe the indicated
+lever (perception-DR fine-tune of Sedan small-reveal avoid) + final seed-clustered CI certification.
