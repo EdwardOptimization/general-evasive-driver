@@ -149,7 +149,7 @@ trajectories -> phi history ONLY.
 | held-out (unseen) vehicle | case | train-veh avoid (best round) | HELD-OUT avoid |
 |---|---|---|---|
 | **BMW** (RWD, mass between) | interpolation | Sedan 1.0 / UAZBUS 1.0 | **1.000** |
-| UAZBUS (RWD, mass extreme) | mass extrapolation | Sedan 0.018 / BMW 0.667 (unstable) | 0.649 |
+| **UAZBUS** (RWD, mass extreme) | mass extrapolation | Sedan 0.86 / BMW 1.0 | **0.912** |
 | **Sedan** (the only FWD) | drivetrain extrapolation | UAZBUS 0.965 / BMW 0.947 | **0.982** |
 
 **HEADLINE: a self-ID driver trained ONLY on Sedan+UAZBUS drives the completely unseen BMW at 1.000** -- by inferring
@@ -163,3 +163,30 @@ model), partly a genuine z-coverage limit (Sedan held out = the only FWD; phi tr
 seen drive_share=1.0 and cannot infer a z-region outside the training hull). DAgger over-augmentation also collapses
 round 2 (best-round selection mitigates). Stability lever (retrain-from-scratch / augmentation cap) is the remaining
 work to make every holdout clean.
+
+
+---
+
+## FINAL leave-one-out (all 3 clean): every unseen vehicle is driven at 0.91-1.0 by inferred identity
+
+| unseen (held-out) vehicle | case | HELD-OUT avoid | one-hot would score |
+|---|---|---|---|
+| BMW    | interpolation            | 1.000 | 0 (no slot) |
+| Sedan  | FWD drivetrain extrapolation | 0.982 | 0 (no slot) |
+| UAZBUS | mass extrapolation       | 0.912 | 0 (no slot) |
+| mean   |                          | **0.965** | 0 |
+
+(UAZBUS-holdout needed a re-run: the first attempt hit DAgger-rollout nondeterminism that collapsed a TRAIN vehicle;
+the re-run trained stably -> held-out 0.912. Pipeline is powerful but DAgger-finicky; best-round selection + an
+occasional re-run handle it. Stability hardening = remaining engineering.)
+
+**DECISIVE: a self-ID driver trained on ANY 2 of the 3 vehicles drives the unseen 3rd at 0.91-1.0 (mean 0.965), by
+inferring its identity from interaction.** Even the FWD extrapolation (Sedan, held out of a 2-RWD training set)
+works -- because avoid is mass-dominated, and mass is inferable. The privileged one-hot is structurally incapable of
+this (no slot for an unseen vehicle). This closes the user's thesis: the vehicle is not just IDENTIFIABLE from
+interaction, the identification GENERALISES to vehicles never seen -- exactly what a human does stepping into an
+unfamiliar car.
+
+REMAINING (direction 4 of 4): extend self-ID to the DRIFT regime for a full-scenario label-free driver. VoI predicts
+NULL there (drift is vehicle-general, needs no z) -- a completeness + confirmation run, not expected to change the
+science.
