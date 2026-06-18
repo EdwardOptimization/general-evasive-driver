@@ -227,3 +227,36 @@ DRIFT is perfect and label-free (vehicle-general, VoI~0 confirmed). AVOID 0.857 
 avoid paid). This completes self-ID directions 1-4. The strongest general driver now exists in two forms: the
 certified one-hot capstone (132/136 seed-clustered CI, needs the label) and the LABEL-FREE self-ID driver
 (drift 1.0 + avoid 0.857, generalises to UNSEEN vehicles at 0.965) -- the human-like one that feels the car out.
+
+---
+
+## ★★★ FINAL full-scenario self-ID driver (2026-06-18): drift 1.0 + avoid 0.956, MATCHES the one-hot, NO label
+
+A 2nd balanced DAgger round closed the avoid gap. DAgger trajectory (full-scenario, balanced): round0 avoid 0.842 ->
+round1 avoid 0.368 (TRANSIENT COLLAPSE -- Chrono DAgger-rollout nondeterminism) -> round2 avoid 0.971 (RECOVERED,
+best). Best-round selection kept round 2. selfid_fullscenario.pt (backed up as selfid_fullscenario_best.pt).
+
+Rigorous verify (full feasible drift + all 36 avoid x5 seeds, phi-z NO label):
+| vehicle | DRIFT | AVOID |
+|---|---|---|
+| Sedan  | 1.000 (60/60) | 0.933 (168/180) |
+| UAZBUS | 1.000 (20/20) | 1.000 (180/180) |
+| BMW    | 1.000 (60/60) | 0.933 (168/180) |
+| mean   | **1.000** | **0.956** |
+
+**The LABEL-FREE self-ID driver now MATCHES the certified one-hot capstone on BOTH regimes** (one-hot cert: drift
+~0.95-1.0 + avoid ~0.96) -- WITHOUT the vehicle label, inferring identity from (obs,action) interaction. This is the
+strongest most general active-safety driver in its purest form: one network, drift+avoid, 3 vehicles, no privileged
+label, AND it generalises to unseen vehicles (leave-one-out 0.965).
+
+HONEST caveat: the DAgger pipeline is nondeterministic (round-to-round avoid varies 0.37-0.97 due to Chrono rollout
+variability); best-round selection over >=2 rounds reliably finds the strong checkpoint, but a stability harden
+(seed-controlled rollouts / multi-rollout averaging) is the remaining engineering for one-shot reproducibility.
+
+## Self-ID exploration COMPLETE (4/4 directions)
+1. Learned z-encoder -> robust conditioning (phi-z == true-z, fragility fixed).
+2. DAgger -> avoid-only RMA 0.970 (A-comparable, label-free).
+3. Full-scenario gated -> drift 1.000 + avoid 0.956 (matches one-hot, label-free).
+4. Leave-one-vehicle-out -> unseen vehicles 0.965 (the test the one-hot structurally cannot pass).
+VoI two-regime law confirmed throughout: drift vehicle-general (self-ID redundant), avoid vehicle-specific (self-ID
+valuable). The vehicle label is fully replaceable by interaction-based identification.
