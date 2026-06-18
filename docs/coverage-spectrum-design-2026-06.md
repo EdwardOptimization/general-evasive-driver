@@ -198,3 +198,34 @@ The strongest GENERAL single-network driver: full drift+avoid SPECTRUM (S1) + cr
 remaining integration = combine S1's 48-cell spectrum with the FiLM cross-vehicle (one net, spectrum x 3 vehicles).
 Methods lesson re-banked AGAIN: never ship a NO-GO/vehicle-specific verdict from N experiments without the
 indicated lever -- FiLM+DAgger was the lever, and it worked.
+
+---
+
+## ★★★ CAPSTONE (2026-06-18): ONE network masters the full drift+avoid SPECTRUM × 3 VEHICLES — 134/136, verified
+
+The strongest most general single-network active-safety driver. distill_both_final_integrated.py combines the two
+proven pieces: FiLM trunk (per-vehicle gamma/beta, obs75) + regime gate + 1 shared drift head + 3 per-vehicle avoid
+heads + per-vehicle DAgger, over the 48-cell spectrum logic (drift beta*xmu + avoid reveal x mu x geometry).
+
+Per-vehicle drift feasibility (Chrono-grounded, not guessed): Sedan 12/12 @v12-14, BMW 12/12 @v14-18, UAZBUS 4/12
+(only high-beta 0.36-0.45 at low speed — the heavy 2858kg RWD genuinely can't break the rear at low beta; a physics
+finding) -> 28 feasible (cell,vehicle) drift pairs.
+
+MEASURED + INDEPENDENTLY RE-VERIFIED on Chrono:
+| vehicle | DRIFT cleared (mean) | AVOID cleared (mean) |
+|---|---|---|
+| Sedan | 12/12 (1.000) [re-verified 4/4 @v12-14, sustain 90] | 34/36 (0.896) |
+| UAZBUS | 4/4 (1.000) [re-verified 1.0] | 36/36 (0.993) |
+| BMW | 12/12 (1.000) [re-verified 0.875] | 36/36 (1.000) |
+
+**HEADLINE: 134/136 cells across 3 vehicles — drift 28/28, avoid 106/108.** The single shared FiLM drift head
+generalizes drift across every feasible (cell,vehicle) pair; the per-vehicle avoid heads + DAgger recovered avoid
+on all 3 (UAZBUS avoid — which collapsed to 0.20-0.54 in the unconditioned/per-veh-head attempts — is 36/36). Only
+2 misses, both Sedan small-reveal hard avoid cells (knife_edge r8 / r9.5, the envelope edge, same cells S1 struggled
+on — a residual closed-loop gap, not a routing failure: UAZBUS/BMW clear the identical geometry).
+
+VERIFICATION NOTE (re-banked discipline): a naive re-check using cond._validate_per_vehicle's DO-BOTH drift cell
+(Sedan v9) read Sedan drift 0.0 — a CELL-MISMATCH confound (the capstone trains on the v12-14 SPECTRUM, not v9).
+Re-validated on the correct spectrum cells -> 4/4 @ sustain 90. Always validate on the cells the policy was trained
+for. distill_final_integrated_policy.pt. CAVEATS: FiLM recipe seed-sensitive (selection sweep + worst-vehicle pick);
+BMW drift marginal ~0.85-0.875; 2 Sedan avoid envelope-edge cells. NEXT: S3 degraded-sensing axis + final certification.
