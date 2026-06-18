@@ -136,6 +136,58 @@ class EnvelopeAESPolicy(Policy):
         return split_drive_brake_action(steer, throttle)
 
 
+@dataclass
+class HonestAESPolicy(Policy):
+    """HONEST production-style emergency braking+steering, using ONLY realistic inputs.
+
+    Unlike EnvelopeAESPolicy (which reads the TRUE mu, the precomputed exact
+    required-offset, AND the ground-truth obstacle_label), this baseline mirrors
+    what a real ESC/AEB/AES stack actually has:
+      - perception of the obstacle's CURRENT position (distance + lateral offset),
+        which a radar/camera genuinely measures;
+      - the ego's own lane error and speed;
+      - a FIXED ASSUMED friction (it does NOT know the true mu);
+      - NO scenario label.
+    Crucially it is GRIP-RESPECTING: the commanded lateral accel is capped at the
+    assumed friction budget, so it NEVER intentionally drifts (real active safety
+    prevents slip). On cells that genuinely require exceeding the conventional
+    envelope (true drift_required), it cannot succeed -- by construction.
+    """
+
+    assumed_mu: float = 0.55         # a fixed conservative assumption; NOT the true mu
+    conventional_grip_fraction: float = 0.50   # only HALF the assumed grip -> stays below slip (ESC-like)
+    steer_cap: float = 0.55          # hard cap on steering -> never aggressive enough to break traction
+    lateral_margin: float = 0.35
+    max_ttc: float = 2.5
+
+    def act(self, observation: np.ndarray, info: dict) -> np.ndarray:
+        vx = float(observation[0] * 20.0)
+        vy = float(observation[1] * 12.0)
+        speed = max(math.hypot(vx, vy), 1.0)
+        obstacle_distance = float(info.get("obstacle_distance", float("inf")))
+        # RIGOROUS perception contract: react to the obstacle ONLY when it is perception-visible
+        # (same gate the RL's observation uses, env._obstacle_perception_visible). Forbidden fields
+        # (never read here): mu (true friction), obstacle_label, obstacle_required_lateral_offset,
+        # obstacle_predicted_lateral_offset_at_arrival.
+        perceived = bool(info.get("obstacle_perception_visible", info.get("obstacle_enabled", False)))
+        if not perceived or obstacle_distance <= 0.0 or not math.isfinite(obstacle_distance):
+            return split_drive_brake_action(0.0, -0.6)   # no obstacle perceived -> ease off
+        # realistic perception of the obstacle's current lateral position + own lane error
+        obstacle_lateral = float(info.get("obstacle_lateral_offset", 0.0))
+        lateral_error = float(info.get("lateral_error", 0.0))
+        # steer toward the open side; target a clearance from the perceived obstacle (own width + margin)
+        target_sign = -1.0 if obstacle_lateral >= 0.0 else 1.0
+        desired_lateral = target_sign * (1.0 + self.lateral_margin)  # ~ego half-width + margin (perceived)
+        ttc = float(np.clip(obstacle_distance / speed, 0.05, self.max_ttc))
+        lateral_accel_need = 2.0 * abs(desired_lateral - lateral_error) / max(ttc ** 2, 1e-3)
+        grip_budget = self.conventional_grip_fraction * self.assumed_mu * 9.81   # ASSUMED, grip-respecting
+        # GRIP CAP at 1.0 -> never command beyond the (assumed) friction limit -> never drifts
+        accel_fraction = float(np.clip(lateral_accel_need / max(grip_budget, 1e-6), 0.0, 1.0))
+        steer = target_sign * float(np.clip(0.30 + 0.70 * accel_fraction, 0.0, self.steer_cap))  # hard cap -> stays stable
+        brake = -0.9 if vx > 6.0 else -0.4   # always brake hard (production AEB), never keep throttle to drift
+        return split_drive_brake_action(steer, brake)
+
+
 def make_policy(name: str, env: AutoDriftEnv, seed: int | None = None) -> Policy:
     del env
     normalized = name.lower()
@@ -149,4 +201,6 @@ def make_policy(name: str, env: AutoDriftEnv, seed: int | None = None) -> Policy
         return HeuristicAESPolicy()
     if normalized in {"envelope_aes", "model_aes"}:
         return EnvelopeAESPolicy()
+    if normalized in {"honest_aes", "honest"}:
+        return HonestAESPolicy()
     raise ValueError(f"unknown policy: {name}")
