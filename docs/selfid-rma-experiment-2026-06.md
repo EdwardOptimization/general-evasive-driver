@@ -55,3 +55,42 @@ The (obs,action) history carries the vehicle's dynamic signature; phi extracts m
 2. Leave-one-vehicle-out: train C1 on 2 vehicles, deploy on the 3rd via inferred z_hat -> the KILLER test the
    one-hot structurally cannot pass (no head/slot for an unseen vehicle).
 3. C2: more sequences + GRU tuning, or a hybrid (GRU encoder regressed to z, RMA-style).
+
+---
+
+## Diagnostics (2026-06-18): the result is real but TWO confounds matter — read it as a matched ablation
+
+### (1) The single z-conditioned avoid head is FRAGILELY z-conditioned
+Deploying the C1 teacher with the TRUE z (oracle extrinsics, not phi-inferred):
+| vehicle | C1 (phi-inferred z_hat) | C1 (TRUE z) |
+|---|---|---|
+| Sedan  | 1.000 | 0.368 |
+| UAZBUS | 0.807 | 0.947 |
+| BMW    | 0.596 | 0.175 |
+| mean   | 0.801 | 0.497 |
+The teacher does WORSE at the true z than at phi's slightly-off z_hat (phi differs from true z by only ~0.05-0.14).
+=> the single z-FiLM avoid head has an ERRATIC z-response (small z change flips closed-loop success); the 0.801 rests
+partly on phi's z_hat landing in good spots. z-jitter teacher (train z + N(0,0.12) per frame, the project's DR
+philosophy on the conditioning var) made phi/true-z CONSISTENT but LOWER (phi 0.573 / truez 0.421) -- it smoothed the
+response without lifting it. The single z-head is the architecture bottleneck (mirrors the S2 finding: shared head
+fails, per-vehicle heads needed). Richer head conditioning (FiLM the head / soft-MoE) is the lever.
+
+### (2) The A-vs-C comparison is UNFAIR (DAgger confound); the clean read is B-vs-C1
+A (the certified capstone, 0.994) had **DAgger closed-loop correction + per-vehicle heads**. B/C1/C2 are **pure BC,
+NO DAgger, single head**. The project already proved avoid is closed-loop-sensitive and DAgger is THE lever (low BC
+MSE, closed-loop failures). So A's 0.994 is NOT a fair ceiling for a BC-only C1 -- much of the A->C gap is DAgger,
+not the label.
+
+**The clean, fair comparison is the matched ABLATION: B vs C1 -- identical FiLMZ single-head architecture, identical
+BC-only training, differing ONLY in z:**
+  B (no-ID, z=0): 0.257   ->   C1 (RMA, phi-inferred z from history): 0.801
+This isolates the SELF-ID SIGNAL: replacing the vehicle label with history-inferred identity recovers avoid
+0.257 -> 0.801 in a matched BC-only setting. The residual gap to A (0.994) is attributable to DAgger (closed-loop
+correction), NOT to the label -- and DAgger can be added to C1 too.
+
+### Honest headline
+History-inferred self-ID (RMA) carries real, large value for cross-vehicle avoid (B 0.257 -> C1 0.801, matched
+ablation; phi recovers mass+drivetrain from a 20-step window). The vehicle LABEL is replaceable by INTERACTION. Two
+caveats keep it honest: (a) the single z-head is fragile -> needs richer head conditioning; (b) absolute level is
+BC-capped -> add DAgger (the proven avoid lever) for an A-comparable, deployable self-ID driver. C2 (end-to-end GRU)
+stays weak (0.292) -- needs more data or a hybrid (GRU encoder regressed to z).
