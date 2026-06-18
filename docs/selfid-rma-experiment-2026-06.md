@@ -94,3 +94,41 @@ ablation; phi recovers mass+drivetrain from a 20-step window). The vehicle LABEL
 caveats keep it honest: (a) the single z-head is fragile -> needs richer head conditioning; (b) absolute level is
 BC-capped -> add DAgger (the proven avoid lever) for an A-comparable, deployable self-ID driver. C2 (end-to-end GRU)
 stays weak (0.292) -- needs more data or a hybrid (GRU encoder regressed to z).
+
+---
+
+## RMA + DAgger: the LABEL-FREE self-ID driver MATCHES the privileged one-hot ceiling (2026-06-18)
+
+Both confounds fixed: (1) learned z-encoder ExtrinsicsEncoder(2->16), jointly BC-trained -> the FiLM conditions
+ROBUSTLY (phi-z == true-z, the erratic single-2d-head fragility is gone); (2) DAgger (deploy phi-z_hat, relabel
+student-visited states with the oracle, augment, retrain) -> closed-loop correction lifts the BC cap. _selfid_rma_full.py.
+
+Progression (avoid, NO vehicle label = phi-inferred z_hat from a 20-step history window):
+| stage | mean avoid | note |
+|---|---|---|
+| B no-ID (z=0, BC) | 0.257 | floor |
+| C1 raw-2d-z (BC) | 0.801 | FRAGILE (phi 0.801 vs true-z 0.497) |
+| learned-z (BC, no DAgger) | 0.415 | ROBUST (phi==true-z) but BC-capped |
+| **learned-z + 1 DAgger round** | **0.970** | **A-comparable, NO label** |
+| A one-hot + DAgger (privileged) | 0.994 | ceiling |
+
+INDEPENDENT re-verification of the round-1 driver (selfid_rma_round1.pt) on the FULL 36-cell avoid set x5 seeds
+(180 ep/vehicle/condition):
+| vehicle | phi-z (NO label) | true-z |
+|---|---|---|
+| Sedan  | 0.917 (165/180) | 0.856 |
+| UAZBUS | 0.994 (179/180) | 0.994 |
+| BMW    | 1.000 (180/180) | 1.000 |
+| mean   | **0.970** | 0.950 |
+
+**VERDICT: the vehicle one-hot is REPLACEABLE.** Inferring the vehicle from (obs,action) interaction (phi) + closing
+the loop (DAgger) yields a LABEL-FREE driver at 0.970 mean avoid -- essentially the privileged one-hot ceiling
+(0.994) -- across 3 vehicles. phi-z ~= true-z confirms the identification is honest, not lucky. This is the working
+realization of the user's thesis: a driver that FEELS THE CAR OUT instead of being told which car it is.
+
+CAVEAT (honest): round 2 of DAgger COLLAPSED (phi-z 0.193) -- a bug (DAgger recovery FRAMES, which are unordered
+visited states, were appended to the phi SEQUENCE pool where windows_from builds temporal windows -> garbage
+windows polluted phi) compounded by DAgger over-augmentation. Round 1 is the selected best. FIX for the extensions:
+(a) separate the teacher FRAME pool from the phi SEQUENCE pool (recovery frames -> frames only), (b) best-round
+selection (like the capstone's worst-vehicle select). NEXT: leave-one-vehicle-out generalization (the test the
+one-hot structurally cannot pass) + extend to drift (full-scenario self-ID driver).

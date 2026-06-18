@@ -39,10 +39,23 @@ LOG_STD_INIT = f2.LOG_STD_INIT
 VEHICLE_MASS = {"sedan": 1450.0, "uazbus": 2858.0, "bmw": 1800.0}
 VEHICLE_FRONT_DRIVE = {"sedan": 1.0, "uazbus": 0.0, "bmw": 0.0}
 Z_DIM = 2
+RICH_Z = 16   # learned latent dim (proper RMA: z = encoder(extrinsics), jointly trained -> robust FiLM conditioning)
 
 def vehicle_extrinsics(name: str) -> np.ndarray:
     """The teacher's privileged z: real, continuous, generalises to an unseen 4th vehicle."""
     return np.asarray([VEHICLE_MASS[name] / 2000.0, VEHICLE_FRONT_DRIVE[name]], dtype=np.float32)
+
+
+class ExtrinsicsEncoder(nn.Module):
+    """Learned RMA latent: extrinsics(2) -> z(RICH_Z). Trained JOINTLY with the policy (so z is task-optimised,
+    not a raw re-embedding); a higher-dim learned z gives the FiLM enough signal to condition ROBUSTLY (the fix
+    for the fragile 2-dim single-head). phi then regresses this z from history."""
+    def __init__(self, in_dim: int = Z_DIM, z_dim: int = RICH_Z, hidden: int = 64):
+        super().__init__()
+        self.net = nn.Sequential(nn.Linear(in_dim, hidden), nn.Tanh(),
+                                 nn.Linear(hidden, hidden), nn.Tanh(), nn.Linear(hidden, z_dim))
+    def forward(self, extr: torch.Tensor) -> torch.Tensor:
+        return self.net(extr)
 
 
 # =====================================================================================
