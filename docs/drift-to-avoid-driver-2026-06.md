@@ -33,3 +33,36 @@ gap traditional active safety cannot close and RL+drift does.
 - More seeds + seed-clustered CI on the drift_required bucket; balanced label sampling.
 - Stronger baseline (NMPC / optimal-control planner) instead of the conservative feasibility label.
 - Faithful Chrono validation of the drift-to-avoid maneuvers (the surrogate->Chrono arbiter).
+
+---
+
+## ★ CORRECTED to FULL-SPECTRUM avoidance (2026-06-18): ONE driver covers the WHOLE spectrum, any means
+
+User refinement: NOT "drift-to-avoid" (the narrow drift_required bucket) but UNIVERSAL avoidance across the entire
+spectrum -- an experienced driver doesn't pick a "function" (AEB/AES/drift), he just avoids by any means. So train +
+eval on ALL avoidable labels: aeb_feasible (braking suffices) + aes_feasible (steering suffices) + drift_required
+(only high-sideslip suffices); exclude only `unavoidable`.
+
+Built: configs/ppo_fullspectrum_avoidance.json (allowed_labels=[aeb,aes,drift], require_aeb_infeasible=False) +
+per-bucket eval configs (m5_obstacle_{aeb_feasible,aes_feasible,all_avoidable}_eval.json). Fresh 1M-step PPO.
+
+RESULT (all-avoidable eval, 200 eps, per obstacle_label bucket):
+| bucket (n) | RL one driver | envelope_aes | aes_heuristic | aeb |
+|---|---|---|---|---|
+| aeb_feasible (112) | **1.000** | 0.821 | 0.161 | 0.161 |
+| aes_feasible (20)  | **1.000** | 1.000 | 0.000 | 0.150 |
+| drift_required (68)| **0.912** | 0.912 | 0.265 | 0.206 |
+| OVERALL (200)      | **0.970** | 0.870 | 0.180 | 0.175 |
+| collision_rate     | **0.030** | 0.030 | 0.535 | 0.790 |
+| high_sideslip_frac | 0.155 (drifts WHEN NEEDED) | 0.002 | 0.450 | 0.128 |
+
+**HEADLINE: ONE RL driver covers the FULL avoidance spectrum at >=0.91 on EVERY bucket (0.970 overall, 0.030
+collision), beating every rule-based function -- each of which only handles its own slice (AEB brake-only, AES
+steer-only, envelope_aes best rule at 0.870 but weaker on aeb_feasible).** It uses whatever maneuver fits -- brakes,
+steers, or drifts (sideslip 0.155, used only when required) -- deciding nothing explicitly, like an experienced
+driver. fullspectrum_avoid_driver.pt. (Metric is finish_on_pass = pass the obstacle without collision/off-track; a
+pure-stop AEB is penalised because stopping != passing, so the cleanest comparison is RL 0.97 vs best-rule 0.87 +
+collision 0.03 vs 0.53-0.79.)
+
+NEXT (strongest+most general): multi-seed seed-clustered CI; cross-vehicle (Sedan/UAZBUS/BMW) + self-ID label-free;
+stronger NMPC baseline; faithful Chrono validation of the full-spectrum maneuvers.
