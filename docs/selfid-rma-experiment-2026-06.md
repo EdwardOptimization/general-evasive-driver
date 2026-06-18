@@ -190,3 +190,26 @@ unfamiliar car.
 REMAINING (direction 4 of 4): extend self-ID to the DRIFT regime for a full-scenario label-free driver. VoI predicts
 NULL there (drift is vehicle-general, needs no z) -- a completeness + confirmation run, not expected to change the
 science.
+
+---
+
+## Full-scenario label-free self-ID driver (2026-06-18): drift 1.0 + avoid 0.871, ONE gated net, NO label
+
+Direction 4/4: extend self-ID to DRIFT for a full-scenario driver. ONE gated FiLMZ (gate + drift head + avoid head),
+z inferred from (obs,action) history, gate supervised by regime (drift=1/avoid=0, known at train). Drift demos
+collected as sequences (_selfid_collect_drift.py). Key fix: BALANCED REGIME SAMPLING (256 drift + 256 avoid per
+batch) -- without it, drift (the minority class, ~10k vs ~34k avoid frames) under-trains and the regimes trade off
+(round 0 avoid 0.901/drift 0.722; round 1 drift 0.917/avoid 0.743). _selfid_fullscenario.py.
+
+| stage | DRIFT (no label) | AVOID (no label) |
+|---|---|---|
+| balanced BC (round 0) | 0.935 (Sed 1.0, Uaz 1.0, BMW 0.806) | 0.842 |
+| balanced + 1 avoid DAgger (round 1) | **1.000** (1.0/1.0/1.0) | **0.871** (0.772/0.895/0.947) |
+
+**VoI two-regime law CONFIRMED in the self-ID dimension**: DRIFT reaches 1.0 and is vehicle-general -- balanced BC
+alone already gives 0.935 WITHOUT precise per-vehicle conditioning (self-ID is REDUNDANT for drift, VoI~0, exactly as
+predicted). AVOID is the regime that needs identity + DAgger (self-ID VALUABLE). The balanced DAgger lifted BOTH
+regimes (drift 0.935->1.0, avoid 0.842->0.871) -- regime interference handled. selfid_fullscenario.pt: a single
+gated label-free driver mastering drift+avoid across 3 vehicles by feeling the car out. Avoid (0.871) trails the
+avoid-only RMA (0.970) -- the single avoid head + joint drift+avoid training costs a little; per-vehicle-style avoid
+head conditioning would close it.
