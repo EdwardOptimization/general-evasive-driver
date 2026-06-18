@@ -263,3 +263,29 @@ susceptible at the edge, UAZBUS/BMW fully immune to both axes at every level tes
 VoI law on BOTH axes: drift (where identifying the vehicle/state has no value) is robust to sensing degradation;
 avoid (where it has value) is the only regime that moves, and only at its hardest cells. NEXT: probe the indicated
 lever (perception-DR fine-tune of Sedan small-reveal avoid) + final seed-clustered CI certification.
+
+---
+
+## S3 LEVER (2026-06-18): perception-DR Sedan-avoid-head fine-tune — robustified AND closed the last 2 clean misses
+
+Probed the indicated lever (don't ship a NO-GO / leave a susceptibility from analysis — build+measure). Surgical +
+reversible: froze trunk + FiLM + drift head + UAZBUS/BMW avoid heads; fine-tuned ONLY avoid_heads[sedan] on
+perception-DR DAgger recovery labels (student acts on NOISY obstacle perception gn~{0,.04,.08}, oracle labels on the
+CLEAN true state; store noisy_obs -> clean-oracle-action; small-reveal cells weighted heavier). 28,866 labels, 1200
+BC steps. _s3_perception_dr_sedan.py + _s3_dr_regression.py.
+
+PROVEN surgical: the ONLY params that moved are avoid_heads.0.{weight,bias} (verified by state-dict diff) -> Sedan
+drift, UAZBUS (all), BMW (all) are BIT-IDENTICAL to the capstone -> their 28/28 drift + 72/72 avoid are unchanged by
+construction, no re-validation needed.
+
+RESULT (Sedan avoid, the only thing that changed):
+| metric | capstone | perception-DR head |
+|---|---|---|
+| clean full-spectrum (36 cells) | 34/36 (0.896) | **36/36 (1.000)** -- the 2 knife_edge r8/r9.5 misses CLOSED |
+| perception ladder clean / .04 / .08 | 1.0 / 0.958 / 0.875 | **1.0 / 1.0 / 1.0** -- robust to 3.2m obstacle noise |
+
+Double duty: the perception-DR labels taught conservative-under-uncertainty behavior that BOTH robustified
+small-reveal avoid against obstacle-perception noise AND closed the 2 residual clean envelope-edge misses. BC MSE
+stayed ~0.32 (the noisy->clean map is inherently noisy) yet closed-loop success is 1.0 -- another instance of
+"closed-loop success != low BC MSE". distill_final_perceptionDR_policy.pt is the ROBUSTIFIED capstone:
+**136/136 clean across 3 vehicles + Sedan perception-robust to gn=0.08.** NEXT: seed-clustered CI certification.
