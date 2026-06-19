@@ -416,10 +416,11 @@ which would be a stronger classical baseline. The TMeasy tyre is a semi-empirica
 its combined-slip force behaviour at the limit is the fidelity boundary of the drift regime, and the
 drift cell studied here is a single operating point rather than a swept handling envelope. The
 avoidance regression is significant at the nominal level on sixteen seeds (seed-clustered paired
-$t$ against the $1.00$ floor, $p=0.008$), though it does not survive a Bonferroni correction across
-the architecture$\times$regime arms we explored ($p\approx0.07$); the drift advantage clears the same
-correction by orders of magnitude ($p<10^{-12}$), so only the secondary, benign-regime claim is
-multiplicity-fragile. Gated heads improve \emph{drift}
+$t$ against the $1.00$ floor, $p=0.008$) but sits at the multiplicity boundary once we account for the
+post-hoc architecture sweep: it survives a four-way (per-architecture) Bonferroni correction
+($p=0.034$) but not a stricter eight-way (architecture$\times$regime) one ($p=0.068$). The drift
+advantage clears either correction by four orders of magnitude (one-sided $p=4\times10^{-7}$,
+Bonferroni $\le 4\times10^{-6}$), so only the secondary, benign-regime claim is multiplicity-sensitive. Gated heads improve \emph{drift}
 reliability but do not resolve the avoidance regression, confirming the tradeoff is not merely a
 training artefact. The per-seed analysis suggests the residual is
 partly fundamental and partly a training-variance effect: only half the seeds reach a
