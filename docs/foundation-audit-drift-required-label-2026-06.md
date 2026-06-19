@@ -118,3 +118,40 @@ behaviour that naturally arises in emergency avoidance on the faithful vehicle.
 ### Net (4 independent measurements, planar + faithful Chrono): drift is NON-ESSENTIAL (indeed counterproductive) for
 ### obstacle avoidance while grip is intact. The thesis "drift is unnecessary before the car has started sliding"
 ### is established by theory (friction circle + load transfer) AND experiment (CG, box, and Chrono reachability).
+
+## Adversarial verification (2026-06-19): negative SURVIVES, 3 reporting flaws fixed, scope gap closed
+Ran 4 skeptics (one per measurement) + an adjudicator to try to REFUTE "drift gives no avoidance advantage". Result:
+the negative SURVIVES (3 independent tests + Chrono all say no drift advantage; every correction pushes drift WORSE).
+Fixes applied:
+
+1. **[threshold artifact -- the one real "would-flip" against the CG test]** The beta>=0.10 rad "drift" classification
+   in drift_reachability.py / chrono_drift_reachability.py is tautological: the global-best-displacement maneuver
+   (steer~0.35) is itself a ~8-12deg mild-slip maneuver, so it lands in the "drift" bin and inflates "drift wins".
+   Threshold sweep: drift gain +12.6% @ beta>=0.05, +5.2% @ 0.10, +0.4% @ 0.15. => the CG-displacement test is NOT
+   evidence of a drift ADVANTAGE; the apparent +5% win is a classification artifact that vanishes at a sane
+   threshold. CORRECTION: the CG/displacement results are downgraded to "drift <= non-drift" only; the box-SAT and
+   Chrono tests carry the load.
+2. **[peak-vs-average re-label]** measure_env_lateral_capacity.py reports PEAK ay (~0.95mu*g); the label's d=0.5*a*t^2
+   needs AVERAGE ay. Measured avg/peak ~= 0.91 for BOTH regimes, so the GAP (what sets drift_required) stays small.
+   Corrected re-label (conv 0.86, drift 0.90): **drift_required ~= 1.9% (range 0.5-2.7%)**, vs the original 20.5% --
+   the collapse is robust (more severe, not less; skeptic's 8-12% fear was wrong because both regimes scale together).
+3. **[util>1.0 logging artifact]** the Chrono `util` column divides one wheel's peak lateral force by the fleet-max
+   normal load (cross-wheel aggregation), so it can exceed 1.0 -- a logging artifact, NOT a physics violation
+   (per-tire friction-circle saturation is enforced). util is explanatory garnish; the conclusion rests on
+   displacement (cmax vs dmax). Treat util as unreliable / drop it.
+
+### Decisive scope gap CLOSED -- angled + extended obstacles (scripts/audits/box_reachability_angled.py)
+The one untested geometry where theory said body-rotation (drift) COULD help: oriented obstacles psi in {30,45,60}deg,
+depth hd in {1.5,2.5}m, oriented-box SAT, binary-search min clearable D* per regime:
+**drift clears a >0.4m-closer obstacle in 0/12 angled/deep cells.** Non-drift always equal-or-closer; drift is worse
+(tail swing) or CANNOT clear the deep ones at all. => drift gives no advantage even in its best-case geometry. The
+negative is closed at FULL scope.
+
+## FINAL (adversarially-verified) CONCLUSION
+Across FIVE measurements (lateral-capacity/label, CG reachability, axis-aligned box-SAT, angled+extended box-SAT, and
+faithful Chrono multibody), spanning planar and multibody physics and point/oriented/extended collision geometries,
+**controlled drift provides NO obstacle-avoidance advantage while grip is intact -- it is equal-or-worse everywhere,
+and load transfer / tail-swing make it strictly worse where they bite.** With physically-grounded labels the genuine
+"must-drift" fraction is ~2% (not 20.5%). The thesis is established by theory (friction circle + load transfer +
+tail-swing) AND experiment, and SURVIVED adversarial attack with only reporting corrections. Drift's real value lies
+in a DIFFERENT regime -- recovering an ALREADY-INITIATED slide -- which is direction 1, not obstacle avoidance.
