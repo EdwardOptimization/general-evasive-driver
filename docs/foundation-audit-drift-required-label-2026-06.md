@@ -27,7 +27,9 @@ Re-labeling 4000 scenarios (speed 12-16, mu 0.25-1.15, dist 5-24, hw 0.45-1.15):
 | ORIGINAL (0.42 / 0.85) | 0.371 | 0.040 | **0.205** | 0.384 |
 | env's real capacity (0.85 / 0.97) | 0.370 | 0.258 | **0.041** | 0.331 |
 | generous-to-drift (0.80 / 0.97) | 0.355 | 0.228 | **0.069** | 0.348 |
-=> with the env's true conventional grip, drift_required collapses 20.5% -> ~4%, and that remnant is a thin band
+=> with the env's true conventional grip, drift_required collapses 20.5% -> ~4% by this first-pass peak-ay table
+(refined to ~1.9%, range 0.5-2.7%, after the average-ay + threshold-sweep correction in the adversarial-review
+section below -- that is the authoritative number), and that remnant is a thin band
 between 0.85 and 0.97*mu*g that conventional limit-steering (peaks ~0.95) largely also clears.
 
 ## Verdict
@@ -85,7 +87,8 @@ fails outright. Non-drift (body aligned with the path) presents the minimal swep
 
 ## FINAL VERDICT (triple-confirmed, all measured)
 "Drift to avoid where rule-based can't" is FALSE in this simulator, confirmed three independent ways:
-1. Label audit -- conventional grip understated 2x (0.42 vs measured ~0.85); drift_required collapses 20.5%->~4%.
+1. Label audit -- conventional grip understated 2x (0.42 vs measured ~0.85); drift_required collapses 20.5%->~2%
+   (~4% by the first-pass peak-ay table; refined to ~1.9%, range 0.5-2.7%, after the average-ay correction below).
 2. CG reachability -- drift <= non-drift on lateral displacement; 0/12 (mu,v) cells in the emergency window.
 3. Box-to-box reachability -- drift clears an EQUAL-or-FARTHER obstacle (0/6 closer), and is strictly WORSE where it
    matters (tail-swing).
