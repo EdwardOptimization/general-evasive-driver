@@ -359,8 +359,24 @@ counter-steer recovers in every case ($9/9$). This is the same closed-loop-at-th
 drift task, now framed as recovery, and it is exactly where a brake-based reflex is not merely
 insufficient but actively harmful.
 
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.96\linewidth]{figs/fig4_tworegime}
+\caption{The two-regime law, measured on the faithful multibody backend. \textbf{(A) Before slip:}
+the maximum lateral displacement reachable by an open-loop manoeuvre, conventional limit-steering
+vs.\ a deliberately provoked drift, across friction. Drift displaces \emph{less} at every friction
+level ($-7$ to $-45\%$); high sideslip is past the tyre's lateral-force peak and load transfer
+unloads a tyre, so the drift gives no avoidance advantage. \textbf{(B) After slip:} recovery outcome
+from a developing spin (initial sideslip $\beta_0$ $\times$ yaw rate, $\mu=0.5$); each cell shows the
+brake-only stability controller (left) and active counter-steer (right). Brake-only ESC fails in
+every cell---spinning the car out or stopping it sideways---whereas active counter-steer recovers in
+every cell. The same closed-loop-at-the-limit skill wins in both phases.}
+\label{fig:tworegime}
+\end{figure}
+
 \paragraph{A two-regime law.}
-Together these give a sharper answer than ``drift hard, avoidance easy.'' The friction limit has two
+Together these give a sharper answer than ``drift hard, avoidance easy''
+(Figure~\ref{fig:tworegime}). The friction limit has two
 phases. \emph{Before} the tyres lose grip, the correct emergency action is closed-loop limit-steering;
 a deliberate drift is unnecessary and counterproductive for avoidance, and the classical failure mode
 is sliding out, not a missing manoeuvre. \emph{After} the tyres have lost grip, active-steering slide
