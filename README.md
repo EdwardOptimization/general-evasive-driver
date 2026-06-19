@@ -14,6 +14,11 @@ The first implementation target is deliberately narrow and practical:
 - keep real hardware out of the first milestone, while keeping interfaces clean
   enough to add high-fidelity simulators or hardware later.
 
+## Navigation
+
+See **[docs/INDEX.md](docs/INDEX.md)** for a map of the trained drivers, key findings, audit
+scripts, and which files are load-bearing research-process scaffolding.
+
 ## Current MVP
 
 The repository currently contains:
