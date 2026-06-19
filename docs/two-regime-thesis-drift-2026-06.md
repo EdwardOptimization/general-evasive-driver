@@ -39,3 +39,20 @@ both recover. Extreme+low-mu (beta0>=0.9, mu=0.4): neither (physically unrecover
 - The recovery "best closed-loop" is a small gain sweep, not an optimal controller, so the recoverable-set boundary is
   a lower bound; a better controller may recover a slightly larger band.
 - Planar dynamics for the sweeps (Chrono confirmed regime A); regime B on faithful Chrono is the natural next check.
+
+## Regime B CONFIRMED on faithful Chrono (scripts/audits/chrono_recovery.py)
+Repeated the slide-recovery test on the real multibody backend (init the Chrono vehicle in a developing slide via
+initial_state vx/vy/yaw_rate, honored by the solver). Two faithful-physics refinements of the planar result:
+1. The faithful vehicle is FAR more self-stabilising: with NO control it self-recovers from sideslips up to ~63deg at
+   moderate yaw (planar spun). So the "needs active steering" band is narrower -- it requires HIGH yaw (3.0-4.0 rad/s)
+   at MID mu (~0.5); at low mu (0.35) or extreme yaw (>=4.5) the spin is unrecoverable by anything.
+2. In that developing-spin band (mu=0.5, beta0 34-57deg, yaw 3.0-4.0), BRAKE-ONLY ESC FAILS 9/9 -- it SPINS the car
+   out (6/9) or STOPS it sideways (3/9), NEVER recovering. ACTIVE COUNTER-STEER recovers 9/9 (uniquely in 6/9).
+   => braking during a developing spin is actively CATASTROPHIC on the faithful vehicle (load shifts off the rear,
+   the brake force eats the friction circle); active counter-steer (the skilled-driver / RL action) is the rescue.
+
+Net: the two-regime thesis is now Chrono-confirmed on BOTH sides. Regime A -- before slip, drift gives no avoidance
+advantage (drift worse on Chrono via load transfer). Regime B -- after slip, active-steering closed-loop control
+recovers where classic brake-based ESC catastrophically fails. The unifying law: the right control is ACTIVE STEERING
+AT THE LIMIT; brakes/feedforward rules are the wrong tool both for limit avoidance and for spin recovery, and RL
+learns the active closed-loop steering that wins in both regimes.
