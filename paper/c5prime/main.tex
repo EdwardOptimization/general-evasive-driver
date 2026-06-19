@@ -35,9 +35,18 @@ our own training pipeline a string of ``RL cannot drift'' negatives traced to tw
 bugs (an under-trained warm-start and a selection-timing error), not to a fundamental limit.
 Second, the avoidance regression is cross-regime gradient interference on shared policy weights; we
 rule out smoothing, capacity, and gradient surgery, and partly resolve it with gated dual heads
-that give each regime its own output weights. The contribution is a rigorous, honestly bounded
-answer: at the friction limit learning wins decisively; in the benign regime it should not replace
-classical control.
+that give each regime its own output weights. We then ask \emph{why} learning wins and show, by
+direct reachability measurement and a control-input ablation, that the differentiator is not the
+drift \emph{manoeuvre} but \emph{closed-loop control at the friction limit}: a deliberate drift gives
+no obstacle-avoidance advantage while grip is intact (five measurements, including the multibody
+backend, survive an adversarial four-referee review), and a fixed steering rule fails even when given
+the true friction, because it slides out. This yields a two-regime law---before the tyres lose grip
+the correct action is closed-loop limit-steering and a drift is counterproductive; after they lose
+grip, active counter-steer recovers the car whereas the classical brake-based reflex is
+catastrophic---unifying the avoidance and recovery cases with the drift result. The contribution is a
+rigorous, honestly bounded answer: at the friction limit learning wins decisively because it acquires
+closed-loop steering control of a saturated regime that feedforward and brake-based reflexes cannot
+represent; in the benign regime it should not replace classical control.
 \end{abstract}
 
 \begin{center}
@@ -100,6 +109,13 @@ shared policy weights, which we localise and partly resolve.
   two identifiable training bugs, not a representational or task limit.
   \item A lever-elimination study of the regime tradeoff that localises the conflict to shared
   output weights (via gradient surgery) and partly resolves it with gated dual output heads.
+  \item A reachability and mechanism analysis (Section~\ref{sec:why}) explaining \emph{why} learning
+  wins: the differentiator is closed-loop limit control, not the drift manoeuvre. We debunk the
+  ``drift to avoid'' intuition with five measurements (planar reachability for point, oriented, and
+  extended obstacles, plus the multibody backend; adversarially reviewed), show that giving a fixed
+  rule the true friction does not rescue it, and establish a two-regime law in which active steering
+  wins both before slip (avoidance) and after slip (recovery), where the classical brake reflex is
+  catastrophic.
 \end{enumerate}
 
 \section{Related Work}
@@ -286,6 +302,73 @@ for drift (bottom-right).}
 \label{fig:frontier}
 \end{figure}
 
+\section{Why Learning Wins: A Reachability and Mechanism Analysis}
+\label{sec:why}
+The headline result says \emph{where} learning wins (saturated drift) and \emph{where} it does not
+(benign avoidance), but not \emph{why}. A natural reading---``the learned policy wins because it can
+drift, and drifting is a powerful evasive manoeuvre''---turns out to be wrong. We show, by direct
+reachability measurement and a control-input ablation in the same multibody simulator, that the
+differentiator is not the drift \emph{manoeuvre} but \emph{closed-loop control at the friction
+limit}, and that the friction limit splits cleanly into two phases.
+
+\paragraph{Drift is not an avoidance advantage while grip is intact.}
+A widespread intuition holds that some obstacles can only be cleared by deliberately drifting. We
+tested it five ways and it does not survive. The scenario-feasibility model that labels obstacles
+``drift-required'' assumes conventional steering can use only $0.42\,\mu g$ of lateral grip while a
+drift can use $0.85\,\mu g$; measuring the vehicle's actual peak lateral tyre force shows
+conventional steering reaches $0.78$--$0.95\,\mu g$ and drift $0.95$--$0.99\,\mu g$---both
+friction-circle bounded, with drift offering no lateral-force advantage. Re-labelling with the
+measured capacity collapses the ``drift-required'' fraction from $20.5\%$ to $\sim\!2\%$. Direct
+reachability confirms it: sweeping control profiles for the maximum lateral displacement reachable
+before a time-to-collision horizon, a drifting trajectory never displaces the centre of mass farther
+than the best non-drift trajectory in the emergency window (and is worse on average, because high
+sideslip is past the tyre's lateral-force peak). Upgrading the collision model from a point to an
+oriented bounding box does not help drift---body rotation makes it \emph{worse} (the rotated car's
+tail sweeps a larger arc), including for angled and extended obstacles, where the geometric argument
+for drift is strongest. On the faithful multibody backend a deliberately provoked drift achieves
+$7$--$45\%$ \emph{less} lateral displacement than conventional limit-steering, because load transfer
+unloads a tyre during the slide. These four planar measurements and the Chrono check survived an
+adversarial four-referee review, which corrected our reporting (a sideslip-threshold artefact, and
+peak vs.\ average grip in the re-label) without overturning the conclusion. The learned policy's win
+on the drift \emph{task} is therefore not evidence that drifting helps avoidance; the drift task
+rewards a different skill---stabilising a saturated, unstable equilibrium---which is precisely what a
+benign-regime reflex cannot do.
+
+\paragraph{The differentiator is closed-loop limit control, not friction knowledge.}
+If avoidance at the limit does not need a drift manoeuvre, why does the learned policy avoid where
+learning-free controllers fail? We isolate the mechanism with a controlled probe on an
+obstacle-avoidance set whose feasibility labels have been corrected to the measured grip. A fixed
+emergency-steering rule using only realistic perception reaches $0.43$ success; \emph{giving the same
+rule the true friction coefficient does not help it at all} (also $0.43$)---it slides out (mean
+high-sideslip fraction $0.51$) regardless of knowing $\mu$. The learned policy reaches $0.965$ on the
+same set with a moderate sideslip ($0.15$) and a $0.035$ collision rate. So the gap is neither a
+manoeuvre nor friction knowledge: it is \emph{closed-loop modulation of the action on the vehicle's
+response}, which holds the car at the limit without spinning out and which a fixed feedforward rule
+cannot reproduce even with perfect $\mu$.
+
+\paragraph{After the car is already sliding, active steering is the rescue and braking is catastrophic.}
+The complement of ``drift does not help you avoid'' is ``managing an already-developed slide does
+matter.'' We initialise the multibody vehicle in a developing spin (high sideslip and yaw) and
+compare a brake-only controller (the classical electronic-stability-control action: scrub speed,
+no counter-steer) against active counter-steer. Two faithful-physics facts emerge. The real vehicle
+self-stabilises from sideslips up to $\sim\!63^\circ$ at moderate yaw, so the regime that needs
+intervention is narrow---high yaw rate at intermediate friction. \emph{Inside} that regime, the
+brake-only controller fails in every case ($9/9$): it either spins the car out or stops it sideways,
+because braking shifts load off the rear and spends friction-circle budget longitudinally. Active
+counter-steer recovers in every case ($9/9$). This is the same closed-loop-at-the-limit skill as the
+drift task, now framed as recovery, and it is exactly where a brake-based reflex is not merely
+insufficient but actively harmful.
+
+\paragraph{A two-regime law.}
+Together these give a sharper answer than ``drift hard, avoidance easy.'' The friction limit has two
+phases. \emph{Before} the tyres lose grip, the correct emergency action is closed-loop limit-steering;
+a deliberate drift is unnecessary and counterproductive for avoidance, and the classical failure mode
+is sliding out, not a missing manoeuvre. \emph{After} the tyres have lost grip, active-steering slide
+management is the rescue, and the classical brake-based reflex is catastrophic. Learning wins in both
+phases for the same reason it wins on the drift task: it acquires closed-loop active-steering control
+of a saturated regime that feedforward and brake-based reflexes cannot represent. ``Drift'' names a
+vehicle \emph{state}, not the skill; the skill is control at the limit.
+
 \section{Discussion and Limitations}
 The result is bounded by design, and the boundaries are the point. \emph{Where} learning wins is
 the saturated drift regime, in which it beats both reflex control and a hand-tuned oracle reliably
@@ -309,13 +392,33 @@ which is the suspected reason more seeds do not reach the both-good frontier. Re
 (more parallel data, or a learned GPU-batched surrogate of the multibody simulator) is the clearest
 route to making both regimes reliable, and is the natural next step.
 
+The reachability and mechanism analysis of Section~\ref{sec:why} carries its own bounds. The
+reachability sweeps and the recovery comparison search over parameterised control profiles, not an
+optimal controller, so each ``best non-drift'' or ``recoverable'' figure is a lower bound; a stronger
+controller could shift a boundary, though it would have to overturn a consistent margin across point,
+oriented, extended, and multibody tests. The recovery baseline is a brake-only stability controller;
+a production system with active-steering authority or slip feedback would narrow the gap---but such a
+controller is itself converging on the closed-loop steering control that the learned policy acquires,
+which is the point rather than a confound. The avoidance mechanism probe and the recovery study use a
+single friction-and-geometry sweep rather than the frozen confirmatory grid of the headline result,
+and the multibody recovery check is a targeted boundary sweep rather than a seed-clustered estimate;
+we present them as mechanistic evidence for \emph{why} the headline result holds, not as a second
+pre-registered comparison.
+
 \section{Conclusion}
 At the friction limit, learning wins: a single deployable policy reliably beats both reflex control
 and a hand-tuned oracle on sustained drift, under a pre-registered, five-arm comparison. In the
 benign regime it does not, and we report that honestly. The drift capability was unlocked by fixing
 two concrete training bugs, and the regime tradeoff was localised to shared output weights and
-partly resolved with gated dual heads. The useful claim is not ``RL drives,'' but a bounded map of
-\emph{where} and \emph{why} learning beats reflexes---and where it does not.
+partly resolved with gated dual heads. A reachability and mechanism analysis then sharpens
+\emph{why}: the win is not the drift manoeuvre---a deliberate drift gives no avoidance advantage
+while grip is intact, and a fixed rule fails even when handed the true friction---but closed-loop
+control at the limit. This yields a two-regime law: before slip the correct action is closed-loop
+limit-steering and a drift is counterproductive; after slip, active counter-steer recovers the car
+whereas the brake-based reflex is catastrophic. The useful claim is not ``RL drives,'' but a bounded,
+mechanistic map of \emph{where} and \emph{why} learning beats reflexes: it acquires closed-loop
+steering control of a saturated regime that feedforward and brake reflexes cannot represent---and in
+the benign regime, where they can, it should not replace them.
 
 \paragraph{Reproducibility and AI-use disclosure.}
 The protocol was pre-registered and frozen before the confirmatory run; results, the frozen
