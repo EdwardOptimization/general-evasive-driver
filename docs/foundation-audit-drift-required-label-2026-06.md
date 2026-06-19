@@ -66,3 +66,32 @@ peak = LESS lateral force = less displacement. Drift's real value (if any) lives
 extended/angled-obstacle geometry where rotating the body helps, recovering an already-initiated slide, or forced
 combined hard-brake-and-turn. None of those is "displace the CG past a point obstacle". So in this simulator the
 entire "RL drifts to avoid where rule-based can't" thesis is unsupported -- twice over (bogus label + reachability).
+
+## Box-to-box (OBB) reachability: car-body ROTATION makes drift WORSE, not better (scripts/audits/box_reachability.py)
+Upgraded the collision model from CG circle-circle to oriented-box vs box (SAT), so the car's HEADING/rotation enters
+the collision. Car 4.4x1.8m. For each scenario, find the smallest obstacle distance D* each regime can still clear
+(smaller = better avoidance):
+| mu | v | nondrift D* | drift D* | drift edge |
+|---|---|---|---|---|
+| 0.4 | 12 | 13.5 | 14.0 | -0.5 (worse) |
+| 0.4 | 16 | 17.5 | 18.5 | -1.0 (worse) |
+| 0.7 | 12 | 10.5 | 11.5 | -1.0 (worse) |
+| 0.7 | 16 | 14.0 | 14.0 | tie |
+| 1.0 | 12 | 9.5 | (cannot clear) | worse |
+| 1.0 | 16 | 12.0 | 12.0 | tie |
+Drift clears a >0.4m closer obstacle in 0/6 cells; coarse grid: 0 drift-ONLY-clears of 24. **Body rotation HURTS
+avoidance: the yawed (drifting) car's TAIL swings out, sweeping a wider arc -> it needs the obstacle farther away or
+fails outright. Non-drift (body aligned with the path) presents the minimal swept footprint.**
+
+## FINAL VERDICT (triple-confirmed, all measured)
+"Drift to avoid where rule-based can't" is FALSE in this simulator, confirmed three independent ways:
+1. Label audit -- conventional grip understated 2x (0.42 vs measured ~0.85); drift_required collapses 20.5%->~4%.
+2. CG reachability -- drift <= non-drift on lateral displacement; 0/12 (mu,v) cells in the emergency window.
+3. Box-to-box reachability -- drift clears an EQUAL-or-FARTHER obstacle (0/6 closer), and is strictly WORSE where it
+   matters (tail-swing).
+For obstacle avoidance, conventional limit-steering DOMINATES drift. Drift's genuine value (if any) is a DIFFERENT
+task -- recovering an already-initiated slide ("save the car"), not clearing a newly-revealed obstacle. The RL
+driver's real, honest differentiator is learning to operate at the friction limit + infer mu from realistic obs
+(beating non-privileged rules that don't know mu) -- NOT drifting. Caveat: planar friction-circle model; a faithful
+Chrono multibody (load transfer) could in principle differ, but the planar model is mu*N-faithful so a flip is
+unlikely; the honest next step if pursued is to repeat reachability on Chrono.
