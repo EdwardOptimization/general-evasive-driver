@@ -1,0 +1,135 @@
+"""BMW_E90 A5 — validate the cross-vehicle do-both driver back on real Chrono (BMW grid).
+
+The BMW analog of a5_chrono_validate.py / a5_chrono_validate_uazbus.py. It loads the
+BMW-distilled gated student and runs it on real Chrono over the SAME frozen avoid validation
+grid the Sedan/UAZBUS A5 used, but with the BMW_E90 variant + measured native mass threaded
+through every scenario and the drift cell re-aimed to the de-risked HIGH-SPEED mu0.25/v16
+controllable-drift cell. We re-use the EXACT a5 build_items / _student_task_eval machinery (so
+the drift/avoid success semantics are identical to the Sedan A5), only swapping the F2 scenario
+hooks to the BMW builders + re-physicalizing the avoid oracle via distill_both_bmw's patches.
+
+The number that matters: does the cross-vehicle do-both driver reach high drift + high avoid on
+BMW's OWN Chrono grid -- proving the recipe is cross-vehicle by config (3rd coverage point)?
+
+Usage: PYTHONPATH=src python scripts/feasibility_audit/a5_chrono_validate_bmw.py \
+           --policy runs/feasibility_audit/phase4_f2/distill_bmw_policy.pt \
+           --avoid-units 40 --drift-units 20 --workers 16
+"""
+from __future__ import annotations
+
+import argparse
+import json
+import sys
+from pathlib import Path
+
+import numpy as np
+import torch
+
+ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(ROOT / "scripts" / "feasibility_audit"))
+sys.path.insert(0, str(ROOT / "src"))
+
+import phase4_f2_train as f2  # noqa: E402
+import distill_both_bmw as bmw  # noqa: E402  (installs the BMW scenario + avoid-oracle patches)
+from chrono_worker_client import ChronoWorkerClient  # noqa: E402
+
+RUN_DIR = ROOT / "runs" / "feasibility_audit" / "phase4_f2"
+
+
+def load_model(policy_path: Path):
+    ckpt = torch.load(policy_path, map_location="cpu")
+    gated = bool(ckpt.get("gated", True))
+    model = f2.AsymmetricActorCritic(gated=gated)
+    model.load_state_dict(ckpt["state_dict"])
+    model.eval()
+    print(f"loaded policy {policy_path.name} (label={ckpt.get('label')}, variant={ckpt.get('variant')}, "
+          f"gated={gated}, select_avoid={ckpt.get('select_avoid')}, select_drift={ckpt.get('select_drift')})")
+    return model, ckpt
+
+
+def build_items(avoid_units: int, drift_units: int):
+    """Mirror a5_chrono_validate.build_items EXACTLY, but the F2 scenario hooks now build
+    BMW scenarios (patched by distill_both_bmw) and the avoid oracle is re-physicalized. The
+    frozen 'validation' avoid seed namespace is identical to the Sedan/UAZBUS A5 (so the
+    grid/seeds match; only the vehicle differs).
+
+    DRIFT seeds: the BMW drift cell is a DIFFERENT (high-speed) cell, so we generate drift
+    validation seeds in a BMW namespace (the validation grid is for THIS vehicle's
+    controllable-drift cell)."""
+    grid = f2._avoidance_grid(quick=False)
+    items = []
+    for unit in range(avoid_units):
+        reveal, mu = grid[unit % len(grid)]
+        f2._EVAL_MU_REGISTRY[round(float(reveal), 6)] = float(mu)
+        seed = f2._seed_for("validation", "avoidance", unit, round(reveal, 4), round(mu, 4))
+        items.append({"regime": "avoidance", "reveal": float(reveal), "mu": float(mu), "seed": int(seed),
+                      "scenario": f2._avoidance_scenario(seed, max_steps=285, reveal=float(reveal), mu=float(mu))})
+    drift_mu = float(bmw.BMW_DRIFT_CELL["mu"])
+    for unit in range(drift_units):
+        seed = int(f2._seed_for("bmw_validation", "drift", unit, bmw.BMW_DRIFT_CELL["cell_id"]))
+        items.append({"regime": "drift", "reveal": 0.0, "mu": drift_mu, "seed": seed,
+                      "scenario": f2._drift_scenario(seed, max_steps=f2.DRIFT_VALIDATION_MAX_STEPS, difficulty="hard")})
+    return items
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--policy", required=True)
+    ap.add_argument("--avoid-units", type=int, default=40)
+    ap.add_argument("--drift-units", type=int, default=20)
+    ap.add_argument("--workers", type=int, default=16)
+    args = ap.parse_args()
+
+    bmw._install_bmw_patches()  # thread BMW variant + params + drift cell + rephys avoid oracle into f2
+    model, ckpt = load_model(Path(args.policy))
+    items = build_items(args.avoid_units, args.drift_units)
+    n_av = sum(1 for it in items if it["regime"] == "avoidance")
+    n_dr = sum(1 for it in items if it["regime"] == "drift")
+    print(f"BMW Chrono validation: {n_av} avoidance + {n_dr} drift episodes, {args.workers} workers")
+    print(f"  variant={bmw.VARIANT} mass={bmw.BMW_MASS} drift_cell={bmw.BMW_DRIFT_CELL['cell_id']} "
+          f"(mu{bmw.BMW_DRIFT_CELL['mu']} v{bmw.BMW_DRIFT_CELL['speed_mps']:g})")
+
+    clients = [bmw.ResilientChronoClient(stderr_log=RUN_DIR / f"a5_bmw_w{w}_stderr.log")
+               for w in range(args.workers)]
+    # verify the scenarios carry the BMW variant (not silently Sedan) + avoid oracle rephys
+    verify = bmw._verify_bmw_scenarios(clients)
+    try:
+        rates = f2._student_task_eval(clients, items, model)
+    finally:
+        for c in clients:
+            c.close()
+
+    drift = rates.get("drift", float("nan"))
+    avoid = rates.get("avoidance", float("nan"))
+    print("\n=== BMW A5 CHRONO VALIDATION (cross-vehicle do-both driver on real Chrono) ===")
+    print(f"  variant verified BMW (not Sedan): {verify['all_bmw']}")
+    print(f"  avoid oracle re-physicalized: {verify['avoid_oracle_rephysicalized']}")
+    print(f"  drift  success (Chrono, BMW mu{bmw.BMW_DRIFT_CELL['mu']}/v{bmw.BMW_DRIFT_CELL['speed_mps']:g} cell) = {drift:.3f}")
+    print(f"  avoid  success (Chrono, BMW grid)                = {avoid:.3f}")
+    print("\nVERDICT:")
+    if avoid >= 0.80 and drift >= 0.80:
+        print(f"  CROSS-VEHICLE do-both ACHIEVED on BMW_E90: drift={drift:.3f} avoid={avoid:.3f} (both >= 0.80). "
+              f"The Sedan distill->DAgger recipe transfers to BMW_E90 by config (3rd coverage point).")
+    else:
+        weak = []
+        if drift < 0.80:
+            weak.append(f"drift {drift:.3f}")
+        if avoid < 0.80:
+            weak.append(f"avoid {avoid:.3f}")
+        print(f"  PARTIAL: {', '.join(weak)} below 0.80. Report where it lands; "
+              f"a BMW GPU drift expert and/or more DAgger may be needed (honest).")
+
+    out = {
+        "policy": str(args.policy), "variant": bmw.VARIANT, "mass": bmw.BMW_MASS,
+        "drift_cell": bmw.BMW_DRIFT_CELL, "scenario_verification": verify,
+        "avoid_units": int(n_av), "drift_units": int(n_dr),
+        "drift_success_chrono": float(drift), "avoid_success_chrono": float(avoid),
+        "ckpt_select_avoid": ckpt.get("select_avoid"), "ckpt_select_drift": ckpt.get("select_drift"),
+    }
+    out_path = RUN_DIR / "a5_bmw_result.json"
+    out_path.write_text(json.dumps(out, indent=2, default=str), encoding="utf-8")
+    print(f"\nresult -> {out_path}")
+
+
+if __name__ == "__main__":
+    main()
