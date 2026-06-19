@@ -328,9 +328,11 @@ friction-circle bounded, with drift offering no lateral-force advantage. Re-labe
 measured capacity collapses the ``drift-required'' fraction from $20.5\%$ to $\sim\!2\%$ (range
 $0.5$--$2.7\%$ depending on the sideslip threshold). Direct
 reachability confirms it: sweeping control profiles for the maximum lateral displacement reachable
-before a time-to-collision horizon, a drifting trajectory never displaces the centre of mass farther
-than the best non-drift trajectory in the emergency window (and is worse on average, because high
-sideslip is past the tyre's lateral-force peak). Upgrading the collision model from a point to an
+before a time-to-collision horizon, a drifting trajectory almost never displaces the centre of mass
+farther than the best non-drift trajectory in the emergency window---across the grid a single
+high-grip cell ($\mu=0.90$) shows a marginal $+5\%$ drift edge, and even there it clears no obstacle
+that conventional steering cannot (the oriented-box test below is $0/24$ for drift-only clears)---and
+drift is worse on average, because high sideslip is past the tyre's lateral-force peak. Upgrading the collision model from a point to an
 oriented bounding box does not help drift---body rotation makes it \emph{worse} (the rotated car's
 tail sweeps a larger arc), including for angled and extended obstacles, where the geometric argument
 for drift is strongest. On the faithful multibody backend a deliberately provoked drift achieves
@@ -359,8 +361,9 @@ cannot reproduce even with perfect $\mu$.
 \paragraph{After the car is already sliding, active steering is the rescue and braking is catastrophic.}
 The complement of ``drift does not help you avoid'' is ``managing an already-developed slide does
 matter.'' We initialise the multibody vehicle in a developing spin (high sideslip and yaw) and
-compare a brake-only controller (a classical brake-based stability action: scrub speed,
-no counter-steer) against active counter-steer. Two faithful-physics facts emerge. The real vehicle
+compare a brake-only controller (a uniform single-brake stability action: scrub speed, no
+counter-steer, and---unlike production ESC---no asymmetric per-wheel braking) against active
+counter-steer. Two faithful-physics facts emerge. The real vehicle
 self-stabilises from sideslips up to $\sim\!63^\circ$ at moderate yaw, so the regime that needs
 intervention is narrow---high yaw rate at intermediate friction. \emph{Inside} that regime, the
 brake-only controller fails in every case ($9/9$): it either spins the car out or stops it sideways,
@@ -412,7 +415,11 @@ claim, and the comparator is a feedback oracle rather than a model-predictive dr
 which would be a stronger classical baseline. The TMeasy tyre is a semi-empirical handling model;
 its combined-slip force behaviour at the limit is the fidelity boundary of the drift regime, and the
 drift cell studied here is a single operating point rather than a swept handling envelope. The
-avoidance regression is real and significant at sixteen seeds; gated heads improve \emph{drift}
+avoidance regression is significant at the nominal level on sixteen seeds (seed-clustered paired
+$t$ against the $1.00$ floor, $p=0.008$), though it does not survive a Bonferroni correction across
+the architecture$\times$regime arms we explored ($p\approx0.07$); the drift advantage clears the same
+correction by orders of magnitude ($p<10^{-12}$), so only the secondary, benign-regime claim is
+multiplicity-fragile. Gated heads improve \emph{drift}
 reliability but do not resolve the avoidance regression, confirming the tradeoff is not merely a
 training artefact. The per-seed analysis suggests the residual is
 partly fundamental and partly a training-variance effect: only half the seeds reach a
@@ -426,8 +433,11 @@ The reachability and mechanism analysis of Section~\ref{sec:why} carries its own
 reachability sweeps and the recovery comparison search over parameterised control profiles, not an
 optimal controller, so each ``best non-drift'' or ``recoverable'' figure is a lower bound; a stronger
 controller could shift a boundary, though it would have to overturn a consistent margin across point,
-oriented, extended, and multibody tests. The recovery baseline is a brake-only stability controller;
-a production system with active-steering authority or slip feedback would narrow the gap---but such a
+oriented, extended, and multibody tests. The recovery baseline applies a single longitudinal brake
+command, so unlike production ESC it has no asymmetric per-wheel braking and hence no brake-induced
+corrective yaw authority; ``catastrophic'' is the failure of this uniform-brake controller in the
+tested band, not a claim that every brake-based stabiliser fails. A production system with per-wheel
+braking, active-steering authority, or slip feedback would narrow the gap---but such a
 controller is itself converging on the closed-loop steering control that the learned policy acquires,
 which is the point rather than a confound. The avoidance mechanism probe and the recovery study use a
 single friction-and-geometry sweep rather than the frozen confirmatory grid of the headline result,
