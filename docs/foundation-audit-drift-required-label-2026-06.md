@@ -95,3 +95,26 @@ driver's real, honest differentiator is learning to operate at the friction limi
 (beating non-privileged rules that don't know mu) -- NOT drifting. Caveat: planar friction-circle model; a faithful
 Chrono multibody (load transfer) could in principle differ, but the planar model is mu*N-faithful so a flip is
 unlikely; the honest next step if pursued is to repeat reachability on Chrono.
+
+## Direction 3: FAITHFUL CHRONO confirms (and strengthens) the negative (scripts/audits/chrono_drift_reachability.py)
+Closing the only caveat (planar friction-circle vs Chrono multibody). Open-loop maneuvers on the real Chrono backend
+at a fixed 16 m/s; max lateral displacement over the horizon, conventional vs PROVOKED drift (power-oversteer /
+trail-brake, since plain emergency steering does NOT even induce drift on the faithful vehicle -- it corners at the
+grip limit with sideslip<0.10):
+| mu | conventional disp | drift disp | drift edge |
+|---|---|---|---|
+| 0.35 | 1.03 m | 0.57 m | -45% |
+| 0.60 | 1.71 m | 1.18 m | -31% |
+| 0.90 | 2.43 m | 2.26 m | -7% |
+Drift achieves LESS lateral displacement at every mu -- a BIGGER deficit than planar. The reason is the multibody
+effect the planar model omits: large load transfer (measured (max-min)/max normal load = 0.45-0.76) unloads a tire
+during the aggressive drift -> less total grip -> less displacement; the provoking throttle/brake also spends friction
+longitudinally. So the faithful physics closes the caveat in the direction that STRENGTHENS the negative.
+
+Also notable: on faithful Chrono a plain emergency STEER (even full lock at 16 m/s) does not drift at all -- it
+corners at the limit. Drift has to be deliberately provoked, and then it is worse. So "drift to avoid" is not even a
+behaviour that naturally arises in emergency avoidance on the faithful vehicle.
+
+### Net (4 independent measurements, planar + faithful Chrono): drift is NON-ESSENTIAL (indeed counterproductive) for
+### obstacle avoidance while grip is intact. The thesis "drift is unnecessary before the car has started sliding"
+### is established by theory (friction circle + load transfer) AND experiment (CG, box, and Chrono reachability).
