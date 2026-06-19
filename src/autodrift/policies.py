@@ -188,11 +188,27 @@ class HonestAESPolicy(Policy):
         return split_drive_brake_action(steer, brake)
 
 
+@dataclass
+class MuAwareAESPolicy(HonestAESPolicy):
+    """Mechanism probe: identical to HonestAESPolicy but GIVEN the true mu (info['mu']) instead of a fixed assumed mu.
+    Isolates the value of friction KNOWLEDGE (no label, no required-offset). If this catches up to the RL, then
+    mu-inference is the RL's differentiator; if it does not, the RL has additional limit-control advantages."""
+
+    def act(self, observation: np.ndarray, info: dict) -> np.ndarray:
+        try:
+            self.assumed_mu = max(float(info.get("mu", self.assumed_mu)), 0.05)
+        except Exception:
+            pass
+        return super().act(observation, info)
+
+
 def make_policy(name: str, env: AutoDriftEnv, seed: int | None = None) -> Policy:
     del env
     normalized = name.lower()
     if normalized == "random":
         return RandomPolicy(seed=seed)
+    if normalized in {"mu_aware_aes", "muaware_aes"}:
+        return MuAwareAESPolicy()
     if normalized == "heuristic":
         return HeuristicPolicy()
     if normalized == "aeb":

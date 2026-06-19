@@ -406,7 +406,7 @@ def main() -> None:
     parser.add_argument("--seed", type=int, default=7)
     parser.add_argument(
         "--policy",
-        choices=["random", "heuristic", "aeb", "aes_heuristic", "envelope_aes", "honest_aes", "checkpoint"],
+        choices=["random", "heuristic", "aeb", "aes_heuristic", "envelope_aes", "honest_aes", "mu_aware_aes", "checkpoint"],
         default="heuristic",
     )
     parser.add_argument("--checkpoint", type=Path, default=None)
