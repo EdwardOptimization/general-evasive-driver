@@ -2,7 +2,7 @@
 
 ## Status
 
-- Verdict: f2_completed (full run: 8 training seeds, 30 validation episodes/regime, training-seed-clustered CIs; engineering-only, incumbent unchanged, defers to PI review).
+- Verdict: f2_completed (full run: 16 training seeds [pass-8 hardening from 8], 30 validation episodes/regime, training-seed-clustered CIs; engineering-only, incumbent unchanged, defers to PI review).
 - Scope (S3): real asymmetric actor-critic RL (PPO + bootstrapped privileged GAE critic + policy gradient); teacher = BC warm-start / annealed auxiliary only.
 - Engineering-only; incumbent unchanged; no self-ID claim.
 

@@ -5,6 +5,27 @@ The repo is large because the autonomous research process emits a load-bearing a
 enforced on every commit by `python -m autodrift.research_validate`. This index points to the
 human-meaningful deliverables and findings amid that scaffolding.
 
+## Claim boundary — what is canonical vs superseded (read first)
+
+The repo spans two eras and the claim boundary moved; to avoid confusion:
+
+- **CANONICAL (current, defensible):**
+  - **Two-regime law** (`two-regime-thesis-drift-2026-06.md`): drift is non-essential/counterproductive
+    for avoidance *before* slip; closed-loop active-steering is the rescue *after* slip. Fidelity-dependent
+    (planar + faithful Chrono both checked).
+  - **Foundation audit** (`foundation-audit-drift-required-label-2026-06.md`): the `drift_required` label
+    was built on a ~2x-wrong grip assumption; true must-drift fraction ~2%.
+  - **F2 conditional RL result** (`paper/c5prime/main.tex`, `m3264-*.md`): one policy beats the reflex
+    floor + scripted oracle on the saturated drift cell (0.856) but **regresses on benign avoidance**
+    (0.700). Engineering-only, not a promotion. **This is the headline scientific claim.**
+- **SUPERSEDED (record, not a live claim):**
+  - "Drift-to-avoid beats rule-based" (`drift-to-avoid-driver-2026-06.md`, the 0.93-vs-AEB number) —
+    **premise falsified** by the foundation audit.
+  - "Strongest/most-general driver certified" / "one policy for the full passenger-car fleet" (the
+    pre-takeover capstone + the C5 spread formulation) — the universal-driver spread claim was
+    **pricing-rejected (0/8 cells), Track C closed** (`current-status.md`); the surviving result is the
+    scoped F2 conditional finding above, not a fleet-wide solution.
+
 ## Core simulation + RL code (`src/autodrift/`)
 - `dynamics.py` — single-track RWD vehicle, nonlinear tire saturation (friction-circle capped), DR params.
 - `env.py` — Gymnasium env (obs72, friction step, obstacle task + scenario labels), `ObstacleTaskConfig`.

@@ -1,0 +1,39 @@
+{
+  "decision_reason": "Accept as a continuation candidate only if aggregate success is at least 0.85, zero-wheel success is at least 0.10 below normal success, reset is not better than normal, and mu body+wheel gain remains at least 0.10. Otherwise reject and move to matched wrong-wheel-history corpus.",
+  "failure_criteria": [
+    "normal success_rate < 0.85",
+    "normal success_rate - zero_wheel_success < 0.10",
+    "wheel_gain_mu < 0.10",
+    "clearance margin regresses below the M89 same-seed gate",
+    "training fails to produce checkpoint and gate artifacts"
+  ],
+  "failure_types": [],
+  "forbidden_shortcuts": [],
+  "gate_tier": "legacy",
+  "generated_at_utc": "20260621T080721Z",
+  "hypothesis": "Guarded PPO continuation from the M89 objective-only wheel-aware checkpoint can preserve driving behavior while increasing causal dependence on wheel response.",
+  "lineage": {
+    "blocked_by": [],
+    "derived_from": [],
+    "invalidates": [],
+    "parent_checkpoint": [],
+    "parent_config": [],
+    "parent_dataset": [],
+    "parent_objective": [],
+    "supersedes": []
+  },
+  "milestone": "m90-guarded-ppo-from-wheel-objective-checkpoint",
+  "next_blocker": "",
+  "private_holdout_policy": "legacy",
+  "promotion_decision": "manual_review",
+  "public_gates": [],
+  "scoreboard": {},
+  "success_criteria": [
+    "normal success_rate >= 0.85 on the 20-episode same-seed gate",
+    "normal success_rate - zero_wheel_success >= 0.10",
+    "reset_success <= normal success_rate",
+    "mu_bucket body_plus_wheel_gain >= 0.10",
+    "no hidden parameters or oracle labels are added to actor observations"
+  ],
+  "type": "driver_candidate"
+}

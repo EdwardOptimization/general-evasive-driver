@@ -1,5 +1,17 @@
 # Drift-to-Avoid active-safety driver (2026-06-18): ONE RL driver that AUTONOMOUSLY DRIFTS to avoid where rule-based can't
 
+> **⚠️ SUPERSEDED / PREMISE FALSIFIED (2026-06-19).** The "drift to avoid where rule-based can't"
+> premise below was the working goal on 2026-06-18, then **debunked** by the foundation audit
+> (`docs/foundation-audit-drift-required-label-2026-06.md`): the `drift_required` label rested on a
+> ~2x-too-low conventional-grip assumption; five measurements (capacity, planar/oriented/extended
+> reachability, faithful Chrono) show drift gives **no obstacle-avoidance advantage while grip is
+> intact** (true must-drift fraction ~2%). The 0.93-vs-AEB number here is therefore **not** evidence
+> that drifting beats rules at avoidance. The canonical replacement is the **two-regime law**
+> (`docs/two-regime-thesis-drift-2026-06.md`): drift is non-essential before slip; closed-loop
+> active-steering is the rescue after slip. The current, defensible RL result is the **F2 conditional
+> finding** (drift positive + benign-avoidance regression) reported in `paper/c5prime/main.tex`. Read
+> this doc as a record of the falsified hypothesis, not a live claim.
+
 ## The actual goal (corrected)
 A unified active-safety RL driver whose PRIMARY task is OBSTACLE AVOIDANCE, that AUTONOMOUSLY DECIDES whether to
 drift. The key regime: road conditions where grip-limited braking/steering CANNOT avoid the obstacle, but a controlled

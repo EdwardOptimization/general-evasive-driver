@@ -31,7 +31,9 @@ Track-F PI checkpoint, the M3257 E3-fix detector-onset reconciliation, the
 M3258 E2' hardened two-variant clean-flip confirmation, the M3259 E1'
 oracle-adequate spread-revival repricing negative, the M3260 E4
 drift-regime pricing panel, the M3261 F1 training-infrastructure
-wall-clock smoke, and the M3263 F1b throughput optimization).
+wall-clock smoke, the M3263 F1b throughput optimization, and the M3264 F2
+asymmetric actor-critic full-run conditional result [drift positive / avoidance
+regression; engineering-only; F2 admission pending PI CP-3 disposition]).
 
 ## Project Identity
 
@@ -218,6 +220,24 @@ M3263 still makes no F2 admission, training, driver-performance,
 high-fidelity sufficiency, paper, feasibility-proof, repair-success,
 robustness-result, or self-ID claim
 (`docs/m3263-phase4-f1b-throughput-optimization.md`).
+M3264 F2 asymmetric actor-critic RL **full run completed** (the F1b throughput
+fix removed the 550-day wall-clock bottleneck that had blocked F2): real PPO
+(asymmetric obs72 actor / privileged critic, BC warm-start then PPO, gated dual
+heads), held-out task-score selection on disjoint seeds, frozen four-arm
+validation {fixed*/entry-speed-floor/online-mu-seeker/per-regime-oracle/student},
+16 training seeds, 30 validation episodes/regime, training-seed-clustered CIs. The
+result is **conditional and mixed**: drift student 0.856 (seed-clustered 95% CI
+[0.721, 0.991]) strongly beats both the learning-free floor (0.000) and the
+scripted per-regime oracle (0.350), but the same policy **regresses on benign
+avoidance**, 0.700 vs the 1.000 floor/oracle (diff CI [-0.511, -0.089],
+no-regression=False). Engineering-only: incumbent ActiveSafetyReflexDriver
+unchanged, no promotion, no self-ID / high-fidelity / current-sim-sufficiency
+claim. This is **not** a universal-driver result (the C5 spread formulation
+remains pricing-rejected, Track C closed); it is a scoped RL positive on the
+beyond-saturation drift cell with a real benign-regime safety regression. **F2
+admission remains pending PI CP-3 disposition.** The result feeds the C5' science
+paper (`paper/c5prime/main.tex`), which reports the same conditional finding
+(`docs/m3264-phase4-f2-asymmetric-actor-critic-rl.md`).
 
 Work packages: WP0 **complete** (wrapper modes M3215-validated, family #2
 frozen with clean acceptance after one pre-registered repair, statistical
