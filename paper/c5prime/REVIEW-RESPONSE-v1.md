@@ -3,6 +3,34 @@
 The first draft was reviewed by a 5-agent adversarial pipeline (3 reviewer lenses + citation
 verification + claim-vs-data audit). Findings and how each was addressed in this revision.
 
+## Phase-5 dual-proof revision (2026-07-10)
+
+- **Formal pre-slip theorem added.** The manuscript now defines the force-input
+  differential inclusion, grip and required-slide kernels, assumptions A1-A8,
+  and gives a complete inclusion proof. The direct-force abstraction and its
+  steering/tire-transient realization gap are stated explicitly.
+- **Weak inclusion is separated from strictness.** The theorem proves only
+  `K_S subseteq K_G`. M3270 supplies the separate strict finite-boundary
+  evidence: 20 frozen actions, 24 disjoint fresh-seed comparisons, 480/480
+  classifications, 60/60 exact replays, and grip `D*` lower by 4.0-7.5 m in
+  every comparison. The paper does not promote this into continuous Chrono
+  dominance.
+- **Failed continuous search retained.** M3269's missing required-slide recall
+  at `mu=0.35` and one `mu=0.90` seed is reported as inconclusive rather than
+  suppressed or treated as set emptiness.
+- **Old post-slip claim retracted.** The earlier 9/9 countersteer-vs-brake count
+  used normalized pedal zero as physical zero and mislabeled uniform braking as
+  ESC. The corresponding Figure 4 and the universal ``countersteer rescues''
+  claim were removed.
+- **Corrected post-slip result added.** Exact control-set nesting proves weak
+  recovery-set inclusion only. M3271's direct reset is rejected by tire-slip
+  truth; M3272 finds 0.00 s steering advantage on four valid Chrono branches;
+  M3273 finds both sets unrecoverable on 9/9 deep compact-model branches. No
+  strict post-slip witness is claimed.
+- **Positive control added.** The Zhao et al. 2022 unequal-yaw-rate construction
+  is cited and reproduced to show that the audit detects a drift-only witness
+  when the high-slip arm is deliberately granted a larger control set.
+
 ## Citation verification (IRON RULE) — all fixed
 - **djeumou2024reference**: title/authors were wrong ("One Model to Drift Them All" / Goh,Topcu,
   Balachandran). Corrected to the verified arXiv:2410.20990: *Reference-Free Formula Drift with RL…*
@@ -11,7 +39,7 @@ verification + claim-vs-data audit). Findings and how each was addressed in this
   Yiwen Lu, Bo Yang, Jiayun Li, Yilin Mo; "…Vehicle" (singular), per arXiv:2507.23339.
 - **velenis2010analysis**: title wrong vs DOI. Corrected to the verified *Steady-State Cornering
   Equilibria and Stabilisation…* / Velenis, Frazzoli, Tsiotras, IJVAS 8:217–241 (2010).
-- **Added zhao2024autonomous** (Advanced Engineering Informatics 62:102863, 2024): the
+- **Added zhao2024autonomous** (Advanced Engineering Informatics 62:102801, 2024): the
   reachability-guided emergency-drift RL line the novelty reviewer flagged as uncited — directly
   on our active-safety theme; cited in Intro/Related Work/Discussion with the delta stated.
 

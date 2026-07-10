@@ -37,6 +37,19 @@ tensorboard/
 # docs/references.bib; decide on Git LFS before versioning PDFs.
 docs/papers/**/*.pdf
 
+# Local LaTeX outputs (the paper source and figure assets remain tracked).
+paper/c5prime/main.aux
+paper/c5prime/main.bbl
+paper/c5prime/main.blg
+paper/c5prime/main.fdb_latexmk
+paper/c5prime/main.fls
+paper/c5prime/main.log
+paper/c5prime/main.out
+paper/c5prime/main.pdf
+paper/c5prime/main.synctex.gz
+paper/c5prime/main.xdv
+paper/c5prime/pdflatex*.fls
+
 # OS/editor
 .DS_Store
 Thumbs.db
