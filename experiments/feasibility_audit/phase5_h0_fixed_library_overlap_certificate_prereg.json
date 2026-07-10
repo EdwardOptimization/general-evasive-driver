@@ -1,0 +1,385 @@
+{
+  "action_library": {
+    "actions": [
+      {
+        "action_id": "action_02340c861bd06e9c",
+        "horizon_s": 2.6,
+        "provenance": [
+          {
+            "source_arm": "free",
+            "source_artifact": "experiments/feasibility_audit/phase5_g3_anchored_chrono_preslip_adjudication.json",
+            "source_cell_id": "g3_chrono_mu0p90_v16",
+            "source_d_star_m": 11.899999999999983,
+            "source_seed": 1547295929
+          }
+        ],
+        "segments_float64_sha256": "02340c861bd06e9c5c9012c1a754e44a09a943b9a2c9b2b4df7cdb99f5737954"
+      },
+      {
+        "action_id": "action_139991a98b0c9379",
+        "horizon_s": 2.6,
+        "provenance": [
+          {
+            "source_arm": "grip",
+            "source_artifact": "experiments/feasibility_audit/phase5_g3_anchored_chrono_preslip_adjudication.json",
+            "source_cell_id": "g3_chrono_mu0p60_v16",
+            "source_d_star_m": 14.399999999999974,
+            "source_seed": 1022012205
+          }
+        ],
+        "segments_float64_sha256": "139991a98b0c9379ab02bd96c8633cf761f6e386073a49e70089466b0f170b8e"
+      },
+      {
+        "action_id": "action_1641f1b9ce802ee7",
+        "horizon_s": 2.6,
+        "provenance": [
+          {
+            "source_arm": "grip",
+            "source_artifact": "experiments/feasibility_audit/phase5_g3_anchored_chrono_preslip_adjudication.json",
+            "source_cell_id": "g3_chrono_mu0p90_v16",
+            "source_d_star_m": 11.999999999999982,
+            "source_seed": 1380504669
+          }
+        ],
+        "segments_float64_sha256": "1641f1b9ce802ee759b673c6d43f07e961ce53a4a3f4044980e90d2bab9f2df1"
+      },
+      {
+        "action_id": "action_20f2be985795d97f",
+        "horizon_s": 2.2,
+        "provenance": [
+          {
+            "source_arm": "required_slide",
+            "source_artifact": "experiments/feasibility_audit/phase5_g1_preslip_reachable_set_adjudication_quick.json",
+            "source_cell_id": "quick_chrono_mu0p48_v16",
+            "source_d_star_m": 21.699999999999946,
+            "source_seed": 1515484633
+          }
+        ],
+        "segments_float64_sha256": "20f2be985795d97f6507eca83ca046535ca6fcabca27247dadc970c5f2952281"
+      },
+      {
+        "action_id": "action_24616598995547c2",
+        "horizon_s": 2.6,
+        "provenance": [
+          {
+            "source_arm": "grip",
+            "source_artifact": "experiments/feasibility_audit/phase5_g3_anchored_chrono_preslip_adjudication.json",
+            "source_cell_id": "g3_chrono_mu0p35_v16",
+            "source_d_star_m": 18.09999999999996,
+            "source_seed": 1512373372
+          }
+        ],
+        "segments_float64_sha256": "24616598995547c249b795635636895c816b122d8374c835ad2b262cd38c2a51"
+      },
+      {
+        "action_id": "action_280b096882d5baca",
+        "horizon_s": 2.6,
+        "provenance": [
+          {
+            "source_arm": "required_slide",
+            "source_artifact": "experiments/feasibility_audit/phase5_g3_anchored_chrono_preslip_adjudication.json",
+            "source_cell_id": "g3_chrono_mu0p90_v16",
+            "source_d_star_m": null,
+            "source_seed": 577305340
+          }
+        ],
+        "segments_float64_sha256": "280b096882d5baca6071bced6d6505f07220e285212b3f299eaf9c6910ea3282"
+      },
+      {
+        "action_id": "action_2fdf9d34c10d9af0",
+        "horizon_s": 2.6,
+        "provenance": [
+          {
+            "source_arm": "free",
+            "source_artifact": "experiments/feasibility_audit/phase5_g3_anchored_chrono_preslip_adjudication.json",
+            "source_cell_id": "g3_chrono_mu0p35_v16",
+            "source_d_star_m": 18.59999999999996,
+            "source_seed": 1048705858
+          }
+        ],
+        "segments_float64_sha256": "2fdf9d34c10d9af036bf3dcafc83f88c6a3a22507e31bc9b3905d54094251354"
+      },
+      {
+        "action_id": "action_32cb92c9b074a422",
+        "horizon_s": 2.2,
+        "provenance": [
+          {
+            "source_arm": "grip",
+            "source_artifact": "experiments/feasibility_audit/phase5_g1_preslip_reachable_set_adjudication_quick.json",
+            "source_cell_id": "quick_chrono_mu0p48_v16",
+            "source_d_star_m": 18.799999999999958,
+            "source_seed": 1707505182
+          }
+        ],
+        "segments_float64_sha256": "32cb92c9b074a422b59d3b9aceee0d75c19d16374b386d63a6f5f1b26c514d00"
+      },
+      {
+        "action_id": "action_50326101ae01dc33",
+        "horizon_s": 2.2,
+        "provenance": [
+          {
+            "source_arm": "free",
+            "source_artifact": "experiments/feasibility_audit/phase5_g1_preslip_reachable_set_adjudication_quick.json",
+            "source_cell_id": "quick_chrono_mu0p48_v16",
+            "source_d_star_m": 16.099999999999966,
+            "source_seed": 1494719356
+          }
+        ],
+        "segments_float64_sha256": "50326101ae01dc33e56f368858140a37a4cb6da415408a765b743f4632b8fda5"
+      },
+      {
+        "action_id": "action_67e317dc22378b24",
+        "horizon_s": 2.6,
+        "provenance": [
+          {
+            "source_arm": "grip",
+            "source_artifact": "experiments/feasibility_audit/phase5_g3_anchored_chrono_preslip_adjudication.json",
+            "source_cell_id": "g3_chrono_mu0p90_v16",
+            "source_d_star_m": 12.099999999999982,
+            "source_seed": 195760157
+          }
+        ],
+        "segments_float64_sha256": "67e317dc22378b24d6c94120bc9f09d8c0da326c0c24e55d57348bdf416532bc"
+      },
+      {
+        "action_id": "action_69f97cc3bf2cb13c",
+        "horizon_s": 2.6,
+        "provenance": [
+          {
+            "source_arm": "grip",
+            "source_artifact": "experiments/feasibility_audit/phase5_g3_anchored_chrono_preslip_adjudication.json",
+            "source_cell_id": "g3_chrono_mu0p60_v16",
+            "source_d_star_m": 13.999999999999975,
+            "source_seed": 1146740675
+          }
+        ],
+        "segments_float64_sha256": "69f97cc3bf2cb13cbfe91abfbbf8c8ba9aea63e6c30ae05817b8dfb90426501d"
+      },
+      {
+        "action_id": "action_81c24b46186462e7",
+        "horizon_s": 2.6,
+        "provenance": [
+          {
+            "source_arm": "required_slide",
+            "source_artifact": "experiments/feasibility_audit/phase5_g3_anchored_chrono_preslip_adjudication.json",
+            "source_cell_id": "g3_chrono_mu0p35_v16",
+            "source_d_star_m": null,
+            "source_seed": 378218693
+          }
+        ],
+        "segments_float64_sha256": "81c24b46186462e7390dbcd61dae3b5f238d2bece60ba9fc6b8d9fc37b4da324"
+      },
+      {
+        "action_id": "action_89157dbfefabb5a9",
+        "horizon_s": 2.6,
+        "provenance": [
+          {
+            "source_arm": "required_slide",
+            "source_artifact": "experiments/feasibility_audit/phase5_g3_anchored_chrono_preslip_adjudication.json",
+            "source_cell_id": "g3_chrono_mu0p60_v16",
+            "source_d_star_m": 20.89999999999995,
+            "source_seed": 35168690
+          }
+        ],
+        "segments_float64_sha256": "89157dbfefabb5a99cbcbcdc9bc6d78dd65a04e0f2f8d8ea2f7e15d8eb914065"
+      },
+      {
+        "action_id": "action_8b33506d1b21de75",
+        "horizon_s": 2.6,
+        "provenance": [
+          {
+            "source_arm": "required_slide",
+            "source_artifact": "experiments/feasibility_audit/phase5_g3_anchored_chrono_preslip_adjudication.json",
+            "source_cell_id": "g3_chrono_mu0p35_v16",
+            "source_d_star_m": null,
+            "source_seed": 74816841
+          }
+        ],
+        "segments_float64_sha256": "8b33506d1b21de75e57075bdd0b56dde7a872b88ab580c863a5df6789bcb4e20"
+      },
+      {
+        "action_id": "action_a31de1502ee9f306",
+        "horizon_s": 2.6,
+        "provenance": [
+          {
+            "source_arm": "required_slide",
+            "source_artifact": "experiments/feasibility_audit/phase5_g3_anchored_chrono_preslip_adjudication.json",
+            "source_cell_id": "g3_chrono_mu0p60_v16",
+            "source_d_star_m": 20.699999999999953,
+            "source_seed": 1686769851
+          }
+        ],
+        "segments_float64_sha256": "a31de1502ee9f306ec036bd379cf038c421e10db2d7feea19c2019859b026946"
+      },
+      {
+        "action_id": "action_b628e5e2b9da42cf",
+        "horizon_s": 2.6,
+        "provenance": [
+          {
+            "source_arm": "grip",
+            "source_artifact": "experiments/feasibility_audit/phase5_g3_anchored_chrono_preslip_adjudication.json",
+            "source_cell_id": "g3_chrono_mu0p35_v16",
+            "source_d_star_m": 18.69999999999996,
+            "source_seed": 1657001741
+          },
+          {
+            "source_arm": "free",
+            "source_artifact": "experiments/feasibility_audit/phase5_g3_anchored_chrono_preslip_adjudication.json",
+            "source_cell_id": "g3_chrono_mu0p35_v16",
+            "source_d_star_m": 18.799999999999958,
+            "source_seed": 227835386
+          }
+        ],
+        "segments_float64_sha256": "b628e5e2b9da42cf5a035bc32109956ec453f6e19039626d3ce40eb1f2dfd9e9"
+      },
+      {
+        "action_id": "action_bb7e1edb2496abdc",
+        "horizon_s": 2.6,
+        "provenance": [
+          {
+            "source_arm": "free",
+            "source_artifact": "experiments/feasibility_audit/phase5_g3_anchored_chrono_preslip_adjudication.json",
+            "source_cell_id": "g3_chrono_mu0p90_v16",
+            "source_d_star_m": 11.799999999999983,
+            "source_seed": 958505647
+          }
+        ],
+        "segments_float64_sha256": "bb7e1edb2496abdc21bba2ce7df397a3b9163308907b216c40f1f21387485b72"
+      },
+      {
+        "action_id": "action_d0a189b7f2285a5d",
+        "horizon_s": 2.6,
+        "provenance": [
+          {
+            "source_arm": "free",
+            "source_artifact": "experiments/feasibility_audit/phase5_g3_anchored_chrono_preslip_adjudication.json",
+            "source_cell_id": "g3_chrono_mu0p60_v16",
+            "source_d_star_m": 13.899999999999975,
+            "source_seed": 1629520903
+          }
+        ],
+        "segments_float64_sha256": "d0a189b7f2285a5d3d6a579a4b710fbaa2cc5453aed3918ac591b4c821e23bb7"
+      },
+      {
+        "action_id": "action_d63ad0c90bd76975",
+        "horizon_s": 2.6,
+        "provenance": [
+          {
+            "source_arm": "required_slide",
+            "source_artifact": "experiments/feasibility_audit/phase5_g3_anchored_chrono_preslip_adjudication.json",
+            "source_cell_id": "g3_chrono_mu0p90_v16",
+            "source_d_star_m": 15.699999999999969,
+            "source_seed": 48551544
+          }
+        ],
+        "segments_float64_sha256": "d63ad0c90bd769753f217085d67a62688e36a230015a053835e2ead58ef4d0c8"
+      },
+      {
+        "action_id": "action_f85acfc0a3c7644f",
+        "horizon_s": 2.6,
+        "provenance": [
+          {
+            "source_arm": "free",
+            "source_artifact": "experiments/feasibility_audit/phase5_g3_anchored_chrono_preslip_adjudication.json",
+            "source_cell_id": "g3_chrono_mu0p60_v16",
+            "source_d_star_m": 14.899999999999972,
+            "source_seed": 410215773
+          }
+        ],
+        "segments_float64_sha256": "f85acfc0a3c7644fc5e56944a510d731ac9d2a5ec745c230bfa1dc2f9ef18284"
+      }
+    ],
+    "library_sha256": "7d49fc5ffedd3a76c92b49b27721f0246dd2d58740b50d5b86059377115fb8b7",
+    "provenance_count": 21,
+    "selection_rule": "all unique best physical segment sequences from every Chrono search in M3267 corrected quick and M3269 full; include successful and failed source searches",
+    "source_artifacts": [
+      {
+        "path": "experiments/feasibility_audit/phase5_g1_preslip_reachable_set_adjudication_quick.json",
+        "sha256": "c2b75a4df753bf63a7cd30f4c69a3aa0e3d07aad673ef8c742093d8e2b95a98f"
+      },
+      {
+        "path": "experiments/feasibility_audit/phase5_g3_anchored_chrono_preslip_adjudication.json",
+        "sha256": "86a4bbab3d9cbab44202264e999eda0bf13c6089295cbd687842017d2826d50c"
+      }
+    ],
+    "unique_action_count": 20
+  },
+  "cells": {
+    "full": [
+      {
+        "cell_id": "h0_mu0p48_v16",
+        "mu": 0.48,
+        "obstacle_half_depth_m": 0.65,
+        "obstacle_half_width_m": 0.85,
+        "road_half_width_m": 5.0,
+        "speed_mps": 16.0
+      },
+      {
+        "cell_id": "h0_mu0p60_v16",
+        "mu": 0.6,
+        "obstacle_half_depth_m": 0.65,
+        "obstacle_half_width_m": 0.85,
+        "road_half_width_m": 5.0,
+        "speed_mps": 16.0
+      },
+      {
+        "cell_id": "h0_mu0p90_v16",
+        "mu": 0.9,
+        "obstacle_half_depth_m": 0.65,
+        "obstacle_half_width_m": 0.85,
+        "road_half_width_m": 5.0,
+        "speed_mps": 16.0
+      }
+    ],
+    "quick": [
+      {
+        "cell_id": "h0_quick_mu0p60_v16",
+        "mu": 0.6,
+        "obstacle_half_depth_m": 0.65,
+        "obstacle_half_width_m": 0.85,
+        "road_half_width_m": 5.0,
+        "speed_mps": 16.0
+      }
+    ]
+  },
+  "claim_boundary": "exact finite-library/finite-cell simulator certificate plus independent numerical validation of the force-envelope theorem; not a continuous Chrono control-set proof",
+  "decision_rule": {
+    "counterexample": "any complete full cell/seed has slide or controlled-slide-like free D-star more than 0.25 m below grip",
+    "inconclusive": "any row, overlap, tire-truth, replay, or free-consistency gate fails",
+    "support": "all expected rows use the registered local frame and exact replays exist; every full cell/seed has finite grip, slide, and free D-star; grip<=slide+0.25 m; free consistency passes; no early-slide free counterexample"
+  },
+  "forbidden": [
+    "optimization or action mutation",
+    "dropping failed source actions",
+    "selecting full cells or seeds after replay",
+    "interpreting the result as universal detailed-vehicle dominance",
+    "overwriting M3269's inconclusive continuous-search verdict"
+  ],
+  "metric": {
+    "d_star": "minimum clearable obstacle-center distance; smaller is better",
+    "distance_range_m": [
+      7.0,
+      26.0
+    ],
+    "refinement_step_m": 0.1,
+    "tolerance_m": 0.25
+  },
+  "milestone_id": "m3270-phase5-h0-fixed-library-overlap-certificate",
+  "mode_contract": {
+    "classification": "every replayed trajectory is evaluated under all three predicates",
+    "free": "global beta<=0.70 with common road, speed, and collision constraints",
+    "grip": "beta<=0.12 through pass",
+    "required_slide": "four frames beta in [0.20,0.60], rear slip>=0.15, onset vehicle front before OBB near face, global beta<=0.70 through pass"
+  },
+  "priced_by": "experiments/feasibility_audit/phase5_g3_anchored_chrono_preslip_adjudication.json",
+  "primary_claim": "For the frozen finite action library and overlap-domain Chrono cells, exhaustive fresh-seed replay finds finite grip and required-slide boundaries on every seed, and grip D-star is no larger than slide D-star by more than 0.25 m.",
+  "registered_at_utc": "2026-07-10T09:50:16.464098+00:00",
+  "seeds": {
+    "exact_replay": "every action on the first fresh seed of each cell",
+    "full_per_cell": 8,
+    "quick_full_disjoint": true,
+    "quick_per_cell": 2,
+    "seed_base": 32700017
+  },
+  "theory_certificate": "docs/preslip-reachable-set-dual-proof-theory-2026-07.md"
+}

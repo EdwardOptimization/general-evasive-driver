@@ -56692,3 +56692,105 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m3263-phase4-f1b-throughput-optimization_20260613T181410Z/command.log`
 - success artifact: `experiments/feasibility_audit/phase4_f1b_throughput.json`
 - notes: Completed: F1b throughput optimization gates passed with 30 workers, 1920 mixed-regime Chrono steps, closed-loop 1600.8440 steps/s, batched action-sequence 1967.0045 steps/s, projected 100M best wall-clock 14.12 h / 0.59 days, speedup 935.27x vs F1, target >=1000 steps/s met, and F2/F3 remain blocked on PI review and explicit go.
+
+## 20260710T080811Z m3265-phase5-g0-preslip-reachability-proof-pricing
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: A preregistered Phase-5 G0 proof-route pricing milestone can reproduce a known larger-control-set emergency-steering witness, generate both bounded-sideslip and deliberate-slide trajectories with a matched-budget oracle, verify deterministic action semantics, and expose finite Chrono tire truth before any reachable-set-dominance, detailed-model theorem, paper, promotion, or self-ID claim.
+- command: `env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/phase5_g0_preslip_reachability_proof_pricing.py --full --resume`
+- returncode: `0`
+- run dir: `runs/research/m3265-phase5-g0-preslip-reachability-proof-pricing_20260710T080757Z`
+- command log: `runs/research/m3265-phase5-g0-preslip-reachability-proof-pricing_20260710T080757Z/command.log`
+- success artifact: `experiments/feasibility_audit/phase5_g0_preslip_reachability_proof_pricing.json`
+- notes: Completed / block-and-reprice. The known 0.20/0.26 rad/s positive control passed (-0.541 m / +0.351 m clearance), search health and exact determinism passed, and both Chrono connector profiles returned finite tire telemetry. Deliberate-slide mode validity failed 0/3 full planar emergency cells with maximum four-frame dwell 0/1/2; the Chrono slide probe also did not form deep body sideslip. M3266 full adjudication and every detailed-model dominance claim remain blocked pending separate mode-expressibility and slip-onset pricing.
+
+## 20260710T082221Z m3266-phase5-g0b-slide-mode-onset-pricing
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: A preregistered Phase-5 G0b pricing milestone can separate deliberate-slide generation from obstacle clearance, prove same-plant deep-slide expressibility from a straight pre-slip state, measure earliest four-frame slide onset relative to frozen emergency distances, and persist axle-specific Chrono tire truth before any final reachable-set, paper, promotion, or self-ID claim.
+- command: `env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/phase5_g0b_slide_mode_onset_pricing.py --full --resume`
+- returncode: `0`
+- run dir: `runs/research/m3266-phase5-g0b-slide-mode-onset-pricing_20260710T081951Z`
+- command log: `runs/research/m3266-phase5-g0b-slide-mode-onset-pricing_20260710T081951Z/command.log`
+- success artifact: `experiments/feasibility_audit/phase5_g0b_slide_mode_onset_pricing.json`
+- notes: Completed / all pricing gates passed. Planar beta=0 slide entry passed 3/3 with best-found four-frame onset 0.72/0.56/0.46 s. Chrono beta=0 direct entry reached onset at 0.50 s, max beta 0.484, rear slip 0.541, 72-frame dwell, and exact replay; the beta=0.24 classifier and axle-specific telemetry passed. This is mode/onset pricing only. Final adjudication must use the OBB first-contact plane and controlled-slide constraints.
+
+## 20260710T085413Z m3267-phase5-g1-preslip-reachable-set-adjudication
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: A preregistered Phase-5 G1 matched-oracle adjudication can compare the minimum clearable lane-aligned OBB distance of grip, required controlled-slide, and free arms on planar and Chrono plants, using the physical first-contact plane and controlled-slide constraints, before any universal theorem, real-vehicle, promotion, or self-ID claim.
+- command: `env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/phase5_g1_preslip_reachable_set_adjudication.py --quick --resume`
+- returncode: `0`
+- run dir: `runs/research/m3267-phase5-g1-preslip-reachable-set-adjudication_20260710T085413Z`
+- command log: `runs/research/m3267-phase5-g1-preslip-reachable-set-adjudication_20260710T085413Z/command.log`
+- success artifact: `experiments/feasibility_audit/phase5_g1_preslip_reachable_set_adjudication_quick.json`
+- notes: Completed / inconclusive at corrected quick. Chrono all arms were finite and exact-replay with grip/required-slide/free D-star 18.8/21.7/16.1 m and a grip-like free trajectory. Planar required-slide D-star was not found, so the frozen completeness gate blocked full and no M3267 dominance claim was admitted.
+
+## 20260710T090556Z m3268-phase5-g2-chrono-preslip-boundary-adjudication
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: A fresh-seed Chrono-only Phase-5 G2 panel can adjudicate whether pooled grip-mode trajectories have no worse minimum clearable lane-aligned OBB distance than required controlled-slide trajectories by more than 0.25 m across three frozen friction cells, while retaining dedicated-arm, free-oracle, worst-seed, contact-plane, tire-truth, local-frame, and exact-replay gates before any universal theorem, real-vehicle, paper-readiness, promotion, or self-ID claim.
+- command: `env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/phase5_g2_chrono_preslip_boundary_adjudication.py --quick --resume`
+- returncode: `0`
+- run dir: `runs/research/m3268-phase5-g2-chrono-preslip-boundary-adjudication_20260710T090556Z`
+- command log: `runs/research/m3268-phase5-g2-chrono-preslip-boundary-adjudication_20260710T090556Z/command.log`
+- success artifact: `experiments/feasibility_audit/phase5_g2_chrono_preslip_boundary_adjudication_quick.json`
+- notes: Completed / inconclusive at quick. Grip/free D-star were 18.6/16.2 m, but required-slide had no finite boundary. Frame, tire truth, and exact replay passed; full was not run.
+
+## 20260710T092805Z m3269-phase5-g3-anchored-chrono-preslip-adjudication
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: A final fresh-seed Chrono Phase-5 G3 panel can use M3267's exactly replayed required-slide trajectory as a preregistered feasibility anchor, without extra authority or changed criteria, to obtain stable dedicated and pooled grip/slide/free minimum-clearable-distance boundaries across three frozen friction cells and adjudicate the 0.25 m bounded no-drift advantage rule before any universal theorem, real-vehicle, paper-readiness, promotion, or self-ID claim.
+- command: `env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/phase5_g3_anchored_chrono_preslip_adjudication.py --full --resume`
+- returncode: `0`
+- run dir: `runs/research/m3269-phase5-g3-anchored-chrono-preslip-adjudication_20260710T091304Z`
+- command log: `runs/research/m3269-phase5-g3-anchored-chrono-preslip-adjudication_20260710T091304Z/command.log`
+- success artifact: `experiments/feasibility_audit/phase5_g3_anchored_chrono_preslip_adjudication.json`
+- notes: Completed / full inconclusive. Quick passed. Finite full comparisons favored pooled grip over required slide by 6.8 m at mu 0.60 and 3.9 m at mu 0.90; all best free trajectories were grip-like and no counterexample appeared. Slide completeness was 0/2 at mu 0.35 and 1/2 at mu 0.90, so the frozen gate failed and optimizer repair is closed.
+
+## 20260710T095833Z m3270-phase5-h0-fixed-library-overlap-certificate
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: An exhaustive fresh-seed replay of the hash-frozen finite library containing every unique best Chrono physical action sequence from M3267 corrected quick and M3269 full can produce complete grip required-slide and free boundaries on selected overlap-domain cells and test the 0.25 m bounded no-drift ordering without another optimizer repair or a continuous detailed-model dominance claim.
+- command: `env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/phase5_h0_fixed_library_overlap_certificate.py --full --resume`
+- returncode: `0`
+- run dir: `runs/research/m3270-phase5-h0-fixed-library-overlap-certificate_20260710T095338Z`
+- command log: `runs/research/m3270-phase5-h0-fixed-library-overlap-certificate_20260710T095338Z/command.log`
+- success artifact: `experiments/feasibility_audit/phase5_h0_fixed_library_overlap_certificate.json`
+- notes: Completed / finite-library support. Full wrote 480/480 classification rows across 24/24 overlap-complete fresh seeds and 60/60 exact replays. Grip beat required slide by 4.0-7.5 m on every seed, every free optimum was grip-like, and continuous Chrono dominance remains unclaimed.
+
+## 20260710T101403Z m3271-phase5-h1-postslip-nested-recovery-certificate
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: Corrected exactly nested finite controls can expose strict post-slip recovery expansion from matched initialized Chrono slide states.
+- command: `env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/phase5_h1_postslip_nested_recovery_certificate.py --quick`
+- returncode: `0`
+- success artifact: `experiments/feasibility_audit/phase5_h1_postslip_nested_recovery_certificate_quick.json`
+- notes: Completed / inconclusive at quick. Action semantics, nesting, telemetry, weak inclusion, and 4/4 exact replay passed, but reset rear slip was only 0.00136 rad despite beta 0.8. Neither mirrored cell was strict, so full was not run.
+
+## 20260710T103146Z m3272-phase5-h2-dynamic-prefix-recovery-certificate
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: Continuously reached branch states can expose strict post-slip recovery expansion under the unchanged corrected nested policy sets.
+- command: `env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/phase5_h2_dynamic_prefix_recovery_certificate.py --quick`
+- returncode: `0`
+- success artifact: `experiments/feasibility_audit/phase5_h2_dynamic_prefix_recovery_certificate_quick.json`
+- notes: Completed / no strict witness at quick. Four of five branches were valid slides and all health gates passed, but zero-steer throttle or brake matched the best expanded recovery time at every eligible branch; full was not run.
+
+## 20260710T104126Z m3273-phase5-h3-planar-dynamic-recovery-certificate
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: Deep continuously reached compact-model slides can expose strict recovery expansion under unchanged nested policies.
+- command: `env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/phase5_h3_planar_dynamic_recovery_certificate.py --quick`
+- returncode: `0`
+- success artifact: `experiments/feasibility_audit/phase5_h3_planar_dynamic_recovery_certificate_quick.json`
+- notes: Completed / no strict witness at quick. All nine branches were valid deep slides and all health gates passed, but baseline and expanded recovery were both 0/9; full was not run and current-model post-slip strict work is closed.

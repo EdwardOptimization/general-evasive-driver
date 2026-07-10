@@ -3,7 +3,8 @@
 This file is the compact official state for the project. Milestone documents
 and `docs/research-log.md` remain the detailed log of the autonomous-harness
 era; the Phase-2 plan and thesis (pointer table below) define the active
-program. Last full refresh: 2026-06-14 (the 2026-06-11 WP6.3 refresh
+program. Last full refresh: 2026-06-14; focused M3265-M3273 dual-proof addendum:
+2026-07-10 (the 2026-06-11 WP6.3 refresh
 replaced the stale paper-route state; this update folds in M3215-M3263,
 the C5 pricing disposition, the S4-HF-lite backend connector/pricing work,
 WP6.2 guardrails, the A1 lateral-channel rider, the A2 obs-normalization
@@ -33,7 +34,12 @@ oracle-adequate spread-revival repricing negative, the M3260 E4
 drift-regime pricing panel, the M3261 F1 training-infrastructure
 wall-clock smoke, the M3263 F1b throughput optimization, and the M3264 F2
 asymmetric actor-critic full-run conditional result [drift positive / avoidance
-regression; engineering-only; F2 admission pending PI CP-3 disposition]).
+regression; engineering-only; F2 admission pending PI CP-3 disposition]), and
+the M3265-M3269 pre-slip theory/pricing/adjudication chain, whose final detailed-
+model optimizer verdict is inconclusive and closes local optimizer repair, and
+the completed M3270 finite-library overlap certificate, the M3271 direct-reset
+negative, the M3272 dynamic-prefix Chrono negative, and the M3273 deep planar
+negative that closes current-model strict post-slip work.
 
 ## Project Identity
 
@@ -49,8 +55,9 @@ regression; engineering-only; F2 admission pending PI CP-3 disposition]).
 
 History in one paragraph: the autonomous harness loop ran through M3214
 before manual takeover; the manual takeover has since registered
-M3215-M3263. `experiments/research_status.json` now records
-3262 completed / 7 failed / 5 blocked task entries, with `next_task:
+M3215-M3263 and M3265-M3273 (M3264's result artifact is documented below but remains
+outside the queue/manifest ledger). `experiments/research_status.json` now records
+3271 completed / 7 failed / 5 blocked task entries, with `next_task:
 null`. On
 2026-06-11 an independent feasibility audit showed the M3108–M3212
 residual-repair branch was repairing physically unsolvable rows, and the
@@ -225,7 +232,8 @@ fix removed the 550-day wall-clock bottleneck that had blocked F2): real PPO
 (asymmetric obs72 actor / privileged critic, BC warm-start then PPO, gated dual
 heads), held-out task-score selection on disjoint seeds, frozen four-arm
 validation {fixed*/entry-speed-floor/online-mu-seeker/per-regime-oracle/student},
-16 training seeds, 30 validation episodes/regime, training-seed-clustered CIs. The
+16 training seeds, 20 drift and 30 avoidance validation episodes per training
+seed, training-seed-clustered CIs. The
 result is **conditional and mixed**: drift student 0.856 (seed-clustered 95% CI
 [0.721, 0.991]) strongly beats both the learning-free floor (0.000) and the
 scripted per-regime oracle (0.350), but the same policy **regresses on benign
@@ -238,6 +246,133 @@ beyond-saturation drift cell with a real benign-regime safety regression. **F2
 admission remains pending PI CP-3 disposition.** The result feeds the C5' science
 paper (`paper/c5prime/main.tex`), which reports the same conditional finding
 (`docs/m3264-phase4-f2-asymmetric-actor-critic-rl.md`).
+
+M3265 Phase-5 G0 pre-slip reachable-set proof-route pricing **completed /
+blocked by its frozen gate**. The bounded force-envelope theorem and assumptions
+are recorded in `docs/preslip-reachable-set-dual-proof-theory-2026-07.md`. The
+known Zhao et al. larger-control-set positive control passed (0.20 rad/s
+clearance -0.541 m; 0.26 rad/s +0.351 m), matched search health and exact
+determinism passed, and both Chrono connector profiles returned finite tire
+telemetry. However, deliberate-slide mode validity failed in all 3 full planar
+emergency cells: maximum four-frame deep-slide dwell was 0/1/2 frames. The
+Chrono slide probe also did not form deep body sideslip. Therefore the result is
+**block-and-reprice**, not evidence that the slide-only set is empty; full
+reachable-set adjudication and every detailed-model dominance claim remain
+blocked (`docs/m3265-phase5-g0-preslip-reachability-proof-pricing.md`).
+
+M3266 Phase-5 G0b same-plant slide-mode expressibility and onset pricing
+**completed / passed all frozen pricing gates**. Planar beta=0 entry passed 3/3
+with best-found four-frame onset at 0.72/0.56/0.46 s. The Chrono beta=0 direct
+entry reached onset at 0.50 s, max beta 0.484 rad, rear tire slip 0.541 rad,
+72-frame dwell, and exact replay; the beta=0.24 classifier positive control and
+axle-specific telemetry also passed. M3266 is not a reachable-set result. Its
+`pre_obstacle` diagnostic used obstacle center; final adjudication must instead
+use the OBB first-contact plane and controlled-slide constraints
+(`docs/m3266-phase5-g0b-slide-mode-onset-pricing.md`).
+
+M3267 Phase-5 G1 **completed / inconclusive at the corrected quick gate; full
+was not run**. The retained r0 smoke was invalid because Chrono global track
+poses were read as lane-local and post-terminal samples could enter mode
+classification. The preregistered r1 repair fixed both issues without changing
+thresholds, cells, budgets, geometry, or seed streams. Corrected Chrono quick
+passed local-frame and exact-replay gates and returned finite boundaries for all
+arms: grip `D*=18.8 m`, required slide `21.7 m`, free `16.1 m` with a grip-like
+free trajectory. Planar grip/free were finite at `13.3/12.9 m`, but the
+required-slide `D*` was not found. The frozen all-arm gate therefore failed;
+this is not planar set-emptiness or detailed-model dominance evidence
+(`docs/m3267-phase5-g1-preslip-reachable-set-adjudication.md`). A separately
+preregistered fresh-seed Chrono-only adjudication is the next admissible
+pre-slip unit. Post-slip strict-recovery and paper claim updates remain blocked
+until that unit returns a healthy verdict.
+
+M3268 Phase-5 G2 **completed / inconclusive at quick; full was not run**.
+Fresh-seed Chrono grip/free boundaries were finite at `18.6/16.2 m`, with the
+free trajectory grip-like, but the required-slide seed had no finite boundary.
+Local-frame, axle tire-truth, and exact-replay gates passed, localizing the
+failure to narrow-set optimizer reliability. Because M3267 found a same-cell
+slide boundary, M3268 is not set-emptiness evidence. One final separately
+preregistered route may freeze M3267's exact slide witness as a feasibility
+anchor; if that route fails, the detailed-model boundary branch stops
+(`docs/m3268-phase5-g2-chrono-preslip-boundary-adjudication.md`).
+
+M3269 Phase-5 G3 **completed / full inconclusive; the detailed-model optimizer
+route is closed**. The hash-frozen M3267 exact slide witness made canonical
+quick pass. In full, `mu=0.60` was complete and pooled grip/slide `D*` was
+`13.9/20.7 m` (grip better by 6.8 m); `mu=0.90` pooled `11.8/15.7 m` also
+favored grip by 3.9 m, but one of two slide seeds was missing. At `mu=0.35`,
+both slide seeds were missing while grip/free were finite. Every best free
+trajectory was grip-like; no slide counterexample appeared; frame, tire truth,
+and exact replay passed. The frozen completeness gate failed, so the force-
+envelope theorem stands but detailed-model dual support, post-slip promotion,
+and paper claim promotion are not admitted
+(`docs/m3269-phase5-g3-anchored-chrono-preslip-adjudication.md`). No further
+local optimizer repair should be registered.
+
+M3270 Phase-5 H0 **completed / finite-library overlap support admitted**. The
+preregistered 20-action library retained all 21 M3267/M3269 best-action source
+records, including failed source searches. Managed full completed 480/480
+classification rows and 60/60 exact replays. All 24 fresh seeds had finite
+grip, required-slide, and free boundaries; grip beat required slide by
+4.0-7.5 m on every seed, and every free optimum was grip-like. Local-frame,
+rear-tire truth, free consistency, and positive-control gates passed. This is
+the registered finite-library/finite-cell numerical certificate alongside the
+bounded force-envelope theorem; it does not overwrite M3269 or prove continuous
+Chrono control-set dominance. A separate corrected-semantics post-slip strict-
+recovery panel is now admissible
+(`docs/m3270-phase5-h0-fixed-library-overlap-certificate.md`).
+
+M3271 Phase-5 H1 **completed / inconclusive at canonical quick; full was not
+run**. It tested the
+separate post-slip proposition with exactly nested finite control sets: six
+zero-steer physical-pedal policies versus their union with 24 countersteer
+feedback policies. The old `scripts/audits/chrono_recovery.py` and
+`recovery_reachability.py` counts are rejected because normalized pedal `0`
+was treated as physical zero even though the model contract maps physical zero
+to normalized `-1`. H1 requires matched initial-state hashes, initial rear-tire
+slip truth, ten stable recovery frames at forward speed >=4 m/s, and exact
+replay. Full support requires at least 6/18 states to be strict on all three
+fresh seeds across both signs and at least two beta tiers. Action semantics,
+nesting, matched reset hashes, runtime telemetry, weak inclusion, and 4/4 exact
+winner replays passed. The direct body-state reset nevertheless exposed rear
+slip of only `0.00136 rad` despite `|beta|=0.8`, failing the frozen `0.15 rad`
+initial-slide truth gate. The positive mirror had no recovery; the negative
+mirror coasted to recovery at 0.54 s, so neither was a strict witness. A follow-
+up is admissible only through a continuously simulated common slide-entry
+prefix with no state reset. No ESC, strict empirical, universal, promotion, or
+self-ID claim is admitted
+(`docs/m3271-phase5-h1-postslip-nested-recovery-certificate.md`).
+
+M3272 Phase-5 H2 **completed / no strict witness at canonical quick; full was
+not run**. It kept M3271's
+correct physical action contract, 6-versus-30 exact policy nesting, recovery
+thresholds, and no-ESC language, but replaces invalid direct state injection
+with continuous branching from the hash-frozen M3266 slide-entry trajectory.
+Five quick branch times are frozen; at least three must pass the four-frame
+beta, rear-slip, wheel-truth, and matched-hash eligibility rule, and at least one
+must show baseline failure or >=0.20 s earlier recovery using added steering.
+The source entry history contains simultaneous pedal segments and is explicitly
+only a common state generator. Four of five branch states passed the frozen
+beta/rear-slip eligibility rule and all 150 candidate rows, matched hashes,
+four-wheel truth, weak inclusion, and 10/10 exact replays passed. However, 25%
+throttle was best at the first three eligible branches and full uniform braking
+was best at the fourth; each was a zero-steer baseline member, so added steering
+had `0.00 s` recovery-time advantage everywhere. This is valid negative
+evidence against the unqualified claim that any existing slide requires drift
+steering. No further local Chrono policy repair or strict empirical claim is
+admitted (`docs/m3272-phase5-h2-dynamic-prefix-recovery-certificate.md`).
+
+M3273 Phase-5 H3 **completed / no strict witness at canonical quick; full was
+not run**. As one final orthogonal physics check, not a Chrono repair, it branched from the three
+M3266-priced compact single-track slide-entry prefixes, whose complete Markov
+state includes steer and drive force, and reuses M3271's unchanged nested
+physical-policy sets and recovery thresholds. Quick requires at least 6/9
+eligible branches and 2 strict witnesses across two friction tiers. All 9/9
+branches were eligible deep slides (`|beta|=0.329-1.531 rad`, rear slip
+`0.433-1.539 rad`) and 270/270 rows, matched states, weak inclusion, and 18/18
+replays passed. Baseline recovery was 0/9 and expanded recovery was also 0/9,
+so strict witnesses were 0/9. Current-model strict post-slip empirical work is
+closed. M3272's moderate-slide Chrono negative remains binding
+(`docs/m3273-phase5-h3-planar-dynamic-recovery-certificate.md`).
 
 Work packages: WP0 **complete** (wrapper modes M3215-validated, family #2
 frozen with clean acceptance after one pre-registered repair, statistical

@@ -44,9 +44,66 @@ CI95 [-0.0480, 0.1480]). M3261 adds F1 training-infrastructure coverage only:
 days. M3263 adds F1b training-throughput coverage only: 30 Chrono workers,
 1920 mixed-regime steps, closed-loop 1600.8440 steps/s, batched action-sequence
 1967.0045 steps/s, and a projected 100M best wall-clock of 14.12 h / 0.59 days.
-F2/F3 remain blocked on PI wall-clock review; there is still no learned-
-policy outcome panel. Fine for the scoped self-ID science; the gap map below is
-what C5's population claim must close.
+M3264 adds one narrow learned-policy outcome panel on Sedan/TMeasy: 16 training
+seeds, 20 drift and 30 avoidance validation episodes per seed. The student is
+positive on the frozen low-mu drift cell (0.856 vs 0.350 oracle) and regresses on
+avoidance (0.700 vs 1.000 floor). This is an engineering-only conditional result,
+not broad drift-surface, vehicle-spread, promotion, or high-fidelity-sufficiency
+coverage.
+M3265 adds proof-route pricing only: a known larger-yaw-set positive control,
+three matched planar emergency cells, and a Chrono tire-telemetry connector.
+Its deliberate-slide mode gate failed 0/3, so it adds no reachable-set outcome
+panel or detailed-model dominance claim.
+M3266 adds obstacle-independent same-plant slide-entry pricing: planar 3/3
+mode-entry cells plus one canonical Chrono/TMeasy beta=0 direct-entry search
+with axle-specific tire truth. It establishes mode expressibility and onset
+scale only; no controlled-drift avoidance boundary or reachable-set panel is
+yet covered.
+M3267 adds a corrected quick-only lane-aligned static-OBB boundary probe. Its
+Chrono/TMeasy cell has finite grip/required-slide/free D* at
+18.8/21.7/16.1 m with local-frame and exact-replay gates passing; the free
+trajectory is grip-like. The planar required-slide boundary was not found, so
+the frozen combined gate failed, full was not run, and no bounded-support claim
+is covered. A fresh Chrono-only full panel remains open.
+M3268 adds a fresh-seed repeat of the same Chrono quick cell: grip/free D* were
+18.6/16.2 m, but required-slide D* was not found despite frame, tire-truth, and
+exact-replay health. It establishes optimizer instability only; no full panel
+or dominance claim was added.
+M3269 adds the final managed three-cell, two-seed-per-arm anchored Chrono panel.
+At mu 0.60 pooled grip/slide D* was 13.9/20.7 m; at mu 0.90 it was
+11.8/15.7 m, with every best free trajectory grip-like and no counterexample.
+Required-slide coverage was nevertheless 0/2 seeds at mu 0.35 and 1/2 at
+mu 0.90. The full panel is therefore incomplete, not bounded empirical support,
+and the local optimizer route is closed.
+M3270 adds an exhaustive fixed-library overlap certificate over all 20 unique
+physical best-action sequences retained from the 21 M3267/M3269 source search
+records. On mu 0.48/0.60/0.90 at 16 m/s, all 24 fresh seeds had finite
+grip/required-slide/free boundaries; grip beat required slide by 4.0-7.5 m,
+all free optima were grip-like, and 60/60 exact replays passed. This covers the
+selected finite action library and cells only. Continuous Chrono controls,
+split-mu, moving obstacles, vehicle spread, and real vehicles remain uncovered.
+M3271 attempted the post-slip complement with corrected physical pedal semantics
+and exactly nested finite policy sets. Its 60-row quick passed action, nesting,
+runtime telemetry, weak-inclusion, and 4/4 replay gates, but direct initialized
+body states had rear slip only 0.00136 rad despite beta 0.8. The initial-slide
+truth gate and strict witnesses failed, so full was not run. Dynamically
+consistent continuously reached post-slip branch states remain uncovered.
+M3272 covers that missing dynamic-state check on one signed M3266 Chrono entry
+prefix. Four of five branch times had valid four-frame body-slip and rear-tire
+truth; 150/150 rows and 10/10 exact winner replays passed. Zero-steer throttle
+or braking matched the expanded steering-capable optimum at every eligible
+branch, so the steering advantage was 0.00 s and full was blocked. Deeper
+post-slip states with a valid strict steering witness remain uncovered.
+M3273 tested that deeper-state question on all three M3266 compact-model entry
+families. All 9/9 quick branches had valid deep body and rear-tire slip, and
+270/270 rows plus 18/18 exact winner replays passed. Neither the zero-steer nor
+expanded policy set recovered any branch (0/9 versus 0/9), so no strict witness
+was found and full was blocked. Strict post-slip set expansion remains
+uncovered under the current priced models.
+M3264 closes the absence of any learned-policy panel only for its narrow frozen
+Sedan/TMeasy validation distribution. F3, a wider drift surface, cross-vehicle
+learned-policy outcomes, and promotion remain uncovered; the gap map below is
+what C5's population claim must still close.
 
 ## Coverage by axis
 
@@ -58,7 +115,7 @@ what C5's population claim must close.
 | speed regime | 5-20 m/s outcome panels; utilization 0.2-0.95 sweeps; overshoot injection to 150% (measurements A/C); M3224 adds an explicit 36 m/s observation/preview smoke with obs72 preserved, selected channels max abs 0.900, and 2.5 s road preview; M3242 prices the current six-cell high-speed outcome panel negative (0/6 cells qualified; fixed_star/v4_pertuned 46/48); M3260 adds controlled-drift pricing at 8-9 m/s entry speeds beyond rear-tire saturation | **> 72 km/h coverage remains sparse beyond the priced six-cell 24/30/36 m/s current formulation** (production AEB/AES operates to 130+ km/h); sustained drift is now priced only for two Sedan/TMeasy low-mu cells, not a broad drift manifold; any harder high-speed/degraded-sensing rider needs a new preregistered outcome panel |
 | sensing degradation | ego channels thoroughly: delay (constant/episode-random/piecewise, 100-500 ms), iid Gaussian, AR(1) rho 0.9/0.95, dropout 0.2 (M3215); M3225 adds config-gated road-boundary and active-obstacle continuous-channel noise with present/size/empty-slot preservation; M3251 smokes a Chrono policy-observation delay25 tight spot with ego channels 0-8 degraded and geometry/command-history channels preserved; M3252 includes one delay25_tight Sedan/TMeasy secondary full-panel spot; M3258 includes the same delay25_tight secondary spot on Sedan/TMeasy and UAZBUS/TMeasy | geometry-degraded outcome panels remain unpriced; calibration-bias error classes; action-side wrapper built (S1) but never measured; Chrono degraded sensing still lacks a broad degraded-regime panel beyond the single delay25_tight secondary spot |
 | temporal structure | episodes 5.7-9.6 s; familiarization prefixes to 15 s (belief decomposition); M3226 smoked 60 s same-episode structure with warmup carry-over, later emergency obstacle, raw pass accounting, and post-pass continuation | minute-scale controller outcome panels remain unpriced; cross-episode persistence remains uncovered |
-| fidelity | single-track toy (all measurements) + Chrono::Vehicle Sedan spot checks (279 rows, HF4 + minis); M3218 inventory confirms Chrono resources for multi-vehicle/tire extension; M3219 reset/step-smoked default Sedan plus explicit BMW_E90/UAZBUS selectors; M3227 ran 108 preregistered multi-vehicle Chrono direction-pricing episodes and found direction reversed in all three variants; M3231 ran native Chrono oracle direction-pricing on Sedan/BMW_E90; M3248 completed the Phase-4 E0 expressibility audit and admits E1 on selected fixtures only; M3251 passed a Sedan-only E2 protocol smoke, M3252 completed the initial full Sedan/TMeasy E2 verdict for scripted oracle/seeker/fixed arms, M3258 completed the hardened E2' full verdict on Sedan/TMeasy and UAZBUS/TMeasy, M3259 completed the oracle-adequate E1' spread-revival repricing on Sedan/BMW_E90/UAZBUS with 0/3 qualifying variants, M3253 passed a Sedan/TMeasy E3 A/C protocol smoke for obs72 detector traces plus planar overshoot recovery traces, M3254 passed a Sedan/TMeasy E3 tire-truth telemetry connector smoke with 8/8 samples and 32/32 finite wheel rows, M3255 completed the full Sedan/TMeasy E3 detector-latency/recovery-budget panel, M3257 completed the Sedan/TMeasy E3-fix detector-onset reconciliation trace panel, M3260 completed a Sedan/TMeasy drift-regime pricing panel with 204 rows, M3261 completed a mixed-regime Chrono worker/update infrastructure smoke with 48 steps, and M3263 completed a 30-worker mixed-regime Chrono throughput optimization with 1920 steps | Chrono coverage is still not full high-fidelity sufficiency: no UAZBUS D1b native oracle search, no independent payload-position/h_cg, tire-family, split-mu, or continuous `lf/lr/iz/cf/cr` mapping, no non-Sedan full E3 or drift verdict, and no learned-policy outcome panel or F2 training result |
+| fidelity | single-track toy (all measurements) + Chrono::Vehicle Sedan spot checks (279 rows, HF4 + minis); M3218 inventory confirms Chrono resources for multi-vehicle/tire extension; M3219 reset/step-smoked default Sedan plus explicit BMW_E90/UAZBUS selectors; M3227 ran 108 preregistered multi-vehicle Chrono direction-pricing episodes and found direction reversed in all three variants; M3231 ran native Chrono oracle direction-pricing on Sedan/BMW_E90; M3248 completed the Phase-4 E0 expressibility audit and admits E1 on selected fixtures only; M3251 passed a Sedan-only E2 protocol smoke, M3252 completed the initial full Sedan/TMeasy E2 verdict for scripted oracle/seeker/fixed arms, M3258 completed the hardened E2' full verdict on Sedan/TMeasy and UAZBUS/TMeasy, M3259 completed the oracle-adequate E1' spread-revival repricing on Sedan/BMW_E90/UAZBUS with 0/3 qualifying variants, M3253 passed a Sedan/TMeasy E3 A/C protocol smoke for obs72 detector traces plus planar overshoot recovery traces, M3254 passed a Sedan/TMeasy E3 tire-truth telemetry connector smoke with 8/8 samples and 32/32 finite wheel rows, M3255 completed the full Sedan/TMeasy E3 detector-latency/recovery-budget panel, M3257 completed the Sedan/TMeasy E3-fix detector-onset reconciliation trace panel, M3260 completed a Sedan/TMeasy drift-regime pricing panel with 204 rows, M3261 completed a mixed-regime Chrono worker/update infrastructure smoke with 48 steps, M3263 completed a 30-worker mixed-regime Chrono throughput optimization with 1920 steps, and M3264 adds the narrow 16-seed Sedan/TMeasy student outcome panel | Chrono coverage is still not full high-fidelity sufficiency: no UAZBUS D1b native oracle search, no independent payload-position/h_cg, tire-family, split-mu, or continuous `lf/lr/iz/cf/cr` mapping, no non-Sedan full E3 or learned drift verdict, no wide drift-surface learned outcome, and no cross-vehicle learned-policy result |
 
 ## Volumes (this takeover session)
 

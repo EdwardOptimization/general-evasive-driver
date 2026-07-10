@@ -1,0 +1,1614 @@
+{
+  "chrono": {
+    "best_replay": {
+      "collision": false,
+      "completion_reason": "max_steps",
+      "finite_axle_tire_telemetry_steps": 120,
+      "first_slide_dwell_time_s": 0.5,
+      "max_abs_beta_rad": 0.48359897065661056,
+      "max_abs_front_tire_slip_angle_rad": 0.8861480295498879,
+      "max_abs_rear_tire_slip_angle_rad": 0.5405529449964067,
+      "max_slide_dwell_steps": 72,
+      "mode_valid": true,
+      "pre_obstacle_mode_valid": true,
+      "score": 10340.0,
+      "termination_reason": ""
+    },
+    "best_replay_match": true,
+    "budget": {
+      "elites": 8,
+      "horizon_s": 2.4,
+      "iterations": 8,
+      "population": 32,
+      "segments": 8
+    },
+    "detector_positive_control": {
+      "collision": false,
+      "completion_reason": "max_steps",
+      "finite_axle_tire_telemetry_steps": 120,
+      "first_slide_dwell_time_s": 0.0,
+      "max_abs_beta_rad": 0.23980160150557853,
+      "max_abs_front_tire_slip_angle_rad": 0.3178933022543882,
+      "max_abs_rear_tire_slip_angle_rad": 0.2604373672402522,
+      "max_slide_dwell_steps": 30,
+      "mode_valid": true,
+      "pre_obstacle_mode_valid": true,
+      "score": 10350.0,
+      "termination_reason": ""
+    },
+    "search": {
+      "best": {
+        "collision": false,
+        "completion_reason": "max_steps",
+        "finite_axle_tire_telemetry_steps": 120,
+        "first_slide_dwell_time_s": 0.5,
+        "max_abs_beta_rad": 0.48359897065661056,
+        "max_abs_front_tire_slip_angle_rad": 0.8861480295498879,
+        "max_abs_rear_tire_slip_angle_rad": 0.5405529449964067,
+        "max_slide_dwell_steps": 72,
+        "mode_valid": true,
+        "pre_obstacle_mode_valid": true,
+        "score": 10340.0,
+        "termination_reason": ""
+      },
+      "best_segments_physical": [
+        [
+          1.0,
+          0.0,
+          0.4868888281651163
+        ],
+        [
+          0.9119082588724547,
+          0.0,
+          0.16126262260813098
+        ],
+        [
+          0.6353520156423133,
+          1.0,
+          0.37412293899570115
+        ],
+        [
+          0.7319470432820195,
+          0.38374053905346184,
+          0.22204587309835028
+        ],
+        [
+          -0.5559754699068924,
+          0.3006217324684264,
+          0.0
+        ],
+        [
+          -0.9171062500937228,
+          0.0,
+          0.44427207073571595
+        ],
+        [
+          -0.9527760027181704,
+          0.38924549771545,
+          0.08544249978742846
+        ],
+        [
+          -0.8107584716397329,
+          0.6695602306718662,
+          0.20361654545576335
+        ]
+      ],
+      "history": [
+        {
+          "best_score": 10338.0,
+          "iteration": 0,
+          "mode_valid_count": 5,
+          "pre_obstacle_mode_valid_count": 5
+        },
+        {
+          "best_score": 10338.0,
+          "iteration": 1,
+          "mode_valid_count": 4,
+          "pre_obstacle_mode_valid_count": 4
+        },
+        {
+          "best_score": 10338.0,
+          "iteration": 2,
+          "mode_valid_count": 10,
+          "pre_obstacle_mode_valid_count": 10
+        },
+        {
+          "best_score": 10340.0,
+          "iteration": 3,
+          "mode_valid_count": 12,
+          "pre_obstacle_mode_valid_count": 12
+        },
+        {
+          "best_score": 10338.0,
+          "iteration": 4,
+          "mode_valid_count": 15,
+          "pre_obstacle_mode_valid_count": 15
+        },
+        {
+          "best_score": 10338.0,
+          "iteration": 5,
+          "mode_valid_count": 14,
+          "pre_obstacle_mode_valid_count": 14
+        },
+        {
+          "best_score": 10339.6,
+          "iteration": 6,
+          "mode_valid_count": 14,
+          "pre_obstacle_mode_valid_count": 14
+        },
+        {
+          "best_score": 10339.6,
+          "iteration": 7,
+          "mode_valid_count": 19,
+          "pre_obstacle_mode_valid_count": 19
+        }
+      ],
+      "iteration_best_rows": [
+        {
+          "collision": false,
+          "completion_reason": "max_steps",
+          "finite_axle_tire_telemetry_steps": 120,
+          "first_slide_dwell_time_s": 0.6,
+          "iteration": 0,
+          "max_abs_beta_rad": 0.4158059041770814,
+          "max_abs_front_tire_slip_angle_rad": 0.9999781362926647,
+          "max_abs_rear_tire_slip_angle_rad": 0.4513029672045181,
+          "max_slide_dwell_steps": 55,
+          "mode_valid": true,
+          "pre_obstacle_mode_valid": true,
+          "score": 10338.0,
+          "termination_reason": ""
+        },
+        {
+          "collision": false,
+          "completion_reason": "max_steps",
+          "finite_axle_tire_telemetry_steps": 120,
+          "first_slide_dwell_time_s": 0.6,
+          "iteration": 1,
+          "max_abs_beta_rad": 0.4158059041770814,
+          "max_abs_front_tire_slip_angle_rad": 0.9999781362926647,
+          "max_abs_rear_tire_slip_angle_rad": 0.4513029672045181,
+          "max_slide_dwell_steps": 55,
+          "mode_valid": true,
+          "pre_obstacle_mode_valid": true,
+          "score": 10338.0,
+          "termination_reason": ""
+        },
+        {
+          "collision": false,
+          "completion_reason": "max_steps",
+          "finite_axle_tire_telemetry_steps": 120,
+          "first_slide_dwell_time_s": 0.6,
+          "iteration": 2,
+          "max_abs_beta_rad": 0.4158059041770814,
+          "max_abs_front_tire_slip_angle_rad": 0.9999781362926647,
+          "max_abs_rear_tire_slip_angle_rad": 0.4513029672045181,
+          "max_slide_dwell_steps": 55,
+          "mode_valid": true,
+          "pre_obstacle_mode_valid": true,
+          "score": 10338.0,
+          "termination_reason": ""
+        },
+        {
+          "collision": false,
+          "completion_reason": "max_steps",
+          "finite_axle_tire_telemetry_steps": 120,
+          "first_slide_dwell_time_s": 0.5,
+          "iteration": 3,
+          "max_abs_beta_rad": 0.48359897065661056,
+          "max_abs_front_tire_slip_angle_rad": 0.8861480295498879,
+          "max_abs_rear_tire_slip_angle_rad": 0.5405529449964067,
+          "max_slide_dwell_steps": 72,
+          "mode_valid": true,
+          "pre_obstacle_mode_valid": true,
+          "score": 10340.0,
+          "termination_reason": ""
+        },
+        {
+          "collision": false,
+          "completion_reason": "max_steps",
+          "finite_axle_tire_telemetry_steps": 120,
+          "first_slide_dwell_time_s": 0.6,
+          "iteration": 4,
+          "max_abs_beta_rad": 0.4158059041770814,
+          "max_abs_front_tire_slip_angle_rad": 0.9999781362926647,
+          "max_abs_rear_tire_slip_angle_rad": 0.4513029672045181,
+          "max_slide_dwell_steps": 55,
+          "mode_valid": true,
+          "pre_obstacle_mode_valid": true,
+          "score": 10338.0,
+          "termination_reason": ""
+        },
+        {
+          "collision": false,
+          "completion_reason": "max_steps",
+          "finite_axle_tire_telemetry_steps": 120,
+          "first_slide_dwell_time_s": 0.6,
+          "iteration": 5,
+          "max_abs_beta_rad": 0.4158059041770814,
+          "max_abs_front_tire_slip_angle_rad": 0.9999781362926647,
+          "max_abs_rear_tire_slip_angle_rad": 0.4513029672045181,
+          "max_slide_dwell_steps": 55,
+          "mode_valid": true,
+          "pre_obstacle_mode_valid": true,
+          "score": 10338.0,
+          "termination_reason": ""
+        },
+        {
+          "collision": false,
+          "completion_reason": "max_steps",
+          "finite_axle_tire_telemetry_steps": 120,
+          "first_slide_dwell_time_s": 0.52,
+          "iteration": 6,
+          "max_abs_beta_rad": 0.5747389775699807,
+          "max_abs_front_tire_slip_angle_rad": 0.9436383991227376,
+          "max_abs_rear_tire_slip_angle_rad": 0.7173408945607765,
+          "max_slide_dwell_steps": 42,
+          "mode_valid": true,
+          "pre_obstacle_mode_valid": true,
+          "score": 10339.6,
+          "termination_reason": ""
+        },
+        {
+          "collision": false,
+          "completion_reason": "max_steps",
+          "finite_axle_tire_telemetry_steps": 120,
+          "first_slide_dwell_time_s": 0.52,
+          "iteration": 7,
+          "max_abs_beta_rad": 0.5191628961771569,
+          "max_abs_front_tire_slip_angle_rad": 1.027438120217774,
+          "max_abs_rear_tire_slip_angle_rad": 0.5582496084428761,
+          "max_slide_dwell_steps": 69,
+          "mode_valid": true,
+          "pre_obstacle_mode_valid": true,
+          "score": 10339.6,
+          "termination_reason": ""
+        }
+      ]
+    },
+    "worker_count": 8
+  },
+  "claim_boundary": "mode-expressibility and slide-onset pricing only; no reachable-set verdict",
+  "completed_at_utc": "2026-07-10T08:22:21.019340+00:00",
+  "decision": "admit_final_reachable_set_adjudication",
+  "dominance_claim_admitted": false,
+  "gates": {
+    "chrono_classifier_pass": true,
+    "chrono_replay_pass": true,
+    "chrono_same_plant_entry_pass": true,
+    "m3265_positive_control_retained": true,
+    "planar_onset_rows_pass": true,
+    "planar_same_plant_entry_pass": true,
+    "protocol_gates_passed": true
+  },
+  "incumbent_changed": false,
+  "milestone_id": "m3266-phase5-g0b-slide-mode-onset-pricing",
+  "mode": "full",
+  "planar": {
+    "best_rows": [
+      {
+        "best_segments_physical_json": "[[0.3276582337729446,0.40755630973141294,0.0],[0.6696454008289288,0.5557584800002793,0.04293511631831791],[0.8860057891341218,0.45066613818145584,0.0],[0.6072689416534947,0.05018602769205749,0.0],[-0.7437219698756353,0.4272862144250139,0.0],[-0.3997222692764061,0.5249231097217238,0.057583088119246846],[-1.0,0.5249780971831898,0.08994923196489597],[-0.4586772316492606,0.11997887434862847,0.0]]",
+        "cell_id": "mu0p35_v12",
+        "emergency_obstacle_x_m": 11.4,
+        "final_x_m": 28.065369836527406,
+        "final_y_m": 6.136352819365399,
+        "final_yaw_rad": 2.767360620625606,
+        "first_slide_dwell_time_s": 0.72,
+        "first_slide_dwell_x_m": 9.872300742687043,
+        "max_abs_beta_rad": 1.562987024970083,
+        "max_abs_rear_slip_angle_rad": 1.5187647363178292,
+        "max_pre_obstacle_slide_dwell_steps": 10,
+        "max_rear_lateral_utilization": 1.0000000000000004,
+        "max_slide_dwell_steps": 84,
+        "mode_valid": true,
+        "mu": 0.35,
+        "pre_obstacle_mode_valid": true,
+        "score": 12343.296071124081,
+        "simultaneous_pedal_integral": 1.5196443795998864,
+        "speed_mps": 12.0
+      },
+      {
+        "best_segments_physical_json": "[[0.4674282534866176,0.7849703370978443,0.0],[0.3362462442870263,0.9891126963141195,0.0],[1.0,0.8715698535255233,0.0],[0.8002055751190816,0.6817922852237877,0.0017641270040703594],[-0.538303167505222,0.618075392337806,0.00997325836127879],[-0.25492380003917664,0.016928256737228198,0.23351118214842315],[-0.6205767742019137,0.3033367199857624,0.15924013668072343],[0.03728499738088409,0.5465229008034158,0.06506774959874526]]",
+        "cell_id": "mu0p60_v14",
+        "emergency_obstacle_x_m": 11.2,
+        "final_x_m": 31.975982807221992,
+        "final_y_m": 7.193935955730078,
+        "final_yaw_rad": 4.007226004984292,
+        "first_slide_dwell_time_s": 0.56,
+        "first_slide_dwell_x_m": 9.277334944794662,
+        "max_abs_beta_rad": 1.5520190269782586,
+        "max_abs_rear_slip_angle_rad": 1.5285212017099816,
+        "max_pre_obstacle_slide_dwell_steps": 10,
+        "max_rear_lateral_utilization": 1.0000000000000033,
+        "max_slide_dwell_steps": 65,
+        "mode_valid": true,
+        "mu": 0.6,
+        "pre_obstacle_mode_valid": true,
+        "score": 12346.514447018973,
+        "simultaneous_pedal_integral": 1.4277649051313643,
+        "speed_mps": 14.0
+      },
+      {
+        "best_segments_physical_json": "[[0.42548390665690794,1.0,0.0],[0.7582300873681168,0.9889964265388749,0.0],[1.0,0.7126861278366974,0.002430848039886366],[1.0,0.654076325864947,0.0],[-0.9987116273011326,0.3479766820702681,0.01887857147997761],[-0.4848511719242627,0.33767048795520943,0.043972683408812434],[-0.31589256435378354,0.49629610296776017,0.04247607710777047],[-0.9218280404713795,0.29667813450706115,0.05204133989680054]]",
+        "cell_id": "mu0p90_v16",
+        "emergency_obstacle_x_m": 11.2,
+        "final_x_m": 34.44586173441869,
+        "final_y_m": 7.863895029124803,
+        "final_yaw_rad": 2.8026504202562923,
+        "first_slide_dwell_time_s": 0.46,
+        "first_slide_dwell_x_m": 8.950633758862578,
+        "max_abs_beta_rad": 1.5561525963748835,
+        "max_abs_rear_slip_angle_rad": 1.5322514021076838,
+        "max_pre_obstacle_slide_dwell_steps": 10,
+        "max_rear_lateral_utilization": 1.0000000000000009,
+        "max_slide_dwell_steps": 61,
+        "mode_valid": true,
+        "mu": 0.9,
+        "pre_obstacle_mode_valid": true,
+        "score": 12348.620989247054,
+        "simultaneous_pedal_integral": 0.895053764727958,
+        "speed_mps": 16.0
+      }
+    ],
+    "budget": {
+      "elites": 14,
+      "horizon_s": 2.4,
+      "iterations": 14,
+      "population": 72,
+      "segments": 8
+    },
+    "cells": [
+      {
+        "cell_id": "mu0p35_v12",
+        "emergency_obstacle_x_m": 11.4,
+        "mu": 0.35,
+        "speed_mps": 12.0
+      },
+      {
+        "cell_id": "mu0p60_v14",
+        "emergency_obstacle_x_m": 11.2,
+        "mu": 0.6,
+        "speed_mps": 14.0
+      },
+      {
+        "cell_id": "mu0p90_v16",
+        "emergency_obstacle_x_m": 11.2,
+        "mu": 0.9,
+        "speed_mps": 16.0
+      }
+    ],
+    "searches": [
+      {
+        "best": {
+          "emergency_obstacle_x_m": 11.4,
+          "final_x_m": 28.065369836527406,
+          "final_y_m": 6.136352819365399,
+          "final_yaw_rad": 2.767360620625606,
+          "first_slide_dwell_time_s": 0.72,
+          "first_slide_dwell_x_m": 9.872300742687043,
+          "max_abs_beta_rad": 1.562987024970083,
+          "max_abs_rear_slip_angle_rad": 1.5187647363178292,
+          "max_pre_obstacle_slide_dwell_steps": 10,
+          "max_rear_lateral_utilization": 1.0000000000000004,
+          "max_slide_dwell_steps": 84,
+          "mode_valid": true,
+          "pre_obstacle_mode_valid": true,
+          "score": 12343.296071124081,
+          "simultaneous_pedal_integral": 1.5196443795998864
+        },
+        "best_segments_physical": [
+          [
+            0.3276582337729446,
+            0.40755630973141294,
+            0.0
+          ],
+          [
+            0.6696454008289288,
+            0.5557584800002793,
+            0.04293511631831791
+          ],
+          [
+            0.8860057891341218,
+            0.45066613818145584,
+            0.0
+          ],
+          [
+            0.6072689416534947,
+            0.05018602769205749,
+            0.0
+          ],
+          [
+            -0.7437219698756353,
+            0.4272862144250139,
+            0.0
+          ],
+          [
+            -0.3997222692764061,
+            0.5249231097217238,
+            0.057583088119246846
+          ],
+          [
+            -1.0,
+            0.5249780971831898,
+            0.08994923196489597
+          ],
+          [
+            -0.4586772316492606,
+            0.11997887434862847,
+            0.0
+          ]
+        ],
+        "budget": {
+          "elites": 14,
+          "horizon_s": 2.4,
+          "iterations": 14,
+          "population": 72,
+          "segments": 8
+        },
+        "cell_id": "mu0p35_v12",
+        "history": [
+          {
+            "best_score": 12343.162402154527,
+            "iteration": 0,
+            "mode_valid_count": 71,
+            "pre_obstacle_mode_valid_count": 66
+          },
+          {
+            "best_score": 12343.202122255463,
+            "iteration": 1,
+            "mode_valid_count": 71,
+            "pre_obstacle_mode_valid_count": 61
+          },
+          {
+            "best_score": 12342.8,
+            "iteration": 2,
+            "mode_valid_count": 71,
+            "pre_obstacle_mode_valid_count": 67
+          },
+          {
+            "best_score": 12343.105530349383,
+            "iteration": 3,
+            "mode_valid_count": 71,
+            "pre_obstacle_mode_valid_count": 69
+          },
+          {
+            "best_score": 12342.856335592627,
+            "iteration": 4,
+            "mode_valid_count": 71,
+            "pre_obstacle_mode_valid_count": 68
+          },
+          {
+            "best_score": 12343.020473326796,
+            "iteration": 5,
+            "mode_valid_count": 71,
+            "pre_obstacle_mode_valid_count": 65
+          },
+          {
+            "best_score": 12342.8,
+            "iteration": 6,
+            "mode_valid_count": 71,
+            "pre_obstacle_mode_valid_count": 66
+          },
+          {
+            "best_score": 12342.922622517757,
+            "iteration": 7,
+            "mode_valid_count": 71,
+            "pre_obstacle_mode_valid_count": 66
+          },
+          {
+            "best_score": 12342.934982283732,
+            "iteration": 8,
+            "mode_valid_count": 71,
+            "pre_obstacle_mode_valid_count": 60
+          },
+          {
+            "best_score": 12342.8,
+            "iteration": 9,
+            "mode_valid_count": 71,
+            "pre_obstacle_mode_valid_count": 60
+          },
+          {
+            "best_score": 12343.231955411477,
+            "iteration": 10,
+            "mode_valid_count": 71,
+            "pre_obstacle_mode_valid_count": 64
+          },
+          {
+            "best_score": 12342.809878144446,
+            "iteration": 11,
+            "mode_valid_count": 71,
+            "pre_obstacle_mode_valid_count": 62
+          },
+          {
+            "best_score": 12342.98873743697,
+            "iteration": 12,
+            "mode_valid_count": 71,
+            "pre_obstacle_mode_valid_count": 57
+          },
+          {
+            "best_score": 12343.296071124081,
+            "iteration": 13,
+            "mode_valid_count": 71,
+            "pre_obstacle_mode_valid_count": 58
+          }
+        ],
+        "iteration_best_rows": [
+          {
+            "emergency_obstacle_x_m": 11.4,
+            "final_x_m": 28.18217911490845,
+            "final_y_m": 5.244372189512918,
+            "final_yaw_rad": 2.8440688315259113,
+            "first_slide_dwell_time_s": 0.74,
+            "first_slide_dwell_x_m": 10.06032929466374,
+            "iteration": 0,
+            "max_abs_beta_rad": 1.567357827354684,
+            "max_abs_rear_slip_angle_rad": 1.5196707713100943,
+            "max_pre_obstacle_slide_dwell_steps": 9,
+            "max_rear_lateral_utilization": 1.0000000000000002,
+            "max_slide_dwell_steps": 83,
+            "mode_valid": true,
+            "pre_obstacle_mode_valid": true,
+            "score": 12343.162402154527,
+            "simultaneous_pedal_integral": 0.187989227372528
+          },
+          {
+            "emergency_obstacle_x_m": 11.4,
+            "final_x_m": 28.579457655793522,
+            "final_y_m": 5.78739253892493,
+            "final_yaw_rad": 3.1903618059900754,
+            "first_slide_dwell_time_s": 0.72,
+            "first_slide_dwell_x_m": 9.914410712967527,
+            "iteration": 1,
+            "max_abs_beta_rad": 1.5700863050229485,
+            "max_abs_rear_slip_angle_rad": 1.5208914793731174,
+            "max_pre_obstacle_slide_dwell_steps": 9,
+            "max_rear_lateral_utilization": 0.9999999999999989,
+            "max_slide_dwell_steps": 84,
+            "mode_valid": true,
+            "pre_obstacle_mode_valid": true,
+            "score": 12343.202122255463,
+            "simultaneous_pedal_integral": 1.9893887226901699
+          },
+          {
+            "emergency_obstacle_x_m": 11.4,
+            "final_x_m": 21.43854807913574,
+            "final_y_m": 4.055823515411957,
+            "final_yaw_rad": 2.869262945955257,
+            "first_slide_dwell_time_s": 0.76,
+            "first_slide_dwell_x_m": 9.157111003899228,
+            "iteration": 2,
+            "max_abs_beta_rad": 1.5626040394334226,
+            "max_abs_rear_slip_angle_rad": 1.501296123408151,
+            "max_pre_obstacle_slide_dwell_steps": 16,
+            "max_rear_lateral_utilization": 1.0,
+            "max_slide_dwell_steps": 82,
+            "mode_valid": true,
+            "pre_obstacle_mode_valid": true,
+            "score": 12342.8,
+            "simultaneous_pedal_integral": 0.0
+          },
+          {
+            "emergency_obstacle_x_m": 11.4,
+            "final_x_m": 28.04331402690096,
+            "final_y_m": 4.758050803438825,
+            "final_yaw_rad": 2.7702132800794783,
+            "first_slide_dwell_time_s": 0.74,
+            "first_slide_dwell_x_m": 10.089264910826023,
+            "iteration": 3,
+            "max_abs_beta_rad": 1.5536632629464022,
+            "max_abs_rear_slip_angle_rad": 1.5165774117042579,
+            "max_pre_obstacle_slide_dwell_steps": 9,
+            "max_rear_lateral_utilization": 1.000000000000002,
+            "max_slide_dwell_steps": 83,
+            "mode_valid": true,
+            "pre_obstacle_mode_valid": true,
+            "score": 12343.105530349383,
+            "simultaneous_pedal_integral": 0.4723482530876323
+          },
+          {
+            "emergency_obstacle_x_m": 11.4,
+            "final_x_m": 27.721472790307065,
+            "final_y_m": 5.547247271765905,
+            "final_yaw_rad": 2.6023264442152696,
+            "first_slide_dwell_time_s": 0.74,
+            "first_slide_dwell_x_m": 10.076854712449695,
+            "iteration": 4,
+            "max_abs_beta_rad": 1.5610155775015067,
+            "max_abs_rear_slip_angle_rad": 1.514215100327474,
+            "max_pre_obstacle_slide_dwell_steps": 9,
+            "max_rear_lateral_utilization": 1.0000000000000009,
+            "max_slide_dwell_steps": 83,
+            "mode_valid": true,
+            "pre_obstacle_mode_valid": true,
+            "score": 12342.856335592627,
+            "simultaneous_pedal_integral": 1.7183220368671002
+          },
+          {
+            "emergency_obstacle_x_m": 11.4,
+            "final_x_m": 28.302508031055616,
+            "final_y_m": 5.660104732201346,
+            "final_yaw_rad": 2.9739033130457697,
+            "first_slide_dwell_time_s": 0.74,
+            "first_slide_dwell_x_m": 10.106159160371105,
+            "iteration": 5,
+            "max_abs_beta_rad": 1.5687254368834995,
+            "max_abs_rear_slip_angle_rad": 1.518810338952175,
+            "max_pre_obstacle_slide_dwell_steps": 9,
+            "max_rear_lateral_utilization": 1.000000000000001,
+            "max_slide_dwell_steps": 83,
+            "mode_valid": true,
+            "pre_obstacle_mode_valid": true,
+            "score": 12343.020473326796,
+            "simultaneous_pedal_integral": 0.8976333660176471
+          },
+          {
+            "emergency_obstacle_x_m": 11.4,
+            "final_x_m": 21.43854807913574,
+            "final_y_m": 4.055823515411957,
+            "final_yaw_rad": 2.869262945955257,
+            "first_slide_dwell_time_s": 0.76,
+            "first_slide_dwell_x_m": 9.157111003899228,
+            "iteration": 6,
+            "max_abs_beta_rad": 1.5626040394334226,
+            "max_abs_rear_slip_angle_rad": 1.501296123408151,
+            "max_pre_obstacle_slide_dwell_steps": 16,
+            "max_rear_lateral_utilization": 1.0,
+            "max_slide_dwell_steps": 82,
+            "mode_valid": true,
+            "pre_obstacle_mode_valid": true,
+            "score": 12342.8,
+            "simultaneous_pedal_integral": 0.0
+          },
+          {
+            "emergency_obstacle_x_m": 11.4,
+            "final_x_m": 27.686974831063825,
+            "final_y_m": 5.633605815688212,
+            "final_yaw_rad": 2.671639178240488,
+            "first_slide_dwell_time_s": 0.74,
+            "first_slide_dwell_x_m": 10.078412254769338,
+            "iteration": 7,
+            "max_abs_beta_rad": 1.5675750963594184,
+            "max_abs_rear_slip_angle_rad": 1.514627828232103,
+            "max_pre_obstacle_slide_dwell_steps": 9,
+            "max_rear_lateral_utilization": 1.0000000000000007,
+            "max_slide_dwell_steps": 83,
+            "mode_valid": true,
+            "pre_obstacle_mode_valid": true,
+            "score": 12342.922622517757,
+            "simultaneous_pedal_integral": 1.3868874112184446
+          },
+          {
+            "emergency_obstacle_x_m": 11.4,
+            "final_x_m": 28.44074513065182,
+            "final_y_m": 5.073667277556008,
+            "final_yaw_rad": 3.0347727805899423,
+            "first_slide_dwell_time_s": 0.72,
+            "first_slide_dwell_x_m": 9.864231555746237,
+            "iteration": 8,
+            "max_abs_beta_rad": 1.570642442453824,
+            "max_abs_rear_slip_angle_rad": 1.5203413821062224,
+            "max_pre_obstacle_slide_dwell_steps": 10,
+            "max_rear_lateral_utilization": 1.0000000000000016,
+            "max_slide_dwell_steps": 84,
+            "mode_valid": true,
+            "pre_obstacle_mode_valid": true,
+            "score": 12342.934982283732,
+            "simultaneous_pedal_integral": 3.325088581344565
+          },
+          {
+            "emergency_obstacle_x_m": 11.4,
+            "final_x_m": 21.43854807913574,
+            "final_y_m": 4.055823515411957,
+            "final_yaw_rad": 2.869262945955257,
+            "first_slide_dwell_time_s": 0.76,
+            "first_slide_dwell_x_m": 9.157111003899228,
+            "iteration": 9,
+            "max_abs_beta_rad": 1.5626040394334226,
+            "max_abs_rear_slip_angle_rad": 1.501296123408151,
+            "max_pre_obstacle_slide_dwell_steps": 16,
+            "max_rear_lateral_utilization": 1.0,
+            "max_slide_dwell_steps": 82,
+            "mode_valid": true,
+            "pre_obstacle_mode_valid": true,
+            "score": 12342.8,
+            "simultaneous_pedal_integral": 0.0
+          },
+          {
+            "emergency_obstacle_x_m": 11.4,
+            "final_x_m": 28.49950919416072,
+            "final_y_m": 5.6364158192992315,
+            "final_yaw_rad": 3.1568461398466936,
+            "first_slide_dwell_time_s": 0.72,
+            "first_slide_dwell_x_m": 9.918327317028972,
+            "iteration": 10,
+            "max_abs_beta_rad": 1.5589584315242104,
+            "max_abs_rear_slip_angle_rad": 1.5206113499164002,
+            "max_pre_obstacle_slide_dwell_steps": 9,
+            "max_rear_lateral_utilization": 1.0000000000000007,
+            "max_slide_dwell_steps": 84,
+            "mode_valid": true,
+            "pre_obstacle_mode_valid": true,
+            "score": 12343.231955411477,
+            "simultaneous_pedal_integral": 1.840222942618289
+          },
+          {
+            "emergency_obstacle_x_m": 11.4,
+            "final_x_m": 27.679490799653387,
+            "final_y_m": 6.044445055553492,
+            "final_yaw_rad": 2.4944554823950438,
+            "first_slide_dwell_time_s": 0.74,
+            "first_slide_dwell_x_m": 10.09193500323132,
+            "iteration": 11,
+            "max_abs_beta_rad": 1.557023859480725,
+            "max_abs_rear_slip_angle_rad": 1.515082403767267,
+            "max_pre_obstacle_slide_dwell_steps": 9,
+            "max_rear_lateral_utilization": 1.000000000000001,
+            "max_slide_dwell_steps": 83,
+            "mode_valid": true,
+            "pre_obstacle_mode_valid": true,
+            "score": 12342.809878144446,
+            "simultaneous_pedal_integral": 1.950609277773554
+          },
+          {
+            "emergency_obstacle_x_m": 11.4,
+            "final_x_m": 28.039909097566348,
+            "final_y_m": 5.7355097267532615,
+            "final_yaw_rad": 2.829789988039872,
+            "first_slide_dwell_time_s": 0.72,
+            "first_slide_dwell_x_m": 9.872377727538936,
+            "iteration": 12,
+            "max_abs_beta_rad": 1.570265824715422,
+            "max_abs_rear_slip_angle_rad": 1.5175408603227616,
+            "max_pre_obstacle_slide_dwell_steps": 10,
+            "max_rear_lateral_utilization": 1.0000000000000004,
+            "max_slide_dwell_steps": 84,
+            "mode_valid": true,
+            "pre_obstacle_mode_valid": true,
+            "score": 12342.98873743697,
+            "simultaneous_pedal_integral": 3.056312815155962
+          },
+          {
+            "emergency_obstacle_x_m": 11.4,
+            "final_x_m": 28.065369836527406,
+            "final_y_m": 6.136352819365399,
+            "final_yaw_rad": 2.767360620625606,
+            "first_slide_dwell_time_s": 0.72,
+            "first_slide_dwell_x_m": 9.872300742687043,
+            "iteration": 13,
+            "max_abs_beta_rad": 1.562987024970083,
+            "max_abs_rear_slip_angle_rad": 1.5187647363178292,
+            "max_pre_obstacle_slide_dwell_steps": 10,
+            "max_rear_lateral_utilization": 1.0000000000000004,
+            "max_slide_dwell_steps": 84,
+            "mode_valid": true,
+            "pre_obstacle_mode_valid": true,
+            "score": 12343.296071124081,
+            "simultaneous_pedal_integral": 1.5196443795998864
+          }
+        ],
+        "seed": 107369978
+      },
+      {
+        "best": {
+          "emergency_obstacle_x_m": 11.2,
+          "final_x_m": 31.975982807221992,
+          "final_y_m": 7.193935955730078,
+          "final_yaw_rad": 4.007226004984292,
+          "first_slide_dwell_time_s": 0.56,
+          "first_slide_dwell_x_m": 9.277334944794662,
+          "max_abs_beta_rad": 1.5520190269782586,
+          "max_abs_rear_slip_angle_rad": 1.5285212017099816,
+          "max_pre_obstacle_slide_dwell_steps": 10,
+          "max_rear_lateral_utilization": 1.0000000000000033,
+          "max_slide_dwell_steps": 65,
+          "mode_valid": true,
+          "pre_obstacle_mode_valid": true,
+          "score": 12346.514447018973,
+          "simultaneous_pedal_integral": 1.4277649051313643
+        },
+        "best_segments_physical": [
+          [
+            0.4674282534866176,
+            0.7849703370978443,
+            0.0
+          ],
+          [
+            0.3362462442870263,
+            0.9891126963141195,
+            0.0
+          ],
+          [
+            1.0,
+            0.8715698535255233,
+            0.0
+          ],
+          [
+            0.8002055751190816,
+            0.6817922852237877,
+            0.0017641270040703594
+          ],
+          [
+            -0.538303167505222,
+            0.618075392337806,
+            0.00997325836127879
+          ],
+          [
+            -0.25492380003917664,
+            0.016928256737228198,
+            0.23351118214842315
+          ],
+          [
+            -0.6205767742019137,
+            0.3033367199857624,
+            0.15924013668072343
+          ],
+          [
+            0.03728499738088409,
+            0.5465229008034158,
+            0.06506774959874526
+          ]
+        ],
+        "budget": {
+          "elites": 14,
+          "horizon_s": 2.4,
+          "iterations": 14,
+          "population": 72,
+          "segments": 8
+        },
+        "cell_id": "mu0p60_v14",
+        "history": [
+          {
+            "best_score": 12346.007511030872,
+            "iteration": 0,
+            "mode_valid_count": 72,
+            "pre_obstacle_mode_valid_count": 48
+          },
+          {
+            "best_score": 12346.0,
+            "iteration": 1,
+            "mode_valid_count": 72,
+            "pre_obstacle_mode_valid_count": 53
+          },
+          {
+            "best_score": 12346.135382485072,
+            "iteration": 2,
+            "mode_valid_count": 72,
+            "pre_obstacle_mode_valid_count": 56
+          },
+          {
+            "best_score": 12346.340391081487,
+            "iteration": 3,
+            "mode_valid_count": 72,
+            "pre_obstacle_mode_valid_count": 63
+          },
+          {
+            "best_score": 12346.364291118765,
+            "iteration": 4,
+            "mode_valid_count": 71,
+            "pre_obstacle_mode_valid_count": 54
+          },
+          {
+            "best_score": 12346.498854067044,
+            "iteration": 5,
+            "mode_valid_count": 72,
+            "pre_obstacle_mode_valid_count": 60
+          },
+          {
+            "best_score": 12346.0,
+            "iteration": 6,
+            "mode_valid_count": 71,
+            "pre_obstacle_mode_valid_count": 61
+          },
+          {
+            "best_score": 12346.514447018973,
+            "iteration": 7,
+            "mode_valid_count": 72,
+            "pre_obstacle_mode_valid_count": 59
+          },
+          {
+            "best_score": 12346.0,
+            "iteration": 8,
+            "mode_valid_count": 72,
+            "pre_obstacle_mode_valid_count": 59
+          },
+          {
+            "best_score": 12346.303298733234,
+            "iteration": 9,
+            "mode_valid_count": 72,
+            "pre_obstacle_mode_valid_count": 60
+          },
+          {
+            "best_score": 12346.214209139023,
+            "iteration": 10,
+            "mode_valid_count": 72,
+            "pre_obstacle_mode_valid_count": 61
+          },
+          {
+            "best_score": 12346.299741251376,
+            "iteration": 11,
+            "mode_valid_count": 72,
+            "pre_obstacle_mode_valid_count": 63
+          },
+          {
+            "best_score": 12346.251160173379,
+            "iteration": 12,
+            "mode_valid_count": 72,
+            "pre_obstacle_mode_valid_count": 55
+          },
+          {
+            "best_score": 12346.457171286072,
+            "iteration": 13,
+            "mode_valid_count": 72,
+            "pre_obstacle_mode_valid_count": 59
+          }
+        ],
+        "iteration_best_rows": [
+          {
+            "emergency_obstacle_x_m": 11.2,
+            "final_x_m": 31.557651523817547,
+            "final_y_m": 7.5068423679476535,
+            "final_yaw_rad": 3.644559021773356,
+            "first_slide_dwell_time_s": 0.58,
+            "first_slide_dwell_x_m": 9.480549226563628,
+            "iteration": 0,
+            "max_abs_beta_rad": 1.5507728058351786,
+            "max_abs_rear_slip_angle_rad": 1.5274821639048413,
+            "max_pre_obstacle_slide_dwell_steps": 9,
+            "max_rear_lateral_utilization": 1.000000000000002,
+            "max_slide_dwell_steps": 70,
+            "mode_valid": true,
+            "pre_obstacle_mode_valid": true,
+            "score": 12346.007511030872,
+            "simultaneous_pedal_integral": 1.9624448456406307
+          },
+          {
+            "emergency_obstacle_x_m": 11.2,
+            "final_x_m": 20.632542193650526,
+            "final_y_m": 4.10180380080034,
+            "final_yaw_rad": 3.7109626861861074,
+            "first_slide_dwell_time_s": 0.6,
+            "first_slide_dwell_x_m": 8.546795365663396,
+            "iteration": 1,
+            "max_abs_beta_rad": 1.5597026788051285,
+            "max_abs_rear_slip_angle_rad": 1.49956839493938,
+            "max_pre_obstacle_slide_dwell_steps": 17,
+            "max_rear_lateral_utilization": 1.000000000000002,
+            "max_slide_dwell_steps": 80,
+            "mode_valid": true,
+            "pre_obstacle_mode_valid": true,
+            "score": 12346.0,
+            "simultaneous_pedal_integral": 0.0
+          },
+          {
+            "emergency_obstacle_x_m": 11.2,
+            "final_x_m": 31.131709490342445,
+            "final_y_m": 7.704592397110268,
+            "final_yaw_rad": 4.182454993550914,
+            "first_slide_dwell_time_s": 0.58,
+            "first_slide_dwell_x_m": 9.468545240192384,
+            "iteration": 2,
+            "max_abs_beta_rad": 1.5511839804854823,
+            "max_abs_rear_slip_angle_rad": 1.5283736595505675,
+            "max_pre_obstacle_slide_dwell_steps": 9,
+            "max_rear_lateral_utilization": 1.000000000000002,
+            "max_slide_dwell_steps": 66,
+            "mode_valid": true,
+            "pre_obstacle_mode_valid": true,
+            "score": 12346.135382485072,
+            "simultaneous_pedal_integral": 1.3230875746406232
+          },
+          {
+            "emergency_obstacle_x_m": 11.2,
+            "final_x_m": 32.19931429515874,
+            "final_y_m": 7.788230025063405,
+            "final_yaw_rad": 4.221281181886675,
+            "first_slide_dwell_time_s": 0.56,
+            "first_slide_dwell_x_m": 9.288322907538433,
+            "iteration": 3,
+            "max_abs_beta_rad": 1.54979138449268,
+            "max_abs_rear_slip_angle_rad": 1.5295188320817414,
+            "max_pre_obstacle_slide_dwell_steps": 10,
+            "max_rear_lateral_utilization": 1.000000000000002,
+            "max_slide_dwell_steps": 63,
+            "mode_valid": true,
+            "pre_obstacle_mode_valid": true,
+            "score": 12346.340391081487,
+            "simultaneous_pedal_integral": 2.298044592564781
+          },
+          {
+            "emergency_obstacle_x_m": 11.2,
+            "final_x_m": 29.27425936768792,
+            "final_y_m": 7.81132950898279,
+            "final_yaw_rad": 3.238479511135802,
+            "first_slide_dwell_time_s": 0.56,
+            "first_slide_dwell_x_m": 9.271297656434392,
+            "iteration": 4,
+            "max_abs_beta_rad": 1.566261799594362,
+            "max_abs_rear_slip_angle_rad": 1.5195585701302683,
+            "max_pre_obstacle_slide_dwell_steps": 10,
+            "max_rear_lateral_utilization": 1.000000000000002,
+            "max_slide_dwell_steps": 92,
+            "mode_valid": true,
+            "pre_obstacle_mode_valid": true,
+            "score": 12346.364291118765,
+            "simultaneous_pedal_integral": 2.17854440616662
+          },
+          {
+            "emergency_obstacle_x_m": 11.2,
+            "final_x_m": 31.932093820512524,
+            "final_y_m": 6.734414885384327,
+            "final_yaw_rad": 3.3409872636964435,
+            "first_slide_dwell_time_s": 0.56,
+            "first_slide_dwell_x_m": 9.30271068491088,
+            "iteration": 5,
+            "max_abs_beta_rad": 1.5498907715733217,
+            "max_abs_rear_slip_angle_rad": 1.5272837472040384,
+            "max_pre_obstacle_slide_dwell_steps": 10,
+            "max_rear_lateral_utilization": 1.000000000000002,
+            "max_slide_dwell_steps": 71,
+            "mode_valid": true,
+            "pre_obstacle_mode_valid": true,
+            "score": 12346.498854067044,
+            "simultaneous_pedal_integral": 1.5057296647798128
+          },
+          {
+            "emergency_obstacle_x_m": 11.2,
+            "final_x_m": 20.632542193650526,
+            "final_y_m": 4.10180380080034,
+            "final_yaw_rad": 3.7109626861861074,
+            "first_slide_dwell_time_s": 0.6,
+            "first_slide_dwell_x_m": 8.546795365663396,
+            "iteration": 6,
+            "max_abs_beta_rad": 1.5597026788051285,
+            "max_abs_rear_slip_angle_rad": 1.49956839493938,
+            "max_pre_obstacle_slide_dwell_steps": 17,
+            "max_rear_lateral_utilization": 1.000000000000002,
+            "max_slide_dwell_steps": 80,
+            "mode_valid": true,
+            "pre_obstacle_mode_valid": true,
+            "score": 12346.0,
+            "simultaneous_pedal_integral": 0.0
+          },
+          {
+            "emergency_obstacle_x_m": 11.2,
+            "final_x_m": 31.975982807221992,
+            "final_y_m": 7.193935955730078,
+            "final_yaw_rad": 4.007226004984292,
+            "first_slide_dwell_time_s": 0.56,
+            "first_slide_dwell_x_m": 9.277334944794662,
+            "iteration": 7,
+            "max_abs_beta_rad": 1.5520190269782586,
+            "max_abs_rear_slip_angle_rad": 1.5285212017099816,
+            "max_pre_obstacle_slide_dwell_steps": 10,
+            "max_rear_lateral_utilization": 1.0000000000000033,
+            "max_slide_dwell_steps": 65,
+            "mode_valid": true,
+            "pre_obstacle_mode_valid": true,
+            "score": 12346.514447018973,
+            "simultaneous_pedal_integral": 1.4277649051313643
+          },
+          {
+            "emergency_obstacle_x_m": 11.2,
+            "final_x_m": 20.632542193650526,
+            "final_y_m": 4.10180380080034,
+            "final_yaw_rad": 3.7109626861861074,
+            "first_slide_dwell_time_s": 0.6,
+            "first_slide_dwell_x_m": 8.546795365663396,
+            "iteration": 8,
+            "max_abs_beta_rad": 1.5597026788051285,
+            "max_abs_rear_slip_angle_rad": 1.49956839493938,
+            "max_pre_obstacle_slide_dwell_steps": 17,
+            "max_rear_lateral_utilization": 1.000000000000002,
+            "max_slide_dwell_steps": 80,
+            "mode_valid": true,
+            "pre_obstacle_mode_valid": true,
+            "score": 12346.0,
+            "simultaneous_pedal_integral": 0.0
+          },
+          {
+            "emergency_obstacle_x_m": 11.2,
+            "final_x_m": 28.735473355313253,
+            "final_y_m": 8.395409862901657,
+            "final_yaw_rad": 3.336570777251027,
+            "first_slide_dwell_time_s": 0.56,
+            "first_slide_dwell_x_m": 9.24386649596816,
+            "iteration": 9,
+            "max_abs_beta_rad": 1.5624920814866121,
+            "max_abs_rear_slip_angle_rad": 1.5161064446724744,
+            "max_pre_obstacle_slide_dwell_steps": 10,
+            "max_rear_lateral_utilization": 1.0000000000000022,
+            "max_slide_dwell_steps": 92,
+            "mode_valid": true,
+            "pre_obstacle_mode_valid": true,
+            "score": 12346.303298733234,
+            "simultaneous_pedal_integral": 2.483506333830702
+          },
+          {
+            "emergency_obstacle_x_m": 11.2,
+            "final_x_m": 30.345860661828283,
+            "final_y_m": 8.120341734015,
+            "final_yaw_rad": 3.4239754455527276,
+            "first_slide_dwell_time_s": 0.58,
+            "first_slide_dwell_x_m": 9.518736457671348,
+            "iteration": 10,
+            "max_abs_beta_rad": 1.5707162462560265,
+            "max_abs_rear_slip_angle_rad": 1.5249854986148732,
+            "max_pre_obstacle_slide_dwell_steps": 9,
+            "max_rear_lateral_utilization": 1.000000000000002,
+            "max_slide_dwell_steps": 85,
+            "mode_valid": true,
+            "pre_obstacle_mode_valid": true,
+            "score": 12346.214209139023,
+            "simultaneous_pedal_integral": 0.9289543048816724
+          },
+          {
+            "emergency_obstacle_x_m": 11.2,
+            "final_x_m": 31.227393718684812,
+            "final_y_m": 7.710208004734544,
+            "final_yaw_rad": 4.1736096521214945,
+            "first_slide_dwell_time_s": 0.56,
+            "first_slide_dwell_x_m": 9.25150593313163,
+            "iteration": 11,
+            "max_abs_beta_rad": 1.5681106320187934,
+            "max_abs_rear_slip_angle_rad": 1.5277314491656642,
+            "max_pre_obstacle_slide_dwell_steps": 10,
+            "max_rear_lateral_utilization": 1.000000000000002,
+            "max_slide_dwell_steps": 67,
+            "mode_valid": true,
+            "pre_obstacle_mode_valid": true,
+            "score": 12346.299741251376,
+            "simultaneous_pedal_integral": 2.501293743112051
+          },
+          {
+            "emergency_obstacle_x_m": 11.2,
+            "final_x_m": 29.23453971263503,
+            "final_y_m": 9.027707438415355,
+            "final_yaw_rad": 3.4877200021406334,
+            "first_slide_dwell_time_s": 0.56,
+            "first_slide_dwell_x_m": 9.226856328354206,
+            "iteration": 12,
+            "max_abs_beta_rad": 1.5683810380235885,
+            "max_abs_rear_slip_angle_rad": 1.5206630567236508,
+            "max_pre_obstacle_slide_dwell_steps": 10,
+            "max_rear_lateral_utilization": 1.000000000000002,
+            "max_slide_dwell_steps": 92,
+            "mode_valid": true,
+            "pre_obstacle_mode_valid": true,
+            "score": 12346.251160173379,
+            "simultaneous_pedal_integral": 2.744199133099724
+          },
+          {
+            "emergency_obstacle_x_m": 11.2,
+            "final_x_m": 29.855618667030626,
+            "final_y_m": 7.654562575553542,
+            "final_yaw_rad": 3.6379521898870797,
+            "first_slide_dwell_time_s": 0.56,
+            "first_slide_dwell_x_m": 9.225841420439263,
+            "iteration": 13,
+            "max_abs_beta_rad": 1.5666470843110525,
+            "max_abs_rear_slip_angle_rad": 1.5221400214851757,
+            "max_pre_obstacle_slide_dwell_steps": 10,
+            "max_rear_lateral_utilization": 1.000000000000002,
+            "max_slide_dwell_steps": 81,
+            "mode_valid": true,
+            "pre_obstacle_mode_valid": true,
+            "score": 12346.457171286072,
+            "simultaneous_pedal_integral": 1.7141435696310747
+          }
+        ],
+        "seed": 1592858456
+      },
+      {
+        "best": {
+          "emergency_obstacle_x_m": 11.2,
+          "final_x_m": 34.44586173441869,
+          "final_y_m": 7.863895029124803,
+          "final_yaw_rad": 2.8026504202562923,
+          "first_slide_dwell_time_s": 0.46,
+          "first_slide_dwell_x_m": 8.950633758862578,
+          "max_abs_beta_rad": 1.5561525963748835,
+          "max_abs_rear_slip_angle_rad": 1.5322514021076838,
+          "max_pre_obstacle_slide_dwell_steps": 10,
+          "max_rear_lateral_utilization": 1.0000000000000009,
+          "max_slide_dwell_steps": 61,
+          "mode_valid": true,
+          "pre_obstacle_mode_valid": true,
+          "score": 12348.620989247054,
+          "simultaneous_pedal_integral": 0.895053764727958
+        },
+        "best_segments_physical": [
+          [
+            0.42548390665690794,
+            1.0,
+            0.0
+          ],
+          [
+            0.7582300873681168,
+            0.9889964265388749,
+            0.0
+          ],
+          [
+            1.0,
+            0.7126861278366974,
+            0.002430848039886366
+          ],
+          [
+            1.0,
+            0.654076325864947,
+            0.0
+          ],
+          [
+            -0.9987116273011326,
+            0.3479766820702681,
+            0.01887857147997761
+          ],
+          [
+            -0.4848511719242627,
+            0.33767048795520943,
+            0.043972683408812434
+          ],
+          [
+            -0.31589256435378354,
+            0.49629610296776017,
+            0.04247607710777047
+          ],
+          [
+            -0.9218280404713795,
+            0.29667813450706115,
+            0.05204133989680054
+          ]
+        ],
+        "budget": {
+          "elites": 14,
+          "horizon_s": 2.4,
+          "iterations": 14,
+          "population": 72,
+          "segments": 8
+        },
+        "cell_id": "mu0p90_v16",
+        "history": [
+          {
+            "best_score": 12348.4,
+            "iteration": 0,
+            "mode_valid_count": 72,
+            "pre_obstacle_mode_valid_count": 41
+          },
+          {
+            "best_score": 12348.4,
+            "iteration": 1,
+            "mode_valid_count": 72,
+            "pre_obstacle_mode_valid_count": 55
+          },
+          {
+            "best_score": 12348.587225728988,
+            "iteration": 2,
+            "mode_valid_count": 72,
+            "pre_obstacle_mode_valid_count": 63
+          },
+          {
+            "best_score": 12348.4,
+            "iteration": 3,
+            "mode_valid_count": 72,
+            "pre_obstacle_mode_valid_count": 69
+          },
+          {
+            "best_score": 12348.4,
+            "iteration": 4,
+            "mode_valid_count": 72,
+            "pre_obstacle_mode_valid_count": 70
+          },
+          {
+            "best_score": 12348.4,
+            "iteration": 5,
+            "mode_valid_count": 72,
+            "pre_obstacle_mode_valid_count": 70
+          },
+          {
+            "best_score": 12348.494538152761,
+            "iteration": 6,
+            "mode_valid_count": 72,
+            "pre_obstacle_mode_valid_count": 70
+          },
+          {
+            "best_score": 12348.588461483341,
+            "iteration": 7,
+            "mode_valid_count": 72,
+            "pre_obstacle_mode_valid_count": 70
+          },
+          {
+            "best_score": 12348.4,
+            "iteration": 8,
+            "mode_valid_count": 72,
+            "pre_obstacle_mode_valid_count": 69
+          },
+          {
+            "best_score": 12348.440110495461,
+            "iteration": 9,
+            "mode_valid_count": 72,
+            "pre_obstacle_mode_valid_count": 70
+          },
+          {
+            "best_score": 12348.520492146103,
+            "iteration": 10,
+            "mode_valid_count": 72,
+            "pre_obstacle_mode_valid_count": 70
+          },
+          {
+            "best_score": 12348.4,
+            "iteration": 11,
+            "mode_valid_count": 72,
+            "pre_obstacle_mode_valid_count": 70
+          },
+          {
+            "best_score": 12348.620989247054,
+            "iteration": 12,
+            "mode_valid_count": 72,
+            "pre_obstacle_mode_valid_count": 69
+          },
+          {
+            "best_score": 12348.54272081171,
+            "iteration": 13,
+            "mode_valid_count": 72,
+            "pre_obstacle_mode_valid_count": 70
+          }
+        ],
+        "iteration_best_rows": [
+          {
+            "emergency_obstacle_x_m": 11.2,
+            "final_x_m": 33.63563937922061,
+            "final_y_m": 9.025090662534142,
+            "final_yaw_rad": 3.898562065903354,
+            "first_slide_dwell_time_s": 0.48,
+            "first_slide_dwell_x_m": 9.172308614771707,
+            "iteration": 0,
+            "max_abs_beta_rad": 1.5579597459064567,
+            "max_abs_rear_slip_angle_rad": 1.532622837260521,
+            "max_pre_obstacle_slide_dwell_steps": 10,
+            "max_rear_lateral_utilization": 1.0000000000000002,
+            "max_slide_dwell_steps": 59,
+            "mode_valid": true,
+            "pre_obstacle_mode_valid": true,
+            "score": 12348.4,
+            "simultaneous_pedal_integral": 0.0
+          },
+          {
+            "emergency_obstacle_x_m": 11.2,
+            "final_x_m": 33.63563937922061,
+            "final_y_m": 9.025090662534142,
+            "final_yaw_rad": 3.898562065903354,
+            "first_slide_dwell_time_s": 0.48,
+            "first_slide_dwell_x_m": 9.172308614771707,
+            "iteration": 1,
+            "max_abs_beta_rad": 1.5579597459064567,
+            "max_abs_rear_slip_angle_rad": 1.532622837260521,
+            "max_pre_obstacle_slide_dwell_steps": 10,
+            "max_rear_lateral_utilization": 1.0000000000000002,
+            "max_slide_dwell_steps": 59,
+            "mode_valid": true,
+            "pre_obstacle_mode_valid": true,
+            "score": 12348.4,
+            "simultaneous_pedal_integral": 0.0
+          },
+          {
+            "emergency_obstacle_x_m": 11.2,
+            "final_x_m": 33.43478455899389,
+            "final_y_m": 10.700031186773552,
+            "final_yaw_rad": 5.44745491572773,
+            "first_slide_dwell_time_s": 0.46,
+            "first_slide_dwell_x_m": 8.944651423776918,
+            "iteration": 2,
+            "max_abs_beta_rad": 1.56041667679696,
+            "max_abs_rear_slip_angle_rad": 1.5347485850179736,
+            "max_pre_obstacle_slide_dwell_steps": 10,
+            "max_rear_lateral_utilization": 1.0000000000000004,
+            "max_slide_dwell_steps": 53,
+            "mode_valid": true,
+            "pre_obstacle_mode_valid": true,
+            "score": 12348.587225728988,
+            "simultaneous_pedal_integral": 1.0638713550567322
+          },
+          {
+            "emergency_obstacle_x_m": 11.2,
+            "final_x_m": 33.63563937922061,
+            "final_y_m": 9.025090662534142,
+            "final_yaw_rad": 3.898562065903354,
+            "first_slide_dwell_time_s": 0.48,
+            "first_slide_dwell_x_m": 9.172308614771707,
+            "iteration": 3,
+            "max_abs_beta_rad": 1.5579597459064567,
+            "max_abs_rear_slip_angle_rad": 1.532622837260521,
+            "max_pre_obstacle_slide_dwell_steps": 10,
+            "max_rear_lateral_utilization": 1.0000000000000002,
+            "max_slide_dwell_steps": 59,
+            "mode_valid": true,
+            "pre_obstacle_mode_valid": true,
+            "score": 12348.4,
+            "simultaneous_pedal_integral": 0.0
+          },
+          {
+            "emergency_obstacle_x_m": 11.2,
+            "final_x_m": 33.63563937922061,
+            "final_y_m": 9.025090662534142,
+            "final_yaw_rad": 3.898562065903354,
+            "first_slide_dwell_time_s": 0.48,
+            "first_slide_dwell_x_m": 9.172308614771707,
+            "iteration": 4,
+            "max_abs_beta_rad": 1.5579597459064567,
+            "max_abs_rear_slip_angle_rad": 1.532622837260521,
+            "max_pre_obstacle_slide_dwell_steps": 10,
+            "max_rear_lateral_utilization": 1.0000000000000002,
+            "max_slide_dwell_steps": 59,
+            "mode_valid": true,
+            "pre_obstacle_mode_valid": true,
+            "score": 12348.4,
+            "simultaneous_pedal_integral": 0.0
+          },
+          {
+            "emergency_obstacle_x_m": 11.2,
+            "final_x_m": 33.63563937922061,
+            "final_y_m": 9.025090662534142,
+            "final_yaw_rad": 3.898562065903354,
+            "first_slide_dwell_time_s": 0.48,
+            "first_slide_dwell_x_m": 9.172308614771707,
+            "iteration": 5,
+            "max_abs_beta_rad": 1.5579597459064567,
+            "max_abs_rear_slip_angle_rad": 1.532622837260521,
+            "max_pre_obstacle_slide_dwell_steps": 10,
+            "max_rear_lateral_utilization": 1.0000000000000002,
+            "max_slide_dwell_steps": 59,
+            "mode_valid": true,
+            "pre_obstacle_mode_valid": true,
+            "score": 12348.4,
+            "simultaneous_pedal_integral": 0.0
+          },
+          {
+            "emergency_obstacle_x_m": 11.2,
+            "final_x_m": 34.21975788359438,
+            "final_y_m": 8.191556633444758,
+            "final_yaw_rad": 3.307254091310898,
+            "first_slide_dwell_time_s": 0.46,
+            "first_slide_dwell_x_m": 8.924939728261789,
+            "iteration": 6,
+            "max_abs_beta_rad": 1.5668793374736834,
+            "max_abs_rear_slip_angle_rad": 1.5322011795444541,
+            "max_pre_obstacle_slide_dwell_steps": 10,
+            "max_rear_lateral_utilization": 1.0000000000000002,
+            "max_slide_dwell_steps": 60,
+            "mode_valid": true,
+            "pre_obstacle_mode_valid": true,
+            "score": 12348.494538152761,
+            "simultaneous_pedal_integral": 1.527309236192487
+          },
+          {
+            "emergency_obstacle_x_m": 11.2,
+            "final_x_m": 33.582243219626456,
+            "final_y_m": 7.44860409995311,
+            "final_yaw_rad": 3.468130574857167,
+            "first_slide_dwell_time_s": 0.46,
+            "first_slide_dwell_x_m": 8.941312182352558,
+            "iteration": 7,
+            "max_abs_beta_rad": 1.5503742485549203,
+            "max_abs_rear_slip_angle_rad": 1.530290721569712,
+            "max_pre_obstacle_slide_dwell_steps": 10,
+            "max_rear_lateral_utilization": 1.0000000000000002,
+            "max_slide_dwell_steps": 69,
+            "mode_valid": true,
+            "pre_obstacle_mode_valid": true,
+            "score": 12348.588461483341,
+            "simultaneous_pedal_integral": 1.0576925832870496
+          },
+          {
+            "emergency_obstacle_x_m": 11.2,
+            "final_x_m": 33.63563937922061,
+            "final_y_m": 9.025090662534142,
+            "final_yaw_rad": 3.898562065903354,
+            "first_slide_dwell_time_s": 0.48,
+            "first_slide_dwell_x_m": 9.172308614771707,
+            "iteration": 8,
+            "max_abs_beta_rad": 1.5579597459064567,
+            "max_abs_rear_slip_angle_rad": 1.532622837260521,
+            "max_pre_obstacle_slide_dwell_steps": 10,
+            "max_rear_lateral_utilization": 1.0000000000000002,
+            "max_slide_dwell_steps": 59,
+            "mode_valid": true,
+            "pre_obstacle_mode_valid": true,
+            "score": 12348.4,
+            "simultaneous_pedal_integral": 0.0
+          },
+          {
+            "emergency_obstacle_x_m": 11.2,
+            "final_x_m": 34.711490803161354,
+            "final_y_m": 9.631703799863788,
+            "final_yaw_rad": 4.064468060232631,
+            "first_slide_dwell_time_s": 0.46,
+            "first_slide_dwell_x_m": 8.946918024092684,
+            "iteration": 9,
+            "max_abs_beta_rad": 1.5600743954283989,
+            "max_abs_rear_slip_angle_rad": 1.534012583903488,
+            "max_pre_obstacle_slide_dwell_steps": 10,
+            "max_rear_lateral_utilization": 1.0000000000000009,
+            "max_slide_dwell_steps": 56,
+            "mode_valid": true,
+            "pre_obstacle_mode_valid": true,
+            "score": 12348.440110495461,
+            "simultaneous_pedal_integral": 1.799447522686127
+          },
+          {
+            "emergency_obstacle_x_m": 11.2,
+            "final_x_m": 34.56357010444873,
+            "final_y_m": 9.139263676064187,
+            "final_yaw_rad": 3.336987027624221,
+            "first_slide_dwell_time_s": 0.46,
+            "first_slide_dwell_x_m": 8.92861919120606,
+            "iteration": 10,
+            "max_abs_beta_rad": 1.556528112016242,
+            "max_abs_rear_slip_angle_rad": 1.5324523815475641,
+            "max_pre_obstacle_slide_dwell_steps": 10,
+            "max_rear_lateral_utilization": 1.0000000000000002,
+            "max_slide_dwell_steps": 59,
+            "mode_valid": true,
+            "pre_obstacle_mode_valid": true,
+            "score": 12348.520492146103,
+            "simultaneous_pedal_integral": 1.397539269484108
+          },
+          {
+            "emergency_obstacle_x_m": 11.2,
+            "final_x_m": 33.63563937922061,
+            "final_y_m": 9.025090662534142,
+            "final_yaw_rad": 3.898562065903354,
+            "first_slide_dwell_time_s": 0.48,
+            "first_slide_dwell_x_m": 9.172308614771707,
+            "iteration": 11,
+            "max_abs_beta_rad": 1.5579597459064567,
+            "max_abs_rear_slip_angle_rad": 1.532622837260521,
+            "max_pre_obstacle_slide_dwell_steps": 10,
+            "max_rear_lateral_utilization": 1.0000000000000002,
+            "max_slide_dwell_steps": 59,
+            "mode_valid": true,
+            "pre_obstacle_mode_valid": true,
+            "score": 12348.4,
+            "simultaneous_pedal_integral": 0.0
+          },
+          {
+            "emergency_obstacle_x_m": 11.2,
+            "final_x_m": 34.44586173441869,
+            "final_y_m": 7.863895029124803,
+            "final_yaw_rad": 2.8026504202562923,
+            "first_slide_dwell_time_s": 0.46,
+            "first_slide_dwell_x_m": 8.950633758862578,
+            "iteration": 12,
+            "max_abs_beta_rad": 1.5561525963748835,
+            "max_abs_rear_slip_angle_rad": 1.5322514021076838,
+            "max_pre_obstacle_slide_dwell_steps": 10,
+            "max_rear_lateral_utilization": 1.0000000000000009,
+            "max_slide_dwell_steps": 61,
+            "mode_valid": true,
+            "pre_obstacle_mode_valid": true,
+            "score": 12348.620989247054,
+            "simultaneous_pedal_integral": 0.895053764727958
+          },
+          {
+            "emergency_obstacle_x_m": 11.2,
+            "final_x_m": 34.55558352329693,
+            "final_y_m": 8.181622129675814,
+            "final_yaw_rad": 3.439180263930538,
+            "first_slide_dwell_time_s": 0.46,
+            "first_slide_dwell_x_m": 8.950598500100732,
+            "iteration": 13,
+            "max_abs_beta_rad": 1.5466333232197564,
+            "max_abs_rear_slip_angle_rad": 1.532333073989931,
+            "max_pre_obstacle_slide_dwell_steps": 10,
+            "max_rear_lateral_utilization": 1.0000000000000002,
+            "max_slide_dwell_steps": 58,
+            "mode_valid": true,
+            "pre_obstacle_mode_valid": true,
+            "score": 12348.54272081171,
+            "simultaneous_pedal_integral": 1.2863959414428912
+          }
+        ],
+        "seed": 402929569
+      }
+    ]
+  },
+  "self_id_claim": false
+}

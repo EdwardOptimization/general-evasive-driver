@@ -1,0 +1,242 @@
+{
+  "id": "m3272-phase5-h2-dynamic-prefix-recovery-certificate",
+  "priority": 32720,
+  "type": "infrastructure",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "metric_artifact"
+  ],
+  "milestone_intent": "proof",
+  "hypothesis": "Branching the unchanged M3271 nested recovery-policy libraries from continuously simulated states along the hash-frozen M3266 Chrono slide-entry prefix can remove direct-reset tire-state inconsistency and produce robust strict finite-horizon recovery witnesses, defined by baseline failure or at least 0.20 s earlier recovery with added countersteer.",
+  "feasibility_pricing": {
+    "pricing_artifact": "experiments/feasibility_audit/phase5_g0b_slide_mode_onset_pricing.json",
+    "priced_gap": 72.0,
+    "threshold": 4.0,
+    "gap_meets_threshold": true
+  },
+  "lineage": {
+    "parent_checkpoint": [
+      "docs/m3266-phase5-g0b-slide-mode-onset-pricing.md",
+      "docs/m3270-phase5-h0-fixed-library-overlap-certificate.md",
+      "docs/m3271-phase5-h1-postslip-nested-recovery-certificate.md",
+      "docs/preslip-reachable-set-dual-proof-theory-2026-07.md"
+    ],
+    "parent_dataset": [
+      "experiments/feasibility_audit/phase5_g0b_slide_mode_onset_pricing.json",
+      "experiments/feasibility_audit/phase5_h1_postslip_nested_recovery_certificate_quick.json"
+    ],
+    "parent_config": [
+      "scripts/feasibility_audit/phase5_g0b_slide_mode_onset_pricing.py",
+      "scripts/feasibility_audit/phase5_h1_postslip_nested_recovery_certificate.py",
+      "scripts/feasibility_audit/phase5_h2_dynamic_prefix_recovery_certificate.py"
+    ],
+    "parent_objective": [
+      "test strict post-slip recovery expansion from dynamically consistent tire states",
+      "preserve corrected physical actions and exact control-set nesting from M3271"
+    ],
+    "derived_from": [
+      "M3266 same-plant prefix has 72-frame slide dwell and exact replay",
+      "M3271 direct reset matched body beta but rear slip was only 0.00136 rad",
+      "a recovery-time gap of at least 0.20 s defines a nonempty deadline interval with strict finite-horizon set membership"
+    ],
+    "blocked_by": [
+      "only prefix states passing frozen beta dwell rear-slip and four-wheel truth are eligible"
+    ],
+    "supersedes": [
+      "direct body-state injection as the source of post-slip branch states"
+    ],
+    "invalidates": [
+      "resetting wheel or tire relaxation state at a recovery branch",
+      "using ineligible prefix times as already-sliding evidence",
+      "overriding M3271's negative reset-state finding"
+    ]
+  },
+  "review_artifact": "docs/reviews/m3272-phase5-h2-dynamic-prefix-recovery-certificate.md",
+  "public_gates": [
+    "freeze M3266 source artifact and physical-segment hashes before quick/full",
+    "run the common prefix without resetting at the recovery branch",
+    "freeze branch grid unchanged M3271 policy library thresholds and disjoint seeds",
+    "require final four prefix frames beta at least 0.20 and branch rear slip at least 0.15",
+    "require identical prefix and branch hashes across every policy",
+    "keep the six baseline policies as a strict subset of the 30-policy expanded set",
+    "require ten stable frames with forward speed at least 4 m/s",
+    "require baseline failure or at least 0.20 s recovery-time advantage with steering actually used",
+    "require exact winner replay and full negative reporting",
+    "scope support to one signed finite prefix branch and policy family"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not reset body wheel or tire states at the branch",
+    "do not change source prefix branch times policies thresholds seeds or eligibility after results",
+    "do not use normalized pedal zero as physical zero",
+    "do not call uniform braking ESC",
+    "do not count ineligible branch times in strict evidence",
+    "do not hide source-prefix simultaneous pedal segments baseline recoveries or active failures",
+    "do not mutate ActiveSafetyReflexDriver or train a policy",
+    "do not claim all post-slip states policies vehicles real cars promotion or self-ID"
+  ],
+  "workflow_synthesis": {
+    "branch": "phase5_postslip_strict_recovery_dual_proof",
+    "evidence_axis": "continuous_prefix_nested_recovery_comparison",
+    "evidence_increment": "twelve preregistered branch times three fresh seeds and unchanged thirty-policy nested library",
+    "claim_scope": "eligible states on one hash-frozen signed Chrono/TMeasy slide-entry prefix",
+    "stop_condition": [
+      "stop before full unless quick has at least three eligible cells and one strict witness",
+      "stop as inconclusive on any hash action nesting telemetry or replay failure",
+      "stop as no-strict-witness if health passes but robust strict thresholds fail",
+      "admit support only with eight robust eligible and three robust strict cells across two branch-time groups"
+    ],
+    "fallback_plan": [
+      "if H2 fails retain theorem-level weak inclusion and report no valid strict Chrono witness",
+      "if H2 passes update theory and paper with the exact finite-prefix claim boundary",
+      "preserve M3271 as a separate invalid-initialization negative"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M3271 localized the blocker to direct-reset tire-state inconsistency",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "Replay one frozen slide-entry history and compare unchanged nested finite recovery-policy libraries without fitting search repair or training.",
+    "admission_evidence": [
+      "M3266 dynamic slide-entry pricing",
+      "M3270 finite pre-slip support",
+      "M3271 corrected action and set-nesting health"
+    ],
+    "blocked_shortcuts": [
+      "no policy tuning after H1",
+      "no branch-state reset",
+      "no incumbent mutation",
+      "no universal claim"
+    ],
+    "allowed_updates": [
+      "scripts/feasibility_audit/phase5_h2_dynamic_prefix_recovery_certificate.py",
+      "tests/test_phase5_h2_dynamic_prefix_recovery_certificate.py",
+      "experiments/feasibility_audit/phase5_h2_dynamic_prefix_recovery_certificate_prereg.json",
+      "experiments/feasibility_audit/phase5_h2_dynamic_prefix_recovery_certificate_quick.json",
+      "experiments/feasibility_audit/phase5_h2_dynamic_prefix_recovery_certificate.json",
+      "runs/feasibility_audit/phase5_h2_dynamic_prefix_recovery_certificate/",
+      "docs/m3272-phase5-h2-dynamic-prefix-recovery-certificate.md",
+      "docs/reviews/m3272-phase5-h2-dynamic-prefix-recovery-certificate.md",
+      "docs/preslip-reachable-set-dual-proof-theory-2026-07.md",
+      "docs/two-regime-thesis-drift-2026-06.md",
+      "paper/c5prime/main.tex",
+      "experiments/research_queue.csv",
+      "experiments/research_status.json",
+      "experiments/scoreboard.csv",
+      "docs/current-status.md",
+      "docs/roadmap-phase3-codex-execution.md",
+      "docs/research-log.md",
+      "docs/data-coverage-map-2026-06.md",
+      "scripts/feasibility_audit/README.md"
+    ],
+    "next_stage_criteria": [
+      "finite-prefix post-slip strict text may be added only after healthy full support",
+      "failed H2 blocks further local post-slip repair without new physics pricing",
+      "no controller promotion follows from H2"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "Deterministic state-feedback recovery policies make no history or hidden-capability attribution claim.",
+    "history_necessity_tests": [
+      "none; the common prefix is state generation rather than a learned memory input"
+    ],
+    "temporal_evidence_window": "continuous prefix plus 2.6-second recovery with ten-frame stable criterion",
+    "negative_result_policy": "Every ineligible branch baseline recovery active failure and failed time-gap witness remains visible.",
+    "allowed_claims": [
+      "finite-prefix finite-policy strict recovery expansion",
+      "weak inclusion from exact nesting",
+      "no strict witness if frozen thresholds fail",
+      "no incumbent or self-ID change"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_baseline_comparison",
+    "process_overhead": "medium",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "changes only state generation from invalid direct reset to one continuously simulated frozen prefix while preserving the recovery policy library and thresholds",
+    "paper_verdict_delta": "A healthy result can establish the finite-prefix strict post-slip complement to the pre-slip theorem.",
+    "must_synthesize_if": [
+      "quick fails and a new prefix policy or recovery policy is proposed",
+      "an ineligible branch is relabeled",
+      "the 0.20 s time gap is relaxed",
+      "finite-prefix support is universalized"
+    ]
+  },
+  "success_criteria": [
+    "preregistration freezes source prefix hash branch grid unchanged policy library and seed streams",
+    "quick has at least three eligible branches and one strict witness",
+    "managed resumable full completes 1080 candidate rows and 24 exact winner replays",
+    "all action nesting prefix branch telemetry finite-observation and weak-inclusion gates pass",
+    "at least eight cells are eligible and three cells strict on all three seeds across two branch groups",
+    "source-prefix simultaneous pedals and finite signed scope remain explicit"
+  ],
+  "failure_criteria": [
+    "full runs before passing quick",
+    "branch states are reset or differ between policies",
+    "ineligible tire states are counted",
+    "a time gap below 0.20 s is called strict",
+    "strict support is claimed without robust matched witnesses"
+  ],
+  "decision_rule": "Return dynamic_prefix_strict_recovery_support only when all health and weak-inclusion gates pass, at least eight of twelve full branch cells are eligible on all three seeds, and at least three cells are strict on all seeds across two branch-time groups. Return no_strict_witness when health passes but thresholds fail. Otherwise return inconclusive.",
+  "commands": [
+    {
+      "name": "phase5_h2_write_prereg",
+      "command": "env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/phase5_h2_dynamic_prefix_recovery_certificate.py --write-prereg"
+    },
+    {
+      "name": "phase5_h2_quick",
+      "command": "env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/phase5_h2_dynamic_prefix_recovery_certificate.py --quick"
+    },
+    {
+      "name": "phase5_h2_full",
+      "command": "env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/phase5_h2_dynamic_prefix_recovery_certificate.py --full --resume"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "experiments/feasibility_audit/phase5_h2_dynamic_prefix_recovery_certificate_prereg.json",
+      "type": "json"
+    },
+    {
+      "path": "experiments/feasibility_audit/phase5_h2_dynamic_prefix_recovery_certificate_quick.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/feasibility_audit/phase5_h2_dynamic_prefix_recovery_certificate/quick/candidate_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/feasibility_audit/phase5_h2_dynamic_prefix_recovery_certificate/quick/seed_verdicts.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/feasibility_audit/phase5_h2_dynamic_prefix_recovery_certificate/quick/cell_verdicts.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/feasibility_audit/phase5_h2_dynamic_prefix_recovery_certificate/quick/replay_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m3272-phase5-h2-dynamic-prefix-recovery-certificate.md",
+      "type": "markdown"
+    },
+    {
+      "path": "docs/reviews/m3272-phase5-h2-dynamic-prefix-recovery-certificate.md",
+      "type": "markdown"
+    }
+  ],
+  "baseline_checkpoints": [
+    "experiments/feasibility_audit/phase5_g0b_slide_mode_onset_pricing.json",
+    "experiments/feasibility_audit/phase5_h1_postslip_nested_recovery_certificate_quick.json",
+    "docs/preslip-reachable-set-dual-proof-theory-2026-07.md",
+    "docs/papers/emergency/2022-justifying-emergency-drift-control.pdf"
+  ],
+  "metric_extractors": [],
+  "gates": []
+}

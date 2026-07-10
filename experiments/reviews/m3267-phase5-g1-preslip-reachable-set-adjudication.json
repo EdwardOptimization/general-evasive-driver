@@ -1,0 +1,109 @@
+{
+  "decision_reason": "corrected Chrono quick all arms finite and exact-replay: grip D-star 18.8 m required-slide 21.7 m free 16.1 m grip-like; planar required-slide D-star not found; frozen completeness gate failed and full was not run",
+  "failure_criteria": [
+    "full runs before preregistration or quick",
+    "any arm-completeness or free-consistency gate is hidden",
+    "a late, unstable, stopped, off-road, or mode-invalid slide is counted as success",
+    "thresholds, budgets, cells, geometry, or tolerance change after result inspection",
+    "the finite-domain result is generalized to an excluded scope"
+  ],
+  "failure_types": [
+    "metric_artifact"
+  ],
+  "forbidden_shortcuts": [
+    "do not change thresholds, distance tolerance, geometry, cells, or budgets after reading quick/full results",
+    "do not compare a mode-invalid slide search against a valid grip search",
+    "do not omit the free arm or ignore free-search inconsistency",
+    "do not count obstacle-center onset instead of vehicle-front versus obstacle-near-face contact",
+    "do not call uniform braking production ESC",
+    "do not train a policy or mutate ActiveSafetyReflexDriver",
+    "do not claim split-mu, moving-obstacle, terminal-pose, arbitrary-vehicle, real-car, promotion, or self-ID coverage"
+  ],
+  "gate_tier": "proof",
+  "generated_at_utc": "20260710T085556Z",
+  "hypothesis": "A preregistered Phase-5 G1 matched-oracle adjudication can compare the minimum clearable lane-aligned OBB distance of grip, required controlled-slide, and free arms on planar and Chrono plants, using the physical first-contact plane and controlled-slide constraints, before any universal theorem, real-vehicle, promotion, or self-ID claim.",
+  "lineage": {
+    "blocked_by": [
+      "M3267 corrected quick failed planar all-arm completeness, so its full run is blocked",
+      "post-slip strict-recovery and paper claim updates require a separately preregistered healthy pre-slip verdict"
+    ],
+    "derived_from": [
+      "M3265 proved positive-control sensitivity but blocked on mode expressibility",
+      "M3266 proved same-plant slide entry and priced a 0.50 s Chrono onset scale",
+      "M3266 review requires OBB first-contact timing, stable slide constraints, and matched grip/slide/free oracles"
+    ],
+    "invalidates": [
+      "giving required-slide extra actuator or yaw-rate authority",
+      "counting late slide onset after the OBB near face as valid",
+      "generalizing the finite-domain result to split-mu, moving obstacles, terminal yaw, real vehicles, or slide-only direct yaw moment"
+    ],
+    "parent_checkpoint": [
+      "docs/preslip-reachable-set-dual-proof-theory-2026-07.md",
+      "docs/m3265-phase5-g0-preslip-reachability-proof-pricing.md",
+      "docs/m3266-phase5-g0b-slide-mode-onset-pricing.md",
+      "docs/current-status.md"
+    ],
+    "parent_config": [
+      "scripts/feasibility_audit/phase5_g0_preslip_reachability_proof_pricing.py",
+      "scripts/feasibility_audit/phase5_g0b_slide_mode_onset_pricing.py",
+      "scripts/feasibility_audit/phase5_g1_preslip_reachable_set_adjudication.py",
+      "src/autodrift/dynamics.py",
+      "src/autodrift/chrono_vehicle_backend.py"
+    ],
+    "parent_dataset": [
+      "experiments/feasibility_audit/phase5_g0_preslip_reachability_proof_pricing.json",
+      "experiments/feasibility_audit/phase5_g0b_slide_mode_onset_pricing.json",
+      "experiments/feasibility_audit/phase4_f2.json"
+    ],
+    "parent_objective": [
+      "adjudicate whether deliberate controlled slide enlarges the bounded pre-slip static-obstacle feasible set",
+      "bridge the force-envelope inclusion theorem to matched detailed-model evidence without conservative-control clipping"
+    ],
+    "supersedes": [
+      "constant-command maximum-displacement sweeps as the load-bearing pre-slip comparison",
+      "obstacle-center timing as a proxy for pre-contact slide onset",
+      "two-arm comparisons without an unconstrained free-oracle search-health check"
+    ]
+  },
+  "milestone": "m3267-phase5-g1-preslip-reachable-set-adjudication",
+  "next_blocker": "",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "g1_quick_inconclusive",
+  "public_gates": [
+    "write preregistration before quick and full execution",
+    "run quick before the managed full run",
+    "retain M3265's known larger-control-set positive control and M3266's same-plant slide-entry positive controls",
+    "use the same plant, actuator limits, physical action mapping, optimizer budget, and distance range within each backend",
+    "require grip beta<=0.12 and controlled slide beta in [0.20,0.60] for four frames before the true OBB contact plane",
+    "reject beta>0.70, speed<4 m/s, collision, road departure, or incomplete pass in every arm",
+    "produce finite D-star for grip, required-slide, and free in every cell",
+    "require free D-star no worse than the better constrained arm by more than 0.25 m",
+    "support no-drift advantage only when grip D-star <= slide D-star +0.25 m in every planar and Chrono cell",
+    "falsify on any valid slide or early-slide free arm that beats grip by more than 0.25 m",
+    "keep the result finite-domain and leave the incumbent unchanged"
+  ],
+  "scoreboard": {
+    "checkpoint": "",
+    "clearance_margin_mean": "",
+    "decision": "g1_quick_inconclusive",
+    "milestone": "m3267-phase5-g1-preslip-reachable-set-adjudication",
+    "reason": "corrected Chrono quick all arms finite and exact-replay: grip D-star 18.8 m required-slide 21.7 m free 16.1 m grip-like; planar required-slide D-star not found; frozen completeness gate failed and full was not run",
+    "reset_success": "",
+    "success_rate": "0",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "preregistration exists before quick and full execution",
+    "quick artifact exists and passes all health gates before full",
+    "every full planar and Chrono cell has finite grip, required-slide, and free D-star",
+    "free consistency passes in every cell",
+    "the decision is exactly bounded_empirical_support, counterexample_found, or inconclusive by the frozen rule",
+    "all best actions, refined boundaries, arm rows, and cell verdicts are persisted",
+    "the result changes no incumbent and makes no self-ID claim"
+  ],
+  "type": "infrastructure"
+}

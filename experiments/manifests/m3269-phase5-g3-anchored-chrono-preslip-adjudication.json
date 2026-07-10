@@ -1,0 +1,238 @@
+{
+  "id": "m3269-phase5-g3-anchored-chrono-preslip-adjudication",
+  "priority": 32690,
+  "type": "infrastructure",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "metric_artifact"
+  ],
+  "milestone_intent": "proof",
+  "hypothesis": "A final fresh-seed Chrono Phase-5 G3 panel can use M3267's exactly replayed required-slide trajectory as a preregistered feasibility anchor, without extra authority or changed criteria, to obtain stable dedicated and pooled grip/slide/free minimum-clearable-distance boundaries across three frozen friction cells and adjudicate the 0.25 m bounded no-drift advantage rule before any universal theorem, real-vehicle, paper-readiness, promotion, or self-ID claim.",
+  "feasibility_pricing": {
+    "pricing_artifact": "experiments/feasibility_audit/phase5_g1_preslip_reachable_set_adjudication_quick.json",
+    "priced_gap": 2.9,
+    "threshold": 0.25,
+    "gap_meets_threshold": true
+  },
+  "lineage": {
+    "parent_checkpoint": [
+      "docs/preslip-reachable-set-dual-proof-theory-2026-07.md",
+      "docs/m3267-phase5-g1-preslip-reachable-set-adjudication.md",
+      "docs/m3268-phase5-g2-chrono-preslip-boundary-adjudication.md",
+      "docs/current-status.md"
+    ],
+    "parent_dataset": [
+      "experiments/feasibility_audit/phase5_g1_preslip_reachable_set_adjudication_quick.json",
+      "experiments/feasibility_audit/phase5_g2_chrono_preslip_boundary_adjudication_quick.json"
+    ],
+    "parent_config": [
+      "scripts/feasibility_audit/phase5_g1_preslip_reachable_set_adjudication.py",
+      "scripts/feasibility_audit/phase5_g2_chrono_preslip_boundary_adjudication.py",
+      "scripts/feasibility_audit/phase5_g3_anchored_chrono_preslip_adjudication.py"
+    ],
+    "parent_objective": [
+      "adjudicate the finite detailed-model bridge for the bounded pre-slip theorem",
+      "remove known-feasible narrow-set recall as an optimizer confound"
+    ],
+    "derived_from": [
+      "M3267 exact-replay required-slide D-star 21.7 m at mu 0.48 and 16 m/s",
+      "M3268 fresh seed missed that known nonempty same-cell slide set",
+      "the anchor is frozen by source seed, array shape, float64 SHA256, insertion index, and search distance"
+    ],
+    "blocked_by": [
+      "post-slip recovery and paper claim remain separate even if G3 passes"
+    ],
+    "supersedes": [
+      "unanchored small-budget CEM as the sole narrow required-slide feasibility source"
+    ],
+    "invalidates": [
+      "additional optimizer-only repairs after G3",
+      "omitting M3267 planar incompleteness",
+      "giving the slide arm extra actuators",
+      "universalizing selected Chrono cells"
+    ]
+  },
+  "review_artifact": "docs/reviews/m3269-phase5-g3-anchored-chrono-preslip-adjudication.md",
+  "public_gates": [
+    "freeze source anchor hash and insertion semantics before quick/full",
+    "run canonical quick before managed checkpointed full",
+    "use fresh disjoint optimizer seeds with identical per-arm budgets",
+    "retain true OBB contact and frozen grip/controlled-slide/free predicates",
+    "require every dedicated arm/seed and pooled arm finite",
+    "require free consistency and worst-grip-seed versus best-slide-seed <=0.25 m",
+    "require local frame, axle tire truth, and exact replay",
+    "report counterexamples and M3267 planar incompleteness at full fidelity",
+    "stop the detailed-model optimizer route on any failed G3 gate"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not alter anchor, cells, budgets, modes, geometry, pooling, or tolerance after results",
+    "do not count post-contact, unstable, stopped, off-road, or colliding slide",
+    "do not hide dedicated rows behind pooled minima",
+    "do not run another local search repair if G3 fails",
+    "do not mutate ActiveSafetyReflexDriver or train a policy",
+    "do not claim planar, split-mu, moving-obstacle, cross-vehicle, real-car, paper-readiness, promotion, or self-ID coverage"
+  ],
+  "workflow_synthesis": {
+    "branch": "phase5_preslip_reachable_set_dual_proof",
+    "evidence_axis": "anchored_chrono_matched_reachable_boundary_comparison",
+    "evidence_increment": "final known-feasible-anchor three-cell two-seed detailed-model boundary panel",
+    "claim_scope": "finite selected Chrono/TMeasy lane-aligned static-OBB cells",
+    "stop_condition": [
+      "stop before full if quick fails",
+      "stop as inconclusive on any full health or robustness failure",
+      "stop as counterexample when a healthy slide trajectory beats grip by more than 0.25 m",
+      "stop as bounded support only when all frozen gates pass",
+      "do not register another optimizer repair after G3"
+    ],
+    "fallback_plan": [
+      "if G3 fails, retain theory-only inclusion plus inconclusive detailed-model evidence",
+      "if G3 passes, register the separate post-slip strict-recovery panel",
+      "if a counterexample appears, preserve and independently replay it"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M3268 exposed known-set search recall instability",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "Evaluate deterministic matched reachability oracles with one frozen feasibility anchor and no training.",
+    "admission_evidence": [
+      "M3267 exact replay and finite same-cell required-slide witness",
+      "M3268 localized fresh-seed recall failure",
+      "bounded theory certificate"
+    ],
+    "blocked_shortcuts": [
+      "no training",
+      "no incumbent mutation",
+      "no post-result tuning",
+      "no universal claim"
+    ],
+    "allowed_updates": [
+      "scripts/feasibility_audit/phase5_g3_anchored_chrono_preslip_adjudication.py",
+      "tests/test_phase5_g3_anchored_chrono_preslip_adjudication.py",
+      "experiments/feasibility_audit/phase5_g3_anchored_chrono_preslip_adjudication_prereg.json",
+      "experiments/feasibility_audit/phase5_g3_anchored_chrono_preslip_adjudication_quick.json",
+      "experiments/feasibility_audit/phase5_g3_anchored_chrono_preslip_adjudication.json",
+      "runs/feasibility_audit/phase5_g3_anchored_chrono_preslip_adjudication/",
+      "docs/m3269-phase5-g3-anchored-chrono-preslip-adjudication.md",
+      "docs/reviews/m3269-phase5-g3-anchored-chrono-preslip-adjudication.md",
+      "experiments/research_queue.csv",
+      "experiments/research_status.json",
+      "experiments/scoreboard.csv",
+      "docs/current-status.md",
+      "docs/roadmap-phase3-codex-execution.md",
+      "docs/research-log.md",
+      "docs/data-coverage-map-2026-06.md",
+      "scripts/feasibility_audit/README.md"
+    ],
+    "next_stage_criteria": [
+      "post-slip strict-recovery may be registered only after healthy bounded support",
+      "a failed G3 closes further optimizer repair",
+      "paper text changes only after both evidence axes are complete"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "Deterministic open-loop per-instance trajectories make no history or belief attribution claim.",
+    "history_necessity_tests": [
+      "none; no learned history policy is evaluated"
+    ],
+    "temporal_evidence_window": "finite action trajectories with body and axle tire truth",
+    "negative_result_policy": "Every missing arm, unstable seed, free inconsistency, counterexample, and prior planar miss remains visible.",
+    "allowed_claims": [
+      "finite selected-cell bounded empirical support",
+      "a frozen counterexample",
+      "an inconclusive final optimizer route",
+      "no incumbent or self-ID change"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_baseline_comparison",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 1,
+    "evidence_expansion": "adds a hash-frozen exact feasibility anchor to a fresh three-cell two-seed panel while retaining all prior gates",
+    "paper_verdict_delta": "A healthy result can support only the bounded selected-Chrono pre-slip mechanism; failure closes the empirical optimizer route.",
+    "must_synthesize_if": [
+      "any further local search repair is proposed after G3",
+      "the anchor receives different authority or criteria",
+      "a strict-seed or free gate is ignored",
+      "finite-cell support is universalized"
+    ]
+  },
+  "success_criteria": [
+    "preregistration freezes anchor hash before quick/full",
+    "quick passes all gates before full",
+    "managed resumable full completes three cells and two seeds per arm",
+    "all dedicated, pooled, free, strict-seed, frame, tire, and replay gates pass",
+    "decision follows the frozen rule and raw evidence is persisted",
+    "scope and prior negative evidence remain explicit"
+  ],
+  "failure_criteria": [
+    "full runs before passing quick",
+    "anchor or criteria change after inspection",
+    "any failed arm/seed is hidden",
+    "invalid slide is counted",
+    "another optimizer repair is proposed after failure"
+  ],
+  "decision_rule": "Return bounded_empirical_support only when every positive-control, dedicated and pooled completeness, free consistency, worst-seed no-drift, pooled no-drift, frame, tire, replay, and no-counterexample gate passes in every full cell. Return counterexample_found only under healthy complete searches when slide beats grip by more than 0.25 m. Otherwise return inconclusive and close optimizer repair.",
+  "commands": [
+    {
+      "name": "phase5_g3_write_prereg",
+      "command": "env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/phase5_g3_anchored_chrono_preslip_adjudication.py --write-prereg"
+    },
+    {
+      "name": "phase5_g3_quick",
+      "command": "env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/phase5_g3_anchored_chrono_preslip_adjudication.py --quick"
+    },
+    {
+      "name": "phase5_g3_full",
+      "command": "env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/phase5_g3_anchored_chrono_preslip_adjudication.py --full --resume"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "experiments/feasibility_audit/phase5_g3_anchored_chrono_preslip_adjudication_prereg.json",
+      "type": "json"
+    },
+    {
+      "path": "experiments/feasibility_audit/phase5_g3_anchored_chrono_preslip_adjudication_quick.json",
+      "type": "json"
+    },
+    {
+      "path": "experiments/feasibility_audit/phase5_g3_anchored_chrono_preslip_adjudication.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/feasibility_audit/phase5_g3_anchored_chrono_preslip_adjudication/full/dedicated_arm_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/feasibility_audit/phase5_g3_anchored_chrono_preslip_adjudication/full/pooled_candidate_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/feasibility_audit/phase5_g3_anchored_chrono_preslip_adjudication/full/cell_verdicts.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m3269-phase5-g3-anchored-chrono-preslip-adjudication.md",
+      "type": "markdown"
+    },
+    {
+      "path": "docs/reviews/m3269-phase5-g3-anchored-chrono-preslip-adjudication.md",
+      "type": "markdown"
+    }
+  ],
+  "baseline_checkpoints": [
+    "docs/preslip-reachable-set-dual-proof-theory-2026-07.md",
+    "experiments/feasibility_audit/phase5_g1_preslip_reachable_set_adjudication_quick.json",
+    "experiments/feasibility_audit/phase5_g2_chrono_preslip_boundary_adjudication_quick.json",
+    "docs/papers/emergency/2022-justifying-emergency-drift-control.pdf"
+  ],
+  "metric_extractors": [],
+  "gates": []
+}

@@ -1,0 +1,244 @@
+{
+  "id": "m3270-phase5-h0-fixed-library-overlap-certificate",
+  "priority": 32700,
+  "type": "infrastructure",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "metric_artifact"
+  ],
+  "milestone_intent": "proof",
+  "hypothesis": "An exhaustive fresh-seed replay of the hash-frozen finite library containing every unique best Chrono physical action sequence from M3267 corrected quick and M3269 full can produce complete grip, required-slide, and free boundaries on the selected overlap-domain cells and test the 0.25 m bounded no-drift ordering without another optimizer repair or a continuous detailed-model dominance claim.",
+  "feasibility_pricing": {
+    "pricing_artifact": "experiments/feasibility_audit/phase5_g3_anchored_chrono_preslip_adjudication.json",
+    "priced_gap": 3.9,
+    "threshold": 0.25,
+    "gap_meets_threshold": true
+  },
+  "lineage": {
+    "parent_checkpoint": [
+      "docs/preslip-reachable-set-dual-proof-theory-2026-07.md",
+      "docs/m3267-phase5-g1-preslip-reachable-set-adjudication.md",
+      "docs/m3269-phase5-g3-anchored-chrono-preslip-adjudication.md",
+      "docs/current-status.md"
+    ],
+    "parent_dataset": [
+      "experiments/feasibility_audit/phase5_g1_preslip_reachable_set_adjudication_quick.json",
+      "experiments/feasibility_audit/phase5_g3_anchored_chrono_preslip_adjudication.json"
+    ],
+    "parent_config": [
+      "scripts/feasibility_audit/phase5_g1_preslip_reachable_set_adjudication.py",
+      "scripts/feasibility_audit/phase5_g3_anchored_chrono_preslip_adjudication.py",
+      "scripts/feasibility_audit/phase5_h0_fixed_library_overlap_certificate.py"
+    ],
+    "parent_objective": [
+      "independently validate the bounded force-envelope theorem on a detailed vehicle simulator",
+      "separate finite-library enumeration from M3269 optimizer recall"
+    ],
+    "derived_from": [
+      "M3269 finite complete cells favored grip by 6.8 m and 3.9 m",
+      "M3269 incompleteness arose from per-seed narrow-set optimizer recall",
+      "all 21 source best-action records can be retained as 20 unique hash-frozen physical sequences"
+    ],
+    "blocked_by": [
+      "post-slip strict-recovery remains a separate milestone",
+      "continuous Chrono control-set dominance remains unproved"
+    ],
+    "supersedes": [
+      "another local CEM or anchor repair after M3269"
+    ],
+    "invalidates": [
+      "describing this finite library as the continuous Chrono action space",
+      "overwriting M3269's inconclusive verdict",
+      "paper promotion before the separate post-slip panel"
+    ]
+  },
+  "review_artifact": "docs/reviews/m3270-phase5-h0-fixed-library-overlap-certificate.md",
+  "public_gates": [
+    "freeze source artifact hashes and all unique physical action hashes before quick/full",
+    "retain actions from successful and failed source searches",
+    "run canonical quick before managed checkpointed full",
+    "use fresh disjoint validation seeds and no optimization or action mutation",
+    "classify every trajectory under grip, required-slide, and free predicates",
+    "require finite overlap for every cell and seed",
+    "require grip D-star <= required-slide D-star + 0.25 m on every seed",
+    "require free consistency and no controlled-slide free counterexample",
+    "require local frame, axle tire truth, and exact replay",
+    "scope the result to the frozen finite library and selected cells"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not optimize, mutate, add, or drop actions after preregistration",
+    "do not alter cells, seed counts, mode predicates, geometry, or tolerance after results",
+    "do not hide failed source searches or incomplete validation rows",
+    "do not interpret finite-library support as universal or continuous detailed-model dominance",
+    "do not overwrite M3269's inconclusive optimizer verdict",
+    "do not mutate ActiveSafetyReflexDriver or train a policy",
+    "do not claim real-car, promotion, paper-readiness, or self-ID coverage"
+  ],
+  "workflow_synthesis": {
+    "branch": "phase5_preslip_reachable_set_dual_proof",
+    "evidence_axis": "finite_library_exhaustive_overlap_certificate",
+    "evidence_increment": "fresh-seed exhaustive replay of 20 hash-frozen source actions across three overlap cells",
+    "claim_scope": "frozen finite action library on selected Chrono/TMeasy lane-aligned static-OBB cells",
+    "stop_condition": [
+      "stop before full if quick fails",
+      "stop as inconclusive on any full health, overlap, tire, frame, replay, or free-consistency failure",
+      "stop as counterexample when a healthy slide or controlled-slide-like free trajectory beats grip by more than 0.25 m",
+      "stop as finite-library support only when every frozen gate passes"
+    ],
+    "fallback_plan": [
+      "if H0 fails, retain theory-only inclusion plus incomplete detailed-model evidence",
+      "if H0 passes, register the separate corrected-semantics post-slip strict-recovery panel",
+      "preserve and exactly replay any counterexample"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M3269 closed optimizer repair while retaining a reusable finite trajectory library",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "Exhaustively replay a preregistered finite physical-action library with no fitting, search, repair, or training.",
+    "admission_evidence": [
+      "M3269 priced 3.9 m and 6.8 m finite-cell gaps favoring grip",
+      "M3267 and M3269 expose 21 source best-action records",
+      "bounded force-envelope theory certificate"
+    ],
+    "blocked_shortcuts": [
+      "no optimizer repair",
+      "no action mutation",
+      "no incumbent mutation",
+      "no universal claim"
+    ],
+    "allowed_updates": [
+      "scripts/feasibility_audit/phase5_h0_fixed_library_overlap_certificate.py",
+      "tests/test_phase5_h0_fixed_library_overlap_certificate.py",
+      "experiments/feasibility_audit/phase5_h0_fixed_library_overlap_certificate_prereg.json",
+      "experiments/feasibility_audit/phase5_h0_fixed_library_overlap_certificate_quick.json",
+      "experiments/feasibility_audit/phase5_h0_fixed_library_overlap_certificate.json",
+      "runs/feasibility_audit/phase5_h0_fixed_library_overlap_certificate/",
+      "docs/m3270-phase5-h0-fixed-library-overlap-certificate.md",
+      "docs/reviews/m3270-phase5-h0-fixed-library-overlap-certificate.md",
+      "experiments/research_queue.csv",
+      "experiments/research_status.json",
+      "experiments/scoreboard.csv",
+      "docs/current-status.md",
+      "docs/roadmap-phase3-codex-execution.md",
+      "docs/research-log.md",
+      "docs/data-coverage-map-2026-06.md",
+      "scripts/feasibility_audit/README.md"
+    ],
+    "next_stage_criteria": [
+      "post-slip strict-recovery may be registered only after healthy finite-library support",
+      "failed H0 closes the finite-library empirical route",
+      "paper text changes only after both evidence axes are complete"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "Deterministic open-loop trajectory replay makes no history or belief attribution claim.",
+    "history_necessity_tests": [
+      "none; no learned history policy is evaluated"
+    ],
+    "temporal_evidence_window": "finite open-loop action trajectories with body and axle tire truth",
+    "negative_result_policy": "Every missing overlap row, failed replay, free inconsistency, and counterexample remains visible.",
+    "allowed_claims": [
+      "finite-library selected-cell empirical support",
+      "a frozen counterexample",
+      "an inconclusive finite-library panel",
+      "no incumbent or self-ID change"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_baseline_comparison",
+    "process_overhead": "low",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "replaces stochastic optimizer recall with exhaustive replay of a frozen action library while preserving all source actions and matched classifiers",
+    "paper_verdict_delta": "A healthy result can support only the selected-cell finite-library numerical half of the pre-slip theorem.",
+    "must_synthesize_if": [
+      "any optimizer or action repair is proposed",
+      "a source action is omitted",
+      "a health or overlap gate is ignored",
+      "finite-library support is universalized"
+    ]
+  },
+  "success_criteria": [
+    "preregistration freezes source hashes and 20 unique action hashes before quick/full",
+    "quick passes all gates before full",
+    "managed resumable full completes 480 classification rows and 60 exact replays",
+    "every full cell and seed has finite grip, required-slide, and free boundaries",
+    "all ordering, free-consistency, frame, tire, and replay gates pass",
+    "decision follows the frozen rule and raw evidence is persisted",
+    "M3269 and continuous-control claim boundaries remain explicit"
+  ],
+  "failure_criteria": [
+    "full runs before passing quick",
+    "source library or criteria change after inspection",
+    "any missing cell, seed, action, or replay is hidden",
+    "invalid slide is counted",
+    "finite-library support is promoted to a continuous detailed-model theorem"
+  ],
+  "decision_rule": "Return finite_library_overlap_support only when source hashes remain frozen, every expected row uses the registered local frame and finite tire truth, every exact replay passes, every cell/seed has finite grip, required-slide, and free boundaries, grip is no worse than required slide by more than 0.25 m, free consistency passes, and no controlled-slide free counterexample exists. Return counterexample_found only under healthy complete rows. Otherwise return inconclusive.",
+  "commands": [
+    {
+      "name": "phase5_h0_write_prereg",
+      "command": "env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/phase5_h0_fixed_library_overlap_certificate.py --write-prereg"
+    },
+    {
+      "name": "phase5_h0_quick",
+      "command": "env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/phase5_h0_fixed_library_overlap_certificate.py --quick"
+    },
+    {
+      "name": "phase5_h0_full",
+      "command": "env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/phase5_h0_fixed_library_overlap_certificate.py --full --resume"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "experiments/feasibility_audit/phase5_h0_fixed_library_overlap_certificate_prereg.json",
+      "type": "json"
+    },
+    {
+      "path": "experiments/feasibility_audit/phase5_h0_fixed_library_overlap_certificate_quick.json",
+      "type": "json"
+    },
+    {
+      "path": "experiments/feasibility_audit/phase5_h0_fixed_library_overlap_certificate.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/feasibility_audit/phase5_h0_fixed_library_overlap_certificate/full/action_library.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/feasibility_audit/phase5_h0_fixed_library_overlap_certificate/full/replay_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/feasibility_audit/phase5_h0_fixed_library_overlap_certificate/full/seed_verdicts.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/feasibility_audit/phase5_h0_fixed_library_overlap_certificate/full/cell_verdicts.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m3270-phase5-h0-fixed-library-overlap-certificate.md",
+      "type": "markdown"
+    },
+    {
+      "path": "docs/reviews/m3270-phase5-h0-fixed-library-overlap-certificate.md",
+      "type": "markdown"
+    }
+  ],
+  "baseline_checkpoints": [
+    "docs/preslip-reachable-set-dual-proof-theory-2026-07.md",
+    "experiments/feasibility_audit/phase5_g1_preslip_reachable_set_adjudication_quick.json",
+    "experiments/feasibility_audit/phase5_g3_anchored_chrono_preslip_adjudication.json",
+    "docs/papers/emergency/2022-justifying-emergency-drift-control.pdf"
+  ],
+  "metric_extractors": [],
+  "gates": []
+}

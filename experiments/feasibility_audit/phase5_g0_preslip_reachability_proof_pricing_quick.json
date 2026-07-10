@@ -1,0 +1,313 @@
+{
+  "chrono_connector": {
+    "connector_pass": true,
+    "error": "",
+    "rows": [
+      {
+        "backend_id": "",
+        "collision": false,
+        "completion_reason": "max_steps",
+        "finite_tire_telemetry_steps": 36,
+        "max_abs_beta_rad": 0.032621402435837395,
+        "max_abs_tire_slip_angle_rad": 0.31490455377572407,
+        "max_slide_dwell_steps": 0,
+        "min_clearance_margin_m": 20.424674875267137,
+        "profile": "grip_probe",
+        "reset_obs_finite": true,
+        "step_count": 36
+      },
+      {
+        "backend_id": "",
+        "collision": false,
+        "completion_reason": "max_steps",
+        "finite_tire_telemetry_steps": 36,
+        "max_abs_beta_rad": 0.02044348428394031,
+        "max_abs_tire_slip_angle_rad": 0.6673735842528385,
+        "max_slide_dwell_steps": 0,
+        "min_clearance_margin_m": 20.193608496701337,
+        "profile": "slide_probe",
+        "reset_obs_finite": true,
+        "step_count": 36
+      }
+    ]
+  },
+  "claim_boundary": "proof-route pricing only; no reachable-set dominance, detailed-model theorem, promotion, paper, or self-ID claim",
+  "completed_at_utc": "2026-07-10T08:07:26.697456+00:00",
+  "decision": "admit_m3266_full_dual_proof",
+  "determinism_rows": [
+    {
+      "cell_id": "quick_mu0p60_v14_ttc0p90",
+      "mode": "grip",
+      "pass": true,
+      "same_score": true,
+      "same_segments": true
+    },
+    {
+      "cell_id": "quick_mu0p60_v14_ttc0p90",
+      "mode": "slide",
+      "pass": true,
+      "same_score": true,
+      "same_segments": true
+    }
+  ],
+  "dominance_claim_admitted": false,
+  "gates": {
+    "chrono_connector_pass": true,
+    "determinism_pass": true,
+    "planar_mode_expressibility_pass": true,
+    "positive_control_pass": true,
+    "protocol_gates_passed": true,
+    "search_health_pass": true
+  },
+  "incumbent_changed": false,
+  "milestone_id": "m3265-phase5-g0-preslip-reachability-proof-pricing",
+  "mode": "quick",
+  "planar": {
+    "best_rows": [
+      {
+        "best_segments_physical_json": "[[0.34142079437376616,0.0,0.49294964982361433],[0.692409291619528,0.0,0.04751282173572856],[0.49556764248145196,0.0,0.5568506826540991],[1.0,0.4101215181004906,0.2355734279797954],[0.7019921707270637,0.12228803984003198,0.4760800166796377]]",
+        "cell_id": "quick_mu0p60_v14_ttc0p90",
+        "collision": true,
+        "final_x_m": 12.424700096799567,
+        "final_y_m": 2.053260579027098,
+        "final_yaw_rad": 0.44243470402984464,
+        "max_abs_beta_rad": 0.07581489180438694,
+        "max_abs_rear_slip_angle_rad": 0.14718218792948007,
+        "max_rear_lateral_utilization": 0.9999615806283041,
+        "max_slide_dwell_steps": 0,
+        "min_sat_separation_m": -0.015837615983492093,
+        "mode": "grip",
+        "mode_valid": true,
+        "offroad": false,
+        "passed": false,
+        "score": 10104.459102255627,
+        "seed": 923885172,
+        "simultaneous_pedal_integral": 0.7729098552576821,
+        "slide_onset_x_m": null,
+        "success": false
+      },
+      {
+        "best_segments_physical_json": "[[0.32579316182968165,1.0,0.0],[0.744125618497333,0.9244727335777925,0.0],[-0.5448151336228564,0.0,0.4367216250306201],[-1.0,0.23007721349183896,0.0],[-0.029424677318311332,0.08171274226205533,0.0]]",
+        "cell_id": "quick_mu0p60_v14_ttc0p90",
+        "collision": true,
+        "final_x_m": 9.870124337254799,
+        "final_y_m": 0.8118190646849134,
+        "final_yaw_rad": 0.4608178513257179,
+        "max_abs_beta_rad": 0.28763447006844217,
+        "max_abs_rear_slip_angle_rad": 0.39320194534237646,
+        "max_rear_lateral_utilization": 1.000000000000002,
+        "max_slide_dwell_steps": 6,
+        "min_sat_separation_m": -0.009317482570630808,
+        "mode": "slide",
+        "mode_valid": true,
+        "offroad": false,
+        "passed": false,
+        "score": 10103.730366355434,
+        "seed": 1257652123,
+        "simultaneous_pedal_integral": 0.0,
+        "slide_onset_x_m": 8.401944097579534,
+        "success": false
+      }
+    ],
+    "budget": {
+      "elites": 5,
+      "iterations": 4,
+      "population": 20,
+      "segments": 5
+    },
+    "cells": [
+      {
+        "cell_id": "quick_mu0p60_v14_ttc0p90",
+        "horizon_s": 1.35,
+        "initial_beta_rad": 0.0,
+        "initial_yaw_rate_rad_s": 0.0,
+        "mu": 0.6,
+        "obstacle_half_depth_m": 0.65,
+        "obstacle_half_width_m": 0.85,
+        "obstacle_x_m": 12.6,
+        "road_half_width_m": 5.0,
+        "speed_mps": 14.0
+      }
+    ],
+    "searches": [
+      {
+        "best": {
+          "collision": true,
+          "final_x_m": 12.424700096799567,
+          "final_y_m": 2.053260579027098,
+          "final_yaw_rad": 0.44243470402984464,
+          "max_abs_beta_rad": 0.07581489180438694,
+          "max_abs_rear_slip_angle_rad": 0.14718218792948007,
+          "max_rear_lateral_utilization": 0.9999615806283041,
+          "max_slide_dwell_steps": 0,
+          "min_sat_separation_m": -0.015837615983492093,
+          "mode": "grip",
+          "mode_valid": true,
+          "offroad": false,
+          "passed": false,
+          "score": 10104.459102255627,
+          "simultaneous_pedal_integral": 0.7729098552576821,
+          "slide_onset_x_m": null,
+          "success": false
+        },
+        "best_segments_physical": [
+          [
+            0.34142079437376616,
+            0.0,
+            0.49294964982361433
+          ],
+          [
+            0.692409291619528,
+            0.0,
+            0.04751282173572856
+          ],
+          [
+            0.49556764248145196,
+            0.0,
+            0.5568506826540991
+          ],
+          [
+            1.0,
+            0.4101215181004906,
+            0.2355734279797954
+          ],
+          [
+            0.7019921707270637,
+            0.12228803984003198,
+            0.4760800166796377
+          ]
+        ],
+        "budget": {
+          "elites": 5,
+          "iterations": 4,
+          "population": 20,
+          "segments": 5
+        },
+        "cell_id": "quick_mu0p60_v14_ttc0p90",
+        "history": [
+          {
+            "best_score": 10103.540336130145,
+            "iteration": 0,
+            "mode_valid_count": 17,
+            "success_count": 0
+          },
+          {
+            "best_score": 10103.800043347353,
+            "iteration": 1,
+            "mode_valid_count": 15,
+            "success_count": 0
+          },
+          {
+            "best_score": 10103.860998777129,
+            "iteration": 2,
+            "mode_valid_count": 17,
+            "success_count": 0
+          },
+          {
+            "best_score": 10104.459102255627,
+            "iteration": 3,
+            "mode_valid_count": 19,
+            "success_count": 0
+          }
+        ],
+        "mode": "grip",
+        "seed": 923885172
+      },
+      {
+        "best": {
+          "collision": true,
+          "final_x_m": 9.870124337254799,
+          "final_y_m": 0.8118190646849134,
+          "final_yaw_rad": 0.4608178513257179,
+          "max_abs_beta_rad": 0.28763447006844217,
+          "max_abs_rear_slip_angle_rad": 0.39320194534237646,
+          "max_rear_lateral_utilization": 1.000000000000002,
+          "max_slide_dwell_steps": 6,
+          "min_sat_separation_m": -0.009317482570630808,
+          "mode": "slide",
+          "mode_valid": true,
+          "offroad": false,
+          "passed": false,
+          "score": 10103.730366355434,
+          "simultaneous_pedal_integral": 0.0,
+          "slide_onset_x_m": 8.401944097579534,
+          "success": false
+        },
+        "best_segments_physical": [
+          [
+            0.32579316182968165,
+            1.0,
+            0.0
+          ],
+          [
+            0.744125618497333,
+            0.9244727335777925,
+            0.0
+          ],
+          [
+            -0.5448151336228564,
+            0.0,
+            0.4367216250306201
+          ],
+          [
+            -1.0,
+            0.23007721349183896,
+            0.0
+          ],
+          [
+            -0.029424677318311332,
+            0.08171274226205533,
+            0.0
+          ]
+        ],
+        "budget": {
+          "elites": 5,
+          "iterations": 4,
+          "population": 20,
+          "segments": 5
+        },
+        "cell_id": "quick_mu0p60_v14_ttc0p90",
+        "history": [
+          {
+            "best_score": 10103.730366355434,
+            "iteration": 0,
+            "mode_valid_count": 14,
+            "success_count": 0
+          },
+          {
+            "best_score": 10103.543249715429,
+            "iteration": 1,
+            "mode_valid_count": 10,
+            "success_count": 0
+          },
+          {
+            "best_score": 10103.543249715429,
+            "iteration": 2,
+            "mode_valid_count": 7,
+            "success_count": 0
+          },
+          {
+            "best_score": 10103.543249715429,
+            "iteration": 3,
+            "mode_valid_count": 12,
+            "success_count": 0
+          }
+        ],
+        "mode": "slide",
+        "seed": 1257652123
+      }
+    ]
+  },
+  "positive_control": {
+    "beyond_limit_clearance_m": 0.351012277847099,
+    "beyond_limit_yaw_rate_rad_s": 0.26,
+    "conservative_clearance_m": -0.5409623817416356,
+    "conservative_yaw_rate_rad_s": 0.2,
+    "obstacle_radius_m": 3.7,
+    "obstacle_x_m": 22.0,
+    "positive_control_pass": true,
+    "source": "Zhao et al. 2022 control-set counterexample parameters",
+    "speed_mps": 15.0
+  },
+  "self_id_claim": false
+}

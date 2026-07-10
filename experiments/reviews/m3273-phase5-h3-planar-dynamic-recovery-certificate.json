@@ -1,0 +1,101 @@
+{
+  "decision_reason": "9/9 deep compact-model branches were eligible and all 270 rows plus 18/18 replays passed; baseline and expanded recovery were both 0/9, so no strict witness existed and full was blocked",
+  "failure_criteria": [
+    "full runs before passing quick",
+    "prefix or complete Markov state differs between policies",
+    "a time gap below 0.20 s is called strict",
+    "H3 is presented as detailed Chrono evidence",
+    "strict support is claimed without frozen robust thresholds"
+  ],
+  "failure_types": [
+    "metric_artifact"
+  ],
+  "forbidden_shortcuts": [
+    "do not change source prefixes branch times policies thresholds or action mapping after results",
+    "do not use normalized pedal zero as physical zero",
+    "do not call uniform braking ESC",
+    "do not count ineligible branches or stopping sideways as recovery",
+    "do not hide baseline recoveries active failures or source simultaneous pedal segments",
+    "do not claim H3 overrides M3272 or proves detailed Chrono strictness",
+    "do not mutate ActiveSafetyReflexDriver or train a policy",
+    "do not claim all post-slip states vehicles real cars promotion or self-ID"
+  ],
+  "gate_tier": "proof",
+  "generated_at_utc": "20260710T115048Z",
+  "hypothesis": "On dynamically reached deep slide states from all three M3266 planar entry cells, the unchanged M3271 expanded finite policy set can strictly enlarge finite-horizon recovery relative to its exact zero-steer baseline subset under correct physical pedal semantics and a preregistered 0.20 s minimum recovery-time advantage.",
+  "lineage": {
+    "blocked_by": [
+      "H3 cannot establish detailed Chrono or universal post-slip strictness"
+    ],
+    "derived_from": [
+      "M3266 planar slide entry passed 3/3 cells and reached deep body and rear-tire slip",
+      "the planar Markov state includes steer and drive-force actuator states",
+      "M3272 showed zero steering advantage on valid moderate Chrono branches"
+    ],
+    "invalidates": [
+      "claiming a compact-model witness overrides M3272",
+      "claiming strictness without a baseline-fail or 0.20 s time-gap witness"
+    ],
+    "parent_checkpoint": [
+      "docs/m3266-phase5-g0b-slide-mode-onset-pricing.md",
+      "docs/m3271-phase5-h1-postslip-nested-recovery-certificate.md",
+      "docs/m3272-phase5-h2-dynamic-prefix-recovery-certificate.md",
+      "docs/preslip-reachable-set-dual-proof-theory-2026-07.md"
+    ],
+    "parent_config": [
+      "src/autodrift/dynamics.py",
+      "scripts/feasibility_audit/phase5_h1_postslip_nested_recovery_certificate.py",
+      "scripts/feasibility_audit/phase5_h3_planar_dynamic_recovery_certificate.py"
+    ],
+    "parent_dataset": [
+      "experiments/feasibility_audit/phase5_g0b_slide_mode_onset_pricing.json",
+      "experiments/feasibility_audit/phase5_h2_dynamic_prefix_recovery_certificate_quick.json"
+    ],
+    "parent_objective": [
+      "test existence of strict post-slip recovery value on an orthogonal priced physics axis",
+      "retain M3272's valid moderate-slide Chrono negative without local policy repair"
+    ],
+    "supersedes": [
+      "the invalid normalized-action planar counts in scripts/audits/recovery_reachability.py"
+    ]
+  },
+  "milestone": "m3273-phase5-h3-planar-dynamic-recovery-certificate",
+  "next_blocker": "",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "h3_quick_no_strict_witness",
+  "public_gates": [
+    "freeze all three M3266 planar physical-prefix hashes and branch grids before quick/full",
+    "use correct physical-to-normalized pedal conversion",
+    "retain complete planar Markov branch state including steer and drive force",
+    "keep six baseline policies as an exact subset of thirty expanded policies",
+    "require four-frame beta dwell and rear slip at least 0.15",
+    "require ten stable recovery frames and forward speed at least 4 m/s",
+    "require baseline failure or at least 0.20 s earlier recovery with added steering",
+    "require matched prefix/state hashes weak inclusion and exact winner replay",
+    "report M3272's Chrono negative alongside any H3 positive",
+    "scope support to deterministic finite compact-model states and policies"
+  ],
+  "scoreboard": {
+    "checkpoint": "",
+    "clearance_margin_mean": "",
+    "decision": "h3_quick_no_strict_witness",
+    "milestone": "m3273-phase5-h3-planar-dynamic-recovery-certificate",
+    "reason": "9/9 deep compact-model branches were eligible and all 270 rows plus 18/18 replays passed; baseline and expanded recovery were both 0/9, so no strict witness existed and full was blocked",
+    "reset_success": "",
+    "success_rate": "0",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "preregistration freezes three source hashes twenty-one branches policies and thresholds",
+    "quick has at least six eligible and two strict cells across two mu tiers",
+    "managed full completes 630 candidate rows and 42 exact winner replays",
+    "all action nesting state hash weak-inclusion and replay gates pass",
+    "full has at least fifteen eligible and five strict cells across two mu tiers",
+    "M3272 negative and compact-model claim boundary remain explicit"
+  ],
+  "type": "infrastructure"
+}

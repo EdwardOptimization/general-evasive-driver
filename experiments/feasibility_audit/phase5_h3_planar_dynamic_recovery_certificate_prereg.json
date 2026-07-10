@@ -1,0 +1,737 @@
+{
+  "cells": {
+    "eligibility": "four-frame beta>=0.20 and branch rear slip>=0.15 with matched full Markov state",
+    "full": [
+      {
+        "branch_step": 42,
+        "branch_time_s": 0.84,
+        "cell_id": "h3_mu0p35_v12_step042",
+        "mu": 0.35,
+        "source_cell_id": "mu0p35_v12",
+        "speed_mps": 12.0
+      },
+      {
+        "branch_step": 54,
+        "branch_time_s": 1.08,
+        "cell_id": "h3_mu0p35_v12_step054",
+        "mu": 0.35,
+        "source_cell_id": "mu0p35_v12",
+        "speed_mps": 12.0
+      },
+      {
+        "branch_step": 66,
+        "branch_time_s": 1.32,
+        "cell_id": "h3_mu0p35_v12_step066",
+        "mu": 0.35,
+        "source_cell_id": "mu0p35_v12",
+        "speed_mps": 12.0
+      },
+      {
+        "branch_step": 78,
+        "branch_time_s": 1.56,
+        "cell_id": "h3_mu0p35_v12_step078",
+        "mu": 0.35,
+        "source_cell_id": "mu0p35_v12",
+        "speed_mps": 12.0
+      },
+      {
+        "branch_step": 90,
+        "branch_time_s": 1.8,
+        "cell_id": "h3_mu0p35_v12_step090",
+        "mu": 0.35,
+        "source_cell_id": "mu0p35_v12",
+        "speed_mps": 12.0
+      },
+      {
+        "branch_step": 102,
+        "branch_time_s": 2.04,
+        "cell_id": "h3_mu0p35_v12_step102",
+        "mu": 0.35,
+        "source_cell_id": "mu0p35_v12",
+        "speed_mps": 12.0
+      },
+      {
+        "branch_step": 114,
+        "branch_time_s": 2.2800000000000002,
+        "cell_id": "h3_mu0p35_v12_step114",
+        "mu": 0.35,
+        "source_cell_id": "mu0p35_v12",
+        "speed_mps": 12.0
+      },
+      {
+        "branch_step": 34,
+        "branch_time_s": 0.68,
+        "cell_id": "h3_mu0p60_v14_step034",
+        "mu": 0.6,
+        "source_cell_id": "mu0p60_v14",
+        "speed_mps": 14.0
+      },
+      {
+        "branch_step": 44,
+        "branch_time_s": 0.88,
+        "cell_id": "h3_mu0p60_v14_step044",
+        "mu": 0.6,
+        "source_cell_id": "mu0p60_v14",
+        "speed_mps": 14.0
+      },
+      {
+        "branch_step": 54,
+        "branch_time_s": 1.08,
+        "cell_id": "h3_mu0p60_v14_step054",
+        "mu": 0.6,
+        "source_cell_id": "mu0p60_v14",
+        "speed_mps": 14.0
+      },
+      {
+        "branch_step": 64,
+        "branch_time_s": 1.28,
+        "cell_id": "h3_mu0p60_v14_step064",
+        "mu": 0.6,
+        "source_cell_id": "mu0p60_v14",
+        "speed_mps": 14.0
+      },
+      {
+        "branch_step": 74,
+        "branch_time_s": 1.48,
+        "cell_id": "h3_mu0p60_v14_step074",
+        "mu": 0.6,
+        "source_cell_id": "mu0p60_v14",
+        "speed_mps": 14.0
+      },
+      {
+        "branch_step": 84,
+        "branch_time_s": 1.68,
+        "cell_id": "h3_mu0p60_v14_step084",
+        "mu": 0.6,
+        "source_cell_id": "mu0p60_v14",
+        "speed_mps": 14.0
+      },
+      {
+        "branch_step": 90,
+        "branch_time_s": 1.8,
+        "cell_id": "h3_mu0p60_v14_step090",
+        "mu": 0.6,
+        "source_cell_id": "mu0p60_v14",
+        "speed_mps": 14.0
+      },
+      {
+        "branch_step": 30,
+        "branch_time_s": 0.6,
+        "cell_id": "h3_mu0p90_v16_step030",
+        "mu": 0.9,
+        "source_cell_id": "mu0p90_v16",
+        "speed_mps": 16.0
+      },
+      {
+        "branch_step": 38,
+        "branch_time_s": 0.76,
+        "cell_id": "h3_mu0p90_v16_step038",
+        "mu": 0.9,
+        "source_cell_id": "mu0p90_v16",
+        "speed_mps": 16.0
+      },
+      {
+        "branch_step": 46,
+        "branch_time_s": 0.92,
+        "cell_id": "h3_mu0p90_v16_step046",
+        "mu": 0.9,
+        "source_cell_id": "mu0p90_v16",
+        "speed_mps": 16.0
+      },
+      {
+        "branch_step": 54,
+        "branch_time_s": 1.08,
+        "cell_id": "h3_mu0p90_v16_step054",
+        "mu": 0.9,
+        "source_cell_id": "mu0p90_v16",
+        "speed_mps": 16.0
+      },
+      {
+        "branch_step": 62,
+        "branch_time_s": 1.24,
+        "cell_id": "h3_mu0p90_v16_step062",
+        "mu": 0.9,
+        "source_cell_id": "mu0p90_v16",
+        "speed_mps": 16.0
+      },
+      {
+        "branch_step": 70,
+        "branch_time_s": 1.4000000000000001,
+        "cell_id": "h3_mu0p90_v16_step070",
+        "mu": 0.9,
+        "source_cell_id": "mu0p90_v16",
+        "speed_mps": 16.0
+      },
+      {
+        "branch_step": 78,
+        "branch_time_s": 1.56,
+        "cell_id": "h3_mu0p90_v16_step078",
+        "mu": 0.9,
+        "source_cell_id": "mu0p90_v16",
+        "speed_mps": 16.0
+      }
+    ],
+    "quick": [
+      {
+        "branch_step": 45,
+        "branch_time_s": 0.9,
+        "cell_id": "h3_mu0p35_v12_step045",
+        "mu": 0.35,
+        "source_cell_id": "mu0p35_v12",
+        "speed_mps": 12.0
+      },
+      {
+        "branch_step": 60,
+        "branch_time_s": 1.2,
+        "cell_id": "h3_mu0p35_v12_step060",
+        "mu": 0.35,
+        "source_cell_id": "mu0p35_v12",
+        "speed_mps": 12.0
+      },
+      {
+        "branch_step": 75,
+        "branch_time_s": 1.5,
+        "cell_id": "h3_mu0p35_v12_step075",
+        "mu": 0.35,
+        "source_cell_id": "mu0p35_v12",
+        "speed_mps": 12.0
+      },
+      {
+        "branch_step": 35,
+        "branch_time_s": 0.7000000000000001,
+        "cell_id": "h3_mu0p60_v14_step035",
+        "mu": 0.6,
+        "source_cell_id": "mu0p60_v14",
+        "speed_mps": 14.0
+      },
+      {
+        "branch_step": 50,
+        "branch_time_s": 1.0,
+        "cell_id": "h3_mu0p60_v14_step050",
+        "mu": 0.6,
+        "source_cell_id": "mu0p60_v14",
+        "speed_mps": 14.0
+      },
+      {
+        "branch_step": 65,
+        "branch_time_s": 1.3,
+        "cell_id": "h3_mu0p60_v14_step065",
+        "mu": 0.6,
+        "source_cell_id": "mu0p60_v14",
+        "speed_mps": 14.0
+      },
+      {
+        "branch_step": 30,
+        "branch_time_s": 0.6,
+        "cell_id": "h3_mu0p90_v16_step030",
+        "mu": 0.9,
+        "source_cell_id": "mu0p90_v16",
+        "speed_mps": 16.0
+      },
+      {
+        "branch_step": 44,
+        "branch_time_s": 0.88,
+        "cell_id": "h3_mu0p90_v16_step044",
+        "mu": 0.9,
+        "source_cell_id": "mu0p90_v16",
+        "speed_mps": 16.0
+      },
+      {
+        "branch_step": 58,
+        "branch_time_s": 1.16,
+        "cell_id": "h3_mu0p90_v16_step058",
+        "mu": 0.9,
+        "source_cell_id": "mu0p90_v16",
+        "speed_mps": 16.0
+      }
+    ]
+  },
+  "claim_boundary": "exact deterministic finite-prefix/finite-state/finite-policy single-track-model certificate; not detailed Chrono strictness, all post-slip states, or real cars",
+  "control_sets": {
+    "baseline_policy_ids": [
+      "pedal_coast",
+      "pedal_brake0p25",
+      "pedal_brake0p50",
+      "pedal_brake0p75",
+      "pedal_brake1p00",
+      "pedal_throttle0p25"
+    ],
+    "baseline_subset_of_expanded": true,
+    "esc_claim": false,
+    "expanded_policy_ids": [
+      "pedal_coast",
+      "pedal_brake0p25",
+      "pedal_brake0p50",
+      "pedal_brake0p75",
+      "pedal_brake1p00",
+      "pedal_throttle0p25",
+      "steer_kg0p08_kb0p30_coast",
+      "steer_kg0p08_kb0p30_brake0p20",
+      "steer_kg0p08_kb0p30_brake0p50",
+      "steer_kg0p08_kb0p30_throttle0p20",
+      "steer_kg0p15_kb0p60_coast",
+      "steer_kg0p15_kb0p60_brake0p20",
+      "steer_kg0p15_kb0p60_brake0p50",
+      "steer_kg0p15_kb0p60_throttle0p20",
+      "steer_kg0p25_kb1p00_coast",
+      "steer_kg0p25_kb1p00_brake0p20",
+      "steer_kg0p25_kb1p00_brake0p50",
+      "steer_kg0p25_kb1p00_throttle0p20",
+      "steer_kg0p40_kb1p50_coast",
+      "steer_kg0p40_kb1p50_brake0p20",
+      "steer_kg0p40_kb1p50_brake0p50",
+      "steer_kg0p40_kb1p50_throttle0p20",
+      "steer_kg0p80_kb2p50_coast",
+      "steer_kg0p80_kb2p50_brake0p20",
+      "steer_kg0p80_kb2p50_brake0p50",
+      "steer_kg0p80_kb2p50_throttle0p20",
+      "steer_kg1p40_kb3p50_coast",
+      "steer_kg1p40_kb3p50_brake0p20",
+      "steer_kg1p40_kb3p50_brake0p50",
+      "steer_kg1p40_kb3p50_throttle0p20"
+    ],
+    "physical_zero_maps_to_normalized_minus_one": true,
+    "policies": [
+      {
+        "beta_gain": 0.0,
+        "brake": 0.0,
+        "family": "pedal_only",
+        "in_baseline_set": true,
+        "policy_id": "pedal_coast",
+        "throttle": 0.0,
+        "yaw_gain": 0.0
+      },
+      {
+        "beta_gain": 0.0,
+        "brake": 0.25,
+        "family": "pedal_only",
+        "in_baseline_set": true,
+        "policy_id": "pedal_brake0p25",
+        "throttle": 0.0,
+        "yaw_gain": 0.0
+      },
+      {
+        "beta_gain": 0.0,
+        "brake": 0.5,
+        "family": "pedal_only",
+        "in_baseline_set": true,
+        "policy_id": "pedal_brake0p50",
+        "throttle": 0.0,
+        "yaw_gain": 0.0
+      },
+      {
+        "beta_gain": 0.0,
+        "brake": 0.75,
+        "family": "pedal_only",
+        "in_baseline_set": true,
+        "policy_id": "pedal_brake0p75",
+        "throttle": 0.0,
+        "yaw_gain": 0.0
+      },
+      {
+        "beta_gain": 0.0,
+        "brake": 1.0,
+        "family": "pedal_only",
+        "in_baseline_set": true,
+        "policy_id": "pedal_brake1p00",
+        "throttle": 0.0,
+        "yaw_gain": 0.0
+      },
+      {
+        "beta_gain": 0.0,
+        "brake": 0.0,
+        "family": "pedal_only",
+        "in_baseline_set": true,
+        "policy_id": "pedal_throttle0p25",
+        "throttle": 0.25,
+        "yaw_gain": 0.0
+      },
+      {
+        "beta_gain": 0.3,
+        "brake": 0.0,
+        "family": "countersteer_feedback",
+        "in_baseline_set": false,
+        "policy_id": "steer_kg0p08_kb0p30_coast",
+        "throttle": 0.0,
+        "yaw_gain": 0.08
+      },
+      {
+        "beta_gain": 0.3,
+        "brake": 0.2,
+        "family": "countersteer_feedback",
+        "in_baseline_set": false,
+        "policy_id": "steer_kg0p08_kb0p30_brake0p20",
+        "throttle": 0.0,
+        "yaw_gain": 0.08
+      },
+      {
+        "beta_gain": 0.3,
+        "brake": 0.5,
+        "family": "countersteer_feedback",
+        "in_baseline_set": false,
+        "policy_id": "steer_kg0p08_kb0p30_brake0p50",
+        "throttle": 0.0,
+        "yaw_gain": 0.08
+      },
+      {
+        "beta_gain": 0.3,
+        "brake": 0.0,
+        "family": "countersteer_feedback",
+        "in_baseline_set": false,
+        "policy_id": "steer_kg0p08_kb0p30_throttle0p20",
+        "throttle": 0.2,
+        "yaw_gain": 0.08
+      },
+      {
+        "beta_gain": 0.6,
+        "brake": 0.0,
+        "family": "countersteer_feedback",
+        "in_baseline_set": false,
+        "policy_id": "steer_kg0p15_kb0p60_coast",
+        "throttle": 0.0,
+        "yaw_gain": 0.15
+      },
+      {
+        "beta_gain": 0.6,
+        "brake": 0.2,
+        "family": "countersteer_feedback",
+        "in_baseline_set": false,
+        "policy_id": "steer_kg0p15_kb0p60_brake0p20",
+        "throttle": 0.0,
+        "yaw_gain": 0.15
+      },
+      {
+        "beta_gain": 0.6,
+        "brake": 0.5,
+        "family": "countersteer_feedback",
+        "in_baseline_set": false,
+        "policy_id": "steer_kg0p15_kb0p60_brake0p50",
+        "throttle": 0.0,
+        "yaw_gain": 0.15
+      },
+      {
+        "beta_gain": 0.6,
+        "brake": 0.0,
+        "family": "countersteer_feedback",
+        "in_baseline_set": false,
+        "policy_id": "steer_kg0p15_kb0p60_throttle0p20",
+        "throttle": 0.2,
+        "yaw_gain": 0.15
+      },
+      {
+        "beta_gain": 1.0,
+        "brake": 0.0,
+        "family": "countersteer_feedback",
+        "in_baseline_set": false,
+        "policy_id": "steer_kg0p25_kb1p00_coast",
+        "throttle": 0.0,
+        "yaw_gain": 0.25
+      },
+      {
+        "beta_gain": 1.0,
+        "brake": 0.2,
+        "family": "countersteer_feedback",
+        "in_baseline_set": false,
+        "policy_id": "steer_kg0p25_kb1p00_brake0p20",
+        "throttle": 0.0,
+        "yaw_gain": 0.25
+      },
+      {
+        "beta_gain": 1.0,
+        "brake": 0.5,
+        "family": "countersteer_feedback",
+        "in_baseline_set": false,
+        "policy_id": "steer_kg0p25_kb1p00_brake0p50",
+        "throttle": 0.0,
+        "yaw_gain": 0.25
+      },
+      {
+        "beta_gain": 1.0,
+        "brake": 0.0,
+        "family": "countersteer_feedback",
+        "in_baseline_set": false,
+        "policy_id": "steer_kg0p25_kb1p00_throttle0p20",
+        "throttle": 0.2,
+        "yaw_gain": 0.25
+      },
+      {
+        "beta_gain": 1.5,
+        "brake": 0.0,
+        "family": "countersteer_feedback",
+        "in_baseline_set": false,
+        "policy_id": "steer_kg0p40_kb1p50_coast",
+        "throttle": 0.0,
+        "yaw_gain": 0.4
+      },
+      {
+        "beta_gain": 1.5,
+        "brake": 0.2,
+        "family": "countersteer_feedback",
+        "in_baseline_set": false,
+        "policy_id": "steer_kg0p40_kb1p50_brake0p20",
+        "throttle": 0.0,
+        "yaw_gain": 0.4
+      },
+      {
+        "beta_gain": 1.5,
+        "brake": 0.5,
+        "family": "countersteer_feedback",
+        "in_baseline_set": false,
+        "policy_id": "steer_kg0p40_kb1p50_brake0p50",
+        "throttle": 0.0,
+        "yaw_gain": 0.4
+      },
+      {
+        "beta_gain": 1.5,
+        "brake": 0.0,
+        "family": "countersteer_feedback",
+        "in_baseline_set": false,
+        "policy_id": "steer_kg0p40_kb1p50_throttle0p20",
+        "throttle": 0.2,
+        "yaw_gain": 0.4
+      },
+      {
+        "beta_gain": 2.5,
+        "brake": 0.0,
+        "family": "countersteer_feedback",
+        "in_baseline_set": false,
+        "policy_id": "steer_kg0p80_kb2p50_coast",
+        "throttle": 0.0,
+        "yaw_gain": 0.8
+      },
+      {
+        "beta_gain": 2.5,
+        "brake": 0.2,
+        "family": "countersteer_feedback",
+        "in_baseline_set": false,
+        "policy_id": "steer_kg0p80_kb2p50_brake0p20",
+        "throttle": 0.0,
+        "yaw_gain": 0.8
+      },
+      {
+        "beta_gain": 2.5,
+        "brake": 0.5,
+        "family": "countersteer_feedback",
+        "in_baseline_set": false,
+        "policy_id": "steer_kg0p80_kb2p50_brake0p50",
+        "throttle": 0.0,
+        "yaw_gain": 0.8
+      },
+      {
+        "beta_gain": 2.5,
+        "brake": 0.0,
+        "family": "countersteer_feedback",
+        "in_baseline_set": false,
+        "policy_id": "steer_kg0p80_kb2p50_throttle0p20",
+        "throttle": 0.2,
+        "yaw_gain": 0.8
+      },
+      {
+        "beta_gain": 3.5,
+        "brake": 0.0,
+        "family": "countersteer_feedback",
+        "in_baseline_set": false,
+        "policy_id": "steer_kg1p40_kb3p50_coast",
+        "throttle": 0.0,
+        "yaw_gain": 1.4
+      },
+      {
+        "beta_gain": 3.5,
+        "brake": 0.2,
+        "family": "countersteer_feedback",
+        "in_baseline_set": false,
+        "policy_id": "steer_kg1p40_kb3p50_brake0p20",
+        "throttle": 0.0,
+        "yaw_gain": 1.4
+      },
+      {
+        "beta_gain": 3.5,
+        "brake": 0.5,
+        "family": "countersteer_feedback",
+        "in_baseline_set": false,
+        "policy_id": "steer_kg1p40_kb3p50_brake0p50",
+        "throttle": 0.0,
+        "yaw_gain": 1.4
+      },
+      {
+        "beta_gain": 3.5,
+        "brake": 0.0,
+        "family": "countersteer_feedback",
+        "in_baseline_set": false,
+        "policy_id": "steer_kg1p40_kb3p50_throttle0p20",
+        "throttle": 0.2,
+        "yaw_gain": 1.4
+      }
+    ]
+  },
+  "decision_rule": {
+    "full_support": "at least 15/21 eligible and 5 strict across at least 2 mu tiers with all health gates passing",
+    "quick_support": "at least 6/9 cells eligible and 2 strict across at least 2 mu tiers",
+    "strict_witness": "added steering succeeds at least 0.20 s before the best baseline or while all baselines fail"
+  },
+  "forbidden": [
+    "changing prefixes branches policies thresholds or action mapping after results",
+    "claiming H3 overrides M3272's valid Chrono negative",
+    "calling uniform braking ESC",
+    "using normalized pedal zero as physical zero",
+    "counting ineligible branch states",
+    "universalizing the compact-model witness",
+    "mutating ActiveSafetyReflexDriver or training a policy"
+  ],
+  "m3271_m3272_disposition": "Chrono direct reset was tire-inconsistent and the valid moderate dynamic prefix had zero steering advantage; H3 changes the physics axis to M3266-priced deeper planar states and does not repair Chrono policies or thresholds",
+  "milestone_id": "m3273-phase5-h3-planar-dynamic-recovery-certificate",
+  "priced_by": {
+    "path": "experiments/feasibility_audit/phase5_g0b_slide_mode_onset_pricing.json",
+    "planar_entry_cell_count": 3,
+    "planar_entry_cells_passed": 3,
+    "sha256": "6e1281671ef592d2c43aba14c9dd39e742e7090b134962047fb4ec2c9ca85b3b"
+  },
+  "primary_claim": "On eligible continuously reached deep planar slide states, the unchanged expanded finite policy set strictly enlarges finite-horizon recovery relative to its exact zero-steer baseline subset.",
+  "recovery_contract": {
+    "beta_abs_max_rad": 0.12,
+    "dt_s": 0.02,
+    "horizon_steps": 130,
+    "minimum_forward_speed_mps": 4.0,
+    "minimum_time_advantage_s": 0.2,
+    "stable_steps": 10,
+    "yaw_rate_abs_max_rad_s": 0.6
+  },
+  "registered_at_utc": "2026-07-10T10:37:29.487129+00:00",
+  "source_prefixes": {
+    "expanded_total_steps": 120,
+    "role": "common state generation only",
+    "segments_float64_sha256_by_cell": {
+      "mu0p35_v12": "a8a41f38f740ddf5a6dbfe3476c360b8fa86480a0843d7a1457c4f9c9173abf2",
+      "mu0p60_v14": "4499fc872837ee83e92eb3926b9bf744f9465d8dd21fba86c796b02d721074a3",
+      "mu0p90_v16": "65fdf574aabeb27c94b5ed13fdcdccdaed26341568098d364666e9580ffa19f1"
+    },
+    "segments_physical_by_cell": {
+      "mu0p35_v12": [
+        [
+          0.3276582337729446,
+          0.40755630973141294,
+          0.0
+        ],
+        [
+          0.6696454008289288,
+          0.5557584800002793,
+          0.04293511631831791
+        ],
+        [
+          0.8860057891341218,
+          0.45066613818145584,
+          0.0
+        ],
+        [
+          0.6072689416534947,
+          0.05018602769205749,
+          0.0
+        ],
+        [
+          -0.7437219698756353,
+          0.4272862144250139,
+          0.0
+        ],
+        [
+          -0.3997222692764061,
+          0.5249231097217238,
+          0.057583088119246846
+        ],
+        [
+          -1.0,
+          0.5249780971831898,
+          0.08994923196489597
+        ],
+        [
+          -0.4586772316492606,
+          0.11997887434862847,
+          0.0
+        ]
+      ],
+      "mu0p60_v14": [
+        [
+          0.4674282534866176,
+          0.7849703370978443,
+          0.0
+        ],
+        [
+          0.3362462442870263,
+          0.9891126963141195,
+          0.0
+        ],
+        [
+          1.0,
+          0.8715698535255233,
+          0.0
+        ],
+        [
+          0.8002055751190816,
+          0.6817922852237877,
+          0.0017641270040703594
+        ],
+        [
+          -0.538303167505222,
+          0.618075392337806,
+          0.00997325836127879
+        ],
+        [
+          -0.25492380003917664,
+          0.016928256737228198,
+          0.23351118214842315
+        ],
+        [
+          -0.6205767742019137,
+          0.3033367199857624,
+          0.15924013668072343
+        ],
+        [
+          0.03728499738088409,
+          0.5465229008034158,
+          0.06506774959874526
+        ]
+      ],
+      "mu0p90_v16": [
+        [
+          0.42548390665690794,
+          1.0,
+          0.0
+        ],
+        [
+          0.7582300873681168,
+          0.9889964265388749,
+          0.0
+        ],
+        [
+          1.0,
+          0.7126861278366974,
+          0.002430848039886366
+        ],
+        [
+          1.0,
+          0.654076325864947,
+          0.0
+        ],
+        [
+          -0.9987116273011326,
+          0.3479766820702681,
+          0.01887857147997761
+        ],
+        [
+          -0.4848511719242627,
+          0.33767048795520943,
+          0.043972683408812434
+        ],
+        [
+          -0.31589256435378354,
+          0.49629610296776017,
+          0.04247607710777047
+        ],
+        [
+          -0.9218280404713795,
+          0.29667813450706115,
+          0.05204133989680054
+        ]
+      ]
+    }
+  }
+}

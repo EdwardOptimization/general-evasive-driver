@@ -25,6 +25,64 @@ For read-only repricing over existing artifacts, use `evidence_reanalysis` unles
 - Related Files: experiments/manifests/m3238-c1-family-selector-repricing.json
 
 ---
+## [ERR-20260710-001] web_search_oauth_token_revoked
+
+**Logged**: 2026-07-10T08:00:00Z
+**Priority**: medium
+**Status**: pending
+**Area**: infra
+
+### Summary
+The external web search connector rejected a primary-source lookup because its OAuth token was revoked.
+
+### Error
+```text
+http 401 Unauthorized: token_revoked
+```
+
+### Context
+- Operation: search for the primary emergency-drift and Hamilton-Jacobi reachability papers while designing M3265.
+- The repository already contained the verified primary PDF and BibTeX record, so the research audit continued from local sources.
+
+### Suggested Fix
+Refresh the web connector OAuth token. Until then, use verified local PDFs and source-log metadata and explicitly report that live lookup was unavailable.
+
+### Metadata
+- Reproducible: unknown
+- Related Files: docs/papers/emergency/2022-justifying-emergency-drift-control.pdf, docs/references.bib
+
+---
+## [ERR-20260710-002] dynamic_dataclass_module_registration
+
+**Logged**: 2026-07-10T08:00:00Z
+**Priority**: low
+**Status**: resolved
+**Area**: tests
+
+### Summary
+A test loaded a script containing dataclasses with `importlib` without first registering the dynamic module in `sys.modules`.
+
+### Error
+```text
+AttributeError: 'NoneType' object has no attribute '__dict__'
+```
+
+### Context
+- Command: `python -m pytest -q tests/test_phase5_g0_preslip_reachability_proof_pricing.py`
+- Python 3.12 dataclass processing resolves annotations through `sys.modules[cls.__module__]`.
+
+### Suggested Fix
+Assign `sys.modules[SPEC.name] = module` before `SPEC.loader.exec_module(module)` in dynamic-import tests.
+
+### Metadata
+- Reproducible: yes
+- Related Files: tests/test_phase5_g0_preslip_reachability_proof_pricing.py
+
+### Resolution
+- **Resolved**: 2026-07-10T08:00:00Z
+- **Notes**: Registered the dynamic module before execution; the focused test file then passed 5/5.
+
+---
 ## [ERR-20260605-001] jq_command_missing
 
 **Logged**: 2026-06-05T00:00:00+08:00
@@ -683,3 +741,137 @@ When adding scoreboard rows manually, avoid commas in free-text fields or use a 
 - Related Files: experiments/scoreboard.csv
 
 ---
+## 2026-07-10: Large apply_patch failed on one mistyped expected path
+
+- Symptom: the M3268 quick-failure closure patch failed verification before
+  applying because one expected `cell_verdicts.csv` path used a hyphen where
+  the manifest used an underscore.
+- Cause: an oversized multi-file patch made a local path typo harder to spot.
+- Prevention: inspect the exact manifest slice first and split artifact-list
+  changes from documentation additions; apply_patch remained atomic, so no
+  partial state needed recovery.
+
+---
+## [ERR-20260710-002] completed_quick_manifest_required_full_artifacts
+
+**Logged**: 2026-07-10T10:14:03Z
+**Priority**: medium
+**Status**: resolved
+**Area**: config
+
+### Summary
+`make research-validate` rejected a quick-gated completed milestone because its
+manifest still required full artifacts that the frozen quick stop rule forbade
+running.
+
+### Error
+```text
+required artifact missing: experiments/feasibility_audit/phase5_h1_postslip_nested_recovery_certificate.json
+required artifact missing: runs/feasibility_audit/phase5_h1_postslip_nested_recovery_certificate/full/candidate_rows.csv
+```
+
+### Context
+- Command: `make research-validate`
+- M3271 completed inconclusive at quick and correctly did not run full.
+- The queue and result docs were closed before the manifest artifact list was
+  changed from planned full outputs to retained quick outputs.
+
+### Suggested Fix
+When a quick gate closes a milestone, update `required_artifacts` to the actual
+quick JSON and raw quick tables before final validation; never create empty full
+artifacts to satisfy the validator.
+
+### Metadata
+- Reproducible: yes
+- Related Files: experiments/manifests/m3271-phase5-h1-postslip-nested-recovery-certificate.json
+
+---
+## [ERR-20260710-003] exact_float_assertion_in_recovery_test
+
+**Logged**: 2026-07-10T10:20:00Z
+**Priority**: low
+**Status**: resolved
+**Area**: tests
+
+### Summary
+A unit test compared a computed recovery-time difference to decimal `0.3`
+using exact equality and failed on normal binary floating-point representation.
+
+### Error
+```text
+assert 0.30000000000000004 == 0.3
+```
+
+### Context
+- Command: focused M3272 pytest run.
+- Runtime decision logic already used a tolerance; only the test was exact.
+
+### Suggested Fix
+Use `pytest.approx` for derived floating-point time and distance assertions.
+
+### Metadata
+- Reproducible: yes
+- Related Files: tests/test_phase5_h2_dynamic_prefix_recovery_certificate.py
+
+---
+## [ERR-20260710-004] oversized_m3272_registration_patch_context_drift
+
+**Logged**: 2026-07-10T10:28:00Z
+**Priority**: low
+**Status**: resolved
+**Area**: docs
+
+### Summary
+A multi-file M3272 registration patch was atomically rejected because its
+roadmap context expected text that existed in `current-status.md`, not the
+actual roadmap ending.
+
+### Error
+```text
+apply_patch verification failed: Failed to find expected lines in docs/roadmap-phase3-codex-execution.md
+```
+
+### Context
+- The patch mixed a new manifest, queue row, roadmap, and current-status edit.
+- No partial changes were applied.
+
+### Suggested Fix
+Add large manifests separately, then patch each ledger file against freshly
+read local context.
+
+### Metadata
+- Reproducible: yes
+- Related Files: docs/roadmap-phase3-codex-execution.md
+- See Also: repeated once during M3273 registration; mitigation tightened to one file per patch.
+
+---
+## [ERR-20260710-005] miniforge_pdflatex_missing_format
+
+**Logged**: 2026-07-10T10:50:00Z
+**Priority**: medium
+**Status**: resolved_with_workaround
+**Area**: infra
+
+### Summary
+The Miniforge TeX installation could not build the paper because
+`pdflatex.fmt` and its format-generation Perl path were incomplete.
+
+### Error
+```text
+Can't locate mktexlsr.pl in @INC
+I can't find the format file `pdflatex.fmt'!
+```
+
+### Context
+- Command: `latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex`
+- Only Miniforge TeX binaries were on PATH.
+- Local `tectonic` compiled `main.pdf` successfully, though it warned that the
+  bundled Latin Modern font did not render the CJK abstract.
+
+### Suggested Fix
+Use the local `tectonic` fallback for structural compilation, or repair the TeX
+Live format installation before requiring a release-quality bilingual PDF.
+
+### Metadata
+- Reproducible: yes
+- Related Files: paper/c5prime/main.tex

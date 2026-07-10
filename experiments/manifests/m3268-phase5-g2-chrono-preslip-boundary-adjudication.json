@@ -1,0 +1,233 @@
+{
+  "id": "m3268-phase5-g2-chrono-preslip-boundary-adjudication",
+  "priority": 32680,
+  "type": "infrastructure",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "metric_artifact"
+  ],
+  "milestone_intent": "proof",
+  "hypothesis": "A fresh-seed Chrono-only Phase-5 G2 panel can adjudicate whether pooled grip-mode trajectories have no worse minimum clearable lane-aligned OBB distance than required controlled-slide trajectories by more than 0.25 m across three frozen friction cells, while retaining dedicated-arm, free-oracle, worst-seed, contact-plane, tire-truth, local-frame, and exact-replay gates before any universal theorem, real-vehicle, paper-readiness, promotion, or self-ID claim.",
+  "feasibility_pricing": {
+    "pricing_artifact": "experiments/feasibility_audit/phase5_g1_preslip_reachable_set_adjudication_quick.json",
+    "priced_gap": 2.9,
+    "threshold": 0.25,
+    "gap_meets_threshold": true
+  },
+  "lineage": {
+    "parent_checkpoint": [
+      "docs/preslip-reachable-set-dual-proof-theory-2026-07.md",
+      "docs/m3267-phase5-g1-preslip-reachable-set-adjudication.md",
+      "docs/current-status.md"
+    ],
+    "parent_dataset": [
+      "experiments/feasibility_audit/phase5_g1_preslip_reachable_set_adjudication_quick.json",
+      "experiments/feasibility_audit/phase5_g0b_slide_mode_onset_pricing.json"
+    ],
+    "parent_config": [
+      "scripts/feasibility_audit/phase5_g1_preslip_reachable_set_adjudication.py",
+      "scripts/feasibility_audit/phase5_g2_chrono_preslip_boundary_adjudication.py",
+      "src/autodrift/chrono_vehicle_backend.py"
+    ],
+    "parent_objective": [
+      "adjudicate a bounded pre-slip no-deliberate-drift mechanism claim on a detailed plant",
+      "separate a healthy Chrono route from M3267's inconclusive planar arm"
+    ],
+    "derived_from": [
+      "M3267 corrected Chrono quick had finite exact-replay grip, required-slide, and free boundaries",
+      "M3267 priced grip D-star 18.8 m versus required-slide 21.7 m and a grip-like free D-star 16.1 m",
+      "M3267 full was correctly blocked by planar required-slide incompleteness"
+    ],
+    "blocked_by": [
+      "M3268 quick failed required-slide arm completeness, so full is blocked",
+      "post-slip strict-recovery and final paper claim remain separate"
+    ],
+    "supersedes": [
+      "using the inconclusive M3267 planar row as dominance evidence",
+      "single-seed or two-arm detailed-model comparisons"
+    ],
+    "invalidates": [
+      "hiding M3267 planar incompleteness",
+      "giving slide-only actuator authority",
+      "counting post-contact slide onset",
+      "generalizing selected Chrono/TMeasy cells to arbitrary vehicles or real cars"
+    ]
+  },
+  "review_artifact": "docs/reviews/m3268-phase5-g2-chrono-preslip-boundary-adjudication.md",
+  "public_gates": [
+    "write preregistration before quick and full",
+    "run canonical quick before managed full",
+    "use fresh SHA256-derived quick/full and arm seed streams",
+    "retain identical actuator, plant, geometry, road, horizon, and optimizer budgets within each cell",
+    "require true OBB first-contact timing and controlled beta/rear-slip/speed constraints",
+    "require finite dedicated and pooled D-star for every arm and every full optimizer seed",
+    "require dedicated free-search consistency against pooled constrained boundaries",
+    "require worst dedicated grip seed no worse than best dedicated slide seed by more than 0.25 m",
+    "require local-frame, axle tire-truth, and exact-replay gates",
+    "leave M3267 planar incompleteness visible and the incumbent unchanged"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not alter cells, thresholds, geometry, budgets, pooling, or tolerance after quick/full inspection",
+    "do not omit dedicated arm rows in favor of pooled minima",
+    "do not infer physical emptiness from an optimizer miss",
+    "do not count late, unstable, stopped, off-road, or collision trajectories",
+    "do not mutate ActiveSafetyReflexDriver or train a policy",
+    "do not claim planar, split-mu, moving-obstacle, terminal-pose, cross-vehicle, real-car, paper-readiness, promotion, or self-ID coverage"
+  ],
+  "workflow_synthesis": {
+    "branch": "phase5_preslip_reachable_set_dual_proof",
+    "evidence_axis": "chrono_matched_grip_slide_free_reachable_boundary_comparison",
+    "evidence_increment": "fresh three-cell two-seed Chrono boundary panel with pooled mode reclassification and strict seed robustness",
+    "claim_scope": "finite selected Chrono/TMeasy lane-aligned static-OBB cells only",
+    "stop_condition": [
+      "stop if quick health or arm completeness fails",
+      "stop as inconclusive if any full health or strict seed gate fails",
+      "stop as counterexample if a healthy slide-mode trajectory beats grip by more than 0.25 m",
+      "stop as bounded support only when every frozen gate passes"
+    ],
+    "fallback_plan": [
+      "preserve any failed cell and do not repair M3268 after result inspection",
+      "preserve exact actions for any counterexample",
+      "register post-slip recovery separately only after a healthy pre-slip verdict"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M3267 split into a healthy Chrono price and an incomplete planar arm",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "Compare deterministic open-loop reachability oracles without training.",
+    "admission_evidence": [
+      "M3267 corrected Chrono quick all-arm completeness and exact replay",
+      "M3266 same-plant slide entry",
+      "bounded force-envelope theory certificate"
+    ],
+    "blocked_shortcuts": [
+      "no policy training",
+      "no incumbent mutation",
+      "no post-quick tuning",
+      "no universal theorem"
+    ],
+    "allowed_updates": [
+      "scripts/feasibility_audit/phase5_g2_chrono_preslip_boundary_adjudication.py",
+      "tests/test_phase5_g2_chrono_preslip_boundary_adjudication.py",
+      "experiments/feasibility_audit/phase5_g2_chrono_preslip_boundary_adjudication_prereg.json",
+      "experiments/feasibility_audit/phase5_g2_chrono_preslip_boundary_adjudication_quick.json",
+      "experiments/feasibility_audit/phase5_g2_chrono_preslip_boundary_adjudication.json",
+      "runs/feasibility_audit/phase5_g2_chrono_preslip_boundary_adjudication/",
+      "docs/m3268-phase5-g2-chrono-preslip-boundary-adjudication.md",
+      "docs/reviews/m3268-phase5-g2-chrono-preslip-boundary-adjudication.md",
+      "experiments/research_queue.csv",
+      "experiments/research_status.json",
+      "experiments/scoreboard.csv",
+      "docs/current-status.md",
+      "docs/roadmap-phase3-codex-execution.md",
+      "docs/research-log.md",
+      "docs/data-coverage-map-2026-06.md",
+      "scripts/feasibility_audit/README.md"
+    ],
+    "next_stage_criteria": [
+      "one separately preregistered exact-anchor retry is allowed from M3267's replayed slide witness",
+      "post-slip strict-recovery is registered only after a healthy pre-slip verdict",
+      "paper text changes only after pre-slip and post-slip packages both pass",
+      "broader geometry, tire, vehicle, or real-car claims require separate evidence"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M3268 uses deterministic open-loop per-instance truth and makes no history or belief claim.",
+    "history_necessity_tests": [
+      "none; no learned history policy is evaluated"
+    ],
+    "temporal_evidence_window": "finite action trajectories with body state and axle tire truth",
+    "negative_result_policy": "Missing arms, seed instability, free inconsistency, counterexamples, and M3267 planar incompleteness remain at full fidelity.",
+    "allowed_claims": [
+      "finite selected-cell bounded empirical support",
+      "a frozen detailed-model counterexample",
+      "an inconclusive protocol result",
+      "no incumbent or self-ID change"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_baseline_comparison",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "replaces a single healthy quick cell with three fresh full cells, two seeds per arm, pooled classification, and strict worst-seed comparison",
+    "paper_verdict_delta": "A healthy M3268 can support only the finite Chrono pre-slip mechanism claim; post-slip and final paper readiness remain separate.",
+    "must_synthesize_if": [
+      "any criterion or cell change is proposed after quick/full inspection",
+      "a free or strict-seed failure is dismissed as optimizer noise",
+      "M3267 planar incompleteness is omitted",
+      "finite-cell support is proposed as a universal detailed-model theorem"
+    ]
+  },
+  "success_criteria": [
+    "preregistration exists before quick and full",
+    "quick passes every frozen health gate before full",
+    "full completes all three cells and every dedicated optimizer seed",
+    "dedicated/free/pooled, strict seed, local-frame, tire-truth, and exact-replay gates pass",
+    "decision follows the frozen support/counterexample/inconclusive rule",
+    "raw actions, trajectories, candidate classifications, and boundaries are persisted",
+    "M3267 planar incompleteness and no-incumbent/no-self-ID scope remain explicit"
+  ],
+  "failure_criteria": [
+    "full runs before preregistration or passing quick",
+    "any missing or inconsistent arm/seed is hidden",
+    "post-contact or mode-invalid slide is counted",
+    "criteria are changed after result inspection",
+    "selected-cell evidence is generalized beyond scope"
+  ],
+  "decision_rule": "Return bounded_empirical_support only when all positive controls, dedicated and pooled completeness, free consistency, worst-seed no-drift, pooled no-drift, local-frame, tire-truth, exact-replay, and no-free-slide-counterexample gates pass in every full cell. Return counterexample_found only under healthy complete searches when slide beats grip by more than 0.25 m. Otherwise return inconclusive.",
+  "commands": [
+    {
+      "name": "phase5_g2_write_prereg",
+      "command": "env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/phase5_g2_chrono_preslip_boundary_adjudication.py --write-prereg"
+    },
+    {
+      "name": "phase5_g2_quick",
+      "command": "env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/phase5_g2_chrono_preslip_boundary_adjudication.py --quick --resume"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "experiments/feasibility_audit/phase5_g2_chrono_preslip_boundary_adjudication_prereg.json",
+      "type": "json"
+    },
+    {
+      "path": "experiments/feasibility_audit/phase5_g2_chrono_preslip_boundary_adjudication_quick.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/feasibility_audit/phase5_g2_chrono_preslip_boundary_adjudication/quick/dedicated_arm_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/feasibility_audit/phase5_g2_chrono_preslip_boundary_adjudication/quick/pooled_candidate_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/feasibility_audit/phase5_g2_chrono_preslip_boundary_adjudication/quick/cell_verdicts.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m3268-phase5-g2-chrono-preslip-boundary-adjudication.md",
+      "type": "markdown"
+    },
+    {
+      "path": "docs/reviews/m3268-phase5-g2-chrono-preslip-boundary-adjudication.md",
+      "type": "markdown"
+    }
+  ],
+  "baseline_checkpoints": [
+    "docs/preslip-reachable-set-dual-proof-theory-2026-07.md",
+    "experiments/feasibility_audit/phase5_g1_preslip_reachable_set_adjudication_quick.json",
+    "experiments/feasibility_audit/phase5_g0b_slide_mode_onset_pricing.json",
+    "docs/papers/emergency/2022-justifying-emergency-drift-control.pdf"
+  ],
+  "metric_extractors": [],
+  "gates": []
+}

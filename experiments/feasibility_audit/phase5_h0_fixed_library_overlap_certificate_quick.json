@@ -1,0 +1,5260 @@
+{
+  "action_library": {
+    "actions": [
+      {
+        "action_id": "action_02340c861bd06e9c",
+        "horizon_s": 2.6,
+        "provenance": [
+          {
+            "source_arm": "free",
+            "source_artifact": "experiments/feasibility_audit/phase5_g3_anchored_chrono_preslip_adjudication.json",
+            "source_cell_id": "g3_chrono_mu0p90_v16",
+            "source_d_star_m": 11.899999999999983,
+            "source_seed": 1547295929
+          }
+        ],
+        "segments_float64_sha256": "02340c861bd06e9c5c9012c1a754e44a09a943b9a2c9b2b4df7cdb99f5737954",
+        "segments_physical": [
+          [
+            0.6256066209878086,
+            0.24992620722202144,
+            0.0
+          ],
+          [
+            0.22239661613068973,
+            0.18808136096503023,
+            0.0
+          ],
+          [
+            -0.3020708460798337,
+            0.0,
+            0.0
+          ],
+          [
+            0.5087214151836075,
+            0.12701036411370004,
+            0.05479436656993708
+          ],
+          [
+            -0.2676112971419924,
+            0.5630057298139141,
+            0.0
+          ],
+          [
+            -0.8441968785006129,
+            0.0,
+            0.4094202552618107
+          ],
+          [
+            0.036212176710528635,
+            0.06126392947968175,
+            0.5504921747875279
+          ],
+          [
+            0.196745736573403,
+            0.049969728532549385,
+            0.30263807393409414
+          ],
+          [
+            0.08027551607909267,
+            0.0,
+            0.07750912965403703
+          ]
+        ]
+      },
+      {
+        "action_id": "action_139991a98b0c9379",
+        "horizon_s": 2.6,
+        "provenance": [
+          {
+            "source_arm": "grip",
+            "source_artifact": "experiments/feasibility_audit/phase5_g3_anchored_chrono_preslip_adjudication.json",
+            "source_cell_id": "g3_chrono_mu0p60_v16",
+            "source_d_star_m": 14.399999999999974,
+            "source_seed": 1022012205
+          }
+        ],
+        "segments_float64_sha256": "139991a98b0c9379ab02bd96c8633cf761f6e386073a49e70089466b0f170b8e",
+        "segments_physical": [
+          [
+            1.0,
+            0.1346746369659269,
+            0.0
+          ],
+          [
+            0.5221165736038959,
+            0.0876743259371965,
+            0.09860500215097528
+          ],
+          [
+            -0.004436565911866697,
+            0.0,
+            0.0
+          ],
+          [
+            -0.014507475878652441,
+            0.2223684854057932,
+            0.0
+          ],
+          [
+            -0.06721520623389937,
+            0.0,
+            0.0
+          ],
+          [
+            0.38722441584472134,
+            0.2849871201296585,
+            0.0
+          ],
+          [
+            0.1174484352124634,
+            0.0,
+            0.0
+          ],
+          [
+            0.2629530566737141,
+            0.019287284343238967,
+            0.137370810847107
+          ],
+          [
+            -0.22220016997500874,
+            0.03001315765244859,
+            0.05035547204354107
+          ]
+        ]
+      },
+      {
+        "action_id": "action_1641f1b9ce802ee7",
+        "horizon_s": 2.6,
+        "provenance": [
+          {
+            "source_arm": "grip",
+            "source_artifact": "experiments/feasibility_audit/phase5_g3_anchored_chrono_preslip_adjudication.json",
+            "source_cell_id": "g3_chrono_mu0p90_v16",
+            "source_d_star_m": 11.999999999999982,
+            "source_seed": 1380504669
+          }
+        ],
+        "segments_float64_sha256": "1641f1b9ce802ee759b673c6d43f07e961ce53a4a3f4044980e90d2bab9f2df1",
+        "segments_physical": [
+          [
+            0.7078403885867375,
+            0.0,
+            0.0
+          ],
+          [
+            0.2229974464370648,
+            0.2985212657689492,
+            0.2170880261870971
+          ],
+          [
+            -0.06069977427464999,
+            0.0,
+            0.0
+          ],
+          [
+            -0.013720827837482732,
+            0.47452278269920567,
+            0.0951631577611859
+          ],
+          [
+            0.4836923074595587,
+            0.14713404374518654,
+            0.5478830748560771
+          ],
+          [
+            0.3983888980043159,
+            0.0,
+            0.10839417125720263
+          ],
+          [
+            -0.29393115990771645,
+            0.12674697262539977,
+            0.0
+          ],
+          [
+            -0.16129616316409626,
+            0.00045303455916570083,
+            0.0
+          ],
+          [
+            0.19495103772761685,
+            0.0,
+            0.0
+          ]
+        ]
+      },
+      {
+        "action_id": "action_20f2be985795d97f",
+        "horizon_s": 2.2,
+        "provenance": [
+          {
+            "source_arm": "required_slide",
+            "source_artifact": "experiments/feasibility_audit/phase5_g1_preslip_reachable_set_adjudication_quick.json",
+            "source_cell_id": "quick_chrono_mu0p48_v16",
+            "source_d_star_m": 21.699999999999946,
+            "source_seed": 1515484633
+          }
+        ],
+        "segments_float64_sha256": "20f2be985795d97f6507eca83ca046535ca6fcabca27247dadc970c5f2952281",
+        "segments_physical": [
+          [
+            0.9751593361128598,
+            0.0,
+            0.9622634172054572
+          ],
+          [
+            1.0,
+            0.0030571752600953885,
+            0.9567326465816461
+          ],
+          [
+            0.8371006628136736,
+            0.5549048530882448,
+            0.24851554830444048
+          ],
+          [
+            -0.17362086350013822,
+            0.2809362478595899,
+            0.047245408047538406
+          ],
+          [
+            0.046177797684455846,
+            0.0,
+            0.0
+          ],
+          [
+            -0.9898301733331296,
+            0.36795453242869364,
+            0.9362393094752386
+          ],
+          [
+            -0.9272483844683359,
+            0.37203046613515334,
+            0.07617738916704925
+          ]
+        ]
+      },
+      {
+        "action_id": "action_24616598995547c2",
+        "horizon_s": 2.6,
+        "provenance": [
+          {
+            "source_arm": "grip",
+            "source_artifact": "experiments/feasibility_audit/phase5_g3_anchored_chrono_preslip_adjudication.json",
+            "source_cell_id": "g3_chrono_mu0p35_v16",
+            "source_d_star_m": 18.09999999999996,
+            "source_seed": 1512373372
+          }
+        ],
+        "segments_float64_sha256": "24616598995547c249b795635636895c816b122d8374c835ad2b262cd38c2a51",
+        "segments_physical": [
+          [
+            0.6142198945967251,
+            0.34386419719497496,
+            0.23400428575974103
+          ],
+          [
+            0.4899694313596022,
+            0.18744801628959085,
+            0.0
+          ],
+          [
+            0.12941422685539544,
+            0.05313156198366552,
+            0.09911390340386902
+          ],
+          [
+            0.7335418194960319,
+            0.0,
+            0.0
+          ],
+          [
+            0.6953472505654914,
+            0.2430266257393999,
+            0.04800559394390973
+          ],
+          [
+            0.35428640822764434,
+            0.09392460095531578,
+            0.049422980823570474
+          ],
+          [
+            0.022714640882208453,
+            0.0,
+            0.1819620175691453
+          ],
+          [
+            0.670203771399822,
+            0.07340665007539332,
+            0.2956142410135875
+          ],
+          [
+            -0.478515467609224,
+            0.24570042548337573,
+            0.0
+          ]
+        ]
+      },
+      {
+        "action_id": "action_280b096882d5baca",
+        "horizon_s": 2.6,
+        "provenance": [
+          {
+            "source_arm": "required_slide",
+            "source_artifact": "experiments/feasibility_audit/phase5_g3_anchored_chrono_preslip_adjudication.json",
+            "source_cell_id": "g3_chrono_mu0p90_v16",
+            "source_d_star_m": null,
+            "source_seed": 577305340
+          }
+        ],
+        "segments_float64_sha256": "280b096882d5baca6071bced6d6505f07220e285212b3f299eaf9c6910ea3282",
+        "segments_physical": [
+          [
+            0.2989174257528542,
+            0.025462976732233335,
+            1.0
+          ],
+          [
+            1.0,
+            0.0,
+            0.5623500021454131
+          ],
+          [
+            1.0,
+            0.0,
+            0.2810511663010083
+          ],
+          [
+            0.5895034757463969,
+            0.5383753039321388,
+            0.8983366902507219
+          ],
+          [
+            0.09873124149269596,
+            0.8056172726429931,
+            0.3205379841161041
+          ],
+          [
+            -0.28303331933210746,
+            0.8971390410970381,
+            0.2529310984413896
+          ],
+          [
+            0.34864541655656445,
+            0.11571809504529476,
+            0.0
+          ],
+          [
+            -1.0,
+            1.0,
+            0.0
+          ],
+          [
+            -1.0,
+            0.44620196145433366,
+            0.17085780117870566
+          ]
+        ]
+      },
+      {
+        "action_id": "action_2fdf9d34c10d9af0",
+        "horizon_s": 2.6,
+        "provenance": [
+          {
+            "source_arm": "free",
+            "source_artifact": "experiments/feasibility_audit/phase5_g3_anchored_chrono_preslip_adjudication.json",
+            "source_cell_id": "g3_chrono_mu0p35_v16",
+            "source_d_star_m": 18.59999999999996,
+            "source_seed": 1048705858
+          }
+        ],
+        "segments_float64_sha256": "2fdf9d34c10d9af036bf3dcafc83f88c6a3a22507e31bc9b3905d54094251354",
+        "segments_physical": [
+          [
+            0.7163024321055105,
+            0.03463673538010984,
+            0.0
+          ],
+          [
+            0.8649734530249111,
+            0.0,
+            0.0
+          ],
+          [
+            0.3826280498913201,
+            0.054224955944038686,
+            0.055150731116004326
+          ],
+          [
+            0.39334285449084194,
+            0.06296230094054195,
+            0.016326100514481006
+          ],
+          [
+            0.06511774511230829,
+            0.05574784674730869,
+            0.0
+          ],
+          [
+            0.15369160541589244,
+            0.06689287851950228,
+            0.0
+          ],
+          [
+            0.46425395352170384,
+            0.0,
+            0.29401820190516176
+          ],
+          [
+            0.827549810997674,
+            0.044877978395908784,
+            0.14694200007891955
+          ],
+          [
+            0.23784843134779876,
+            0.0,
+            0.059085121334006646
+          ]
+        ]
+      },
+      {
+        "action_id": "action_32cb92c9b074a422",
+        "horizon_s": 2.2,
+        "provenance": [
+          {
+            "source_arm": "grip",
+            "source_artifact": "experiments/feasibility_audit/phase5_g1_preslip_reachable_set_adjudication_quick.json",
+            "source_cell_id": "quick_chrono_mu0p48_v16",
+            "source_d_star_m": 18.799999999999958,
+            "source_seed": 1707505182
+          }
+        ],
+        "segments_float64_sha256": "32cb92c9b074a422b59d3b9aceee0d75c19d16374b386d63a6f5f1b26c514d00",
+        "segments_physical": [
+          [
+            0.45,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ]
+        ]
+      },
+      {
+        "action_id": "action_50326101ae01dc33",
+        "horizon_s": 2.2,
+        "provenance": [
+          {
+            "source_arm": "free",
+            "source_artifact": "experiments/feasibility_audit/phase5_g1_preslip_reachable_set_adjudication_quick.json",
+            "source_cell_id": "quick_chrono_mu0p48_v16",
+            "source_d_star_m": 16.099999999999966,
+            "source_seed": 1494719356
+          }
+        ],
+        "segments_float64_sha256": "50326101ae01dc33e56f368858140a37a4cb6da415408a765b743f4632b8fda5",
+        "segments_physical": [
+          [
+            0.75,
+            0.0,
+            0.0
+          ],
+          [
+            0.75,
+            0.0,
+            0.0
+          ],
+          [
+            0.75,
+            0.0,
+            0.0
+          ],
+          [
+            -0.2,
+            0.0,
+            0.0
+          ],
+          [
+            -0.2,
+            0.0,
+            0.0
+          ],
+          [
+            -0.2,
+            0.0,
+            0.0
+          ],
+          [
+            -0.2,
+            0.0,
+            0.0
+          ]
+        ]
+      },
+      {
+        "action_id": "action_67e317dc22378b24",
+        "horizon_s": 2.6,
+        "provenance": [
+          {
+            "source_arm": "grip",
+            "source_artifact": "experiments/feasibility_audit/phase5_g3_anchored_chrono_preslip_adjudication.json",
+            "source_cell_id": "g3_chrono_mu0p90_v16",
+            "source_d_star_m": 12.099999999999982,
+            "source_seed": 195760157
+          }
+        ],
+        "segments_float64_sha256": "67e317dc22378b24d6c94120bc9f09d8c0da326c0c24e55d57348bdf416532bc",
+        "segments_physical": [
+          [
+            0.793494906659427,
+            0.0,
+            0.0723643004202435
+          ],
+          [
+            0.4280979397344446,
+            0.030820328954490744,
+            0.0
+          ],
+          [
+            -0.318767713612185,
+            0.0,
+            0.4874963044195278
+          ],
+          [
+            -0.08934572609545419,
+            0.6719291664019693,
+            0.0
+          ],
+          [
+            0.013240327343919361,
+            0.0,
+            0.0
+          ],
+          [
+            -0.33765123946574555,
+            0.3893667638370888,
+            0.0
+          ],
+          [
+            -0.0836811792733601,
+            0.0,
+            0.0
+          ],
+          [
+            -0.0371513343232138,
+            0.0,
+            0.1592628260139707
+          ],
+          [
+            -0.6187630689415744,
+            0.11549679695299248,
+            0.16265208641997742
+          ]
+        ]
+      },
+      {
+        "action_id": "action_69f97cc3bf2cb13c",
+        "horizon_s": 2.6,
+        "provenance": [
+          {
+            "source_arm": "grip",
+            "source_artifact": "experiments/feasibility_audit/phase5_g3_anchored_chrono_preslip_adjudication.json",
+            "source_cell_id": "g3_chrono_mu0p60_v16",
+            "source_d_star_m": 13.999999999999975,
+            "source_seed": 1146740675
+          }
+        ],
+        "segments_float64_sha256": "69f97cc3bf2cb13cbfe91abfbbf8c8ba9aea63e6c30ae05817b8dfb90426501d",
+        "segments_physical": [
+          [
+            0.44195921684993633,
+            0.0,
+            0.06270579743726175
+          ],
+          [
+            1.0,
+            0.1550703616050171,
+            0.0
+          ],
+          [
+            -1.0,
+            0.2719039820465073,
+            0.0
+          ],
+          [
+            0.8208870395424461,
+            0.24129515218092823,
+            0.09429833737519847
+          ],
+          [
+            0.024669798664940523,
+            0.023030560864804643,
+            0.19306404831133475
+          ],
+          [
+            0.3588580177036946,
+            0.4494524559518853,
+            0.0
+          ],
+          [
+            -0.007720438613217673,
+            0.0,
+            0.0
+          ],
+          [
+            -0.6077274893405136,
+            0.09371727883360877,
+            0.21438486266690854
+          ],
+          [
+            -0.25354450961672015,
+            0.0,
+            0.0
+          ]
+        ]
+      },
+      {
+        "action_id": "action_81c24b46186462e7",
+        "horizon_s": 2.6,
+        "provenance": [
+          {
+            "source_arm": "required_slide",
+            "source_artifact": "experiments/feasibility_audit/phase5_g3_anchored_chrono_preslip_adjudication.json",
+            "source_cell_id": "g3_chrono_mu0p35_v16",
+            "source_d_star_m": null,
+            "source_seed": 378218693
+          }
+        ],
+        "segments_float64_sha256": "81c24b46186462e7390dbcd61dae3b5f238d2bece60ba9fc6b8d9fc37b4da324",
+        "segments_physical": [
+          [
+            0.7991146109659558,
+            0.033891395386869215,
+            0.49361681328747165
+          ],
+          [
+            0.8104726320229272,
+            0.05044133864955159,
+            0.16184699074396863
+          ],
+          [
+            0.6738849990378443,
+            0.0,
+            0.1416162085228308
+          ],
+          [
+            0.8656844643126079,
+            0.7890994291610913,
+            0.1382856563019536
+          ],
+          [
+            1.0,
+            0.46924813487880657,
+            0.0
+          ],
+          [
+            -0.707001465401387,
+            0.3230572876701787,
+            0.0
+          ],
+          [
+            -0.49425374049025317,
+            0.0,
+            0.3012642075723937
+          ],
+          [
+            -0.45648902893198995,
+            0.5346602451654248,
+            0.29146371518693215
+          ],
+          [
+            -0.8396846825627968,
+            0.615824406694318,
+            0.3085724235044628
+          ]
+        ]
+      },
+      {
+        "action_id": "action_89157dbfefabb5a9",
+        "horizon_s": 2.6,
+        "provenance": [
+          {
+            "source_arm": "required_slide",
+            "source_artifact": "experiments/feasibility_audit/phase5_g3_anchored_chrono_preslip_adjudication.json",
+            "source_cell_id": "g3_chrono_mu0p60_v16",
+            "source_d_star_m": 20.89999999999995,
+            "source_seed": 35168690
+          }
+        ],
+        "segments_float64_sha256": "89157dbfefabb5a99cbcbcdc9bc6d78dd65a04e0f2f8d8ea2f7e15d8eb914065",
+        "segments_physical": [
+          [
+            0.8509000222337,
+            0.0,
+            1.0
+          ],
+          [
+            0.8091492474209524,
+            0.22804280406960178,
+            0.7565753329717223
+          ],
+          [
+            1.0,
+            0.0295439416057227,
+            0.3125007261284608
+          ],
+          [
+            0.780851484124726,
+            0.9455468995854748,
+            0.2741586953894683
+          ],
+          [
+            1.0,
+            0.8780964771929799,
+            0.18161887555752704
+          ],
+          [
+            0.03986175287114846,
+            0.15095718077481834,
+            0.0
+          ],
+          [
+            -1.0,
+            0.6795174153348276,
+            0.18510804586673218
+          ],
+          [
+            -0.8914742441980593,
+            0.4907337401444345,
+            0.34722070165633273
+          ],
+          [
+            -1.0,
+            0.47732237390261173,
+            0.0
+          ]
+        ]
+      },
+      {
+        "action_id": "action_8b33506d1b21de75",
+        "horizon_s": 2.6,
+        "provenance": [
+          {
+            "source_arm": "required_slide",
+            "source_artifact": "experiments/feasibility_audit/phase5_g3_anchored_chrono_preslip_adjudication.json",
+            "source_cell_id": "g3_chrono_mu0p35_v16",
+            "source_d_star_m": null,
+            "source_seed": 74816841
+          }
+        ],
+        "segments_float64_sha256": "8b33506d1b21de75e57075bdd0b56dde7a872b88ab580c863a5df6789bcb4e20",
+        "segments_physical": [
+          [
+            0.965873640907877,
+            0.1464968100893345,
+            0.7787625381829263
+          ],
+          [
+            1.0,
+            0.030030083549422527,
+            0.23539756312025395
+          ],
+          [
+            0.7360124987941893,
+            0.18836507278870596,
+            0.5519535825281664
+          ],
+          [
+            0.6062735685532996,
+            0.9994549255991148,
+            0.6637495382370597
+          ],
+          [
+            1.0,
+            0.6385107735124507,
+            0.0
+          ],
+          [
+            -0.532475745902843,
+            0.5928717147918201,
+            0.08035480554448386
+          ],
+          [
+            -0.5248235948305178,
+            0.6094666811594436,
+            0.542645370694833
+          ],
+          [
+            -0.7672985499209622,
+            0.08687728303770187,
+            0.3106819430356148
+          ],
+          [
+            -0.5981090124401858,
+            0.33088916448204825,
+            0.07489764584055826
+          ]
+        ]
+      },
+      {
+        "action_id": "action_a31de1502ee9f306",
+        "horizon_s": 2.6,
+        "provenance": [
+          {
+            "source_arm": "required_slide",
+            "source_artifact": "experiments/feasibility_audit/phase5_g3_anchored_chrono_preslip_adjudication.json",
+            "source_cell_id": "g3_chrono_mu0p60_v16",
+            "source_d_star_m": 20.699999999999953,
+            "source_seed": 1686769851
+          }
+        ],
+        "segments_float64_sha256": "a31de1502ee9f306ec036bd379cf038c421e10db2d7feea19c2019859b026946",
+        "segments_physical": [
+          [
+            0.9751593361128598,
+            0.0,
+            0.9622634172054572
+          ],
+          [
+            0.9751593361128598,
+            0.0,
+            0.9622634172054572
+          ],
+          [
+            1.0,
+            0.0030571752600953885,
+            0.9567326465816461
+          ],
+          [
+            0.8371006628136736,
+            0.5549048530882448,
+            0.24851554830444048
+          ],
+          [
+            -0.17362086350013822,
+            0.2809362478595899,
+            0.047245408047538406
+          ],
+          [
+            -0.17362086350013822,
+            0.2809362478595899,
+            0.047245408047538406
+          ],
+          [
+            0.046177797684455846,
+            0.0,
+            0.0
+          ],
+          [
+            -0.9898301733331296,
+            0.36795453242869364,
+            0.9362393094752386
+          ],
+          [
+            -0.9272483844683359,
+            0.37203046613515334,
+            0.07617738916704925
+          ]
+        ]
+      },
+      {
+        "action_id": "action_b628e5e2b9da42cf",
+        "horizon_s": 2.6,
+        "provenance": [
+          {
+            "source_arm": "grip",
+            "source_artifact": "experiments/feasibility_audit/phase5_g3_anchored_chrono_preslip_adjudication.json",
+            "source_cell_id": "g3_chrono_mu0p35_v16",
+            "source_d_star_m": 18.69999999999996,
+            "source_seed": 1657001741
+          },
+          {
+            "source_arm": "free",
+            "source_artifact": "experiments/feasibility_audit/phase5_g3_anchored_chrono_preslip_adjudication.json",
+            "source_cell_id": "g3_chrono_mu0p35_v16",
+            "source_d_star_m": 18.799999999999958,
+            "source_seed": 227835386
+          }
+        ],
+        "segments_float64_sha256": "b628e5e2b9da42cf5a035bc32109956ec453f6e19039626d3ce40eb1f2dfd9e9",
+        "segments_physical": [
+          [
+            0.75,
+            0.0,
+            0.0
+          ],
+          [
+            0.75,
+            0.0,
+            0.0
+          ],
+          [
+            0.75,
+            0.0,
+            0.0
+          ],
+          [
+            0.75,
+            0.0,
+            0.0
+          ],
+          [
+            0.75,
+            0.0,
+            0.0
+          ],
+          [
+            0.75,
+            0.0,
+            0.0
+          ],
+          [
+            0.75,
+            0.0,
+            0.0
+          ],
+          [
+            0.75,
+            0.0,
+            0.0
+          ],
+          [
+            0.75,
+            0.0,
+            0.0
+          ]
+        ]
+      },
+      {
+        "action_id": "action_bb7e1edb2496abdc",
+        "horizon_s": 2.6,
+        "provenance": [
+          {
+            "source_arm": "free",
+            "source_artifact": "experiments/feasibility_audit/phase5_g3_anchored_chrono_preslip_adjudication.json",
+            "source_cell_id": "g3_chrono_mu0p90_v16",
+            "source_d_star_m": 11.799999999999983,
+            "source_seed": 958505647
+          }
+        ],
+        "segments_float64_sha256": "bb7e1edb2496abdc21bba2ce7df397a3b9163308907b216c40f1f21387485b72",
+        "segments_physical": [
+          [
+            1.0,
+            0.0,
+            0.30807369112385663
+          ],
+          [
+            0.8076162016538951,
+            0.2523191396833396,
+            0.0
+          ],
+          [
+            -0.8450513741013139,
+            0.4270797231056985,
+            0.0
+          ],
+          [
+            -0.6390045547308025,
+            0.43777872522923444,
+            0.0
+          ],
+          [
+            0.4512937992722653,
+            0.0565300864930993,
+            0.3176673643333993
+          ],
+          [
+            -0.44542537659909787,
+            0.2572706920413991,
+            0.41642808171668205
+          ],
+          [
+            0.029657586594793593,
+            0.0,
+            0.3042325834972591
+          ],
+          [
+            0.026419170726065012,
+            0.17106339542626567,
+            0.49460624251742524
+          ],
+          [
+            -0.34882049790665937,
+            0.0,
+            0.16855360724255966
+          ]
+        ]
+      },
+      {
+        "action_id": "action_d0a189b7f2285a5d",
+        "horizon_s": 2.6,
+        "provenance": [
+          {
+            "source_arm": "free",
+            "source_artifact": "experiments/feasibility_audit/phase5_g3_anchored_chrono_preslip_adjudication.json",
+            "source_cell_id": "g3_chrono_mu0p60_v16",
+            "source_d_star_m": 13.899999999999975,
+            "source_seed": 1629520903
+          }
+        ],
+        "segments_float64_sha256": "d0a189b7f2285a5d3d6a579a4b710fbaa2cc5453aed3918ac591b4c821e23bb7",
+        "segments_physical": [
+          [
+            0.3675883136800898,
+            0.0059284855706409345,
+            0.020737540367212263
+          ],
+          [
+            0.31843860976531174,
+            0.4978667062530161,
+            0.027570866415437316
+          ],
+          [
+            -0.05645486270617583,
+            0.008995067280842511,
+            0.3195235151664631
+          ],
+          [
+            -0.09134939243776709,
+            0.15514690266042255,
+            0.07856756717896982
+          ],
+          [
+            0.01754970986621543,
+            0.040930969025007084,
+            0.3860195566600203
+          ],
+          [
+            -0.0714872211261591,
+            0.19708747685977424,
+            0.25610906254070415
+          ],
+          [
+            0.04332693856244762,
+            0.04370577484792551,
+            0.0
+          ],
+          [
+            -0.06944991724821031,
+            0.21611495926826005,
+            0.11266604329226605
+          ],
+          [
+            -0.21740914362140673,
+            0.0,
+            0.0
+          ]
+        ]
+      },
+      {
+        "action_id": "action_d63ad0c90bd76975",
+        "horizon_s": 2.6,
+        "provenance": [
+          {
+            "source_arm": "required_slide",
+            "source_artifact": "experiments/feasibility_audit/phase5_g3_anchored_chrono_preslip_adjudication.json",
+            "source_cell_id": "g3_chrono_mu0p90_v16",
+            "source_d_star_m": 15.699999999999969,
+            "source_seed": 48551544
+          }
+        ],
+        "segments_float64_sha256": "d63ad0c90bd769753f217085d67a62688e36a230015a053835e2ead58ef4d0c8",
+        "segments_physical": [
+          [
+            1.0,
+            0.0,
+            1.0
+          ],
+          [
+            1.0,
+            0.021271042982870084,
+            0.672333974048936
+          ],
+          [
+            0.8792771044298345,
+            0.2702110141394763,
+            0.611656196536595
+          ],
+          [
+            1.0,
+            0.7685862139335969,
+            0.16779181466661902
+          ],
+          [
+            -0.08025692026511955,
+            0.007399284658262006,
+            0.083963961086444
+          ],
+          [
+            -0.26098357610478784,
+            0.0,
+            0.3518496978128288
+          ],
+          [
+            -0.7658787321278369,
+            0.0,
+            0.0
+          ],
+          [
+            -1.0,
+            1.0,
+            0.38499988022589376
+          ],
+          [
+            -0.9447194107413087,
+            0.7525862714851599,
+            0.4712779781156944
+          ]
+        ]
+      },
+      {
+        "action_id": "action_f85acfc0a3c7644f",
+        "horizon_s": 2.6,
+        "provenance": [
+          {
+            "source_arm": "free",
+            "source_artifact": "experiments/feasibility_audit/phase5_g3_anchored_chrono_preslip_adjudication.json",
+            "source_cell_id": "g3_chrono_mu0p60_v16",
+            "source_d_star_m": 14.899999999999972,
+            "source_seed": 410215773
+          }
+        ],
+        "segments_float64_sha256": "f85acfc0a3c7644fc5e56944a510d731ac9d2a5ec745c230bfa1dc2f9ef18284",
+        "segments_physical": [
+          [
+            0.16994664762448136,
+            0.15095313119582401,
+            0.15361203332778445
+          ],
+          [
+            0.281652787285577,
+            0.0005885512963665802,
+            0.0478584605716187
+          ],
+          [
+            0.09483281585537501,
+            0.04478691022215574,
+            0.15251406845141308
+          ],
+          [
+            -0.19662493489032962,
+            0.23430128464918193,
+            0.0
+          ],
+          [
+            0.12389646200848815,
+            0.26438488496117707,
+            0.11244105213948839
+          ],
+          [
+            0.30561074811243905,
+            0.11336286690346878,
+            0.0
+          ],
+          [
+            0.21698719287112206,
+            0.011200728220012252,
+            0.07391958799757661
+          ],
+          [
+            0.3927979283713624,
+            0.1342327419757212,
+            0.20613201971162876
+          ],
+          [
+            -0.029150895117247305,
+            0.1206141991940393,
+            0.0
+          ]
+        ]
+      }
+    ],
+    "library_sha256": "7d49fc5ffedd3a76c92b49b27721f0246dd2d58740b50d5b86059377115fb8b7",
+    "provenance_count": 21,
+    "unique_action_count": 20
+  },
+  "cell_verdicts": [
+    {
+      "all_seeds_free_consistent": true,
+      "all_seeds_no_drift_advantage": true,
+      "all_seeds_overlap_complete": true,
+      "cell_id": "h0_quick_mu0p60_v16",
+      "free_slide_counterexample": false,
+      "max_drift_advantage_m": -5.199999999999983,
+      "min_drift_advantage_m": -5.199999999999983,
+      "mu": 0.6,
+      "overlap_seed_count": 2,
+      "seed_count": 2,
+      "speed_mps": 16.0
+    }
+  ],
+  "cells": [
+    {
+      "cell_id": "h0_quick_mu0p60_v16",
+      "mu": 0.6,
+      "obstacle_half_depth_m": 0.65,
+      "obstacle_half_width_m": 0.85,
+      "road_half_width_m": 5.0,
+      "speed_mps": 16.0
+    }
+  ],
+  "claim_boundary": "exact finite-library/finite-cell simulator certificate plus independent numerical validation of the force-envelope theorem; not a continuous Chrono control-set proof",
+  "completed_at_utc": "2026-07-10T09:53:25.790209+00:00",
+  "continuous_chrono_dominance_claim_admitted": false,
+  "decision": "finite_library_overlap_support",
+  "expected_replay_rows": 40,
+  "finite_library_certificate_admitted": true,
+  "gates": {
+    "action_library_frozen_pass": true,
+    "exact_replay_pass": true,
+    "free_consistency_pass": true,
+    "literature_positive_control_pass": true,
+    "local_frame_pass": true,
+    "no_drift_advantage_pass": true,
+    "no_free_slide_counterexample_pass": true,
+    "overlap_complete_pass": true,
+    "row_count_pass": true,
+    "same_plant_slide_entry_pass": true,
+    "tire_truth_pass": true
+  },
+  "incumbent_changed": false,
+  "m3269_overridden": false,
+  "max_drift_advantage_m": -5.199999999999983,
+  "milestone_id": "m3270-phase5-h0-fixed-library-overlap-certificate",
+  "min_drift_advantage_m": -5.199999999999983,
+  "mode": "quick",
+  "replay_rows": [
+    {
+      "action_id": "action_02340c861bd06e9c",
+      "cell_id": "h0_quick_mu0p60_v16",
+      "finite_rear_tire_steps": 130,
+      "free_boundary": {
+        "arm": "free",
+        "collision": false,
+        "controlled_slide_onset_front_x_m": null,
+        "controlled_slide_onset_index": null,
+        "controlled_slide_onset_time_s": null,
+        "distance_m": 14.699999999999973,
+        "free_mode_classification": "grip_like",
+        "max_beta_until_pass_rad": 0.059458550837544984,
+        "max_controlled_slide_dwell_steps": 0,
+        "min_sat_separation_m": 0.0003308347620483154,
+        "min_speed_until_pass_mps": 15.427548062500893,
+        "mode_valid": true,
+        "obstacle_contact_plane_x_m": 14.049999999999972,
+        "offroad": false,
+        "onset_before_contact": false,
+        "passed": true,
+        "score": 12659.00661669524,
+        "stable": true,
+        "success": true
+      },
+      "free_d_star_m": 14.699999999999973,
+      "grip_boundary": {
+        "arm": "grip",
+        "collision": false,
+        "controlled_slide_onset_front_x_m": null,
+        "controlled_slide_onset_index": null,
+        "controlled_slide_onset_time_s": null,
+        "distance_m": 14.699999999999973,
+        "free_mode_classification": "grip_like",
+        "max_beta_until_pass_rad": 0.059458550837544984,
+        "max_controlled_slide_dwell_steps": 0,
+        "min_sat_separation_m": 0.0003308347620483154,
+        "min_speed_until_pass_mps": 15.427548062500893,
+        "mode_valid": true,
+        "obstacle_contact_plane_x_m": 14.049999999999972,
+        "offroad": false,
+        "onset_before_contact": false,
+        "passed": true,
+        "score": 12659.00661669524,
+        "stable": true,
+        "success": true
+      },
+      "grip_d_star_m": 14.699999999999973,
+      "horizon_s": 2.6,
+      "initial_local_pose": {
+        "psi": 0.0,
+        "x": 0.0,
+        "y": 0.0
+      },
+      "local_frame_pass": true,
+      "mu": 0.6,
+      "provenance": [
+        {
+          "source_arm": "free",
+          "source_artifact": "experiments/feasibility_audit/phase5_g3_anchored_chrono_preslip_adjudication.json",
+          "source_cell_id": "g3_chrono_mu0p90_v16",
+          "source_d_star_m": 11.899999999999983,
+          "source_seed": 1547295929
+        }
+      ],
+      "replay": {
+        "exact_pass": true,
+        "max_abs_error": 0.0,
+        "performed": true,
+        "same_shape": true
+      },
+      "required_slide_boundary": {
+        "arm": "required_slide",
+        "collision": true,
+        "controlled_slide_onset_front_x_m": null,
+        "controlled_slide_onset_index": null,
+        "controlled_slide_onset_time_s": null,
+        "distance_m": 7.0,
+        "free_mode_classification": "grip_like",
+        "max_beta_until_pass_rad": 0.006556528366698361,
+        "max_controlled_slide_dwell_steps": 0,
+        "min_sat_separation_m": -0.03962169878064792,
+        "min_speed_until_pass_mps": 15.812621271420205,
+        "mode_valid": false,
+        "obstacle_contact_plane_x_m": 6.35,
+        "offroad": false,
+        "onset_before_contact": false,
+        "passed": false,
+        "score": -210.79243397561297,
+        "stable": true,
+        "success": false
+      },
+      "required_slide_d_star_m": null,
+      "segments_float64_sha256": "02340c861bd06e9c5c9012c1a754e44a09a943b9a2c9b2b4df7cdb99f5737954",
+      "speed_mps": 16.0,
+      "termination_reason": "",
+      "trajectory_steps": 130,
+      "validation_seed": 80381520
+    },
+    {
+      "action_id": "action_139991a98b0c9379",
+      "cell_id": "h0_quick_mu0p60_v16",
+      "finite_rear_tire_steps": 130,
+      "free_boundary": {
+        "arm": "free",
+        "collision": false,
+        "controlled_slide_onset_front_x_m": null,
+        "controlled_slide_onset_index": null,
+        "controlled_slide_onset_time_s": null,
+        "distance_m": 14.399999999999974,
+        "free_mode_classification": "grip_like",
+        "max_beta_until_pass_rad": 0.038502398879233714,
+        "max_controlled_slide_dwell_steps": 0,
+        "min_sat_separation_m": 0.02166586592006592,
+        "min_speed_until_pass_mps": 15.074792389514252,
+        "mode_valid": true,
+        "obstacle_contact_plane_x_m": 13.749999999999973,
+        "offroad": false,
+        "onset_before_contact": false,
+        "passed": true,
+        "score": 12668.4333173184,
+        "stable": true,
+        "success": true
+      },
+      "free_d_star_m": 14.399999999999974,
+      "grip_boundary": {
+        "arm": "grip",
+        "collision": false,
+        "controlled_slide_onset_front_x_m": null,
+        "controlled_slide_onset_index": null,
+        "controlled_slide_onset_time_s": null,
+        "distance_m": 14.399999999999974,
+        "free_mode_classification": "grip_like",
+        "max_beta_until_pass_rad": 0.038502398879233714,
+        "max_controlled_slide_dwell_steps": 0,
+        "min_sat_separation_m": 0.02166586592006592,
+        "min_speed_until_pass_mps": 15.074792389514252,
+        "mode_valid": true,
+        "obstacle_contact_plane_x_m": 13.749999999999973,
+        "offroad": false,
+        "onset_before_contact": false,
+        "passed": true,
+        "score": 12668.4333173184,
+        "stable": true,
+        "success": true
+      },
+      "grip_d_star_m": 14.399999999999974,
+      "horizon_s": 2.6,
+      "initial_local_pose": {
+        "psi": 0.0,
+        "x": 0.0,
+        "y": 0.0
+      },
+      "local_frame_pass": true,
+      "mu": 0.6,
+      "provenance": [
+        {
+          "source_arm": "grip",
+          "source_artifact": "experiments/feasibility_audit/phase5_g3_anchored_chrono_preslip_adjudication.json",
+          "source_cell_id": "g3_chrono_mu0p60_v16",
+          "source_d_star_m": 14.399999999999974,
+          "source_seed": 1022012205
+        }
+      ],
+      "replay": {
+        "exact_pass": true,
+        "max_abs_error": 0.0,
+        "performed": true,
+        "same_shape": true
+      },
+      "required_slide_boundary": {
+        "arm": "required_slide",
+        "collision": true,
+        "controlled_slide_onset_front_x_m": null,
+        "controlled_slide_onset_index": null,
+        "controlled_slide_onset_time_s": null,
+        "distance_m": 7.0,
+        "free_mode_classification": "grip_like",
+        "max_beta_until_pass_rad": 0.006470825892954272,
+        "max_controlled_slide_dwell_steps": 0,
+        "min_sat_separation_m": -0.031432003937787556,
+        "min_speed_until_pass_mps": 15.738367291480468,
+        "mode_valid": false,
+        "obstacle_contact_plane_x_m": 6.35,
+        "offroad": false,
+        "onset_before_contact": false,
+        "passed": false,
+        "score": -210.62864007875575,
+        "stable": true,
+        "success": false
+      },
+      "required_slide_d_star_m": null,
+      "segments_float64_sha256": "139991a98b0c9379ab02bd96c8633cf761f6e386073a49e70089466b0f170b8e",
+      "speed_mps": 16.0,
+      "termination_reason": "",
+      "trajectory_steps": 130,
+      "validation_seed": 80381520
+    },
+    {
+      "action_id": "action_1641f1b9ce802ee7",
+      "cell_id": "h0_quick_mu0p60_v16",
+      "finite_rear_tire_steps": 130,
+      "free_boundary": {
+        "arm": "free",
+        "collision": false,
+        "controlled_slide_onset_front_x_m": null,
+        "controlled_slide_onset_index": null,
+        "controlled_slide_onset_time_s": null,
+        "distance_m": 14.299999999999974,
+        "free_mode_classification": "grip_like",
+        "max_beta_until_pass_rad": 0.05070460343844647,
+        "max_controlled_slide_dwell_steps": 0,
+        "min_sat_separation_m": 0.01854581702144209,
+        "min_speed_until_pass_mps": 15.289147185012338,
+        "mode_valid": true,
+        "obstacle_contact_plane_x_m": 13.649999999999974,
+        "offroad": false,
+        "onset_before_contact": false,
+        "passed": true,
+        "score": 12671.37091634043,
+        "stable": true,
+        "success": true
+      },
+      "free_d_star_m": 14.299999999999974,
+      "grip_boundary": {
+        "arm": "grip",
+        "collision": false,
+        "controlled_slide_onset_front_x_m": null,
+        "controlled_slide_onset_index": null,
+        "controlled_slide_onset_time_s": null,
+        "distance_m": 14.299999999999974,
+        "free_mode_classification": "grip_like",
+        "max_beta_until_pass_rad": 0.05070460343844647,
+        "max_controlled_slide_dwell_steps": 0,
+        "min_sat_separation_m": 0.01854581702144209,
+        "min_speed_until_pass_mps": 15.289147185012338,
+        "mode_valid": true,
+        "obstacle_contact_plane_x_m": 13.649999999999974,
+        "offroad": false,
+        "onset_before_contact": false,
+        "passed": true,
+        "score": 12671.37091634043,
+        "stable": true,
+        "success": true
+      },
+      "grip_d_star_m": 14.299999999999974,
+      "horizon_s": 2.6,
+      "initial_local_pose": {
+        "psi": 0.0,
+        "x": 0.0,
+        "y": 0.0
+      },
+      "local_frame_pass": true,
+      "mu": 0.6,
+      "provenance": [
+        {
+          "source_arm": "grip",
+          "source_artifact": "experiments/feasibility_audit/phase5_g3_anchored_chrono_preslip_adjudication.json",
+          "source_cell_id": "g3_chrono_mu0p90_v16",
+          "source_d_star_m": 11.999999999999982,
+          "source_seed": 1380504669
+        }
+      ],
+      "replay": {
+        "exact_pass": true,
+        "max_abs_error": 0.0,
+        "performed": true,
+        "same_shape": true
+      },
+      "required_slide_boundary": {
+        "arm": "required_slide",
+        "collision": true,
+        "controlled_slide_onset_front_x_m": null,
+        "controlled_slide_onset_index": null,
+        "controlled_slide_onset_time_s": null,
+        "distance_m": 7.0,
+        "free_mode_classification": "grip_like",
+        "max_beta_until_pass_rad": 0.006497017282491821,
+        "max_controlled_slide_dwell_steps": 0,
+        "min_sat_separation_m": -0.03055933441096137,
+        "min_speed_until_pass_mps": 15.727602347736353,
+        "mode_valid": false,
+        "obstacle_contact_plane_x_m": 6.35,
+        "offroad": false,
+        "onset_before_contact": false,
+        "passed": false,
+        "score": -210.61118668821922,
+        "stable": true,
+        "success": false
+      },
+      "required_slide_d_star_m": null,
+      "segments_float64_sha256": "1641f1b9ce802ee759b673c6d43f07e961ce53a4a3f4044980e90d2bab9f2df1",
+      "speed_mps": 16.0,
+      "termination_reason": "",
+      "trajectory_steps": 130,
+      "validation_seed": 80381520
+    },
+    {
+      "action_id": "action_20f2be985795d97f",
+      "cell_id": "h0_quick_mu0p60_v16",
+      "finite_rear_tire_steps": 110,
+      "free_boundary": {
+        "arm": "free",
+        "collision": false,
+        "controlled_slide_onset_front_x_m": 10.222807052319059,
+        "controlled_slide_onset_index": 27,
+        "controlled_slide_onset_time_s": 0.54,
+        "distance_m": 19.09999999999996,
+        "free_mode_classification": "controlled_slide_like",
+        "max_beta_until_pass_rad": 0.3074970758293837,
+        "max_controlled_slide_dwell_steps": 28,
+        "min_sat_separation_m": 0.008683810405204717,
+        "min_speed_until_pass_mps": 9.57964446156753,
+        "mode_valid": true,
+        "obstacle_contact_plane_x_m": 18.44999999999996,
+        "offroad": false,
+        "onset_before_contact": true,
+        "passed": true,
+        "score": 12527.173676208105,
+        "stable": true,
+        "success": true
+      },
+      "free_d_star_m": 19.09999999999996,
+      "grip_boundary": {
+        "arm": "grip",
+        "collision": true,
+        "controlled_slide_onset_front_x_m": null,
+        "controlled_slide_onset_index": null,
+        "controlled_slide_onset_time_s": null,
+        "distance_m": 7.0,
+        "free_mode_classification": "grip_like",
+        "max_beta_until_pass_rad": 0.060667725039151674,
+        "max_controlled_slide_dwell_steps": 0,
+        "min_sat_separation_m": -0.21347560403017773,
+        "min_speed_until_pass_mps": 14.562771165336832,
+        "mode_valid": true,
+        "obstacle_contact_plane_x_m": 6.35,
+        "offroad": false,
+        "onset_before_contact": false,
+        "passed": false,
+        "score": 9885.730487919396,
+        "stable": true,
+        "success": false
+      },
+      "grip_d_star_m": null,
+      "horizon_s": 2.2,
+      "initial_local_pose": {
+        "psi": 0.0,
+        "x": 0.0,
+        "y": 0.0
+      },
+      "local_frame_pass": true,
+      "mu": 0.6,
+      "provenance": [
+        {
+          "source_arm": "required_slide",
+          "source_artifact": "experiments/feasibility_audit/phase5_g1_preslip_reachable_set_adjudication_quick.json",
+          "source_cell_id": "quick_chrono_mu0p48_v16",
+          "source_d_star_m": 21.699999999999946,
+          "source_seed": 1515484633
+        }
+      ],
+      "replay": {
+        "exact_pass": true,
+        "max_abs_error": 0.0,
+        "performed": true,
+        "same_shape": true
+      },
+      "required_slide_boundary": {
+        "arm": "required_slide",
+        "collision": false,
+        "controlled_slide_onset_front_x_m": 10.222807052319059,
+        "controlled_slide_onset_index": 27,
+        "controlled_slide_onset_time_s": 0.54,
+        "distance_m": 19.09999999999996,
+        "free_mode_classification": "controlled_slide_like",
+        "max_beta_until_pass_rad": 0.3074970758293837,
+        "max_controlled_slide_dwell_steps": 28,
+        "min_sat_separation_m": 0.008683810405204717,
+        "min_speed_until_pass_mps": 9.57964446156753,
+        "mode_valid": true,
+        "obstacle_contact_plane_x_m": 18.44999999999996,
+        "offroad": false,
+        "onset_before_contact": true,
+        "passed": true,
+        "score": 12527.173676208105,
+        "stable": true,
+        "success": true
+      },
+      "required_slide_d_star_m": 19.09999999999996,
+      "segments_float64_sha256": "20f2be985795d97f6507eca83ca046535ca6fcabca27247dadc970c5f2952281",
+      "speed_mps": 16.0,
+      "termination_reason": "",
+      "trajectory_steps": 110,
+      "validation_seed": 80381520
+    },
+    {
+      "action_id": "action_24616598995547c2",
+      "cell_id": "h0_quick_mu0p60_v16",
+      "finite_rear_tire_steps": 130,
+      "free_boundary": {
+        "arm": "free",
+        "collision": true,
+        "controlled_slide_onset_front_x_m": null,
+        "controlled_slide_onset_index": null,
+        "controlled_slide_onset_time_s": null,
+        "distance_m": 7.0,
+        "free_mode_classification": "grip_like",
+        "max_beta_until_pass_rad": 0.006533668636306778,
+        "max_controlled_slide_dwell_steps": 0,
+        "min_sat_separation_m": -0.03748609134598979,
+        "min_speed_until_pass_mps": 15.790367988883848,
+        "mode_valid": true,
+        "obstacle_contact_plane_x_m": 6.35,
+        "offroad": false,
+        "onset_before_contact": false,
+        "passed": false,
+        "score": 9889.25027817308,
+        "stable": true,
+        "success": false
+      },
+      "free_d_star_m": null,
+      "grip_boundary": {
+        "arm": "grip",
+        "collision": true,
+        "controlled_slide_onset_front_x_m": null,
+        "controlled_slide_onset_index": null,
+        "controlled_slide_onset_time_s": null,
+        "distance_m": 7.0,
+        "free_mode_classification": "grip_like",
+        "max_beta_until_pass_rad": 0.006533668636306778,
+        "max_controlled_slide_dwell_steps": 0,
+        "min_sat_separation_m": -0.03748609134598979,
+        "min_speed_until_pass_mps": 15.790367988883848,
+        "mode_valid": true,
+        "obstacle_contact_plane_x_m": 6.35,
+        "offroad": false,
+        "onset_before_contact": false,
+        "passed": false,
+        "score": 9889.25027817308,
+        "stable": true,
+        "success": false
+      },
+      "grip_d_star_m": null,
+      "horizon_s": 2.6,
+      "initial_local_pose": {
+        "psi": 0.0,
+        "x": 0.0,
+        "y": 0.0
+      },
+      "local_frame_pass": true,
+      "mu": 0.6,
+      "provenance": [
+        {
+          "source_arm": "grip",
+          "source_artifact": "experiments/feasibility_audit/phase5_g3_anchored_chrono_preslip_adjudication.json",
+          "source_cell_id": "g3_chrono_mu0p35_v16",
+          "source_d_star_m": 18.09999999999996,
+          "source_seed": 1512373372
+        }
+      ],
+      "replay": {
+        "exact_pass": true,
+        "max_abs_error": 0.0,
+        "performed": true,
+        "same_shape": true
+      },
+      "required_slide_boundary": {
+        "arm": "required_slide",
+        "collision": true,
+        "controlled_slide_onset_front_x_m": null,
+        "controlled_slide_onset_index": null,
+        "controlled_slide_onset_time_s": null,
+        "distance_m": 7.0,
+        "free_mode_classification": "grip_like",
+        "max_beta_until_pass_rad": 0.006533668636306778,
+        "max_controlled_slide_dwell_steps": 0,
+        "min_sat_separation_m": -0.03748609134598979,
+        "min_speed_until_pass_mps": 15.790367988883848,
+        "mode_valid": false,
+        "obstacle_contact_plane_x_m": 6.35,
+        "offroad": false,
+        "onset_before_contact": false,
+        "passed": false,
+        "score": -210.7497218269198,
+        "stable": true,
+        "success": false
+      },
+      "required_slide_d_star_m": null,
+      "segments_float64_sha256": "24616598995547c249b795635636895c816b122d8374c835ad2b262cd38c2a51",
+      "speed_mps": 16.0,
+      "termination_reason": "",
+      "trajectory_steps": 130,
+      "validation_seed": 80381520
+    },
+    {
+      "action_id": "action_280b096882d5baca",
+      "cell_id": "h0_quick_mu0p60_v16",
+      "finite_rear_tire_steps": 130,
+      "free_boundary": {
+        "arm": "free",
+        "collision": false,
+        "controlled_slide_onset_front_x_m": 11.442127437458831,
+        "controlled_slide_onset_index": 32,
+        "controlled_slide_onset_time_s": 0.64,
+        "distance_m": 23.099999999999945,
+        "free_mode_classification": "controlled_slide_like",
+        "max_beta_until_pass_rad": 0.3257302816255473,
+        "max_controlled_slide_dwell_steps": 37,
+        "min_sat_separation_m": 0.014402259847892562,
+        "min_speed_until_pass_mps": 8.765928684561842,
+        "mode_valid": true,
+        "obstacle_contact_plane_x_m": 22.449999999999946,
+        "offroad": false,
+        "onset_before_contact": true,
+        "passed": true,
+        "score": 12407.28804519696,
+        "stable": true,
+        "success": true
+      },
+      "free_d_star_m": 23.099999999999945,
+      "grip_boundary": {
+        "arm": "grip",
+        "collision": true,
+        "controlled_slide_onset_front_x_m": null,
+        "controlled_slide_onset_index": null,
+        "controlled_slide_onset_time_s": null,
+        "distance_m": 7.0,
+        "free_mode_classification": "grip_like",
+        "max_beta_until_pass_rad": 0.05212675831058805,
+        "max_controlled_slide_dwell_steps": 0,
+        "min_sat_separation_m": -0.186748844157127,
+        "min_speed_until_pass_mps": 14.473057626872782,
+        "mode_valid": true,
+        "obstacle_contact_plane_x_m": 6.35,
+        "offroad": false,
+        "onset_before_contact": false,
+        "passed": false,
+        "score": 9886.265023116857,
+        "stable": true,
+        "success": false
+      },
+      "grip_d_star_m": null,
+      "horizon_s": 2.6,
+      "initial_local_pose": {
+        "psi": 0.0,
+        "x": 0.0,
+        "y": 0.0
+      },
+      "local_frame_pass": true,
+      "mu": 0.6,
+      "provenance": [
+        {
+          "source_arm": "required_slide",
+          "source_artifact": "experiments/feasibility_audit/phase5_g3_anchored_chrono_preslip_adjudication.json",
+          "source_cell_id": "g3_chrono_mu0p90_v16",
+          "source_d_star_m": null,
+          "source_seed": 577305340
+        }
+      ],
+      "replay": {
+        "exact_pass": true,
+        "max_abs_error": 0.0,
+        "performed": true,
+        "same_shape": true
+      },
+      "required_slide_boundary": {
+        "arm": "required_slide",
+        "collision": false,
+        "controlled_slide_onset_front_x_m": 11.442127437458831,
+        "controlled_slide_onset_index": 32,
+        "controlled_slide_onset_time_s": 0.64,
+        "distance_m": 23.099999999999945,
+        "free_mode_classification": "controlled_slide_like",
+        "max_beta_until_pass_rad": 0.3257302816255473,
+        "max_controlled_slide_dwell_steps": 37,
+        "min_sat_separation_m": 0.014402259847892562,
+        "min_speed_until_pass_mps": 8.765928684561842,
+        "mode_valid": true,
+        "obstacle_contact_plane_x_m": 22.449999999999946,
+        "offroad": false,
+        "onset_before_contact": true,
+        "passed": true,
+        "score": 12407.28804519696,
+        "stable": true,
+        "success": true
+      },
+      "required_slide_d_star_m": 23.099999999999945,
+      "segments_float64_sha256": "280b096882d5baca6071bced6d6505f07220e285212b3f299eaf9c6910ea3282",
+      "speed_mps": 16.0,
+      "termination_reason": "",
+      "trajectory_steps": 130,
+      "validation_seed": 80381520
+    },
+    {
+      "action_id": "action_2fdf9d34c10d9af0",
+      "cell_id": "h0_quick_mu0p60_v16",
+      "finite_rear_tire_steps": 130,
+      "free_boundary": {
+        "arm": "free",
+        "collision": true,
+        "controlled_slide_onset_front_x_m": null,
+        "controlled_slide_onset_index": null,
+        "controlled_slide_onset_time_s": null,
+        "distance_m": 7.0,
+        "free_mode_classification": "grip_like",
+        "max_beta_until_pass_rad": 0.006487569297944207,
+        "max_controlled_slide_dwell_steps": 0,
+        "min_sat_separation_m": -0.03149874566168709,
+        "min_speed_until_pass_mps": 15.736886316819554,
+        "mode_valid": true,
+        "obstacle_contact_plane_x_m": 6.35,
+        "offroad": false,
+        "onset_before_contact": false,
+        "passed": false,
+        "score": 9889.370025086766,
+        "stable": true,
+        "success": false
+      },
+      "free_d_star_m": null,
+      "grip_boundary": {
+        "arm": "grip",
+        "collision": true,
+        "controlled_slide_onset_front_x_m": null,
+        "controlled_slide_onset_index": null,
+        "controlled_slide_onset_time_s": null,
+        "distance_m": 7.0,
+        "free_mode_classification": "grip_like",
+        "max_beta_until_pass_rad": 0.006487569297944207,
+        "max_controlled_slide_dwell_steps": 0,
+        "min_sat_separation_m": -0.03149874566168709,
+        "min_speed_until_pass_mps": 15.736886316819554,
+        "mode_valid": true,
+        "obstacle_contact_plane_x_m": 6.35,
+        "offroad": false,
+        "onset_before_contact": false,
+        "passed": false,
+        "score": 9889.370025086766,
+        "stable": true,
+        "success": false
+      },
+      "grip_d_star_m": null,
+      "horizon_s": 2.6,
+      "initial_local_pose": {
+        "psi": 0.0,
+        "x": 0.0,
+        "y": 0.0
+      },
+      "local_frame_pass": true,
+      "mu": 0.6,
+      "provenance": [
+        {
+          "source_arm": "free",
+          "source_artifact": "experiments/feasibility_audit/phase5_g3_anchored_chrono_preslip_adjudication.json",
+          "source_cell_id": "g3_chrono_mu0p35_v16",
+          "source_d_star_m": 18.59999999999996,
+          "source_seed": 1048705858
+        }
+      ],
+      "replay": {
+        "exact_pass": true,
+        "max_abs_error": 0.0,
+        "performed": true,
+        "same_shape": true
+      },
+      "required_slide_boundary": {
+        "arm": "required_slide",
+        "collision": true,
+        "controlled_slide_onset_front_x_m": null,
+        "controlled_slide_onset_index": null,
+        "controlled_slide_onset_time_s": null,
+        "distance_m": 7.0,
+        "free_mode_classification": "grip_like",
+        "max_beta_until_pass_rad": 0.006487569297944207,
+        "max_controlled_slide_dwell_steps": 0,
+        "min_sat_separation_m": -0.03149874566168709,
+        "min_speed_until_pass_mps": 15.736886316819554,
+        "mode_valid": false,
+        "obstacle_contact_plane_x_m": 6.35,
+        "offroad": false,
+        "onset_before_contact": false,
+        "passed": false,
+        "score": -210.62997491323375,
+        "stable": true,
+        "success": false
+      },
+      "required_slide_d_star_m": null,
+      "segments_float64_sha256": "2fdf9d34c10d9af036bf3dcafc83f88c6a3a22507e31bc9b3905d54094251354",
+      "speed_mps": 16.0,
+      "termination_reason": "",
+      "trajectory_steps": 130,
+      "validation_seed": 80381520
+    },
+    {
+      "action_id": "action_32cb92c9b074a422",
+      "cell_id": "h0_quick_mu0p60_v16",
+      "finite_rear_tire_steps": 110,
+      "free_boundary": {
+        "arm": "free",
+        "collision": false,
+        "controlled_slide_onset_front_x_m": null,
+        "controlled_slide_onset_index": null,
+        "controlled_slide_onset_time_s": null,
+        "distance_m": 15.799999999999969,
+        "free_mode_classification": "grip_like",
+        "max_beta_until_pass_rad": 0.03863404399092983,
+        "max_controlled_slide_dwell_steps": 0,
+        "min_sat_separation_m": 0.008444962282488921,
+        "min_speed_until_pass_mps": 15.213037756036725,
+        "mode_valid": true,
+        "obstacle_contact_plane_x_m": 15.149999999999968,
+        "offroad": false,
+        "onset_before_contact": false,
+        "passed": true,
+        "score": 12626.168899245651,
+        "stable": true,
+        "success": true
+      },
+      "free_d_star_m": 15.799999999999969,
+      "grip_boundary": {
+        "arm": "grip",
+        "collision": false,
+        "controlled_slide_onset_front_x_m": null,
+        "controlled_slide_onset_index": null,
+        "controlled_slide_onset_time_s": null,
+        "distance_m": 15.799999999999969,
+        "free_mode_classification": "grip_like",
+        "max_beta_until_pass_rad": 0.03863404399092983,
+        "max_controlled_slide_dwell_steps": 0,
+        "min_sat_separation_m": 0.008444962282488921,
+        "min_speed_until_pass_mps": 15.213037756036725,
+        "mode_valid": true,
+        "obstacle_contact_plane_x_m": 15.149999999999968,
+        "offroad": false,
+        "onset_before_contact": false,
+        "passed": true,
+        "score": 12626.168899245651,
+        "stable": true,
+        "success": true
+      },
+      "grip_d_star_m": 15.799999999999969,
+      "horizon_s": 2.2,
+      "initial_local_pose": {
+        "psi": 0.0,
+        "x": 0.0,
+        "y": 0.0
+      },
+      "local_frame_pass": true,
+      "mu": 0.6,
+      "provenance": [
+        {
+          "source_arm": "grip",
+          "source_artifact": "experiments/feasibility_audit/phase5_g1_preslip_reachable_set_adjudication_quick.json",
+          "source_cell_id": "quick_chrono_mu0p48_v16",
+          "source_d_star_m": 18.799999999999958,
+          "source_seed": 1707505182
+        }
+      ],
+      "replay": {
+        "exact_pass": true,
+        "max_abs_error": 0.0,
+        "performed": true,
+        "same_shape": true
+      },
+      "required_slide_boundary": {
+        "arm": "required_slide",
+        "collision": true,
+        "controlled_slide_onset_front_x_m": null,
+        "controlled_slide_onset_index": null,
+        "controlled_slide_onset_time_s": null,
+        "distance_m": 7.0,
+        "free_mode_classification": "grip_like",
+        "max_beta_until_pass_rad": 0.006867932398146669,
+        "max_controlled_slide_dwell_steps": 0,
+        "min_sat_separation_m": -0.03499513444874225,
+        "min_speed_until_pass_mps": 15.751984363262494,
+        "mode_valid": false,
+        "obstacle_contact_plane_x_m": 6.35,
+        "offroad": false,
+        "onset_before_contact": false,
+        "passed": false,
+        "score": -210.69990268897484,
+        "stable": true,
+        "success": false
+      },
+      "required_slide_d_star_m": null,
+      "segments_float64_sha256": "32cb92c9b074a422b59d3b9aceee0d75c19d16374b386d63a6f5f1b26c514d00",
+      "speed_mps": 16.0,
+      "termination_reason": "",
+      "trajectory_steps": 110,
+      "validation_seed": 80381520
+    },
+    {
+      "action_id": "action_50326101ae01dc33",
+      "cell_id": "h0_quick_mu0p60_v16",
+      "finite_rear_tire_steps": 110,
+      "free_boundary": {
+        "arm": "free",
+        "collision": false,
+        "controlled_slide_onset_front_x_m": null,
+        "controlled_slide_onset_index": null,
+        "controlled_slide_onset_time_s": null,
+        "distance_m": 14.499999999999973,
+        "free_mode_classification": "grip_like",
+        "max_beta_until_pass_rad": 0.03171599407172665,
+        "max_controlled_slide_dwell_steps": 0,
+        "min_sat_separation_m": 0.024915892754901137,
+        "min_speed_until_pass_mps": 14.318178127917708,
+        "mode_valid": true,
+        "obstacle_contact_plane_x_m": 13.849999999999973,
+        "offroad": false,
+        "onset_before_contact": false,
+        "passed": true,
+        "score": 12665.498317855097,
+        "stable": true,
+        "success": true
+      },
+      "free_d_star_m": 14.499999999999973,
+      "grip_boundary": {
+        "arm": "grip",
+        "collision": false,
+        "controlled_slide_onset_front_x_m": null,
+        "controlled_slide_onset_index": null,
+        "controlled_slide_onset_time_s": null,
+        "distance_m": 14.499999999999973,
+        "free_mode_classification": "grip_like",
+        "max_beta_until_pass_rad": 0.03171599407172665,
+        "max_controlled_slide_dwell_steps": 0,
+        "min_sat_separation_m": 0.024915892754901137,
+        "min_speed_until_pass_mps": 14.318178127917708,
+        "mode_valid": true,
+        "obstacle_contact_plane_x_m": 13.849999999999973,
+        "offroad": false,
+        "onset_before_contact": false,
+        "passed": true,
+        "score": 12665.498317855097,
+        "stable": true,
+        "success": true
+      },
+      "grip_d_star_m": 14.499999999999973,
+      "horizon_s": 2.2,
+      "initial_local_pose": {
+        "psi": 0.0,
+        "x": 0.0,
+        "y": 0.0
+      },
+      "local_frame_pass": true,
+      "mu": 0.6,
+      "provenance": [
+        {
+          "source_arm": "free",
+          "source_artifact": "experiments/feasibility_audit/phase5_g1_preslip_reachable_set_adjudication_quick.json",
+          "source_cell_id": "quick_chrono_mu0p48_v16",
+          "source_d_star_m": 16.099999999999966,
+          "source_seed": 1494719356
+        }
+      ],
+      "replay": {
+        "exact_pass": true,
+        "max_abs_error": 0.0,
+        "performed": true,
+        "same_shape": true
+      },
+      "required_slide_boundary": {
+        "arm": "required_slide",
+        "collision": true,
+        "controlled_slide_onset_front_x_m": null,
+        "controlled_slide_onset_index": null,
+        "controlled_slide_onset_time_s": null,
+        "distance_m": 7.0,
+        "free_mode_classification": "grip_like",
+        "max_beta_until_pass_rad": 0.006472687712973803,
+        "max_controlled_slide_dwell_steps": 0,
+        "min_sat_separation_m": -0.030051469110307316,
+        "min_speed_until_pass_mps": 15.724508443851102,
+        "mode_valid": false,
+        "obstacle_contact_plane_x_m": 6.35,
+        "offroad": false,
+        "onset_before_contact": false,
+        "passed": false,
+        "score": -210.60102938220615,
+        "stable": true,
+        "success": false
+      },
+      "required_slide_d_star_m": null,
+      "segments_float64_sha256": "50326101ae01dc33e56f368858140a37a4cb6da415408a765b743f4632b8fda5",
+      "speed_mps": 16.0,
+      "termination_reason": "",
+      "trajectory_steps": 110,
+      "validation_seed": 80381520
+    },
+    {
+      "action_id": "action_67e317dc22378b24",
+      "cell_id": "h0_quick_mu0p60_v16",
+      "finite_rear_tire_steps": 130,
+      "free_boundary": {
+        "arm": "free",
+        "collision": false,
+        "controlled_slide_onset_front_x_m": null,
+        "controlled_slide_onset_index": null,
+        "controlled_slide_onset_time_s": null,
+        "distance_m": 15.19999999999997,
+        "free_mode_classification": "grip_like",
+        "max_beta_until_pass_rad": 0.07374591765393673,
+        "max_controlled_slide_dwell_steps": 0,
+        "min_sat_separation_m": 0.011337429857113168,
+        "min_speed_until_pass_mps": 13.03661972064767,
+        "mode_valid": true,
+        "obstacle_contact_plane_x_m": 14.54999999999997,
+        "offroad": false,
+        "onset_before_contact": false,
+        "passed": true,
+        "score": 12644.226748597142,
+        "stable": true,
+        "success": true
+      },
+      "free_d_star_m": 15.19999999999997,
+      "grip_boundary": {
+        "arm": "grip",
+        "collision": false,
+        "controlled_slide_onset_front_x_m": null,
+        "controlled_slide_onset_index": null,
+        "controlled_slide_onset_time_s": null,
+        "distance_m": 15.19999999999997,
+        "free_mode_classification": "grip_like",
+        "max_beta_until_pass_rad": 0.07374591765393673,
+        "max_controlled_slide_dwell_steps": 0,
+        "min_sat_separation_m": 0.011337429857113168,
+        "min_speed_until_pass_mps": 13.03661972064767,
+        "mode_valid": true,
+        "obstacle_contact_plane_x_m": 14.54999999999997,
+        "offroad": false,
+        "onset_before_contact": false,
+        "passed": true,
+        "score": 12644.226748597142,
+        "stable": true,
+        "success": true
+      },
+      "grip_d_star_m": 15.19999999999997,
+      "horizon_s": 2.6,
+      "initial_local_pose": {
+        "psi": 0.0,
+        "x": 0.0,
+        "y": 0.0
+      },
+      "local_frame_pass": true,
+      "mu": 0.6,
+      "provenance": [
+        {
+          "source_arm": "grip",
+          "source_artifact": "experiments/feasibility_audit/phase5_g3_anchored_chrono_preslip_adjudication.json",
+          "source_cell_id": "g3_chrono_mu0p90_v16",
+          "source_d_star_m": 12.099999999999982,
+          "source_seed": 195760157
+        }
+      ],
+      "replay": {
+        "exact_pass": true,
+        "max_abs_error": 0.0,
+        "performed": true,
+        "same_shape": true
+      },
+      "required_slide_boundary": {
+        "arm": "required_slide",
+        "collision": true,
+        "controlled_slide_onset_front_x_m": null,
+        "controlled_slide_onset_index": null,
+        "controlled_slide_onset_time_s": null,
+        "distance_m": 7.0,
+        "free_mode_classification": "grip_like",
+        "max_beta_until_pass_rad": 0.0066582026520370175,
+        "max_controlled_slide_dwell_steps": 0,
+        "min_sat_separation_m": -0.011679357712123917,
+        "min_speed_until_pass_mps": 15.557279287065358,
+        "mode_valid": false,
+        "obstacle_contact_plane_x_m": 6.35,
+        "offroad": false,
+        "onset_before_contact": false,
+        "passed": false,
+        "score": -210.23358715424249,
+        "stable": true,
+        "success": false
+      },
+      "required_slide_d_star_m": null,
+      "segments_float64_sha256": "67e317dc22378b24d6c94120bc9f09d8c0da326c0c24e55d57348bdf416532bc",
+      "speed_mps": 16.0,
+      "termination_reason": "",
+      "trajectory_steps": 130,
+      "validation_seed": 80381520
+    },
+    {
+      "action_id": "action_69f97cc3bf2cb13c",
+      "cell_id": "h0_quick_mu0p60_v16",
+      "finite_rear_tire_steps": 130,
+      "free_boundary": {
+        "arm": "free",
+        "collision": false,
+        "controlled_slide_onset_front_x_m": null,
+        "controlled_slide_onset_index": null,
+        "controlled_slide_onset_time_s": null,
+        "distance_m": 13.999999999999975,
+        "free_mode_classification": "grip_like",
+        "max_beta_until_pass_rad": 0.038975978178290134,
+        "max_controlled_slide_dwell_steps": 0,
+        "min_sat_separation_m": 0.01725869381149181,
+        "min_speed_until_pass_mps": 14.86842321955425,
+        "mode_valid": true,
+        "obstacle_contact_plane_x_m": 13.349999999999975,
+        "offroad": false,
+        "onset_before_contact": false,
+        "passed": true,
+        "score": 12680.34517387623,
+        "stable": true,
+        "success": true
+      },
+      "free_d_star_m": 13.999999999999975,
+      "grip_boundary": {
+        "arm": "grip",
+        "collision": false,
+        "controlled_slide_onset_front_x_m": null,
+        "controlled_slide_onset_index": null,
+        "controlled_slide_onset_time_s": null,
+        "distance_m": 13.999999999999975,
+        "free_mode_classification": "grip_like",
+        "max_beta_until_pass_rad": 0.038975978178290134,
+        "max_controlled_slide_dwell_steps": 0,
+        "min_sat_separation_m": 0.01725869381149181,
+        "min_speed_until_pass_mps": 14.86842321955425,
+        "mode_valid": true,
+        "obstacle_contact_plane_x_m": 13.349999999999975,
+        "offroad": false,
+        "onset_before_contact": false,
+        "passed": true,
+        "score": 12680.34517387623,
+        "stable": true,
+        "success": true
+      },
+      "grip_d_star_m": 13.999999999999975,
+      "horizon_s": 2.6,
+      "initial_local_pose": {
+        "psi": 0.0,
+        "x": 0.0,
+        "y": 0.0
+      },
+      "local_frame_pass": true,
+      "mu": 0.6,
+      "provenance": [
+        {
+          "source_arm": "grip",
+          "source_artifact": "experiments/feasibility_audit/phase5_g3_anchored_chrono_preslip_adjudication.json",
+          "source_cell_id": "g3_chrono_mu0p60_v16",
+          "source_d_star_m": 13.999999999999975,
+          "source_seed": 1146740675
+        }
+      ],
+      "replay": {
+        "exact_pass": true,
+        "max_abs_error": 0.0,
+        "performed": true,
+        "same_shape": true
+      },
+      "required_slide_boundary": {
+        "arm": "required_slide",
+        "collision": true,
+        "controlled_slide_onset_front_x_m": null,
+        "controlled_slide_onset_index": null,
+        "controlled_slide_onset_time_s": null,
+        "distance_m": 7.0,
+        "free_mode_classification": "grip_like",
+        "max_beta_until_pass_rad": 0.0066558439819224754,
+        "max_controlled_slide_dwell_steps": 0,
+        "min_sat_separation_m": -0.01824132457721106,
+        "min_speed_until_pass_mps": 15.59348559071753,
+        "mode_valid": false,
+        "obstacle_contact_plane_x_m": 6.35,
+        "offroad": false,
+        "onset_before_contact": false,
+        "passed": false,
+        "score": -210.36482649154422,
+        "stable": true,
+        "success": false
+      },
+      "required_slide_d_star_m": null,
+      "segments_float64_sha256": "69f97cc3bf2cb13cbfe91abfbbf8c8ba9aea63e6c30ae05817b8dfb90426501d",
+      "speed_mps": 16.0,
+      "termination_reason": "",
+      "trajectory_steps": 130,
+      "validation_seed": 80381520
+    },
+    {
+      "action_id": "action_81c24b46186462e7",
+      "cell_id": "h0_quick_mu0p60_v16",
+      "finite_rear_tire_steps": 130,
+      "free_boundary": {
+        "arm": "free",
+        "collision": true,
+        "controlled_slide_onset_front_x_m": null,
+        "controlled_slide_onset_index": null,
+        "controlled_slide_onset_time_s": null,
+        "distance_m": 7.0,
+        "free_mode_classification": "grip_like",
+        "max_beta_until_pass_rad": 0.0356477378537194,
+        "max_controlled_slide_dwell_steps": 0,
+        "min_sat_separation_m": -0.23842969353869847,
+        "min_speed_until_pass_mps": 14.732117077335275,
+        "mode_valid": true,
+        "obstacle_contact_plane_x_m": 6.35,
+        "offroad": false,
+        "onset_before_contact": false,
+        "passed": false,
+        "score": 9885.231406129225,
+        "stable": true,
+        "success": false
+      },
+      "free_d_star_m": null,
+      "grip_boundary": {
+        "arm": "grip",
+        "collision": true,
+        "controlled_slide_onset_front_x_m": null,
+        "controlled_slide_onset_index": null,
+        "controlled_slide_onset_time_s": null,
+        "distance_m": 7.0,
+        "free_mode_classification": "grip_like",
+        "max_beta_until_pass_rad": 0.0356477378537194,
+        "max_controlled_slide_dwell_steps": 0,
+        "min_sat_separation_m": -0.23842969353869847,
+        "min_speed_until_pass_mps": 14.732117077335275,
+        "mode_valid": true,
+        "obstacle_contact_plane_x_m": 6.35,
+        "offroad": false,
+        "onset_before_contact": false,
+        "passed": false,
+        "score": 9885.231406129225,
+        "stable": true,
+        "success": false
+      },
+      "grip_d_star_m": null,
+      "horizon_s": 2.6,
+      "initial_local_pose": {
+        "psi": 0.0,
+        "x": 0.0,
+        "y": 0.0
+      },
+      "local_frame_pass": true,
+      "mu": 0.6,
+      "provenance": [
+        {
+          "source_arm": "required_slide",
+          "source_artifact": "experiments/feasibility_audit/phase5_g3_anchored_chrono_preslip_adjudication.json",
+          "source_cell_id": "g3_chrono_mu0p35_v16",
+          "source_d_star_m": null,
+          "source_seed": 378218693
+        }
+      ],
+      "replay": {
+        "exact_pass": true,
+        "max_abs_error": 0.0,
+        "performed": true,
+        "same_shape": true
+      },
+      "required_slide_boundary": {
+        "arm": "required_slide",
+        "collision": true,
+        "controlled_slide_onset_front_x_m": 11.110382050012625,
+        "controlled_slide_onset_index": 30,
+        "controlled_slide_onset_time_s": 0.6,
+        "distance_m": 12.299999999999981,
+        "free_mode_classification": "controlled_slide_like",
+        "max_beta_until_pass_rad": 0.22796567990317892,
+        "max_controlled_slide_dwell_steps": 4,
+        "min_sat_separation_m": -0.23646941881667516,
+        "min_speed_until_pass_mps": 12.851588313163834,
+        "mode_valid": true,
+        "obstacle_contact_plane_x_m": 11.64999999999998,
+        "offroad": false,
+        "onset_before_contact": true,
+        "passed": false,
+        "score": 9726.270611623666,
+        "stable": true,
+        "success": false
+      },
+      "required_slide_d_star_m": null,
+      "segments_float64_sha256": "81c24b46186462e7390dbcd61dae3b5f238d2bece60ba9fc6b8d9fc37b4da324",
+      "speed_mps": 16.0,
+      "termination_reason": "",
+      "trajectory_steps": 130,
+      "validation_seed": 80381520
+    },
+    {
+      "action_id": "action_89157dbfefabb5a9",
+      "cell_id": "h0_quick_mu0p60_v16",
+      "finite_rear_tire_steps": 130,
+      "free_boundary": {
+        "arm": "free",
+        "collision": false,
+        "controlled_slide_onset_front_x_m": 10.214973165771191,
+        "controlled_slide_onset_index": 27,
+        "controlled_slide_onset_time_s": 0.54,
+        "distance_m": 20.299999999999955,
+        "free_mode_classification": "controlled_slide_like",
+        "max_beta_until_pass_rad": 0.3537982763550821,
+        "max_controlled_slide_dwell_steps": 38,
+        "min_sat_separation_m": 0.03204032994465855,
+        "min_speed_until_pass_mps": 9.887326613356715,
+        "mode_valid": true,
+        "obstacle_contact_plane_x_m": 19.649999999999956,
+        "offroad": false,
+        "onset_before_contact": true,
+        "passed": true,
+        "score": 12491.640806598894,
+        "stable": true,
+        "success": true
+      },
+      "free_d_star_m": 20.299999999999955,
+      "grip_boundary": {
+        "arm": "grip",
+        "collision": true,
+        "controlled_slide_onset_front_x_m": null,
+        "controlled_slide_onset_index": null,
+        "controlled_slide_onset_time_s": null,
+        "distance_m": 7.0,
+        "free_mode_classification": "grip_like",
+        "max_beta_until_pass_rad": 0.060158064923494535,
+        "max_controlled_slide_dwell_steps": 0,
+        "min_sat_separation_m": -0.21027106814532548,
+        "min_speed_until_pass_mps": 14.553746724348109,
+        "mode_valid": true,
+        "obstacle_contact_plane_x_m": 6.35,
+        "offroad": false,
+        "onset_before_contact": false,
+        "passed": false,
+        "score": 9885.794578637093,
+        "stable": true,
+        "success": false
+      },
+      "grip_d_star_m": null,
+      "horizon_s": 2.6,
+      "initial_local_pose": {
+        "psi": 0.0,
+        "x": 0.0,
+        "y": 0.0
+      },
+      "local_frame_pass": true,
+      "mu": 0.6,
+      "provenance": [
+        {
+          "source_arm": "required_slide",
+          "source_artifact": "experiments/feasibility_audit/phase5_g3_anchored_chrono_preslip_adjudication.json",
+          "source_cell_id": "g3_chrono_mu0p60_v16",
+          "source_d_star_m": 20.89999999999995,
+          "source_seed": 35168690
+        }
+      ],
+      "replay": {
+        "exact_pass": true,
+        "max_abs_error": 0.0,
+        "performed": true,
+        "same_shape": true
+      },
+      "required_slide_boundary": {
+        "arm": "required_slide",
+        "collision": false,
+        "controlled_slide_onset_front_x_m": 10.214973165771191,
+        "controlled_slide_onset_index": 27,
+        "controlled_slide_onset_time_s": 0.54,
+        "distance_m": 20.299999999999955,
+        "free_mode_classification": "controlled_slide_like",
+        "max_beta_until_pass_rad": 0.3537982763550821,
+        "max_controlled_slide_dwell_steps": 38,
+        "min_sat_separation_m": 0.03204032994465855,
+        "min_speed_until_pass_mps": 9.887326613356715,
+        "mode_valid": true,
+        "obstacle_contact_plane_x_m": 19.649999999999956,
+        "offroad": false,
+        "onset_before_contact": true,
+        "passed": true,
+        "score": 12491.640806598894,
+        "stable": true,
+        "success": true
+      },
+      "required_slide_d_star_m": 20.299999999999955,
+      "segments_float64_sha256": "89157dbfefabb5a99cbcbcdc9bc6d78dd65a04e0f2f8d8ea2f7e15d8eb914065",
+      "speed_mps": 16.0,
+      "termination_reason": "",
+      "trajectory_steps": 130,
+      "validation_seed": 80381520
+    },
+    {
+      "action_id": "action_8b33506d1b21de75",
+      "cell_id": "h0_quick_mu0p60_v16",
+      "finite_rear_tire_steps": 130,
+      "free_boundary": {
+        "arm": "free",
+        "collision": true,
+        "controlled_slide_onset_front_x_m": null,
+        "controlled_slide_onset_index": null,
+        "controlled_slide_onset_time_s": null,
+        "distance_m": 7.0,
+        "free_mode_classification": "grip_like",
+        "max_beta_until_pass_rad": 0.0555315054637622,
+        "max_controlled_slide_dwell_steps": 0,
+        "min_sat_separation_m": -0.23764412163929105,
+        "min_speed_until_pass_mps": 14.688078013558377,
+        "mode_valid": true,
+        "obstacle_contact_plane_x_m": 6.35,
+        "offroad": false,
+        "onset_before_contact": false,
+        "passed": false,
+        "score": 9885.247117567214,
+        "stable": true,
+        "success": false
+      },
+      "free_d_star_m": null,
+      "grip_boundary": {
+        "arm": "grip",
+        "collision": true,
+        "controlled_slide_onset_front_x_m": null,
+        "controlled_slide_onset_index": null,
+        "controlled_slide_onset_time_s": null,
+        "distance_m": 7.0,
+        "free_mode_classification": "grip_like",
+        "max_beta_until_pass_rad": 0.0555315054637622,
+        "max_controlled_slide_dwell_steps": 0,
+        "min_sat_separation_m": -0.23764412163929105,
+        "min_speed_until_pass_mps": 14.688078013558377,
+        "mode_valid": true,
+        "obstacle_contact_plane_x_m": 6.35,
+        "offroad": false,
+        "onset_before_contact": false,
+        "passed": false,
+        "score": 9885.247117567214,
+        "stable": true,
+        "success": false
+      },
+      "grip_d_star_m": null,
+      "horizon_s": 2.6,
+      "initial_local_pose": {
+        "psi": 0.0,
+        "x": 0.0,
+        "y": 0.0
+      },
+      "local_frame_pass": true,
+      "mu": 0.6,
+      "provenance": [
+        {
+          "source_arm": "required_slide",
+          "source_artifact": "experiments/feasibility_audit/phase5_g3_anchored_chrono_preslip_adjudication.json",
+          "source_cell_id": "g3_chrono_mu0p35_v16",
+          "source_d_star_m": null,
+          "source_seed": 74816841
+        }
+      ],
+      "replay": {
+        "exact_pass": true,
+        "max_abs_error": 0.0,
+        "performed": true,
+        "same_shape": true
+      },
+      "required_slide_boundary": {
+        "arm": "required_slide",
+        "collision": true,
+        "controlled_slide_onset_front_x_m": 9.48126154001398,
+        "controlled_slide_onset_index": 24,
+        "controlled_slide_onset_time_s": 0.48,
+        "distance_m": 10.699999999999987,
+        "free_mode_classification": "controlled_slide_like",
+        "max_beta_until_pass_rad": 0.24860558425492432,
+        "max_controlled_slide_dwell_steps": 4,
+        "min_sat_separation_m": -0.24223382948433425,
+        "min_speed_until_pass_mps": 13.161791511294423,
+        "mode_valid": true,
+        "obstacle_contact_plane_x_m": 10.049999999999986,
+        "offroad": false,
+        "onset_before_contact": true,
+        "passed": false,
+        "score": 9774.155323410314,
+        "stable": true,
+        "success": false
+      },
+      "required_slide_d_star_m": null,
+      "segments_float64_sha256": "8b33506d1b21de75e57075bdd0b56dde7a872b88ab580c863a5df6789bcb4e20",
+      "speed_mps": 16.0,
+      "termination_reason": "",
+      "trajectory_steps": 130,
+      "validation_seed": 80381520
+    },
+    {
+      "action_id": "action_a31de1502ee9f306",
+      "cell_id": "h0_quick_mu0p60_v16",
+      "finite_rear_tire_steps": 130,
+      "free_boundary": {
+        "arm": "free",
+        "collision": false,
+        "controlled_slide_onset_front_x_m": 10.222854301927214,
+        "controlled_slide_onset_index": 27,
+        "controlled_slide_onset_time_s": 0.54,
+        "distance_m": 20.699999999999953,
+        "free_mode_classification": "controlled_slide_like",
+        "max_beta_until_pass_rad": 0.3926449096148248,
+        "max_controlled_slide_dwell_steps": 44,
+        "min_sat_separation_m": 0.025170169492065853,
+        "min_speed_until_pass_mps": 9.392647608580722,
+        "mode_valid": true,
+        "obstacle_contact_plane_x_m": 20.049999999999955,
+        "offroad": false,
+        "onset_before_contact": true,
+        "passed": true,
+        "score": 12479.503403389843,
+        "stable": true,
+        "success": true
+      },
+      "free_d_star_m": 20.699999999999953,
+      "grip_boundary": {
+        "arm": "grip",
+        "collision": true,
+        "controlled_slide_onset_front_x_m": null,
+        "controlled_slide_onset_index": null,
+        "controlled_slide_onset_time_s": null,
+        "distance_m": 7.0,
+        "free_mode_classification": "grip_like",
+        "max_beta_until_pass_rad": 0.060667725039151674,
+        "max_controlled_slide_dwell_steps": 0,
+        "min_sat_separation_m": -0.21347560403017773,
+        "min_speed_until_pass_mps": 14.562771165336832,
+        "mode_valid": true,
+        "obstacle_contact_plane_x_m": 6.35,
+        "offroad": false,
+        "onset_before_contact": false,
+        "passed": false,
+        "score": 9885.730487919396,
+        "stable": true,
+        "success": false
+      },
+      "grip_d_star_m": null,
+      "horizon_s": 2.6,
+      "initial_local_pose": {
+        "psi": 0.0,
+        "x": 0.0,
+        "y": 0.0
+      },
+      "local_frame_pass": true,
+      "mu": 0.6,
+      "provenance": [
+        {
+          "source_arm": "required_slide",
+          "source_artifact": "experiments/feasibility_audit/phase5_g3_anchored_chrono_preslip_adjudication.json",
+          "source_cell_id": "g3_chrono_mu0p60_v16",
+          "source_d_star_m": 20.699999999999953,
+          "source_seed": 1686769851
+        }
+      ],
+      "replay": {
+        "exact_pass": true,
+        "max_abs_error": 0.0,
+        "performed": true,
+        "same_shape": true
+      },
+      "required_slide_boundary": {
+        "arm": "required_slide",
+        "collision": false,
+        "controlled_slide_onset_front_x_m": 10.222854301927214,
+        "controlled_slide_onset_index": 27,
+        "controlled_slide_onset_time_s": 0.54,
+        "distance_m": 20.699999999999953,
+        "free_mode_classification": "controlled_slide_like",
+        "max_beta_until_pass_rad": 0.3926449096148248,
+        "max_controlled_slide_dwell_steps": 44,
+        "min_sat_separation_m": 0.025170169492065853,
+        "min_speed_until_pass_mps": 9.392647608580722,
+        "mode_valid": true,
+        "obstacle_contact_plane_x_m": 20.049999999999955,
+        "offroad": false,
+        "onset_before_contact": true,
+        "passed": true,
+        "score": 12479.503403389843,
+        "stable": true,
+        "success": true
+      },
+      "required_slide_d_star_m": 20.699999999999953,
+      "segments_float64_sha256": "a31de1502ee9f306ec036bd379cf038c421e10db2d7feea19c2019859b026946",
+      "speed_mps": 16.0,
+      "termination_reason": "",
+      "trajectory_steps": 130,
+      "validation_seed": 80381520
+    },
+    {
+      "action_id": "action_b628e5e2b9da42cf",
+      "cell_id": "h0_quick_mu0p60_v16",
+      "finite_rear_tire_steps": 130,
+      "free_boundary": {
+        "arm": "free",
+        "collision": true,
+        "controlled_slide_onset_front_x_m": null,
+        "controlled_slide_onset_index": null,
+        "controlled_slide_onset_time_s": null,
+        "distance_m": 7.0,
+        "free_mode_classification": "grip_like",
+        "max_beta_until_pass_rad": 0.006472687712973803,
+        "max_controlled_slide_dwell_steps": 0,
+        "min_sat_separation_m": -0.030051469110307316,
+        "min_speed_until_pass_mps": 15.724508443851102,
+        "mode_valid": true,
+        "obstacle_contact_plane_x_m": 6.35,
+        "offroad": false,
+        "onset_before_contact": false,
+        "passed": false,
+        "score": 9889.398970617794,
+        "stable": true,
+        "success": false
+      },
+      "free_d_star_m": null,
+      "grip_boundary": {
+        "arm": "grip",
+        "collision": true,
+        "controlled_slide_onset_front_x_m": null,
+        "controlled_slide_onset_index": null,
+        "controlled_slide_onset_time_s": null,
+        "distance_m": 7.0,
+        "free_mode_classification": "grip_like",
+        "max_beta_until_pass_rad": 0.006472687712973803,
+        "max_controlled_slide_dwell_steps": 0,
+        "min_sat_separation_m": -0.030051469110307316,
+        "min_speed_until_pass_mps": 15.724508443851102,
+        "mode_valid": true,
+        "obstacle_contact_plane_x_m": 6.35,
+        "offroad": false,
+        "onset_before_contact": false,
+        "passed": false,
+        "score": 9889.398970617794,
+        "stable": true,
+        "success": false
+      },
+      "grip_d_star_m": null,
+      "horizon_s": 2.6,
+      "initial_local_pose": {
+        "psi": 0.0,
+        "x": 0.0,
+        "y": 0.0
+      },
+      "local_frame_pass": true,
+      "mu": 0.6,
+      "provenance": [
+        {
+          "source_arm": "grip",
+          "source_artifact": "experiments/feasibility_audit/phase5_g3_anchored_chrono_preslip_adjudication.json",
+          "source_cell_id": "g3_chrono_mu0p35_v16",
+          "source_d_star_m": 18.69999999999996,
+          "source_seed": 1657001741
+        },
+        {
+          "source_arm": "free",
+          "source_artifact": "experiments/feasibility_audit/phase5_g3_anchored_chrono_preslip_adjudication.json",
+          "source_cell_id": "g3_chrono_mu0p35_v16",
+          "source_d_star_m": 18.799999999999958,
+          "source_seed": 227835386
+        }
+      ],
+      "replay": {
+        "exact_pass": true,
+        "max_abs_error": 0.0,
+        "performed": true,
+        "same_shape": true
+      },
+      "required_slide_boundary": {
+        "arm": "required_slide",
+        "collision": true,
+        "controlled_slide_onset_front_x_m": null,
+        "controlled_slide_onset_index": null,
+        "controlled_slide_onset_time_s": null,
+        "distance_m": 7.0,
+        "free_mode_classification": "grip_like",
+        "max_beta_until_pass_rad": 0.006472687712973803,
+        "max_controlled_slide_dwell_steps": 0,
+        "min_sat_separation_m": -0.030051469110307316,
+        "min_speed_until_pass_mps": 15.724508443851102,
+        "mode_valid": false,
+        "obstacle_contact_plane_x_m": 6.35,
+        "offroad": false,
+        "onset_before_contact": false,
+        "passed": false,
+        "score": -210.60102938220615,
+        "stable": true,
+        "success": false
+      },
+      "required_slide_d_star_m": null,
+      "segments_float64_sha256": "b628e5e2b9da42cf5a035bc32109956ec453f6e19039626d3ce40eb1f2dfd9e9",
+      "speed_mps": 16.0,
+      "termination_reason": "",
+      "trajectory_steps": 130,
+      "validation_seed": 80381520
+    },
+    {
+      "action_id": "action_bb7e1edb2496abdc",
+      "cell_id": "h0_quick_mu0p60_v16",
+      "finite_rear_tire_steps": 130,
+      "free_boundary": {
+        "arm": "free",
+        "collision": false,
+        "controlled_slide_onset_front_x_m": null,
+        "controlled_slide_onset_index": null,
+        "controlled_slide_onset_time_s": null,
+        "distance_m": 15.19999999999997,
+        "free_mode_classification": "grip_like",
+        "max_beta_until_pass_rad": 0.02501899368029245,
+        "max_controlled_slide_dwell_steps": 0,
+        "min_sat_separation_m": 0.003309761231462538,
+        "min_speed_until_pass_mps": 14.051944116401657,
+        "mode_valid": true,
+        "obstacle_contact_plane_x_m": 14.54999999999997,
+        "offroad": false,
+        "onset_before_contact": false,
+        "passed": true,
+        "score": 12644.06619522463,
+        "stable": true,
+        "success": true
+      },
+      "free_d_star_m": 15.19999999999997,
+      "grip_boundary": {
+        "arm": "grip",
+        "collision": false,
+        "controlled_slide_onset_front_x_m": null,
+        "controlled_slide_onset_index": null,
+        "controlled_slide_onset_time_s": null,
+        "distance_m": 15.19999999999997,
+        "free_mode_classification": "grip_like",
+        "max_beta_until_pass_rad": 0.02501899368029245,
+        "max_controlled_slide_dwell_steps": 0,
+        "min_sat_separation_m": 0.003309761231462538,
+        "min_speed_until_pass_mps": 14.051944116401657,
+        "mode_valid": true,
+        "obstacle_contact_plane_x_m": 14.54999999999997,
+        "offroad": false,
+        "onset_before_contact": false,
+        "passed": true,
+        "score": 12644.06619522463,
+        "stable": true,
+        "success": true
+      },
+      "grip_d_star_m": 15.19999999999997,
+      "horizon_s": 2.6,
+      "initial_local_pose": {
+        "psi": 0.0,
+        "x": 0.0,
+        "y": 0.0
+      },
+      "local_frame_pass": true,
+      "mu": 0.6,
+      "provenance": [
+        {
+          "source_arm": "free",
+          "source_artifact": "experiments/feasibility_audit/phase5_g3_anchored_chrono_preslip_adjudication.json",
+          "source_cell_id": "g3_chrono_mu0p90_v16",
+          "source_d_star_m": 11.799999999999983,
+          "source_seed": 958505647
+        }
+      ],
+      "replay": {
+        "exact_pass": true,
+        "max_abs_error": 0.0,
+        "performed": true,
+        "same_shape": true
+      },
+      "required_slide_boundary": {
+        "arm": "required_slide",
+        "collision": true,
+        "controlled_slide_onset_front_x_m": null,
+        "controlled_slide_onset_index": null,
+        "controlled_slide_onset_time_s": null,
+        "distance_m": 7.0,
+        "free_mode_classification": "grip_like",
+        "max_beta_until_pass_rad": 0.012007769366733199,
+        "max_controlled_slide_dwell_steps": 0,
+        "min_sat_separation_m": -0.2605233216088054,
+        "min_speed_until_pass_mps": 14.930949928682459,
+        "mode_valid": false,
+        "obstacle_contact_plane_x_m": 6.35,
+        "offroad": false,
+        "onset_before_contact": false,
+        "passed": false,
+        "score": -215.2104664321761,
+        "stable": true,
+        "success": false
+      },
+      "required_slide_d_star_m": null,
+      "segments_float64_sha256": "bb7e1edb2496abdc21bba2ce7df397a3b9163308907b216c40f1f21387485b72",
+      "speed_mps": 16.0,
+      "termination_reason": "",
+      "trajectory_steps": 130,
+      "validation_seed": 80381520
+    },
+    {
+      "action_id": "action_d0a189b7f2285a5d",
+      "cell_id": "h0_quick_mu0p60_v16",
+      "finite_rear_tire_steps": 130,
+      "free_boundary": {
+        "arm": "free",
+        "collision": false,
+        "controlled_slide_onset_front_x_m": null,
+        "controlled_slide_onset_index": null,
+        "controlled_slide_onset_time_s": null,
+        "distance_m": 13.899999999999975,
+        "free_mode_classification": "grip_like",
+        "max_beta_until_pass_rad": 0.06073812769932683,
+        "max_controlled_slide_dwell_steps": 0,
+        "min_sat_separation_m": 0.011140895922928884,
+        "min_speed_until_pass_mps": 14.621402455565564,
+        "mode_valid": true,
+        "obstacle_contact_plane_x_m": 13.249999999999975,
+        "offroad": false,
+        "onset_before_contact": false,
+        "passed": true,
+        "score": 12683.222817918459,
+        "stable": true,
+        "success": true
+      },
+      "free_d_star_m": 13.899999999999975,
+      "grip_boundary": {
+        "arm": "grip",
+        "collision": false,
+        "controlled_slide_onset_front_x_m": null,
+        "controlled_slide_onset_index": null,
+        "controlled_slide_onset_time_s": null,
+        "distance_m": 13.899999999999975,
+        "free_mode_classification": "grip_like",
+        "max_beta_until_pass_rad": 0.06073812769932683,
+        "max_controlled_slide_dwell_steps": 0,
+        "min_sat_separation_m": 0.011140895922928884,
+        "min_speed_until_pass_mps": 14.621402455565564,
+        "mode_valid": true,
+        "obstacle_contact_plane_x_m": 13.249999999999975,
+        "offroad": false,
+        "onset_before_contact": false,
+        "passed": true,
+        "score": 12683.222817918459,
+        "stable": true,
+        "success": true
+      },
+      "grip_d_star_m": 13.899999999999975,
+      "horizon_s": 2.6,
+      "initial_local_pose": {
+        "psi": 0.0,
+        "x": 0.0,
+        "y": 0.0
+      },
+      "local_frame_pass": true,
+      "mu": 0.6,
+      "provenance": [
+        {
+          "source_arm": "free",
+          "source_artifact": "experiments/feasibility_audit/phase5_g3_anchored_chrono_preslip_adjudication.json",
+          "source_cell_id": "g3_chrono_mu0p60_v16",
+          "source_d_star_m": 13.899999999999975,
+          "source_seed": 1629520903
+        }
+      ],
+      "replay": {
+        "exact_pass": true,
+        "max_abs_error": 0.0,
+        "performed": true,
+        "same_shape": true
+      },
+      "required_slide_boundary": {
+        "arm": "required_slide",
+        "collision": true,
+        "controlled_slide_onset_front_x_m": null,
+        "controlled_slide_onset_index": null,
+        "controlled_slide_onset_time_s": null,
+        "distance_m": 7.0,
+        "free_mode_classification": "grip_like",
+        "max_beta_until_pass_rad": 0.006714242305206071,
+        "max_controlled_slide_dwell_steps": 0,
+        "min_sat_separation_m": -0.032974934529799604,
+        "min_speed_until_pass_mps": 15.730568533612306,
+        "mode_valid": false,
+        "obstacle_contact_plane_x_m": 6.35,
+        "offroad": false,
+        "onset_before_contact": false,
+        "passed": false,
+        "score": -210.659498690596,
+        "stable": true,
+        "success": false
+      },
+      "required_slide_d_star_m": null,
+      "segments_float64_sha256": "d0a189b7f2285a5d3d6a579a4b710fbaa2cc5453aed3918ac591b4c821e23bb7",
+      "speed_mps": 16.0,
+      "termination_reason": "",
+      "trajectory_steps": 130,
+      "validation_seed": 80381520
+    },
+    {
+      "action_id": "action_d63ad0c90bd76975",
+      "cell_id": "h0_quick_mu0p60_v16",
+      "finite_rear_tire_steps": 130,
+      "free_boundary": {
+        "arm": "free",
+        "collision": false,
+        "controlled_slide_onset_front_x_m": 10.217536341838773,
+        "controlled_slide_onset_index": 27,
+        "controlled_slide_onset_time_s": 0.54,
+        "distance_m": 20.399999999999952,
+        "free_mode_classification": "controlled_slide_like",
+        "max_beta_until_pass_rad": 0.36096350456599324,
+        "max_controlled_slide_dwell_steps": 39,
+        "min_sat_separation_m": 0.028977553349548657,
+        "min_speed_until_pass_mps": 7.488419129930065,
+        "mode_valid": true,
+        "obstacle_contact_plane_x_m": 19.749999999999954,
+        "offroad": false,
+        "onset_before_contact": true,
+        "passed": true,
+        "score": 12488.579551066992,
+        "stable": true,
+        "success": true
+      },
+      "free_d_star_m": 20.399999999999952,
+      "grip_boundary": {
+        "arm": "grip",
+        "collision": true,
+        "controlled_slide_onset_front_x_m": null,
+        "controlled_slide_onset_index": null,
+        "controlled_slide_onset_time_s": null,
+        "distance_m": 7.0,
+        "free_mode_classification": "grip_like",
+        "max_beta_until_pass_rad": 0.06053869420860495,
+        "max_controlled_slide_dwell_steps": 0,
+        "min_sat_separation_m": -0.21128100430258545,
+        "min_speed_until_pass_mps": 14.553172494327592,
+        "mode_valid": true,
+        "obstacle_contact_plane_x_m": 6.35,
+        "offroad": false,
+        "onset_before_contact": false,
+        "passed": false,
+        "score": 9885.774379913948,
+        "stable": true,
+        "success": false
+      },
+      "grip_d_star_m": null,
+      "horizon_s": 2.6,
+      "initial_local_pose": {
+        "psi": 0.0,
+        "x": 0.0,
+        "y": 0.0
+      },
+      "local_frame_pass": true,
+      "mu": 0.6,
+      "provenance": [
+        {
+          "source_arm": "required_slide",
+          "source_artifact": "experiments/feasibility_audit/phase5_g3_anchored_chrono_preslip_adjudication.json",
+          "source_cell_id": "g3_chrono_mu0p90_v16",
+          "source_d_star_m": 15.699999999999969,
+          "source_seed": 48551544
+        }
+      ],
+      "replay": {
+        "exact_pass": true,
+        "max_abs_error": 0.0,
+        "performed": true,
+        "same_shape": true
+      },
+      "required_slide_boundary": {
+        "arm": "required_slide",
+        "collision": false,
+        "controlled_slide_onset_front_x_m": 10.217536341838773,
+        "controlled_slide_onset_index": 27,
+        "controlled_slide_onset_time_s": 0.54,
+        "distance_m": 20.399999999999952,
+        "free_mode_classification": "controlled_slide_like",
+        "max_beta_until_pass_rad": 0.36096350456599324,
+        "max_controlled_slide_dwell_steps": 39,
+        "min_sat_separation_m": 0.028977553349548657,
+        "min_speed_until_pass_mps": 7.488419129930065,
+        "mode_valid": true,
+        "obstacle_contact_plane_x_m": 19.749999999999954,
+        "offroad": false,
+        "onset_before_contact": true,
+        "passed": true,
+        "score": 12488.579551066992,
+        "stable": true,
+        "success": true
+      },
+      "required_slide_d_star_m": 20.399999999999952,
+      "segments_float64_sha256": "d63ad0c90bd769753f217085d67a62688e36a230015a053835e2ead58ef4d0c8",
+      "speed_mps": 16.0,
+      "termination_reason": "",
+      "trajectory_steps": 130,
+      "validation_seed": 80381520
+    },
+    {
+      "action_id": "action_f85acfc0a3c7644f",
+      "cell_id": "h0_quick_mu0p60_v16",
+      "finite_rear_tire_steps": 130,
+      "free_boundary": {
+        "arm": "free",
+        "collision": false,
+        "controlled_slide_onset_front_x_m": null,
+        "controlled_slide_onset_index": null,
+        "controlled_slide_onset_time_s": null,
+        "distance_m": 15.39999999999997,
+        "free_mode_classification": "grip_like",
+        "max_beta_until_pass_rad": 0.046975627788801,
+        "max_controlled_slide_dwell_steps": 0,
+        "min_sat_separation_m": 0.020776803155876156,
+        "min_speed_until_pass_mps": 14.833810791782055,
+        "mode_valid": true,
+        "obstacle_contact_plane_x_m": 14.74999999999997,
+        "offroad": false,
+        "onset_before_contact": false,
+        "passed": true,
+        "score": 12638.41553606312,
+        "stable": true,
+        "success": true
+      },
+      "free_d_star_m": 15.39999999999997,
+      "grip_boundary": {
+        "arm": "grip",
+        "collision": false,
+        "controlled_slide_onset_front_x_m": null,
+        "controlled_slide_onset_index": null,
+        "controlled_slide_onset_time_s": null,
+        "distance_m": 15.39999999999997,
+        "free_mode_classification": "grip_like",
+        "max_beta_until_pass_rad": 0.046975627788801,
+        "max_controlled_slide_dwell_steps": 0,
+        "min_sat_separation_m": 0.020776803155876156,
+        "min_speed_until_pass_mps": 14.833810791782055,
+        "mode_valid": true,
+        "obstacle_contact_plane_x_m": 14.74999999999997,
+        "offroad": false,
+        "onset_before_contact": false,
+        "passed": true,
+        "score": 12638.41553606312,
+        "stable": true,
+        "success": true
+      },
+      "grip_d_star_m": 15.39999999999997,
+      "horizon_s": 2.6,
+      "initial_local_pose": {
+        "psi": 0.0,
+        "x": 0.0,
+        "y": 0.0
+      },
+      "local_frame_pass": true,
+      "mu": 0.6,
+      "provenance": [
+        {
+          "source_arm": "free",
+          "source_artifact": "experiments/feasibility_audit/phase5_g3_anchored_chrono_preslip_adjudication.json",
+          "source_cell_id": "g3_chrono_mu0p60_v16",
+          "source_d_star_m": 14.899999999999972,
+          "source_seed": 410215773
+        }
+      ],
+      "replay": {
+        "exact_pass": true,
+        "max_abs_error": 0.0,
+        "performed": true,
+        "same_shape": true
+      },
+      "required_slide_boundary": {
+        "arm": "required_slide",
+        "collision": true,
+        "controlled_slide_onset_front_x_m": null,
+        "controlled_slide_onset_index": null,
+        "controlled_slide_onset_time_s": null,
+        "distance_m": 7.0,
+        "free_mode_classification": "grip_like",
+        "max_beta_until_pass_rad": 0.004063422857824878,
+        "max_controlled_slide_dwell_steps": 0,
+        "min_sat_separation_m": -0.020685262249363845,
+        "min_speed_until_pass_mps": 15.840342368667596,
+        "mode_valid": false,
+        "obstacle_contact_plane_x_m": 6.35,
+        "offroad": false,
+        "onset_before_contact": false,
+        "passed": false,
+        "score": -210.41370524498728,
+        "stable": true,
+        "success": false
+      },
+      "required_slide_d_star_m": null,
+      "segments_float64_sha256": "f85acfc0a3c7644fc5e56944a510d731ac9d2a5ec745c230bfa1dc2f9ef18284",
+      "speed_mps": 16.0,
+      "termination_reason": "",
+      "trajectory_steps": 130,
+      "validation_seed": 80381520
+    },
+    {
+      "action_id": "action_02340c861bd06e9c",
+      "cell_id": "h0_quick_mu0p60_v16",
+      "finite_rear_tire_steps": 130,
+      "free_boundary": {
+        "arm": "free",
+        "collision": false,
+        "controlled_slide_onset_front_x_m": null,
+        "controlled_slide_onset_index": null,
+        "controlled_slide_onset_time_s": null,
+        "distance_m": 14.799999999999972,
+        "free_mode_classification": "grip_like",
+        "max_beta_until_pass_rad": 0.05949500938341155,
+        "max_controlled_slide_dwell_steps": 0,
+        "min_sat_separation_m": 0.013185801413534648,
+        "min_speed_until_pass_mps": 15.421639239335926,
+        "mode_valid": true,
+        "obstacle_contact_plane_x_m": 14.149999999999972,
+        "offroad": false,
+        "onset_before_contact": false,
+        "passed": true,
+        "score": 12656.26371602827,
+        "stable": true,
+        "success": true
+      },
+      "free_d_star_m": 14.799999999999972,
+      "grip_boundary": {
+        "arm": "grip",
+        "collision": false,
+        "controlled_slide_onset_front_x_m": null,
+        "controlled_slide_onset_index": null,
+        "controlled_slide_onset_time_s": null,
+        "distance_m": 14.799999999999972,
+        "free_mode_classification": "grip_like",
+        "max_beta_until_pass_rad": 0.05949500938341155,
+        "max_controlled_slide_dwell_steps": 0,
+        "min_sat_separation_m": 0.013185801413534648,
+        "min_speed_until_pass_mps": 15.421639239335926,
+        "mode_valid": true,
+        "obstacle_contact_plane_x_m": 14.149999999999972,
+        "offroad": false,
+        "onset_before_contact": false,
+        "passed": true,
+        "score": 12656.26371602827,
+        "stable": true,
+        "success": true
+      },
+      "grip_d_star_m": 14.799999999999972,
+      "horizon_s": 2.6,
+      "initial_local_pose": {
+        "psi": 0.0,
+        "x": 0.0,
+        "y": 0.0
+      },
+      "local_frame_pass": true,
+      "mu": 0.6,
+      "provenance": [
+        {
+          "source_arm": "free",
+          "source_artifact": "experiments/feasibility_audit/phase5_g3_anchored_chrono_preslip_adjudication.json",
+          "source_cell_id": "g3_chrono_mu0p90_v16",
+          "source_d_star_m": 11.899999999999983,
+          "source_seed": 1547295929
+        }
+      ],
+      "replay": {
+        "exact_pass": null,
+        "max_abs_error": null,
+        "performed": false
+      },
+      "required_slide_boundary": {
+        "arm": "required_slide",
+        "collision": true,
+        "controlled_slide_onset_front_x_m": null,
+        "controlled_slide_onset_index": null,
+        "controlled_slide_onset_time_s": null,
+        "distance_m": 7.0,
+        "free_mode_classification": "grip_like",
+        "max_beta_until_pass_rad": 0.006561909230314194,
+        "max_controlled_slide_dwell_steps": 0,
+        "min_sat_separation_m": -0.04189405802395729,
+        "min_speed_until_pass_mps": 15.822219732133108,
+        "mode_valid": false,
+        "obstacle_contact_plane_x_m": 6.35,
+        "offroad": false,
+        "onset_before_contact": false,
+        "passed": false,
+        "score": -210.83788116047916,
+        "stable": true,
+        "success": false
+      },
+      "required_slide_d_star_m": null,
+      "segments_float64_sha256": "02340c861bd06e9c5c9012c1a754e44a09a943b9a2c9b2b4df7cdb99f5737954",
+      "speed_mps": 16.0,
+      "termination_reason": "",
+      "trajectory_steps": 130,
+      "validation_seed": 1904803404
+    },
+    {
+      "action_id": "action_139991a98b0c9379",
+      "cell_id": "h0_quick_mu0p60_v16",
+      "finite_rear_tire_steps": 130,
+      "free_boundary": {
+        "arm": "free",
+        "collision": false,
+        "controlled_slide_onset_front_x_m": null,
+        "controlled_slide_onset_index": null,
+        "controlled_slide_onset_time_s": null,
+        "distance_m": 14.399999999999974,
+        "free_mode_classification": "grip_like",
+        "max_beta_until_pass_rad": 0.03856066650990572,
+        "max_controlled_slide_dwell_steps": 0,
+        "min_sat_separation_m": 0.018109190579585377,
+        "min_speed_until_pass_mps": 15.084780850066204,
+        "mode_valid": true,
+        "obstacle_contact_plane_x_m": 13.749999999999973,
+        "offroad": false,
+        "onset_before_contact": false,
+        "passed": true,
+        "score": 12668.362183811592,
+        "stable": true,
+        "success": true
+      },
+      "free_d_star_m": 14.399999999999974,
+      "grip_boundary": {
+        "arm": "grip",
+        "collision": false,
+        "controlled_slide_onset_front_x_m": null,
+        "controlled_slide_onset_index": null,
+        "controlled_slide_onset_time_s": null,
+        "distance_m": 14.399999999999974,
+        "free_mode_classification": "grip_like",
+        "max_beta_until_pass_rad": 0.03856066650990572,
+        "max_controlled_slide_dwell_steps": 0,
+        "min_sat_separation_m": 0.018109190579585377,
+        "min_speed_until_pass_mps": 15.084780850066204,
+        "mode_valid": true,
+        "obstacle_contact_plane_x_m": 13.749999999999973,
+        "offroad": false,
+        "onset_before_contact": false,
+        "passed": true,
+        "score": 12668.362183811592,
+        "stable": true,
+        "success": true
+      },
+      "grip_d_star_m": 14.399999999999974,
+      "horizon_s": 2.6,
+      "initial_local_pose": {
+        "psi": 0.0,
+        "x": 0.0,
+        "y": 0.0
+      },
+      "local_frame_pass": true,
+      "mu": 0.6,
+      "provenance": [
+        {
+          "source_arm": "grip",
+          "source_artifact": "experiments/feasibility_audit/phase5_g3_anchored_chrono_preslip_adjudication.json",
+          "source_cell_id": "g3_chrono_mu0p60_v16",
+          "source_d_star_m": 14.399999999999974,
+          "source_seed": 1022012205
+        }
+      ],
+      "replay": {
+        "exact_pass": null,
+        "max_abs_error": null,
+        "performed": false
+      },
+      "required_slide_boundary": {
+        "arm": "required_slide",
+        "collision": true,
+        "controlled_slide_onset_front_x_m": null,
+        "controlled_slide_onset_index": null,
+        "controlled_slide_onset_time_s": null,
+        "distance_m": 7.0,
+        "free_mode_classification": "grip_like",
+        "max_beta_until_pass_rad": 0.00647680608513742,
+        "max_controlled_slide_dwell_steps": 0,
+        "min_sat_separation_m": -0.033699279353815115,
+        "min_speed_until_pass_mps": 15.748098054175264,
+        "mode_valid": false,
+        "obstacle_contact_plane_x_m": 6.35,
+        "offroad": false,
+        "onset_before_contact": false,
+        "passed": false,
+        "score": -210.6739855870763,
+        "stable": true,
+        "success": false
+      },
+      "required_slide_d_star_m": null,
+      "segments_float64_sha256": "139991a98b0c9379ab02bd96c8633cf761f6e386073a49e70089466b0f170b8e",
+      "speed_mps": 16.0,
+      "termination_reason": "",
+      "trajectory_steps": 130,
+      "validation_seed": 1904803404
+    },
+    {
+      "action_id": "action_1641f1b9ce802ee7",
+      "cell_id": "h0_quick_mu0p60_v16",
+      "finite_rear_tire_steps": 130,
+      "free_boundary": {
+        "arm": "free",
+        "collision": false,
+        "controlled_slide_onset_front_x_m": null,
+        "controlled_slide_onset_index": null,
+        "controlled_slide_onset_time_s": null,
+        "distance_m": 14.299999999999974,
+        "free_mode_classification": "grip_like",
+        "max_beta_until_pass_rad": 0.05077676408160771,
+        "max_controlled_slide_dwell_steps": 0,
+        "min_sat_separation_m": 0.015445420714048641,
+        "min_speed_until_pass_mps": 15.299123153504786,
+        "mode_valid": true,
+        "obstacle_contact_plane_x_m": 13.649999999999974,
+        "offroad": false,
+        "onset_before_contact": false,
+        "passed": true,
+        "score": 12671.308908414281,
+        "stable": true,
+        "success": true
+      },
+      "free_d_star_m": 14.299999999999974,
+      "grip_boundary": {
+        "arm": "grip",
+        "collision": false,
+        "controlled_slide_onset_front_x_m": null,
+        "controlled_slide_onset_index": null,
+        "controlled_slide_onset_time_s": null,
+        "distance_m": 14.299999999999974,
+        "free_mode_classification": "grip_like",
+        "max_beta_until_pass_rad": 0.05077676408160771,
+        "max_controlled_slide_dwell_steps": 0,
+        "min_sat_separation_m": 0.015445420714048641,
+        "min_speed_until_pass_mps": 15.299123153504786,
+        "mode_valid": true,
+        "obstacle_contact_plane_x_m": 13.649999999999974,
+        "offroad": false,
+        "onset_before_contact": false,
+        "passed": true,
+        "score": 12671.308908414281,
+        "stable": true,
+        "success": true
+      },
+      "grip_d_star_m": 14.299999999999974,
+      "horizon_s": 2.6,
+      "initial_local_pose": {
+        "psi": 0.0,
+        "x": 0.0,
+        "y": 0.0
+      },
+      "local_frame_pass": true,
+      "mu": 0.6,
+      "provenance": [
+        {
+          "source_arm": "grip",
+          "source_artifact": "experiments/feasibility_audit/phase5_g3_anchored_chrono_preslip_adjudication.json",
+          "source_cell_id": "g3_chrono_mu0p90_v16",
+          "source_d_star_m": 11.999999999999982,
+          "source_seed": 1380504669
+        }
+      ],
+      "replay": {
+        "exact_pass": null,
+        "max_abs_error": null,
+        "performed": false
+      },
+      "required_slide_boundary": {
+        "arm": "required_slide",
+        "collision": true,
+        "controlled_slide_onset_front_x_m": null,
+        "controlled_slide_onset_index": null,
+        "controlled_slide_onset_time_s": null,
+        "distance_m": 7.0,
+        "free_mode_classification": "grip_like",
+        "max_beta_until_pass_rad": 0.006506814897781442,
+        "max_controlled_slide_dwell_steps": 0,
+        "min_sat_separation_m": -0.03284369600751802,
+        "min_speed_until_pass_mps": 15.73750116647516,
+        "mode_valid": false,
+        "obstacle_contact_plane_x_m": 6.35,
+        "offroad": false,
+        "onset_before_contact": false,
+        "passed": false,
+        "score": -210.65687392015036,
+        "stable": true,
+        "success": false
+      },
+      "required_slide_d_star_m": null,
+      "segments_float64_sha256": "1641f1b9ce802ee759b673c6d43f07e961ce53a4a3f4044980e90d2bab9f2df1",
+      "speed_mps": 16.0,
+      "termination_reason": "",
+      "trajectory_steps": 130,
+      "validation_seed": 1904803404
+    },
+    {
+      "action_id": "action_20f2be985795d97f",
+      "cell_id": "h0_quick_mu0p60_v16",
+      "finite_rear_tire_steps": 110,
+      "free_boundary": {
+        "arm": "free",
+        "collision": false,
+        "controlled_slide_onset_front_x_m": 10.22785680715319,
+        "controlled_slide_onset_index": 27,
+        "controlled_slide_onset_time_s": 0.54,
+        "distance_m": 19.09999999999996,
+        "free_mode_classification": "controlled_slide_like",
+        "max_beta_until_pass_rad": 0.307923702999489,
+        "max_controlled_slide_dwell_steps": 28,
+        "min_sat_separation_m": 0.006715615648138495,
+        "min_speed_until_pass_mps": 9.585975673902832,
+        "mode_valid": true,
+        "obstacle_contact_plane_x_m": 18.44999999999996,
+        "offroad": false,
+        "onset_before_contact": true,
+        "passed": true,
+        "score": 12527.134312312965,
+        "stable": true,
+        "success": true
+      },
+      "free_d_star_m": 19.09999999999996,
+      "grip_boundary": {
+        "arm": "grip",
+        "collision": true,
+        "controlled_slide_onset_front_x_m": null,
+        "controlled_slide_onset_index": null,
+        "controlled_slide_onset_time_s": null,
+        "distance_m": 7.0,
+        "free_mode_classification": "grip_like",
+        "max_beta_until_pass_rad": 0.06074355487494937,
+        "max_controlled_slide_dwell_steps": 0,
+        "min_sat_separation_m": -0.21601906998785925,
+        "min_speed_until_pass_mps": 14.572429223682514,
+        "mode_valid": true,
+        "obstacle_contact_plane_x_m": 6.35,
+        "offroad": false,
+        "onset_before_contact": false,
+        "passed": false,
+        "score": 9885.679618600243,
+        "stable": true,
+        "success": false
+      },
+      "grip_d_star_m": null,
+      "horizon_s": 2.2,
+      "initial_local_pose": {
+        "psi": 0.0,
+        "x": 0.0,
+        "y": 0.0
+      },
+      "local_frame_pass": true,
+      "mu": 0.6,
+      "provenance": [
+        {
+          "source_arm": "required_slide",
+          "source_artifact": "experiments/feasibility_audit/phase5_g1_preslip_reachable_set_adjudication_quick.json",
+          "source_cell_id": "quick_chrono_mu0p48_v16",
+          "source_d_star_m": 21.699999999999946,
+          "source_seed": 1515484633
+        }
+      ],
+      "replay": {
+        "exact_pass": null,
+        "max_abs_error": null,
+        "performed": false
+      },
+      "required_slide_boundary": {
+        "arm": "required_slide",
+        "collision": false,
+        "controlled_slide_onset_front_x_m": 10.22785680715319,
+        "controlled_slide_onset_index": 27,
+        "controlled_slide_onset_time_s": 0.54,
+        "distance_m": 19.09999999999996,
+        "free_mode_classification": "controlled_slide_like",
+        "max_beta_until_pass_rad": 0.307923702999489,
+        "max_controlled_slide_dwell_steps": 28,
+        "min_sat_separation_m": 0.006715615648138495,
+        "min_speed_until_pass_mps": 9.585975673902832,
+        "mode_valid": true,
+        "obstacle_contact_plane_x_m": 18.44999999999996,
+        "offroad": false,
+        "onset_before_contact": true,
+        "passed": true,
+        "score": 12527.134312312965,
+        "stable": true,
+        "success": true
+      },
+      "required_slide_d_star_m": 19.09999999999996,
+      "segments_float64_sha256": "20f2be985795d97f6507eca83ca046535ca6fcabca27247dadc970c5f2952281",
+      "speed_mps": 16.0,
+      "termination_reason": "",
+      "trajectory_steps": 110,
+      "validation_seed": 1904803404
+    },
+    {
+      "action_id": "action_24616598995547c2",
+      "cell_id": "h0_quick_mu0p60_v16",
+      "finite_rear_tire_steps": 130,
+      "free_boundary": {
+        "arm": "free",
+        "collision": true,
+        "controlled_slide_onset_front_x_m": null,
+        "controlled_slide_onset_index": null,
+        "controlled_slide_onset_time_s": null,
+        "distance_m": 7.0,
+        "free_mode_classification": "grip_like",
+        "max_beta_until_pass_rad": 0.0065411594386232865,
+        "max_controlled_slide_dwell_steps": 0,
+        "min_sat_separation_m": -0.03976760452945083,
+        "min_speed_until_pass_mps": 15.800087881560762,
+        "mode_valid": true,
+        "obstacle_contact_plane_x_m": 6.35,
+        "offroad": false,
+        "onset_before_contact": false,
+        "passed": false,
+        "score": 9889.204647909412,
+        "stable": true,
+        "success": false
+      },
+      "free_d_star_m": null,
+      "grip_boundary": {
+        "arm": "grip",
+        "collision": true,
+        "controlled_slide_onset_front_x_m": null,
+        "controlled_slide_onset_index": null,
+        "controlled_slide_onset_time_s": null,
+        "distance_m": 7.0,
+        "free_mode_classification": "grip_like",
+        "max_beta_until_pass_rad": 0.0065411594386232865,
+        "max_controlled_slide_dwell_steps": 0,
+        "min_sat_separation_m": -0.03976760452945083,
+        "min_speed_until_pass_mps": 15.800087881560762,
+        "mode_valid": true,
+        "obstacle_contact_plane_x_m": 6.35,
+        "offroad": false,
+        "onset_before_contact": false,
+        "passed": false,
+        "score": 9889.204647909412,
+        "stable": true,
+        "success": false
+      },
+      "grip_d_star_m": null,
+      "horizon_s": 2.6,
+      "initial_local_pose": {
+        "psi": 0.0,
+        "x": 0.0,
+        "y": 0.0
+      },
+      "local_frame_pass": true,
+      "mu": 0.6,
+      "provenance": [
+        {
+          "source_arm": "grip",
+          "source_artifact": "experiments/feasibility_audit/phase5_g3_anchored_chrono_preslip_adjudication.json",
+          "source_cell_id": "g3_chrono_mu0p35_v16",
+          "source_d_star_m": 18.09999999999996,
+          "source_seed": 1512373372
+        }
+      ],
+      "replay": {
+        "exact_pass": null,
+        "max_abs_error": null,
+        "performed": false
+      },
+      "required_slide_boundary": {
+        "arm": "required_slide",
+        "collision": true,
+        "controlled_slide_onset_front_x_m": null,
+        "controlled_slide_onset_index": null,
+        "controlled_slide_onset_time_s": null,
+        "distance_m": 7.0,
+        "free_mode_classification": "grip_like",
+        "max_beta_until_pass_rad": 0.0065411594386232865,
+        "max_controlled_slide_dwell_steps": 0,
+        "min_sat_separation_m": -0.03976760452945083,
+        "min_speed_until_pass_mps": 15.800087881560762,
+        "mode_valid": false,
+        "obstacle_contact_plane_x_m": 6.35,
+        "offroad": false,
+        "onset_before_contact": false,
+        "passed": false,
+        "score": -210.795352090589,
+        "stable": true,
+        "success": false
+      },
+      "required_slide_d_star_m": null,
+      "segments_float64_sha256": "24616598995547c249b795635636895c816b122d8374c835ad2b262cd38c2a51",
+      "speed_mps": 16.0,
+      "termination_reason": "",
+      "trajectory_steps": 130,
+      "validation_seed": 1904803404
+    },
+    {
+      "action_id": "action_280b096882d5baca",
+      "cell_id": "h0_quick_mu0p60_v16",
+      "finite_rear_tire_steps": 130,
+      "free_boundary": {
+        "arm": "free",
+        "collision": false,
+        "controlled_slide_onset_front_x_m": 11.448195174101237,
+        "controlled_slide_onset_index": 32,
+        "controlled_slide_onset_time_s": 0.64,
+        "distance_m": 23.099999999999945,
+        "free_mode_classification": "controlled_slide_like",
+        "max_beta_until_pass_rad": 0.32616640279221176,
+        "max_controlled_slide_dwell_steps": 37,
+        "min_sat_separation_m": 0.011862417656892887,
+        "min_speed_until_pass_mps": 8.7742201834515,
+        "mode_valid": true,
+        "obstacle_contact_plane_x_m": 22.449999999999946,
+        "offroad": false,
+        "onset_before_contact": true,
+        "passed": true,
+        "score": 12407.23724835314,
+        "stable": true,
+        "success": true
+      },
+      "free_d_star_m": 23.099999999999945,
+      "grip_boundary": {
+        "arm": "grip",
+        "collision": true,
+        "controlled_slide_onset_front_x_m": null,
+        "controlled_slide_onset_index": null,
+        "controlled_slide_onset_time_s": null,
+        "distance_m": 7.0,
+        "free_mode_classification": "grip_like",
+        "max_beta_until_pass_rad": 0.05218412100460549,
+        "max_controlled_slide_dwell_steps": 0,
+        "min_sat_separation_m": -0.1893032376071968,
+        "min_speed_until_pass_mps": 14.483235431312455,
+        "mode_valid": true,
+        "obstacle_contact_plane_x_m": 6.35,
+        "offroad": false,
+        "onset_before_contact": false,
+        "passed": false,
+        "score": 9886.213935247855,
+        "stable": true,
+        "success": false
+      },
+      "grip_d_star_m": null,
+      "horizon_s": 2.6,
+      "initial_local_pose": {
+        "psi": 0.0,
+        "x": 0.0,
+        "y": 0.0
+      },
+      "local_frame_pass": true,
+      "mu": 0.6,
+      "provenance": [
+        {
+          "source_arm": "required_slide",
+          "source_artifact": "experiments/feasibility_audit/phase5_g3_anchored_chrono_preslip_adjudication.json",
+          "source_cell_id": "g3_chrono_mu0p90_v16",
+          "source_d_star_m": null,
+          "source_seed": 577305340
+        }
+      ],
+      "replay": {
+        "exact_pass": null,
+        "max_abs_error": null,
+        "performed": false
+      },
+      "required_slide_boundary": {
+        "arm": "required_slide",
+        "collision": false,
+        "controlled_slide_onset_front_x_m": 11.448195174101237,
+        "controlled_slide_onset_index": 32,
+        "controlled_slide_onset_time_s": 0.64,
+        "distance_m": 23.099999999999945,
+        "free_mode_classification": "controlled_slide_like",
+        "max_beta_until_pass_rad": 0.32616640279221176,
+        "max_controlled_slide_dwell_steps": 37,
+        "min_sat_separation_m": 0.011862417656892887,
+        "min_speed_until_pass_mps": 8.7742201834515,
+        "mode_valid": true,
+        "obstacle_contact_plane_x_m": 22.449999999999946,
+        "offroad": false,
+        "onset_before_contact": true,
+        "passed": true,
+        "score": 12407.23724835314,
+        "stable": true,
+        "success": true
+      },
+      "required_slide_d_star_m": 23.099999999999945,
+      "segments_float64_sha256": "280b096882d5baca6071bced6d6505f07220e285212b3f299eaf9c6910ea3282",
+      "speed_mps": 16.0,
+      "termination_reason": "",
+      "trajectory_steps": 130,
+      "validation_seed": 1904803404
+    },
+    {
+      "action_id": "action_2fdf9d34c10d9af0",
+      "cell_id": "h0_quick_mu0p60_v16",
+      "finite_rear_tire_steps": 130,
+      "free_boundary": {
+        "arm": "free",
+        "collision": true,
+        "controlled_slide_onset_front_x_m": null,
+        "controlled_slide_onset_index": null,
+        "controlled_slide_onset_time_s": null,
+        "distance_m": 7.0,
+        "free_mode_classification": "grip_like",
+        "max_beta_until_pass_rad": 0.006493961458886903,
+        "max_controlled_slide_dwell_steps": 0,
+        "min_sat_separation_m": -0.03378030118576891,
+        "min_speed_until_pass_mps": 15.746373589250913,
+        "mode_valid": true,
+        "obstacle_contact_plane_x_m": 6.35,
+        "offroad": false,
+        "onset_before_contact": false,
+        "passed": false,
+        "score": 9889.324393976285,
+        "stable": true,
+        "success": false
+      },
+      "free_d_star_m": null,
+      "grip_boundary": {
+        "arm": "grip",
+        "collision": true,
+        "controlled_slide_onset_front_x_m": null,
+        "controlled_slide_onset_index": null,
+        "controlled_slide_onset_time_s": null,
+        "distance_m": 7.0,
+        "free_mode_classification": "grip_like",
+        "max_beta_until_pass_rad": 0.006493961458886903,
+        "max_controlled_slide_dwell_steps": 0,
+        "min_sat_separation_m": -0.03378030118576891,
+        "min_speed_until_pass_mps": 15.746373589250913,
+        "mode_valid": true,
+        "obstacle_contact_plane_x_m": 6.35,
+        "offroad": false,
+        "onset_before_contact": false,
+        "passed": false,
+        "score": 9889.324393976285,
+        "stable": true,
+        "success": false
+      },
+      "grip_d_star_m": null,
+      "horizon_s": 2.6,
+      "initial_local_pose": {
+        "psi": 0.0,
+        "x": 0.0,
+        "y": 0.0
+      },
+      "local_frame_pass": true,
+      "mu": 0.6,
+      "provenance": [
+        {
+          "source_arm": "free",
+          "source_artifact": "experiments/feasibility_audit/phase5_g3_anchored_chrono_preslip_adjudication.json",
+          "source_cell_id": "g3_chrono_mu0p35_v16",
+          "source_d_star_m": 18.59999999999996,
+          "source_seed": 1048705858
+        }
+      ],
+      "replay": {
+        "exact_pass": null,
+        "max_abs_error": null,
+        "performed": false
+      },
+      "required_slide_boundary": {
+        "arm": "required_slide",
+        "collision": true,
+        "controlled_slide_onset_front_x_m": null,
+        "controlled_slide_onset_index": null,
+        "controlled_slide_onset_time_s": null,
+        "distance_m": 7.0,
+        "free_mode_classification": "grip_like",
+        "max_beta_until_pass_rad": 0.006493961458886903,
+        "max_controlled_slide_dwell_steps": 0,
+        "min_sat_separation_m": -0.03378030118576891,
+        "min_speed_until_pass_mps": 15.746373589250913,
+        "mode_valid": false,
+        "obstacle_contact_plane_x_m": 6.35,
+        "offroad": false,
+        "onset_before_contact": false,
+        "passed": false,
+        "score": -210.67560602371537,
+        "stable": true,
+        "success": false
+      },
+      "required_slide_d_star_m": null,
+      "segments_float64_sha256": "2fdf9d34c10d9af036bf3dcafc83f88c6a3a22507e31bc9b3905d54094251354",
+      "speed_mps": 16.0,
+      "termination_reason": "",
+      "trajectory_steps": 130,
+      "validation_seed": 1904803404
+    },
+    {
+      "action_id": "action_32cb92c9b074a422",
+      "cell_id": "h0_quick_mu0p60_v16",
+      "finite_rear_tire_steps": 110,
+      "free_boundary": {
+        "arm": "free",
+        "collision": false,
+        "controlled_slide_onset_front_x_m": null,
+        "controlled_slide_onset_index": null,
+        "controlled_slide_onset_time_s": null,
+        "distance_m": 15.799999999999969,
+        "free_mode_classification": "grip_like",
+        "max_beta_until_pass_rad": 0.038671193796945225,
+        "max_controlled_slide_dwell_steps": 0,
+        "min_sat_separation_m": 0.005796736909077893,
+        "min_speed_until_pass_mps": 15.232030887839894,
+        "mode_valid": true,
+        "obstacle_contact_plane_x_m": 15.149999999999968,
+        "offroad": false,
+        "onset_before_contact": false,
+        "passed": true,
+        "score": 12626.115934738184,
+        "stable": true,
+        "success": true
+      },
+      "free_d_star_m": 15.799999999999969,
+      "grip_boundary": {
+        "arm": "grip",
+        "collision": false,
+        "controlled_slide_onset_front_x_m": null,
+        "controlled_slide_onset_index": null,
+        "controlled_slide_onset_time_s": null,
+        "distance_m": 15.799999999999969,
+        "free_mode_classification": "grip_like",
+        "max_beta_until_pass_rad": 0.038671193796945225,
+        "max_controlled_slide_dwell_steps": 0,
+        "min_sat_separation_m": 0.005796736909077893,
+        "min_speed_until_pass_mps": 15.232030887839894,
+        "mode_valid": true,
+        "obstacle_contact_plane_x_m": 15.149999999999968,
+        "offroad": false,
+        "onset_before_contact": false,
+        "passed": true,
+        "score": 12626.115934738184,
+        "stable": true,
+        "success": true
+      },
+      "grip_d_star_m": 15.799999999999969,
+      "horizon_s": 2.2,
+      "initial_local_pose": {
+        "psi": 0.0,
+        "x": 0.0,
+        "y": 0.0
+      },
+      "local_frame_pass": true,
+      "mu": 0.6,
+      "provenance": [
+        {
+          "source_arm": "grip",
+          "source_artifact": "experiments/feasibility_audit/phase5_g1_preslip_reachable_set_adjudication_quick.json",
+          "source_cell_id": "quick_chrono_mu0p48_v16",
+          "source_d_star_m": 18.799999999999958,
+          "source_seed": 1707505182
+        }
+      ],
+      "replay": {
+        "exact_pass": null,
+        "max_abs_error": null,
+        "performed": false
+      },
+      "required_slide_boundary": {
+        "arm": "required_slide",
+        "collision": true,
+        "controlled_slide_onset_front_x_m": null,
+        "controlled_slide_onset_index": null,
+        "controlled_slide_onset_time_s": null,
+        "distance_m": 7.0,
+        "free_mode_classification": "grip_like",
+        "max_beta_until_pass_rad": 0.006881668513300159,
+        "max_controlled_slide_dwell_steps": 0,
+        "min_sat_separation_m": -0.03731592314823029,
+        "min_speed_until_pass_mps": 15.761998314794363,
+        "mode_valid": false,
+        "obstacle_contact_plane_x_m": 6.35,
+        "offroad": false,
+        "onset_before_contact": false,
+        "passed": false,
+        "score": -210.7463184629646,
+        "stable": true,
+        "success": false
+      },
+      "required_slide_d_star_m": null,
+      "segments_float64_sha256": "32cb92c9b074a422b59d3b9aceee0d75c19d16374b386d63a6f5f1b26c514d00",
+      "speed_mps": 16.0,
+      "termination_reason": "",
+      "trajectory_steps": 110,
+      "validation_seed": 1904803404
+    },
+    {
+      "action_id": "action_50326101ae01dc33",
+      "cell_id": "h0_quick_mu0p60_v16",
+      "finite_rear_tire_steps": 110,
+      "free_boundary": {
+        "arm": "free",
+        "collision": false,
+        "controlled_slide_onset_front_x_m": null,
+        "controlled_slide_onset_index": null,
+        "controlled_slide_onset_time_s": null,
+        "distance_m": 14.499999999999973,
+        "free_mode_classification": "grip_like",
+        "max_beta_until_pass_rad": 0.03178000633295725,
+        "max_controlled_slide_dwell_steps": 0,
+        "min_sat_separation_m": 0.020604240816755492,
+        "min_speed_until_pass_mps": 14.339076199382552,
+        "mode_valid": true,
+        "obstacle_contact_plane_x_m": 13.849999999999973,
+        "offroad": false,
+        "onset_before_contact": false,
+        "passed": true,
+        "score": 12665.412084816335,
+        "stable": true,
+        "success": true
+      },
+      "free_d_star_m": 14.499999999999973,
+      "grip_boundary": {
+        "arm": "grip",
+        "collision": false,
+        "controlled_slide_onset_front_x_m": null,
+        "controlled_slide_onset_index": null,
+        "controlled_slide_onset_time_s": null,
+        "distance_m": 14.499999999999973,
+        "free_mode_classification": "grip_like",
+        "max_beta_until_pass_rad": 0.03178000633295725,
+        "max_controlled_slide_dwell_steps": 0,
+        "min_sat_separation_m": 0.020604240816755492,
+        "min_speed_until_pass_mps": 14.339076199382552,
+        "mode_valid": true,
+        "obstacle_contact_plane_x_m": 13.849999999999973,
+        "offroad": false,
+        "onset_before_contact": false,
+        "passed": true,
+        "score": 12665.412084816335,
+        "stable": true,
+        "success": true
+      },
+      "grip_d_star_m": 14.499999999999973,
+      "horizon_s": 2.2,
+      "initial_local_pose": {
+        "psi": 0.0,
+        "x": 0.0,
+        "y": 0.0
+      },
+      "local_frame_pass": true,
+      "mu": 0.6,
+      "provenance": [
+        {
+          "source_arm": "free",
+          "source_artifact": "experiments/feasibility_audit/phase5_g1_preslip_reachable_set_adjudication_quick.json",
+          "source_cell_id": "quick_chrono_mu0p48_v16",
+          "source_d_star_m": 16.099999999999966,
+          "source_seed": 1494719356
+        }
+      ],
+      "replay": {
+        "exact_pass": null,
+        "max_abs_error": null,
+        "performed": false
+      },
+      "required_slide_boundary": {
+        "arm": "required_slide",
+        "collision": true,
+        "controlled_slide_onset_front_x_m": null,
+        "controlled_slide_onset_index": null,
+        "controlled_slide_onset_time_s": null,
+        "distance_m": 7.0,
+        "free_mode_classification": "grip_like",
+        "max_beta_until_pass_rad": 0.006481692406070734,
+        "max_controlled_slide_dwell_steps": 0,
+        "min_sat_separation_m": -0.032333215805127935,
+        "min_speed_until_pass_mps": 15.73430285329007,
+        "mode_valid": false,
+        "obstacle_contact_plane_x_m": 6.35,
+        "offroad": false,
+        "onset_before_contact": false,
+        "passed": false,
+        "score": -210.64666431610254,
+        "stable": true,
+        "success": false
+      },
+      "required_slide_d_star_m": null,
+      "segments_float64_sha256": "50326101ae01dc33e56f368858140a37a4cb6da415408a765b743f4632b8fda5",
+      "speed_mps": 16.0,
+      "termination_reason": "",
+      "trajectory_steps": 110,
+      "validation_seed": 1904803404
+    },
+    {
+      "action_id": "action_67e317dc22378b24",
+      "cell_id": "h0_quick_mu0p60_v16",
+      "finite_rear_tire_steps": 130,
+      "free_boundary": {
+        "arm": "free",
+        "collision": false,
+        "controlled_slide_onset_front_x_m": null,
+        "controlled_slide_onset_index": null,
+        "controlled_slide_onset_time_s": null,
+        "distance_m": 15.19999999999997,
+        "free_mode_classification": "grip_like",
+        "max_beta_until_pass_rad": 0.07380456785591752,
+        "max_controlled_slide_dwell_steps": 0,
+        "min_sat_separation_m": 0.008499087778486514,
+        "min_speed_until_pass_mps": 13.046705485756126,
+        "mode_valid": true,
+        "obstacle_contact_plane_x_m": 14.54999999999997,
+        "offroad": false,
+        "onset_before_contact": false,
+        "passed": true,
+        "score": 12644.16998175557,
+        "stable": true,
+        "success": true
+      },
+      "free_d_star_m": 15.19999999999997,
+      "grip_boundary": {
+        "arm": "grip",
+        "collision": false,
+        "controlled_slide_onset_front_x_m": null,
+        "controlled_slide_onset_index": null,
+        "controlled_slide_onset_time_s": null,
+        "distance_m": 15.19999999999997,
+        "free_mode_classification": "grip_like",
+        "max_beta_until_pass_rad": 0.07380456785591752,
+        "max_controlled_slide_dwell_steps": 0,
+        "min_sat_separation_m": 0.008499087778486514,
+        "min_speed_until_pass_mps": 13.046705485756126,
+        "mode_valid": true,
+        "obstacle_contact_plane_x_m": 14.54999999999997,
+        "offroad": false,
+        "onset_before_contact": false,
+        "passed": true,
+        "score": 12644.16998175557,
+        "stable": true,
+        "success": true
+      },
+      "grip_d_star_m": 15.19999999999997,
+      "horizon_s": 2.6,
+      "initial_local_pose": {
+        "psi": 0.0,
+        "x": 0.0,
+        "y": 0.0
+      },
+      "local_frame_pass": true,
+      "mu": 0.6,
+      "provenance": [
+        {
+          "source_arm": "grip",
+          "source_artifact": "experiments/feasibility_audit/phase5_g3_anchored_chrono_preslip_adjudication.json",
+          "source_cell_id": "g3_chrono_mu0p90_v16",
+          "source_d_star_m": 12.099999999999982,
+          "source_seed": 195760157
+        }
+      ],
+      "replay": {
+        "exact_pass": null,
+        "max_abs_error": null,
+        "performed": false
+      },
+      "required_slide_boundary": {
+        "arm": "required_slide",
+        "collision": true,
+        "controlled_slide_onset_front_x_m": null,
+        "controlled_slide_onset_index": null,
+        "controlled_slide_onset_time_s": null,
+        "distance_m": 7.0,
+        "free_mode_classification": "grip_like",
+        "max_beta_until_pass_rad": 0.006655055545029633,
+        "max_controlled_slide_dwell_steps": 0,
+        "min_sat_separation_m": -0.013968578755017447,
+        "min_speed_until_pass_mps": 15.567058798154996,
+        "mode_valid": false,
+        "obstacle_contact_plane_x_m": 6.35,
+        "offroad": false,
+        "onset_before_contact": false,
+        "passed": false,
+        "score": -210.27937157510036,
+        "stable": true,
+        "success": false
+      },
+      "required_slide_d_star_m": null,
+      "segments_float64_sha256": "67e317dc22378b24d6c94120bc9f09d8c0da326c0c24e55d57348bdf416532bc",
+      "speed_mps": 16.0,
+      "termination_reason": "",
+      "trajectory_steps": 130,
+      "validation_seed": 1904803404
+    },
+    {
+      "action_id": "action_69f97cc3bf2cb13c",
+      "cell_id": "h0_quick_mu0p60_v16",
+      "finite_rear_tire_steps": 130,
+      "free_boundary": {
+        "arm": "free",
+        "collision": false,
+        "controlled_slide_onset_front_x_m": null,
+        "controlled_slide_onset_index": null,
+        "controlled_slide_onset_time_s": null,
+        "distance_m": 13.999999999999975,
+        "free_mode_classification": "grip_like",
+        "max_beta_until_pass_rad": 0.039007802242267686,
+        "max_controlled_slide_dwell_steps": 0,
+        "min_sat_separation_m": 0.013942709837520884,
+        "min_speed_until_pass_mps": 14.878335808007956,
+        "mode_valid": true,
+        "obstacle_contact_plane_x_m": 13.349999999999975,
+        "offroad": false,
+        "onset_before_contact": false,
+        "passed": true,
+        "score": 12680.278854196751,
+        "stable": true,
+        "success": true
+      },
+      "free_d_star_m": 13.999999999999975,
+      "grip_boundary": {
+        "arm": "grip",
+        "collision": false,
+        "controlled_slide_onset_front_x_m": null,
+        "controlled_slide_onset_index": null,
+        "controlled_slide_onset_time_s": null,
+        "distance_m": 13.999999999999975,
+        "free_mode_classification": "grip_like",
+        "max_beta_until_pass_rad": 0.039007802242267686,
+        "max_controlled_slide_dwell_steps": 0,
+        "min_sat_separation_m": 0.013942709837520884,
+        "min_speed_until_pass_mps": 14.878335808007956,
+        "mode_valid": true,
+        "obstacle_contact_plane_x_m": 13.349999999999975,
+        "offroad": false,
+        "onset_before_contact": false,
+        "passed": true,
+        "score": 12680.278854196751,
+        "stable": true,
+        "success": true
+      },
+      "grip_d_star_m": 13.999999999999975,
+      "horizon_s": 2.6,
+      "initial_local_pose": {
+        "psi": 0.0,
+        "x": 0.0,
+        "y": 0.0
+      },
+      "local_frame_pass": true,
+      "mu": 0.6,
+      "provenance": [
+        {
+          "source_arm": "grip",
+          "source_artifact": "experiments/feasibility_audit/phase5_g3_anchored_chrono_preslip_adjudication.json",
+          "source_cell_id": "g3_chrono_mu0p60_v16",
+          "source_d_star_m": 13.999999999999975,
+          "source_seed": 1146740675
+        }
+      ],
+      "replay": {
+        "exact_pass": null,
+        "max_abs_error": null,
+        "performed": false
+      },
+      "required_slide_boundary": {
+        "arm": "required_slide",
+        "collision": true,
+        "controlled_slide_onset_front_x_m": null,
+        "controlled_slide_onset_index": null,
+        "controlled_slide_onset_time_s": null,
+        "distance_m": 7.0,
+        "free_mode_classification": "grip_like",
+        "max_beta_until_pass_rad": 0.006663238142414788,
+        "max_controlled_slide_dwell_steps": 0,
+        "min_sat_separation_m": -0.020575529523783054,
+        "min_speed_until_pass_mps": 15.603460084878277,
+        "mode_valid": false,
+        "obstacle_contact_plane_x_m": 6.35,
+        "offroad": false,
+        "onset_before_contact": false,
+        "passed": false,
+        "score": -210.41151059047567,
+        "stable": true,
+        "success": false
+      },
+      "required_slide_d_star_m": null,
+      "segments_float64_sha256": "69f97cc3bf2cb13cbfe91abfbbf8c8ba9aea63e6c30ae05817b8dfb90426501d",
+      "speed_mps": 16.0,
+      "termination_reason": "",
+      "trajectory_steps": 130,
+      "validation_seed": 1904803404
+    },
+    {
+      "action_id": "action_81c24b46186462e7",
+      "cell_id": "h0_quick_mu0p60_v16",
+      "finite_rear_tire_steps": 130,
+      "free_boundary": {
+        "arm": "free",
+        "collision": true,
+        "controlled_slide_onset_front_x_m": null,
+        "controlled_slide_onset_index": null,
+        "controlled_slide_onset_time_s": null,
+        "distance_m": 7.0,
+        "free_mode_classification": "grip_like",
+        "max_beta_until_pass_rad": 0.03567649630514751,
+        "max_controlled_slide_dwell_steps": 0,
+        "min_sat_separation_m": -0.24103346658970715,
+        "min_speed_until_pass_mps": 14.742429927109388,
+        "mode_valid": true,
+        "obstacle_contact_plane_x_m": 6.35,
+        "offroad": false,
+        "onset_before_contact": false,
+        "passed": false,
+        "score": 9885.179330668207,
+        "stable": true,
+        "success": false
+      },
+      "free_d_star_m": null,
+      "grip_boundary": {
+        "arm": "grip",
+        "collision": true,
+        "controlled_slide_onset_front_x_m": null,
+        "controlled_slide_onset_index": null,
+        "controlled_slide_onset_time_s": null,
+        "distance_m": 7.0,
+        "free_mode_classification": "grip_like",
+        "max_beta_until_pass_rad": 0.03567649630514751,
+        "max_controlled_slide_dwell_steps": 0,
+        "min_sat_separation_m": -0.24103346658970715,
+        "min_speed_until_pass_mps": 14.742429927109388,
+        "mode_valid": true,
+        "obstacle_contact_plane_x_m": 6.35,
+        "offroad": false,
+        "onset_before_contact": false,
+        "passed": false,
+        "score": 9885.179330668207,
+        "stable": true,
+        "success": false
+      },
+      "grip_d_star_m": null,
+      "horizon_s": 2.6,
+      "initial_local_pose": {
+        "psi": 0.0,
+        "x": 0.0,
+        "y": 0.0
+      },
+      "local_frame_pass": true,
+      "mu": 0.6,
+      "provenance": [
+        {
+          "source_arm": "required_slide",
+          "source_artifact": "experiments/feasibility_audit/phase5_g3_anchored_chrono_preslip_adjudication.json",
+          "source_cell_id": "g3_chrono_mu0p35_v16",
+          "source_d_star_m": null,
+          "source_seed": 378218693
+        }
+      ],
+      "replay": {
+        "exact_pass": null,
+        "max_abs_error": null,
+        "performed": false
+      },
+      "required_slide_boundary": {
+        "arm": "required_slide",
+        "collision": true,
+        "controlled_slide_onset_front_x_m": 11.1164569393667,
+        "controlled_slide_onset_index": 30,
+        "controlled_slide_onset_time_s": 0.6,
+        "distance_m": 12.299999999999981,
+        "free_mode_classification": "controlled_slide_like",
+        "max_beta_until_pass_rad": 0.22851573549607113,
+        "max_controlled_slide_dwell_steps": 4,
+        "min_sat_separation_m": -0.24315449188444838,
+        "min_speed_until_pass_mps": 12.861750093749377,
+        "mode_valid": true,
+        "obstacle_contact_plane_x_m": 11.64999999999998,
+        "offroad": false,
+        "onset_before_contact": true,
+        "passed": false,
+        "score": 9726.136910162311,
+        "stable": true,
+        "success": false
+      },
+      "required_slide_d_star_m": null,
+      "segments_float64_sha256": "81c24b46186462e7390dbcd61dae3b5f238d2bece60ba9fc6b8d9fc37b4da324",
+      "speed_mps": 16.0,
+      "termination_reason": "",
+      "trajectory_steps": 130,
+      "validation_seed": 1904803404
+    },
+    {
+      "action_id": "action_89157dbfefabb5a9",
+      "cell_id": "h0_quick_mu0p60_v16",
+      "finite_rear_tire_steps": 130,
+      "free_boundary": {
+        "arm": "free",
+        "collision": false,
+        "controlled_slide_onset_front_x_m": 10.220056224760395,
+        "controlled_slide_onset_index": 27,
+        "controlled_slide_onset_time_s": 0.54,
+        "distance_m": 20.299999999999955,
+        "free_mode_classification": "controlled_slide_like",
+        "max_beta_until_pass_rad": 0.3545784944949794,
+        "max_controlled_slide_dwell_steps": 38,
+        "min_sat_separation_m": 0.02562870707690834,
+        "min_speed_until_pass_mps": 9.892790687949775,
+        "mode_valid": true,
+        "obstacle_contact_plane_x_m": 19.649999999999956,
+        "offroad": false,
+        "onset_before_contact": true,
+        "passed": true,
+        "score": 12491.51257414154,
+        "stable": true,
+        "success": true
+      },
+      "free_d_star_m": 20.299999999999955,
+      "grip_boundary": {
+        "arm": "grip",
+        "collision": true,
+        "controlled_slide_onset_front_x_m": null,
+        "controlled_slide_onset_index": null,
+        "controlled_slide_onset_time_s": null,
+        "distance_m": 7.0,
+        "free_mode_classification": "grip_like",
+        "max_beta_until_pass_rad": 0.06026452988600799,
+        "max_controlled_slide_dwell_steps": 0,
+        "min_sat_separation_m": -0.21284175840132047,
+        "min_speed_until_pass_mps": 14.562953617058643,
+        "mode_valid": true,
+        "obstacle_contact_plane_x_m": 6.35,
+        "offroad": false,
+        "onset_before_contact": false,
+        "passed": false,
+        "score": 9885.743164831974,
+        "stable": true,
+        "success": false
+      },
+      "grip_d_star_m": null,
+      "horizon_s": 2.6,
+      "initial_local_pose": {
+        "psi": 0.0,
+        "x": 0.0,
+        "y": 0.0
+      },
+      "local_frame_pass": true,
+      "mu": 0.6,
+      "provenance": [
+        {
+          "source_arm": "required_slide",
+          "source_artifact": "experiments/feasibility_audit/phase5_g3_anchored_chrono_preslip_adjudication.json",
+          "source_cell_id": "g3_chrono_mu0p60_v16",
+          "source_d_star_m": 20.89999999999995,
+          "source_seed": 35168690
+        }
+      ],
+      "replay": {
+        "exact_pass": null,
+        "max_abs_error": null,
+        "performed": false
+      },
+      "required_slide_boundary": {
+        "arm": "required_slide",
+        "collision": false,
+        "controlled_slide_onset_front_x_m": 10.220056224760395,
+        "controlled_slide_onset_index": 27,
+        "controlled_slide_onset_time_s": 0.54,
+        "distance_m": 20.299999999999955,
+        "free_mode_classification": "controlled_slide_like",
+        "max_beta_until_pass_rad": 0.3545784944949794,
+        "max_controlled_slide_dwell_steps": 38,
+        "min_sat_separation_m": 0.02562870707690834,
+        "min_speed_until_pass_mps": 9.892790687949775,
+        "mode_valid": true,
+        "obstacle_contact_plane_x_m": 19.649999999999956,
+        "offroad": false,
+        "onset_before_contact": true,
+        "passed": true,
+        "score": 12491.51257414154,
+        "stable": true,
+        "success": true
+      },
+      "required_slide_d_star_m": 20.299999999999955,
+      "segments_float64_sha256": "89157dbfefabb5a99cbcbcdc9bc6d78dd65a04e0f2f8d8ea2f7e15d8eb914065",
+      "speed_mps": 16.0,
+      "termination_reason": "",
+      "trajectory_steps": 130,
+      "validation_seed": 1904803404
+    },
+    {
+      "action_id": "action_8b33506d1b21de75",
+      "cell_id": "h0_quick_mu0p60_v16",
+      "finite_rear_tire_steps": 130,
+      "free_boundary": {
+        "arm": "free",
+        "collision": true,
+        "controlled_slide_onset_front_x_m": null,
+        "controlled_slide_onset_index": null,
+        "controlled_slide_onset_time_s": null,
+        "distance_m": 7.0,
+        "free_mode_classification": "grip_like",
+        "max_beta_until_pass_rad": 0.0553011784881717,
+        "max_controlled_slide_dwell_steps": 0,
+        "min_sat_separation_m": -0.23999876850798252,
+        "min_speed_until_pass_mps": 14.698102587044477,
+        "mode_valid": true,
+        "obstacle_contact_plane_x_m": 6.35,
+        "offroad": false,
+        "onset_before_contact": false,
+        "passed": false,
+        "score": 9885.200024629841,
+        "stable": true,
+        "success": false
+      },
+      "free_d_star_m": null,
+      "grip_boundary": {
+        "arm": "grip",
+        "collision": true,
+        "controlled_slide_onset_front_x_m": null,
+        "controlled_slide_onset_index": null,
+        "controlled_slide_onset_time_s": null,
+        "distance_m": 7.0,
+        "free_mode_classification": "grip_like",
+        "max_beta_until_pass_rad": 0.0553011784881717,
+        "max_controlled_slide_dwell_steps": 0,
+        "min_sat_separation_m": -0.23999876850798252,
+        "min_speed_until_pass_mps": 14.698102587044477,
+        "mode_valid": true,
+        "obstacle_contact_plane_x_m": 6.35,
+        "offroad": false,
+        "onset_before_contact": false,
+        "passed": false,
+        "score": 9885.200024629841,
+        "stable": true,
+        "success": false
+      },
+      "grip_d_star_m": null,
+      "horizon_s": 2.6,
+      "initial_local_pose": {
+        "psi": 0.0,
+        "x": 0.0,
+        "y": 0.0
+      },
+      "local_frame_pass": true,
+      "mu": 0.6,
+      "provenance": [
+        {
+          "source_arm": "required_slide",
+          "source_artifact": "experiments/feasibility_audit/phase5_g3_anchored_chrono_preslip_adjudication.json",
+          "source_cell_id": "g3_chrono_mu0p35_v16",
+          "source_d_star_m": null,
+          "source_seed": 74816841
+        }
+      ],
+      "replay": {
+        "exact_pass": null,
+        "max_abs_error": null,
+        "performed": false
+      },
+      "required_slide_boundary": {
+        "arm": "required_slide",
+        "collision": true,
+        "controlled_slide_onset_front_x_m": 9.485630377769354,
+        "controlled_slide_onset_index": 24,
+        "controlled_slide_onset_time_s": 0.48,
+        "distance_m": 10.699999999999987,
+        "free_mode_classification": "controlled_slide_like",
+        "max_beta_until_pass_rad": 0.24819928790686022,
+        "max_controlled_slide_dwell_steps": 4,
+        "min_sat_separation_m": -0.24723228298099365,
+        "min_speed_until_pass_mps": 13.171696758415889,
+        "mode_valid": true,
+        "obstacle_contact_plane_x_m": 10.049999999999986,
+        "offroad": false,
+        "onset_before_contact": true,
+        "passed": false,
+        "score": 9774.05535434038,
+        "stable": true,
+        "success": false
+      },
+      "required_slide_d_star_m": null,
+      "segments_float64_sha256": "8b33506d1b21de75e57075bdd0b56dde7a872b88ab580c863a5df6789bcb4e20",
+      "speed_mps": 16.0,
+      "termination_reason": "",
+      "trajectory_steps": 130,
+      "validation_seed": 1904803404
+    },
+    {
+      "action_id": "action_a31de1502ee9f306",
+      "cell_id": "h0_quick_mu0p60_v16",
+      "finite_rear_tire_steps": 130,
+      "free_boundary": {
+        "arm": "free",
+        "collision": false,
+        "controlled_slide_onset_front_x_m": 10.22790189788403,
+        "controlled_slide_onset_index": 27,
+        "controlled_slide_onset_time_s": 0.54,
+        "distance_m": 20.699999999999953,
+        "free_mode_classification": "controlled_slide_like",
+        "max_beta_until_pass_rad": 0.39292141082397664,
+        "max_controlled_slide_dwell_steps": 44,
+        "min_sat_separation_m": 0.020813842207775046,
+        "min_speed_until_pass_mps": 9.403188192808152,
+        "mode_valid": true,
+        "obstacle_contact_plane_x_m": 20.049999999999955,
+        "offroad": false,
+        "onset_before_contact": true,
+        "passed": true,
+        "score": 12479.416276844157,
+        "stable": true,
+        "success": true
+      },
+      "free_d_star_m": 20.699999999999953,
+      "grip_boundary": {
+        "arm": "grip",
+        "collision": true,
+        "controlled_slide_onset_front_x_m": null,
+        "controlled_slide_onset_index": null,
+        "controlled_slide_onset_time_s": null,
+        "distance_m": 7.0,
+        "free_mode_classification": "grip_like",
+        "max_beta_until_pass_rad": 0.06074355487494937,
+        "max_controlled_slide_dwell_steps": 0,
+        "min_sat_separation_m": -0.21601906998785925,
+        "min_speed_until_pass_mps": 14.572429223682514,
+        "mode_valid": true,
+        "obstacle_contact_plane_x_m": 6.35,
+        "offroad": false,
+        "onset_before_contact": false,
+        "passed": false,
+        "score": 9885.679618600243,
+        "stable": true,
+        "success": false
+      },
+      "grip_d_star_m": null,
+      "horizon_s": 2.6,
+      "initial_local_pose": {
+        "psi": 0.0,
+        "x": 0.0,
+        "y": 0.0
+      },
+      "local_frame_pass": true,
+      "mu": 0.6,
+      "provenance": [
+        {
+          "source_arm": "required_slide",
+          "source_artifact": "experiments/feasibility_audit/phase5_g3_anchored_chrono_preslip_adjudication.json",
+          "source_cell_id": "g3_chrono_mu0p60_v16",
+          "source_d_star_m": 20.699999999999953,
+          "source_seed": 1686769851
+        }
+      ],
+      "replay": {
+        "exact_pass": null,
+        "max_abs_error": null,
+        "performed": false
+      },
+      "required_slide_boundary": {
+        "arm": "required_slide",
+        "collision": false,
+        "controlled_slide_onset_front_x_m": 10.22790189788403,
+        "controlled_slide_onset_index": 27,
+        "controlled_slide_onset_time_s": 0.54,
+        "distance_m": 20.699999999999953,
+        "free_mode_classification": "controlled_slide_like",
+        "max_beta_until_pass_rad": 0.39292141082397664,
+        "max_controlled_slide_dwell_steps": 44,
+        "min_sat_separation_m": 0.020813842207775046,
+        "min_speed_until_pass_mps": 9.403188192808152,
+        "mode_valid": true,
+        "obstacle_contact_plane_x_m": 20.049999999999955,
+        "offroad": false,
+        "onset_before_contact": true,
+        "passed": true,
+        "score": 12479.416276844157,
+        "stable": true,
+        "success": true
+      },
+      "required_slide_d_star_m": 20.699999999999953,
+      "segments_float64_sha256": "a31de1502ee9f306ec036bd379cf038c421e10db2d7feea19c2019859b026946",
+      "speed_mps": 16.0,
+      "termination_reason": "",
+      "trajectory_steps": 130,
+      "validation_seed": 1904803404
+    },
+    {
+      "action_id": "action_b628e5e2b9da42cf",
+      "cell_id": "h0_quick_mu0p60_v16",
+      "finite_rear_tire_steps": 130,
+      "free_boundary": {
+        "arm": "free",
+        "collision": true,
+        "controlled_slide_onset_front_x_m": null,
+        "controlled_slide_onset_index": null,
+        "controlled_slide_onset_time_s": null,
+        "distance_m": 7.0,
+        "free_mode_classification": "grip_like",
+        "max_beta_until_pass_rad": 0.006481692406070734,
+        "max_controlled_slide_dwell_steps": 0,
+        "min_sat_separation_m": -0.032333215805127935,
+        "min_speed_until_pass_mps": 15.73430285329007,
+        "mode_valid": true,
+        "obstacle_contact_plane_x_m": 6.35,
+        "offroad": false,
+        "onset_before_contact": false,
+        "passed": false,
+        "score": 9889.353335683898,
+        "stable": true,
+        "success": false
+      },
+      "free_d_star_m": null,
+      "grip_boundary": {
+        "arm": "grip",
+        "collision": true,
+        "controlled_slide_onset_front_x_m": null,
+        "controlled_slide_onset_index": null,
+        "controlled_slide_onset_time_s": null,
+        "distance_m": 7.0,
+        "free_mode_classification": "grip_like",
+        "max_beta_until_pass_rad": 0.006481692406070734,
+        "max_controlled_slide_dwell_steps": 0,
+        "min_sat_separation_m": -0.032333215805127935,
+        "min_speed_until_pass_mps": 15.73430285329007,
+        "mode_valid": true,
+        "obstacle_contact_plane_x_m": 6.35,
+        "offroad": false,
+        "onset_before_contact": false,
+        "passed": false,
+        "score": 9889.353335683898,
+        "stable": true,
+        "success": false
+      },
+      "grip_d_star_m": null,
+      "horizon_s": 2.6,
+      "initial_local_pose": {
+        "psi": 0.0,
+        "x": 0.0,
+        "y": 0.0
+      },
+      "local_frame_pass": true,
+      "mu": 0.6,
+      "provenance": [
+        {
+          "source_arm": "grip",
+          "source_artifact": "experiments/feasibility_audit/phase5_g3_anchored_chrono_preslip_adjudication.json",
+          "source_cell_id": "g3_chrono_mu0p35_v16",
+          "source_d_star_m": 18.69999999999996,
+          "source_seed": 1657001741
+        },
+        {
+          "source_arm": "free",
+          "source_artifact": "experiments/feasibility_audit/phase5_g3_anchored_chrono_preslip_adjudication.json",
+          "source_cell_id": "g3_chrono_mu0p35_v16",
+          "source_d_star_m": 18.799999999999958,
+          "source_seed": 227835386
+        }
+      ],
+      "replay": {
+        "exact_pass": null,
+        "max_abs_error": null,
+        "performed": false
+      },
+      "required_slide_boundary": {
+        "arm": "required_slide",
+        "collision": true,
+        "controlled_slide_onset_front_x_m": null,
+        "controlled_slide_onset_index": null,
+        "controlled_slide_onset_time_s": null,
+        "distance_m": 7.0,
+        "free_mode_classification": "grip_like",
+        "max_beta_until_pass_rad": 0.006481692406070734,
+        "max_controlled_slide_dwell_steps": 0,
+        "min_sat_separation_m": -0.032333215805127935,
+        "min_speed_until_pass_mps": 15.73430285329007,
+        "mode_valid": false,
+        "obstacle_contact_plane_x_m": 6.35,
+        "offroad": false,
+        "onset_before_contact": false,
+        "passed": false,
+        "score": -210.64666431610254,
+        "stable": true,
+        "success": false
+      },
+      "required_slide_d_star_m": null,
+      "segments_float64_sha256": "b628e5e2b9da42cf5a035bc32109956ec453f6e19039626d3ce40eb1f2dfd9e9",
+      "speed_mps": 16.0,
+      "termination_reason": "",
+      "trajectory_steps": 130,
+      "validation_seed": 1904803404
+    },
+    {
+      "action_id": "action_bb7e1edb2496abdc",
+      "cell_id": "h0_quick_mu0p60_v16",
+      "finite_rear_tire_steps": 130,
+      "free_boundary": {
+        "arm": "free",
+        "collision": false,
+        "controlled_slide_onset_front_x_m": null,
+        "controlled_slide_onset_index": null,
+        "controlled_slide_onset_time_s": null,
+        "distance_m": 15.19999999999997,
+        "free_mode_classification": "grip_like",
+        "max_beta_until_pass_rad": 0.025054524366792365,
+        "max_controlled_slide_dwell_steps": 0,
+        "min_sat_separation_m": 0.0013254235001749493,
+        "min_speed_until_pass_mps": 14.061892325795563,
+        "mode_valid": true,
+        "obstacle_contact_plane_x_m": 14.54999999999997,
+        "offroad": false,
+        "onset_before_contact": false,
+        "passed": true,
+        "score": 12644.026508470004,
+        "stable": true,
+        "success": true
+      },
+      "free_d_star_m": 15.19999999999997,
+      "grip_boundary": {
+        "arm": "grip",
+        "collision": false,
+        "controlled_slide_onset_front_x_m": null,
+        "controlled_slide_onset_index": null,
+        "controlled_slide_onset_time_s": null,
+        "distance_m": 15.19999999999997,
+        "free_mode_classification": "grip_like",
+        "max_beta_until_pass_rad": 0.025054524366792365,
+        "max_controlled_slide_dwell_steps": 0,
+        "min_sat_separation_m": 0.0013254235001749493,
+        "min_speed_until_pass_mps": 14.061892325795563,
+        "mode_valid": true,
+        "obstacle_contact_plane_x_m": 14.54999999999997,
+        "offroad": false,
+        "onset_before_contact": false,
+        "passed": true,
+        "score": 12644.026508470004,
+        "stable": true,
+        "success": true
+      },
+      "grip_d_star_m": 15.19999999999997,
+      "horizon_s": 2.6,
+      "initial_local_pose": {
+        "psi": 0.0,
+        "x": 0.0,
+        "y": 0.0
+      },
+      "local_frame_pass": true,
+      "mu": 0.6,
+      "provenance": [
+        {
+          "source_arm": "free",
+          "source_artifact": "experiments/feasibility_audit/phase5_g3_anchored_chrono_preslip_adjudication.json",
+          "source_cell_id": "g3_chrono_mu0p90_v16",
+          "source_d_star_m": 11.799999999999983,
+          "source_seed": 958505647
+        }
+      ],
+      "replay": {
+        "exact_pass": null,
+        "max_abs_error": null,
+        "performed": false
+      },
+      "required_slide_boundary": {
+        "arm": "required_slide",
+        "collision": true,
+        "controlled_slide_onset_front_x_m": null,
+        "controlled_slide_onset_index": null,
+        "controlled_slide_onset_time_s": null,
+        "distance_m": 7.0,
+        "free_mode_classification": "grip_like",
+        "max_beta_until_pass_rad": 0.012016869318825325,
+        "max_controlled_slide_dwell_steps": 0,
+        "min_sat_separation_m": -0.2630370540761806,
+        "min_speed_until_pass_mps": 14.941088129732943,
+        "mode_valid": false,
+        "obstacle_contact_plane_x_m": 6.35,
+        "offroad": false,
+        "onset_before_contact": false,
+        "passed": false,
+        "score": -215.2607410815236,
+        "stable": true,
+        "success": false
+      },
+      "required_slide_d_star_m": null,
+      "segments_float64_sha256": "bb7e1edb2496abdc21bba2ce7df397a3b9163308907b216c40f1f21387485b72",
+      "speed_mps": 16.0,
+      "termination_reason": "",
+      "trajectory_steps": 130,
+      "validation_seed": 1904803404
+    },
+    {
+      "action_id": "action_d0a189b7f2285a5d",
+      "cell_id": "h0_quick_mu0p60_v16",
+      "finite_rear_tire_steps": 130,
+      "free_boundary": {
+        "arm": "free",
+        "collision": false,
+        "controlled_slide_onset_front_x_m": null,
+        "controlled_slide_onset_index": null,
+        "controlled_slide_onset_time_s": null,
+        "distance_m": 13.899999999999975,
+        "free_mode_classification": "grip_like",
+        "max_beta_until_pass_rad": 0.06079835817176161,
+        "max_controlled_slide_dwell_steps": 0,
+        "min_sat_separation_m": 0.007534060823948252,
+        "min_speed_until_pass_mps": 14.631445002685306,
+        "mode_valid": true,
+        "obstacle_contact_plane_x_m": 13.249999999999975,
+        "offroad": false,
+        "onset_before_contact": false,
+        "passed": true,
+        "score": 12683.150681216479,
+        "stable": true,
+        "success": true
+      },
+      "free_d_star_m": 13.899999999999975,
+      "grip_boundary": {
+        "arm": "grip",
+        "collision": false,
+        "controlled_slide_onset_front_x_m": null,
+        "controlled_slide_onset_index": null,
+        "controlled_slide_onset_time_s": null,
+        "distance_m": 13.899999999999975,
+        "free_mode_classification": "grip_like",
+        "max_beta_until_pass_rad": 0.06079835817176161,
+        "max_controlled_slide_dwell_steps": 0,
+        "min_sat_separation_m": 0.007534060823948252,
+        "min_speed_until_pass_mps": 14.631445002685306,
+        "mode_valid": true,
+        "obstacle_contact_plane_x_m": 13.249999999999975,
+        "offroad": false,
+        "onset_before_contact": false,
+        "passed": true,
+        "score": 12683.150681216479,
+        "stable": true,
+        "success": true
+      },
+      "grip_d_star_m": 13.899999999999975,
+      "horizon_s": 2.6,
+      "initial_local_pose": {
+        "psi": 0.0,
+        "x": 0.0,
+        "y": 0.0
+      },
+      "local_frame_pass": true,
+      "mu": 0.6,
+      "provenance": [
+        {
+          "source_arm": "free",
+          "source_artifact": "experiments/feasibility_audit/phase5_g3_anchored_chrono_preslip_adjudication.json",
+          "source_cell_id": "g3_chrono_mu0p60_v16",
+          "source_d_star_m": 13.899999999999975,
+          "source_seed": 1629520903
+        }
+      ],
+      "replay": {
+        "exact_pass": null,
+        "max_abs_error": null,
+        "performed": false
+      },
+      "required_slide_boundary": {
+        "arm": "required_slide",
+        "collision": true,
+        "controlled_slide_onset_front_x_m": null,
+        "controlled_slide_onset_index": null,
+        "controlled_slide_onset_time_s": null,
+        "distance_m": 7.0,
+        "free_mode_classification": "grip_like",
+        "max_beta_until_pass_rad": 0.0067340064083287,
+        "max_controlled_slide_dwell_steps": 0,
+        "min_sat_separation_m": -0.03532382812218504,
+        "min_speed_until_pass_mps": 15.740590539280802,
+        "mode_valid": false,
+        "obstacle_contact_plane_x_m": 6.35,
+        "offroad": false,
+        "onset_before_contact": false,
+        "passed": false,
+        "score": -210.7064765624437,
+        "stable": true,
+        "success": false
+      },
+      "required_slide_d_star_m": null,
+      "segments_float64_sha256": "d0a189b7f2285a5d3d6a579a4b710fbaa2cc5453aed3918ac591b4c821e23bb7",
+      "speed_mps": 16.0,
+      "termination_reason": "",
+      "trajectory_steps": 130,
+      "validation_seed": 1904803404
+    },
+    {
+      "action_id": "action_d63ad0c90bd76975",
+      "cell_id": "h0_quick_mu0p60_v16",
+      "finite_rear_tire_steps": 130,
+      "free_boundary": {
+        "arm": "free",
+        "collision": false,
+        "controlled_slide_onset_front_x_m": 10.222653316040477,
+        "controlled_slide_onset_index": 27,
+        "controlled_slide_onset_time_s": 0.54,
+        "distance_m": 20.399999999999952,
+        "free_mode_classification": "controlled_slide_like",
+        "max_beta_until_pass_rad": 0.362026025091277,
+        "max_controlled_slide_dwell_steps": 39,
+        "min_sat_separation_m": 0.025885042531014868,
+        "min_speed_until_pass_mps": 7.489770000237846,
+        "mode_valid": true,
+        "obstacle_contact_plane_x_m": 19.749999999999954,
+        "offroad": false,
+        "onset_before_contact": true,
+        "passed": true,
+        "score": 12488.517700850622,
+        "stable": true,
+        "success": true
+      },
+      "free_d_star_m": 20.399999999999952,
+      "grip_boundary": {
+        "arm": "grip",
+        "collision": true,
+        "controlled_slide_onset_front_x_m": null,
+        "controlled_slide_onset_index": null,
+        "controlled_slide_onset_time_s": null,
+        "distance_m": 7.0,
+        "free_mode_classification": "grip_like",
+        "max_beta_until_pass_rad": 0.060634379408658505,
+        "max_controlled_slide_dwell_steps": 0,
+        "min_sat_separation_m": -0.21385680230023496,
+        "min_speed_until_pass_mps": 14.563564036980003,
+        "mode_valid": true,
+        "obstacle_contact_plane_x_m": 6.35,
+        "offroad": false,
+        "onset_before_contact": false,
+        "passed": false,
+        "score": 9885.722863953995,
+        "stable": true,
+        "success": false
+      },
+      "grip_d_star_m": null,
+      "horizon_s": 2.6,
+      "initial_local_pose": {
+        "psi": 0.0,
+        "x": 0.0,
+        "y": 0.0
+      },
+      "local_frame_pass": true,
+      "mu": 0.6,
+      "provenance": [
+        {
+          "source_arm": "required_slide",
+          "source_artifact": "experiments/feasibility_audit/phase5_g3_anchored_chrono_preslip_adjudication.json",
+          "source_cell_id": "g3_chrono_mu0p90_v16",
+          "source_d_star_m": 15.699999999999969,
+          "source_seed": 48551544
+        }
+      ],
+      "replay": {
+        "exact_pass": null,
+        "max_abs_error": null,
+        "performed": false
+      },
+      "required_slide_boundary": {
+        "arm": "required_slide",
+        "collision": false,
+        "controlled_slide_onset_front_x_m": 10.222653316040477,
+        "controlled_slide_onset_index": 27,
+        "controlled_slide_onset_time_s": 0.54,
+        "distance_m": 20.399999999999952,
+        "free_mode_classification": "controlled_slide_like",
+        "max_beta_until_pass_rad": 0.362026025091277,
+        "max_controlled_slide_dwell_steps": 39,
+        "min_sat_separation_m": 0.025885042531014868,
+        "min_speed_until_pass_mps": 7.489770000237846,
+        "mode_valid": true,
+        "obstacle_contact_plane_x_m": 19.749999999999954,
+        "offroad": false,
+        "onset_before_contact": true,
+        "passed": true,
+        "score": 12488.517700850622,
+        "stable": true,
+        "success": true
+      },
+      "required_slide_d_star_m": 20.399999999999952,
+      "segments_float64_sha256": "d63ad0c90bd769753f217085d67a62688e36a230015a053835e2ead58ef4d0c8",
+      "speed_mps": 16.0,
+      "termination_reason": "",
+      "trajectory_steps": 130,
+      "validation_seed": 1904803404
+    },
+    {
+      "action_id": "action_f85acfc0a3c7644f",
+      "cell_id": "h0_quick_mu0p60_v16",
+      "finite_rear_tire_steps": 130,
+      "free_boundary": {
+        "arm": "free",
+        "collision": false,
+        "controlled_slide_onset_front_x_m": null,
+        "controlled_slide_onset_index": null,
+        "controlled_slide_onset_time_s": null,
+        "distance_m": 15.39999999999997,
+        "free_mode_classification": "grip_like",
+        "max_beta_until_pass_rad": 0.04711768576126384,
+        "max_controlled_slide_dwell_steps": 0,
+        "min_sat_separation_m": 0.017355309127110363,
+        "min_speed_until_pass_mps": 14.843487675040508,
+        "mode_valid": true,
+        "obstacle_contact_plane_x_m": 14.74999999999997,
+        "offroad": false,
+        "onset_before_contact": false,
+        "passed": true,
+        "score": 12638.347106182544,
+        "stable": true,
+        "success": true
+      },
+      "free_d_star_m": 15.39999999999997,
+      "grip_boundary": {
+        "arm": "grip",
+        "collision": false,
+        "controlled_slide_onset_front_x_m": null,
+        "controlled_slide_onset_index": null,
+        "controlled_slide_onset_time_s": null,
+        "distance_m": 15.39999999999997,
+        "free_mode_classification": "grip_like",
+        "max_beta_until_pass_rad": 0.04711768576126384,
+        "max_controlled_slide_dwell_steps": 0,
+        "min_sat_separation_m": 0.017355309127110363,
+        "min_speed_until_pass_mps": 14.843487675040508,
+        "mode_valid": true,
+        "obstacle_contact_plane_x_m": 14.74999999999997,
+        "offroad": false,
+        "onset_before_contact": false,
+        "passed": true,
+        "score": 12638.347106182544,
+        "stable": true,
+        "success": true
+      },
+      "grip_d_star_m": 15.39999999999997,
+      "horizon_s": 2.6,
+      "initial_local_pose": {
+        "psi": 0.0,
+        "x": 0.0,
+        "y": 0.0
+      },
+      "local_frame_pass": true,
+      "mu": 0.6,
+      "provenance": [
+        {
+          "source_arm": "free",
+          "source_artifact": "experiments/feasibility_audit/phase5_g3_anchored_chrono_preslip_adjudication.json",
+          "source_cell_id": "g3_chrono_mu0p60_v16",
+          "source_d_star_m": 14.899999999999972,
+          "source_seed": 410215773
+        }
+      ],
+      "replay": {
+        "exact_pass": null,
+        "max_abs_error": null,
+        "performed": false
+      },
+      "required_slide_boundary": {
+        "arm": "required_slide",
+        "collision": true,
+        "controlled_slide_onset_front_x_m": null,
+        "controlled_slide_onset_index": null,
+        "controlled_slide_onset_time_s": null,
+        "distance_m": 7.0,
+        "free_mode_classification": "grip_like",
+        "max_beta_until_pass_rad": 0.004084291083913667,
+        "max_controlled_slide_dwell_steps": 0,
+        "min_sat_separation_m": -0.0231057707129132,
+        "min_speed_until_pass_mps": 15.850534110147406,
+        "mode_valid": false,
+        "obstacle_contact_plane_x_m": 6.35,
+        "offroad": false,
+        "onset_before_contact": false,
+        "passed": false,
+        "score": -210.46211541425828,
+        "stable": true,
+        "success": false
+      },
+      "required_slide_d_star_m": null,
+      "segments_float64_sha256": "f85acfc0a3c7644fc5e56944a510d731ac9d2a5ec745c230bfa1dc2f9ef18284",
+      "speed_mps": 16.0,
+      "termination_reason": "",
+      "trajectory_steps": 130,
+      "validation_seed": 1904803404
+    }
+  ],
+  "seed_verdicts": [
+    {
+      "action_count": 20,
+      "cell_id": "h0_quick_mu0p60_v16",
+      "drift_advantage_m": -5.199999999999983,
+      "free_action_id": "action_d0a189b7f2285a5d",
+      "free_candidate_count": 15,
+      "free_consistency_pass": true,
+      "free_d_star_m": 13.899999999999975,
+      "free_mode_classification": "grip_like",
+      "free_slide_counterexample": false,
+      "grip_action_id": "action_d0a189b7f2285a5d",
+      "grip_candidate_count": 10,
+      "grip_d_star_m": 13.899999999999975,
+      "mu": 0.6,
+      "no_drift_advantage_pass": true,
+      "overlap_complete": true,
+      "required_slide_action_id": "action_20f2be985795d97f",
+      "required_slide_candidate_count": 5,
+      "required_slide_d_star_m": 19.09999999999996,
+      "speed_mps": 16.0,
+      "validation_seed": 80381520
+    },
+    {
+      "action_count": 20,
+      "cell_id": "h0_quick_mu0p60_v16",
+      "drift_advantage_m": -5.199999999999983,
+      "free_action_id": "action_d0a189b7f2285a5d",
+      "free_candidate_count": 15,
+      "free_consistency_pass": true,
+      "free_d_star_m": 13.899999999999975,
+      "free_mode_classification": "grip_like",
+      "free_slide_counterexample": false,
+      "grip_action_id": "action_d0a189b7f2285a5d",
+      "grip_candidate_count": 10,
+      "grip_d_star_m": 13.899999999999975,
+      "mu": 0.6,
+      "no_drift_advantage_pass": true,
+      "overlap_complete": true,
+      "required_slide_action_id": "action_20f2be985795d97f",
+      "required_slide_candidate_count": 5,
+      "required_slide_d_star_m": 19.09999999999996,
+      "speed_mps": 16.0,
+      "validation_seed": 1904803404
+    }
+  ],
+  "seeds_per_cell": 2,
+  "self_id_claim": false
+}

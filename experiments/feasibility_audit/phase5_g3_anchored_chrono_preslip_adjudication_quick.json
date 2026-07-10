@@ -1,0 +1,3491 @@
+{
+  "chrono": {
+    "arm_rows": [
+      {
+        "arm": "grip",
+        "backend": "chrono",
+        "best_boundary": {
+          "arm": "grip",
+          "collision": false,
+          "controlled_slide_onset_front_x_m": null,
+          "controlled_slide_onset_index": null,
+          "controlled_slide_onset_time_s": null,
+          "distance_m": 18.799999999999958,
+          "free_mode_classification": "grip_like",
+          "max_beta_until_pass_rad": 0.02834405050766158,
+          "max_controlled_slide_dwell_steps": 0,
+          "min_sat_separation_m": 0.003812717065478921,
+          "min_speed_until_pass_mps": 15.116591825980937,
+          "mode_valid": true,
+          "obstacle_contact_plane_x_m": 18.14999999999996,
+          "offroad": false,
+          "onset_before_contact": false,
+          "passed": true,
+          "score": 12536.076254341311,
+          "stable": true,
+          "success": true
+        },
+        "best_seed": 943823248,
+        "cell_id": "g3_quick_chrono_mu0p48_v16",
+        "d_star_m": 18.799999999999958,
+        "mu": 0.48,
+        "seed_d_stars_m": [
+          18.799999999999958
+        ],
+        "speed_mps": 16.0,
+        "successful_search_seeds": 1
+      },
+      {
+        "arm": "required_slide",
+        "backend": "chrono",
+        "best_boundary": {
+          "arm": "required_slide",
+          "collision": false,
+          "controlled_slide_onset_front_x_m": 11.689952529678594,
+          "controlled_slide_onset_index": 32,
+          "controlled_slide_onset_time_s": 0.64,
+          "distance_m": 21.799999999999947,
+          "free_mode_classification": "controlled_slide_like",
+          "max_beta_until_pass_rad": 0.24970950514492996,
+          "max_controlled_slide_dwell_steps": 20,
+          "min_sat_separation_m": 0.0190717992426368,
+          "min_speed_until_pass_mps": 10.201373923105633,
+          "mode_valid": true,
+          "obstacle_contact_plane_x_m": 21.14999999999995,
+          "offroad": false,
+          "onset_before_contact": true,
+          "passed": true,
+          "score": 12446.381435984855,
+          "stable": true,
+          "success": true
+        },
+        "best_seed": 49883763,
+        "cell_id": "g3_quick_chrono_mu0p48_v16",
+        "d_star_m": 21.799999999999947,
+        "mu": 0.48,
+        "seed_d_stars_m": [
+          21.799999999999947
+        ],
+        "speed_mps": 16.0,
+        "successful_search_seeds": 1
+      },
+      {
+        "arm": "free",
+        "backend": "chrono",
+        "best_boundary": {
+          "arm": "free",
+          "collision": false,
+          "controlled_slide_onset_front_x_m": null,
+          "controlled_slide_onset_index": null,
+          "controlled_slide_onset_time_s": null,
+          "distance_m": 18.899999999999956,
+          "free_mode_classification": "grip_like",
+          "max_beta_until_pass_rad": 0.027780257813387894,
+          "max_controlled_slide_dwell_steps": 0,
+          "min_sat_separation_m": 0.007439813444767296,
+          "min_speed_until_pass_mps": 15.055355719479252,
+          "mode_valid": true,
+          "obstacle_contact_plane_x_m": 18.249999999999957,
+          "offroad": false,
+          "onset_before_contact": false,
+          "passed": true,
+          "score": 12533.148796268897,
+          "stable": true,
+          "success": true
+        },
+        "best_seed": 217164189,
+        "cell_id": "g3_quick_chrono_mu0p48_v16",
+        "d_star_m": 18.899999999999956,
+        "mu": 0.48,
+        "seed_d_stars_m": [
+          18.899999999999956
+        ],
+        "speed_mps": 16.0,
+        "successful_search_seeds": 1
+      }
+    ],
+    "backend": "chrono",
+    "budget": {
+      "elites": 2,
+      "horizon_s": 2.2,
+      "iterations": 2,
+      "population": 6,
+      "search_seeds": 1,
+      "segments": 7
+    },
+    "cell_verdicts": [
+      {
+        "cell_id": "g3_quick_chrono_mu0p48_v16",
+        "dedicated_all_arms_complete": true,
+        "dedicated_free_d_star_m": 18.899999999999956,
+        "dedicated_grip_d_star_m": 18.799999999999958,
+        "dedicated_required_slide_d_star_m": 21.799999999999947,
+        "drift_advantage_m": -2.9999999999999893,
+        "every_search_seed_complete": true,
+        "free_consistency_pass": true,
+        "free_mode_classification": "grip_like",
+        "free_slide_counterexample": false,
+        "mu": 0.48,
+        "no_drift_advantage_pass": true,
+        "pooled_all_arms_complete": true,
+        "pooled_free_d_star_m": 18.799999999999958,
+        "pooled_grip_d_star_m": 18.799999999999958,
+        "pooled_required_slide_d_star_m": 21.799999999999947,
+        "pooled_sources": {
+          "free": {
+            "source_arm": "grip",
+            "source_seed": 943823248
+          },
+          "grip": {
+            "source_arm": "grip",
+            "source_seed": 943823248
+          },
+          "required_slide": {
+            "source_arm": "required_slide",
+            "source_seed": 49883763
+          }
+        },
+        "seed_robust_no_drift_pass": true,
+        "speed_mps": 16.0
+      }
+    ],
+    "cells": [
+      {
+        "cell_id": "g3_quick_chrono_mu0p48_v16",
+        "mu": 0.48,
+        "obstacle_half_depth_m": 0.65,
+        "obstacle_half_width_m": 0.85,
+        "road_half_width_m": 5.0,
+        "speed_mps": 16.0
+      }
+    ],
+    "pooled_candidate_rows": [
+      {
+        "boundary": {
+          "arm": "grip",
+          "collision": false,
+          "controlled_slide_onset_front_x_m": null,
+          "controlled_slide_onset_index": null,
+          "controlled_slide_onset_time_s": null,
+          "distance_m": 18.799999999999958,
+          "free_mode_classification": "grip_like",
+          "max_beta_until_pass_rad": 0.02834405050766158,
+          "max_controlled_slide_dwell_steps": 0,
+          "min_sat_separation_m": 0.003812717065478921,
+          "min_speed_until_pass_mps": 15.116591825980937,
+          "mode_valid": true,
+          "obstacle_contact_plane_x_m": 18.14999999999996,
+          "offroad": false,
+          "onset_before_contact": false,
+          "passed": true,
+          "score": 12536.076254341311,
+          "stable": true,
+          "success": true
+        },
+        "cell_id": "g3_quick_chrono_mu0p48_v16",
+        "d_star_m": 18.799999999999958,
+        "source_arm": "grip",
+        "source_seed": 943823248,
+        "target_arm": "grip"
+      },
+      {
+        "boundary": {
+          "arm": "required_slide",
+          "collision": true,
+          "controlled_slide_onset_front_x_m": null,
+          "controlled_slide_onset_index": null,
+          "controlled_slide_onset_time_s": null,
+          "distance_m": 7.0,
+          "free_mode_classification": "grip_like",
+          "max_beta_until_pass_rad": 0.005414454202256817,
+          "max_controlled_slide_dwell_steps": 0,
+          "min_sat_separation_m": -0.0009253493985701411,
+          "min_speed_until_pass_mps": 15.678917006794755,
+          "mode_valid": false,
+          "obstacle_contact_plane_x_m": 6.35,
+          "offroad": false,
+          "onset_before_contact": false,
+          "passed": false,
+          "score": -210.0185069879714,
+          "stable": true,
+          "success": false
+        },
+        "cell_id": "g3_quick_chrono_mu0p48_v16",
+        "d_star_m": null,
+        "source_arm": "grip",
+        "source_seed": 943823248,
+        "target_arm": "required_slide"
+      },
+      {
+        "boundary": {
+          "arm": "free",
+          "collision": false,
+          "controlled_slide_onset_front_x_m": null,
+          "controlled_slide_onset_index": null,
+          "controlled_slide_onset_time_s": null,
+          "distance_m": 18.799999999999958,
+          "free_mode_classification": "grip_like",
+          "max_beta_until_pass_rad": 0.02834405050766158,
+          "max_controlled_slide_dwell_steps": 0,
+          "min_sat_separation_m": 0.003812717065478921,
+          "min_speed_until_pass_mps": 15.116591825980937,
+          "mode_valid": true,
+          "obstacle_contact_plane_x_m": 18.14999999999996,
+          "offroad": false,
+          "onset_before_contact": false,
+          "passed": true,
+          "score": 12536.076254341311,
+          "stable": true,
+          "success": true
+        },
+        "cell_id": "g3_quick_chrono_mu0p48_v16",
+        "d_star_m": 18.799999999999958,
+        "source_arm": "grip",
+        "source_seed": 943823248,
+        "target_arm": "free"
+      },
+      {
+        "boundary": {
+          "arm": "grip",
+          "collision": true,
+          "controlled_slide_onset_front_x_m": null,
+          "controlled_slide_onset_index": null,
+          "controlled_slide_onset_time_s": null,
+          "distance_m": 7.0,
+          "free_mode_classification": "grip_like",
+          "max_beta_until_pass_rad": 0.0490862973308272,
+          "max_controlled_slide_dwell_steps": 0,
+          "min_sat_separation_m": -0.22890683793408506,
+          "min_speed_until_pass_mps": 14.816579096196168,
+          "mode_valid": true,
+          "obstacle_contact_plane_x_m": 6.35,
+          "offroad": false,
+          "onset_before_contact": false,
+          "passed": false,
+          "score": 9885.421863241318,
+          "stable": true,
+          "success": false
+        },
+        "cell_id": "g3_quick_chrono_mu0p48_v16",
+        "d_star_m": null,
+        "source_arm": "required_slide",
+        "source_seed": 49883763,
+        "target_arm": "grip"
+      },
+      {
+        "boundary": {
+          "arm": "required_slide",
+          "collision": false,
+          "controlled_slide_onset_front_x_m": 11.689952529678594,
+          "controlled_slide_onset_index": 32,
+          "controlled_slide_onset_time_s": 0.64,
+          "distance_m": 21.799999999999947,
+          "free_mode_classification": "controlled_slide_like",
+          "max_beta_until_pass_rad": 0.24970950514492996,
+          "max_controlled_slide_dwell_steps": 20,
+          "min_sat_separation_m": 0.0190717992426368,
+          "min_speed_until_pass_mps": 10.201373923105633,
+          "mode_valid": true,
+          "obstacle_contact_plane_x_m": 21.14999999999995,
+          "offroad": false,
+          "onset_before_contact": true,
+          "passed": true,
+          "score": 12446.381435984855,
+          "stable": true,
+          "success": true
+        },
+        "cell_id": "g3_quick_chrono_mu0p48_v16",
+        "d_star_m": 21.799999999999947,
+        "source_arm": "required_slide",
+        "source_seed": 49883763,
+        "target_arm": "required_slide"
+      },
+      {
+        "boundary": {
+          "arm": "free",
+          "collision": false,
+          "controlled_slide_onset_front_x_m": 11.689952529678594,
+          "controlled_slide_onset_index": 32,
+          "controlled_slide_onset_time_s": 0.64,
+          "distance_m": 21.799999999999947,
+          "free_mode_classification": "controlled_slide_like",
+          "max_beta_until_pass_rad": 0.24970950514492996,
+          "max_controlled_slide_dwell_steps": 20,
+          "min_sat_separation_m": 0.0190717992426368,
+          "min_speed_until_pass_mps": 10.201373923105633,
+          "mode_valid": true,
+          "obstacle_contact_plane_x_m": 21.14999999999995,
+          "offroad": false,
+          "onset_before_contact": true,
+          "passed": true,
+          "score": 12446.381435984855,
+          "stable": true,
+          "success": true
+        },
+        "cell_id": "g3_quick_chrono_mu0p48_v16",
+        "d_star_m": 21.799999999999947,
+        "source_arm": "required_slide",
+        "source_seed": 49883763,
+        "target_arm": "free"
+      },
+      {
+        "boundary": {
+          "arm": "grip",
+          "collision": false,
+          "controlled_slide_onset_front_x_m": null,
+          "controlled_slide_onset_index": null,
+          "controlled_slide_onset_time_s": null,
+          "distance_m": 18.899999999999956,
+          "free_mode_classification": "grip_like",
+          "max_beta_until_pass_rad": 0.027780257813387894,
+          "max_controlled_slide_dwell_steps": 0,
+          "min_sat_separation_m": 0.007439813444767296,
+          "min_speed_until_pass_mps": 15.055355719479252,
+          "mode_valid": true,
+          "obstacle_contact_plane_x_m": 18.249999999999957,
+          "offroad": false,
+          "onset_before_contact": false,
+          "passed": true,
+          "score": 12533.148796268897,
+          "stable": true,
+          "success": true
+        },
+        "cell_id": "g3_quick_chrono_mu0p48_v16",
+        "d_star_m": 18.899999999999956,
+        "source_arm": "free",
+        "source_seed": 217164189,
+        "target_arm": "grip"
+      },
+      {
+        "boundary": {
+          "arm": "required_slide",
+          "collision": true,
+          "controlled_slide_onset_front_x_m": null,
+          "controlled_slide_onset_index": null,
+          "controlled_slide_onset_time_s": null,
+          "distance_m": 7.0,
+          "free_mode_classification": "grip_like",
+          "max_beta_until_pass_rad": 0.00584683634172562,
+          "max_controlled_slide_dwell_steps": 0,
+          "min_sat_separation_m": -0.3079401163711655,
+          "min_speed_until_pass_mps": 15.608505165813602,
+          "mode_valid": false,
+          "obstacle_contact_plane_x_m": 6.35,
+          "offroad": false,
+          "onset_before_contact": false,
+          "passed": false,
+          "score": -216.1588023274233,
+          "stable": true,
+          "success": false
+        },
+        "cell_id": "g3_quick_chrono_mu0p48_v16",
+        "d_star_m": null,
+        "source_arm": "free",
+        "source_seed": 217164189,
+        "target_arm": "required_slide"
+      },
+      {
+        "boundary": {
+          "arm": "free",
+          "collision": false,
+          "controlled_slide_onset_front_x_m": null,
+          "controlled_slide_onset_index": null,
+          "controlled_slide_onset_time_s": null,
+          "distance_m": 18.899999999999956,
+          "free_mode_classification": "grip_like",
+          "max_beta_until_pass_rad": 0.027780257813387894,
+          "max_controlled_slide_dwell_steps": 0,
+          "min_sat_separation_m": 0.007439813444767296,
+          "min_speed_until_pass_mps": 15.055355719479252,
+          "mode_valid": true,
+          "obstacle_contact_plane_x_m": 18.249999999999957,
+          "offroad": false,
+          "onset_before_contact": false,
+          "passed": true,
+          "score": 12533.148796268897,
+          "stable": true,
+          "success": true
+        },
+        "cell_id": "g3_quick_chrono_mu0p48_v16",
+        "d_star_m": 18.899999999999956,
+        "source_arm": "free",
+        "source_seed": 217164189,
+        "target_arm": "free"
+      }
+    ],
+    "searches": [
+      {
+        "arm": "grip",
+        "backend": "chrono",
+        "best_search_distance_m": 11.0,
+        "best_search_result": {
+          "arm": "grip",
+          "collision": true,
+          "controlled_slide_onset_front_x_m": null,
+          "controlled_slide_onset_index": null,
+          "controlled_slide_onset_time_s": null,
+          "distance_m": 11.0,
+          "finite_rear_tire_steps": 110,
+          "free_mode_classification": "grip_like",
+          "max_beta_until_pass_rad": 0.02834405050766158,
+          "max_controlled_slide_dwell_steps": 0,
+          "min_sat_separation_m": -0.08678088392795225,
+          "min_speed_until_pass_mps": 15.460540313951897,
+          "mode_valid": true,
+          "obstacle_contact_plane_x_m": 10.35,
+          "offroad": false,
+          "onset_before_contact": false,
+          "passed": false,
+          "score": 9768.26438232144,
+          "stable": true,
+          "success": false
+        },
+        "best_segments_physical": [
+          [
+            0.45,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "best_trajectory": [
+          {
+            "beta": 0.0,
+            "psi": 0.0,
+            "rear_slip": 0.0,
+            "speed": 16.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          {
+            "beta": 3.087491612055076e-05,
+            "psi": -0.0003935622187190013,
+            "rear_slip": 0.0016712234217430787,
+            "speed": 15.925369951875174,
+            "x": 0.31929145811852194,
+            "y": -0.0007622925533530556
+          },
+          {
+            "beta": 0.0014107051727271238,
+            "psi": -0.00041748812991193596,
+            "rear_slip": 0.0015170861603127468,
+            "speed": 15.867865430471818,
+            "x": 0.6369622302979723,
+            "y": -0.0007522892709239393
+          },
+          {
+            "beta": 0.0033889562505824205,
+            "psi": 0.00047044420565223177,
+            "rear_slip": 0.003334833174255095,
+            "speed": 15.850983792119825,
+            "x": 0.9538643836091191,
+            "y": 0.0005425675449680367
+          },
+          {
+            "beta": 0.004694542988282755,
+            "psi": 0.00256688110867076,
+            "rear_slip": 0.0072616388148660956,
+            "speed": 15.836118004208538,
+            "x": 1.2704400437598395,
+            "y": 0.0028934939154005024
+          },
+          {
+            "beta": 0.005365865026573321,
+            "psi": 0.005765871870681005,
+            "rear_slip": 0.011631704473997521,
+            "speed": 15.820056950059652,
+            "x": 1.5867206252770463,
+            "y": 0.006235155665514025
+          },
+          {
+            "beta": 0.005414454202256817,
+            "psi": 0.009937485519606826,
+            "rear_slip": 0.015907623435827398,
+            "speed": 15.80359788798126,
+            "x": 1.9026996935276324,
+            "y": 0.010724618008499331
+          },
+          {
+            "beta": 0.004924298170609733,
+            "psi": 0.014931929011701815,
+            "rear_slip": 0.019868895816221695,
+            "speed": 15.786756664011929,
+            "x": 2.2183491980653818,
+            "y": 0.016549841849432756
+          },
+          {
+            "beta": 0.004016930050002462,
+            "psi": 0.020617405014132117,
+            "rear_slip": 0.023603985536815263,
+            "speed": 15.769669307553713,
+            "x": 2.533638432036062,
+            "y": 0.023852165109243373
+          },
+          {
+            "beta": 0.00278590854440532,
+            "psi": 0.026883561012762458,
+            "rear_slip": 0.027336524102144676,
+            "speed": 15.75207127363427,
+            "x": 2.8485432695622768,
+            "y": 0.032715491458262136
+          },
+          {
+            "beta": 0.0012917617399249622,
+            "psi": 0.03363410793505195,
+            "rear_slip": 0.030933425033846267,
+            "speed": 15.734289107078537,
+            "x": 3.1630468384172956,
+            "y": 0.04319270237067785
+          },
+          {
+            "beta": 0.00040744529778421416,
+            "psi": 0.0407852183174926,
+            "rear_slip": 0.03441074231773975,
+            "speed": 15.716034520755743,
+            "x": 3.477133939036785,
+            "y": 0.05533015929859075
+          },
+          {
+            "beta": 0.002264868717710844,
+            "psi": 0.04826222552925086,
+            "rear_slip": 0.03779333326741358,
+            "speed": 15.697545986689224,
+            "x": 3.7907901728609956,
+            "y": 0.06917364490951528
+          },
+          {
+            "beta": 0.004243436650989294,
+            "psi": 0.05599938957637862,
+            "rear_slip": 0.04096363945564112,
+            "speed": 15.678917006794755,
+            "x": 4.1040008596227375,
+            "y": 0.08476615195362558
+          },
+          {
+            "beta": 0.006300177582107188,
+            "psi": 0.063940106282381,
+            "rear_slip": 0.04402894371265843,
+            "speed": 15.660232164574976,
+            "x": 4.416750976313909,
+            "y": 0.10214475947428203
+          },
+          {
+            "beta": 0.008405835413152778,
+            "psi": 0.07203474899698015,
+            "rear_slip": 0.04690451564898062,
+            "speed": 15.641213102554275,
+            "x": 4.7290255008831,
+            "y": 0.1213395897291456
+          },
+          {
+            "beta": 0.010537047552628291,
+            "psi": 0.08023960176525492,
+            "rear_slip": 0.04964550474353259,
+            "speed": 15.622293050936216,
+            "x": 5.040809834008543,
+            "y": 0.1423750485362325
+          },
+          {
+            "beta": 0.012751521007013114,
+            "psi": 0.08875108753665528,
+            "rear_slip": 0.052601004667050776,
+            "speed": 15.602444235657371,
+            "x": 5.352081953235395,
+            "y": 0.1652755585610688
+          },
+          {
+            "beta": 0.01498375571298392,
+            "psi": 0.09733004039489622,
+            "rear_slip": 0.05528903184307472,
+            "speed": 15.580150383344288,
+            "x": 5.66280153198806,
+            "y": 0.19005096512263875
+          },
+          {
+            "beta": 0.017399248744624566,
+            "psi": 0.10583393971738488,
+            "rear_slip": 0.05715583761416012,
+            "speed": 15.55466890075158,
+            "x": 5.972874041632705,
+            "y": 0.21674369216141343
+          },
+          {
+            "beta": 0.02024742576530172,
+            "psi": 0.11399532200289353,
+            "rear_slip": 0.058005891807305594,
+            "speed": 15.529575577173837,
+            "x": 6.2822897433558555,
+            "y": 0.24515946227079555
+          },
+          {
+            "beta": 0.023247774232779038,
+            "psi": 0.12145963559836725,
+            "rear_slip": 0.057539666092034245,
+            "speed": 15.51035123421646,
+            "x": 6.591169114253584,
+            "y": 0.2749610274729659
+          },
+          {
+            "beta": 0.025821251183106575,
+            "psi": 0.12796067949654888,
+            "rear_slip": 0.055624867513681855,
+            "speed": 15.496752675245467,
+            "x": 6.8996702424957626,
+            "y": 0.3059403541608383
+          },
+          {
+            "beta": 0.027562227328159956,
+            "psi": 0.13338764609371934,
+            "rear_slip": 0.05248424306208421,
+            "speed": 15.486212463693198,
+            "x": 7.207861822255355,
+            "y": 0.33803895473447043
+          },
+          {
+            "beta": 0.02834405050766158,
+            "psi": 0.13773667907345177,
+            "rear_slip": 0.04841712225162578,
+            "speed": 15.477116642274307,
+            "x": 7.515760371267302,
+            "y": 0.3712396484816116
+          },
+          {
+            "beta": 0.02821006972733845,
+            "psi": 0.14106996436812236,
+            "rear_slip": 0.043863136471340665,
+            "speed": 15.468708946454,
+            "x": 7.823370106268839,
+            "y": 0.4055138812109347
+          },
+          {
+            "beta": 0.027292308420434622,
+            "psi": 0.14348224923934594,
+            "rear_slip": 0.03892707052991459,
+            "speed": 15.460540313951897,
+            "x": 8.130696534367445,
+            "y": 0.4408129264449956
+          },
+          {
+            "beta": 0.025753965538110192,
+            "psi": 0.1450804157378156,
+            "rear_slip": 0.03392620613309066,
+            "speed": 15.452671289128325,
+            "x": 8.437748865887002,
+            "y": 0.4770728736878804
+          },
+          {
+            "beta": 0.023758630690348802,
+            "psi": 0.14597498841596912,
+            "rear_slip": 0.028996961050853663,
+            "speed": 15.444953661406455,
+            "x": 8.744538083622999,
+            "y": 0.5142189431915172
+          },
+          {
+            "beta": 0.021461396608085367,
+            "psi": 0.1462766412374339,
+            "rear_slip": 0.024250700509605302,
+            "speed": 15.43733571869158,
+            "x": 9.051075971379746,
+            "y": 0.5521659442134543
+          },
+          {
+            "beta": 0.019005086794017603,
+            "psi": 0.14609422267077465,
+            "rear_slip": 0.019828411541775098,
+            "speed": 15.42988660939953,
+            "x": 9.357375287788066,
+            "y": 0.5908191746746083
+          },
+          {
+            "beta": 0.0165104150172049,
+            "psi": 0.14553249816993308,
+            "rear_slip": 0.015831129810967202,
+            "speed": 15.422538370701206,
+            "x": 9.663449577944958,
+            "y": 0.6300778297407119
+          },
+          {
+            "beta": 0.01407602310371315,
+            "psi": 0.14468923609433748,
+            "rear_slip": 0.01230263138400197,
+            "speed": 15.41531049833023,
+            "x": 9.969312311970949,
+            "y": 0.669839827602212
+          },
+          {
+            "beta": 0.011775259999875566,
+            "psi": 0.14365241396428008,
+            "rear_slip": 0.009270576037192974,
+            "speed": 15.408148739820218,
+            "x": 10.274976289638387,
+            "y": 0.7100067015396798
+          },
+          {
+            "beta": 0.009657011434425,
+            "psi": 0.14249844152031366,
+            "rear_slip": 0.006731095047004815,
+            "speed": 15.40103937320135,
+            "x": 10.580453427204944,
+            "y": 0.7504875613845388
+          },
+          {
+            "beta": 0.007749778472382102,
+            "psi": 0.14129102955107986,
+            "rear_slip": 0.004643531964039719,
+            "speed": 15.393913798747674,
+            "x": 10.885754384152397,
+            "y": 0.7912016756708875
+          },
+          {
+            "beta": 0.006067369424055065,
+            "psi": 0.14008105594079612,
+            "rear_slip": 0.002967924309351123,
+            "speed": 15.386714790160099,
+            "x": 11.190887562192511,
+            "y": 0.8320791389354063
+          },
+          {
+            "beta": 0.00462205797413287,
+            "psi": 0.13891105820586214,
+            "rear_slip": 0.0017264554975974253,
+            "speed": 15.379631081523403,
+            "x": 11.49586123028206,
+            "y": 0.8730580887802903
+          },
+          {
+            "beta": 0.003395120377286865,
+            "psi": 0.13781104221603946,
+            "rear_slip": 0.002376875730320467,
+            "speed": 15.372476080644358,
+            "x": 11.800681798557507,
+            "y": 0.9140894046810579
+          },
+          {
+            "beta": 0.0023712647256792234,
+            "psi": 0.136798940137844,
+            "rear_slip": 0.003036559875841583,
+            "speed": 15.365258938922661,
+            "x": 12.10535302708164,
+            "y": 0.9551363138957925
+          },
+          {
+            "beta": 0.0015376251300119066,
+            "psi": 0.13588684312056132,
+            "rear_slip": 0.003467035337463873,
+            "speed": 15.357960785155624,
+            "x": 12.409878163001407,
+            "y": 0.9961685707584498
+          },
+          {
+            "beta": 0.0008719671336539701,
+            "psi": 0.13508096626716593,
+            "rear_slip": 0.0037164492777589653,
+            "speed": 15.350725895219176,
+            "x": 12.714260165005927,
+            "y": 1.037163203975303
+          },
+          {
+            "beta": 0.0003523966676589345,
+            "psi": 0.13438155787088268,
+            "rear_slip": 0.003816178085161565,
+            "speed": 15.34332515867874,
+            "x": 13.018500000693749,
+            "y": 1.0781049740987896
+          },
+          {
+            "beta": 4.212338837372908e-05,
+            "psi": 0.13378483381637274,
+            "rear_slip": 0.0038180961824809405,
+            "speed": 15.335947206020087,
+            "x": 13.322598078031737,
+            "y": 1.1189840770521466
+          },
+          {
+            "beta": 0.0003309772318559402,
+            "psi": 0.1332846050223908,
+            "rear_slip": 0.003727642852570708,
+            "speed": 15.328593263702706,
+            "x": 13.626554647920504,
+            "y": 1.1597947752151498
+          },
+          {
+            "beta": 0.0005316704519142482,
+            "psi": 0.13287322286961278,
+            "rear_slip": 0.0036000437715352366,
+            "speed": 15.32116703523461,
+            "x": 13.93036928211945,
+            "y": 1.2005345443178048
+          },
+          {
+            "beta": 0.0006604425939350257,
+            "psi": 0.13254181700997458,
+            "rear_slip": 0.0034251296037075656,
+            "speed": 15.313634773669747,
+            "x": 14.2340409458397,
+            "y": 1.2412032935877333
+          },
+          {
+            "beta": 0.0007328293625418614,
+            "psi": 0.1322808136242719,
+            "rear_slip": 0.003233846862011744,
+            "speed": 15.306067671990089,
+            "x": 14.53756874240354,
+            "y": 1.2818029652574767
+          },
+          {
+            "beta": 0.0007622730034718197,
+            "psi": 0.13208059793893212,
+            "rear_slip": 0.003015502058020903,
+            "speed": 15.298482124978028,
+            "x": 14.840951766084125,
+            "y": 1.32233711450688
+          },
+          {
+            "beta": 0.0007595555747310607,
+            "psi": 0.1319317055104321,
+            "rear_slip": 0.0028303634999736513,
+            "speed": 15.290855818459606,
+            "x": 15.14418851811834,
+            "y": 1.3628100676081791
+          },
+          {
+            "beta": 0.0007333879277933393,
+            "psi": 0.1318252980145882,
+            "rear_slip": 0.002634544767809469,
+            "speed": 15.283176627176443,
+            "x": 15.447277687712711,
+            "y": 1.4032262568661724
+          },
+          {
+            "beta": 0.000691005960889275,
+            "psi": 0.1317536996374309,
+            "rear_slip": 0.0024705121349390827,
+            "speed": 15.275591423841052,
+            "x": 15.750218348770662,
+            "y": 1.4435900439471405
+          },
+          {
+            "beta": 0.0006366559698353523,
+            "psi": 0.1317103625839855,
+            "rear_slip": 0.002298128778911065,
+            "speed": 15.267830888104498,
+            "x": 16.053009132549942,
+            "y": 1.4839055851786491
+          },
+          {
+            "beta": 0.0005753347977868295,
+            "psi": 0.13168930038951676,
+            "rear_slip": 0.002144068185419572,
+            "speed": 15.260079531565761,
+            "x": 16.355648775281132,
+            "y": 1.5241766984360967
+          },
+          {
+            "beta": 0.0005111724962461856,
+            "psi": 0.13168543515425357,
+            "rear_slip": 0.002016846515366868,
+            "speed": 15.252305480251886,
+            "x": 16.658136308355765,
+            "y": 1.5644070272012889
+          },
+          {
+            "beta": 0.00044660357664423107,
+            "psi": 0.131694617137214,
+            "rear_slip": 0.001907790083924347,
+            "speed": 15.244484801292812,
+            "x": 16.9604709201086,
+            "y": 1.6046000312758322
+          },
+          {
+            "beta": 0.0003834505719057732,
+            "psi": 0.13171316630531327,
+            "rear_slip": 0.0018083347742748315,
+            "speed": 15.236657953607562,
+            "x": 17.262651345470918,
+            "y": 1.6447586788021726
+          },
+          {
+            "beta": 0.00032374453809777185,
+            "psi": 0.13173796022712292,
+            "rear_slip": 0.0017301511384746396,
+            "speed": 15.228814488894027,
+            "x": 17.564676806806084,
+            "y": 1.684885590731867
+          },
+          {
+            "beta": 0.00026857616864186753,
+            "psi": 0.13176662790524696,
+            "rear_slip": 0.001636275658705848,
+            "speed": 15.220930964616352,
+            "x": 17.866546735790422,
+            "y": 1.7249831642002773
+          },
+          {
+            "beta": 0.00021886029668157728,
+            "psi": 0.13179725353164717,
+            "rear_slip": 0.0015835704389998053,
+            "speed": 15.212965136286345,
+            "x": 18.16826015794694,
+            "y": 1.7650533888209208
+          },
+          {
+            "beta": 0.00017397518074624698,
+            "psi": 0.13182815577070817,
+            "rear_slip": 0.0015571577581988843,
+            "speed": 15.205093902033543,
+            "x": 18.469816449051415,
+            "y": 1.8050978655270877
+          },
+          {
+            "beta": 0.0001351112519691119,
+            "psi": 0.13185817507111564,
+            "rear_slip": 0.0015251403817383696,
+            "speed": 15.197134123789544,
+            "x": 18.771215128996154,
+            "y": 1.8451179777314377
+          },
+          {
+            "beta": 0.00010166885067863371,
+            "psi": 0.1318865797443807,
+            "rear_slip": 0.001514012116154505,
+            "speed": 15.189143423053315,
+            "x": 19.072455641623204,
+            "y": 1.8851148945413505
+          },
+          {
+            "beta": 7.302679302789959e-05,
+            "psi": 0.13191268753671004,
+            "rear_slip": 0.001535959436390788,
+            "speed": 15.181178112532859,
+            "x": 19.373537324230234,
+            "y": 1.9250894130884726
+          },
+          {
+            "beta": 4.9624824938406584e-05,
+            "psi": 0.13193606435297545,
+            "rear_slip": 0.001556035857092849,
+            "speed": 15.173157690950523,
+            "x": 19.674459810149173,
+            "y": 1.9650421595804324
+          },
+          {
+            "beta": 3.064573468296413e-05,
+            "psi": 0.13195666660898553,
+            "rear_slip": 0.001556722296061779,
+            "speed": 15.165142322721834,
+            "x": 19.975222858989568,
+            "y": 2.0049737028761014
+          },
+          {
+            "beta": 1.5230750651304085e-05,
+            "psi": 0.13197442595526665,
+            "rear_slip": 0.0015609227380027494,
+            "speed": 15.157096468926174,
+            "x": 20.275825847722235,
+            "y": 2.0448843328976882
+          },
+          {
+            "beta": 3.442899123420888e-06,
+            "psi": 0.13198929649075453,
+            "rear_slip": 0.00156148020383393,
+            "speed": 15.14905399293909,
+            "x": 20.57626844503561,
+            "y": 2.0847741945853224
+          },
+          {
+            "beta": 5.123145730255867e-06,
+            "psi": 0.13200147733747514,
+            "rear_slip": 0.001546092651363011,
+            "speed": 15.140930443789731,
+            "x": 20.876550510614365,
+            "y": 2.1246434364137707
+          },
+          {
+            "beta": 1.1437955584928334e-05,
+            "psi": 0.13201125283235937,
+            "rear_slip": 0.0015511127357124193,
+            "speed": 15.132823032470732,
+            "x": 21.176671674505794,
+            "y": 2.164492121079856
+          },
+          {
+            "beta": 1.5995982933253784e-05,
+            "psi": 0.13201873147460574,
+            "rear_slip": 0.0015538461532978555,
+            "speed": 15.124740631499794,
+            "x": 21.476631504261043,
+            "y": 2.2043201322053583
+          },
+          {
+            "beta": 1.8410395507848103e-05,
+            "psi": 0.13202413511371502,
+            "rear_slip": 0.0015334365455964276,
+            "speed": 15.116591825980937,
+            "x": 21.776429941151232,
+            "y": 2.244127392135587
+          },
+          {
+            "beta": 1.9483419733041573e-05,
+            "psi": 0.13202788161472157,
+            "rear_slip": 0.0015262515210967486,
+            "speed": 15.108439706187465,
+            "x": 22.076066764904937,
+            "y": 2.2839138720090655
+          },
+          {
+            "beta": 1.960872303537574e-05,
+            "psi": 0.132030143507601,
+            "rear_slip": 0.0015242238495050283,
+            "speed": 15.100316771800886,
+            "x": 22.375541565591433,
+            "y": 2.323679384537352
+          },
+          {
+            "beta": 1.9112043369241086e-05,
+            "psi": 0.13203104893646467,
+            "rear_slip": 0.0015225882633992383,
+            "speed": 15.092140238427731,
+            "x": 22.674854153082812,
+            "y": 2.363423731159155
+          },
+          {
+            "beta": 1.762222336243e-05,
+            "psi": 0.1320309642473103,
+            "rear_slip": 0.0015109853127512288,
+            "speed": 15.083977746675922,
+            "x": 22.974004564899097,
+            "y": 2.4031468584593467
+          },
+          {
+            "beta": 1.625128001413707e-05,
+            "psi": 0.13203010561904005,
+            "rear_slip": 0.0015149393928941242,
+            "speed": 15.075798168044516,
+            "x": 23.27299235711758,
+            "y": 2.4428486084857997
+          },
+          {
+            "beta": 1.4485978734890235e-05,
+            "psi": 0.13202852553609623,
+            "rear_slip": 0.0014883086507093595,
+            "speed": 15.067554674322365,
+            "x": 23.571817314962082,
+            "y": 2.482528776436507
+          },
+          {
+            "beta": 1.2698030432451453e-05,
+            "psi": 0.1320264194200902,
+            "rear_slip": 0.001490462208280939,
+            "speed": 15.059341103090249,
+            "x": 23.870479467760113,
+            "y": 2.522187268280519
+          },
+          {
+            "beta": 1.0468777584193409e-05,
+            "psi": 0.13202404146247737,
+            "rear_slip": 0.001465449612634052,
+            "speed": 15.051097070292393,
+            "x": 24.16897858476907,
+            "y": 2.561824020349504
+          },
+          {
+            "beta": 8.435237340049455e-06,
+            "psi": 0.1320214190483182,
+            "rear_slip": 0.001485588521253235,
+            "speed": 15.042801399067615,
+            "x": 24.467314244892908,
+            "y": 2.601438853023824
+          },
+          {
+            "beta": 6.785599054585705e-06,
+            "psi": 0.13201855722578124,
+            "rear_slip": 0.001488341662694223,
+            "speed": 15.03469835750788,
+            "x": 24.765486726250945,
+            "y": 2.641031680854437
+          },
+          {
+            "beta": 5.0881621455261956e-06,
+            "psi": 0.13201568797957308,
+            "rear_slip": 0.0014804929181740038,
+            "speed": 15.0264335497802,
+            "x": 25.06349565144421,
+            "y": 2.68060246603757
+          },
+          {
+            "beta": 3.606709528007797e-06,
+            "psi": 0.1320128503487945,
+            "rear_slip": 0.0014859476138701997,
+            "speed": 15.018153696304365,
+            "x": 25.361340766838993,
+            "y": 2.720151118031329
+          },
+          {
+            "beta": 2.5671398601709034e-06,
+            "psi": 0.13200996797364883,
+            "rear_slip": 0.0014911452646554108,
+            "speed": 15.00993919191493,
+            "x": 25.659022001904482,
+            "y": 2.759677525666463
+          },
+          {
+            "beta": 1.025974354777534e-06,
+            "psi": 0.1320071637365308,
+            "rear_slip": 0.0014785035707206072,
+            "speed": 15.001668183560517,
+            "x": 25.95653934354449,
+            "y": 2.7991816863306025
+          },
+          {
+            "beta": 5.785882960244093e-07,
+            "psi": 0.13200450810260245,
+            "rear_slip": 0.001489774983563048,
+            "speed": 14.993403479286762,
+            "x": 26.253892599598498,
+            "y": 2.8386635908104974
+          },
+          {
+            "beta": 3.951244824540688e-07,
+            "psi": 0.13200194315957672,
+            "rear_slip": 0.0014794310900617875,
+            "speed": 14.98511094007778,
+            "x": 26.551081470007052,
+            "y": 2.878123135154864
+          },
+          {
+            "beta": 9.657032231209346e-07,
+            "psi": 0.13199942400262543,
+            "rear_slip": 0.0014833928786837766,
+            "speed": 14.976803189020746,
+            "x": 26.848106023419707,
+            "y": 2.917560289154508
+          },
+          {
+            "beta": 1.7030570613854627e-06,
+            "psi": 0.1319971071503796,
+            "rear_slip": 0.001473126113659377,
+            "speed": 14.968507193113684,
+            "x": 27.144966234696113,
+            "y": 2.9569751184702846
+          },
+          {
+            "beta": 2.0177772121190724e-06,
+            "psi": 0.1319949119125197,
+            "rear_slip": 0.0014865840651549069,
+            "speed": 14.960197916504187,
+            "x": 27.441661732565716,
+            "y": 2.9963675429274166
+          },
+          {
+            "beta": 2.0255298960738434e-06,
+            "psi": 0.13199274440022535,
+            "rear_slip": 0.0014824569846063962,
+            "speed": 14.951859659349381,
+            "x": 27.738192450670596,
+            "y": 3.0357375082991727
+          },
+          {
+            "beta": 2.442229919879004e-06,
+            "psi": 0.1319907146803725,
+            "rear_slip": 0.0014855398989856048,
+            "speed": 14.943593589307364,
+            "x": 28.034558622938377,
+            "y": 3.0750850917182957
+          },
+          {
+            "beta": 2.888852479636228e-06,
+            "psi": 0.13198884574565595,
+            "rear_slip": 0.0014958398560398288,
+            "speed": 14.935233708279444,
+            "x": 28.3307597551122,
+            "y": 3.1144102575810604
+          },
+          {
+            "beta": 2.5807613239408117e-06,
+            "psi": 0.13198697837938456,
+            "rear_slip": 0.0014864670240239141,
+            "speed": 14.926948352446475,
+            "x": 28.626795896879894,
+            "y": 3.153712956893796
+          },
+          {
+            "beta": 2.6589600583175726e-06,
+            "psi": 0.13198516099796076,
+            "rear_slip": 0.0014753375331278227,
+            "speed": 14.918639245405076,
+            "x": 28.922666962917464,
+            "y": 3.1929931963044944
+          },
+          {
+            "beta": 2.6127586041507617e-06,
+            "psi": 0.13198348717799147,
+            "rear_slip": 0.0014874149852258127,
+            "speed": 14.910315058495474,
+            "x": 29.218372957912674,
+            "y": 3.2322510407317333
+          },
+          {
+            "beta": 2.6789550050322675e-06,
+            "psi": 0.1319818689868073,
+            "rear_slip": 0.0014852729320332532,
+            "speed": 14.901948026047192,
+            "x": 29.51391356155632,
+            "y": 3.2714864229714036
+          },
+          {
+            "beta": 2.4138654374854792e-06,
+            "psi": 0.13198021146795805,
+            "rear_slip": 0.0014735242767192939,
+            "speed": 14.893635437531708,
+            "x": 29.809288874664965,
+            "y": 3.3106993168523484
+          },
+          {
+            "beta": 2.521209687474725e-06,
+            "psi": 0.13197864128722214,
+            "rear_slip": 0.0014918928591390321,
+            "speed": 14.885322944233227,
+            "x": 30.104498938659805,
+            "y": 3.349889796150964
+          },
+          {
+            "beta": 2.290971882303318e-06,
+            "psi": 0.13197714780652547,
+            "rear_slip": 0.001484346159768988,
+            "speed": 14.87696000072458,
+            "x": 30.399543421680633,
+            "y": 3.389057830899834
+          },
+          {
+            "beta": 2.3880043570065817e-06,
+            "psi": 0.13197561395556812,
+            "rear_slip": 0.0014822377217656997,
+            "speed": 14.868617972770444,
+            "x": 30.694422306850566,
+            "y": 3.428203371822146
+          },
+          {
+            "beta": 2.01817996393947e-06,
+            "psi": 0.13197408072116779,
+            "rear_slip": 0.0014611899147583536,
+            "speed": 14.860219734199225,
+            "x": 30.989135634445564,
+            "y": 3.4673264424263666
+          },
+          {
+            "beta": 2.277547613077713e-06,
+            "psi": 0.13197264836566602,
+            "rear_slip": 0.0014901020232880053,
+            "speed": 14.851873451632077,
+            "x": 31.283683378756887,
+            "y": 3.5064271042693935
+          },
+          {
+            "beta": 1.8446540659319044e-06,
+            "psi": 0.13197119893615628,
+            "rear_slip": 0.0014780338088295833,
+            "speed": 14.843524940433788,
+            "x": 31.578065289868857,
+            "y": 3.5455052788426316
+          },
+          {
+            "beta": 1.8974920044460692e-06,
+            "psi": 0.13196968899057082,
+            "rear_slip": 0.0014751769732585663,
+            "speed": 14.835184163380008,
+            "x": 31.872281419079425,
+            "y": 3.584560948591274
+          },
+          {
+            "beta": 1.9646093593148447e-06,
+            "psi": 0.13196824664749807,
+            "rear_slip": 0.0014863358002416551,
+            "speed": 14.826820645080742,
+            "x": 32.16633187888936,
+            "y": 3.6235941964832996
+          },
+          {
+            "beta": 2.091684077446554e-06,
+            "psi": 0.1319668518230375,
+            "rear_slip": 0.0014852720344140228,
+            "speed": 14.818382359899331,
+            "x": 32.460216239992796,
+            "y": 3.662604963923073
+          },
+          {
+            "beta": 1.546091541651463e-06,
+            "psi": 0.13196536465282205,
+            "rear_slip": 0.001483785841902101,
+            "speed": 14.810077033299974,
+            "x": 32.753934748096135,
+            "y": 3.7015932255998996
+          },
+          {
+            "beta": 1.8091282809446891e-06,
+            "psi": 0.1319638843853328,
+            "rear_slip": 0.0014777650234873538,
+            "speed": 14.801704794509876,
+            "x": 33.04748733214104,
+            "y": 3.740559007861638
+          },
+          {
+            "beta": 1.7462060524070873e-06,
+            "psi": 0.13196247910803183,
+            "rear_slip": 0.0014849958798014322,
+            "speed": 14.793332134035134,
+            "x": 33.34087389294615,
+            "y": 3.779502344553647
+          }
+        ],
+        "budget": {
+          "elites": 2,
+          "horizon_s": 2.2,
+          "iterations": 2,
+          "population": 6,
+          "search_seeds": 1,
+          "segments": 7
+        },
+        "cell_id": "g3_quick_chrono_mu0p48_v16",
+        "history": [
+          {
+            "best_distance_m": 11.0,
+            "best_score": 9768.26438232144,
+            "iteration": 0,
+            "mode_valid_count": 5,
+            "success_count": 0
+          },
+          {
+            "best_distance_m": 11.0,
+            "best_score": 9768.26438232144,
+            "iteration": 1,
+            "mode_valid_count": 5,
+            "success_count": 0
+          }
+        ],
+        "refined": {
+          "boundary": {
+            "arm": "grip",
+            "collision": false,
+            "controlled_slide_onset_front_x_m": null,
+            "controlled_slide_onset_index": null,
+            "controlled_slide_onset_time_s": null,
+            "distance_m": 18.799999999999958,
+            "free_mode_classification": "grip_like",
+            "max_beta_until_pass_rad": 0.02834405050766158,
+            "max_controlled_slide_dwell_steps": 0,
+            "min_sat_separation_m": 0.003812717065478921,
+            "min_speed_until_pass_mps": 15.116591825980937,
+            "mode_valid": true,
+            "obstacle_contact_plane_x_m": 18.14999999999996,
+            "offroad": false,
+            "onset_before_contact": false,
+            "passed": true,
+            "score": 12536.076254341311,
+            "stable": true,
+            "success": true
+          },
+          "d_star_m": 18.799999999999958,
+          "success_count": 73
+        },
+        "replay": {
+          "exact_pass": true,
+          "max_abs_error": 0.0,
+          "same_shape": true
+        },
+        "seed": 943823248
+      },
+      {
+        "arm": "required_slide",
+        "backend": "chrono",
+        "best_search_distance_m": 23.0,
+        "best_search_result": {
+          "arm": "required_slide",
+          "collision": false,
+          "controlled_slide_onset_front_x_m": 11.689952529678594,
+          "controlled_slide_onset_index": 32,
+          "controlled_slide_onset_time_s": 0.64,
+          "distance_m": 23.0,
+          "finite_rear_tire_steps": 110,
+          "free_mode_classification": "controlled_slide_like",
+          "max_beta_until_pass_rad": 0.24970950514492996,
+          "max_controlled_slide_dwell_steps": 20,
+          "min_sat_separation_m": 0.293587865667579,
+          "min_speed_until_pass_mps": 9.865334185365736,
+          "mode_valid": true,
+          "obstacle_contact_plane_x_m": 22.35,
+          "offroad": false,
+          "onset_before_contact": true,
+          "passed": true,
+          "score": 12415.87175731335,
+          "stable": true,
+          "success": true
+        },
+        "best_segments_physical": [
+          [
+            0.9751593361128598,
+            0.0,
+            0.9622634172054572
+          ],
+          [
+            1.0,
+            0.0030571752600953885,
+            0.9567326465816461
+          ],
+          [
+            0.8371006628136736,
+            0.5549048530882448,
+            0.24851554830444048
+          ],
+          [
+            -0.17362086350013822,
+            0.2809362478595899,
+            0.047245408047538406
+          ],
+          [
+            0.046177797684455846,
+            0.0,
+            0.0
+          ],
+          [
+            -0.9898301733331296,
+            0.36795453242869364,
+            0.9362393094752386
+          ],
+          [
+            -0.9272483844683359,
+            0.37203046613515334,
+            0.07617738916704925
+          ]
+        ],
+        "best_trajectory": [
+          {
+            "beta": 0.0,
+            "psi": 0.0,
+            "rear_slip": 0.0,
+            "speed": 16.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          {
+            "beta": 7.293095877439798e-05,
+            "psi": -0.00029981444788174105,
+            "rear_slip": 0.0016270427807086186,
+            "speed": 15.920678809841444,
+            "x": 0.31918420595608343,
+            "y": -0.00047093217075735994
+          },
+          {
+            "beta": 0.0015452438059323738,
+            "psi": -0.00015334795188259864,
+            "rear_slip": 0.0027777100132824104,
+            "speed": 15.84396889325876,
+            "x": 0.6365390148121002,
+            "y": -0.0003553418207047909
+          },
+          {
+            "beta": 0.0030874873050968327,
+            "psi": 0.00110439909893556,
+            "rear_slip": 0.006084386766283755,
+            "speed": 15.775679167813568,
+            "x": 0.9522604364647861,
+            "y": 0.0008400939117991779
+          },
+          {
+            "beta": 0.003604865325311141,
+            "psi": 0.003448080731838443,
+            "rear_slip": 0.010787737111465807,
+            "speed": 15.709337339420989,
+            "x": 1.2665747055159138,
+            "y": 0.0028755005743025253
+          },
+          {
+            "beta": 0.003006146770640542,
+            "psi": 0.006794831783559663,
+            "rear_slip": 0.016510660650639022,
+            "speed": 15.637882056928682,
+            "x": 1.5795031023759551,
+            "y": 0.0055549198093500785
+          },
+          {
+            "beta": 0.0012182026318704197,
+            "psi": 0.011088298071599834,
+            "rear_slip": 0.023218494991134646,
+            "speed": 15.56052624626879,
+            "x": 1.8910493331996623,
+            "y": 0.008831107313571507
+          },
+          {
+            "beta": 0.0017520085616498297,
+            "psi": 0.016284616799438822,
+            "rear_slip": 0.030151205235313824,
+            "speed": 15.476595926030347,
+            "x": 2.201096540823518,
+            "y": 0.012697796784350457
+          },
+          {
+            "beta": 0.005834926174539102,
+            "psi": 0.022356289716165545,
+            "rear_slip": 0.03822370583659609,
+            "speed": 15.388121012831196,
+            "x": 2.5094551594790575,
+            "y": 0.017132986028573605
+          },
+          {
+            "beta": 0.011012664505574593,
+            "psi": 0.02920459566840361,
+            "rear_slip": 0.0468560278741431,
+            "speed": 15.295388264616147,
+            "x": 2.8160043037987736,
+            "y": 0.02207947811610178
+          },
+          {
+            "beta": 0.017163162686692397,
+            "psi": 0.03672499740684454,
+            "rear_slip": 0.056114563208076174,
+            "speed": 15.200678211269306,
+            "x": 3.1206806521560595,
+            "y": 0.02747429914711952
+          },
+          {
+            "beta": 0.02417243834718604,
+            "psi": 0.044809877436437384,
+            "rear_slip": 0.06578683593429052,
+            "speed": 15.104923357104562,
+            "x": 3.4234542710349327,
+            "y": 0.03324335378353771
+          },
+          {
+            "beta": 0.03190667307370851,
+            "psi": 0.05335130309709968,
+            "rear_slip": 0.07567992655499223,
+            "speed": 15.008709762907715,
+            "x": 3.724317211352039,
+            "y": 0.03929953703132316
+          },
+          {
+            "beta": 0.04024352408171636,
+            "psi": 0.062248405000489226,
+            "rear_slip": 0.0859432438968354,
+            "speed": 14.912937785894501,
+            "x": 4.02326413074633,
+            "y": 0.045556554490119305
+          },
+          {
+            "beta": 0.0490862973308272,
+            "psi": 0.07140792986145195,
+            "rear_slip": 0.0962941549327368,
+            "speed": 14.816579096196168,
+            "x": 4.32030092317626,
+            "y": 0.0519334511256655
+          },
+          {
+            "beta": 0.05834372732426047,
+            "psi": 0.08075308660871583,
+            "rear_slip": 0.10623754862439615,
+            "speed": 14.720177041515779,
+            "x": 4.615428933736632,
+            "y": 0.058433444993062356
+          },
+          {
+            "beta": 0.0678781616634869,
+            "psi": 0.09020873645374561,
+            "rear_slip": 0.11589780936473719,
+            "speed": 14.624184562334493,
+            "x": 4.9086406772590205,
+            "y": 0.06509126342696803
+          },
+          {
+            "beta": 0.07740056283541041,
+            "psi": 0.09967727207237821,
+            "rear_slip": 0.12518487635741785,
+            "speed": 14.530917875242675,
+            "x": 5.199941528248574,
+            "y": 0.07201540539187912
+          },
+          {
+            "beta": 0.08675793370239396,
+            "psi": 0.10903841721078134,
+            "rear_slip": 0.13440680922984216,
+            "speed": 14.436442819006757,
+            "x": 5.489352547705961,
+            "y": 0.07894070722630708
+          },
+          {
+            "beta": 0.09601764888598983,
+            "psi": 0.11821813688916605,
+            "rear_slip": 0.1435684136080989,
+            "speed": 14.342377985315192,
+            "x": 5.776892118886295,
+            "y": 0.08570156006120966
+          },
+          {
+            "beta": 0.10501463288067946,
+            "psi": 0.1272256327694603,
+            "rear_slip": 0.15247288709509674,
+            "speed": 14.248366608753026,
+            "x": 6.062563800287214,
+            "y": 0.09231723437029693
+          },
+          {
+            "beta": 0.11390000212351185,
+            "psi": 0.13608018919450293,
+            "rear_slip": 0.1611719215251683,
+            "speed": 14.153207507708148,
+            "x": 6.346364060583017,
+            "y": 0.09882512075686734
+          },
+          {
+            "beta": 0.12267894137606937,
+            "psi": 0.14479220640437906,
+            "rear_slip": 0.16963051610763913,
+            "speed": 14.059677293275893,
+            "x": 6.628294801868347,
+            "y": 0.10524300164772793
+          },
+          {
+            "beta": 0.13130155635721613,
+            "psi": 0.15337066975779123,
+            "rear_slip": 0.17828886937867328,
+            "speed": 13.965916813355344,
+            "x": 6.908351282294255,
+            "y": 0.11158936540060083
+          },
+          {
+            "beta": 0.13972525875602826,
+            "psi": 0.16181710788274506,
+            "rear_slip": 0.18658452231981718,
+            "speed": 13.871583191745785,
+            "x": 7.1865338080967,
+            "y": 0.11785832262856921
+          },
+          {
+            "beta": 0.14808292679464755,
+            "psi": 0.1701348693423168,
+            "rear_slip": 0.19459567097783376,
+            "speed": 13.77736882860863,
+            "x": 7.462843505060654,
+            "y": 0.1240570386034654
+          },
+          {
+            "beta": 0.15631793050093942,
+            "psi": 0.17832667741068153,
+            "rear_slip": 0.2025418325684559,
+            "speed": 13.682848293331798,
+            "x": 7.737280449715275,
+            "y": 0.13018803201815565
+          },
+          {
+            "beta": 0.16443799659901204,
+            "psi": 0.1863969518843177,
+            "rear_slip": 0.21069539772800217,
+            "speed": 13.589126638611896,
+            "x": 8.00984446533023,
+            "y": 0.1362597585486678
+          },
+          {
+            "beta": 0.17241436503755705,
+            "psi": 0.1943470131787559,
+            "rear_slip": 0.21838725663263178,
+            "speed": 13.4951493488041,
+            "x": 8.280536960563829,
+            "y": 0.14226528005477235
+          },
+          {
+            "beta": 0.18022259408496205,
+            "psi": 0.20218182759122516,
+            "rear_slip": 0.2261887886747325,
+            "speed": 13.401271767966856,
+            "x": 8.549358381965948,
+            "y": 0.14821331075978073
+          },
+          {
+            "beta": 0.18798140950718178,
+            "psi": 0.20990277628842868,
+            "rear_slip": 0.23360920162528312,
+            "speed": 13.30750213563617,
+            "x": 8.816309876426073,
+            "y": 0.15410736792318103
+          },
+          {
+            "beta": 0.19562125088358145,
+            "psi": 0.2175105344088678,
+            "rear_slip": 0.2409821346788766,
+            "speed": 13.214104567488587,
+            "x": 9.081392349179852,
+            "y": 0.15994402504799332
+          },
+          {
+            "beta": 0.20315599878948334,
+            "psi": 0.22501001638865395,
+            "rear_slip": 0.24824381214723065,
+            "speed": 13.120010216228142,
+            "x": 9.344605897185104,
+            "y": 0.1657274430771576
+          },
+          {
+            "beta": 0.21066655270887769,
+            "psi": 0.23250442624856815,
+            "rear_slip": 0.25573606852253916,
+            "speed": 13.02678019499509,
+            "x": 9.6059288709905,
+            "y": 0.1714899005892061
+          },
+          {
+            "beta": 0.2180081665074472,
+            "psi": 0.23985566730272245,
+            "rear_slip": 0.26281191512617835,
+            "speed": 12.93381364882193,
+            "x": 9.865402046799709,
+            "y": 0.1771842883573802
+          },
+          {
+            "beta": 0.22522196329771854,
+            "psi": 0.24708222023272652,
+            "rear_slip": 0.2696340771549439,
+            "speed": 12.840573933818794,
+            "x": 10.123017665305287,
+            "y": 0.1828740697767257
+          },
+          {
+            "beta": 0.23210824704314692,
+            "psi": 0.25415652163551694,
+            "rear_slip": 0.27566928246861205,
+            "speed": 12.74687207232628,
+            "x": 10.378776378836584,
+            "y": 0.1886318751645062
+          },
+          {
+            "beta": 0.23834555076283037,
+            "psi": 0.2609886049273761,
+            "rear_slip": 0.2804909520073241,
+            "speed": 12.653251100213897,
+            "x": 10.632670375825299,
+            "y": 0.1945056662575313
+          },
+          {
+            "beta": 0.24359716130664247,
+            "psi": 0.26745667070326185,
+            "rear_slip": 0.2835672773700176,
+            "speed": 12.560875548814353,
+            "x": 10.884700532602196,
+            "y": 0.20057454596591295
+          },
+          {
+            "beta": 0.24738460985734045,
+            "psi": 0.2734220404856441,
+            "rear_slip": 0.2841663049651393,
+            "speed": 12.47283809604593,
+            "x": 11.134910603704231,
+            "y": 0.20703483019742475
+          },
+          {
+            "beta": 0.24935534950900717,
+            "psi": 0.278743575107248,
+            "rear_slip": 0.28208924618169273,
+            "speed": 12.393463053483453,
+            "x": 11.383421803549677,
+            "y": 0.21417545769689372
+          },
+          {
+            "beta": 0.24970950514492996,
+            "psi": 0.2833697352649186,
+            "rear_slip": 0.2783072196087855,
+            "speed": 12.322740016133169,
+            "x": 11.630417292462303,
+            "y": 0.22223957259607996
+          },
+          {
+            "beta": 0.24870098935271284,
+            "psi": 0.2873105754081461,
+            "rear_slip": 0.2733521294502631,
+            "speed": 12.2582902006209,
+            "x": 11.876042817619332,
+            "y": 0.23138302960844292
+          },
+          {
+            "beta": 0.2465181265111833,
+            "psi": 0.2906130661207441,
+            "rear_slip": 0.26755911465185317,
+            "speed": 12.198411295025071,
+            "x": 12.120398060095248,
+            "y": 0.2417230625807969
+          },
+          {
+            "beta": 0.24330658525300566,
+            "psi": 0.29335405537292436,
+            "rear_slip": 0.26130680792596644,
+            "speed": 12.142556875733957,
+            "x": 12.363555921684647,
+            "y": 0.2533693319815953
+          },
+          {
+            "beta": 0.23921169993532151,
+            "psi": 0.2956181436944173,
+            "rear_slip": 0.254565515707104,
+            "speed": 12.090556159517016,
+            "x": 12.605574989686858,
+            "y": 0.26642683565937997
+          },
+          {
+            "beta": 0.23444125746349723,
+            "psi": 0.2974670613269562,
+            "rear_slip": 0.2474201903905205,
+            "speed": 12.041179716558117,
+            "x": 12.84649421273464,
+            "y": 0.2809730760282969
+          },
+          {
+            "beta": 0.2290739209895021,
+            "psi": 0.2989439423155681,
+            "rear_slip": 0.23991046157015888,
+            "speed": 11.994419636438627,
+            "x": 13.086356611352286,
+            "y": 0.2970536683583296
+          },
+          {
+            "beta": 0.22315517354101833,
+            "psi": 0.3000851343641557,
+            "rear_slip": 0.2320548569842679,
+            "speed": 11.950606270184739,
+            "x": 13.325204978593646,
+            "y": 0.314712261244388
+          },
+          {
+            "beta": 0.21686493303290325,
+            "psi": 0.30114200432586524,
+            "rear_slip": 0.22404698975260773,
+            "speed": 11.909175007809706,
+            "x": 13.563061360409751,
+            "y": 0.33400196949182615
+          },
+          {
+            "beta": 0.21022838822474751,
+            "psi": 0.3019070628665196,
+            "rear_slip": 0.21573249108983417,
+            "speed": 11.871521278973336,
+            "x": 13.800001726345783,
+            "y": 0.3549333212119645
+          },
+          {
+            "beta": 0.20309864012043158,
+            "psi": 0.3023892655975108,
+            "rear_slip": 0.20682595101689427,
+            "speed": 11.836654524710358,
+            "x": 14.036047720906154,
+            "y": 0.37758130873322227
+          },
+          {
+            "beta": 0.1954696208002879,
+            "psi": 0.30261307169752205,
+            "rear_slip": 0.19762225800054273,
+            "speed": 11.804694135515469,
+            "x": 14.271237868514675,
+            "y": 0.4019984559436356
+          },
+          {
+            "beta": 0.18733999656521833,
+            "psi": 0.3026099727941296,
+            "rear_slip": 0.18814710743362317,
+            "speed": 11.776100160964202,
+            "x": 14.505619425220697,
+            "y": 0.42823279115122315
+          },
+          {
+            "beta": 0.1787178283564005,
+            "psi": 0.3024182063194575,
+            "rear_slip": 0.17846821539542215,
+            "speed": 11.751359906585423,
+            "x": 14.73924661455273,
+            "y": 0.45634656753943137
+          },
+          {
+            "beta": 0.1696092030057704,
+            "psi": 0.3020738186930687,
+            "rear_slip": 0.16853113899232983,
+            "speed": 11.732365250977796,
+            "x": 14.972192339649009,
+            "y": 0.486417901539383
+          },
+          {
+            "beta": 0.16004938242482994,
+            "psi": 0.3015271129078711,
+            "rear_slip": 0.1579622262981937,
+            "speed": 11.72198186032415,
+            "x": 15.204575215138622,
+            "y": 0.5185302671548699
+          },
+          {
+            "beta": 0.150139497895113,
+            "psi": 0.3007562248420811,
+            "rear_slip": 0.14666640751822368,
+            "speed": 11.722819678689735,
+            "x": 15.436573021097582,
+            "y": 0.5527652246423544
+          },
+          {
+            "beta": 0.14011141766434837,
+            "psi": 0.2996688842111457,
+            "rear_slip": 0.13446749052450263,
+            "speed": 11.73478373017652,
+            "x": 15.668407631990092,
+            "y": 0.5891229852924722
+          },
+          {
+            "beta": 0.13007011451788025,
+            "psi": 0.29808160094747926,
+            "rear_slip": 0.12096556997283493,
+            "speed": 11.754824608457037,
+            "x": 15.900272335019856,
+            "y": 0.6275248031463843
+          },
+          {
+            "beta": 0.11995850563980338,
+            "psi": 0.29575896180851313,
+            "rear_slip": 0.10593818421486122,
+            "speed": 11.778847550529138,
+            "x": 16.13228537358594,
+            "y": 0.6678474634896974
+          },
+          {
+            "beta": 0.10961360266426119,
+            "psi": 0.29246479905842754,
+            "rear_slip": 0.08935767857053574,
+            "speed": 11.80325175148078,
+            "x": 16.364493565948578,
+            "y": 0.7099406473564329
+          },
+          {
+            "beta": 0.09888259449406926,
+            "psi": 0.28801365749243735,
+            "rear_slip": 0.07160009089454429,
+            "speed": 11.826632191429184,
+            "x": 16.59689997352006,
+            "y": 0.7536349387054377
+          },
+          {
+            "beta": 0.08776099050930204,
+            "psi": 0.28231971239671205,
+            "rear_slip": 0.053393057510201423,
+            "speed": 11.849421556194292,
+            "x": 16.829508943476892,
+            "y": 0.798742476023472
+          },
+          {
+            "beta": 0.07521320367707617,
+            "psi": 0.2753646779619171,
+            "rear_slip": 0.03640946363995961,
+            "speed": 11.868278030676747,
+            "x": 17.062305400306975,
+            "y": 0.8451433007049314
+          },
+          {
+            "beta": 0.061889618480208866,
+            "psi": 0.2682024243720321,
+            "rear_slip": 0.023541018936110165,
+            "speed": 11.882346118307819,
+            "x": 17.295067735583856,
+            "y": 0.893077289501881
+          },
+          {
+            "beta": 0.04946569079119071,
+            "psi": 0.26139592604584705,
+            "rear_slip": 0.014339221866084793,
+            "speed": 11.893231538594476,
+            "x": 17.52773575810942,
+            "y": 0.942392433812163
+          },
+          {
+            "beta": 0.03843834997472395,
+            "psi": 0.25528359791013,
+            "rear_slip": 0.008158809202701726,
+            "speed": 11.901008907900946,
+            "x": 17.76030570339231,
+            "y": 0.9928738936279746
+          },
+          {
+            "beta": 0.028975024446093654,
+            "psi": 0.25007486426922376,
+            "rear_slip": 0.004311935849042475,
+            "speed": 11.905459843890275,
+            "x": 17.992753059659716,
+            "y": 1.0443784515690986
+          },
+          {
+            "beta": 0.021114644048552417,
+            "psi": 0.24585979597895646,
+            "rear_slip": 0.0022204840539333083,
+            "speed": 11.906008163471418,
+            "x": 18.22503369564802,
+            "y": 1.0967897049559099
+          },
+          {
+            "beta": 0.014797540735222105,
+            "psi": 0.24263036215028988,
+            "rear_slip": 0.001657503245149266,
+            "speed": 11.903146837620675,
+            "x": 18.457105182807503,
+            "y": 1.1499830292562443
+          },
+          {
+            "beta": 0.009862048491014413,
+            "psi": 0.24030019652718626,
+            "rear_slip": 0.0018774722701004039,
+            "speed": 11.897086444805595,
+            "x": 18.688930980757334,
+            "y": 1.2038340841247397
+          },
+          {
+            "beta": 0.006131372546989725,
+            "psi": 0.23873629609883854,
+            "rear_slip": 0.0016940133843738041,
+            "speed": 11.88903255299276,
+            "x": 18.920489347275165,
+            "y": 1.2582235975285894
+          },
+          {
+            "beta": 0.0033457118097421725,
+            "psi": 0.2378050602087037,
+            "rear_slip": 0.0017809042834817496,
+            "speed": 11.879674914966305,
+            "x": 19.151769590983633,
+            "y": 1.3130577879875585
+          },
+          {
+            "beta": 0.0012986526186196004,
+            "psi": 0.23739018392062972,
+            "rear_slip": 0.0023443575077742237,
+            "speed": 11.869418076187914,
+            "x": 19.38276344328218,
+            "y": 1.3682715948075437
+          },
+          {
+            "beta": 0.0001864884057362856,
+            "psi": 0.23739214109517537,
+            "rear_slip": 0.0029493209039350996,
+            "speed": 11.858565487069406,
+            "x": 19.613464588735486,
+            "y": 1.42381977544275
+          },
+          {
+            "beta": 0.001253640915486255,
+            "psi": 0.23772678549948123,
+            "rear_slip": 0.0035550472578338706,
+            "speed": 11.847366458670328,
+            "x": 19.843868194961843,
+            "y": 1.4796723338286828
+          },
+          {
+            "beta": 0.0020059978308891633,
+            "psi": 0.23832444766077046,
+            "rear_slip": 0.004082990988362722,
+            "speed": 11.83578780441686,
+            "x": 20.073970409382685,
+            "y": 1.5358093288176669
+          },
+          {
+            "beta": 0.002518806870465226,
+            "psi": 0.23912914877803804,
+            "rear_slip": 0.004591317389682487,
+            "speed": 11.824014258335458,
+            "x": 20.30376820385652,
+            "y": 1.592215769212899
+          },
+          {
+            "beta": 0.0028549809996875016,
+            "psi": 0.24009584222293426,
+            "rear_slip": 0.005050714147569699,
+            "speed": 11.812051443712438,
+            "x": 20.533259000325135,
+            "y": 1.6488812324394235
+          },
+          {
+            "beta": 0.001987847167534385,
+            "psi": 0.24132778916847075,
+            "rear_slip": 0.004766175295092393,
+            "speed": 11.780406376370264,
+            "x": 20.762289111148,
+            "y": 1.705689769343694
+          },
+          {
+            "beta": 0.0015597367442796222,
+            "psi": 0.24165361395226578,
+            "rear_slip": 0.0016523293525518253,
+            "speed": 11.731894687769417,
+            "x": 20.990602910660954,
+            "y": 1.7616764673618768
+          },
+          {
+            "beta": 0.004968744941064464,
+            "psi": 0.2406683200592855,
+            "rear_slip": 0.005540908434104944,
+            "speed": 11.669168698296566,
+            "x": 21.21801375507899,
+            "y": 1.816332219908336
+          },
+          {
+            "beta": 0.007476126063145867,
+            "psi": 0.23852064251328642,
+            "rear_slip": 0.009878309577748908,
+            "speed": 11.596254583188133,
+            "x": 21.44428171715452,
+            "y": 1.8696753094382057
+          },
+          {
+            "beta": 0.009015101124266236,
+            "psi": 0.2353944340451508,
+            "rear_slip": 0.014328767650324785,
+            "speed": 11.517807545836815,
+            "x": 21.669266115708552,
+            "y": 1.9217250914477457
+          },
+          {
+            "beta": 0.009584812569959737,
+            "psi": 0.23146378916144972,
+            "rear_slip": 0.018889669963239222,
+            "speed": 11.43807334054801,
+            "x": 21.892919913316625,
+            "y": 1.972499104937846
+          },
+          {
+            "beta": 0.009220270067855817,
+            "psi": 0.2268557634644347,
+            "rear_slip": 0.023879657159752234,
+            "speed": 11.357980037171401,
+            "x": 22.115218194508262,
+            "y": 2.02202889829284
+          },
+          {
+            "beta": 0.007921999307379963,
+            "psi": 0.2215249923002437,
+            "rear_slip": 0.02989001561017481,
+            "speed": 11.275690009470905,
+            "x": 22.33611553921705,
+            "y": 2.0703584753236797
+          },
+          {
+            "beta": 0.005456210367937327,
+            "psi": 0.21541515037828307,
+            "rear_slip": 0.03771680005795229,
+            "speed": 11.194837275072356,
+            "x": 22.555598930813364,
+            "y": 2.1175723133329694
+          },
+          {
+            "beta": 0.0018592294436363085,
+            "psi": 0.20851870881533496,
+            "rear_slip": 0.046703857888063,
+            "speed": 11.112785492915542,
+            "x": 22.773642881690048,
+            "y": 2.1637398224880755
+          },
+          {
+            "beta": 0.002792194571914619,
+            "psi": 0.20088911754055772,
+            "rear_slip": 0.056479632909475296,
+            "speed": 11.02728062692217,
+            "x": 22.990193769282065,
+            "y": 2.2088911664302895
+          },
+          {
+            "beta": 0.008385218577285672,
+            "psi": 0.19260100830562032,
+            "rear_slip": 0.06617919178856375,
+            "speed": 10.938870758574645,
+            "x": 23.2051869059328,
+            "y": 2.253067874300859
+          },
+          {
+            "beta": 0.014855516112135234,
+            "psi": 0.1837396233580244,
+            "rear_slip": 0.07727572889073096,
+            "speed": 10.849672861285969,
+            "x": 23.41855877042279,
+            "y": 2.296330487943049
+          },
+          {
+            "beta": 0.022044875991551152,
+            "psi": 0.1743900581307618,
+            "rear_slip": 0.0880666924480187,
+            "speed": 10.757894296786931,
+            "x": 23.63026815529927,
+            "y": 2.338753931536374
+          },
+          {
+            "beta": 0.029867011904145854,
+            "psi": 0.16463692084339754,
+            "rear_slip": 0.09935824661865766,
+            "speed": 10.665560474038354,
+            "x": 23.840278352729605,
+            "y": 2.3804003759961816
+          },
+          {
+            "beta": 0.03825836581463353,
+            "psi": 0.15455282608030518,
+            "rear_slip": 0.11073991459140475,
+            "speed": 10.572539763791546,
+            "x": 24.048550399509658,
+            "y": 2.421317265406806
+          },
+          {
+            "beta": 0.04714049373641124,
+            "psi": 0.14415084038534975,
+            "rear_slip": 0.12222675623337383,
+            "speed": 10.479067884317292,
+            "x": 24.255064104159032,
+            "y": 2.4614998145314892
+          },
+          {
+            "beta": 0.05621248271352069,
+            "psi": 0.13352584689880967,
+            "rear_slip": 0.13346127236212796,
+            "speed": 10.386224202869961,
+            "x": 24.459846199584767,
+            "y": 2.500928136318027
+          },
+          {
+            "beta": 0.06515501579319485,
+            "psi": 0.12273022901165609,
+            "rear_slip": 0.14432775940705755,
+            "speed": 10.293358394736078,
+            "x": 24.662909794589655,
+            "y": 2.539590651580083
+          },
+          {
+            "beta": 0.07354540074022485,
+            "psi": 0.11184746959229008,
+            "rear_slip": 0.15400660855644896,
+            "speed": 10.201373923105633,
+            "x": 24.864261566517804,
+            "y": 2.5774412767614123
+          },
+          {
+            "beta": 0.08027684933449618,
+            "psi": 0.1010571047458313,
+            "rear_slip": 0.1597394297775157,
+            "speed": 10.113563067927197,
+            "x": 25.063969883645434,
+            "y": 2.614282220117378
+          },
+          {
+            "beta": 0.08385309399979507,
+            "psi": 0.09075437588624535,
+            "rear_slip": 0.15877284226100272,
+            "speed": 10.047449663263233,
+            "x": 25.262361022626727,
+            "y": 2.6496152494004725
+          },
+          {
+            "beta": 0.08567200703591502,
+            "psi": 0.0811742760507852,
+            "rear_slip": 0.1550937204903054,
+            "speed": 9.99632679424915,
+            "x": 25.459907389483654,
+            "y": 2.683205360463118
+          },
+          {
+            "beta": 0.08627720127750875,
+            "psi": 0.07234690919428854,
+            "rear_slip": 0.15079055424467663,
+            "speed": 9.949520372394499,
+            "x": 25.656761098424077,
+            "y": 2.7150942189308616
+          },
+          {
+            "beta": 0.08584615810662913,
+            "psi": 0.06420064774772793,
+            "rear_slip": 0.14611471510415933,
+            "speed": 9.905735574688773,
+            "x": 25.852984203284006,
+            "y": 2.7452800908686044
+          },
+          {
+            "beta": 0.08450663346314198,
+            "psi": 0.056649946873365775,
+            "rear_slip": 0.14103632503824173,
+            "speed": 9.865334185365736,
+            "x": 26.04863580675866,
+            "y": 2.773708037064109
+          },
+          {
+            "beta": 0.08236785568535727,
+            "psi": 0.049622317862890286,
+            "rear_slip": 0.13547272659812096,
+            "speed": 9.827966715337327,
+            "x": 26.243774457185694,
+            "y": 2.80031301618477
+          },
+          {
+            "beta": 0.07948968840881772,
+            "psi": 0.04306504212113538,
+            "rear_slip": 0.129385760240743,
+            "speed": 9.794130235917732,
+            "x": 26.438455571672012,
+            "y": 2.825043428229547
+          },
+          {
+            "beta": 0.07595249051309239,
+            "psi": 0.03694273419669203,
+            "rear_slip": 0.12279543948351751,
+            "speed": 9.763402234428774,
+            "x": 26.63273043584686,
+            "y": 2.847862712469201
+          },
+          {
+            "beta": 0.0718042748270665,
+            "psi": 0.031232984046632994,
+            "rear_slip": 0.11571288418514741,
+            "speed": 9.735810042874034,
+            "x": 26.826646214775714,
+            "y": 2.8687438319380707
+          },
+          {
+            "beta": 0.0670971715085506,
+            "psi": 0.025920922008260128,
+            "rear_slip": 0.10815575909870014,
+            "speed": 9.711403103006813,
+            "x": 27.02024679757877,
+            "y": 2.8876659900333888
+          }
+        ],
+        "budget": {
+          "elites": 2,
+          "horizon_s": 2.2,
+          "iterations": 2,
+          "population": 6,
+          "search_seeds": 1,
+          "segments": 7
+        },
+        "cell_id": "g3_quick_chrono_mu0p48_v16",
+        "history": [
+          {
+            "best_distance_m": 23.0,
+            "best_score": 12415.87175731335,
+            "iteration": 0,
+            "mode_valid_count": 2,
+            "success_count": 1
+          },
+          {
+            "best_distance_m": 23.0,
+            "best_score": 12415.87175731335,
+            "iteration": 1,
+            "mode_valid_count": 2,
+            "success_count": 1
+          }
+        ],
+        "refined": {
+          "boundary": {
+            "arm": "required_slide",
+            "collision": false,
+            "controlled_slide_onset_front_x_m": 11.689952529678594,
+            "controlled_slide_onset_index": 32,
+            "controlled_slide_onset_time_s": 0.64,
+            "distance_m": 21.799999999999947,
+            "free_mode_classification": "controlled_slide_like",
+            "max_beta_until_pass_rad": 0.24970950514492996,
+            "max_controlled_slide_dwell_steps": 20,
+            "min_sat_separation_m": 0.0190717992426368,
+            "min_speed_until_pass_mps": 10.201373923105633,
+            "mode_valid": true,
+            "obstacle_contact_plane_x_m": 21.14999999999995,
+            "offroad": false,
+            "onset_before_contact": true,
+            "passed": true,
+            "score": 12446.381435984855,
+            "stable": true,
+            "success": true
+          },
+          "d_star_m": 21.799999999999947,
+          "success_count": 24
+        },
+        "replay": {
+          "exact_pass": true,
+          "max_abs_error": 0.0,
+          "same_shape": true
+        },
+        "seed": 49883763
+      },
+      {
+        "arm": "free",
+        "backend": "chrono",
+        "best_search_distance_m": 11.0,
+        "best_search_result": {
+          "arm": "free",
+          "collision": true,
+          "controlled_slide_onset_front_x_m": null,
+          "controlled_slide_onset_index": null,
+          "controlled_slide_onset_time_s": null,
+          "distance_m": 11.0,
+          "finite_rear_tire_steps": 110,
+          "free_mode_classification": "grip_like",
+          "max_beta_until_pass_rad": 0.027780257813387894,
+          "max_controlled_slide_dwell_steps": 0,
+          "min_sat_separation_m": -0.06237230846595487,
+          "min_speed_until_pass_mps": 15.407030296253977,
+          "mode_valid": true,
+          "obstacle_contact_plane_x_m": 10.35,
+          "offroad": false,
+          "onset_before_contact": false,
+          "passed": false,
+          "score": 9768.752553830682,
+          "stable": true,
+          "success": false
+        },
+        "best_segments_physical": [
+          [
+            0.45,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "best_trajectory": [
+          {
+            "beta": 0.0,
+            "psi": 0.0,
+            "rear_slip": 0.0,
+            "speed": 16.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          {
+            "beta": 1.3337125538798493e-05,
+            "psi": -0.0003908610383780431,
+            "rear_slip": 0.0018507853369930122,
+            "speed": 15.921098789125976,
+            "x": 0.31927656443829405,
+            "y": -0.0008619877223083085
+          },
+          {
+            "beta": 0.0012441313382866867,
+            "psi": -0.0003619099461287245,
+            "rear_slip": 0.0022729364380297203,
+            "speed": 15.853437509841234,
+            "x": 0.6368555558089155,
+            "y": -0.0009144216718057485
+          },
+          {
+            "beta": 0.0031257235446932887,
+            "psi": 0.0006030659616176326,
+            "rear_slip": 0.002994654329343991,
+            "speed": 15.809945517444243,
+            "x": 0.9531385308135928,
+            "y": 0.00037404367597163035
+          },
+          {
+            "beta": 0.004508241345777187,
+            "psi": 0.0025910017690857767,
+            "rear_slip": 0.006915022730126563,
+            "speed": 15.793833570639606,
+            "x": 1.2688662849997863,
+            "y": 0.0027192457944602566
+          },
+          {
+            "beta": 0.005259287046881925,
+            "psi": 0.005681644097577321,
+            "rear_slip": 0.011293871006823572,
+            "speed": 15.775876306668168,
+            "x": 1.5842736043205765,
+            "y": 0.0060265237353450685
+          },
+          {
+            "beta": 0.005387302161169598,
+            "psi": 0.009745120206936964,
+            "rear_slip": 0.015514763590446769,
+            "speed": 15.75793838519039,
+            "x": 1.8993522326128351,
+            "y": 0.010447301952426019
+          },
+          {
+            "beta": 0.004975150186149331,
+            "psi": 0.014634644205703928,
+            "rear_slip": 0.019425245051496315,
+            "speed": 15.739938370136175,
+            "x": 2.2140752663344947,
+            "y": 0.01618114804030285
+          },
+          {
+            "beta": 0.004146739098524099,
+            "psi": 0.020221365163766825,
+            "rear_slip": 0.023195465488861082,
+            "speed": 15.72172428394409,
+            "x": 2.528415371520187,
+            "y": 0.02337935982897718
+          },
+          {
+            "beta": 0.0029817760714171758,
+            "psi": 0.02639669886831686,
+            "rear_slip": 0.026857579586626556,
+            "speed": 15.703427922783586,
+            "x": 2.8423526889169124,
+            "y": 0.032128795580460334
+          },
+          {
+            "beta": 0.0015537648684672946,
+            "psi": 0.03306593120775192,
+            "rear_slip": 0.030423201756452644,
+            "speed": 15.68477836949195,
+            "x": 3.155873140181989,
+            "y": 0.04248173754194651
+          },
+          {
+            "beta": 8.752353201162302e-05,
+            "psi": 0.04014504161825072,
+            "rear_slip": 0.03389381134864486,
+            "speed": 15.665805988541253,
+            "x": 3.4689646204100835,
+            "y": 0.05448364350819773
+          },
+          {
+            "beta": 0.00189726828823195,
+            "psi": 0.04755908277957577,
+            "rear_slip": 0.0372472514297018,
+            "speed": 15.646751912466188,
+            "x": 3.781614815217718,
+            "y": 0.06818056626553465
+          },
+          {
+            "beta": 0.0038294320586198137,
+            "psi": 0.05524179923500028,
+            "rear_slip": 0.04041280948623225,
+            "speed": 15.62761457049512,
+            "x": 4.093810744566912,
+            "y": 0.08361637238995295
+          },
+          {
+            "beta": 0.00584683634172562,
+            "psi": 0.06313592418727332,
+            "rear_slip": 0.04344835836288963,
+            "speed": 15.608505165813602,
+            "x": 4.405538830505887,
+            "y": 0.1008290813092384
+          },
+          {
+            "beta": 0.007920729325187047,
+            "psi": 0.07119118508814594,
+            "rear_slip": 0.04634055585430505,
+            "speed": 15.589176047539437,
+            "x": 4.716785294735604,
+            "y": 0.11984962207359534
+          },
+          {
+            "beta": 0.010019902627834412,
+            "psi": 0.0793638087278663,
+            "rear_slip": 0.04905852370478655,
+            "speed": 15.569756106198053,
+            "x": 5.02753650891379,
+            "y": 0.14070315214462537
+          },
+          {
+            "beta": 0.01221524972385417,
+            "psi": 0.08784871440230524,
+            "rear_slip": 0.05205067276607673,
+            "speed": 15.54979232355429,
+            "x": 5.337771509289647,
+            "y": 0.16341474784469412
+          },
+          {
+            "beta": 0.014421788575380845,
+            "psi": 0.09640658194231433,
+            "rear_slip": 0.05467849187865989,
+            "speed": 15.527064510622393,
+            "x": 5.647448796912499,
+            "y": 0.18799440452918126
+          },
+          {
+            "beta": 0.016829639805044167,
+            "psi": 0.10489262292065861,
+            "rear_slip": 0.056607617461153746,
+            "speed": 15.501197841244089,
+            "x": 5.956471691705956,
+            "y": 0.21448322758497518
+          },
+          {
+            "beta": 0.019670882164085492,
+            "psi": 0.11303683693308497,
+            "rear_slip": 0.05745043046068096,
+            "speed": 15.475752684527723,
+            "x": 6.264830885016964,
+            "y": 0.2426847920675933
+          },
+          {
+            "beta": 0.022677758721131005,
+            "psi": 0.12048007221019796,
+            "rear_slip": 0.05695992524562217,
+            "speed": 15.456469124712012,
+            "x": 6.5726519518923014,
+            "y": 0.2722582461421743
+          },
+          {
+            "beta": 0.02525225031791782,
+            "psi": 0.12695676300885994,
+            "rear_slip": 0.05506976042207227,
+            "speed": 15.442954161268384,
+            "x": 6.880097118244943,
+            "y": 0.30299696464618187
+          },
+          {
+            "beta": 0.026995937968642473,
+            "psi": 0.13235673162946182,
+            "rear_slip": 0.051867207524226584,
+            "speed": 15.432488145678683,
+            "x": 7.187235987131343,
+            "y": 0.33484279659720495
+          },
+          {
+            "beta": 0.027780257813387894,
+            "psi": 0.1366769475600913,
+            "rear_slip": 0.04781117107887048,
+            "speed": 15.423467787059224,
+            "x": 7.494085089115685,
+            "y": 0.36777807781568916
+          },
+          {
+            "beta": 0.02764993657253578,
+            "psi": 0.1399815675795231,
+            "rear_slip": 0.043191582031681906,
+            "speed": 15.41508392814096,
+            "x": 7.800648471299463,
+            "y": 0.401773896911068
+          },
+          {
+            "beta": 0.02674179688362817,
+            "psi": 0.14236718828416972,
+            "rear_slip": 0.03828937781754855,
+            "speed": 15.407030296253977,
+            "x": 8.106931860093697,
+            "y": 0.43678072013149594
+          },
+          {
+            "beta": 0.02521809447348445,
+            "psi": 0.1439426226287492,
+            "rear_slip": 0.03331845208011548,
+            "speed": 15.399198725634086,
+            "x": 8.412944257937697,
+            "y": 0.47273420845996705
+          },
+          {
+            "beta": 0.023245147714928173,
+            "psi": 0.1448199535767014,
+            "rear_slip": 0.028431439905348035,
+            "speed": 15.391509520174852,
+            "x": 8.718696757154582,
+            "y": 0.5095591642474694
+          },
+          {
+            "beta": 0.02097864538333612,
+            "psi": 0.14511084836036203,
+            "rear_slip": 0.023732731011707444,
+            "speed": 15.383971770038261,
+            "x": 9.024201162961711,
+            "y": 0.5471702045109365
+          },
+          {
+            "beta": 0.018558827193965437,
+            "psi": 0.14492463217076176,
+            "rear_slip": 0.0193828692844034,
+            "speed": 15.376532894535623,
+            "x": 9.329469953945685,
+            "y": 0.585472886977856
+          },
+          {
+            "beta": 0.01610688080009012,
+            "psi": 0.14436605351300824,
+            "rear_slip": 0.01543616827937254,
+            "speed": 15.369235446034194,
+            "x": 9.634516464534038,
+            "y": 0.6243672409803137
+          },
+          {
+            "beta": 0.013718551056158105,
+            "psi": 0.1435323768158543,
+            "rear_slip": 0.011980693947724308,
+            "speed": 15.362045640354303,
+            "x": 9.939353926371334,
+            "y": 0.6637524177753117
+          },
+          {
+            "beta": 0.01146488742375866,
+            "psi": 0.14251061120422115,
+            "rear_slip": 0.009027701127912825,
+            "speed": 15.3549164069622,
+            "x": 10.243994759155878,
+            "y": 0.7035314482723017
+          },
+          {
+            "beta": 0.009393298073534928,
+            "psi": 0.14137591720908427,
+            "rear_slip": 0.006527074467949875,
+            "speed": 15.347757694606667,
+            "x": 10.548450573031397,
+            "y": 0.743615145816537
+          },
+          {
+            "beta": 0.007529991846898791,
+            "psi": 0.140190716215832,
+            "rear_slip": 0.0045083474180347225,
+            "speed": 15.340686778695995,
+            "x": 10.852731636679618,
+            "y": 0.7839245310361662
+          },
+          {
+            "beta": 0.00588932447773249,
+            "psi": 0.13900477052459448,
+            "rear_slip": 0.002877535645182267,
+            "speed": 15.33351770017146,
+            "x": 11.15684609621837,
+            "y": 0.8243912900941919
+          },
+          {
+            "beta": 0.004482025114141002,
+            "psi": 0.13785976863170224,
+            "rear_slip": 0.0016580350637791738,
+            "speed": 15.326398144427884,
+            "x": 11.460802006800217,
+            "y": 0.8649548837125767
+          },
+          {
+            "beta": 0.0032879542649025574,
+            "psi": 0.13678431382550604,
+            "rear_slip": 0.0023776362538943927,
+            "speed": 15.319247453850242,
+            "x": 11.764605307248805,
+            "y": 0.9055678477213636
+          },
+          {
+            "beta": 0.0022928683568336793,
+            "psi": 0.13579575814096498,
+            "rear_slip": 0.003022197658303151,
+            "speed": 15.312014841496804,
+            "x": 12.068259752086668,
+            "y": 0.9461945733845285
+          },
+          {
+            "beta": 0.0014835641494315615,
+            "psi": 0.1349056240540747,
+            "rear_slip": 0.0034637844040982455,
+            "speed": 15.304833358462687,
+            "x": 12.371768426674494,
+            "y": 0.9868056756131804
+          },
+          {
+            "beta": 0.0008383461175529634,
+            "psi": 0.13411967186191467,
+            "rear_slip": 0.0036881463108928976,
+            "speed": 15.297527941825512,
+            "x": 12.675133891036912,
+            "y": 1.027378858668107
+          },
+          {
+            "beta": 0.0003351036100138316,
+            "psi": 0.13343801242972364,
+            "rear_slip": 0.003771273582906024,
+            "speed": 15.290191765528254,
+            "x": 12.97835732922281,
+            "y": 1.0678994675590328
+          },
+          {
+            "beta": 4.643832735715424e-05,
+            "psi": 0.13285679356601743,
+            "rear_slip": 0.003770891255686853,
+            "speed": 15.282799166227814,
+            "x": 13.28143897442929,
+            "y": 1.1083581346846192
+          },
+          {
+            "beta": 0.0003249046279054677,
+            "psi": 0.13236976513842943,
+            "rear_slip": 0.003669076668705939,
+            "speed": 15.275393939525387,
+            "x": 13.584378893769156,
+            "y": 1.148749345933613
+          },
+          {
+            "beta": 0.0005184379216751963,
+            "psi": 0.1319693311602883,
+            "rear_slip": 0.003552697416921639,
+            "speed": 15.267938734765927,
+            "x": 13.8871767509525,
+            "y": 1.1890707934749805
+          },
+          {
+            "beta": 0.0006428015596925996,
+            "psi": 0.13164683387201337,
+            "rear_slip": 0.0033580835897061784,
+            "speed": 15.260437420226099,
+            "x": 14.189831652302043,
+            "y": 1.2293225886938823
+          },
+          {
+            "beta": 0.0007117920176309842,
+            "psi": 0.13139270045414086,
+            "rear_slip": 0.0031769325193773314,
+            "speed": 15.252943164666704,
+            "x": 14.492342428018809,
+            "y": 1.2695066520057066
+          },
+          {
+            "beta": 0.0007400609771560571,
+            "psi": 0.1311974806585765,
+            "rear_slip": 0.0029629577106327722,
+            "speed": 15.24530219522351,
+            "x": 14.794708216056096,
+            "y": 1.309626511071307
+          },
+          {
+            "beta": 0.000737574935320984,
+            "psi": 0.1310520546700891,
+            "rear_slip": 0.0028070386790420097,
+            "speed": 15.237735275580846,
+            "x": 15.096927661301937,
+            "y": 1.3496864274698428
+          },
+          {
+            "beta": 0.0007118945834865149,
+            "psi": 0.13094782573042463,
+            "rear_slip": 0.002611243927693851,
+            "speed": 15.230088610468721,
+            "x": 15.398999472181579,
+            "y": 1.3896906484570917
+          },
+          {
+            "beta": 0.0006707874387031896,
+            "psi": 0.13087732842219557,
+            "rear_slip": 0.0024298464968254526,
+            "speed": 15.222429083178708,
+            "x": 15.700922481533114,
+            "y": 1.429643304867039
+          },
+          {
+            "beta": 0.000618229015678759,
+            "psi": 0.13083428018852916,
+            "rear_slip": 0.002266940329284184,
+            "speed": 15.21465382227597,
+            "x": 16.00269567076622,
+            "y": 1.4695485190391486
+          },
+          {
+            "beta": 0.0005590134651305599,
+            "psi": 0.13081291624938873,
+            "rear_slip": 0.00212835268718471,
+            "speed": 15.206898027407673,
+            "x": 16.304317658469035,
+            "y": 1.5094099920757973
+          },
+          {
+            "beta": 0.0004963448721685518,
+            "psi": 0.1308082193224802,
+            "rear_slip": 0.002021401395695112,
+            "speed": 15.199144577179545,
+            "x": 16.60578743717872,
+            "y": 1.549231216062528
+          },
+          {
+            "beta": 0.0004338062102004494,
+            "psi": 0.13081616202032276,
+            "rear_slip": 0.0018943052814920733,
+            "speed": 15.191345904246909,
+            "x": 16.907104244307025,
+            "y": 1.589015555697687
+          },
+          {
+            "beta": 0.0003728806532980956,
+            "psi": 0.13083326823739894,
+            "rear_slip": 0.0018029740304298734,
+            "speed": 15.183524106202253,
+            "x": 17.208266957116845,
+            "y": 1.6287659506092733
+          },
+          {
+            "beta": 0.000315188540864468,
+            "psi": 0.13085645786166689,
+            "rear_slip": 0.0017235737658252636,
+            "speed": 15.175623819365711,
+            "x": 17.509274572632233,
+            "y": 1.668484894175288
+          },
+          {
+            "beta": 0.0002614774277308442,
+            "psi": 0.13088336482473317,
+            "rear_slip": 0.001651873156728152,
+            "speed": 15.167723721489391,
+            "x": 17.810126618513035,
+            "y": 1.7081746773079602
+          },
+          {
+            "beta": 0.000213394403107892,
+            "psi": 0.13091225751911684,
+            "rear_slip": 0.0016090788000308607,
+            "speed": 15.159921411486584,
+            "x": 18.11082239819529,
+            "y": 1.7478373245023615
+          },
+          {
+            "beta": 0.0001701171103190023,
+            "psi": 0.13094146831584919,
+            "rear_slip": 0.0015576344131680085,
+            "speed": 15.151980225615455,
+            "x": 18.411360897837056,
+            "y": 1.7874743236383077
+          },
+          {
+            "beta": 0.00013245840321799546,
+            "psi": 0.1309697910893335,
+            "rear_slip": 0.0015230889672609065,
+            "speed": 15.144001302746691,
+            "x": 18.71174175420389,
+            "y": 1.827086986722619
+          },
+          {
+            "beta": 0.00010033443746569315,
+            "psi": 0.1309965965995994,
+            "rear_slip": 0.0014928510169454504,
+            "speed": 15.136000145036858,
+            "x": 19.011964566073924,
+            "y": 1.8666765003967019
+          },
+          {
+            "beta": 7.307724217002785e-05,
+            "psi": 0.13102126494901167,
+            "rear_slip": 0.0015391428146915344,
+            "speed": 15.128033867786675,
+            "x": 19.31202856362068,
+            "y": 1.9062436534701968
+          },
+          {
+            "beta": 4.993754297976007e-05,
+            "psi": 0.13104328076855332,
+            "rear_slip": 0.0015354967784107127,
+            "speed": 15.119995440987672,
+            "x": 19.611933324163033,
+            "y": 1.9457889975676783
+          },
+          {
+            "beta": 3.1591873709899185e-05,
+            "psi": 0.13106260047919704,
+            "rear_slip": 0.0015358355366275021,
+            "speed": 15.111992600336123,
+            "x": 19.9116787282137,
+            "y": 1.985313086589733
+          },
+          {
+            "beta": 1.6586270707665038e-05,
+            "psi": 0.1310792297158776,
+            "rear_slip": 0.0015746705241167802,
+            "speed": 15.104014399842823,
+            "x": 20.211264146574003,
+            "y": 2.0248162521902455
+          },
+          {
+            "beta": 5.315779425964457e-06,
+            "psi": 0.1310931061691536,
+            "rear_slip": 0.0015451962640995495,
+            "speed": 15.095860710589088,
+            "x": 20.510689113428892,
+            "y": 2.0642986058348614
+          },
+          {
+            "beta": 3.1715232774050483e-06,
+            "psi": 0.13110435181294533,
+            "rear_slip": 0.0015436407018397753,
+            "speed": 15.08781681258437,
+            "x": 20.809953603946802,
+            "y": 2.103760276211909
+          },
+          {
+            "beta": 9.34057160110787e-06,
+            "psi": 0.1311133070419881,
+            "rear_slip": 0.0015454910851897031,
+            "speed": 15.07976065250324,
+            "x": 21.109057295942073,
+            "y": 2.1432013627344304
+          },
+          {
+            "beta": 1.3766173514099776e-05,
+            "psi": 0.13112009247050116,
+            "rear_slip": 0.0015405248738509843,
+            "speed": 15.071617618098692,
+            "x": 21.407999606217498,
+            "y": 2.18262174932308
+          },
+          {
+            "beta": 1.6156858307681038e-05,
+            "psi": 0.13112486794558031,
+            "rear_slip": 0.0015089918588959829,
+            "speed": 15.063474076228054,
+            "x": 21.7067804608123,
+            "y": 2.222021329317995
+          },
+          {
+            "beta": 1.711078208085245e-05,
+            "psi": 0.1311280203981351,
+            "rear_slip": 0.0015327273385090684,
+            "speed": 15.055355719479252,
+            "x": 22.005399807098527,
+            "y": 2.2614000979282602
+          },
+          {
+            "beta": 1.7352261830755918e-05,
+            "psi": 0.1311298004660919,
+            "rear_slip": 0.0015014591619495693,
+            "speed": 15.047145601435304,
+            "x": 22.30385715648971,
+            "y": 2.3007579098902915
+          },
+          {
+            "beta": 1.7030945356413276e-05,
+            "psi": 0.1311302956561582,
+            "rear_slip": 0.0014929597084222307,
+            "speed": 15.0390111506528,
+            "x": 22.60215226773645,
+            "y": 2.3400945480525346
+          },
+          {
+            "beta": 1.583886636496475e-05,
+            "psi": 0.13112975812516803,
+            "rear_slip": 0.0015050865395939076,
+            "speed": 15.030832684325295,
+            "x": 22.90028516176521,
+            "y": 2.379409916883728
+          },
+          {
+            "beta": 1.4184001567610774e-05,
+            "psi": 0.1311285423220192,
+            "rear_slip": 0.0014871392256697428,
+            "speed": 15.02260519849241,
+            "x": 23.198255549835842,
+            "y": 2.4187039480500956
+          },
+          {
+            "beta": 1.2326346186623954e-05,
+            "psi": 0.13112665332231765,
+            "rear_slip": 0.001498969338170675,
+            "speed": 15.014404988120411,
+            "x": 23.496063055824134,
+            "y": 2.457976415694514
+          },
+          {
+            "beta": 1.08365585436205e-05,
+            "psi": 0.13112419407762754,
+            "rear_slip": 0.0014798730920617745,
+            "speed": 15.006247185818705,
+            "x": 23.793707748021603,
+            "y": 2.497227191616777
+          },
+          {
+            "beta": 8.780527172064964e-06,
+            "psi": 0.13112149164249165,
+            "rear_slip": 0.0014859304920101146,
+            "speed": 14.99798273249555,
+            "x": 24.091189438846072,
+            "y": 2.536456256410446
+          },
+          {
+            "beta": 7.19267514016705e-06,
+            "psi": 0.13111858835355972,
+            "rear_slip": 0.0014778061515690187,
+            "speed": 14.989823660802625,
+            "x": 24.388507845809887,
+            "y": 2.5756634683232345
+          },
+          {
+            "beta": 5.442625719397576e-06,
+            "psi": 0.13111544910951922,
+            "rear_slip": 0.0014756969350083165,
+            "speed": 14.98155756212916,
+            "x": 24.68566272570662,
+            "y": 2.6148486616204445
+          },
+          {
+            "beta": 3.7909960643994276e-06,
+            "psi": 0.13111225513133773,
+            "rear_slip": 0.0014711150470123919,
+            "speed": 14.973300699217075,
+            "x": 24.98265414711633,
+            "y": 2.654011830487178
+          },
+          {
+            "beta": 2.336008427692876e-06,
+            "psi": 0.13110912926281995,
+            "rear_slip": 0.001494498129203764,
+            "speed": 14.965079979372076,
+            "x": 25.279481870725753,
+            "y": 2.6931529407139787
+          },
+          {
+            "beta": 1.3522780604520788e-06,
+            "psi": 0.1311059928282845,
+            "rear_slip": 0.0014897798803011003,
+            "speed": 14.95682580134316,
+            "x": 25.576145621089836,
+            "y": 2.7322718524970324
+          },
+          {
+            "beta": 2.2147625321181494e-07,
+            "psi": 0.13110285085595796,
+            "rear_slip": 0.001479491528832596,
+            "speed": 14.948544521416673,
+            "x": 25.872645475917814,
+            "y": 2.7713685277306315
+          },
+          {
+            "beta": 9.269511404824753e-07,
+            "psi": 0.1310999024264614,
+            "rear_slip": 0.001481368532643566,
+            "speed": 14.94025676806599,
+            "x": 26.168981281459697,
+            "y": 2.810443011424593
+          },
+          {
+            "beta": 1.5026407854992235e-06,
+            "psi": 0.13109707147029082,
+            "rear_slip": 0.0014947581645102126,
+            "speed": 14.931993720216443,
+            "x": 26.465152706769224,
+            "y": 2.8494952068342108
+          },
+          {
+            "beta": 2.0219354258541715e-06,
+            "psi": 0.13109425428892704,
+            "rear_slip": 0.0014923733421573489,
+            "speed": 14.923697401792271,
+            "x": 26.76115973028313,
+            "y": 2.888525041057222
+          },
+          {
+            "beta": 2.5183879292552674e-06,
+            "psi": 0.1310915901133296,
+            "rear_slip": 0.0014857935078261485,
+            "speed": 14.915406443621649,
+            "x": 27.057002414988773,
+            "y": 2.927532578535886
+          },
+          {
+            "beta": 3.1702479719228638e-06,
+            "psi": 0.13108910464789947,
+            "rear_slip": 0.0014798353106792765,
+            "speed": 14.907109080922158,
+            "x": 27.352680433725396,
+            "y": 2.9665178003140573
+          },
+          {
+            "beta": 3.1737323606208864e-06,
+            "psi": 0.13108665784560958,
+            "rear_slip": 0.001485213776997212,
+            "speed": 14.898767460673058,
+            "x": 27.64819364676257,
+            "y": 3.0054806140453727
+          },
+          {
+            "beta": 3.113895630563077e-06,
+            "psi": 0.13108425800412116,
+            "rear_slip": 0.001481783294290938,
+            "speed": 14.890463521465795,
+            "x": 27.943542156095237,
+            "y": 3.0444210444117195
+          },
+          {
+            "beta": 3.709820284910617e-06,
+            "psi": 0.13108206700007985,
+            "rear_slip": 0.0014820488630330148,
+            "speed": 14.882156626357661,
+            "x": 28.238725815201203,
+            "y": 3.0833391598224247
+          },
+          {
+            "beta": 3.7431943053966223e-06,
+            "psi": 0.13107993818564045,
+            "rear_slip": 0.0014676686451257275,
+            "speed": 14.87379459604875,
+            "x": 28.533744319119148,
+            "y": 3.1222348729541474
+          },
+          {
+            "beta": 3.4987310540432485e-06,
+            "psi": 0.1310777778472021,
+            "rear_slip": 0.0014815572646942857,
+            "speed": 14.86552894047493,
+            "x": 28.828597776951433,
+            "y": 3.161108151703321
+          },
+          {
+            "beta": 3.634399037114331e-06,
+            "psi": 0.13107574874724204,
+            "rear_slip": 0.001477547738115128,
+            "speed": 14.857189149681556,
+            "x": 29.12328616818641,
+            "y": 3.1999590824926676
+          },
+          {
+            "beta": 3.507378244467225e-06,
+            "psi": 0.1310738214881968,
+            "rear_slip": 0.0014986502060751951,
+            "speed": 14.848900525876546,
+            "x": 29.417809227405446,
+            "y": 3.238787641688016
+          },
+          {
+            "beta": 3.2807058077328116e-06,
+            "psi": 0.13107186916018596,
+            "rear_slip": 0.001487021810239562,
+            "speed": 14.840579463656736,
+            "x": 29.71216686307974,
+            "y": 3.277593757279044
+          },
+          {
+            "beta": 3.1095803672726102e-06,
+            "psi": 0.1310699256176151,
+            "rear_slip": 0.0014884021340568045,
+            "speed": 14.83216827296782,
+            "x": 30.006359120340903,
+            "y": 3.3163774608346297
+          },
+          {
+            "beta": 3.0990737309395445e-06,
+            "psi": 0.13106811362698112,
+            "rear_slip": 0.0015027738555358993,
+            "speed": 14.823867854811237,
+            "x": 30.300385995459525,
+            "y": 3.3551388298611946
+          },
+          {
+            "beta": 2.981922566555767e-06,
+            "psi": 0.13106629944519943,
+            "rear_slip": 0.0014704437206058951,
+            "speed": 14.815480780765236,
+            "x": 30.59424719255042,
+            "y": 3.39387777294541
+          },
+          {
+            "beta": 2.879661292669435e-06,
+            "psi": 0.13106442251652514,
+            "rear_slip": 0.0014864283176798452,
+            "speed": 14.807127276857345,
+            "x": 30.887942710798814,
+            "y": 3.4325942648957497
+          },
+          {
+            "beta": 3.202134310349133e-06,
+            "psi": 0.13106265023837338,
+            "rear_slip": 0.0014727723151082357,
+            "speed": 14.798786013544705,
+            "x": 31.181472755256447,
+            "y": 3.471288414621071
+          },
+          {
+            "beta": 3.245944541464096e-06,
+            "psi": 0.13106093648703498,
+            "rear_slip": 0.0014993991660639805,
+            "speed": 14.790417865061764,
+            "x": 31.474836890237746,
+            "y": 3.5099601645330796
+          },
+          {
+            "beta": 2.7737790625196853e-06,
+            "psi": 0.13105912623882698,
+            "rear_slip": 0.0014859582194449176,
+            "speed": 14.78206665575832,
+            "x": 31.768035226693396,
+            "y": 3.5486094586631
+          },
+          {
+            "beta": 3.304866976255736e-06,
+            "psi": 0.1310573244346298,
+            "rear_slip": 0.0014828477091439096,
+            "speed": 14.773720992742813,
+            "x": 32.061067806277066,
+            "y": 3.5872363430843737
+          },
+          {
+            "beta": 2.699867142367234e-06,
+            "psi": 0.13105561356310869,
+            "rear_slip": 0.0014901804354552678,
+            "speed": 14.765351096421622,
+            "x": 32.35393449338642,
+            "y": 3.6258408654331884
+          },
+          {
+            "beta": 2.823866015279857e-06,
+            "psi": 0.13105387827028037,
+            "rear_slip": 0.0014767009353102865,
+            "speed": 14.756928632139312,
+            "x": 32.64663503174448,
+            "y": 3.6644229341524768
+          },
+          {
+            "beta": 2.7737342652682396e-06,
+            "psi": 0.13105205199992054,
+            "rear_slip": 0.0014952641222212664,
+            "speed": 14.748631091803565,
+            "x": 32.93916966626038,
+            "y": 3.7029825452865124
+          },
+          {
+            "beta": 2.6839011806807865e-06,
+            "psi": 0.13105032571178143,
+            "rear_slip": 0.0014690428991601474,
+            "speed": 14.740194346197535,
+            "x": 33.23153834965877,
+            "y": 3.7415197907356927
+          }
+        ],
+        "budget": {
+          "elites": 2,
+          "horizon_s": 2.2,
+          "iterations": 2,
+          "population": 6,
+          "search_seeds": 1,
+          "segments": 7
+        },
+        "cell_id": "g3_quick_chrono_mu0p48_v16",
+        "history": [
+          {
+            "best_distance_m": 11.0,
+            "best_score": 9768.752553830682,
+            "iteration": 0,
+            "mode_valid_count": 6,
+            "success_count": 0
+          },
+          {
+            "best_distance_m": 11.0,
+            "best_score": 9768.752553830682,
+            "iteration": 1,
+            "mode_valid_count": 6,
+            "success_count": 0
+          }
+        ],
+        "refined": {
+          "boundary": {
+            "arm": "free",
+            "collision": false,
+            "controlled_slide_onset_front_x_m": null,
+            "controlled_slide_onset_index": null,
+            "controlled_slide_onset_time_s": null,
+            "distance_m": 18.899999999999956,
+            "free_mode_classification": "grip_like",
+            "max_beta_until_pass_rad": 0.027780257813387894,
+            "max_controlled_slide_dwell_steps": 0,
+            "min_sat_separation_m": 0.007439813444767296,
+            "min_speed_until_pass_mps": 15.055355719479252,
+            "mode_valid": true,
+            "obstacle_contact_plane_x_m": 18.249999999999957,
+            "offroad": false,
+            "onset_before_contact": false,
+            "passed": true,
+            "score": 12533.148796268897,
+            "stable": true,
+            "success": true
+          },
+          "d_star_m": 18.899999999999956,
+          "success_count": 72
+        },
+        "replay": {
+          "exact_pass": true,
+          "max_abs_error": 0.0,
+          "same_shape": true
+        },
+        "seed": 217164189
+      }
+    ]
+  },
+  "claim_boundary": "finite selected Chrono/TMeasy cells only; M3267 planar incompleteness remains; no universal detailed-vehicle, split-mu, moving-obstacle, cross-vehicle, or real-car claim",
+  "completed_at_utc": "2026-07-10T09:12:56.705235+00:00",
+  "decision": "bounded_empirical_support",
+  "dominance_claim_admitted": true,
+  "final_optimizer_route": true,
+  "frozen_feasibility_anchor": {
+    "candidate_insertion_index": 4,
+    "joint_search_distance_m": 23.0,
+    "role": "known feasible required-slide seed for search recall; it receives no extra actuator authority and is re-evaluated under every frozen cell",
+    "source_arm": "required_slide",
+    "source_artifact": "experiments/feasibility_audit/phase5_g1_preslip_reachable_set_adjudication_quick.json",
+    "source_cell_id": "quick_chrono_mu0p48_v16",
+    "source_d_star_m": 21.699999999999946,
+    "source_exact_replay_pass": true,
+    "source_seed": 1515484633,
+    "source_segments_float64_sha256": "20f2be985795d97f6507eca83ca046535ca6fcabca27247dadc970c5f2952281",
+    "source_segments_shape": [
+      7,
+      3
+    ]
+  },
+  "gates": {
+    "chrono_exact_replay_pass": true,
+    "chrono_local_frame_pass": true,
+    "chrono_tire_truth_pass": true,
+    "dedicated_all_arms_complete_pass": true,
+    "every_search_seed_complete_pass": true,
+    "free_consistency_pass": true,
+    "literature_positive_control_pass": true,
+    "no_drift_advantage_pass": true,
+    "no_free_slide_counterexample_pass": true,
+    "pooled_all_arms_complete_pass": true,
+    "same_plant_slide_entry_pass": true,
+    "seed_robust_no_drift_pass": true
+  },
+  "incumbent_changed": false,
+  "m3267_planar_inconclusive_overridden": false,
+  "max_drift_advantage_m": -2.9999999999999893,
+  "milestone_id": "m3269-phase5-g3-anchored-chrono-preslip-adjudication",
+  "mode": "quick",
+  "self_id_claim": false,
+  "theory_bridge_supported": true
+}

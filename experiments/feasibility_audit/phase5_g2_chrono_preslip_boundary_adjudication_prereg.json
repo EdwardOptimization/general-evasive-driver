@@ -1,0 +1,110 @@
+{
+  "arms": {
+    "free": "no mode requirement; global beta<=0.70 and common constraints",
+    "grip": "beta<=0.12 through pass, speed>=4 m/s, common actuator/road constraints",
+    "required_slide": "four frames with beta in [0.20,0.60] and rear slip>=0.15 before true contact; global beta<=0.70 and speed>=4 m/s through pass"
+  },
+  "budgets": {
+    "full": {
+      "elites": 4,
+      "horizon_s": 2.6,
+      "iterations": 5,
+      "population": 16,
+      "search_seeds": 2,
+      "segments": 9
+    },
+    "quick": {
+      "elites": 2,
+      "horizon_s": 2.2,
+      "iterations": 2,
+      "population": 6,
+      "search_seeds": 1,
+      "segments": 7
+    }
+  },
+  "cells": {
+    "full": [
+      {
+        "cell_id": "g2_chrono_mu0p35_v16",
+        "mu": 0.35,
+        "obstacle_half_depth_m": 0.65,
+        "obstacle_half_width_m": 0.85,
+        "road_half_width_m": 5.0,
+        "speed_mps": 16.0
+      },
+      {
+        "cell_id": "g2_chrono_mu0p60_v16",
+        "mu": 0.6,
+        "obstacle_half_depth_m": 0.65,
+        "obstacle_half_width_m": 0.85,
+        "road_half_width_m": 5.0,
+        "speed_mps": 16.0
+      },
+      {
+        "cell_id": "g2_chrono_mu0p90_v16",
+        "mu": 0.9,
+        "obstacle_half_depth_m": 0.65,
+        "obstacle_half_width_m": 0.85,
+        "road_half_width_m": 5.0,
+        "speed_mps": 16.0
+      }
+    ],
+    "quick": [
+      {
+        "cell_id": "g2_quick_chrono_mu0p48_v16",
+        "mu": 0.48,
+        "obstacle_half_depth_m": 0.65,
+        "obstacle_half_width_m": 0.85,
+        "road_half_width_m": 5.0,
+        "speed_mps": 16.0
+      }
+    ]
+  },
+  "claim_boundary": "finite Chrono/TMeasy cells only; supports the bounded force-envelope theorem bridge but does not prove a universal detailed-vehicle theorem",
+  "decision_rule": {
+    "falsify": "under healthy complete searches, any pooled required-slide or early-slide free trajectory beats pooled grip by more than 0.25 m",
+    "inconclusive": "any completeness, free, replay, frame, tire, or seed-robustness gate fails",
+    "support": "all positive, health, pooled no-drift, seed-robust no-drift, and no-free-slide-counterexample gates pass in every full cell"
+  },
+  "metric": {
+    "d_star": "minimum obstacle-center distance cleared; smaller is better",
+    "distance_range_m": [
+      7.0,
+      26.0
+    ],
+    "refinement_step_m": 0.1,
+    "tolerance_m": 0.25
+  },
+  "milestone_id": "m3268-phase5-g2-chrono-preslip-boundary-adjudication",
+  "negative_result_policy": "M3267's planar incompleteness remains visible and cannot be overwritten by this panel",
+  "out_of_scope": [
+    "planar-set emptiness",
+    "split-mu",
+    "moving obstacles",
+    "terminal pose requirements",
+    "slide-only direct yaw moment",
+    "other vehicles or tires",
+    "real-car validation"
+  ],
+  "pooling_rule": "Persist dedicated grip/required-slide/free searches, then re-evaluate every stored best trajectory under every mode predicate. Use pooled constrained D-stars for the primary comparison while retaining dedicated free-search consistency.",
+  "positive_and_health_gates": {
+    "chrono_exact_replay": "every best action replays within 1e-12",
+    "chrono_local_frame": "every trajectory begins at local (0,0,0)",
+    "dedicated_all_arms_complete": "every arm and every optimizer seed has finite D-star",
+    "free_consistency": "dedicated free D-star <= min pooled constrained D-star +0.25 m",
+    "literature_positive_control": "M3265 0.20/0.26 rad/s witness remains true",
+    "pooled_all_arms_complete": "every cell has finite pooled grip, slide, and free D-star",
+    "same_plant_slide_entry": "M3266 full protocol gates remain true",
+    "seed_robust_no_drift": "worst dedicated grip seed <= best dedicated slide seed +0.25 m",
+    "tire_truth": "every best search has finite rear-tire telemetry"
+  },
+  "priced_by": "experiments/feasibility_audit/phase5_g1_preslip_reachable_set_adjudication_quick.json",
+  "primary_claim": "Within the frozen Chrono/TMeasy lane-aligned static-OBB cells, the pooled minimum clearable distance of grip-mode trajectories is no larger than that of required controlled-slide trajectories by more than 0.25 m.",
+  "registered_at_utc": "2026-07-10T09:00:13.849419+00:00",
+  "seed_discipline": {
+    "arms": "disjoint optimizer streams with identical budgets",
+    "quick_full": "disjoint cells and SHA256-derived streams",
+    "seed_base": 32680017
+  },
+  "theory_certificate": "docs/preslip-reachable-set-dual-proof-theory-2026-07.md"
+}

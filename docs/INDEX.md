@@ -10,9 +10,10 @@ human-meaningful deliverables and findings amid that scaffolding.
 The repo spans two eras and the claim boundary moved; to avoid confusion:
 
 - **CANONICAL (current, defensible):**
-  - **Two-regime law** (`two-regime-thesis-drift-2026-06.md`): drift is non-essential/counterproductive
-    for avoidance *before* slip; closed-loop active-steering is the rescue *after* slip. Fidelity-dependent
-    (planar + faithful Chrono both checked).
+  - **Bounded two-regime conclusion** (`two-regime-thesis-drift-2026-06.md`): deliberate drift is
+    unnecessary before slip under the force-envelope theorem and M3270 finite Chrono certificate.
+    After slip, expanded controls imply only weak recovery-set inclusion; M3271-M3273 found no
+    strict steering witness.
   - **Foundation audit** (`foundation-audit-drift-required-label-2026-06.md`): the `drift_required` label
     was built on a ~2x-wrong grip assumption; true must-drift fraction ~2%.
   - **F2 conditional RL result** (`paper/c5prime/main.tex`, `m3264-*.md`): one policy beats the reflex
@@ -44,8 +45,8 @@ The repo spans two eras and the claim boundary moved; to avoid confusion:
 - `runs/ppo_fullspectrum/fullspectrum_avoid_driver.pt` — full-spectrum avoidance PPO driver.
 
 ## Key findings (docs/, 2026-06)
-- `two-regime-thesis-drift-2026-06.md` — **the headline**: drift is non-essential/counterproductive for avoidance
-  BEFORE slip; active-steering closed-loop control is the rescue AFTER slip. Unifies the three directions below.
+- `two-regime-thesis-drift-2026-06.md` — bounded synthesis: no deliberate drift before slip in the
+  theorem/M3270 scope; after slip, extra steering value is conditional and was not strict in the corrected panels.
 - `foundation-audit-drift-required-label-2026-06.md` — the `drift_required` label is built on a 2x-wrong grip
   assumption; 5 measurements (planar + Chrono) + adversarial verification show drift gives no avoidance advantage.
 - `honest-avoidance-driver-2026-06.md` — the RL avoidance driver's real differentiator is closed-loop limit control
@@ -60,7 +61,8 @@ The repo spans two eras and the claim boundary moved; to avoid confusion:
 - `drift_reachability.py` / `box_reachability.py` / `box_reachability_angled.py` — CG + oriented-box avoidance
   reachability (drift gives no edge, even angled/extended).
 - `chrono_drift_reachability.py` — faithful-Chrono confirmation.
-- `recovery_reachability.py` — direction-1 slide-recovery (steering vs brake-only ESC).
+- `recovery_reachability.py` / `chrono_recovery.py` — **deprecated invalid audits** retained for
+  provenance; wrong pedal normalization and no production ESC semantics. Use M3271-M3273.
 
 ## Session experiment scripts (`scripts/feasibility_audit/`)
 185 files — the F2/capstone/self-ID pipeline (e.g. `distill_both_final_integrated.py`, `distill_both_3vehicle_film.py`,

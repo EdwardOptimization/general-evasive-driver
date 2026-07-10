@@ -6,9 +6,9 @@
 > ~2x-too-low conventional-grip assumption; five measurements (capacity, planar/oriented/extended
 > reachability, faithful Chrono) show drift gives **no obstacle-avoidance advantage while grip is
 > intact** (true must-drift fraction ~2%). The 0.93-vs-AEB number here is therefore **not** evidence
-> that drifting beats rules at avoidance. The canonical replacement is the **two-regime law**
-> (`docs/two-regime-thesis-drift-2026-06.md`): drift is non-essential before slip; closed-loop
-> active-steering is the rescue after slip. The current, defensible RL result is the **F2 conditional
+> that drifting beats rules at avoidance. The canonical replacement is the **bounded two-regime conclusion**
+> (`docs/two-regime-thesis-drift-2026-06.md`): deliberate drift is unnecessary before slip; after
+> slip, added steering value is conditional and was not strict in M3271-M3273. The current, defensible RL result is the **F2 conditional
 > finding** (drift positive + benign-avoidance regression) reported in `paper/c5prime/main.tex`. Read
 > this doc as a record of the falsified hypothesis, not a live claim.
 

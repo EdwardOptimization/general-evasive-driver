@@ -1,0 +1,1105 @@
+{
+  "chrono_connector": {
+    "connector_pass": true,
+    "error": "",
+    "rows": [
+      {
+        "backend_id": "",
+        "collision": false,
+        "completion_reason": "max_steps",
+        "finite_tire_telemetry_steps": 54,
+        "max_abs_beta_rad": 0.03717551167419213,
+        "max_abs_tire_slip_angle_rad": 0.3232940653190849,
+        "max_slide_dwell_steps": 0,
+        "min_clearance_margin_m": 15.06730483426888,
+        "profile": "grip_probe",
+        "reset_obs_finite": true,
+        "step_count": 54
+      },
+      {
+        "backend_id": "",
+        "collision": false,
+        "completion_reason": "max_steps",
+        "finite_tire_telemetry_steps": 54,
+        "max_abs_beta_rad": 0.019664622631626546,
+        "max_abs_tire_slip_angle_rad": 0.6841961005116391,
+        "max_slide_dwell_steps": 0,
+        "min_clearance_margin_m": 14.390617097378561,
+        "profile": "slide_probe",
+        "reset_obs_finite": true,
+        "step_count": 54
+      }
+    ]
+  },
+  "claim_boundary": "proof-route pricing only; no reachable-set dominance, detailed-model theorem, promotion, paper, or self-ID claim",
+  "completed_at_utc": "2026-07-10T08:08:11.156855+00:00",
+  "decision": "block_and_reprice",
+  "determinism_rows": [
+    {
+      "cell_id": "mu0p35_v12_ttc0p95",
+      "mode": "grip",
+      "pass": true,
+      "same_score": true,
+      "same_segments": true
+    },
+    {
+      "cell_id": "mu0p35_v12_ttc0p95",
+      "mode": "slide",
+      "pass": true,
+      "same_score": true,
+      "same_segments": true
+    }
+  ],
+  "dominance_claim_admitted": false,
+  "gates": {
+    "chrono_connector_pass": true,
+    "determinism_pass": true,
+    "planar_mode_expressibility_pass": false,
+    "positive_control_pass": true,
+    "protocol_gates_passed": false,
+    "search_health_pass": true
+  },
+  "incumbent_changed": false,
+  "milestone_id": "m3265-phase5-g0-preslip-reachability-proof-pricing",
+  "mode": "full",
+  "planar": {
+    "best_rows": [
+      {
+        "best_segments_physical_json": "[[1.0,1.0,0.0],[0.7023688678074473,0.0,0.0],[1.0,0.0,0.3016481672136865],[0.8324740856414604,0.2365301053384961,0.028533021131559814],[-0.22956688461647523,0.0,0.0],[1.0,0.0944283887286596,0.040326030276933524],[1.0,0.15013006291107936,0.0]]",
+        "cell_id": "mu0p35_v12_ttc0p95",
+        "collision": true,
+        "final_x_m": 8.42578659590866,
+        "final_y_m": 0.5489679846038297,
+        "final_yaw_rad": 0.1805094143369885,
+        "max_abs_beta_rad": 0.034321631627839536,
+        "max_abs_rear_slip_angle_rad": 0.07199984457434325,
+        "max_rear_lateral_utilization": 0.9999999881147799,
+        "max_slide_dwell_steps": 0,
+        "min_sat_separation_m": -0.0016194595321632477,
+        "mode": "grip",
+        "mode_valid": true,
+        "offroad": false,
+        "passed": false,
+        "score": 10103.656382327667,
+        "seed": 1265898213,
+        "simultaneous_pedal_integral": 0.03374459246936689,
+        "slide_onset_x_m": null,
+        "success": false
+      },
+      {
+        "best_segments_physical_json": "[[0.4930472750148759,0.0,0.0],[1.0,1.0,0.029649770352892485],[0.9133974833970708,0.8944102232913431,0.0],[-0.22196338610565738,0.26630666011301574,0.0],[-0.6454480894164025,0.25806583454035503,0.0],[-0.18518462217470996,0.46682058649363756,0.0],[-0.8737364992864736,0.8155855704558564,0.06988798787247574]]",
+        "cell_id": "mu0p35_v12_ttc0p95",
+        "collision": true,
+        "final_x_m": 8.396434687557127,
+        "final_y_m": 0.49756830196674373,
+        "final_yaw_rad": 0.24960318922311114,
+        "max_abs_beta_rad": 0.13390659744359387,
+        "max_abs_rear_slip_angle_rad": 0.21598409474747976,
+        "max_rear_lateral_utilization": 0.9999999999999989,
+        "max_slide_dwell_steps": 0,
+        "min_sat_separation_m": -0.0005753455269985608,
+        "mode": "slide",
+        "mode_valid": false,
+        "offroad": false,
+        "passed": false,
+        "score": 3.6118403415424574,
+        "seed": 407123864,
+        "simultaneous_pedal_integral": 0.2964977035289249,
+        "slide_onset_x_m": null,
+        "success": false
+      },
+      {
+        "best_segments_physical_json": "[[1.0,0.0,0.20059306054131312],[0.40447080128615637,0.0,0.5393164942417172],[0.77474563311778,0.0,0.3649165423409223],[1.0,0.12367349718224341,0.03194225119252496],[0.7568017050778107,0.0,0.0],[1.0,0.17040459842292247,0.0],[1.0,0.230253206735951,0.0]]",
+        "cell_id": "mu0p60_v14_ttc0p80",
+        "collision": true,
+        "final_x_m": 8.201789762568438,
+        "final_y_m": 0.74928799687641,
+        "final_yaw_rad": 0.2376306411636863,
+        "max_abs_beta_rad": 0.029468374743358627,
+        "max_abs_rear_slip_angle_rad": 0.09035444015964968,
+        "max_rear_lateral_utilization": 0.9910786111010065,
+        "max_slide_dwell_steps": 0,
+        "min_sat_separation_m": -0.0018268158714338512,
+        "mode": "grip",
+        "mode_valid": true,
+        "offroad": false,
+        "passed": false,
+        "score": 10103.622606723486,
+        "seed": 1134593767,
+        "simultaneous_pedal_integral": 0.011851229738559739,
+        "slide_onset_x_m": null,
+        "success": false
+      },
+      {
+        "best_segments_physical_json": "[[1.0,0.0,0.75],[1.0,0.0,0.75],[1.0,0.0,0.75],[-0.55,0.6,0.0],[-0.55,0.6,0.0],[-0.55,0.6,0.0],[-0.55,0.6,0.0]]",
+        "cell_id": "mu0p60_v14_ttc0p80",
+        "collision": true,
+        "final_x_m": 8.356864813477992,
+        "final_y_m": 0.6315237117949257,
+        "final_yaw_rad": 0.37812963408229305,
+        "max_abs_beta_rad": 0.20549456512913014,
+        "max_abs_rear_slip_angle_rad": 0.32171804399063203,
+        "max_rear_lateral_utilization": 1.000000000000002,
+        "max_slide_dwell_steps": 1,
+        "min_sat_separation_m": -0.18371429373393333,
+        "mode": "slide",
+        "mode_valid": false,
+        "offroad": false,
+        "passed": false,
+        "score": 25.056457345624008,
+        "seed": 748530419,
+        "simultaneous_pedal_integral": 0.0,
+        "slide_onset_x_m": 8.356864813477992,
+        "success": false
+      },
+      {
+        "best_segments_physical_json": "[[0.6263469838046809,0.2700998672823379,0.0],[0.307422689693611,0.0,0.0],[0.8260601571609888,0.0,0.0],[0.32802977535478606,0.0,0.0],[0.5115637678944331,0.9261981300577885,0.003578574779239056],[1.0,0.5982551190934071,0.2212689432653331],[0.7694055824926936,0.10310805135546988,0.0]]",
+        "cell_id": "mu0p90_v16_ttc0p70",
+        "collision": true,
+        "final_x_m": 8.19302478601567,
+        "final_y_m": 0.818032816455616,
+        "final_yaw_rad": 0.2592368716844174,
+        "max_abs_beta_rad": 0.03540716527197495,
+        "max_abs_rear_slip_angle_rad": 0.09651078355945567,
+        "max_rear_lateral_utilization": 0.9378564385242487,
+        "max_slide_dwell_steps": 0,
+        "min_sat_separation_m": -0.00022242458100407703,
+        "mode": "grip",
+        "mode_valid": true,
+        "offroad": false,
+        "passed": false,
+        "score": 10103.65315185928,
+        "seed": 371473802,
+        "simultaneous_pedal_integral": 0.0,
+        "slide_onset_x_m": null,
+        "success": false
+      },
+      {
+        "best_segments_physical_json": "[[0.9163778090065315,0.9272927478376807,0.020069295020973297],[0.9930230658324861,0.8679016445128694,0.0],[1.0,0.8949393264728014,0.0],[-0.536246166117246,0.6285615428968006,0.22588324747431238],[-0.3056890105588045,0.09625821838330992,0.22822777516237255],[-0.2982089206181948,0.0,0.1992038801098883],[-1.0,0.36100807716950734,0.0]]",
+        "cell_id": "mu0p90_v16_ttc0p70",
+        "collision": true,
+        "final_x_m": 8.505054361320218,
+        "final_y_m": 0.6402871618787248,
+        "final_yaw_rad": 0.37047842686641697,
+        "max_abs_beta_rad": 0.2216238486903937,
+        "max_abs_rear_slip_angle_rad": 0.3328469088196662,
+        "max_rear_lateral_utilization": 1.0000000000000002,
+        "max_slide_dwell_steps": 2,
+        "min_sat_separation_m": -0.33164896945333133,
+        "mode": "slide",
+        "mode_valid": false,
+        "offroad": false,
+        "passed": false,
+        "score": 47.130421678271006,
+        "seed": 708872958,
+        "simultaneous_pedal_integral": 0.16749100554447072,
+        "slide_onset_x_m": 8.174745427594107,
+        "success": false
+      }
+    ],
+    "budget": {
+      "elites": 12,
+      "iterations": 12,
+      "population": 64,
+      "segments": 7
+    },
+    "cells": [
+      {
+        "cell_id": "mu0p35_v12_ttc0p95",
+        "horizon_s": 1.4,
+        "initial_beta_rad": 0.0,
+        "initial_yaw_rate_rad_s": 0.0,
+        "mu": 0.35,
+        "obstacle_half_depth_m": 0.65,
+        "obstacle_half_width_m": 0.8,
+        "obstacle_x_m": 11.4,
+        "road_half_width_m": 5.0,
+        "speed_mps": 12.0
+      },
+      {
+        "cell_id": "mu0p60_v14_ttc0p80",
+        "horizon_s": 1.3,
+        "initial_beta_rad": 0.0,
+        "initial_yaw_rate_rad_s": 0.0,
+        "mu": 0.6,
+        "obstacle_half_depth_m": 0.65,
+        "obstacle_half_width_m": 0.85,
+        "obstacle_x_m": 11.2,
+        "road_half_width_m": 5.0,
+        "speed_mps": 14.0
+      },
+      {
+        "cell_id": "mu0p90_v16_ttc0p70",
+        "horizon_s": 1.2,
+        "initial_beta_rad": 0.0,
+        "initial_yaw_rate_rad_s": 0.0,
+        "mu": 0.9,
+        "obstacle_half_depth_m": 0.65,
+        "obstacle_half_width_m": 0.9,
+        "obstacle_x_m": 11.2,
+        "road_half_width_m": 5.0,
+        "speed_mps": 16.0
+      }
+    ],
+    "searches": [
+      {
+        "best": {
+          "collision": true,
+          "final_x_m": 8.42578659590866,
+          "final_y_m": 0.5489679846038297,
+          "final_yaw_rad": 0.1805094143369885,
+          "max_abs_beta_rad": 0.034321631627839536,
+          "max_abs_rear_slip_angle_rad": 0.07199984457434325,
+          "max_rear_lateral_utilization": 0.9999999881147799,
+          "max_slide_dwell_steps": 0,
+          "min_sat_separation_m": -0.0016194595321632477,
+          "mode": "grip",
+          "mode_valid": true,
+          "offroad": false,
+          "passed": false,
+          "score": 10103.656382327667,
+          "simultaneous_pedal_integral": 0.03374459246936689,
+          "slide_onset_x_m": null,
+          "success": false
+        },
+        "best_segments_physical": [
+          [
+            1.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.7023688678074473,
+            0.0,
+            0.0
+          ],
+          [
+            1.0,
+            0.0,
+            0.3016481672136865
+          ],
+          [
+            0.8324740856414604,
+            0.2365301053384961,
+            0.028533021131559814
+          ],
+          [
+            -0.22956688461647523,
+            0.0,
+            0.0
+          ],
+          [
+            1.0,
+            0.0944283887286596,
+            0.040326030276933524
+          ],
+          [
+            1.0,
+            0.15013006291107936,
+            0.0
+          ]
+        ],
+        "budget": {
+          "elites": 12,
+          "iterations": 12,
+          "population": 64,
+          "segments": 7
+        },
+        "cell_id": "mu0p35_v12_ttc0p95",
+        "history": [
+          {
+            "best_score": 10103.656382327667,
+            "iteration": 0,
+            "mode_valid_count": 61,
+            "success_count": 0
+          },
+          {
+            "best_score": 10103.51645287857,
+            "iteration": 1,
+            "mode_valid_count": 63,
+            "success_count": 0
+          },
+          {
+            "best_score": 10103.583411682152,
+            "iteration": 2,
+            "mode_valid_count": 61,
+            "success_count": 0
+          },
+          {
+            "best_score": 10103.459086023888,
+            "iteration": 3,
+            "mode_valid_count": 62,
+            "success_count": 0
+          },
+          {
+            "best_score": 10103.470325621845,
+            "iteration": 4,
+            "mode_valid_count": 62,
+            "success_count": 0
+          },
+          {
+            "best_score": 10103.53438625134,
+            "iteration": 5,
+            "mode_valid_count": 63,
+            "success_count": 0
+          },
+          {
+            "best_score": 10103.488029106094,
+            "iteration": 6,
+            "mode_valid_count": 63,
+            "success_count": 0
+          },
+          {
+            "best_score": 10103.391638957966,
+            "iteration": 7,
+            "mode_valid_count": 63,
+            "success_count": 0
+          },
+          {
+            "best_score": 10103.580167149941,
+            "iteration": 8,
+            "mode_valid_count": 63,
+            "success_count": 0
+          },
+          {
+            "best_score": 10103.563476075555,
+            "iteration": 9,
+            "mode_valid_count": 63,
+            "success_count": 0
+          },
+          {
+            "best_score": 10103.6333089516,
+            "iteration": 10,
+            "mode_valid_count": 63,
+            "success_count": 0
+          },
+          {
+            "best_score": 10103.456454801832,
+            "iteration": 11,
+            "mode_valid_count": 63,
+            "success_count": 0
+          }
+        ],
+        "mode": "grip",
+        "seed": 1265898213
+      },
+      {
+        "best": {
+          "collision": true,
+          "final_x_m": 8.396434687557127,
+          "final_y_m": 0.49756830196674373,
+          "final_yaw_rad": 0.24960318922311114,
+          "max_abs_beta_rad": 0.13390659744359387,
+          "max_abs_rear_slip_angle_rad": 0.21598409474747976,
+          "max_rear_lateral_utilization": 0.9999999999999989,
+          "max_slide_dwell_steps": 0,
+          "min_sat_separation_m": -0.0005753455269985608,
+          "mode": "slide",
+          "mode_valid": false,
+          "offroad": false,
+          "passed": false,
+          "score": 3.6118403415424574,
+          "simultaneous_pedal_integral": 0.2964977035289249,
+          "slide_onset_x_m": null,
+          "success": false
+        },
+        "best_segments_physical": [
+          [
+            0.4930472750148759,
+            0.0,
+            0.0
+          ],
+          [
+            1.0,
+            1.0,
+            0.029649770352892485
+          ],
+          [
+            0.9133974833970708,
+            0.8944102232913431,
+            0.0
+          ],
+          [
+            -0.22196338610565738,
+            0.26630666011301574,
+            0.0
+          ],
+          [
+            -0.6454480894164025,
+            0.25806583454035503,
+            0.0
+          ],
+          [
+            -0.18518462217470996,
+            0.46682058649363756,
+            0.0
+          ],
+          [
+            -0.8737364992864736,
+            0.8155855704558564,
+            0.06988798787247574
+          ]
+        ],
+        "budget": {
+          "elites": 12,
+          "iterations": 12,
+          "population": 64,
+          "segments": 7
+        },
+        "cell_id": "mu0p35_v12_ttc0p95",
+        "history": [
+          {
+            "best_score": 3.2734140385095154,
+            "iteration": 0,
+            "mode_valid_count": 0,
+            "success_count": 0
+          },
+          {
+            "best_score": 3.240278874237304,
+            "iteration": 1,
+            "mode_valid_count": 0,
+            "success_count": 0
+          },
+          {
+            "best_score": 3.240278874237304,
+            "iteration": 2,
+            "mode_valid_count": 0,
+            "success_count": 0
+          },
+          {
+            "best_score": 3.6118403415424574,
+            "iteration": 3,
+            "mode_valid_count": 0,
+            "success_count": 0
+          },
+          {
+            "best_score": 3.240278874237304,
+            "iteration": 4,
+            "mode_valid_count": 0,
+            "success_count": 0
+          },
+          {
+            "best_score": 3.3533654482097828,
+            "iteration": 5,
+            "mode_valid_count": 0,
+            "success_count": 0
+          },
+          {
+            "best_score": 3.240278874237304,
+            "iteration": 6,
+            "mode_valid_count": 0,
+            "success_count": 0
+          },
+          {
+            "best_score": 3.240278874237304,
+            "iteration": 7,
+            "mode_valid_count": 0,
+            "success_count": 0
+          },
+          {
+            "best_score": 3.240278874237304,
+            "iteration": 8,
+            "mode_valid_count": 0,
+            "success_count": 0
+          },
+          {
+            "best_score": 3.240278874237304,
+            "iteration": 9,
+            "mode_valid_count": 0,
+            "success_count": 0
+          },
+          {
+            "best_score": 3.5267698390843356,
+            "iteration": 10,
+            "mode_valid_count": 0,
+            "success_count": 0
+          },
+          {
+            "best_score": 3.240278874237304,
+            "iteration": 11,
+            "mode_valid_count": 0,
+            "success_count": 0
+          }
+        ],
+        "mode": "slide",
+        "seed": 407123864
+      },
+      {
+        "best": {
+          "collision": true,
+          "final_x_m": 8.201789762568438,
+          "final_y_m": 0.74928799687641,
+          "final_yaw_rad": 0.2376306411636863,
+          "max_abs_beta_rad": 0.029468374743358627,
+          "max_abs_rear_slip_angle_rad": 0.09035444015964968,
+          "max_rear_lateral_utilization": 0.9910786111010065,
+          "max_slide_dwell_steps": 0,
+          "min_sat_separation_m": -0.0018268158714338512,
+          "mode": "grip",
+          "mode_valid": true,
+          "offroad": false,
+          "passed": false,
+          "score": 10103.622606723486,
+          "simultaneous_pedal_integral": 0.011851229738559739,
+          "slide_onset_x_m": null,
+          "success": false
+        },
+        "best_segments_physical": [
+          [
+            1.0,
+            0.0,
+            0.20059306054131312
+          ],
+          [
+            0.40447080128615637,
+            0.0,
+            0.5393164942417172
+          ],
+          [
+            0.77474563311778,
+            0.0,
+            0.3649165423409223
+          ],
+          [
+            1.0,
+            0.12367349718224341,
+            0.03194225119252496
+          ],
+          [
+            0.7568017050778107,
+            0.0,
+            0.0
+          ],
+          [
+            1.0,
+            0.17040459842292247,
+            0.0
+          ],
+          [
+            1.0,
+            0.230253206735951,
+            0.0
+          ]
+        ],
+        "budget": {
+          "elites": 12,
+          "iterations": 12,
+          "population": 64,
+          "segments": 7
+        },
+        "cell_id": "mu0p60_v14_ttc0p80",
+        "history": [
+          {
+            "best_score": 10103.370876785173,
+            "iteration": 0,
+            "mode_valid_count": 61,
+            "success_count": 0
+          },
+          {
+            "best_score": 10103.519895001584,
+            "iteration": 1,
+            "mode_valid_count": 61,
+            "success_count": 0
+          },
+          {
+            "best_score": 10103.622606723486,
+            "iteration": 2,
+            "mode_valid_count": 63,
+            "success_count": 0
+          },
+          {
+            "best_score": 10103.5358634989,
+            "iteration": 3,
+            "mode_valid_count": 64,
+            "success_count": 0
+          },
+          {
+            "best_score": 10103.525348886993,
+            "iteration": 4,
+            "mode_valid_count": 64,
+            "success_count": 0
+          },
+          {
+            "best_score": 10103.53693617143,
+            "iteration": 5,
+            "mode_valid_count": 64,
+            "success_count": 0
+          },
+          {
+            "best_score": 10103.413704445356,
+            "iteration": 6,
+            "mode_valid_count": 64,
+            "success_count": 0
+          },
+          {
+            "best_score": 10103.411759699733,
+            "iteration": 7,
+            "mode_valid_count": 64,
+            "success_count": 0
+          },
+          {
+            "best_score": 10103.602232686393,
+            "iteration": 8,
+            "mode_valid_count": 64,
+            "success_count": 0
+          },
+          {
+            "best_score": 10103.510332367769,
+            "iteration": 9,
+            "mode_valid_count": 64,
+            "success_count": 0
+          },
+          {
+            "best_score": 10103.49681183563,
+            "iteration": 10,
+            "mode_valid_count": 64,
+            "success_count": 0
+          },
+          {
+            "best_score": 10103.470607120325,
+            "iteration": 11,
+            "mode_valid_count": 64,
+            "success_count": 0
+          }
+        ],
+        "mode": "grip",
+        "seed": 1134593767
+      },
+      {
+        "best": {
+          "collision": true,
+          "final_x_m": 8.356864813477992,
+          "final_y_m": 0.6315237117949257,
+          "final_yaw_rad": 0.37812963408229305,
+          "max_abs_beta_rad": 0.20549456512913014,
+          "max_abs_rear_slip_angle_rad": 0.32171804399063203,
+          "max_rear_lateral_utilization": 1.000000000000002,
+          "max_slide_dwell_steps": 1,
+          "min_sat_separation_m": -0.18371429373393333,
+          "mode": "slide",
+          "mode_valid": false,
+          "offroad": false,
+          "passed": false,
+          "score": 25.056457345624008,
+          "simultaneous_pedal_integral": 0.0,
+          "slide_onset_x_m": 8.356864813477992,
+          "success": false
+        },
+        "best_segments_physical": [
+          [
+            1.0,
+            0.0,
+            0.75
+          ],
+          [
+            1.0,
+            0.0,
+            0.75
+          ],
+          [
+            1.0,
+            0.0,
+            0.75
+          ],
+          [
+            -0.55,
+            0.6,
+            0.0
+          ],
+          [
+            -0.55,
+            0.6,
+            0.0
+          ],
+          [
+            -0.55,
+            0.6,
+            0.0
+          ],
+          [
+            -0.55,
+            0.6,
+            0.0
+          ]
+        ],
+        "budget": {
+          "elites": 12,
+          "iterations": 12,
+          "population": 64,
+          "segments": 7
+        },
+        "cell_id": "mu0p60_v14_ttc0p80",
+        "history": [
+          {
+            "best_score": 25.056457345624008,
+            "iteration": 0,
+            "mode_valid_count": 0,
+            "success_count": 0
+          },
+          {
+            "best_score": 25.056457345624008,
+            "iteration": 1,
+            "mode_valid_count": 0,
+            "success_count": 0
+          },
+          {
+            "best_score": 25.056457345624008,
+            "iteration": 2,
+            "mode_valid_count": 0,
+            "success_count": 0
+          },
+          {
+            "best_score": 25.056457345624008,
+            "iteration": 3,
+            "mode_valid_count": 0,
+            "success_count": 0
+          },
+          {
+            "best_score": 25.056457345624008,
+            "iteration": 4,
+            "mode_valid_count": 0,
+            "success_count": 0
+          },
+          {
+            "best_score": 25.056457345624008,
+            "iteration": 5,
+            "mode_valid_count": 0,
+            "success_count": 0
+          },
+          {
+            "best_score": 25.056457345624008,
+            "iteration": 6,
+            "mode_valid_count": 0,
+            "success_count": 0
+          },
+          {
+            "best_score": 25.056457345624008,
+            "iteration": 7,
+            "mode_valid_count": 0,
+            "success_count": 0
+          },
+          {
+            "best_score": 25.056457345624008,
+            "iteration": 8,
+            "mode_valid_count": 0,
+            "success_count": 0
+          },
+          {
+            "best_score": 25.056457345624008,
+            "iteration": 9,
+            "mode_valid_count": 0,
+            "success_count": 0
+          },
+          {
+            "best_score": 25.056457345624008,
+            "iteration": 10,
+            "mode_valid_count": 0,
+            "success_count": 0
+          },
+          {
+            "best_score": 25.056457345624008,
+            "iteration": 11,
+            "mode_valid_count": 0,
+            "success_count": 0
+          }
+        ],
+        "mode": "slide",
+        "seed": 748530419
+      },
+      {
+        "best": {
+          "collision": true,
+          "final_x_m": 8.19302478601567,
+          "final_y_m": 0.818032816455616,
+          "final_yaw_rad": 0.2592368716844174,
+          "max_abs_beta_rad": 0.03540716527197495,
+          "max_abs_rear_slip_angle_rad": 0.09651078355945567,
+          "max_rear_lateral_utilization": 0.9378564385242487,
+          "max_slide_dwell_steps": 0,
+          "min_sat_separation_m": -0.00022242458100407703,
+          "mode": "grip",
+          "mode_valid": true,
+          "offroad": false,
+          "passed": false,
+          "score": 10103.65315185928,
+          "simultaneous_pedal_integral": 0.0,
+          "slide_onset_x_m": null,
+          "success": false
+        },
+        "best_segments_physical": [
+          [
+            0.6263469838046809,
+            0.2700998672823379,
+            0.0
+          ],
+          [
+            0.307422689693611,
+            0.0,
+            0.0
+          ],
+          [
+            0.8260601571609888,
+            0.0,
+            0.0
+          ],
+          [
+            0.32802977535478606,
+            0.0,
+            0.0
+          ],
+          [
+            0.5115637678944331,
+            0.9261981300577885,
+            0.003578574779239056
+          ],
+          [
+            1.0,
+            0.5982551190934071,
+            0.2212689432653331
+          ],
+          [
+            0.7694055824926936,
+            0.10310805135546988,
+            0.0
+          ]
+        ],
+        "budget": {
+          "elites": 12,
+          "iterations": 12,
+          "population": 64,
+          "segments": 7
+        },
+        "cell_id": "mu0p90_v16_ttc0p70",
+        "history": [
+          {
+            "best_score": 10103.65315185928,
+            "iteration": 0,
+            "mode_valid_count": 64,
+            "success_count": 0
+          },
+          {
+            "best_score": 10103.611508727518,
+            "iteration": 1,
+            "mode_valid_count": 64,
+            "success_count": 0
+          },
+          {
+            "best_score": 10103.622906341905,
+            "iteration": 2,
+            "mode_valid_count": 64,
+            "success_count": 0
+          },
+          {
+            "best_score": 10103.63786003092,
+            "iteration": 3,
+            "mode_valid_count": 64,
+            "success_count": 0
+          },
+          {
+            "best_score": 10103.43633262291,
+            "iteration": 4,
+            "mode_valid_count": 64,
+            "success_count": 0
+          },
+          {
+            "best_score": 10103.639604606802,
+            "iteration": 5,
+            "mode_valid_count": 64,
+            "success_count": 0
+          },
+          {
+            "best_score": 10103.222191755845,
+            "iteration": 6,
+            "mode_valid_count": 64,
+            "success_count": 0
+          },
+          {
+            "best_score": 10103.431768004313,
+            "iteration": 7,
+            "mode_valid_count": 64,
+            "success_count": 0
+          },
+          {
+            "best_score": 10103.324021021293,
+            "iteration": 8,
+            "mode_valid_count": 64,
+            "success_count": 0
+          },
+          {
+            "best_score": 10103.373247746782,
+            "iteration": 9,
+            "mode_valid_count": 64,
+            "success_count": 0
+          },
+          {
+            "best_score": 10103.349604060772,
+            "iteration": 10,
+            "mode_valid_count": 64,
+            "success_count": 0
+          },
+          {
+            "best_score": 10103.505373956525,
+            "iteration": 11,
+            "mode_valid_count": 64,
+            "success_count": 0
+          }
+        ],
+        "mode": "grip",
+        "seed": 371473802
+      },
+      {
+        "best": {
+          "collision": true,
+          "final_x_m": 8.505054361320218,
+          "final_y_m": 0.6402871618787248,
+          "final_yaw_rad": 0.37047842686641697,
+          "max_abs_beta_rad": 0.2216238486903937,
+          "max_abs_rear_slip_angle_rad": 0.3328469088196662,
+          "max_rear_lateral_utilization": 1.0000000000000002,
+          "max_slide_dwell_steps": 2,
+          "min_sat_separation_m": -0.33164896945333133,
+          "mode": "slide",
+          "mode_valid": false,
+          "offroad": false,
+          "passed": false,
+          "score": 47.130421678271006,
+          "simultaneous_pedal_integral": 0.16749100554447072,
+          "slide_onset_x_m": 8.174745427594107,
+          "success": false
+        },
+        "best_segments_physical": [
+          [
+            0.9163778090065315,
+            0.9272927478376807,
+            0.020069295020973297
+          ],
+          [
+            0.9930230658324861,
+            0.8679016445128694,
+            0.0
+          ],
+          [
+            1.0,
+            0.8949393264728014,
+            0.0
+          ],
+          [
+            -0.536246166117246,
+            0.6285615428968006,
+            0.22588324747431238
+          ],
+          [
+            -0.3056890105588045,
+            0.09625821838330992,
+            0.22822777516237255
+          ],
+          [
+            -0.2982089206181948,
+            0.0,
+            0.1992038801098883
+          ],
+          [
+            -1.0,
+            0.36100807716950734,
+            0.0
+          ]
+        ],
+        "budget": {
+          "elites": 12,
+          "iterations": 12,
+          "population": 64,
+          "segments": 7
+        },
+        "cell_id": "mu0p90_v16_ttc0p70",
+        "history": [
+          {
+            "best_score": 28.53677872925215,
+            "iteration": 0,
+            "mode_valid_count": 0,
+            "success_count": 0
+          },
+          {
+            "best_score": 28.53677872925215,
+            "iteration": 1,
+            "mode_valid_count": 0,
+            "success_count": 0
+          },
+          {
+            "best_score": 28.53677872925215,
+            "iteration": 2,
+            "mode_valid_count": 0,
+            "success_count": 0
+          },
+          {
+            "best_score": 47.10583466454938,
+            "iteration": 3,
+            "mode_valid_count": 0,
+            "success_count": 0
+          },
+          {
+            "best_score": 28.53677872925215,
+            "iteration": 4,
+            "mode_valid_count": 0,
+            "success_count": 0
+          },
+          {
+            "best_score": 28.602021786093722,
+            "iteration": 5,
+            "mode_valid_count": 0,
+            "success_count": 0
+          },
+          {
+            "best_score": 28.578558882922927,
+            "iteration": 6,
+            "mode_valid_count": 0,
+            "success_count": 0
+          },
+          {
+            "best_score": 47.130421678271006,
+            "iteration": 7,
+            "mode_valid_count": 0,
+            "success_count": 0
+          },
+          {
+            "best_score": 28.53677872925215,
+            "iteration": 8,
+            "mode_valid_count": 0,
+            "success_count": 0
+          },
+          {
+            "best_score": 47.10836344150699,
+            "iteration": 9,
+            "mode_valid_count": 0,
+            "success_count": 0
+          },
+          {
+            "best_score": 46.90252751592474,
+            "iteration": 10,
+            "mode_valid_count": 0,
+            "success_count": 0
+          },
+          {
+            "best_score": 47.10046579472767,
+            "iteration": 11,
+            "mode_valid_count": 0,
+            "success_count": 0
+          }
+        ],
+        "mode": "slide",
+        "seed": 708872958
+      }
+    ]
+  },
+  "positive_control": {
+    "beyond_limit_clearance_m": 0.351012277847099,
+    "beyond_limit_yaw_rate_rad_s": 0.26,
+    "conservative_clearance_m": -0.5409623817416356,
+    "conservative_yaw_rate_rad_s": 0.2,
+    "obstacle_radius_m": 3.7,
+    "obstacle_x_m": 22.0,
+    "positive_control_pass": true,
+    "source": "Zhao et al. 2022 control-set counterexample parameters",
+    "speed_mps": 15.0
+  },
+  "self_id_claim": false
+}

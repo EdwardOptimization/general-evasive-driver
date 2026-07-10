@@ -1,0 +1,107 @@
+{
+  "budgets": {
+    "full_chrono": {
+      "elites": 8,
+      "horizon_s": 2.4,
+      "iterations": 8,
+      "population": 32,
+      "segments": 8
+    },
+    "full_planar": {
+      "elites": 14,
+      "horizon_s": 2.4,
+      "iterations": 14,
+      "population": 72,
+      "segments": 8
+    },
+    "quick_chrono": {
+      "elites": 2,
+      "horizon_s": 1.8,
+      "iterations": 2,
+      "population": 8,
+      "segments": 6
+    },
+    "quick_planar": {
+      "elites": 5,
+      "horizon_s": 2.0,
+      "iterations": 4,
+      "population": 20,
+      "segments": 6
+    }
+  },
+  "cells": {
+    "chrono": {
+      "mu": 0.48,
+      "obstacle_disabled_for_entry_search": true,
+      "speed_mps": 16.0
+    },
+    "full": [
+      {
+        "cell_id": "mu0p35_v12",
+        "emergency_obstacle_x_m": 11.4,
+        "mu": 0.35,
+        "speed_mps": 12.0
+      },
+      {
+        "cell_id": "mu0p60_v14",
+        "emergency_obstacle_x_m": 11.2,
+        "mu": 0.6,
+        "speed_mps": 14.0
+      },
+      {
+        "cell_id": "mu0p90_v16",
+        "emergency_obstacle_x_m": 11.2,
+        "mu": 0.9,
+        "speed_mps": 16.0
+      }
+    ],
+    "quick": [
+      {
+        "cell_id": "quick_mu0p60_v14",
+        "emergency_obstacle_x_m": 11.2,
+        "mu": 0.6,
+        "speed_mps": 14.0
+      }
+    ]
+  },
+  "claim_boundary": "mode-expressibility and onset pricing only; no reachable-set dominance",
+  "decision_rule": {
+    "admit_final_adjudication": "all gates pass",
+    "block": "any gate fails; do not infer reachable-set dominance"
+  },
+  "forbidden_changes": [
+    "lowering the 0.20 rad slide threshold or four-frame dwell after reading results",
+    "adding slide-only actuator authority",
+    "using aggregate all-wheel slip instead of axle-specific truth for the Chrono gate",
+    "claiming a drift-only set is empty from this pricing milestone"
+  ],
+  "frozen_mode_definition": {
+    "ambiguous_band_policy": "0.12 < beta < 0.20 belongs to neither primary arm",
+    "grip_beta_max_rad": 0.12,
+    "rear_tire_slip_min_rad": 0.15,
+    "slide_beta_min_rad": 0.2,
+    "slide_dwell_steps": 4
+  },
+  "milestone_id": "m3266-phase5-g0b-slide-mode-onset-pricing",
+  "parent_result": "experiments/feasibility_audit/phase5_g0_preslip_reachability_proof_pricing.json",
+  "positive_controls": {
+    "classifier": "initialize the same Chrono plant at beta=0.24 rad; detector must report a valid four-frame slide",
+    "literature": "retain the M3265 0.20/0.26 rad/s witness",
+    "same_plant_entry": "from beta=0 with obstacle disabled, matched-action CEM must generate a valid slide"
+  },
+  "public_gates": {
+    "chrono_classifier": "beta=0.24 positive control is mode_valid with axle-specific telemetry",
+    "chrono_replay": "best direct-CEM trajectory replays exactly within 1e-9",
+    "chrono_same_plant_entry": "beta=0 direct CEM produces mode_valid=true with rear slip >=0.15 rad",
+    "m3265_positive_control_retained": "M3265 positive_control_pass remains true",
+    "planar_onset_rows": "earliest dwell time/x and pre-obstacle dwell are persisted for every cell",
+    "planar_same_plant_entry": "all full cells produce mode_valid=true from beta=0"
+  },
+  "registered_at_utc": "2026-07-10T08:18:02.711053+00:00",
+  "research_question": "Can the matched detailed plants demonstrably initiate and sustain the frozen deliberate-slide mode, and what is the earliest four-frame slide onset relative to the emergency obstacle distance?",
+  "seed_discipline": {
+    "best_replay": "same scenario and actions; independent episode id",
+    "planar_and_chrono": "disjoint SHA256-derived streams",
+    "seed_base": 32660017
+  }
+}

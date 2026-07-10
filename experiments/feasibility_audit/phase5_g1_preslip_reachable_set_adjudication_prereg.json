@@ -1,0 +1,188 @@
+{
+  "arms": {
+    "free": "no mode requirement, but beta <=0.70, speed >=4 m/s, and common road/actuator constraints",
+    "grip": "beta <=0.12 through pass, speed >=4 m/s, common road/actuator constraints",
+    "required_slide": "four consecutive frames with beta in [0.20,0.60], rear slip >=0.15, speed >=4 m/s, onset front before the OBB near face; beta never exceeds 0.70 through pass"
+  },
+  "budgets": {
+    "full_chrono": {
+      "elites": 6,
+      "horizon_s": 2.6,
+      "iterations": 7,
+      "population": 24,
+      "search_seeds": 2,
+      "segments": 9
+    },
+    "full_planar": {
+      "elites": 14,
+      "horizon_s": 2.6,
+      "iterations": 14,
+      "population": 72,
+      "search_seeds": 3,
+      "segments": 10
+    },
+    "quick_chrono": {
+      "elites": 2,
+      "horizon_s": 2.2,
+      "iterations": 2,
+      "population": 6,
+      "search_seeds": 1,
+      "segments": 7
+    },
+    "quick_planar": {
+      "elites": 6,
+      "horizon_s": 2.4,
+      "iterations": 5,
+      "population": 24,
+      "search_seeds": 1,
+      "segments": 8
+    }
+  },
+  "cells": {
+    "full_chrono": [
+      {
+        "cell_id": "chrono_mu0p35_v16",
+        "mu": 0.35,
+        "obstacle_half_depth_m": 0.65,
+        "obstacle_half_width_m": 0.85,
+        "road_half_width_m": 5.0,
+        "speed_mps": 16.0
+      },
+      {
+        "cell_id": "chrono_mu0p60_v16",
+        "mu": 0.6,
+        "obstacle_half_depth_m": 0.65,
+        "obstacle_half_width_m": 0.85,
+        "road_half_width_m": 5.0,
+        "speed_mps": 16.0
+      },
+      {
+        "cell_id": "chrono_mu0p90_v16",
+        "mu": 0.9,
+        "obstacle_half_depth_m": 0.65,
+        "obstacle_half_width_m": 0.85,
+        "road_half_width_m": 5.0,
+        "speed_mps": 16.0
+      }
+    ],
+    "full_planar": [
+      {
+        "cell_id": "planar_mu0p35_v12",
+        "mu": 0.35,
+        "obstacle_half_depth_m": 0.65,
+        "obstacle_half_width_m": 0.85,
+        "road_half_width_m": 5.0,
+        "speed_mps": 12.0
+      },
+      {
+        "cell_id": "planar_mu0p60_v14",
+        "mu": 0.6,
+        "obstacle_half_depth_m": 0.65,
+        "obstacle_half_width_m": 0.85,
+        "road_half_width_m": 5.0,
+        "speed_mps": 14.0
+      },
+      {
+        "cell_id": "planar_mu0p90_v16",
+        "mu": 0.9,
+        "obstacle_half_depth_m": 0.65,
+        "obstacle_half_width_m": 0.85,
+        "road_half_width_m": 5.0,
+        "speed_mps": 16.0
+      }
+    ],
+    "quick_chrono": [
+      {
+        "cell_id": "quick_chrono_mu0p48_v16",
+        "mu": 0.48,
+        "obstacle_half_depth_m": 0.65,
+        "obstacle_half_width_m": 0.85,
+        "road_half_width_m": 5.0,
+        "speed_mps": 16.0
+      }
+    ],
+    "quick_planar": [
+      {
+        "cell_id": "quick_planar_mu0p60_v14",
+        "mu": 0.6,
+        "obstacle_half_depth_m": 0.65,
+        "obstacle_half_width_m": 0.85,
+        "road_half_width_m": 5.0,
+        "speed_mps": 14.0
+      }
+    ]
+  },
+  "claim_boundary": "finite-domain detailed-model adjudication supporting or falsifying the bounded theorem bridge; not a universal vehicle theorem",
+  "decision_rule": {
+    "falsify": "any valid required-slide or early-slide free arm beats grip by more than 0.25 m",
+    "inconclusive": "any arm-completeness, free-consistency, telemetry, or replay gate fails",
+    "support": "all health gates and all planar plus Chrono no-drift-advantage gates pass"
+  },
+  "geometry": {
+    "contact_rule": "controlled-slide onset vehicle-front projection must not cross obstacle near face",
+    "obstacle_half_depth_m": 0.65,
+    "obstacle_half_width_m": 0.85,
+    "orientation": "lane-aligned only",
+    "vehicle_half_length_m": 2.2,
+    "vehicle_half_width_m": 0.9
+  },
+  "metric": {
+    "d_star": "minimum obstacle-center distance cleared by a mode-valid trajectory; smaller is better",
+    "drift_advantage_m": "grip_d_star - required_slide_d_star; positive favors slide",
+    "refinement_step_m": 0.1,
+    "tolerance_m": 0.25
+  },
+  "milestone_id": "m3267-phase5-g1-preslip-reachable-set-adjudication",
+  "out_of_scope": [
+    "split-mu",
+    "moving obstacles",
+    "terminal yaw or pose requirements",
+    "rear steering or direct yaw moment enabled only in slide",
+    "non-lane-aligned obstacles",
+    "real-vehicle validation"
+  ],
+  "parent_pricing": [
+    "experiments/feasibility_audit/phase5_g0_preslip_reachability_proof_pricing.json",
+    "experiments/feasibility_audit/phase5_g0b_slide_mode_onset_pricing.json"
+  ],
+  "positive_and_health_gates": {
+    "all_arms_complete": "every cell has finite D* for grip, required_slide, and free",
+    "chrono_exact_replay": "best action sequence replays with <=1e-12 max state/telemetry error",
+    "chrono_local_frame": "every stored Chrono trajectory starts exactly at local (0,0,0)",
+    "free_consistency": "free D* <= min(grip D*, slide D*) +0.25 m in every cell",
+    "free_counterexample": "no early-controlled-slide free solution beats grip by >0.25 m",
+    "literature_positive_control": "M3265 0.20/0.26 rad/s witness remains true",
+    "no_drift_advantage": "grip D* <= slide D* +0.25 m in every cell",
+    "same_plant_slide_entry": "M3266 full protocol_gates_passed remains true"
+  },
+  "primary_claim": "Within the frozen lane-aligned static-OBB domain, the minimum clearable distance of the matched grip arm is no larger than that of the required controlled-slide arm, up to 0.25 m search/refinement tolerance.",
+  "protocol_revision": "r1",
+  "protocol_revision_history": [
+    {
+      "outcome": "invalid smoke: Chrono world coordinates were evaluated as lane-local coordinates; post-terminal samples also entered slide classification",
+      "quick_artifact": "experiments/feasibility_audit/phase5_g1_preslip_reachable_set_adjudication_quick_invalid_v0.json",
+      "revision": "r0"
+    },
+    {
+      "amended_at_utc": "2026-07-10T08:46:59+00:00",
+      "changes": [
+        "transform Chrono world poses into the scenario-initial lane frame",
+        "truncate mode classification at first collision, off-road, or pass event",
+        "add deterministic early-steer/recenter grip candidates and exact Chrono replay gate"
+      ],
+      "revision": "r1",
+      "unchanged": [
+        "claim and 0.25 m threshold",
+        "cells, arm definitions, dynamics, geometry, and budgets",
+        "SHA256-derived quick/full and arm seed streams"
+      ]
+    }
+  ],
+  "registered_at_utc": "2026-07-10T08:35:30.883494+00:00",
+  "seed_discipline": {
+    "arm_streams": "disjoint; budgets identical within backend",
+    "quick_full": "disjoint cell sets and SHA256-derived optimizer streams",
+    "seed_base": 32670017
+  },
+  "theory_certificate": "docs/preslip-reachable-set-dual-proof-theory-2026-07.md"
+}

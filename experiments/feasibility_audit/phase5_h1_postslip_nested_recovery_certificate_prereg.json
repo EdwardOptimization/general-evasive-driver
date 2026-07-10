@@ -1,0 +1,539 @@
+{
+  "cells": {
+    "full": [
+      {
+        "beta_abs_rad": 0.6,
+        "cell_id": "h1_mu0p50_b0p6_r3p0_pos",
+        "mu": 0.5,
+        "side": 1,
+        "speed_mps": 14.0,
+        "yaw_abs_rad_s": 3.0
+      },
+      {
+        "beta_abs_rad": 0.6,
+        "cell_id": "h1_mu0p50_b0p6_r3p0_neg",
+        "mu": 0.5,
+        "side": -1,
+        "speed_mps": 14.0,
+        "yaw_abs_rad_s": 3.0
+      },
+      {
+        "beta_abs_rad": 0.6,
+        "cell_id": "h1_mu0p50_b0p6_r3p5_pos",
+        "mu": 0.5,
+        "side": 1,
+        "speed_mps": 14.0,
+        "yaw_abs_rad_s": 3.5
+      },
+      {
+        "beta_abs_rad": 0.6,
+        "cell_id": "h1_mu0p50_b0p6_r3p5_neg",
+        "mu": 0.5,
+        "side": -1,
+        "speed_mps": 14.0,
+        "yaw_abs_rad_s": 3.5
+      },
+      {
+        "beta_abs_rad": 0.6,
+        "cell_id": "h1_mu0p50_b0p6_r4p0_pos",
+        "mu": 0.5,
+        "side": 1,
+        "speed_mps": 14.0,
+        "yaw_abs_rad_s": 4.0
+      },
+      {
+        "beta_abs_rad": 0.6,
+        "cell_id": "h1_mu0p50_b0p6_r4p0_neg",
+        "mu": 0.5,
+        "side": -1,
+        "speed_mps": 14.0,
+        "yaw_abs_rad_s": 4.0
+      },
+      {
+        "beta_abs_rad": 0.8,
+        "cell_id": "h1_mu0p50_b0p8_r3p0_pos",
+        "mu": 0.5,
+        "side": 1,
+        "speed_mps": 14.0,
+        "yaw_abs_rad_s": 3.0
+      },
+      {
+        "beta_abs_rad": 0.8,
+        "cell_id": "h1_mu0p50_b0p8_r3p0_neg",
+        "mu": 0.5,
+        "side": -1,
+        "speed_mps": 14.0,
+        "yaw_abs_rad_s": 3.0
+      },
+      {
+        "beta_abs_rad": 0.8,
+        "cell_id": "h1_mu0p50_b0p8_r3p5_pos",
+        "mu": 0.5,
+        "side": 1,
+        "speed_mps": 14.0,
+        "yaw_abs_rad_s": 3.5
+      },
+      {
+        "beta_abs_rad": 0.8,
+        "cell_id": "h1_mu0p50_b0p8_r3p5_neg",
+        "mu": 0.5,
+        "side": -1,
+        "speed_mps": 14.0,
+        "yaw_abs_rad_s": 3.5
+      },
+      {
+        "beta_abs_rad": 0.8,
+        "cell_id": "h1_mu0p50_b0p8_r4p0_pos",
+        "mu": 0.5,
+        "side": 1,
+        "speed_mps": 14.0,
+        "yaw_abs_rad_s": 4.0
+      },
+      {
+        "beta_abs_rad": 0.8,
+        "cell_id": "h1_mu0p50_b0p8_r4p0_neg",
+        "mu": 0.5,
+        "side": -1,
+        "speed_mps": 14.0,
+        "yaw_abs_rad_s": 4.0
+      },
+      {
+        "beta_abs_rad": 1.0,
+        "cell_id": "h1_mu0p50_b1p0_r3p0_pos",
+        "mu": 0.5,
+        "side": 1,
+        "speed_mps": 14.0,
+        "yaw_abs_rad_s": 3.0
+      },
+      {
+        "beta_abs_rad": 1.0,
+        "cell_id": "h1_mu0p50_b1p0_r3p0_neg",
+        "mu": 0.5,
+        "side": -1,
+        "speed_mps": 14.0,
+        "yaw_abs_rad_s": 3.0
+      },
+      {
+        "beta_abs_rad": 1.0,
+        "cell_id": "h1_mu0p50_b1p0_r3p5_pos",
+        "mu": 0.5,
+        "side": 1,
+        "speed_mps": 14.0,
+        "yaw_abs_rad_s": 3.5
+      },
+      {
+        "beta_abs_rad": 1.0,
+        "cell_id": "h1_mu0p50_b1p0_r3p5_neg",
+        "mu": 0.5,
+        "side": -1,
+        "speed_mps": 14.0,
+        "yaw_abs_rad_s": 3.5
+      },
+      {
+        "beta_abs_rad": 1.0,
+        "cell_id": "h1_mu0p50_b1p0_r4p0_pos",
+        "mu": 0.5,
+        "side": 1,
+        "speed_mps": 14.0,
+        "yaw_abs_rad_s": 4.0
+      },
+      {
+        "beta_abs_rad": 1.0,
+        "cell_id": "h1_mu0p50_b1p0_r4p0_neg",
+        "mu": 0.5,
+        "side": -1,
+        "speed_mps": 14.0,
+        "yaw_abs_rad_s": 4.0
+      }
+    ],
+    "quick": [
+      {
+        "beta_abs_rad": 0.8,
+        "cell_id": "h1_mu0p50_b0p8_r3p5_pos",
+        "mu": 0.5,
+        "side": 1,
+        "speed_mps": 14.0,
+        "yaw_abs_rad_s": 3.5
+      },
+      {
+        "beta_abs_rad": 0.8,
+        "cell_id": "h1_mu0p50_b0p8_r3p5_neg",
+        "mu": 0.5,
+        "side": -1,
+        "speed_mps": 14.0,
+        "yaw_abs_rad_s": 3.5
+      }
+    ]
+  },
+  "claim_boundary": "exact finite-state/finite-policy Chrono certificate for selected initialized slide states; not all no-steer controls, all post-slip states, all vehicles, or real cars",
+  "control_sets": {
+    "baseline_name": "zero_steer_physical_pedal_library",
+    "baseline_policy_ids": [
+      "pedal_coast",
+      "pedal_brake0p25",
+      "pedal_brake0p50",
+      "pedal_brake0p75",
+      "pedal_brake1p00",
+      "pedal_throttle0p25"
+    ],
+    "baseline_subset_of_expanded": true,
+    "esc_claim": false,
+    "expanded_name": "baseline_union_countersteer_feedback_library",
+    "expanded_policy_ids": [
+      "pedal_coast",
+      "pedal_brake0p25",
+      "pedal_brake0p50",
+      "pedal_brake0p75",
+      "pedal_brake1p00",
+      "pedal_throttle0p25",
+      "steer_kg0p08_kb0p30_coast",
+      "steer_kg0p08_kb0p30_brake0p20",
+      "steer_kg0p08_kb0p30_brake0p50",
+      "steer_kg0p08_kb0p30_throttle0p20",
+      "steer_kg0p15_kb0p60_coast",
+      "steer_kg0p15_kb0p60_brake0p20",
+      "steer_kg0p15_kb0p60_brake0p50",
+      "steer_kg0p15_kb0p60_throttle0p20",
+      "steer_kg0p25_kb1p00_coast",
+      "steer_kg0p25_kb1p00_brake0p20",
+      "steer_kg0p25_kb1p00_brake0p50",
+      "steer_kg0p25_kb1p00_throttle0p20",
+      "steer_kg0p40_kb1p50_coast",
+      "steer_kg0p40_kb1p50_brake0p20",
+      "steer_kg0p40_kb1p50_brake0p50",
+      "steer_kg0p40_kb1p50_throttle0p20",
+      "steer_kg0p80_kb2p50_coast",
+      "steer_kg0p80_kb2p50_brake0p20",
+      "steer_kg0p80_kb2p50_brake0p50",
+      "steer_kg0p80_kb2p50_throttle0p20",
+      "steer_kg1p40_kb3p50_coast",
+      "steer_kg1p40_kb3p50_brake0p20",
+      "steer_kg1p40_kb3p50_brake0p50",
+      "steer_kg1p40_kb3p50_throttle0p20"
+    ],
+    "pedal_contract": "physical throttle/brake in [0,1] converted to normalized [-1,1]; physical zero pedal maps to -1, and no candidate uses simultaneous pedals",
+    "policies": [
+      {
+        "beta_gain": 0.0,
+        "brake": 0.0,
+        "family": "pedal_only",
+        "in_baseline_set": true,
+        "policy_id": "pedal_coast",
+        "throttle": 0.0,
+        "yaw_gain": 0.0
+      },
+      {
+        "beta_gain": 0.0,
+        "brake": 0.25,
+        "family": "pedal_only",
+        "in_baseline_set": true,
+        "policy_id": "pedal_brake0p25",
+        "throttle": 0.0,
+        "yaw_gain": 0.0
+      },
+      {
+        "beta_gain": 0.0,
+        "brake": 0.5,
+        "family": "pedal_only",
+        "in_baseline_set": true,
+        "policy_id": "pedal_brake0p50",
+        "throttle": 0.0,
+        "yaw_gain": 0.0
+      },
+      {
+        "beta_gain": 0.0,
+        "brake": 0.75,
+        "family": "pedal_only",
+        "in_baseline_set": true,
+        "policy_id": "pedal_brake0p75",
+        "throttle": 0.0,
+        "yaw_gain": 0.0
+      },
+      {
+        "beta_gain": 0.0,
+        "brake": 1.0,
+        "family": "pedal_only",
+        "in_baseline_set": true,
+        "policy_id": "pedal_brake1p00",
+        "throttle": 0.0,
+        "yaw_gain": 0.0
+      },
+      {
+        "beta_gain": 0.0,
+        "brake": 0.0,
+        "family": "pedal_only",
+        "in_baseline_set": true,
+        "policy_id": "pedal_throttle0p25",
+        "throttle": 0.25,
+        "yaw_gain": 0.0
+      },
+      {
+        "beta_gain": 0.3,
+        "brake": 0.0,
+        "family": "countersteer_feedback",
+        "in_baseline_set": false,
+        "policy_id": "steer_kg0p08_kb0p30_coast",
+        "throttle": 0.0,
+        "yaw_gain": 0.08
+      },
+      {
+        "beta_gain": 0.3,
+        "brake": 0.2,
+        "family": "countersteer_feedback",
+        "in_baseline_set": false,
+        "policy_id": "steer_kg0p08_kb0p30_brake0p20",
+        "throttle": 0.0,
+        "yaw_gain": 0.08
+      },
+      {
+        "beta_gain": 0.3,
+        "brake": 0.5,
+        "family": "countersteer_feedback",
+        "in_baseline_set": false,
+        "policy_id": "steer_kg0p08_kb0p30_brake0p50",
+        "throttle": 0.0,
+        "yaw_gain": 0.08
+      },
+      {
+        "beta_gain": 0.3,
+        "brake": 0.0,
+        "family": "countersteer_feedback",
+        "in_baseline_set": false,
+        "policy_id": "steer_kg0p08_kb0p30_throttle0p20",
+        "throttle": 0.2,
+        "yaw_gain": 0.08
+      },
+      {
+        "beta_gain": 0.6,
+        "brake": 0.0,
+        "family": "countersteer_feedback",
+        "in_baseline_set": false,
+        "policy_id": "steer_kg0p15_kb0p60_coast",
+        "throttle": 0.0,
+        "yaw_gain": 0.15
+      },
+      {
+        "beta_gain": 0.6,
+        "brake": 0.2,
+        "family": "countersteer_feedback",
+        "in_baseline_set": false,
+        "policy_id": "steer_kg0p15_kb0p60_brake0p20",
+        "throttle": 0.0,
+        "yaw_gain": 0.15
+      },
+      {
+        "beta_gain": 0.6,
+        "brake": 0.5,
+        "family": "countersteer_feedback",
+        "in_baseline_set": false,
+        "policy_id": "steer_kg0p15_kb0p60_brake0p50",
+        "throttle": 0.0,
+        "yaw_gain": 0.15
+      },
+      {
+        "beta_gain": 0.6,
+        "brake": 0.0,
+        "family": "countersteer_feedback",
+        "in_baseline_set": false,
+        "policy_id": "steer_kg0p15_kb0p60_throttle0p20",
+        "throttle": 0.2,
+        "yaw_gain": 0.15
+      },
+      {
+        "beta_gain": 1.0,
+        "brake": 0.0,
+        "family": "countersteer_feedback",
+        "in_baseline_set": false,
+        "policy_id": "steer_kg0p25_kb1p00_coast",
+        "throttle": 0.0,
+        "yaw_gain": 0.25
+      },
+      {
+        "beta_gain": 1.0,
+        "brake": 0.2,
+        "family": "countersteer_feedback",
+        "in_baseline_set": false,
+        "policy_id": "steer_kg0p25_kb1p00_brake0p20",
+        "throttle": 0.0,
+        "yaw_gain": 0.25
+      },
+      {
+        "beta_gain": 1.0,
+        "brake": 0.5,
+        "family": "countersteer_feedback",
+        "in_baseline_set": false,
+        "policy_id": "steer_kg0p25_kb1p00_brake0p50",
+        "throttle": 0.0,
+        "yaw_gain": 0.25
+      },
+      {
+        "beta_gain": 1.0,
+        "brake": 0.0,
+        "family": "countersteer_feedback",
+        "in_baseline_set": false,
+        "policy_id": "steer_kg0p25_kb1p00_throttle0p20",
+        "throttle": 0.2,
+        "yaw_gain": 0.25
+      },
+      {
+        "beta_gain": 1.5,
+        "brake": 0.0,
+        "family": "countersteer_feedback",
+        "in_baseline_set": false,
+        "policy_id": "steer_kg0p40_kb1p50_coast",
+        "throttle": 0.0,
+        "yaw_gain": 0.4
+      },
+      {
+        "beta_gain": 1.5,
+        "brake": 0.2,
+        "family": "countersteer_feedback",
+        "in_baseline_set": false,
+        "policy_id": "steer_kg0p40_kb1p50_brake0p20",
+        "throttle": 0.0,
+        "yaw_gain": 0.4
+      },
+      {
+        "beta_gain": 1.5,
+        "brake": 0.5,
+        "family": "countersteer_feedback",
+        "in_baseline_set": false,
+        "policy_id": "steer_kg0p40_kb1p50_brake0p50",
+        "throttle": 0.0,
+        "yaw_gain": 0.4
+      },
+      {
+        "beta_gain": 1.5,
+        "brake": 0.0,
+        "family": "countersteer_feedback",
+        "in_baseline_set": false,
+        "policy_id": "steer_kg0p40_kb1p50_throttle0p20",
+        "throttle": 0.2,
+        "yaw_gain": 0.4
+      },
+      {
+        "beta_gain": 2.5,
+        "brake": 0.0,
+        "family": "countersteer_feedback",
+        "in_baseline_set": false,
+        "policy_id": "steer_kg0p80_kb2p50_coast",
+        "throttle": 0.0,
+        "yaw_gain": 0.8
+      },
+      {
+        "beta_gain": 2.5,
+        "brake": 0.2,
+        "family": "countersteer_feedback",
+        "in_baseline_set": false,
+        "policy_id": "steer_kg0p80_kb2p50_brake0p20",
+        "throttle": 0.0,
+        "yaw_gain": 0.8
+      },
+      {
+        "beta_gain": 2.5,
+        "brake": 0.5,
+        "family": "countersteer_feedback",
+        "in_baseline_set": false,
+        "policy_id": "steer_kg0p80_kb2p50_brake0p50",
+        "throttle": 0.0,
+        "yaw_gain": 0.8
+      },
+      {
+        "beta_gain": 2.5,
+        "brake": 0.0,
+        "family": "countersteer_feedback",
+        "in_baseline_set": false,
+        "policy_id": "steer_kg0p80_kb2p50_throttle0p20",
+        "throttle": 0.2,
+        "yaw_gain": 0.8
+      },
+      {
+        "beta_gain": 3.5,
+        "brake": 0.0,
+        "family": "countersteer_feedback",
+        "in_baseline_set": false,
+        "policy_id": "steer_kg1p40_kb3p50_coast",
+        "throttle": 0.0,
+        "yaw_gain": 1.4
+      },
+      {
+        "beta_gain": 3.5,
+        "brake": 0.2,
+        "family": "countersteer_feedback",
+        "in_baseline_set": false,
+        "policy_id": "steer_kg1p40_kb3p50_brake0p20",
+        "throttle": 0.0,
+        "yaw_gain": 1.4
+      },
+      {
+        "beta_gain": 3.5,
+        "brake": 0.5,
+        "family": "countersteer_feedback",
+        "in_baseline_set": false,
+        "policy_id": "steer_kg1p40_kb3p50_brake0p50",
+        "throttle": 0.0,
+        "yaw_gain": 1.4
+      },
+      {
+        "beta_gain": 3.5,
+        "brake": 0.0,
+        "family": "countersteer_feedback",
+        "in_baseline_set": false,
+        "policy_id": "steer_kg1p40_kb3p50_throttle0p20",
+        "throttle": 0.2,
+        "yaw_gain": 1.4
+      }
+    ]
+  },
+  "decision_rule": {
+    "full_support": "all health and weak-inclusion gates pass; at least 6 of 18 cells are strict on all 3 seeds; robust strict cells cover both signs and at least 2 beta tiers",
+    "inconclusive": "any state-match, tire-truth, row-count, nesting, or replay gate fails",
+    "quick_support": "both mirrored quick cells are strict witnesses on their fresh seed",
+    "strict_witness": "no baseline policy recovers, an added steering policy recovers, and the winning policy uses max absolute steer >0.05"
+  },
+  "forbidden": [
+    "calling uniform braking ESC",
+    "using normalized pedal zero as physical zero",
+    "dropping baseline policies from the expanded set",
+    "counting a stop-sideways outcome as recovery",
+    "changing cells, policies, thresholds, or seeds after quick/full",
+    "universalizing the finite-state result",
+    "mutating ActiveSafetyReflexDriver or training a policy"
+  ],
+  "initial_slide_contract": {
+    "body_beta_abs_min_rad": 0.2,
+    "configured_reset_match_tolerance": {
+      "beta_rad": 0.02,
+      "yaw_rate_rad_s": 0.05
+    },
+    "four_wheel_tire_truth_required": true,
+    "rear_tire_slip_abs_min_rad": 0.15
+  },
+  "invalid_predecessor_warning": "scripts/audits/chrono_recovery.py and recovery_reachability.py used normalized pedal zero as physical zero; normalized zero is 50 percent pedal. Their recovery counts are not evidence for this milestone.",
+  "milestone_id": "m3271-phase5-h1-postslip-nested-recovery-certificate",
+  "priced_by": {
+    "measured_basis": "same Chrono/TMeasy plant enters a four-frame slide from beta=0 at 0.50 s, max beta 0.484 rad, rear slip 0.541 rad, and exact replay",
+    "path": "experiments/feasibility_audit/phase5_g0b_slide_mode_onset_pricing.json",
+    "sha256": "6e1281671ef592d2c43aba14c9dd39e742e7090b134962047fb4ec2c9ca85b3b"
+  },
+  "primary_claim": "For the frozen finite initialized-slide state panel and nested finite control libraries, adding countersteer feedback strictly expands the recovery set.",
+  "recovery_contract": {
+    "beta_abs_max_rad": 0.12,
+    "collision_allowed": false,
+    "dt_s": 0.02,
+    "horizon_steps": 130,
+    "minimum_forward_speed_mps": 4.0,
+    "spin_beta_abs_rad": 1.4,
+    "stable_steps": 10,
+    "stopping_sideways_counts_as_recovery": false,
+    "yaw_rate_abs_max_rad_s": 0.6
+  },
+  "registered_at_utc": "2026-07-10T10:10:45.511554+00:00",
+  "seeds": {
+    "full_per_cell": 3,
+    "quick_full_disjoint": true,
+    "quick_per_cell": 1,
+    "seed_base": 32710019
+  },
+  "theory_certificate": "docs/preslip-reachable-set-dual-proof-theory-2026-07.md"
+}

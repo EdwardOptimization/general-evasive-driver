@@ -708,7 +708,7 @@ car pre-initialized into a ~13-16 deg sideslip, ~30 km/h, 1.8 s episodes,
 0.48 s sustain) — real drift/handling-limit is far wider (full speed,
 varied geometry, full/split mu, entry-to-exit maneuvers, drift-as-avoidance).
 
-- **F4-align (stage 1, OPEN — NEXT)**: a 4th small F2 build pass aligning
+- **F4-align (stage 1, DONE)**: a 4th small F2 build pass aligning
   F2's drift validation cells to E4's frozen `low_mu_power_oversteer` cell
   (mu 0.48, speed 9, radius 70, initial_beta 0.22) + the `beta0p22_power`
   oracle, so the drift oracle reproduces ~0.40 and S7 passes. Re-smoke
@@ -809,6 +809,88 @@ wall-clock report.
   freeze pending); claim_scope="stage-1 narrow drift probe (E4 low_mu_power_oversteer)
   + avoidance spectrum". Ignition-ready (S7 no longer blocks); PI freeze -> managed launch.
 - E4-prime + F2-wide: QUEUED (stage 2 after stage-1 result: widen + re-price the drift surface, retrain F2 on the representative surface)
+- Phase-5 G0 pre-slip reachable-set proof-route pricing: DONE / BLOCKED BY
+  GATE (M3265). The known 0.20/0.26 rad/s positive control, search health,
+  determinism, and Chrono tire telemetry passed, but deliberate-slide mode
+  expressibility failed 0/3 full emergency cells (four-frame dwell 0/1/2).
+  This is not a dominance result. Full dual-proof adjudication remains blocked
+  until a separately preregistered mode-expressibility and slip-onset pricing
+  unit passes without lowering the 0.12/0.20 rad ambiguous-band thresholds.
+- Phase-5 G0b slide-mode expressibility + onset pricing: DONE / PASSED
+  (M3266). Planar beta=0 entry passed 3/3; Chrono beta=0 direct entry reached
+  four-frame onset at 0.50 s, max beta 0.484, rear slip 0.541, 72-frame dwell,
+  and exact replay. This is pricing only. Final adjudication must use the OBB
+  first-contact plane, controlled-slide constraints, and matched
+  grip/required-slide/free minimum-clearable-distance oracles.
+- Phase-5 G1 pre-slip reachable-set adjudication: DONE / INCONCLUSIVE AT QUICK
+  (M3267); full was not run. Corrected Chrono quick passed local-frame and exact
+  replay with all arms finite: grip/required-slide/free D* =
+  18.8/21.7/16.1 m, and the free trajectory was grip-like. Planar grip/free
+  were finite at 13.3/12.9 m, but required-slide D* was not found, so the
+  frozen completeness gate blocked full and no M3267 dominance claim exists.
+- Phase-5 G2 Chrono-only pre-slip boundary adjudication: DONE / INCONCLUSIVE AT
+  QUICK (M3268); full was not run. Fresh grip/free D* were 18.6/16.2 m, but the
+  required-slide seed missed the finite set. Frame/tire/replay passed, so this
+  prices optimizer instability rather than physical emptiness.
+- Phase-5 G3 exact-anchor Chrono adjudication: DONE / FULL INCONCLUSIVE (M3269);
+  detailed-model optimizer branch CLOSED. Quick passed. Full finite cells
+  favored pooled grip over required slide by 6.8 m at mu 0.60 and 3.9 m at
+  mu 0.90, all best free trajectories were grip-like, and no counterexample
+  appeared. But slide completeness was 0/2 at mu 0.35 and 1/2 at mu 0.90, so
+  the frozen full gate failed. Do not register another local optimizer repair;
+  retain the bounded theory theorem plus explicitly incomplete experiments.
+- Phase-5 H0 fixed-library overlap certificate: DONE / PASSED (M3270). Frozen
+  every unique best physical action sequence from M3267 corrected quick and
+  M3269 full, including failed source searches, then exhaustively replay the
+  20-sequence library on fresh seeds in the selected overlap cells. It
+  completed 480/480 classification rows and 60/60 exact
+  replays. All 24 fresh seeds were overlap-complete; grip beat required slide
+  by 4.0-7.5 m and every free optimum was grip-like. This establishes only a
+  finite-library/finite-cell numerical certificate alongside the bounded
+  theorem; it does not reopen optimizer repair, overwrite M3269, or prove
+  continuous Chrono control-set dominance. The separate corrected-semantics
+  post-slip strict-recovery panel is now admissible.
+- Phase-5 H1 post-slip nested-control recovery certificate: DONE / QUICK
+  INCONCLUSIVE (M3271); full not run. Compared a six-policy zero-steer physical-pedal baseline with an
+  expanded 30-policy set that contains it exactly and adds countersteer
+  feedback. Old recovery audits are not admissible because normalized pedal
+  zero was incorrectly treated as physical zero. Canonical quick must produce
+  healthy strict witnesses on both mirrored states before the managed 18-cell,
+  three-seed full panel. Uniform braking is not ESC, stopping sideways is not
+  recovery, and any result remains finite-state/finite-policy only. Action,
+  nesting, telemetry, weak-inclusion, and exact-replay gates passed, but direct
+  body-state reset produced rear slip only 0.00136 rad despite beta 0.8. The
+  injected state therefore failed the frozen initial-slide truth gate. One
+  mirror side had no recovery while the other coasted to recovery in 0.54 s;
+  neither was strict. Any follow-up must first price a common continuous slide-
+  entry prefix and branch without resetting body/wheel/tire states.
+- Phase-5 H2 dynamic-prefix nested recovery certificate: DONE / QUICK NO
+  STRICT WITNESS (M3272); full not run.
+  Replay the hash-frozen M3266 slide-entry action continuously, branch at five
+  quick or twelve full times without resetting vehicle or tire state, and apply
+  the unchanged M3271 nested recovery-policy sets. A branch is eligible only
+  with four-frame beta dwell, rear slip >=0.15, four-wheel truth, and identical
+  prefix/branch hashes across policies. Strictness requires baseline failure or
+  at least 0.20 s earlier recovery with added steering. Quick must have 3/5
+  eligible branches and one strict witness before managed full. Four of five
+  quick branches were eligible and all action/hash/tire/replay health gates
+  passed, but zero-steer throttle or braking matched the expanded optimum at
+  every eligible branch; steering time advantage was 0.00 s. This is valid
+  negative evidence: moderate real slide alone does not imply steering-based
+  drift recovery is needed. No further local Chrono policy repair is admitted.
+- Phase-5 H3 planar dynamic-prefix recovery certificate: DONE / QUICK NO
+  STRICT WITNESS (M3273); full not run.
+  Use all three M3266-priced compact-model slide-entry prefixes and the unchanged
+  M3271 nested policy sets to test deeper complete-Markov-state branches. Quick
+  has nine frozen branches and must yield at least six eligible plus two strict
+  witnesses across two friction tiers. Any support is compact-model existence
+  evidence only and must be reported beside, not instead of, M3272's valid
+  Chrono negative. All 9/9 quick branches were eligible, but baseline and
+  expanded recovery were both 0/9; 270/270 rows and 18/18 exact replays passed.
+  Current-model post-slip strict work is closed. The supported final statement
+  is only that pre-slip deliberate drift is unnecessary under the theorem and
+  tested finite domain; post-slip added authority is potentially useful but
+  neither automatic nor empirically strict in the current panels.
 - WP6.2 guardrails: **MERGED** (commit 05607bcd — validator V7 live in the
   pre-commit hook, escalation protocol in docs/escalations/, managed-run
   helper scripts/run_managed.sh). Codex execution may begin.

@@ -1,0 +1,241 @@
+{
+  "id": "m3265-phase5-g0-preslip-reachability-proof-pricing",
+  "priority": 32650,
+  "type": "infrastructure",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "milestone_intent": "proof",
+  "hypothesis": "A preregistered Phase-5 G0 proof-route pricing milestone can reproduce a known larger-control-set emergency-steering witness, generate both bounded-sideslip and deliberate-slide trajectories with a matched-budget oracle, verify deterministic physical-to-normalized action semantics, and expose finite Chrono tire truth before any reachable-set-dominance, detailed-model theorem, paper, promotion, or self-ID claim.",
+  "lineage": {
+    "parent_checkpoint": [
+      "docs/current-status.md",
+      "docs/foundation-audit-drift-required-label-2026-06.md",
+      "docs/two-regime-thesis-drift-2026-06.md",
+      "paper/c5prime/main.tex"
+    ],
+    "parent_dataset": [
+      "experiments/feasibility_audit/phase4_f2.json",
+      "runs/feasibility_audit/phase4_e3_chrono_tire_telemetry/wheel_rows_quick.csv"
+    ],
+    "parent_config": [
+      "src/autodrift/dynamics.py",
+      "src/autodrift/chrono_vehicle_backend.py",
+      "scripts/audits/drift_reachability.py",
+      "scripts/audits/chrono_drift_reachability.py",
+      "scripts/feasibility_audit/phase5_g0_preslip_reachability_proof_pricing.py"
+    ],
+    "parent_objective": [
+      "distinguish a bounded force-envelope theorem from finite open-loop sweep evidence",
+      "price a matched optimal-control counterexample search before a full dual-proof run"
+    ],
+    "derived_from": [
+      "the existing constant-command sweeps do not establish optimal reachable-set inclusion",
+      "the 2022 Zhao-Yurtsever-Rizzoni emergency-control construction supplies a mandatory positive control",
+      "the current Chrono connector exposes per-wheel slip angle, force, and normal-load truth"
+    ],
+    "blocked_by": [
+      "M3266 full adjudication is blocked until M3265 proves positive-control sensitivity, mode expressibility, determinism, and Chrono telemetry"
+    ],
+    "supersedes": [
+      "treating 0/N drift-only cells from constant-action sweeps as a reachable-set proof",
+      "using body sideslip thresholding without an ambiguous band or tire-truth telemetry"
+    ],
+    "invalidates": [
+      "claiming universal no-drift dominance from M3265",
+      "calling uniform full braking production ESC",
+      "launching a full proof run when the known positive control or mode-expressibility gate fails"
+    ]
+  },
+  "review_artifact": "docs/reviews/m3265-phase5-g0-preslip-reachability-proof-pricing.md",
+  "public_gates": [
+    "write the frozen preregistration before quick or full execution",
+    "run quick smoke before the full pricing run",
+    "recover the frozen 0.20 versus 0.26 rad/s larger-control-set positive control",
+    "find at least one mode-valid grip and one mode-valid deliberate-slide candidate in every frozen planar cell",
+    "map physical zero-to-one pedal commands into the repository minus-one-to-one action contract",
+    "rerun one cell per arm byte-deterministically under the same optimizer seed",
+    "return finite obs72 and finite tire-slip telemetry for both Chrono connector profiles",
+    "keep reachable-set dominance and M3266 admission false unless every G0 gate passes"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not interpret a failed slide search as evidence that the slide set is empty",
+    "do not give the high-slip arm additional steering, yaw-moment, wheel-torque, or model authority in the matched comparison",
+    "do not reuse optimizer seeds across grip and slide arms",
+    "do not use the old action convention in which zero was described as zero throttle or zero brake",
+    "do not mutate ActiveSafetyReflexDriver or train a policy",
+    "do not claim detailed-model reachable-set dominance, paper readiness, promotion, or self-ID from M3265"
+  ],
+  "workflow_synthesis": {
+    "branch": "phase5_preslip_reachable_set_dual_proof",
+    "evidence_axis": "preslip_reachable_set_proof_route_pricing",
+    "evidence_increment": "a theorem certificate, known-counterexample positive control, matched mode-expressibility oracle, deterministic action contract, and Chrono tire-truth connector gate",
+    "claim_scope": "proof-route pricing only; no reachable-set verdict and no driver claim",
+    "stop_condition": [
+      "stop and block M3266 if the known positive control is not recovered",
+      "stop and block M3266 if either matched mode is not expressible in any frozen cell",
+      "stop and block M3266 if action semantics, determinism, obs72, or tire telemetry fail",
+      "stop after the pricing artifact, review, scoreboard, and ledger state are written"
+    ],
+    "fallback_plan": [
+      "if the positive control fails, repair the verification calculation rather than broadening the search",
+      "if deliberate slide is not expressible, re-price the slide parameterization without reading a dominance result",
+      "if the Chrono connector fails, record an escalation or connector repair before any full adjudication",
+      "if all gates pass, register M3266 separately with frozen validation cells and matched oracle budgets"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "PI requested an experimental plus theoretical proof of the bounded pre-slip versus post-slip claim on 2026-07-10",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "Price and validate the proof machinery without training or adjudicating the final reachable-set claim.",
+    "admission_evidence": [
+      "five prior finite sweeps consistently found no pre-slip drift advantage but did not optimize complete control sequences",
+      "the existing Chrono backend exposes per-wheel tire slip, force, and normal load",
+      "the saved 2022 primary paper defines a known larger-control-set positive control"
+    ],
+    "blocked_shortcuts": [
+      "no policy training",
+      "no incumbent mutation",
+      "no final reachable-set verdict",
+      "no paper or self-ID claim"
+    ],
+    "allowed_updates": [
+      "scripts/feasibility_audit/phase5_g0_preslip_reachability_proof_pricing.py",
+      "tests/test_phase5_g0_preslip_reachability_proof_pricing.py",
+      "experiments/feasibility_audit/phase5_g0_preslip_reachability_proof_pricing_prereg.json",
+      "experiments/feasibility_audit/phase5_g0_preslip_reachability_proof_pricing_quick.json",
+      "experiments/feasibility_audit/phase5_g0_preslip_reachability_proof_pricing.json",
+      "runs/feasibility_audit/phase5_g0_preslip_reachability_proof_pricing/quick/planar_best_rows.csv",
+      "runs/feasibility_audit/phase5_g0_preslip_reachability_proof_pricing/quick/chrono_connector_rows.csv",
+      "runs/feasibility_audit/phase5_g0_preslip_reachability_proof_pricing/full/planar_best_rows.csv",
+      "runs/feasibility_audit/phase5_g0_preslip_reachability_proof_pricing/full/chrono_connector_rows.csv",
+      "docs/preslip-reachable-set-dual-proof-theory-2026-07.md",
+      "docs/m3265-phase5-g0-preslip-reachability-proof-pricing.md",
+      "docs/reviews/m3265-phase5-g0-preslip-reachability-proof-pricing.md",
+      "experiments/research_queue.csv",
+      "experiments/research_status.json",
+      "experiments/scoreboard.csv",
+      "docs/current-status.md",
+      "docs/roadmap-phase3-codex-execution.md",
+      "docs/research-log.md",
+      "scripts/feasibility_audit/README.md"
+    ],
+    "next_stage_criteria": [
+      "M3266 may be registered only if every M3265 public gate passes",
+      "M3266 must use disjoint selection and validation cells plus matched per-arm optimizer budgets",
+      "M3266 must retain the known positive control and add a free unconstrained oracle",
+      "M3266 full Chrono work must run as a managed process"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M3265 evaluates deterministic open-loop oracle sequences and tire truth; it makes no history or hidden-parameter attribution claim.",
+    "history_necessity_tests": [
+      "none; history attribution is outside M3265"
+    ],
+    "temporal_evidence_window": "finite control sequence only; no recurrent state or self-identification claim",
+    "negative_result_policy": "A failed positive-control, expressibility, determinism, or telemetry gate blocks M3266 and cannot be converted into no-drift evidence.",
+    "allowed_claims": [
+      "the proof-route pricing protocol passed or failed",
+      "the known larger-control-set positive control was or was not recovered",
+      "both mode parameterizations were or were not expressible",
+      "the Chrono tire-truth connector passed or failed"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_tool_or_infra",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "replaces constant-action post-hoc sweeps with a preregistered matched-budget proof-route pricing protocol and a known-counterexample sensitivity gate",
+    "paper_verdict_delta": "M3265 cannot change the paper verdict; it only decides whether a full experimental proof is methodologically admissible.",
+    "must_synthesize_if": [
+      "another local search is proposed after any M3265 gate fails",
+      "the mode thresholds or action mapping are changed after reading full results",
+      "absence of a found slide candidate is interpreted as dominance",
+      "M3266 is proposed without matched budgets and a free oracle"
+    ]
+  },
+  "success_criteria": [
+    "the preregistration artifact exists before quick and full execution",
+    "the quick artifact exists and passes before full execution",
+    "the 0.20 rad/s positive-control arm collides while the 0.26 rad/s arm clears",
+    "every full planar cell yields mode_valid=true for both grip and slide searches",
+    "same-seed reruns reproduce best scores and physical command segments exactly",
+    "both Chrono profiles expose finite obs72 and at least one finite tire-slip telemetry step",
+    "the full artifact sets dominance_claim_admitted=false and changes no incumbent"
+  ],
+  "failure_criteria": [
+    "full mode runs before preregistration or quick smoke",
+    "the known positive control is not recovered",
+    "either mode is not expressible in a frozen full cell",
+    "the physical pedal action mapping is bypassed",
+    "determinism or Chrono tire telemetry fails",
+    "M3265 is used to claim reachable-set dominance, production ESC failure, promotion, paper readiness, or self-ID"
+  ],
+  "decision_rule": "Accept M3265 as proof-route pricing complete only if the frozen positive control, matched planar mode-expressibility, search-health, exact determinism, and Chrono connector gates all pass. Otherwise block and re-price; M3265 never admits the final dominance claim.",
+  "commands": [
+    {
+      "name": "phase5_g0_write_prereg",
+      "command": "env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/phase5_g0_preslip_reachability_proof_pricing.py --write-prereg"
+    },
+    {
+      "name": "phase5_g0_quick",
+      "command": "env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/phase5_g0_preslip_reachability_proof_pricing.py --quick"
+    },
+    {
+      "name": "phase5_g0_full",
+      "command": "env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/phase5_g0_preslip_reachability_proof_pricing.py --full --resume"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "experiments/feasibility_audit/phase5_g0_preslip_reachability_proof_pricing_prereg.json",
+      "type": "json"
+    },
+    {
+      "path": "experiments/feasibility_audit/phase5_g0_preslip_reachability_proof_pricing_quick.json",
+      "type": "json"
+    },
+    {
+      "path": "experiments/feasibility_audit/phase5_g0_preslip_reachability_proof_pricing.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/feasibility_audit/phase5_g0_preslip_reachability_proof_pricing/full/planar_best_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/feasibility_audit/phase5_g0_preslip_reachability_proof_pricing/full/chrono_connector_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/preslip-reachable-set-dual-proof-theory-2026-07.md",
+      "type": "markdown"
+    },
+    {
+      "path": "docs/m3265-phase5-g0-preslip-reachability-proof-pricing.md",
+      "type": "markdown"
+    },
+    {
+      "path": "docs/reviews/m3265-phase5-g0-preslip-reachability-proof-pricing.md",
+      "type": "markdown"
+    }
+  ],
+  "baseline_checkpoints": [
+    "docs/foundation-audit-drift-required-label-2026-06.md",
+    "docs/two-regime-thesis-drift-2026-06.md",
+    "docs/preslip-reachable-set-dual-proof-theory-2026-07.md",
+    "scripts/audits/drift_reachability.py",
+    "scripts/audits/chrono_drift_reachability.py",
+    "docs/papers/emergency/2022-justifying-emergency-drift-control.pdf"
+  ],
+  "metric_extractors": [],
+  "gates": []
+}

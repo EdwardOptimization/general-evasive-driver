@@ -1,0 +1,234 @@
+{
+  "id": "m3266-phase5-g0b-slide-mode-onset-pricing",
+  "priority": 32660,
+  "type": "infrastructure",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "milestone_intent": "proof",
+  "hypothesis": "A preregistered Phase-5 G0b pricing milestone can separate deliberate-slide generation from obstacle clearance, prove same-plant deep-slide expressibility from a straight pre-slip state, measure earliest four-frame slide onset relative to frozen emergency distances, and persist axle-specific Chrono tire truth before any final reachable-set, paper, promotion, or self-ID claim.",
+  "lineage": {
+    "parent_checkpoint": [
+      "docs/m3265-phase5-g0-preslip-reachability-proof-pricing.md",
+      "docs/preslip-reachable-set-dual-proof-theory-2026-07.md",
+      "docs/current-status.md"
+    ],
+    "parent_dataset": [
+      "experiments/feasibility_audit/phase5_g0_preslip_reachability_proof_pricing_prereg.json",
+      "experiments/feasibility_audit/phase5_g0_preslip_reachability_proof_pricing_quick.json",
+      "experiments/feasibility_audit/phase5_g0_preslip_reachability_proof_pricing.json"
+    ],
+    "parent_config": [
+      "scripts/feasibility_audit/phase5_g0_preslip_reachability_proof_pricing.py",
+      "scripts/feasibility_audit/phase5_g0b_slide_mode_onset_pricing.py",
+      "src/autodrift/dynamics.py",
+      "src/autodrift/chrono_vehicle_backend.py"
+    ],
+    "parent_objective": [
+      "resolve whether M3265 failed because deep slide is too slow for the emergency windows or because its mode search was not expressive",
+      "price the slide-entry side of the final dual-proof protocol independently of collision clearance"
+    ],
+    "derived_from": [
+      "M3265 recovered the known 0.20/0.26 rad/s positive control but failed deliberate-slide mode validity 0/3",
+      "M3265 maximum four-frame dwell was 0/1/2 and collision terminated trajectories before the mode gate could complete",
+      "M3265 Chrono aggregate tire telemetry was finite but did not identify front versus rear slip"
+    ],
+    "blocked_by": [
+      "the final matched reachable-set adjudication remains blocked until M3266 proves detailed-plant mode expressibility and valid onset measurement"
+    ],
+    "supersedes": [
+      "reusing emergency collision cells as the only deep-slide generator test",
+      "using all-wheel maximum tire slip for a rear-slide claim"
+    ],
+    "invalidates": [
+      "lowering the frozen 0.20 rad or four-frame slide definition",
+      "claiming an empty slide-only set when same-plant slide entry is not demonstrated",
+      "registering final adjudication after a failed detailed-plant positive control"
+    ]
+  },
+  "review_artifact": "docs/reviews/m3266-phase5-g0b-slide-mode-onset-pricing.md",
+  "public_gates": [
+    "write preregistration before quick and full execution",
+    "retain the passed M3265 literature positive control",
+    "detect a beta=0.24 same-plant Chrono classifier positive control with axle-specific tire telemetry",
+    "generate a four-frame beta>=0.20 deliberate slide from beta=0 in every full planar mode cell",
+    "persist earliest slide dwell time and distance plus pre-obstacle dwell for every planar cell",
+    "generate a four-frame beta>=0.20 deliberate slide from beta=0 in the obstacle-disabled canonical Chrono cell",
+    "require rear-axle tire slip >=0.15 rad for the Chrono entry gate",
+    "replay the best Chrono entry action sequence within absolute tolerance 1e-9",
+    "keep final reachable-set dominance false regardless of the M3266 decision"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not lower mode thresholds or dwell after reading quick or full results",
+    "do not add slide-only actuator or yaw-rate authority",
+    "do not stop a mode-generation rollout on obstacle collision because the obstacle is disabled for the entry positive control",
+    "do not substitute aggregate all-wheel slip for rear-axle truth",
+    "do not train a policy or mutate ActiveSafetyReflexDriver",
+    "do not claim reachable-set dominance, final paper support, production ESC failure, promotion, or self-ID from M3266"
+  ],
+  "workflow_synthesis": {
+    "branch": "phase5_preslip_reachable_set_dual_proof",
+    "evidence_axis": "slide_mode_expressibility_and_onset_pricing",
+    "evidence_increment": "new matched planar and Chrono closed-loop mode-generation data with axle-specific tire truth and onset timing",
+    "claim_scope": "same-plant slide expressibility and onset pricing only; no reachable-set verdict",
+    "stop_condition": [
+      "stop and block final adjudication if the classifier or same-plant entry positive control fails",
+      "stop and block final adjudication if rear-axle telemetry or best replay fails",
+      "stop after onset rows, review, scoreboard, and ledger state are written",
+      "do not interpret onset timing as collision-avoidance feasibility"
+    ],
+    "fallback_plan": [
+      "if planar entry fails, stop the proof route because the current-sim matched arm is not expressible",
+      "if Chrono classifier passes but entry fails, report a plant/authority or search limitation and do not broaden claims",
+      "if axle telemetry fails, repair or escalate the connector before any final run",
+      "if all gates pass, register final adjudication separately with free, grip, and required-slide oracles"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M3265 full proof-route pricing failed its deliberate-slide expressibility gate on 2026-07-10",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "Measure detailed-plant slide generation and onset without obstacle-clearance adjudication or policy training.",
+    "admission_evidence": [
+      "M3265 known-counterexample sensitivity, search health, exact determinism, and Chrono telemetry gates passed",
+      "M3265 isolated the remaining blocker to deliberate-slide mode expressibility in short collision-terminated cells",
+      "existing F2/E4 artifacts show high-sideslip states are representable when initialized near the drift operating cell"
+    ],
+    "blocked_shortcuts": [
+      "no policy training",
+      "no incumbent mutation",
+      "no collision-avoidance or reachable-set verdict",
+      "no paper or self-ID claim"
+    ],
+    "allowed_updates": [
+      "scripts/feasibility_audit/phase5_g0b_slide_mode_onset_pricing.py",
+      "tests/test_phase5_g0b_slide_mode_onset_pricing.py",
+      "experiments/feasibility_audit/phase5_g0b_slide_mode_onset_pricing_prereg.json",
+      "experiments/feasibility_audit/phase5_g0b_slide_mode_onset_pricing_quick.json",
+      "experiments/feasibility_audit/phase5_g0b_slide_mode_onset_pricing.json",
+      "runs/feasibility_audit/phase5_g0b_slide_mode_onset_pricing/quick/",
+      "runs/feasibility_audit/phase5_g0b_slide_mode_onset_pricing/full/",
+      "docs/m3266-phase5-g0b-slide-mode-onset-pricing.md",
+      "docs/reviews/m3266-phase5-g0b-slide-mode-onset-pricing.md",
+      "experiments/research_queue.csv",
+      "experiments/research_status.json",
+      "experiments/scoreboard.csv",
+      "docs/current-status.md",
+      "docs/roadmap-phase3-codex-execution.md",
+      "docs/research-log.md",
+      "docs/data-coverage-map-2026-06.md",
+      "scripts/feasibility_audit/README.md"
+    ],
+    "next_stage_criteria": [
+      "final adjudication is admitted only if every M3266 full gate passes",
+      "the final experiment must keep the M3265 literature positive control and M3266 detailed-plant entry positive controls",
+      "the final experiment must use matched per-arm oracle budgets and disjoint validation streams",
+      "the final full Chrono run must be managed and resumable"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M3266 optimizes open-loop action sequences against explicit body and tire state readouts; no history attribution is made.",
+    "history_necessity_tests": [
+      "none; no learned history policy is evaluated"
+    ],
+    "temporal_evidence_window": "finite mode-entry action sequence only",
+    "negative_result_policy": "Any failed classifier, entry, axle-telemetry, or replay gate blocks final adjudication and cannot be read as no-drift evidence.",
+    "allowed_claims": [
+      "same-plant deliberate slide was or was not expressible under the frozen search",
+      "earliest measured slide onset time and distance in the frozen cells",
+      "front- and rear-axle Chrono slip telemetry was or was not available",
+      "final adjudication was admitted or blocked"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_closed_loop_data",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "adds obstacle-independent mode-generation data, onset timing, direct Chrono CEM, classifier positive control, and axle-specific telemetry absent from M3265",
+    "paper_verdict_delta": "M3266 still cannot establish the paper's dominance claim; it only removes or confirms the mode-expressibility blocker.",
+    "must_synthesize_if": [
+      "M3266 fails same-plant mode entry after M3265 failed emergency-cell expressibility",
+      "another local action parameterization is proposed after a full M3266 failure",
+      "mode thresholds are proposed to change after result inspection",
+      "onset timing is interpreted as final avoidance feasibility"
+    ]
+  },
+  "success_criteria": [
+    "the preregistration exists before quick and full execution",
+    "the quick artifact exists and passes before full execution",
+    "all three full planar cells produce mode_valid=true from beta=0 and persist onset time/distance",
+    "the Chrono beta=0.24 classifier positive control is mode_valid with axle-specific tire telemetry",
+    "the obstacle-disabled Chrono beta=0 direct CEM produces mode_valid=true with rear slip >=0.15 rad",
+    "the best Chrono action sequence replays within 1e-9",
+    "the artifact keeps dominance_claim_admitted=false and changes no incumbent"
+  ],
+  "failure_criteria": [
+    "full mode runs before preregistration or quick smoke",
+    "any planar same-plant entry cell fails mode validity",
+    "the Chrono classifier or beta=0 entry positive control fails",
+    "rear-axle telemetry or replay fails",
+    "thresholds, dwell, actuator authority, or seed discipline change after result inspection",
+    "M3266 is used for a final reachable-set, paper, promotion, production-ESC, or self-ID claim"
+  ],
+  "decision_rule": "Accept M3266 as completed and admit a separately registered final adjudication only if M3265's literature positive control remains true, all planar beta=0 entry cells pass, onset rows are complete, the Chrono beta=0.24 classifier and beta=0 direct-entry searches pass with rear-axle truth, and the best Chrono trajectory replays within 1e-9. Any failure blocks the proof route.",
+  "commands": [
+    {
+      "name": "phase5_g0b_write_prereg",
+      "command": "env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/phase5_g0b_slide_mode_onset_pricing.py --write-prereg"
+    },
+    {
+      "name": "phase5_g0b_quick",
+      "command": "env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/phase5_g0b_slide_mode_onset_pricing.py --quick"
+    },
+    {
+      "name": "phase5_g0b_full",
+      "command": "env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/phase5_g0b_slide_mode_onset_pricing.py --full --resume"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "experiments/feasibility_audit/phase5_g0b_slide_mode_onset_pricing_prereg.json",
+      "type": "json"
+    },
+    {
+      "path": "experiments/feasibility_audit/phase5_g0b_slide_mode_onset_pricing_quick.json",
+      "type": "json"
+    },
+    {
+      "path": "experiments/feasibility_audit/phase5_g0b_slide_mode_onset_pricing.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/feasibility_audit/phase5_g0b_slide_mode_onset_pricing/full/planar_onset_best_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/feasibility_audit/phase5_g0b_slide_mode_onset_pricing/full/chrono_summary_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m3266-phase5-g0b-slide-mode-onset-pricing.md",
+      "type": "markdown"
+    },
+    {
+      "path": "docs/reviews/m3266-phase5-g0b-slide-mode-onset-pricing.md",
+      "type": "markdown"
+    }
+  ],
+  "baseline_checkpoints": [
+    "docs/m3265-phase5-g0-preslip-reachability-proof-pricing.md",
+    "experiments/feasibility_audit/phase5_g0_preslip_reachability_proof_pricing.json",
+    "docs/preslip-reachable-set-dual-proof-theory-2026-07.md",
+    "experiments/feasibility_audit/phase4_f2.json",
+    "experiments/feasibility_audit/phase4_e4_drift_regime_pricing.json"
+  ],
+  "metric_extractors": [],
+  "gates": []
+}

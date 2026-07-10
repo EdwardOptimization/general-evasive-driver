@@ -1,0 +1,116 @@
+{
+  "budgets": {
+    "full": {
+      "elites": 4,
+      "horizon_s": 2.6,
+      "iterations": 5,
+      "population": 16,
+      "search_seeds": 2,
+      "segments": 9
+    },
+    "quick": {
+      "elites": 2,
+      "horizon_s": 2.2,
+      "iterations": 2,
+      "population": 6,
+      "search_seeds": 1,
+      "segments": 7
+    }
+  },
+  "cells": {
+    "full": [
+      {
+        "cell_id": "g3_chrono_mu0p35_v16",
+        "mu": 0.35,
+        "obstacle_half_depth_m": 0.65,
+        "obstacle_half_width_m": 0.85,
+        "road_half_width_m": 5.0,
+        "speed_mps": 16.0
+      },
+      {
+        "cell_id": "g3_chrono_mu0p60_v16",
+        "mu": 0.6,
+        "obstacle_half_depth_m": 0.65,
+        "obstacle_half_width_m": 0.85,
+        "road_half_width_m": 5.0,
+        "speed_mps": 16.0
+      },
+      {
+        "cell_id": "g3_chrono_mu0p90_v16",
+        "mu": 0.9,
+        "obstacle_half_depth_m": 0.65,
+        "obstacle_half_width_m": 0.85,
+        "road_half_width_m": 5.0,
+        "speed_mps": 16.0
+      }
+    ],
+    "quick": [
+      {
+        "cell_id": "g3_quick_chrono_mu0p48_v16",
+        "mu": 0.48,
+        "obstacle_half_depth_m": 0.65,
+        "obstacle_half_width_m": 0.85,
+        "road_half_width_m": 5.0,
+        "speed_mps": 16.0
+      }
+    ]
+  },
+  "claim_boundary": "finite selected Chrono/TMeasy cells only; M3267 planar incompleteness remains; no universal detailed-vehicle, split-mu, moving-obstacle, cross-vehicle, or real-car claim",
+  "decision_rule": {
+    "falsify": "under healthy searches, slide beats grip by more than 0.25 m",
+    "inconclusive": "any arm, seed, free, frame, tire, replay, or robustness gate fails",
+    "support": "every health, pooled no-drift, seed-robust, and no-counterexample gate passes"
+  },
+  "frozen_feasibility_anchor": {
+    "candidate_insertion_index": 4,
+    "joint_search_distance_m": 23.0,
+    "role": "known feasible required-slide seed for search recall; it receives no extra actuator authority and is re-evaluated under every frozen cell",
+    "source_arm": "required_slide",
+    "source_artifact": "experiments/feasibility_audit/phase5_g1_preslip_reachable_set_adjudication_quick.json",
+    "source_cell_id": "quick_chrono_mu0p48_v16",
+    "source_d_star_m": 21.699999999999946,
+    "source_exact_replay_pass": true,
+    "source_seed": 1515484633,
+    "source_segments_float64_sha256": "20f2be985795d97f6507eca83ca046535ca6fcabca27247dadc970c5f2952281",
+    "source_segments_shape": [
+      7,
+      3
+    ]
+  },
+  "health_gates": {
+    "all_seeds_complete": "every dedicated arm/seed and pooled arm has finite D-star",
+    "connector": "local frame, finite rear tire truth, and exact replay <=1e-12",
+    "free_consistency": "dedicated free D-star <= best pooled constrained D-star +0.25 m",
+    "positive_controls": "M3265 literature and M3266 slide-entry controls remain true",
+    "seed_robust": "worst dedicated grip seed <= best dedicated slide seed +0.25 m"
+  },
+  "metric": {
+    "d_star": "minimum obstacle-center distance cleared; smaller is better",
+    "distance_range_m": [
+      7.0,
+      26.0
+    ],
+    "refinement_step_m": 0.1,
+    "tolerance_m": 0.25
+  },
+  "milestone_id": "m3269-phase5-g3-anchored-chrono-preslip-adjudication",
+  "mode_and_geometry_contract": {
+    "common": "speed>=4 m/s, lane-aligned OBB, road containment, no collision",
+    "grip": "beta<=0.12 through pass",
+    "pooling": "reclassify every stored best trajectory under every mode predicate",
+    "required_slide": "four frames beta in [0.20,0.60], rear slip>=0.15, onset vehicle front before OBB near face, global beta<=0.70 through pass"
+  },
+  "priced_by": [
+    "experiments/feasibility_audit/phase5_g1_preslip_reachable_set_adjudication_quick.json",
+    "experiments/feasibility_audit/phase5_g2_chrono_preslip_boundary_adjudication_quick.json"
+  ],
+  "primary_claim": "Within three frozen Chrono/TMeasy lane-aligned static-OBB cells, pooled grip-mode D-star is no larger than required controlled-slide D-star by more than 0.25 m.",
+  "registered_at_utc": "2026-07-10T09:09:32.835739+00:00",
+  "seed_discipline": {
+    "arm_streams": "disjoint, with identical budgets within each cell",
+    "quick_full": "disjoint cells and SHA256-derived optimizer streams",
+    "seed_base": 32690017
+  },
+  "stop_rule": "This is the final detailed-model optimizer route. Any failed quick/full gate stops further local search repair and leaves empirical support unproved.",
+  "theory_certificate": "docs/preslip-reachable-set-dual-proof-theory-2026-07.md"
+}

@@ -1,0 +1,237 @@
+{
+  "id": "m3273-phase5-h3-planar-dynamic-recovery-certificate",
+  "priority": 32730,
+  "type": "infrastructure",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "metric_artifact"
+  ],
+  "milestone_intent": "proof",
+  "hypothesis": "On dynamically reached deep slide states from all three M3266 planar entry cells, the unchanged M3271 expanded finite policy set can strictly enlarge finite-horizon recovery relative to its exact zero-steer baseline subset under correct physical pedal semantics and a preregistered 0.20 s minimum recovery-time advantage.",
+  "feasibility_pricing": {
+    "pricing_artifact": "experiments/feasibility_audit/phase5_g0b_slide_mode_onset_pricing.json",
+    "priced_gap": 3.0,
+    "threshold": 3.0,
+    "gap_meets_threshold": true
+  },
+  "lineage": {
+    "parent_checkpoint": [
+      "docs/m3266-phase5-g0b-slide-mode-onset-pricing.md",
+      "docs/m3271-phase5-h1-postslip-nested-recovery-certificate.md",
+      "docs/m3272-phase5-h2-dynamic-prefix-recovery-certificate.md",
+      "docs/preslip-reachable-set-dual-proof-theory-2026-07.md"
+    ],
+    "parent_dataset": [
+      "experiments/feasibility_audit/phase5_g0b_slide_mode_onset_pricing.json",
+      "experiments/feasibility_audit/phase5_h2_dynamic_prefix_recovery_certificate_quick.json"
+    ],
+    "parent_config": [
+      "src/autodrift/dynamics.py",
+      "scripts/feasibility_audit/phase5_h1_postslip_nested_recovery_certificate.py",
+      "scripts/feasibility_audit/phase5_h3_planar_dynamic_recovery_certificate.py"
+    ],
+    "parent_objective": [
+      "test existence of strict post-slip recovery value on an orthogonal priced physics axis",
+      "retain M3272's valid moderate-slide Chrono negative without local policy repair"
+    ],
+    "derived_from": [
+      "M3266 planar slide entry passed 3/3 cells and reached deep body and rear-tire slip",
+      "the planar Markov state includes steer and drive-force actuator states",
+      "M3272 showed zero steering advantage on valid moderate Chrono branches"
+    ],
+    "blocked_by": [
+      "H3 cannot establish detailed Chrono or universal post-slip strictness"
+    ],
+    "supersedes": [
+      "the invalid normalized-action planar counts in scripts/audits/recovery_reachability.py"
+    ],
+    "invalidates": [
+      "claiming a compact-model witness overrides M3272",
+      "claiming strictness without a baseline-fail or 0.20 s time-gap witness"
+    ]
+  },
+  "review_artifact": "docs/reviews/m3273-phase5-h3-planar-dynamic-recovery-certificate.md",
+  "public_gates": [
+    "freeze all three M3266 planar physical-prefix hashes and branch grids before quick/full",
+    "use correct physical-to-normalized pedal conversion",
+    "retain complete planar Markov branch state including steer and drive force",
+    "keep six baseline policies as an exact subset of thirty expanded policies",
+    "require four-frame beta dwell and rear slip at least 0.15",
+    "require ten stable recovery frames and forward speed at least 4 m/s",
+    "require baseline failure or at least 0.20 s earlier recovery with added steering",
+    "require matched prefix/state hashes weak inclusion and exact winner replay",
+    "report M3272's Chrono negative alongside any H3 positive",
+    "scope support to deterministic finite compact-model states and policies"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not change source prefixes branch times policies thresholds or action mapping after results",
+    "do not use normalized pedal zero as physical zero",
+    "do not call uniform braking ESC",
+    "do not count ineligible branches or stopping sideways as recovery",
+    "do not hide baseline recoveries active failures or source simultaneous pedal segments",
+    "do not claim H3 overrides M3272 or proves detailed Chrono strictness",
+    "do not mutate ActiveSafetyReflexDriver or train a policy",
+    "do not claim all post-slip states vehicles real cars promotion or self-ID"
+  ],
+  "workflow_synthesis": {
+    "branch": "phase5_postslip_strict_recovery_dual_proof",
+    "evidence_axis": "planar_continuous_prefix_nested_recovery_comparison",
+    "evidence_increment": "three friction tiers twenty-one branch states and unchanged thirty-policy nested library",
+    "claim_scope": "M3266-priced compact single-track model with finite prefixes branches and policies",
+    "stop_condition": [
+      "stop before full unless quick has six eligible and two strict cells across two mu tiers",
+      "stop as inconclusive on any action hash nesting state or replay failure",
+      "stop as no-strict-witness if health passes but strict thresholds fail",
+      "admit full support only with fifteen eligible and five strict cells across two mu tiers"
+    ],
+    "fallback_plan": [
+      "if H3 fails close post-slip strict empirical work and retain theory-level weak inclusion only",
+      "if H3 passes update theory and paper with compact-model scope plus M3272 negative",
+      "do not return to Chrono local policy tuning"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M3272 supplied valid negative evidence on moderate Chrono branches",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "Exhaustively simulate frozen compact-model prefixes and nested recovery policies without fitting search repair or training.",
+    "admission_evidence": [
+      "M3266 planar 3/3 dynamic slide entry",
+      "M3271 corrected action and nesting contract",
+      "M3272 localized strictness away from moderate Chrono branches"
+    ],
+    "blocked_shortcuts": [
+      "no policy tuning",
+      "no threshold relaxation",
+      "no incumbent mutation",
+      "no detailed-model substitution"
+    ],
+    "allowed_updates": [
+      "scripts/feasibility_audit/phase5_h3_planar_dynamic_recovery_certificate.py",
+      "tests/test_phase5_h3_planar_dynamic_recovery_certificate.py",
+      "experiments/feasibility_audit/phase5_h3_planar_dynamic_recovery_certificate_prereg.json",
+      "experiments/feasibility_audit/phase5_h3_planar_dynamic_recovery_certificate_quick.json",
+      "experiments/feasibility_audit/phase5_h3_planar_dynamic_recovery_certificate.json",
+      "runs/feasibility_audit/phase5_h3_planar_dynamic_recovery_certificate/",
+      "docs/m3273-phase5-h3-planar-dynamic-recovery-certificate.md",
+      "docs/reviews/m3273-phase5-h3-planar-dynamic-recovery-certificate.md",
+      "docs/preslip-reachable-set-dual-proof-theory-2026-07.md",
+      "docs/two-regime-thesis-drift-2026-06.md",
+      "paper/c5prime/main.tex",
+      "experiments/research_queue.csv",
+      "experiments/research_status.json",
+      "experiments/scoreboard.csv",
+      "docs/current-status.md",
+      "docs/roadmap-phase3-codex-execution.md",
+      "docs/research-log.md",
+      "docs/data-coverage-map-2026-06.md",
+      "scripts/feasibility_audit/README.md"
+    ],
+    "next_stage_criteria": [
+      "theory and paper may add compact-model strict support only after healthy full support",
+      "failed H3 closes strict empirical work under current priced models",
+      "no controller promotion follows from H3"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "Deterministic state-feedback policies make no history or hidden-capability attribution claim.",
+    "history_necessity_tests": [
+      "none; prefix history only materializes the complete Markov state"
+    ],
+    "temporal_evidence_window": "continuous 2.4-second source prefix plus 2.6-second recovery horizon",
+    "negative_result_policy": "Every ineligible branch baseline recovery active failure and failed time-gap witness remains visible.",
+    "allowed_claims": [
+      "finite compact-model strict recovery expansion",
+      "weak inclusion from exact nesting",
+      "no strict witness if frozen thresholds fail",
+      "no Chrono override incumbent or self-ID change"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_baseline_comparison",
+    "process_overhead": "low",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "moves to the independently priced compact-model physics axis with deeper dynamic states while preserving policy and recovery contracts",
+    "paper_verdict_delta": "A healthy result can establish only compact-model existence of strict post-slip recovery value.",
+    "must_synthesize_if": [
+      "quick fails and another local model or policy change is proposed",
+      "M3272 is omitted from interpretation",
+      "the 0.20 s threshold is relaxed",
+      "compact-model strictness is universalized"
+    ]
+  },
+  "success_criteria": [
+    "preregistration freezes three source hashes twenty-one branches policies and thresholds",
+    "quick has at least six eligible and two strict cells across two mu tiers",
+    "managed full completes 630 candidate rows and 42 exact winner replays",
+    "all action nesting state hash weak-inclusion and replay gates pass",
+    "full has at least fifteen eligible and five strict cells across two mu tiers",
+    "M3272 negative and compact-model claim boundary remain explicit"
+  ],
+  "failure_criteria": [
+    "full runs before passing quick",
+    "prefix or complete Markov state differs between policies",
+    "a time gap below 0.20 s is called strict",
+    "H3 is presented as detailed Chrono evidence",
+    "strict support is claimed without frozen robust thresholds"
+  ],
+  "decision_rule": "Return planar_dynamic_strict_recovery_support only when all health gates pass, at least fifteen of twenty-one full branches are eligible, and at least five are strict across two friction tiers. Return no_strict_witness when health passes but thresholds fail. Otherwise return inconclusive.",
+  "commands": [
+    {
+      "name": "phase5_h3_write_prereg",
+      "command": "env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/phase5_h3_planar_dynamic_recovery_certificate.py --write-prereg"
+    },
+    {
+      "name": "phase5_h3_quick",
+      "command": "env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/phase5_h3_planar_dynamic_recovery_certificate.py --quick"
+    },
+    {
+      "name": "phase5_h3_full",
+      "command": "env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/phase5_h3_planar_dynamic_recovery_certificate.py --full --resume"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "experiments/feasibility_audit/phase5_h3_planar_dynamic_recovery_certificate_prereg.json",
+      "type": "json"
+    },
+    {
+      "path": "experiments/feasibility_audit/phase5_h3_planar_dynamic_recovery_certificate_quick.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/feasibility_audit/phase5_h3_planar_dynamic_recovery_certificate/quick/candidate_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/feasibility_audit/phase5_h3_planar_dynamic_recovery_certificate/quick/cell_verdicts.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/feasibility_audit/phase5_h3_planar_dynamic_recovery_certificate/quick/replay_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m3273-phase5-h3-planar-dynamic-recovery-certificate.md",
+      "type": "markdown"
+    },
+    {
+      "path": "docs/reviews/m3273-phase5-h3-planar-dynamic-recovery-certificate.md",
+      "type": "markdown"
+    }
+  ],
+  "baseline_checkpoints": [
+    "experiments/feasibility_audit/phase5_g0b_slide_mode_onset_pricing.json",
+    "experiments/feasibility_audit/phase5_h2_dynamic_prefix_recovery_certificate_quick.json",
+    "docs/preslip-reachable-set-dual-proof-theory-2026-07.md",
+    "docs/papers/emergency/2022-justifying-emergency-drift-control.pdf"
+  ],
+  "metric_extractors": [],
+  "gates": []
+}
